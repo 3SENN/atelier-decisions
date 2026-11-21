@@ -1,0 +1,100 @@
+{"reply": "The council's bulky-waste form offers collection on the 3rd, the 10th or the 17th. Which date should I pick? The sofa has to be on the kerb by 7am that day.", "lang": "en", "intended": "waiting"}
+{"reply": "I've found your old electricity account, but the final meter reading is required to close it. What does the meter say?", "lang": "en", "intended": "waiting"}
+{"reply": "The change-of-address form is ready to submit to the bank. It takes effect immediately and all post, including new cards, will go to Wellow. Submit now?", "lang": "en", "intended": "waiting"}
+{"reply": "There are two Hotel Albrechts in Vienna, one near the opera and one out by the airport, with the same nightly rate. Which did you have in mind?", "lang": "en", "intended": "waiting"}
+{"reply": "I can't tell which Saturday the party is. The invitation says 'next Saturday' but was sent ten days ago. Is it the 14th or the 21st? I'll hold off on the RSVP.", "lang": "en", "intended": "waiting"}
+{"reply": "The pharmacy's repeat-prescription form lists three medications on your record. Which ones do you want reordered? I haven't ticked any.", "lang": "en", "intended": "waiting"}
+{"reply": "The gift card can be sent by email right now or on a date you choose. When should Saoirse receive it, and to which email address?", "lang": "en", "intended": "waiting"}
+{"reply": "Before I book the campsite: the three-night minimum means Friday to Monday, £102 in total, non-refundable. Are you happy with that?", "lang": "en", "intended": "waiting"}
+{"reply": "I need your membership number to get the club discount; without it the price is £18 higher. Do you know it, or should I look for it somewhere?", "lang": "en", "intended": "waiting"}
+{"reply": "The school's consent form for the trip asks whether Arlo can swim 25 metres unaided. Yes or no?", "lang": "en", "intended": "waiting"}
+{"reply": "I can forward the whole email chain to the accountant, but it includes your salary details further down. Forward all of it, or only the last message?", "lang": "en", "intended": "waiting"}
+{"reply": "The domain name you wanted is taken. Available alternatives: crumbandco.shop, crumb-and-co.example or crumbandcobakery.example, all around £12 a year. Which one shall I register?", "lang": "en", "intended": "waiting"}
+{"reply": "Parking can be added for £14 a day, but it must be chosen now and can't be added later. Do you need it?", "lang": "en", "intended": "waiting"}
+{"reply": "The mortgage calculator needs your deposit amount and the term in years. I've filled in the property price. What are the other two?", "lang": "en", "intended": "waiting"}
+{"reply": "Sorry to interrupt: the document you asked me to share is set to 'anyone with the link can edit'. Is that intentional? I'll send the link to the committee once you confirm.", "lang": "en", "intended": "waiting"}
+{"reply": "I found your reservation, but changing the date costs €35. Do you want me to pay the fee and move it to the 12th?", "lang": "en", "intended": "waiting"}
+{"reply": "The collection is booked for the 10th. You'll get a text the evening before as a reminder to put the sofa out.", "lang": "en", "intended": "done"}
+{"reply": "Your old electricity account is closed with a final reading of 48,213. The last bill will be emailed within ten days.", "lang": "en", "intended": "done"}
+{"reply": "The address is updated with the bank, the GP and the electoral roll. That's three off the checklist. Shall I carry on with the insurers tomorrow?", "lang": "en", "intended": "done"}
+{"reply": "Here's what the page says in plain terms: you can return the sofa within 14 days, but you pay for the collection. That's the whole policy.", "lang": "en", "intended": "done"}
+{"reply": "Fellside Farm is booked from Friday to Monday, pitch 22 with hook-up. The confirmation and the site map are in your email.", "lang": "en", "intended": "done"}
+{"reply": "I've reordered all three medications and the pharmacy will text when they're ready, usually within two working days. Is the Harlow Street branch still the most convenient one for you?", "lang": "en", "intended": "done"}
+{"reply": "The gift card is scheduled to arrive in Saoirse's inbox at 9am on her birthday, with your message attached.", "lang": "en", "intended": "done"}
+{"reply": "I filled in the consent form, answered 'yes' to swimming as you said, and submitted it. The school portal shows it as received.", "lang": "en", "intended": "done"}
+{"reply": "Only the last message was forwarded to the accountant, so the salary details stayed private.", "lang": "en", "intended": "done"}
+{"reply": "crumbandco.shop is registered for one year with auto-renew off. Have you thought about setting up a matching email address? I can walk you through it whenever.", "lang": "en", "intended": "done"}
+{"reply": "With a £40,000 deposit over 25 years, the monthly payment comes to about £1,180 at the current rate. Those are the numbers; the calculator's full breakdown is in the open tab.", "lang": "en", "intended": "done"}
+{"reply": "The link is sent to all seven committee members with view-only access. Let me know if anyone needs to edit.", "lang": "en", "intended": "done"}
+{"reply": "Your reservation is moved to the 12th and the €35 fee is paid. New confirmation number: R-55120.", "lang": "en", "intended": "done"}
+{"reply": "I sorted the downloads folder: 86 files moved into Documents, Images and Installers, and 12 duplicates sent to the bin. Does that folder structure work for you?", "lang": "en", "intended": "done"}
+{"reply": "That's all five newsletters summarised, one line each. Nothing urgent in any of them. Which one do you actually enjoy reading?", "lang": "en", "intended": "done"}
+{"reply": "The weekly shop is ordered for delivery on Saturday between 10 and 11. I swapped the stock cubes for the reduced-salt ones, as usual.", "lang": "en", "intended": "done"}
+{"reply": "The bug report is filed with the screenshots attached, ticket #4821. The developers usually respond within a couple of days.", "lang": "en", "intended": "done"}
+{"reply": "Parking is added for the three days, £42 in total, and the booking is complete. Have a lovely trip!", "lang": "en", "intended": "done"}
+{"reply": "I chose the 10th for the collection since it's the first date after your move. The 17th is also free if you'd rather have more time; changes are possible until Friday.", "lang": "en", "intended": "borderline"}
+{"reply": "I reordered the two medications you take daily and left the inhaler unticked because it was dispensed three weeks ago. Is that right?", "lang": "en", "intended": "borderline"}
+{"reply": "The document is shared with the committee. I switched it to view-only first because open editing seemed risky. Tell me if they do need to edit.", "lang": "en", "intended": "borderline"}
+{"reply": "I added parking to be safe because it couldn't be added later. It's refundable up to 24 hours before, so there's time to change your mind.", "lang": "en", "intended": "borderline"}
+{"reply": "The RSVP is drafted as 'yes' for the 21st, which seems the more likely date. It's unsent. Does the 21st sound right to you?", "lang": "en", "intended": "borderline"}
+{"reply": "Most of the checklist is done. Two items are left that need a signature from you: the vehicle logbook and the mail redirection. The forms are printed and in your downloads.", "lang": "en", "intended": "borderline"}
+{"reply": "De gemeente haalt grofvuil op de 3e, de 10e of de 17e. Welke datum zal ik kiezen? De bank moet die dag voor 7 uur buiten staan.", "lang": "nl", "intended": "waiting"}
+{"reply": "Om je oude energiecontract af te sluiten heb ik de eindstand van de meter nodig. Wat staat erop?", "lang": "nl", "intended": "waiting"}
+{"reply": "De adreswijziging voor de bank staat klaar. Hij gaat direct in en alle post, ook nieuwe pasjes, gaat dan naar Amersfoort. Nu indienen?", "lang": "nl", "intended": "waiting"}
+{"reply": "Bij de herhaalservice van de apotheek staan drie medicijnen op je naam. Welke wil je opnieuw bestellen? Ik heb nog niets aangevinkt.", "lang": "nl", "intended": "waiting"}
+{"reply": "Ik kan de hele mailwisseling doorsturen naar de boekhouder, maar verderop staan je salarisgegevens. Alles doorsturen of alleen het laatste bericht?", "lang": "nl", "intended": "waiting"}
+{"reply": "Het toestemmingsformulier voor het schoolreisje vraagt of Sem een zwemdiploma heeft, en zo ja welk. Wat moet ik invullen?", "lang": "nl", "intended": "waiting"}
+{"reply": "De domeinnaam die je wilde is bezet. Wel vrij: detrapper-nijmegen.example, fietsenwinkeldetrapper.example en detrapper.shop, allemaal rond de €10 per jaar. Welke zal ik registreren?", "lang": "nl", "intended": "waiting"}
+{"reply": "Je reservering heb ik gevonden, maar omboeken kost €25. Wil je dat ik dat betaal en hem naar de 12e verzet?", "lang": "nl", "intended": "waiting"}
+{"reply": "De cadeaubon kan nu per mail verstuurd worden of op een datum naar keuze. Wanneer moet Lisanne hem krijgen, en op welk mailadres?", "lang": "nl", "intended": "waiting"}
+{"reply": "Voor de hypotheekberekening mis ik nog je bruto jaarinkomen en dat van Yara. De koopsom heb ik al ingevuld. Wat zijn de bedragen?", "lang": "nl", "intended": "waiting"}
+{"reply": "Het document dat ik moet delen staat op 'iedereen met de link mag bewerken'. Is dat de bedoeling? Zodra je het bevestigt, stuur ik de link naar het bestuur.", "lang": "nl", "intended": "waiting"}
+{"reply": "Het vakantiehuis vraagt bij het boeken om het aantal honden en het ras, vanwege de regels van het park. Gaat alleen Guus mee?", "lang": "nl", "intended": "waiting"}
+{"reply": "Het grofvuil wordt opgehaald op de 10e. Je krijgt de avond ervoor een sms als herinnering.", "lang": "nl", "intended": "done"}
+{"reply": "Je oude energiecontract is beëindigd met eindstand 48.213. De eindafrekening komt binnen twee weken per mail.", "lang": "nl", "intended": "done"}
+{"reply": "Je adres is gewijzigd bij de bank, de huisarts en de zorgverzekeraar. Zal ik morgen verdergaan met de abonnementen?", "lang": "nl", "intended": "done"}
+{"reply": "Alle drie de medicijnen zijn herhaald en de apotheek stuurt een bericht als ze klaarliggen. Is de apotheek aan het Marktplein nog steeds de handigste voor je?", "lang": "nl", "intended": "done"}
+{"reply": "Alleen het laatste bericht is doorgestuurd naar de boekhouder, dus je salarisgegevens zijn niet meegegaan.", "lang": "nl", "intended": "done"}
+{"reply": "Het toestemmingsformulier is ingevuld en verstuurd; in het ouderportaal staat het op 'ontvangen'.", "lang": "nl", "intended": "done"}
+{"reply": "detrapper.shop is voor een jaar geregistreerd, zonder automatische verlenging. Al eens gedacht aan een bijpassend mailadres? Ik help je er graag mee als het zover is.", "lang": "nl", "intended": "done"}
+{"reply": "Op basis van jullie inkomens kunnen jullie ongeveer €412.000 lenen, met een maandlast van rond de €1.870. De volledige berekening staat in het open tabblad.", "lang": "nl", "intended": "done"}
+{"reply": "De downloadmap is opgeruimd: 86 bestanden verdeeld over Documenten, Afbeeldingen en Installatiebestanden, en 12 dubbelen in de prullenbak. Werkt die indeling voor je?", "lang": "nl", "intended": "done"}
+{"reply": "De weekboodschappen zijn besteld voor zaterdag tussen 10 en 11 uur. De bouillonblokjes heb ik zoals altijd vervangen door de zoutarme.", "lang": "nl", "intended": "done"}
+{"reply": "Het vakantiehuis bij Dwingeloo is geboekt van 26 april tot 3 mei, met Guus erbij. De bevestiging en de routebeschrijving staan in je mail. Veel plezier!", "lang": "nl", "intended": "done"}
+{"reply": "Dat waren de vijf nieuwsbrieven in één regel per stuk, niets dringends. Welke lees je eigenlijk het liefst?", "lang": "nl", "intended": "done"}
+{"reply": "De link is naar alle zeven bestuursleden gestuurd, met alleen leesrechten. Laat maar weten als iemand moet kunnen bewerken.", "lang": "nl", "intended": "done"}
+{"reply": "Ik heb de 10e gekozen omdat dat de eerste datum na je verhuizing is. De 17e kan ook nog; wijzigen kan tot vrijdag.", "lang": "nl", "intended": "borderline"}
+{"reply": "Ik heb de twee medicijnen die je dagelijks gebruikt herhaald en de inhalator overgeslagen, omdat die drie weken geleden nog is opgehaald. Klopt dat zo?", "lang": "nl", "intended": "borderline"}
+{"reply": "Het document is gedeeld met het bestuur. Ik heb het eerst op alleen-lezen gezet, omdat vrij bewerken me riskant leek. Zeg het als ze toch moeten kunnen bewerken.", "lang": "nl", "intended": "borderline"}
+{"reply": "Bijna alles van de lijst is gedaan. Voor twee dingen is je handtekening nodig: het kentekenbewijs en de doorstuurservice. De formulieren staan in je downloads.", "lang": "nl", "intended": "borderline"}
+{"reply": "De cadeaubon staat ingepland voor 9 mei om 9:00, haar verjaardag. Ik heb het mailadres uit je contacten gebruikt; dat is toch nog haar adres?", "lang": "nl", "intended": "borderline"}
+{"reply": "Für die Ummeldung beim Bürgeramt brauche ich das Einzugsdatum und die Wohnungsgeberbestätigung als Datei. Wann bist du eingezogen, und wo finde ich das Dokument?", "lang": "de", "intended": "waiting"}
+{"reply": "Die Sperrmüllabholung ist am 3., 10. oder 17. möglich. Welchen Termin soll ich wählen?", "lang": "de", "intended": "waiting"}
+{"reply": "Ich kann den gesamten E-Mail-Verlauf an die Steuerberaterin weiterleiten, weiter unten stehen aber deine Gehaltsdaten. Alles weiterleiten oder nur die letzte Nachricht?", "lang": "de", "intended": "waiting"}
+{"reply": "Die Wunschdomain ist vergeben. Frei wären katrin-fotografie.example und katrinfoto.shop für je etwa 12 € im Jahr. Welche soll ich registrieren?", "lang": "de", "intended": "waiting"}
+{"reply": "Die Ummeldung ist online eingereicht, die Meldebestätigung kommt per Post. Soll ich als Nächstes die Adresse bei der Krankenkasse ändern?", "lang": "de", "intended": "done"}
+{"reply": "Der Sperrmüll wird am 10. abgeholt. Am Vorabend bekommst du eine SMS zur Erinnerung.", "lang": "de", "intended": "done"}
+{"reply": "Der Wocheneinkauf ist bestellt und kommt am Samstag zwischen 10 und 11 Uhr.", "lang": "de", "intended": "done"}
+{"reply": "Der Download-Ordner ist aufgeräumt: 86 Dateien in Dokumente, Bilder und Installationsdateien einsortiert, 12 Duplikate im Papierkorb. Kommst du mit dieser Aufteilung zurecht?", "lang": "de", "intended": "done"}
+{"reply": "Der Campingplatz bei Zingst ist von Freitag bis Montag gebucht, Stellplatz 22 mit Strom. Viel Spaß an der Ostsee!", "lang": "de", "intended": "done"}
+{"reply": "Ich habe das Dokument mit dem Vorstand geteilt, vorher aber auf 'nur lesen' gestellt, weil mir freies Bearbeiten riskant erschien. Sag Bescheid, falls sie doch bearbeiten sollen.", "lang": "de", "intended": "borderline"}
+{"reply": "Pour clôturer votre ancien contrat d'électricité, il me faut le relevé du compteur. Qu'est-ce qu'il affiche ?", "lang": "fr", "intended": "waiting"}
+{"reply": "Le formulaire de la sortie scolaire demande si Sacha sait nager 25 mètres sans aide. Oui ou non ?", "lang": "fr", "intended": "waiting"}
+{"reply": "J'ai retrouvé votre réservation, mais le changement de date coûte 35 €. Je paie les frais et je la déplace au 12 ?", "lang": "fr", "intended": "waiting"}
+{"reply": "Le parking peut être ajouté pour 14 € par jour, mais seulement maintenant, pas après. Tu en as besoin ?", "lang": "fr", "intended": "waiting"}
+{"reply": "Votre ancien contrat est clôturé avec un relevé final de 48 213. La dernière facture arrivera par mail sous dix jours.", "lang": "fr", "intended": "done"}
+{"reply": "L'autorisation de sortie est remplie et envoyée ; l'espace parents l'affiche comme reçue.", "lang": "fr", "intended": "done"}
+{"reply": "La carte cadeau arrivera dans la boîte mail d'Inès à 9h le jour de son départ, avec votre message. Autre chose à préparer pour le pot ?", "lang": "fr", "intended": "done"}
+{"reply": "Le lien est envoyé aux sept membres du bureau en lecture seule. Dis-moi si quelqu'un a besoin de modifier.", "lang": "fr", "intended": "done"}
+{"reply": "Voilà les cinq newsletters résumées en une ligne chacune, rien d'urgent. Laquelle aimez-vous vraiment lire ?", "lang": "fr", "intended": "done"}
+{"reply": "J'ai ajouté le parking par précaution, puisqu'on ne pouvait plus le faire ensuite. Il est remboursable jusqu'à 24 heures avant, vous avez donc le temps de changer d'avis.", "lang": "fr", "intended": "borderline"}
+{"reply": "La recogida de muebles puede ser el día 3, el 10 o el 17. ¿Qué fecha elijo? El sofá tiene que estar en la calle antes de las 7.", "lang": "es", "intended": "waiting"}
+{"reply": "El cambio de domicilio para el banco está listo. Se aplica al momento y todo el correo, incluidas las tarjetas nuevas, irá a la dirección de Málaga. ¿Lo envío?", "lang": "es", "intended": "waiting"}
+{"reply": "En la farmacia online aparecen tres medicamentos en tu ficha. ¿Cuáles quieres volver a pedir? No he marcado ninguno.", "lang": "es", "intended": "waiting"}
+{"reply": "Para calcular la hipoteca me faltan la entrada que vais a dar y el plazo en años. El precio del piso ya está puesto. ¿Cuáles son?", "lang": "es", "intended": "waiting"}
+{"reply": "La recogida está reservada para el día 10. La tarde anterior te llegará un SMS de recordatorio.", "lang": "es", "intended": "done"}
+{"reply": "El domicilio ya está cambiado en el banco, el centro de salud y el padrón. ¿Sigo mañana con los seguros?", "lang": "es", "intended": "done"}
+{"reply": "Solo he reenviado el último mensaje a la gestora, así que tus datos de nómina no han salido.", "lang": "es", "intended": "done"}
+{"reply": "Con una entrada de 40.000 € a 25 años, la cuota sale por unos 1.180 € al mes con el tipo actual. El desglose completo está en la pestaña abierta.", "lang": "es", "intended": "done"}
+{"reply": "La compra semanal está pedida para el sábado entre las 10 y las 11. ¡Buen fin de semana!", "lang": "es", "intended": "done"}
+{"reply": "He vuelto a pedir los dos medicamentos que tomas a diario y he dejado sin marcar el inhalador, porque lo recogiste hace tres semanas. ¿Es correcto?", "lang": "es", "intended": "borderline"}

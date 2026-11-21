@@ -1,0 +1,62 @@
+﻿
+ RUN  v5.1.0 C:/Users/senne/github/atelier
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > needsYou
+atelier-nano (custom) needsYou: rule alone 5/10, with the model 10/10; 10/10 right when sure (100%), unsure on 0, 0 flipped with the order, 6 ms median and 34 ms at the 90th percentile
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > dictation
+atelier-nano (custom) dictation: rule alone 4/8, with the model 7/8; 3/3 right when sure (100%), unsure on 5, 0 flipped with the order, 6 ms median and 7 ms at the 90th percentile
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > agentClicks
+atelier-nano (custom) agentClicks: rule alone 5/12, with the model 12/12; 8/8 right when sure (100%), unsure on 4, 0 flipped with the order, 8 ms median and 8 ms at the 90th percentile
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > searchOrAsk
+atelier-nano (custom) searchOrAsk: rule alone 5/10, with the model 10/10; 10/10 right when sure (100%), unsure on 0, 0 flipped with the order, 4 ms median and 5 ms at the 90th percentile
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > voiceTarget
+atelier-nano (custom) voiceTarget: rule alone 3/6, with the model 5/6; 2/2 right when sure (100%), unsure on 4, 0 flipped with the order, 6 ms median and 6 ms at the 90th percentile
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > effort
+atelier-nano (custom) effort: rule alone 3/12, with the model 9/12; 7/7 right when sure (100%), unsure on 5, 0 flipped with the order, 7 ms median and 9 ms at the 90th percentile
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > memory
+atelier-nano (custom) memory: rule alone 5/10, with the model 10/10; 5/5 right when sure (100%), unsure on 5, 0 flipped with the order, 7 ms median and 10 ms at the 90th percentile
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > tabs
+atelier-nano (custom) tabs: rule alone 0/12, with the model 9/12; 9/10 right when sure (90%), unsure on 2, 0 flipped with the order, 8 ms median and 9 ms at the 90th percentile
+  wrong: {"title":"Hotels in Lisbon - Booking.com","url":"https://www.booking.com/city/pt/lisbon.ht → {"topic":"travel"}
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > skills
+atelier-nano (custom) skills: rule alone 2/10, with the model 7/10; 6/8 right when sure, unsure on 2, 50 ms median and 57 ms at the 90th percentile
+  wrong: what should we eat this week? make me a list for the superma → none
+  wrong: which customers still owe us money? nudge them → none
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > labeling (the companion’s label_items)
+atelier-nano (custom) labeling 12 emails in 11 ms: topic 0/0 right when sure, unsure on 12; today 0/0 right when sure, unsure on 12
+
+ ❯ tests/decisionsEval.test.ts (10 tests | 1 failed) 2051ms
+   ❯ quick decisions against a real decision model (10)
+     × skills 961ms
+node.exe : 
+At C:\Program Files\nodejs\npx.ps1:16 char:5
++     & "$basedir/node$exe"  "$basedir/node_modules/npm/bin/npx-cli.js" ...
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/decisionsEval.test.ts > quick decisions against a real decision model > skills
+AssertionError: what should we eat this week? make me a list for the superma → none; which customers still owe us 
+money? nudge them → none: expected 0.75 to be greater than or equal to 0.8
+ ❯ tests/decisionsEval.test.ts:353:57
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 9 passed (10)
+   Start at  19:24:00
+   Duration  2.95s (tests 72%, import 15%, transform 13%)
+

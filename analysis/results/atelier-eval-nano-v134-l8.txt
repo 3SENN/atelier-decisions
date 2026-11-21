@@ -1,0 +1,86 @@
+﻿
+ RUN  v5.1.0 C:/Users/senne/github/atelier
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > needsYou
+atelier-nano (custom) needsYou: rule alone 5/10, with the model 10/10; 10/10 right when sure (100%), unsure on 0, 0 flipped with the order, 5 ms median and 33 ms at the 90th percentile
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > dictation
+atelier-nano (custom) dictation: rule alone 4/8, with the model 6/8; 2/2 right when sure (100%), unsure on 6, 0 flipped with the order, 4 ms median and 5 ms at the 90th percentile
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > agentClicks
+atelier-nano (custom) agentClicks: rule alone 5/12, with the model 11/12; 7/7 right when sure (100%), unsure on 5, 0 flipped with the order, 5 ms median and 6 ms at the 90th percentile
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > searchOrAsk
+atelier-nano (custom) searchOrAsk: rule alone 5/10, with the model 10/10; 10/10 right when sure (100%), unsure on 0, 0 flipped with the order, 3 ms median and 3 ms at the 90th percentile
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > voiceTarget
+atelier-nano (custom) voiceTarget: rule alone 3/6, with the model 5/6; 2/2 right when sure (100%), unsure on 4, 0 flipped with the order, 4 ms median and 4 ms at the 90th percentile
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > effort
+atelier-nano (custom) effort: rule alone 3/12, with the model 6/12; 5/5 right when sure (100%), unsure on 7, 0 flipped with the order, 4 ms median and 5 ms at the 90th percentile
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > memory
+atelier-nano (custom) memory: rule alone 5/10, with the model 6/10; 4/7 right when sure (57%), unsure on 3, 0 flipped with the order, 4 ms median and 5 ms at the 90th percentile
+  wrong: {"transcript":"You: I'm vegetarian, can you find me a restaurant near Leidseplein for toni → false
+  wrong: {"transcript":"You: My daughter Emma starts swimming lessons on Wednesdays at 4, remind me → false
+  wrong: {"transcript":"You: Ik heb een notenallergie, let daar voortaan op bij recepten.\nCompanio → false
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > tabs
+atelier-nano (custom) tabs: rule alone 0/12, with the model 10/12; 10/11 right when sure (91%), unsure on 1, 0 flipped with the order, 5 ms median and 6 ms at the 90th percentile
+  wrong: {"title":"Hotels in Lisbon - Booking.com","url":"https://www.booking.com/city/pt/lisbon.ht → {"topic":"travel"}
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > skills
+atelier-nano (custom) skills: rule alone 2/10, with the model 3/10; 3/8 right when sure, unsure on 2, 28 ms median and 38 ms at the 90th percentile
+  wrong: can you do my status update for this week? → none
+  wrong: I've got 4 taxi receipts from the Berlin trip, can you claim → travel-pack
+  wrong: what should we eat this week? make me a list for the superma → none
+  wrong: we're going to Iceland 3-10 March, what should I bring? → none
+  wrong: which customers still owe us money? nudge them → none
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > labeling (the companion’s label_items)
+atelier-nano (custom) labeling 12 emails in 178 ms: topic 10/10 right when sure, unsure on 2; today 9/9 right when sure, unsure on 3
+
+ ❯ tests/decisionsEval.test.ts (10 tests | 2 failed) 1447ms
+   ❯ quick decisions against a real decision model (10)
+     × memory 85ms
+     × skills 563ms
+node.exe : 
+At C:\Program Files\nodejs\npx.ps1:16 char:5
++     & "$basedir/node$exe"  "$basedir/node_modules/npm/bin/npx-cli.js" ...
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/decisionsEval.test.ts > quick decisions against a real decision model > memory
+AssertionError: memory: {"transcript":"You: I'm vegetarian, can you find me a restaurant near Leidseplein for toni → 
+false; {"transcript":"You: My daughter Emma starts swimming lessons on Wednesdays at 4, remind me → false; 
+{"transcript":"You: Ik heb een notenallergie, let daar voortaan op bij recepten.\nCompanio → false: expected 
+0.5714285714285714 to be greater than or equal to 0.8
+ ❯ measure tests/decisionsEval.test.ts:224:52
+    222|   )
+    223|   expect(flips, `${name} changed its answer when the options were reve…
+    224|   expect(accuracy, `${name}: ${wrong.join('; ')}`).toBeGreaterThanOrEq…
+       |                                                    ^
+    225| }
+    226|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  tests/decisionsEval.test.ts > quick decisions against a real decision model > skills
+AssertionError: can you do my status update for this week? → none; I've got 4 taxi receipts from the Berlin trip, can 
+you claim → travel-pack; what should we eat this week? make me a list for the superma → none; we're going to Iceland 
+3-10 March, what should I bring? → none; which customers still owe us money? nudge them → none: expected 0.375 to be 
+greater than or equal to 0.8
+ ❯ tests/decisionsEval.test.ts:353:57
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 8 passed (10)
+   Start at  16:12:45
+   Duration  2.38s (tests 64%, import 20%, transform 16%)
+

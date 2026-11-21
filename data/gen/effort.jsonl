@@ -1,0 +1,450 @@
+{"message": "¿cuál es la capital de Suiza?", "previous_reply_end": "", "lang": "es", "intended": "none"}
+{"message": "👌", "previous_reply_end": "Het tabblad is vastgezet.", "lang": "nl", "intended": "none"}
+{"message": "yes, the full version", "previous_reply_end": "I can give you a short answer now, or work through the complete derivation with each integration step written out. Which would you like?", "lang": "en", "intended": "a lot"}
+{"message": "go on then", "previous_reply_end": "I haven't written the migration yet. I can do that next, including the tests for the three edge cases we discussed.", "lang": "en", "intended": "a lot"}
+{"message": "ok super", "previous_reply_end": "Le rendez-vous est déplacé à vendredi.", "lang": "fr", "intended": "none"}
+{"message": "goeiemiddag", "previous_reply_end": "", "lang": "nl", "intended": "none"}
+{"message": "staat er op deze pagina ergens wat de verzendkosten zijn", "previous_reply_end": "", "lang": "nl", "intended": "ordinary"}
+{"message": "is 'ik besef me' goed Nederlands?", "previous_reply_end": "", "lang": "nl", "intended": "ordinary"}
+{"message": "Fass die Seite in drei Sätzen zusammen", "previous_reply_end": "", "lang": "de", "intended": "ordinary"}
+{"message": "Finde heraus, warum meine Spring-Boot-Anwendung beim Start 90 Sekunden braucht. Logs und pom.xml hängen an.", "previous_reply_end": "", "lang": "de", "intended": "a lot"}
+{"message": "yo", "previous_reply_end": "", "lang": "en", "intended": "none"}
+{"message": "thanks!", "previous_reply_end": "Let me know if you want me to adjust anything.", "lang": "en", "intended": "none"}
+{"message": "lijkt me top, doe maar", "previous_reply_end": "Ik zou ook de volledige presentatie van 12 dia's kunnen uitwerken met sprekersnotities op basis van deze cijfers.", "lang": "nl", "intended": "a lot"}
+{"message": "yep that's enough, you can stop there", "previous_reply_end": "I've finished the first section. Shall I continue with the rest?", "lang": "en", "intended": "none"}
+{"message": "Soy autónoma desde enero y no sé cuánto apartar. Facturo unos 3.200 al mes, gastos de 400, cuota de 300. Calcula IVA trimestral, IRPF estimado y cuánto me queda limpio, y dime qué gastos podría deducir que no estoy deduciendo.", "previous_reply_end": "", "lang": "es", "intended": "a lot"}
+{"message": "bonjour", "previous_reply_end": "", "lang": "fr", "intended": "none"}
+{"message": "hey there", "previous_reply_end": "", "lang": "en", "intended": "none"}
+{"message": "rédige un article de 1 200 mots pour le journal de l'entreprise sur le passage au télétravail trois jours par semaine, à partir de mes notes, ton honnête, sans langue de bois", "previous_reply_end": "", "lang": "fr", "intended": "a lot"}
+{"message": "busca el mejor portátil por menos de 1.000 € para programar, compara al menos seis modelos con pruebas de batería y teclado", "previous_reply_end": "", "lang": "es", "intended": "a lot"}
+{"message": "find out which airlines fly from Brussels or Amsterdam to Tokyo in April with at most one stop, compare total travel time, price and baggage, and check the cancellation terms", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "¿cómo se escribe 'exhaustivo'?", "previous_reply_end": "", "lang": "es", "intended": "none"}
+{"message": "Wer hat den Faust geschrieben?", "previous_reply_end": "", "lang": "de", "intended": "none"}
+{"message": "write the sql to migrate our orders table from one big table to a normalised schema with customers, addresses and order_lines, including the data migration and a rollback", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "Compara cinco tarifas de fibra y móvil para una familia de cuatro en Valencia: velocidad real, permanencia, precio tras la promoción y opiniones, y dime cuál sale mejor a dos años.", "previous_reply_end": "", "lang": "es", "intended": "a lot"}
+{"message": "Wie bitte ich höflich um eine Fristverlängerung?", "previous_reply_end": "", "lang": "de", "intended": "ordinary"}
+{"message": "compare the mortgage offers in these three pdfs over 10 and 30 years", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "refactor this 300 line React component into smaller ones and add tests", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "allebei", "previous_reply_end": "Ik kan de twee pensioenfondsen alleen op kosten vergelijken, of ook de verwachte uitkering op je 67e doorrekenen in drie scenario's. Of allebei.", "lang": "nl", "intended": "a lot"}
+{"message": "wat betekent 'onder voorbehoud van financiering'", "previous_reply_end": "", "lang": "nl", "intended": "ordinary"}
+{"message": "great, that works", "previous_reply_end": "I've moved the meeting to 3pm and notified Ana.", "lang": "en", "intended": "none"}
+{"message": "comment on écrit 'développement' ?", "previous_reply_end": "", "lang": "fr", "intended": "none"}
+{"message": "à plus", "previous_reply_end": "", "lang": "fr", "intended": "none"}
+{"message": "Wie schreibt man 'Rhythmus'?", "previous_reply_end": "", "lang": "de", "intended": "none"}
+{"message": "explain compound interest with a tiny example", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "doe maar allemaal", "previous_reply_end": "Er staan 17 vacatures open in je tabbladen. Wil je dat ik ze allemaal naast je cv leg en rangschik op geschiktheid?", "lang": "nl", "intended": "a lot"}
+{"message": "ok thanks", "previous_reply_end": "The page has been bookmarked under Travel.", "lang": "en", "intended": "none"}
+{"message": "critique my 4,000 word thesis chapter on urban heat islands: argument, evidence, structure, and line edits for the first two pages", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "Wie fixiere ich die erste Zeile in Excel?", "previous_reply_end": "", "lang": "de", "intended": "ordinary"}
+{"message": "hoeveel minuten zitten er in anderhalf uur", "previous_reply_end": "", "lang": "nl", "intended": "none"}
+{"message": "figure out why my solar panels produced 30% less this september than last. I've attached the inverter exports for both years and the weather data", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "demuestra que hay infinitos números primos y luego explícame la criba de Eratóstenes con un ejemplo hasta 50", "previous_reply_end": "", "lang": "es", "intended": "a lot"}
+{"message": "Ja, bitte komplett", "previous_reply_end": "Soll ich den gesamten Mietvertrag durchgehen und jede Klausel markieren, die vom Standardvertrag abweicht?", "lang": "de", "intended": "a lot"}
+{"message": "yes, but make the ending less cheesy", "previous_reply_end": "Shall I keep the same structure for the toast and just tighten it?", "lang": "en", "intended": "ordinary"}
+{"message": "no that's all, cheers", "previous_reply_end": "Is there anything else you'd like me to look at?", "lang": "en", "intended": "none"}
+{"message": "give me three title options for a blog post about cycling to work in winter", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "write a polite text asking my upstairs neighbour to keep the noise down after 11", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "Guten Morgen", "previous_reply_end": "", "lang": "de", "intended": "none"}
+{"message": "in welk jaar viel de Berlijnse muur", "previous_reply_end": "", "lang": "nl", "intended": "none"}
+{"message": "combien font 6 fois 9", "previous_reply_end": "", "lang": "fr", "intended": "none"}
+{"message": "buenas noches", "previous_reply_end": "", "lang": "es", "intended": "none"}
+{"message": "wat is de hoofdstad van Canada", "previous_reply_end": "", "lang": "nl", "intended": "none"}
+{"message": "Schreib ein Python-Skript, das alle Excel-Dateien in einem Ordner zusammenführt, Dubletten entfernt und pro Kunde eine Auswertung erstellt", "previous_reply_end": "", "lang": "de", "intended": "a lot"}
+{"message": "démontre que la racine carrée de 3 est irrationnelle, puis généralise à tout nombre premier", "previous_reply_end": "", "lang": "fr", "intended": "a lot"}
+{"message": "hoeveel is een dozijn", "previous_reply_end": "", "lang": "nl", "intended": "none"}
+{"message": "perfecto, genial", "previous_reply_end": "Ya está guardado en tus marcadores.", "lang": "es", "intended": "none"}
+{"message": "continue", "previous_reply_end": "Voilà pour les quatre premiers chapitres. Il en reste six à traiter de la même façon : résumé, citations clés et questions.", "lang": "fr", "intended": "a lot"}
+{"message": "schrijf een subsidieaanvraag van max 2 A4 voor onze buurtmoestuin bij het wijkbudget van de gemeente. we vragen 6.500 euro voor verhoogde bakken, een schuurtje en een regenton-systeem. 45 leden, sinds 2020.", "previous_reply_end": "", "lang": "nl", "intended": "a lot"}
+{"message": "thanks, ik ben klaar voor vandaag", "previous_reply_end": "", "lang": "nl", "intended": "none"}
+{"message": "sigue", "previous_reply_end": "Hasta aquí los tres primeros capítulos. Faltan cinco más, cada uno con su resumen y sus preguntas de repaso.", "lang": "es", "intended": "a lot"}
+{"message": "c'est quoi un VPN, en deux phrases", "previous_reply_end": "", "lang": "fr", "intended": "ordinary"}
+{"message": "Erklär mir kurz, wie ein ETF funktioniert", "previous_reply_end": "", "lang": "de", "intended": "ordinary"}
+{"message": "oui, la version complète", "previous_reply_end": "Je peux te donner la réponse en deux lignes ou détailler toute la démonstration étape par étape. Tu préfères quoi ?", "lang": "fr", "intended": "a lot"}
+{"message": "yes that's right, thanks", "previous_reply_end": "So the total comes to 148.50 euros. Is that the figure you expected?", "lang": "en", "intended": "none"}
+{"message": "ok start maar", "previous_reply_end": "Voor het reisschema moet ik de veertijden, openingsdagen van de musea en rijtijden tussen alle zes de stops nazoeken. Zeg het maar als ik kan beginnen.", "lang": "nl", "intended": "a lot"}
+{"message": "Schreib einen Artikel von etwa 1.000 Wörtern für unsere Vereinszeitung über 50 Jahre Ruderclub, aus den Stichpunkten unten, mit einem roten Faden und ohne Floskeln", "previous_reply_end": "", "lang": "de", "intended": "a lot"}
+{"message": "draft a business plan outline with financial projections for a mobile coffee cart, two locations, year one to three", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "doei!", "previous_reply_end": "", "lang": "nl", "intended": "none"}
+{"message": "write a short email to my landlord saying the heating is broken", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "make it shorter", "previous_reply_end": "Here's the revised paragraph with the two examples included.", "lang": "en", "intended": "ordinary"}
+{"message": "who painted the Mona Lisa", "previous_reply_end": "", "lang": "en", "intended": "none"}
+{"message": "más corto, porfa", "previous_reply_end": "Aquí tienes la versión revisada del mensaje.", "lang": "es", "intended": "ordinary"}
+{"message": "wat is de kans dat in een klas van 28 kinderen er minstens twee op dezelfde dag jarig zijn? reken het stap voor stap uit", "previous_reply_end": "", "lang": "nl", "intended": "a lot"}
+{"message": "Wie viele Gramm hat ein Pfund?", "previous_reply_end": "", "lang": "de", "intended": "none"}
+{"message": "lol", "previous_reply_end": "So technically the cat was right all along.", "lang": "en", "intended": "none"}
+{"message": "port this 200-line matlab script to python with numpy and check the outputs match", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "what's inflation, in a couple of sentences", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "hazme un plan de estudio para las oposiciones de auxiliar administrativo, seis meses, con temario por semanas y simulacros", "previous_reply_end": "", "lang": "es", "intended": "a lot"}
+{"message": "kan je dit in het Nederlands zetten", "previous_reply_end": "In short, you need to submit the application before March 1st or you lose the allowance.", "lang": "nl", "intended": "ordinary"}
+{"message": "how do I cook quinoa so it's not mushy", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "wat is het meervoud van museum", "previous_reply_end": "", "lang": "nl", "intended": "none"}
+{"message": "Schreib eine kurze Mail an die Hausverwaltung, dass das Treppenlicht seit einer Woche defekt ist", "previous_reply_end": "", "lang": "de", "intended": "ordinary"}
+{"message": "how do I undo a git commit I haven't pushed yet", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "schrijf de sql om onze ledenadministratie van één grote tabel naar een net genormaliseerd model om te zetten, inclusief datamigratie", "previous_reply_end": "", "lang": "nl", "intended": "a lot"}
+{"message": "welke kleur krijg je van blauw en geel", "previous_reply_end": "", "lang": "nl", "intended": "none"}
+{"message": "Was ist die Hauptstadt von Portugal?", "previous_reply_end": "", "lang": "de", "intended": "none"}
+{"message": "what's the main point of this article", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "bedenk een pakkende onderwerpregel voor deze mail", "previous_reply_end": "", "lang": "nl", "intended": "ordinary"}
+{"message": "write a python script that reads all csv files in a folder, merges them on the 'order_id' column, removes duplicates, and writes a summary per customer to excel", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "no need, I'm done for today", "previous_reply_end": "Would you like me to draft the reply as well?", "lang": "en", "intended": "none"}
+{"message": "waarom worden bladeren geel in de herfst? mijn dochter van 6 vraagt het", "previous_reply_end": "", "lang": "nl", "intended": "ordinary"}
+{"message": "Vergelijk de energiecontracten van vijf grote leveranciers voor een gezin met 3.200 kWh en 1.100 m3 gas per jaar, vast en variabel, inclusief welkomstbonus en opzegvoorwaarden, en zeg wat over drie jaar het goedkoopst is.", "previous_reply_end": "", "lang": "nl", "intended": "a lot"}
+{"message": "thx", "previous_reply_end": "Here's the link you asked for.", "lang": "en", "intended": "none"}
+{"message": "what does 'amortisation' mean, simply", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "rewrite this sentence so it sounds more professional: 'we can't do that because it's too expensive'", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "how do I share a google calendar with someone", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "Bitte etwas kürzer", "previous_reply_end": "Hier ist die überarbeitete Fassung deiner Nachricht.", "lang": "de", "intended": "ordinary"}
+{"message": "translate this 6 page contract into Dutch, keeping the legal meaning exact, and flag terms that have no direct equivalent", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "why isn't my sourdough rising? short answer please", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "analyseer deze export met 3.000 enquêteresultaten en zoek uit wat samenhangt met opzeggen", "previous_reply_end": "", "lang": "nl", "intended": "a lot"}
+{"message": "goedemorgen", "previous_reply_end": "", "lang": "nl", "intended": "none"}
+{"message": "geef drie titels voor een blog over moestuinieren op een balkon", "previous_reply_end": "", "lang": "nl", "intended": "ordinary"}
+{"message": "sí, adelante", "previous_reply_end": "Puedo abrir las 20 ofertas, sacar precio, plazo de entrega y garantía, y ponerlo todo en una tabla comparativa. ¿Empiezo?", "lang": "es", "intended": "a lot"}
+{"message": "Beweise, dass die Summe der ersten n ungeraden Zahlen gleich n² ist, einmal per Induktion und einmal anschaulich", "previous_reply_end": "", "lang": "de", "intended": "a lot"}
+{"message": "Tschüss", "previous_reply_end": "", "lang": "de", "intended": "none"}
+{"message": "wat is het verschil tussen een virus en een bacterie", "previous_reply_end": "", "lang": "nl", "intended": "ordinary"}
+{"message": "ja, alles graag", "previous_reply_end": "Zal ik voor elk van de twaalf scholen het inspectierapport, de doorstroomcijfers en de reistijd opzoeken?", "lang": "nl", "intended": "a lot"}
+{"message": "Nee, lass mal", "previous_reply_end": "Soll ich die Kommentare auch zusammenfassen?", "lang": "de", "intended": "none"}
+{"message": "write a grant application (max 2 pages) for our community garden to the city's neighbourhood fund. we want 8,500 for raised beds, a tool shed and a rainwater system. 60 members, founded 2019, waiting list of 25.", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "dankje, tot later", "previous_reply_end": "", "lang": "nl", "intended": "none"}
+{"message": "escribe un correo corto al casero diciendo que la caldera no funciona", "previous_reply_end": "", "lang": "es", "intended": "ordinary"}
+{"message": "plus court stp", "previous_reply_end": "Voici la version révisée de ton message.", "lang": "fr", "intended": "ordinary"}
+{"message": "how do vaccines work, in a paragraph", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "wat betekent 'eigen risico' precies bij een zorgverzekering", "previous_reply_end": "", "lang": "nl", "intended": "ordinary"}
+{"message": "laat maar zitten, heb het al gevonden", "previous_reply_end": "Ik kan het bestand niet meteen vinden. Weet je nog hoe het heette?", "lang": "nl", "intended": "none"}
+{"message": "propose un objet pour ce mail", "previous_reply_end": "", "lang": "fr", "intended": "ordinary"}
+{"message": "what does ASAP stand for", "previous_reply_end": "", "lang": "en", "intended": "none"}
+{"message": "Formulier diesen Satz höflicher: 'Das geht so nicht, bitte neu machen'", "previous_reply_end": "", "lang": "de", "intended": "ordinary"}
+{"message": "vale, empieza", "previous_reply_end": "Tendría que leer las 30 páginas del contrato y comparar cada cláusula con el modelo estándar. Me llevará un rato.", "lang": "es", "intended": "a lot"}
+{"message": "hee", "previous_reply_end": "", "lang": "nl", "intended": "none"}
+{"message": "explique-moi les intérêts composés avec un petit exemple", "previous_reply_end": "", "lang": "fr", "intended": "ordinary"}
+{"message": "schrijf een net appje aan de buren dat we zaterdag een feestje geven", "previous_reply_end": "", "lang": "nl", "intended": "ordinary"}
+{"message": "hoe schrijf je 'sowieso'", "previous_reply_end": "", "lang": "nl", "intended": "none"}
+{"message": "reformule cette phrase de façon plus polie : 'envoyez-moi le dossier aujourd'hui'", "previous_reply_end": "", "lang": "fr", "intended": "ordinary"}
+{"message": "write a bash script that backs up my home directory incrementally to an external drive, keeps 7 daily and 4 weekly snapshots and emails me if it fails", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "is goed, ga je gang", "previous_reply_end": "Ik kan de complete handleiding herschrijven in begrijpelijke taal, met per hoofdstuk een stappenplan en een checklist. Zal ik dat doen?", "lang": "nl", "intended": "a lot"}
+{"message": "buenos días", "previous_reply_end": "", "lang": "es", "intended": "none"}
+{"message": "schrijf een script dat elke nacht een backup maakt van mijn NAS naar een externe schijf, 7 dag- en 4 weekversies bewaart en mailt als het misgaat", "previous_reply_end": "", "lang": "nl", "intended": "a lot"}
+{"message": "summarise each of the 9 papers in this folder and then write a two page literature review that shows where they disagree", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "¿cuántos días tiene un año bisiesto?", "previous_reply_end": "", "lang": "es", "intended": "none"}
+{"message": "thanks, have a good one", "previous_reply_end": "", "lang": "en", "intended": "none"}
+{"message": "explain the difference between RAM and storage", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "Schrijf een stuk van ongeveer 1200 woorden voor ons personeelsblad over de overstap naar een vierdaagse werkweek: wat het onderzoek zegt, de ervaringen van de pilotgroep (notities hieronder) en de zorgen van de planners. Toon: eerlijk, niet juichend.", "previous_reply_end": "", "lang": "nl", "intended": "a lot"}
+{"message": "solve: integral of x^2 * e^(-3x) dx from 0 to infinity", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "turn these bullet points into one paragraph:\n- shipment delayed\n- new ETA thursday\n- customer informed", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "how many grams in a pound", "previous_reply_end": "", "lang": "en", "intended": "none"}
+{"message": "waarom is mijn internet 's avonds altijd zo traag", "previous_reply_end": "", "lang": "nl", "intended": "ordinary"}
+{"message": "which of these 8 primary schools near us should we visit? check inspection reports, class sizes and distance from Elmfield Road", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "make a full renovation budget for a 1930s terraced house: rewiring, new kitchen, bathroom, insulation, windows. give ranges and what order to do it in", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "maak een ondernemingsplan met financiële prognose voor een fietsenmaker aan huis, eerste drie jaar", "previous_reply_end": "", "lang": "nl", "intended": "a lot"}
+{"message": "wat is een vpn en heb ik dat nodig", "previous_reply_end": "", "lang": "nl", "intended": "ordinary"}
+{"message": "prove that the square root of 2 is irrational, then show me how the same idea works for the cube root of 5", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "schrijf een berichtje om de kapper af te zeggen voor morgen", "previous_reply_end": "", "lang": "nl", "intended": "ordinary"}
+{"message": "Compare cinq mutuelles santé pour un couple de trentenaires avec un bébé : garanties optique, dentaire, hospitalisation, délais de carence et prix, puis dis-moi laquelle prendre et pourquoi.", "previous_reply_end": "", "lang": "fr", "intended": "a lot"}
+{"message": "what does 'pro rata' mean on a job advert", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "vertaal dit arbeidscontract van 5 pagina's naar het Engels, juridisch precies, en markeer termen zonder goed equivalent", "previous_reply_end": "", "lang": "nl", "intended": "a lot"}
+{"message": "how tall is Mount Everest", "previous_reply_end": "", "lang": "en", "intended": "none"}
+{"message": "ta", "previous_reply_end": "The shop opens at nine on Saturdays.", "lang": "en", "intended": "none"}
+{"message": "vat deze pagina samen in een paar zinnen", "previous_reply_end": "", "lang": "nl", "intended": "ordinary"}
+{"message": "use a more casual tone", "previous_reply_end": "Dear Mr Hallberg, I am writing to confirm our appointment on Tuesday at 10:00.", "lang": "en", "intended": "ordinary"}
+{"message": "las dos cosas", "previous_reply_end": "Puedo comparar solo las comisiones de los dos planes de pensiones o también simular el capital a los 67 con tres escenarios. O las dos cosas.", "lang": "es", "intended": "a lot"}
+{"message": "hoeveel uur tijdsverschil is het met New York", "previous_reply_end": "", "lang": "nl", "intended": "none"}
+{"message": "what year did WW2 end", "previous_reply_end": "", "lang": "en", "intended": "none"}
+{"message": "ok start", "previous_reply_end": "To build the itinerary I'll need to check ferry timetables, opening days for the museums and driving times between all six stops. Ready when you are.", "lang": "en", "intended": "a lot"}
+{"message": "option 2, and do the whole thing", "previous_reply_end": "Option 1 is a quick one-paragraph summary. Option 2 is a full chapter-by-chapter analysis of the report with the key figures checked against the appendix. Which do you prefer?", "lang": "en", "intended": "a lot"}
+{"message": "no thanks I'll do that bit myself", "previous_reply_end": "I can also send it to the group if you like.", "lang": "en", "intended": "none"}
+{"message": "write a two-line birthday message for a coworker I don't know that well", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "comment figer la première ligne dans excel ?", "previous_reply_end": "", "lang": "fr", "intended": "ordinary"}
+{"message": "prima, stop maar", "previous_reply_end": "Ik ben halverwege. Zal ik doorgaan met de rest?", "lang": "nl", "intended": "none"}
+{"message": "mi app de react native se cierra sola en android al abrir la cámara, aquí están el componente y el logcat, averigua por qué", "previous_reply_end": "", "lang": "es", "intended": "a lot"}
+{"message": "geef stevige feedback op mijn scriptiehoofdstuk van 3.500 woorden over woningnood: redenering, onderbouwing, structuur", "previous_reply_end": "", "lang": "nl", "intended": "a lot"}
+{"message": "write a short story, around 2,000 words, about a lighthouse keeper who starts receiving letters addressed to someone who died forty years ago. literary, restrained, ambiguous ending.", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "plan een rondreis van 2 weken door Noord-Italië met de trein, met twee kinderen van 8 en 11, niet meer dan 2,5 uur reizen per dag, budget 4000 euro alles in", "previous_reply_end": "", "lang": "nl", "intended": "a lot"}
+{"message": "Wie erkläre ich einem Kind, warum der Mond manchmal nur halb zu sehen ist?", "previous_reply_end": "", "lang": "de", "intended": "ordinary"}
+{"message": "what's a good stretch for a stiff neck", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "can you suggest a subject line for this email", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "Mijn vader is in september overleden en ik ben executeur. Er is een huis (WOZ 410.000, nog 60.000 hypotheek), een spaarrekening, een kleine beleggingsportefeuille en drie erfgenamen waarvan één in Canada woont. Geen testament voor zover we weten. Kun je uitleggen wat ik in welke volgorde moet doen, welke termijnen er gelden voor de aangifte erfbelasting, en hoe de verdeling en de belasting er ongeveer uit gaan zien?", "previous_reply_end": "", "lang": "nl", "intended": "a lot"}
+{"message": "hoe maak ik een simpele dressing voor een salade", "previous_reply_end": "", "lang": "nl", "intended": "ordinary"}
+{"message": "what's the expected number of coin flips until you see three heads in a row? derive it, don't just tell me", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "what's 20% of 50", "previous_reply_end": "", "lang": "en", "intended": "none"}
+{"message": "what's a polite way to ask for a deadline extension", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "ga verder", "previous_reply_end": "Dat waren de eerste vier hoofdstukken. De overige zes moeten nog op dezelfde manier: samenvatting, kernbegrippen en oefenvragen.", "lang": "nl", "intended": "a lot"}
+{"message": "zet er nog een zin bij dat mensen zelf iets te drinken mogen meenemen", "previous_reply_end": "Dit is de uitnodiging: 'Kom zaterdag vanaf 16.00 uur gezellig langs voor taart en een borrel.'", "lang": "nl", "intended": "ordinary"}
+{"message": "Mach den Ton ein bisschen lockerer", "previous_reply_end": "Sehr geehrte Frau Brandl, hiermit bestätige ich unseren Termin am Mittwoch.", "lang": "de", "intended": "ordinary"}
+{"message": "that'd be great", "previous_reply_end": "I could also draft the full 10-slide pitch deck with speaker notes based on these figures, if that would help.", "lang": "en", "intended": "a lot"}
+{"message": "what's the gist of the cookie banner on this site, what am I agreeing to", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "ja klopt, thx", "previous_reply_end": "Het totaal komt dan uit op 62 euro.", "lang": "nl", "intended": "none"}
+{"message": "écris un script python qui lit tous les relevés csv d'un dossier, classe les dépenses par catégorie et génère un graphique par mois", "previous_reply_end": "", "lang": "fr", "intended": "a lot"}
+{"message": "los op: x^3 - 6x^2 + 11x - 6 = 0 en laat zien hoe je aan de wortels komt", "previous_reply_end": "", "lang": "nl", "intended": "a lot"}
+{"message": "schrijf een korte bio van 50 woorden voor de praktijkwebsite, ik ben kinderfysiotherapeut", "previous_reply_end": "", "lang": "nl", "intended": "ordinary"}
+{"message": "wat is de kern van dit artikel", "previous_reply_end": "", "lang": "nl", "intended": "ordinary"}
+{"message": "write a 50-word bio for my conference badge, I'm a soil scientist who also does outreach in schools", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "maak deze zin wat formeler: 'we gaan dat niet redden voor vrijdag'", "previous_reply_end": "", "lang": "nl", "intended": "ordinary"}
+{"message": "salut", "previous_reply_end": "", "lang": "fr", "intended": "none"}
+{"message": "nee laat maar", "previous_reply_end": "Wil je dat ik de andere pagina's ook bekijk?", "lang": "nl", "intended": "none"}
+{"message": "ik wil in 6 maanden B1 Spaans halen naast een fulltime baan, maak een weekschema met materiaal, uren en toetsmomenten", "previous_reply_end": "", "lang": "nl", "intended": "a lot"}
+{"message": "nope", "previous_reply_end": "Do you want me to also check the other tabs?", "lang": "en", "intended": "none"}
+{"message": "how do tides work", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "find me the best laptop under 1200 for video editing, check at least 6 models, benchmarks and battery life, and where it's in stock", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "can u fix the grammar here: 'their going to send there report tomorow'", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "escribe un script en python que lea todas las facturas en pdf de una carpeta, extraiga importe, fecha y NIF y lo vuelque en un excel", "previous_reply_end": "", "lang": "es", "intended": "a lot"}
+{"message": "test", "previous_reply_end": "", "lang": "en", "intended": "none"}
+{"message": "wat is het verschil tussen bruto en netto salaris", "previous_reply_end": "", "lang": "nl", "intended": "ordinary"}
+{"message": "nee is goed zo, fijne avond", "previous_reply_end": "Wil je dat ik het ook naar Petra stuur?", "lang": "nl", "intended": "none"}
+{"message": "dankjewel!", "previous_reply_end": "Laat maar weten als ik nog iets moet aanpassen.", "lang": "nl", "intended": "none"}
+{"message": "maak een draaiboek voor onze bruiloft, 70 gasten, ceremonie om 14 uur, feest tot 1 uur, en verdeel een budget van 18.000", "previous_reply_end": "", "lang": "nl", "intended": "a lot"}
+{"message": "geef een ander woord voor 'uitdaging', ik gebruik het al drie keer", "previous_reply_end": "", "lang": "nl", "intended": "ordinary"}
+{"message": "give me a synonym for 'important' that isn't 'crucial'", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "Vergleiche fünf Stromtarife für einen Vier-Personen-Haushalt mit 4.200 kWh in Leipzig, inklusive Bonus, Laufzeit und Preisgarantie, und rechne aus, was nach zwei Jahren am günstigsten ist.", "previous_reply_end": "", "lang": "de", "intended": "a lot"}
+{"message": "ja maar dan zonder dat stukje over het weer", "previous_reply_end": "Zal ik de openingszin zo laten en alleen de rest inkorten?", "lang": "nl", "intended": "ordinary"}
+{"message": "write unit tests for every public method in this class, including the weird date edge cases", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "combien de minutes dans une heure et demie", "previous_reply_end": "", "lang": "fr", "intended": "none"}
+{"message": "pick the best of these three headlines and say why in a line", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "explain step by step how public key cryptography works, with a small numeric RSA example I can follow by hand", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "¡gracias!", "previous_reply_end": "Dime si quieres que cambie algo.", "lang": "es", "intended": "none"}
+{"message": "what's the freezing point of water in kelvin", "previous_reply_end": "", "lang": "en", "intended": "none"}
+{"message": "I got two job offers. A: 68k, fully remote, startup of 30 people, 0.2% equity, 25 days leave. B: 74k, hybrid 3 days in office with a 50 min commute, big insurer, 9% pension contribution, 30 days. I have a toddler and my partner works shifts. Help me think this through properly, including what the equity is plausibly worth.", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "hoeveel km is een mijl", "previous_reply_end": "", "lang": "nl", "intended": "none"}
+{"message": "weiter", "previous_reply_end": "Das waren die ersten drei Kapitel. Die übrigen fünf fehlen noch, jeweils mit Zusammenfassung und Übungsfragen.", "lang": "de", "intended": "a lot"}
+{"message": "review the terms and conditions on this page and the privacy policy linked from it. what am I giving up, anything unusual, anything illegal under EU law?", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "Gib mir drei Überschriften für einen Blogartikel übers Pendeln mit dem Rad", "previous_reply_end": "", "lang": "de", "intended": "ordinary"}
+{"message": "I need a detailed study plan to pass the CFA level 1 in 5 months while working full time, broken down per week with topics, hours and mock exams", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "write a quick thank-you note to the interviewer I met today, her name is Dr. Imani Kessler", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "ok, leg los", "previous_reply_end": "Dafür müsste ich alle 40 Seiten des Berichts lesen und die Zahlen mit dem Anhang abgleichen. Das dauert ein wenig.", "lang": "de", "intended": "a lot"}
+{"message": "can you make the second paragraph friendlier", "previous_reply_end": "I've drafted the reply below. Let me know what you think.", "lang": "en", "intended": "ordinary"}
+{"message": "haha", "previous_reply_end": "Dan heeft de hond dus gewoon gelijk gekregen.", "lang": "nl", "intended": "none"}
+{"message": "conçois le schéma de base de données et l'API pour la gestion des adhérents d'une association de judo : cotisations, cours, licences, compétitions", "previous_reply_end": "", "lang": "fr", "intended": "a lot"}
+{"message": "Compare the five most popular project management tools for a 12-person architecture firm. We need Gantt charts, time tracking, client access and something that doesn't cost more than 15 a head. Look at their actual pricing pages and recent reviews, then recommend one with reasons.", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "schrijf een kort verhaal van zo'n 1500 woorden over een brugwachter die op zijn laatste werkdag iets vreemds in het water ziet, ingetogen, open einde", "previous_reply_end": "", "lang": "nl", "intended": "a lot"}
+{"message": "no, nada más, gracias", "previous_reply_end": "¿Necesitas algo más?", "lang": "es", "intended": "none"}
+{"message": "how do I freeze the top row in excel", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "schrijf een python-script dat alle pdf-facturen in een map uitleest, bedrag, datum en factuurnummer eruit haalt en in een excel zet", "previous_reply_end": "", "lang": "nl", "intended": "a lot"}
+{"message": "loop mijn afschriften van het hele jaar door, deel alles in categorieën in, en vertel me waar ik realistisch 200 euro per maand kan besparen", "previous_reply_end": "", "lang": "nl", "intended": "a lot"}
+{"message": "hola", "previous_reply_end": "", "lang": "es", "intended": "none"}
+{"message": "ja doe maar", "previous_reply_end": "Als je wilt kan ik alle 30 pagina's doorlopen en per hoofdstuk een samenvatting maken met de open vragen.", "lang": "nl", "intended": "a lot"}
+{"message": "good morning", "previous_reply_end": "", "lang": "en", "intended": "none"}
+{"message": "non laisse tomber", "previous_reply_end": "Tu veux que je regarde aussi les autres onglets ?", "lang": "fr", "intended": "none"}
+{"message": "A tank is being filled at 12 litres a minute while it leaks at a rate proportional to the volume in it. It starts empty and levels off at 300 litres. How long until it's at 200 litres? Show the working.", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "design a database schema and REST api for a small library lending system: members, books, copies, loans, reservations, fines", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "plan a 10 day road trip through Scotland in late May for two adults and a dog, starting and ending in Edinburgh, no more than 3 hours driving a day, with dog friendly places to stay and one proper hike every other day", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "wat zijn sterke en zwakke punten die je kunt noemen in een sollicitatiegesprek", "previous_reply_end": "", "lang": "nl", "intended": "ordinary"}
+{"message": "hoeveel centimeter is een inch", "previous_reply_end": "", "lang": "nl", "intended": "none"}
+{"message": "donne-moi une recette simple de vinaigrette", "previous_reply_end": "", "lang": "fr", "intended": "ordinary"}
+{"message": "waar staat 'aub' voor", "previous_reply_end": "", "lang": "nl", "intended": "none"}
+{"message": "can you explain what this paragraph is saying, it's very legalese", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "I'm trying to decide between fixing my 2014 Golf (needs a new clutch and timing belt, quoted 2,100) or replacing it. I drive about 9,000 km a year, mostly short trips. Work out the total cost of ownership over 5 years for: keeping it, buying a 3 year old petrol hatchback, or a used EV around 18k. Include insurance, tax, fuel/electricity and depreciation, and state your assumptions.", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "Was bedeutet 'Selbstbeteiligung' bei einer Versicherung?", "previous_reply_end": "", "lang": "de", "intended": "ordinary"}
+{"message": "that's fine, leave it", "previous_reply_end": "I could also reformat the table if you want.", "lang": "en", "intended": "none"}
+{"message": "welterusten", "previous_reply_end": "", "lang": "nl", "intended": "none"}
+{"message": "fais-moi un plan de révision pour le bac de français, de philo et de maths sur huit semaines, avec des sujets blancs", "previous_reply_end": "", "lang": "fr", "intended": "a lot"}
+{"message": "c'est quoi la capitale de l'Australie ?", "previous_reply_end": "", "lang": "fr", "intended": "none"}
+{"message": "prima, begin maar", "previous_reply_end": "Ik moet dan wel alle 60 rijen stuk voor stuk controleren tegen de bonnetjes in de map. Dat duurt even.", "lang": "nl", "intended": "a lot"}
+{"message": "Een lening van 240.000 euro, 30 jaar, 3,8% rente annuïtair. Wat betaal ik per maand, hoeveel rente in totaal, en wat scheelt het als ik elk jaar 3.000 extra aflos? Laat de berekening zien.", "previous_reply_end": "", "lang": "nl", "intended": "a lot"}
+{"message": "d'accord, lance-toi", "previous_reply_end": "Il faudrait que je relise les 35 pages du rapport et que je vérifie chaque chiffre avec les annexes. Ça prendra un petit moment.", "lang": "fr", "intended": "a lot"}
+{"message": "organiza un viaje de 10 días por Portugal en coche con dos niños, de Oporto al Algarve, sin conducir más de dos horas al día, con alojamientos y playas tranquilas", "previous_reply_end": "", "lang": "es", "intended": "a lot"}
+{"message": "ça veut dire quoi 'franchise' dans un contrat d'assurance ?", "previous_reply_end": "", "lang": "fr", "intended": "ordinary"}
+{"message": "merci beaucoup !", "previous_reply_end": "N'hésite pas si tu veux que je modifie quelque chose.", "lang": "fr", "intended": "none"}
+{"message": "¿cómo se dice 'te llamo en cuanto salga de la reunión' en inglés?", "previous_reply_end": "", "lang": "es", "intended": "ordinary"}
+{"message": "what's the difference between affect and effect", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "is een walvis een vis", "previous_reply_end": "", "lang": "nl", "intended": "none"}
+{"message": "welke van deze twee zinnen loopt beter?\n1. Wij danken u voor uw geduld.\n2. Dank voor uw geduld.", "previous_reply_end": "", "lang": "nl", "intended": "ordinary"}
+{"message": "mon appli django met 8 secondes à charger la page d'accueil, voilà les vues et les modèles, trouve le problème", "previous_reply_end": "", "lang": "fr", "intended": "a lot"}
+{"message": "what's a good way to open a cover letter", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "nah, skip it", "previous_reply_end": "Want me to summarise the comments section too?", "lang": "en", "intended": "none"}
+{"message": "leg stap voor stap uit hoe RSA-versleuteling werkt, met een klein rekenvoorbeeld dat ik met de hand kan volgen", "previous_reply_end": "", "lang": "nl", "intended": "a lot"}
+{"message": "maak een begroting voor de verbouwing van een jaren-30 woning: nieuwe keuken, badkamer, isolatie, kozijnen, elektra. geef bandbreedtes en de slimste volgorde", "previous_reply_end": "", "lang": "nl", "intended": "a lot"}
+{"message": "zoek uit welke kinderopvang in Amersfoort-Noord plek heeft voor een baby vanaf maart, wat ze kosten per uur, de GGD-rapporten en hoe ver het fietsen is vanaf de Zonnehof", "previous_reply_end": "", "lang": "nl", "intended": "a lot"}
+{"message": "how many minutes in a day", "previous_reply_end": "", "lang": "en", "intended": "none"}
+{"message": "what's 12 times 12", "previous_reply_end": "", "lang": "en", "intended": "none"}
+{"message": "how do I remove a page break in word", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "got it.", "previous_reply_end": "The pharmacy closes at 6pm on Saturdays.", "lang": "en", "intended": "none"}
+{"message": "k, both", "previous_reply_end": "I can either compare the two pension funds on fees alone, or also model the projected payout at 67 under three return scenarios. Or both.", "lang": "en", "intended": "a lot"}
+{"message": "hi", "previous_reply_end": "", "lang": "en", "intended": "none"}
+{"message": "bouw een simpele webpagina waar ouders zich kunnen inschrijven voor hulp bij het schoolfeest, met een overzicht voor mij wie wat doet", "previous_reply_end": "", "lang": "nl", "intended": "a lot"}
+{"message": "what's the boiling point of water in fahrenheit", "previous_reply_end": "", "lang": "en", "intended": "none"}
+{"message": "this function is O(n^2), can you get it to O(n log n) and prove it's still correct", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "who's the author of Pride and Prejudice", "previous_reply_end": "", "lang": "en", "intended": "none"}
+{"message": "nee dank je, hoeft niet", "previous_reply_end": "Zal ik er ook een samenvatting van maken?", "lang": "nl", "intended": "none"}
+{"message": "hoe zet ik een filter op een kolom in excel", "previous_reply_end": "", "lang": "nl", "intended": "ordinary"}
+{"message": "Danke dir!", "previous_reply_end": "Sag Bescheid, falls ich noch etwas ändern soll.", "lang": "de", "intended": "none"}
+{"message": "all good now, thanks for the help", "previous_reply_end": "It should load correctly after a refresh.", "lang": "en", "intended": "none"}
+{"message": "wie is de koning van België", "previous_reply_end": "", "lang": "nl", "intended": "none"}
+{"message": "plan our wedding day timeline, 80 guests, ceremony at 2pm, venue until midnight, and a budget split for 22k", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "Write a 1,500 word article for our company blog on why small manufacturers should start measuring their energy use per product. Audience is plant managers, sceptical, no jargon. Include a realistic worked example and end with three first steps.", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "hoe haal ik een bestand terug dat ik per ongeluk uit git heb verwijderd", "previous_reply_end": "", "lang": "nl", "intended": "ordinary"}
+{"message": "how many ml in a US cup", "previous_reply_end": "", "lang": "en", "intended": "none"}
+{"message": "how do I say no to overtime without sounding lazy", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "write a short message to cancel my dentist appointment tomorrow", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "ontwerp een datamodel en api voor een reserveringssysteem van een tennisvereniging: leden, banen, tijdsloten, introducés, lesgroepen", "previous_reply_end": "", "lang": "nl", "intended": "a lot"}
+{"message": "go through my last three months of bank transactions in this spreadsheet, group them sensibly, spot anything recurring I may have forgotten about and tell me realistically how much I could save per month", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "can you work out the optimal seating plan for 64 guests across 8 tables given these 15 constraints about who can't sit together", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "never mind", "previous_reply_end": "Sorry, could you clarify which file you mean?", "lang": "en", "intended": "none"}
+{"message": "Schreib mir zwei Zeilen zum Geburtstag für eine Kollegin", "previous_reply_end": "", "lang": "de", "intended": "ordinary"}
+{"message": "nee hoor, dat was het", "previous_reply_end": "Kan ik verder nog iets voor je doen?", "lang": "nl", "intended": "none"}
+{"message": "is this grammatically correct: 'me and him went to the store'", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "reword this so it doesn't sound passive-aggressive: 'as per my last email, the deadline was Friday'", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "résume cette page en trois points", "previous_reply_end": "", "lang": "fr", "intended": "ordinary"}
+{"message": "check all the links on our website's help section and list which are broken or point to outdated pages", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "klopt, dank", "previous_reply_end": "Dus je bedoelt het formulier van de gemeente?", "lang": "nl", "intended": "none"}
+{"message": "what's the capital of Mongolia", "previous_reply_end": "", "lang": "en", "intended": "none"}
+{"message": "vale, listo", "previous_reply_end": "He movido la cita al jueves.", "lang": "es", "intended": "none"}
+{"message": "bonne soirée", "previous_reply_end": "", "lang": "fr", "intended": "none"}
+{"message": "super, precies wat ik zocht", "previous_reply_end": "Dit zijn de openingstijden die op de pagina staan.", "lang": "nl", "intended": "none"}
+{"message": "wat helpt tegen kramp in je kuit 's nachts", "previous_reply_end": "", "lang": "nl", "intended": "ordinary"}
+{"message": "perfect, thank you", "previous_reply_end": "I've saved the draft to your documents folder.", "lang": "en", "intended": "none"}
+{"message": "Schönen Abend noch", "previous_reply_end": "", "lang": "de", "intended": "none"}
+{"message": "ok go for it", "previous_reply_end": "I can go through all twelve supplier sites, collect prices and delivery times, and put them in a comparison table. Want me to start?", "lang": "en", "intended": "a lot"}
+{"message": "de uitgebreide", "previous_reply_end": "Ik kan je een korte samenvatting van een alinea geven, of een uitgebreide analyse per hoofdstuk waarbij ik de cijfers nareken tegen de bijlagen. Welke wil je?", "lang": "nl", "intended": "a lot"}
+{"message": "oke doei", "previous_reply_end": "", "lang": "nl", "intended": "none"}
+{"message": "awesome, exactly what I needed", "previous_reply_end": "Here's the shortened version of the paragraph.", "lang": "en", "intended": "none"}
+{"message": "how much should I be saving for retirement? I'm 34, earn 52k, have 18k in a pension, rent, and want to stop at 62. run the numbers with a few scenarios", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "Wie viel ist 9 mal 7?", "previous_reply_end": "", "lang": "de", "intended": "none"}
+{"message": "suggest a few names for a book club that mostly drinks wine", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "add a sentence about where people can park", "previous_reply_end": "Here's the invitation text: 'Join us on Saturday at 4pm for cake and games at our place.'", "lang": "en", "intended": "ordinary"}
+{"message": "schrijf een kort mailtje naar de verhuurder dat de afvoer van de douche verstopt zit", "previous_reply_end": "", "lang": "nl", "intended": "ordinary"}
+{"message": "do it", "previous_reply_end": "I could open each of the 23 job listings, check them against your CV, and rank them by fit with a short note on each. It will take a little while.", "lang": "en", "intended": "a lot"}
+{"message": "research which health insurers cover physiotherapy without a referral and how many sessions, then make a table", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "schrijf een felicitatie voor een collega die vader is geworden, kort en niet te klef", "previous_reply_end": "", "lang": "nl", "intended": "ordinary"}
+{"message": "wie schreef Max Havelaar", "previous_reply_end": "", "lang": "nl", "intended": "none"}
+{"message": "¿quién escribió Cien años de soledad?", "previous_reply_end": "", "lang": "es", "intended": "none"}
+{"message": "pourquoi le ciel est rouge au coucher du soleil ?", "previous_reply_end": "", "lang": "fr", "intended": "ordinary"}
+{"message": "what are good questions to ask at the end of an interview", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "Wij twijfelen tussen een warmtepomp en een nieuwe hr-ketel. Tussenwoning uit 1987, label C, spouwmuurisolatie, dubbel glas, vloerverwarming alleen beneden, 1.300 m3 gas per jaar. Reken door wat hybride, volledig elektrisch en gewoon een nieuwe ketel kost over 15 jaar, inclusief subsidie, en wat we eerst nog zouden moeten isoleren.", "previous_reply_end": "", "lang": "nl", "intended": "a lot"}
+{"message": "hoeveel inwoners heeft Nederland ongeveer", "previous_reply_end": "", "lang": "nl", "intended": "none"}
+{"message": "mijn node-app lekt geheugen, na een dag draaien zit hij op 2 GB. hier is de code van de queue-worker en de logs, zoek uit waar het zit", "previous_reply_end": "", "lang": "nl", "intended": "a lot"}
+{"message": "build me a chrome extension that highlights every price on a page and converts it to euros", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "what does 'YTD' mean in this table", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "Erstelle einen Lernplan für das Abitur in Mathe, Englisch und Geschichte, zehn Wochen, mit Wiederholungen und Probeklausuren", "previous_reply_end": "", "lang": "de", "intended": "a lot"}
+{"message": "parfait, merci", "previous_reply_end": "Le fichier est enregistré dans tes téléchargements.", "lang": "fr", "intended": "none"}
+{"message": "top, bedankt", "previous_reply_end": "De link staat nu in je leeslijst.", "lang": "nl", "intended": "none"}
+{"message": "doe dat maar ja", "previous_reply_end": "Zou het helpen als ik alle 25 bronnen in je literatuurlijst controleer tegen de originele publicaties en de notatie rechtzet?", "lang": "nl", "intended": "a lot"}
+{"message": "Passt, super", "previous_reply_end": "Ich habe die Seite in deinen Lesezeichen abgelegt.", "lang": "de", "intended": "none"}
+{"message": "Ik heb twee aanbiedingen. A: 4.600 bruto, volledig thuis, scale-up van 40 man, 28 vakantiedagen. B: 5.100 bruto, drie dagen kantoor in Utrecht (uur reizen), grote verzekeraar, goed pensioen, leaseauto. Ik heb twee jonge kinderen. Help me dit goed afwegen, ook wat het netto scheelt.", "previous_reply_end": "", "lang": "nl", "intended": "a lot"}
+{"message": "wat betekent 'cc' en 'bcc' in mail, wanneer gebruik je welke", "previous_reply_end": "", "lang": "nl", "intended": "ordinary"}
+{"message": "👍", "previous_reply_end": "The file has been renamed to budget-2026.xlsx.", "lang": "en", "intended": "none"}
+{"message": "my flask app gets slower with every request until it crashes after about an hour. here's the code for the main routes and the db layer. find out why.", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "mooi zo", "previous_reply_end": "Het bestand is opgeslagen in je map Downloads.", "lang": "nl", "intended": "none"}
+{"message": "can you find the opening hours on this page", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "schrijf een kort bedankje voor het sollicitatiegesprek van vanmiddag bij mevrouw Yildirim-Boersma", "previous_reply_end": "", "lang": "nl", "intended": "ordinary"}
+{"message": "how many days does february have in a leap year", "previous_reply_end": "", "lang": "en", "intended": "none"}
+{"message": "in english please", "previous_reply_end": "Het komt erop neer dat je de aanvraag vóór 1 maart moet indienen, anders vervalt je recht op de toeslag.", "lang": "en", "intended": "ordinary"}
+{"message": "what's the difference between baking soda and baking powder, can I swap them", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "hasta luego", "previous_reply_end": "", "lang": "es", "intended": "none"}
+{"message": "hoe werkt een inductiekookplaat eigenlijk", "previous_reply_end": "", "lang": "nl", "intended": "ordinary"}
+{"message": "Such das beste Lastenrad unter 4.500 Euro, mindestens sechs Modelle, mit Tests, Reichweite und Lieferzeit", "previous_reply_end": "", "lang": "de", "intended": "a lot"}
+{"message": "analyse this dataset of 2,000 survey responses and tell me which factors predict whether someone renews", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "explain what an API is to someone non-technical", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "Entwirf ein Datenbankschema und eine API für die Mitgliederverwaltung eines Sportvereins mit Beiträgen, Kursen und Hallenbelegung", "previous_reply_end": "", "lang": "de", "intended": "a lot"}
+{"message": "ok", "previous_reply_end": "Done, the tab is closed.", "lang": "en", "intended": "none"}
+{"message": "en hoe doe ik dat voor de hele kolom?", "previous_reply_end": "Met =AFRONDEN(B2;2) rond je de waarde in B2 af op twee decimalen.", "lang": "nl", "intended": "ordinary"}
+{"message": "¿cuántos gramos tiene una libra?", "previous_reply_end": "", "lang": "es", "intended": "none"}
+{"message": "what language do they speak in Brazil", "previous_reply_end": "", "lang": "en", "intended": "none"}
+{"message": "les deux", "previous_reply_end": "Je peux comparer uniquement les frais des deux contrats, ou aussi simuler le capital à 65 ans selon trois scénarios. Ou les deux.", "lang": "fr", "intended": "a lot"}
+{"message": "hoe vraag ik netjes om een paar dagen uitstel bij mijn docent", "previous_reply_end": "", "lang": "nl", "intended": "ordinary"}
+{"message": "¿por qué ronronean los gatos?", "previous_reply_end": "", "lang": "es", "intended": "ordinary"}
+{"message": "lees alle reviews van deze drie wasdrogers en zeg welke het minst vaak stuk gaat", "previous_reply_end": "", "lang": "nl", "intended": "a lot"}
+{"message": "yes please", "previous_reply_end": "If you like, I can read through all 40 pages of the lease and flag every clause that differs from the standard model contract.", "lang": "en", "intended": "a lot"}
+{"message": "how does a heat pump work", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "what's the difference between a latte and a flat white", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "vergelijk de drie hypotheekoffertes in deze pdf's over 10 en 30 jaar rentevast", "previous_reply_end": "", "lang": "nl", "intended": "a lot"}
+{"message": "ponle un asunto a este correo", "previous_reply_end": "", "lang": "es", "intended": "ordinary"}
+{"message": "Meine Mutter (81) kann nicht mehr allein wohnen. Stell bitte die Möglichkeiten gegenüber – ambulanter Pflegedienst, 24-Stunden-Betreuung zu Hause, betreutes Wohnen, Pflegeheim – mit realistischen Kosten bei Pflegegrad 3, was die Pflegekasse zahlt und was wir als Kinder eventuell tragen müssen.", "previous_reply_end": "", "lang": "de", "intended": "a lot"}
+{"message": "what's the currency of Japan", "previous_reply_end": "", "lang": "en", "intended": "none"}
+{"message": "I run a small bike repair shop. Work out a pricing model for a subscription service: unlimited small repairs plus one big service a year. I do about 40 repairs a week, average ticket 38, parts margin 35%.", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "is a tomato a fruit", "previous_reply_end": "", "lang": "en", "intended": "none"}
+{"message": "kan het wat korter", "previous_reply_end": "Hieronder staat de aangepaste versie van je bericht.", "lang": "nl", "intended": "ordinary"}
+{"message": "hoe zeg ik tegen mijn baas dat ik niet kan overwerken zonder dat het gezeur wordt", "previous_reply_end": "", "lang": "nl", "intended": "ordinary"}
+{"message": "diseña el esquema de base de datos y la API para gestionar las reservas de un club de pádel: socios, pistas, turnos, torneos", "previous_reply_end": "", "lang": "es", "intended": "a lot"}
+{"message": "bewijs dat er oneindig veel priemgetallen zijn en leg uit waarom hetzelfde argument niet werkt voor priemtweelingen", "previous_reply_end": "", "lang": "nl", "intended": "a lot"}
+{"message": "hallo, ben je er", "previous_reply_end": "", "lang": "nl", "intended": "none"}
+{"message": "Plane eine zweiwöchige Rundreise durch Norwegen mit dem Wohnmobil im Juli, zwei Erwachsene, ein Kind, maximal drei Stunden Fahrt pro Tag, mit Stellplätzen und Fährzeiten", "previous_reply_end": "", "lang": "de", "intended": "a lot"}
+{"message": "Was ist der Unterschied zwischen brutto und netto?", "previous_reply_end": "", "lang": "de", "intended": "ordinary"}
+{"message": "ja mach mal", "previous_reply_end": "Ich kann alle 18 Angebote einzeln öffnen, Preis, Lieferzeit und Garantie herausziehen und in einer Tabelle gegenüberstellen. Soll ich?", "lang": "de", "intended": "a lot"}
+{"message": "redacta un artículo de unas 1.000 palabras para el boletín del barrio sobre los 25 años de la asociación de vecinos, con las notas de abajo, tono cercano y sin tópicos", "previous_reply_end": "", "lang": "es", "intended": "a lot"}
+{"message": "sure, all of them", "previous_reply_end": "There are 14 open tabs with apartment listings. Do you want me to extract rent, size, deposit and distance to your office for each and sort them?", "lang": "en", "intended": "a lot"}
+{"message": "no, déjalo", "previous_reply_end": "¿Quieres que revise también los comentarios?", "lang": "es", "intended": "none"}
+{"message": "maak van deze opsomming een lopend stukje tekst", "previous_reply_end": "", "lang": "nl", "intended": "ordinary"}
+{"message": "when do I use 'lay' and when 'lie'? always get it wrong", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "hoe krijg ik paginanummers in word vanaf pagina 3", "previous_reply_end": "", "lang": "nl", "intended": "ordinary"}
+{"message": "Was heißt 'i.A.' unter einem Brief?", "previous_reply_end": "", "lang": "de", "intended": "ordinary"}
+{"message": "zoek de beste elektrische bakfiets onder de 5000 euro, vergelijk minstens zes modellen op actieradius, gewicht, tests en levertijd", "previous_reply_end": "", "lang": "nl", "intended": "a lot"}
+{"message": "¿cómo inmovilizo la primera fila en excel?", "previous_reply_end": "", "lang": "es", "intended": "ordinary"}
+{"message": "which is bigger, a megabyte or a gigabyte", "previous_reply_end": "", "lang": "en", "intended": "none"}
+{"message": "non c'est bon, merci", "previous_reply_end": "Je peux faire autre chose pour toi ?", "lang": "fr", "intended": "none"}
+{"message": "continue", "previous_reply_end": "That covers the first three chapters. The remaining seven still need the same treatment: summary, key quotes and discussion questions.", "lang": "en", "intended": "a lot"}
+{"message": "zoek uit hoe we het goedkoopst met vijf personen naar Zuid-Frankrijk komen in juli: auto, trein of vliegen plus huurauto, alles doorgerekend incl. tol en parkeren", "previous_reply_end": "", "lang": "nl", "intended": "a lot"}
+{"message": "qui a écrit Les Misérables ?", "previous_reply_end": "", "lang": "fr", "intended": "none"}
+{"message": "summarise this page in three bullets", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "what are the signs of dehydration", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "kun je deze alinea uitleggen, het is nogal ambtelijk", "previous_reply_end": "", "lang": "nl", "intended": "ordinary"}
+{"message": "beides bitte", "previous_reply_end": "Ich kann nur die Gebühren der beiden Depots vergleichen oder zusätzlich die Entwicklung über 20 Jahre in drei Szenarien durchrechnen. Oder beides.", "lang": "de", "intended": "a lot"}
+{"message": "hoe deel ik een map in google drive met iemand die alleen mag meelezen", "previous_reply_end": "", "lang": "nl", "intended": "ordinary"}
+{"message": "how do I turn on dark mode in google docs", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "wat is hypotheekrenteaftrek, in gewone taal", "previous_reply_end": "", "lang": "nl", "intended": "ordinary"}
+{"message": "écris un petit mail au syndic pour signaler que l'interphone ne marche plus", "previous_reply_end": "", "lang": "fr", "intended": "ordinary"}
+{"message": "yes, and check the footnotes too", "previous_reply_end": "Shall I fact-check every statistic in the article against the cited sources?", "lang": "en", "intended": "a lot"}
+{"message": "verbeter ff de spelling: 'ik wordt morgen gebelt door de gemeente over mijn aanvraag'", "previous_reply_end": "", "lang": "nl", "intended": "ordinary"}
+{"message": "Hallo", "previous_reply_end": "", "lang": "de", "intended": "none"}
+{"message": "yeah go ahead", "previous_reply_end": "I can rewrite the whole onboarding guide in plain language, restructure it into five chapters and add a checklist per chapter. Shall I?", "lang": "en", "intended": "a lot"}
+{"message": "On hésite entre acheter et rester locataires. Loyer actuel 1 150 €, on vise un T3 à 290 000 € à Nantes, apport 40 000, revenus 4 300 nets à deux. Fais le calcul sur 10 et 20 ans avec frais de notaire, taxe foncière, charges, et un placement de l'apport si on loue.", "previous_reply_end": "", "lang": "fr", "intended": "a lot"}
+{"message": "resume esta página en tres puntos", "previous_reply_end": "", "lang": "es", "intended": "ordinary"}
+{"message": "who wrote 1984", "previous_reply_end": "", "lang": "en", "intended": "none"}
+{"message": "ja graag", "previous_reply_end": "Zal ik de hele koopovereenkomst doornemen en alle afwijkingen van het standaardmodel voor je op een rij zetten?", "lang": "nl", "intended": "a lot"}
+{"message": "rends le ton un peu plus chaleureux", "previous_reply_end": "Madame Roussel, je vous confirme notre rendez-vous de mardi à 14 h.", "lang": "fr", "intended": "ordinary"}
+{"message": "what does 'etc' stand for", "previous_reply_end": "", "lang": "en", "intended": "none"}
+{"message": "why do cats purr", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "hoeveel dagen heeft maart", "previous_reply_end": "", "lang": "nl", "intended": "none"}
+{"message": "look at every review on the first five pages for these three dishwashers and tell me which one breaks down least", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "loop alle links in het hulpgedeelte van onze site na en maak een lijst van wat dood is of verouderd", "previous_reply_end": "", "lang": "nl", "intended": "a lot"}
+{"message": "escribe un mensaje para felicitar a una compañera que se jubila", "previous_reply_end": "", "lang": "es", "intended": "ordinary"}
+{"message": "how many players on a football team", "previous_reply_end": "", "lang": "en", "intended": "none"}
+{"message": "wat is de langste rivier van Europa", "previous_reply_end": "", "lang": "nl", "intended": "none"}
+{"message": "set up a 12 week marathon training plan around my shifts (rota attached), I currently run 30 km a week and have a dodgy achilles", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "¿qué significa 'franquicia' en un seguro?", "previous_reply_end": "", "lang": "es", "intended": "ordinary"}
+{"message": "translate 'I'll be ten minutes late, sorry' into French", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "explícame qué es la inflación en un par de frases", "previous_reply_end": "", "lang": "es", "intended": "ordinary"}
+{"message": "hoi", "previous_reply_end": "", "lang": "nl", "intended": "none"}
+{"message": "comment dire 'je vous recontacte demain' en anglais, dans un mail pro", "previous_reply_end": "", "lang": "fr", "intended": "ordinary"}
+{"message": "hoeveel is 7 keer 8", "previous_reply_end": "", "lang": "nl", "intended": "none"}
+{"message": "trouve le meilleur aspirateur robot à moins de 500 €, compare au moins six modèles avec les tests et les retours sur la fiabilité", "previous_reply_end": "", "lang": "fr", "intended": "a lot"}
+{"message": "¿cuánto es 8 por 7?", "previous_reply_end": "", "lang": "es", "intended": "none"}
+{"message": "oké prima", "previous_reply_end": "Ik heb de afspraak verzet naar donderdag.", "lang": "nl", "intended": "none"}
+{"message": "reescribe esta frase para que suene más formal: 'no nos da tiempo para el viernes'", "previous_reply_end": "", "lang": "es", "intended": "ordinary"}
+{"message": "cool 👍", "previous_reply_end": "The download should start in a moment.", "lang": "en", "intended": "none"}
+{"message": "Wie viele Bundesländer hat Deutschland?", "previous_reply_end": "", "lang": "de", "intended": "none"}
+{"message": "how do you spell 'necessary'", "previous_reply_end": "", "lang": "en", "intended": "none"}
+{"message": "why is the sea salty? explain it for a 7 year old", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "¿cómo pido educadamente que me amplíen el plazo de entrega?", "previous_reply_end": "", "lang": "es", "intended": "ordinary"}
+{"message": "hazlo un poco más cercano", "previous_reply_end": "Estimado señor Villalba: le confirmo nuestra cita del martes a las 10:00.", "lang": "es", "intended": "ordinary"}
+{"message": "good night", "previous_reply_end": "", "lang": "en", "intended": "none"}
+{"message": "sí, la versión completa", "previous_reply_end": "Puedo darte la respuesta en dos líneas o desarrollar toda la demostración paso a paso. ¿Qué prefieres?", "lang": "es", "intended": "a lot"}
+{"message": "Here's the situation. My mother (78) lives alone in a two storey house in Leeds, had a fall in October, and my brother and I disagree on what's next. He wants her in assisted living near him in Bristol; I think she can stay home with adaptations and a carer a few times a week. She wants to stay but admits the stairs scare her. Budget is her pension plus roughly 140k savings, and the house is worth maybe 280k. Can you lay out the realistic options, what each costs per year, what funding she might be entitled to, and the questions we should be asking her GP and the council before deciding?", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "debug this: my regex-based csv parser breaks on quoted fields containing newlines. rewrite it as a proper state machine in typescript", "previous_reply_end": "", "lang": "en", "intended": "a lot"}
+{"message": "ok alles klar", "previous_reply_end": "Der Termin steht jetzt am Dienstag um 10 Uhr.", "lang": "de", "intended": "none"}
+{"message": "hoeveel gram is een ons", "previous_reply_end": "", "lang": "nl", "intended": "none"}
+{"message": "¿cuándo se usa 'por qué', 'porque' y 'porqué'?", "previous_reply_end": "", "lang": "es", "intended": "ordinary"}
+{"message": "organise un voyage de 12 jours au Japon en avril pour deux, premier séjour, budget 5 000 € hors vols, avec trajets en train, hébergements et un jour de randonnée", "previous_reply_end": "", "lang": "fr", "intended": "a lot"}
+{"message": "what's the chemical symbol for gold", "previous_reply_end": "", "lang": "en", "intended": "none"}
+{"message": "hoe zeg je 'ik zit nog even in een overleg' in het Engels", "previous_reply_end": "", "lang": "nl", "intended": "ordinary"}
+{"message": "écris un message pour annuler mon rendez-vous chez le coiffeur demain", "previous_reply_end": "", "lang": "fr", "intended": "ordinary"}
+{"message": "morning! how are you", "previous_reply_end": "", "lang": "en", "intended": "none"}
+{"message": "combien de grammes dans une livre ?", "previous_reply_end": "", "lang": "fr", "intended": "none"}
+{"message": "what's the plural of cactus", "previous_reply_end": "", "lang": "en", "intended": "none"}
+{"message": "wat is het verschil tussen 'hun' en 'hen'", "previous_reply_end": "", "lang": "nl", "intended": "ordinary"}
+{"message": "maak de toon wat losser", "previous_reply_end": "Geachte heer De Groot, hierbij bevestig ik onze afspraak van dinsdag om 10.00 uur.", "lang": "nl", "intended": "ordinary"}
+{"message": "what's the square root of 81", "previous_reply_end": "", "lang": "en", "intended": "none"}
+{"message": "how many feet in a mile", "previous_reply_end": "", "lang": "en", "intended": "none"}
+{"message": "Nein, das war's, danke", "previous_reply_end": "Kann ich sonst noch etwas für dich tun?", "lang": "de", "intended": "none"}
+{"message": "Wann schreibt man 'das' und wann 'dass'?", "previous_reply_end": "", "lang": "de", "intended": "ordinary"}
+{"message": "how many continents are there", "previous_reply_end": "", "lang": "en", "intended": "none"}
+{"message": "¿qué diferencia hay entre levadura y bicarbonato?", "previous_reply_end": "", "lang": "es", "intended": "ordinary"}
+{"message": "give me a simple vinaigrette recipe", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}
+{"message": "sorry wrong window", "previous_reply_end": "", "lang": "en", "intended": "none"}
+{"message": "quelle est la différence entre 'a' et 'à' ?", "previous_reply_end": "", "lang": "fr", "intended": "ordinary"}
+{"message": "oui vas-y", "previous_reply_end": "Je peux parcourir les 15 annonces ouvertes, relever loyer, surface, charges et temps de trajet, puis les classer. Tu veux que je m'en occupe ?", "lang": "fr", "intended": "a lot"}
+{"message": "hello?? you there", "previous_reply_end": "", "lang": "en", "intended": "none"}
+{"message": "bye!", "previous_reply_end": "", "lang": "en", "intended": "none"}
+{"message": "please do", "previous_reply_end": "Would it help if I checked each of the 30 references in your bibliography against the original sources and corrected the formatting?", "lang": "en", "intended": "a lot"}
+{"message": "and for the second one?", "previous_reply_end": "The first formula sums column B: =SUM(B2:B20).", "lang": "en", "intended": "ordinary"}
+{"message": "helemaal goed zo", "previous_reply_end": "Ik heb de tekst iets korter gemaakt.", "lang": "nl", "intended": "none"}
+{"message": "this page says 403 forbidden, what does that mean and can I do anything about it", "previous_reply_end": "", "lang": "en", "intended": "ordinary"}

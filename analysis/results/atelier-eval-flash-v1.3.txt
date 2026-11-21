@@ -1,0 +1,51 @@
+﻿node.exe : (!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to 
+become the default in a future major version of Vite:
+At C:\Program Files\nodejs\npx.ps1:16 char:5
++     & "$basedir/node$exe"  "$basedir/node_modules/npm/bin/npx-cli.js" ...
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ((!) Your Vite c...ersion of Vite::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  - ESM syntax in a file loaded as CommonJS (vitest.config.ts:6:1). Use a `.mjs` extension or set `"type": "module"` 
+in the closest package.json
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+
+ RUN  v5.1.0 C:/Users/senne/github/atelier
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > needsYou
+pplx-decider-flash-v1.3 (custom) needsYou: rule alone 5/10, with the model 10/10; 10/10 right when sure (100%), unsure on 0, 0 flipped with the order, 129 ms median and 161 ms at the 90th percentile
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > dictation
+pplx-decider-flash-v1.3 (custom) dictation: rule alone 4/8, with the model 8/8; 4/4 right when sure (100%), unsure on 4, 0 flipped with the order, 128 ms median and 148 ms at the 90th percentile
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > agentClicks
+pplx-decider-flash-v1.3 (custom) agentClicks: rule alone 5/12, with the model 12/12; 8/8 right when sure (100%), unsure on 4, 0 flipped with the order, 210 ms median and 212 ms at the 90th percentile
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > searchOrAsk
+pplx-decider-flash-v1.3 (custom) searchOrAsk: rule alone 5/10, with the model 10/10; 10/10 right when sure (100%), unsure on 0, 0 flipped with the order, 128 ms median and 129 ms at the 90th percentile
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > voiceTarget
+pplx-decider-flash-v1.3 (custom) voiceTarget: rule alone 3/6, with the model 6/6; 3/3 right when sure (100%), unsure on 3, 0 flipped with the order, 128 ms median and 133 ms at the 90th percentile
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > effort
+pplx-decider-flash-v1.3 (custom) effort: rule alone 3/12, with the model 11/12; 11/11 right when sure (100%), unsure on 1, 0 flipped with the order, 132 ms median and 158 ms at the 90th percentile
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > memory
+pplx-decider-flash-v1.3 (custom) memory: rule alone 5/10, with the model 10/10; 5/5 right when sure (100%), unsure on 5, 0 flipped with the order, 132 ms median and 148 ms at the 90th percentile
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > tabs
+pplx-decider-flash-v1.3 (custom) tabs: rule alone 0/12, with the model 11/12; 11/11 right when sure (100%), unsure on 1, 0 flipped with the order, 234 ms median and 240 ms at the 90th percentile
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > skills
+pplx-decider-flash-v1.3 (custom) skills: rule alone 2/10, with the model 10/10; 9/10 right when sure, unsure on 0, 569 ms median and 590 ms at the 90th percentile
+  wrong: can you do my status update for this week? → weekly-report, linkedin-post
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > labeling (the companion’s label_items)
+pplx-decider-flash-v1.3 (custom) labeling 12 emails in 2798 ms: topic 12/12 right when sure, unsure on 0; today 11/11 right when sure, unsure on 1
+
+
+ Test Files  1 passed (1)
+      Tests  10 passed (10)
+   Start at  12:49:25
+   Duration  40.86s (tests 97%, import 2%, transform 1%)
+

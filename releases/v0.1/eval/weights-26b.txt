@@ -1,0 +1,22 @@
+kind                            n  kurtosis   >6sigma  max/std  rtn4 err  rtn8 err
+linear_attn.in_proj_b          48      3.85   0.00051     14.4    0.1578   0.00871
+linear_attn.in_proj_a          48      3.28   0.00033     13.3    0.1480   0.00817
+self_attn.k_proj               16      2.12   0.00027     20.8    0.1402   0.00774
+self_attn.v_proj               16      1.58   0.00014     20.0    0.1329   0.00735
+self_attn.o_proj               16     12.91   0.00008     57.6    0.1235   0.00682
+self_attn.q_proj               16      0.77   0.00007     22.9    0.1234   0.00680
+linear_attn.in_proj_qkv        48      0.43   0.00004     18.4    0.1231   0.00679
+linear_attn.out_proj           48     10.25   0.00007     62.9    0.1224   0.00676
+linear_attn.in_proj_z          48      0.33   0.00002     19.3    0.1212   0.00669
+mlp.down_proj                  64      0.89   0.00002     48.9    0.1212   0.00670
+mlp.gate_proj                  64      0.36   0.00003     23.7    0.1208   0.00667
+mlp.up_proj                    64      0.17   0.00001     18.1    0.1201   0.00663
+worst tensors at 4 bits:
+  language_model.layers.32.linear_attn.in_proj_b.weight: rtn4 0.1772, kurtosis 8.2, max/std 26
+  language_model.layers.60.linear_attn.in_proj_a.weight: rtn4 0.1756, kurtosis 10.8, max/std 20
+  language_model.layers.40.linear_attn.in_proj_b.weight: rtn4 0.1749, kurtosis 6.2, max/std 17
+  language_model.layers.61.linear_attn.in_proj_a.weight: rtn4 0.1747, kurtosis 9.8, max/std 19
+  language_model.layers.58.linear_attn.in_proj_a.weight: rtn4 0.1745, kurtosis 11.1, max/std 20
+  language_model.layers.41.linear_attn.in_proj_b.weight: rtn4 0.1733, kurtosis 5.9, max/std 17
+  language_model.layers.29.linear_attn.in_proj_b.weight: rtn4 0.1727, kurtosis 6.8, max/std 23
+  language_model.layers.28.linear_attn.in_proj_b.weight: rtn4 0.1727, kurtosis 5.3, max/std 13

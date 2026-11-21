@@ -1,0 +1,28 @@
+{
+ "size_requested": 32000,
+ "vocab": 43723,
+ "merges": 106023,
+ "tokenizer_mb": 2.24,
+ "languages": {
+  "fr": {
+   "length_ratio": 1.042,
+   "roundtrip": 1.0
+  },
+  "en": {
+   "length_ratio": 1.111,
+   "roundtrip": 1.0
+  },
+  "es": {
+   "length_ratio": 1.042,
+   "roundtrip": 1.0
+  },
+  "nl": {
+   "length_ratio": 1.031,
+   "roundtrip": 1.0
+  },
+  "de": {
+   "length_ratio": 1.039,
+   "roundtrip": 1.0
+  }
+ }
+}

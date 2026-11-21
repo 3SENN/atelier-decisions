@@ -1,0 +1,7 @@
+guard: min Latin 0.7, max bytes 0.1
+(tabs, 18-28 options) lang     n teacher sure |  agree conflict overreach | declined  agree conflict overreach
+en      68         0.53 |   0.54    0.000     0.029 |     0.00   0.54    0.000     0.029
+nl      39         0.59 |   0.51    0.000     0.051 |     0.00   0.51    0.000     0.051
+de      16         0.69 |   0.44    0.000     0.000 |     0.00   0.44    0.000     0.000
+fr      14         0.50 |   0.50    0.000     0.000 |     0.00   0.50    0.000     0.000
+es      13         0.62 |   0.54    0.000     0.000 |     0.00   0.54    0.000     0.000

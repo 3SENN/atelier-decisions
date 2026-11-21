@@ -1,0 +1,140 @@
+{"skill": "price-compare", "message": "is 289 a good deal for these headphones or is someone selling them for less", "lang": "en"}
+{"skill": "price-compare", "message": "before I buy this stroller here, check if I'm getting ripped off", "lang": "en"}
+{"skill": "price-compare", "message": "same vacuum, other stores, what do they charge", "lang": "en"}
+{"skill": "price-compare", "message": "is deze wasmachine ergens anders goedkoper te krijgen?", "lang": "nl"}
+{"skill": "price-compare", "message": "voor ik op bestellen klik: wat kost deze fiets bij andere webwinkels", "lang": "nl"}
+{"skill": "price-compare", "message": "¿este portátil está más barato en otra tienda?", "lang": "es"}
+{"skill": "price-compare", "message": "Bekomme ich diese Kaffeemaschine woanders günstiger?", "lang": "de"}
+{"skill": "review-summarizer", "message": "there are 2,000 ratings on this air fryer, I'm not reading all that. is it any good?", "lang": "en"}
+{"skill": "review-summarizer", "message": "what do buyers complain about with this mattress", "lang": "en"}
+{"skill": "review-summarizer", "message": "tl;dr of what people say about this robot mower", "lang": "en"}
+{"skill": "review-summarizer", "message": "wat vinden mensen van deze kinderwagen? er staan honderden meningen onder", "lang": "nl"}
+{"skill": "review-summarizer", "message": "zijn kopers een beetje tevreden over deze laptop, wat zijn de klachten", "lang": "nl"}
+{"skill": "review-summarizer", "message": "Was sagen die Käufer zu diesem Staubsauger? Gibt's typische Schwachstellen?", "lang": "de"}
+{"skill": "review-summarizer", "message": "résume-moi ce que disent les acheteurs de cette poussette, je n'ai pas le temps de tout lire", "lang": "fr"}
+{"skill": "gift-ideas", "message": "my dad is impossible to buy for. he likes fishing and jazz. 50 quid max", "lang": "en"}
+{"skill": "gift-ideas", "message": "secret santa, drew a colleague I barely know, 15 euro limit", "lang": "en"}
+{"skill": "gift-ideas", "message": "what do you get a 30 year old who just moved into her first flat", "lang": "en"}
+{"skill": "gift-ideas", "message": "wat geef je een schoonmoeder die alles al heeft? max 40 euro", "lang": "nl"}
+{"skill": "gift-ideas", "message": "sinterklaas voor mijn neefje van 9, hij is gek op dino's en lego, tips?", "lang": "nl"}
+{"skill": "gift-ideas", "message": "une idée de cadeau pour ma belle-sœur qui adore le jardinage ? 30 € environ", "lang": "fr"}
+{"skill": "gift-ideas", "message": "no sé qué regalarle a mi novio por nuestro aniversario, le gusta el ciclismo", "lang": "es"}
+{"skill": "grocery-list", "message": "we're out of basically everything, what do I need to pick up for the week", "lang": "en"}
+{"skill": "grocery-list", "message": "write down what to buy for the lasagna and the curry, in the order I walk through the store", "lang": "en"}
+{"skill": "grocery-list", "message": "going to the shops after work, what's missing for the dinners we decided on", "lang": "en"}
+{"skill": "grocery-list", "message": "wat moet ik allemaal halen bij de appie voor de komende dagen", "lang": "nl"}
+{"skill": "grocery-list", "message": "maak een boodschappenbriefje voor de recepten van deze week, op volgorde van de winkel", "lang": "nl"}
+{"skill": "grocery-list", "message": "hazme la lista de la compra para las cenas de esta semana, ordenada por secciones", "lang": "es"}
+{"skill": "grocery-list", "message": "Was muss ich fürs Wochenende einkaufen? Schreib mir einen Einkaufszettel nach Regalen sortiert", "lang": "de"}
+{"skill": "return-request", "message": "these boots are a size too small, I want my money back", "lang": "en"}
+{"skill": "return-request", "message": "the lamp arrived cracked. sort it out with the seller", "lang": "en"}
+{"skill": "return-request", "message": "bought two jackets to try, keeping the green one, the blue has to go, how", "lang": "en"}
+{"skill": "return-request", "message": "die broek past niet, kun je regelen dat ik hem kan terugsturen", "lang": "nl"}
+{"skill": "return-request", "message": "het pakket van gisteren is beschadigd aangekomen, ik wil mijn geld terug", "lang": "nl"}
+{"skill": "return-request", "message": "Die Schuhe passen nicht, bitte leite die Rücksendung ein", "lang": "de"}
+{"skill": "return-request", "message": "le pull commandé la semaine dernière ne me va pas, je veux le renvoyer et être remboursée", "lang": "fr"}
+{"skill": "deal-watcher", "message": "this tv is too pricey right now, let me know if it ever goes under 600", "lang": "en"}
+{"skill": "deal-watcher", "message": "black friday is coming, alert me when these trainers get cheaper", "lang": "en"}
+{"skill": "deal-watcher", "message": "I'll wait on the standing desk. ping me if there's a sale", "lang": "en"}
+{"skill": "deal-watcher", "message": "geef een seintje als deze stofzuiger onder de 200 euro zakt", "lang": "nl"}
+{"skill": "deal-watcher", "message": "ik wacht nog even met die jas, hou in de gaten of hij in de uitverkoop gaat", "lang": "nl"}
+{"skill": "deal-watcher", "message": "préviens-moi quand ce vélo passe sous les 800 €", "lang": "fr"}
+{"skill": "deal-watcher", "message": "avísame si rebajan esta cafetera, ahora mismo se me va de presupuesto", "lang": "es"}
+{"skill": "secondhand-listing", "message": "getting rid of my old road bike, help me put it up online", "lang": "en"}
+{"skill": "secondhand-listing", "message": "want to flog this ikea wardrobe on facebook, what do I write and how much can I get for it", "lang": "en"}
+{"skill": "secondhand-listing", "message": "selling the baby cot, barely used, need a good blurb", "lang": "en"}
+{"skill": "secondhand-listing", "message": "ik wil mijn oude bank op marktplaats zetten, schrijf even een goede tekst", "lang": "nl"}
+{"skill": "secondhand-listing", "message": "wat kan ik krijgen voor een playstation 4 met 2 controllers, en maak er meteen een advertentie van", "lang": "nl"}
+{"skill": "secondhand-listing", "message": "quiero vender mi bici vieja en wallapop, redáctame el anuncio", "lang": "es"}
+{"skill": "secondhand-listing", "message": "Ich will meinen alten Kinderwagen bei Kleinanzeigen einstellen, schreib mir was Ansprechendes", "lang": "de"}
+{"skill": "trip-planner", "message": "4 days in Lisbon in april, what do we do each day", "lang": "en"}
+{"skill": "trip-planner", "message": "never been to Kraków, long weekend, map it out for me", "lang": "en"}
+{"skill": "trip-planner", "message": "we land in Rome friday noon and leave monday evening, fill the time", "lang": "en"}
+{"skill": "trip-planner", "message": "we gaan een weekje naar Andalusië, wat moeten we wanneer doen", "lang": "nl"}
+{"skill": "trip-planner", "message": "maak een programma voor 3 dagen Kopenhagen met twee pubers", "lang": "nl"}
+{"skill": "trip-planner", "message": "Fünf Tage Wien im Mai – was sollen wir wann machen?", "lang": "de"}
+{"skill": "trip-planner", "message": "on passe trois jours à Porto, tu nous fais un programme ?", "lang": "fr"}
+{"skill": "packing-list", "message": "leaving for Iceland on saturday, 6 nights, what do I bring", "lang": "en"}
+{"skill": "packing-list", "message": "what goes in the bag for a week of camping with a toddler", "lang": "en"}
+{"skill": "packing-list", "message": "ski trip next week and I always forget something", "lang": "en"}
+{"skill": "packing-list", "message": "wat moet er allemaal mee naar Portugal, 10 dagen, alleen handbagage", "lang": "nl"}
+{"skill": "packing-list", "message": "we gaan vrijdag kamperen in de Ardennen, wat mag ik niet vergeten", "lang": "nl"}
+{"skill": "packing-list", "message": "qu'est-ce que j'emporte pour dix jours au Maroc en octobre ?", "lang": "fr"}
+{"skill": "packing-list", "message": "nos vamos una semana a Noruega, ¿qué ropa y cosas llevo?", "lang": "es"}
+{"skill": "flight-finder", "message": "need to get from Amsterdam to Valencia around the 12th of june, not at 6am please", "lang": "en"}
+{"skill": "flight-finder", "message": "cheapest way to fly to Edinburgh for a weekend in march", "lang": "en"}
+{"skill": "flight-finder", "message": "look for something direct to Athens, leaving friday after work, back sunday night", "lang": "en"}
+{"skill": "flight-finder", "message": "zoek een vlucht naar Barcelona eind mei, niet te vroeg vertrekken", "lang": "nl"}
+{"skill": "flight-finder", "message": "wat kost vliegen naar Lissabon in de herfstvakantie vanaf Eindhoven", "lang": "nl"}
+{"skill": "flight-finder", "message": "búscame un vuelo a Berlín para el puente de diciembre, sin escalas", "lang": "es"}
+{"skill": "flight-finder", "message": "Such mir einen Flug nach Porto Mitte September, nicht vor 9 Uhr und ohne Koffer", "lang": "de"}
+{"skill": "hotel-shortlist", "message": "where should we stay in Prague? central, quiet, under 120 a night", "lang": "en"}
+{"skill": "hotel-shortlist", "message": "too many results on booking for Seville, just give me the best few with a pool", "lang": "en"}
+{"skill": "hotel-shortlist", "message": "need somewhere to sleep near the conference venue in Ghent, 2 nights", "lang": "en"}
+{"skill": "hotel-shortlist", "message": "zoek een leuk verblijf in Parijs voor 2 nachten, niet te duur en dicht bij de metro", "lang": "nl"}
+{"skill": "hotel-shortlist", "message": "ik zie door de bomen het bos niet meer met al die appartementen in Lissabon, welke raad je aan", "lang": "nl"}
+{"skill": "hotel-shortlist", "message": "Wo übernachten wir am besten in Hamburg? Zentral, mit Frühstück, max. 130 Euro", "lang": "de"}
+{"skill": "hotel-shortlist", "message": "trouve-nous un logement sympa à Lyon pour le week-end, avec parking", "lang": "fr"}
+{"skill": "train-route", "message": "how do I get from my place to Schiphol by 7:30 tomorrow without a car", "lang": "en"}
+{"skill": "train-route", "message": "what's the smartest way to reach Antwerp from Utrecht friday afternoon by rail", "lang": "en"}
+{"skill": "train-route", "message": "bus or tram to the stadium from central station, and when do I need to leave", "lang": "en"}
+{"skill": "train-route", "message": "hoe kom ik morgenochtend met het ov in Zwolle, ik moet er om 9 uur zijn", "lang": "nl"}
+{"skill": "train-route", "message": "hoe laat moet ik de deur uit om de trein naar Maastricht te halen, en waar stap ik over", "lang": "nl"}
+{"skill": "train-route", "message": "comment aller de Lille à Strasbourg jeudi matin, avec le moins de changements possible ?", "lang": "fr"}
+{"skill": "train-route", "message": "¿cómo llego de Atocha al aeropuerto en cercanías y cuánto tarda?", "lang": "es"}
+{"skill": "travel-phrasebook", "message": "off to Japan next month, what should I be able to say", "lang": "en"}
+{"skill": "travel-phrasebook", "message": "how do I order food and ask for the bill in Portuguese", "lang": "en"}
+{"skill": "travel-phrasebook", "message": "teach me the survival basics for a week in Greece", "lang": "en"}
+{"skill": "travel-phrasebook", "message": "we gaan naar Italië, welke zinnetjes moet ik kennen in een restaurant", "lang": "nl"}
+{"skill": "travel-phrasebook", "message": "hoe zeg je dankjewel, goedemorgen en waar is het toilet in het Kroatisch", "lang": "nl"}
+{"skill": "travel-phrasebook", "message": "me voy a Alemania cuatro días, ¿qué expresiones básicas necesito?", "lang": "es"}
+{"skill": "travel-phrasebook", "message": "Wir fahren nach Spanien – was sollte ich auf Spanisch unbedingt sagen können?", "lang": "de"}
+{"skill": "delay-compensation", "message": "my flight home landed four hours late, surely they owe me something", "lang": "en"}
+{"skill": "delay-compensation", "message": "eurostar scrapped my departure yesterday and I had to rebook, get what I'm entitled to", "lang": "en"}
+{"skill": "delay-compensation", "message": "train was 70 minutes behind this morning, can I get a refund for that", "lang": "en"}
+{"skill": "delay-compensation", "message": "mijn trein had gisteren ruim een uur vertraging, kan ik geld terugvragen", "lang": "nl"}
+{"skill": "delay-compensation", "message": "de vlucht uit Malaga is geannuleerd, waar heb ik recht op en dien het even in", "lang": "nl"}
+{"skill": "delay-compensation", "message": "Mein ICE kam zwei Stunden zu spät an, bitte Entschädigung beantragen", "lang": "de"}
+{"skill": "delay-compensation", "message": "mon vol a été annulé au dernier moment, fais la demande d'indemnisation", "lang": "fr"}
+{"skill": "budget-check", "message": "where did all my money go in october", "lang": "en"}
+{"skill": "budget-check", "message": "here's my statement export, am I spending too much on eating out?", "lang": "en"}
+{"skill": "budget-check", "message": "I feel broke every month, look at my account and tell me why", "lang": "en"}
+{"skill": "budget-check", "message": "waar gaat mijn geld deze maand naartoe? hier is de csv van de bank", "lang": "nl"}
+{"skill": "budget-check", "message": "kijk eens naar mijn afschriften, hoeveel geef ik uit aan boodschappen en uit eten", "lang": "nl"}
+{"skill": "budget-check", "message": "regarde mon relevé de compte, je veux savoir où part mon argent", "lang": "fr"}
+{"skill": "budget-check", "message": "¿en qué se me ha ido el sueldo este mes? te paso los movimientos", "lang": "es"}
+{"skill": "subscription-audit", "message": "I think I'm paying for like five streaming services, find out what's leaking", "lang": "en"}
+{"skill": "subscription-audit", "message": "which monthly charges on my card could I get rid of", "lang": "en"}
+{"skill": "subscription-audit", "message": "what am I still signed up and paying for that I forgot about", "lang": "en"}
+{"skill": "subscription-audit", "message": "welke abonnementen lopen er eigenlijk allemaal nog, volgens mij betaal ik voor dingen die ik niet gebruik", "lang": "nl"}
+{"skill": "subscription-audit", "message": "ik wil besparen op vaste lasten, wat kan eruit? netflix, sportschool, apps, noem maar op", "lang": "nl"}
+{"skill": "subscription-audit", "message": "¿cuántas suscripciones tengo activas? seguro que pago alguna que ni uso", "lang": "es"}
+{"skill": "subscription-audit", "message": "Welche Abos laufen bei mir noch? Ich zahle bestimmt für Sachen, die ich nie nutze", "lang": "de"}
+{"skill": "tax-return-prep", "message": "april's coming, what paperwork do I need to dig up for the taxman", "lang": "en"}
+{"skill": "tax-return-prep", "message": "get my stuff ready for filing: mortgage interest, donations, the lot", "lang": "en"}
+{"skill": "tax-return-prep", "message": "I'm doing my self assessment this weekend, what numbers do I need on hand", "lang": "en"}
+{"skill": "tax-return-prep", "message": "ik moet mijn aangifte nog doen, wat heb ik allemaal nodig", "lang": "nl"}
+{"skill": "tax-return-prep", "message": "zet alles klaar voor de belastingdienst: jaaropgaaf, hypotheekrente, giften", "lang": "nl"}
+{"skill": "tax-return-prep", "message": "Die Steuererklärung steht an, such bitte alle Belege und Zahlen zusammen", "lang": "de"}
+{"skill": "tax-return-prep", "message": "c'est bientôt la déclaration d'impôts, quels justificatifs dois-je rassembler ?", "lang": "fr"}
+{"skill": "letter-explainer", "message": "got something from the council in the post, no clue what they want from me", "lang": "en"}
+{"skill": "letter-explainer", "message": "what on earth is my insurer trying to tell me here? scan attached", "lang": "en"}
+{"skill": "letter-explainer", "message": "is this thing from the bank a problem or can I ignore it", "lang": "en"}
+{"skill": "letter-explainer", "message": "ik kreeg post van het UWV en snap er niks van, wat willen ze", "lang": "nl"}
+{"skill": "letter-explainer", "message": "wat bedoelt de gemeente hiermee? moet ik iets betalen of niet", "lang": "nl"}
+{"skill": "letter-explainer", "message": "j'ai reçu un courrier de la CAF, je ne comprends rien, qu'est-ce qu'ils me demandent ?", "lang": "fr"}
+{"skill": "letter-explainer", "message": "me ha llegado una notificación de Hacienda, ¿qué quiere decir y qué me toca hacer?", "lang": "es"}
+{"skill": "cancel-contract", "message": "I want out of my gym, write to them", "lang": "en"}
+{"skill": "cancel-contract", "message": "done with this phone provider, end it as soon as legally possible", "lang": "en"}
+{"skill": "cancel-contract", "message": "how do I quit my magazine thing, they make it so hard", "lang": "en"}
+{"skill": "cancel-contract", "message": "ik wil van mijn sportschool af, regel even de opzegging", "lang": "nl"}
+{"skill": "cancel-contract", "message": "zeg mijn telefoonabonnement op per eerst mogelijke datum", "lang": "nl"}
+{"skill": "cancel-contract", "message": "quiero darme de baja del gimnasio, escríbeles tú", "lang": "es"}
+{"skill": "cancel-contract", "message": "Ich möchte meinen Handyvertrag kündigen, setz bitte das Schreiben auf", "lang": "de"}
+{"skill": "split-the-bill", "message": "weekend away with six mates, I paid the cabin, Jo paid food, Mika the petrol. who pays who?", "lang": "en"}
+{"skill": "split-the-bill", "message": "the restaurant came to 184, three of us didn't drink, make it fair", "lang": "en"}
+{"skill": "split-the-bill", "message": "settle up the Lisbon trip, here's what everyone put in", "lang": "en"}
+{"skill": "split-the-bill", "message": "ik heb het huisje voorgeschoten en Daan de boodschappen, wie moet wie nog hoeveel betalen", "lang": "nl"}
+{"skill": "split-the-bill", "message": "reken even uit wat iedereen moet overmaken na het weekendje weg, we waren met z'n vijven", "lang": "nl"}
+{"skill": "split-the-bill", "message": "Wir waren zu viert im Urlaub, jeder hat was ausgelegt – wer schuldet wem wie viel?", "lang": "de"}
+{"skill": "split-the-bill", "message": "on a partagé un gîte à cinq, fais les comptes : qui doit combien à qui ?", "lang": "fr"}

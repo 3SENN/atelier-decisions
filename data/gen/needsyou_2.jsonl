@@ -1,0 +1,100 @@
+{"reply": "The visa application is filled in up to section 4. Section 5 asks for your passport number and its expiry date, and I don't have either. Could you read them out to me?", "lang": "en", "intended": "waiting"}
+{"reply": "I've found the parcel on the courier's site. They offer redelivery tomorrow, Thursday, or pickup from the depot on Hale Road. Which do you want?", "lang": "en", "intended": "waiting"}
+{"reply": "Hold on, the price jumped from €412 to €468 while I was filling in the passenger details. Do you still want me to book at the new price?", "lang": "en", "intended": "waiting"}
+{"reply": "The refund form asks whether you want the money back on your card or as store credit (store credit comes with an extra 10%). Which should I tick?", "lang": "en", "intended": "waiting"}
+{"reply": "I've written the resignation letter as you asked, with your last day as 28 February. This will go straight to your manager and HR once sent. Are you sure you want me to send it today?", "lang": "en", "intended": "waiting"}
+{"reply": "There's a mismatch: the invoice says 14 units but the purchase order says 12. I don't want to guess. Which number is correct?", "lang": "en", "intended": "waiting"}
+{"reply": "Which tab did you mean? You have two spreadsheets open, 'Budget 2025' and 'Budget 2025 (copy)', and I haven't touched either yet.", "lang": "en", "intended": "waiting"}
+{"reply": "I can transfer the £350 to Callum now. The bank shows it as an instant payment that can't be recalled. Go ahead?", "lang": "en", "intended": "waiting"}
+{"reply": "The car rental site needs the main driver's licence number and the country of issue before it shows the final price. What should I enter?", "lang": "en", "intended": "waiting"}
+{"reply": "I've got as far as choosing seats. Row 12 has two together by the window; row 27 has two on the aisle with more legroom for £9 extra each. Your call.", "lang": "en", "intended": "waiting"}
+{"reply": "I can delete all 1,240 emails older than two years, but they would skip the bin and be gone for good on this account. Say the word and I'll do it.", "lang": "en", "intended": "waiting"}
+{"reply": "What time should the pickup be? The taxi form won't let me continue without one, and your flight time isn't in the calendar.", "lang": "en", "intended": "waiting"}
+{"reply": "The survey has a question I can't answer for you: 'How satisfied were you with the service, 1 to 5?' Give me a number and I'll finish the rest.", "lang": "en", "intended": "waiting"}
+{"reply": "I found the appointment page, but new patients have to pick a doctor: Dr Mertens, Dr Aksoy or Dr Hoffmeister. Do you have a preference?", "lang": "en", "intended": "waiting"}
+{"reply": "The message to the whole team (48 recipients) is ready. Once it's posted I can't unsend it. Do you want to read it first, or shall I post it?", "lang": "en", "intended": "waiting"}
+{"reply": "Sorry, I need one more thing: the promo code you mentioned. The checkout has a field for it and I don't see the code anywhere in your messages.", "lang": "en", "intended": "waiting"}
+{"reply": "I renamed all 37 files using the date-first pattern and moved them into the 'Receipts 2025' folder. Nothing was deleted.", "lang": "en", "intended": "done"}
+{"reply": "Your seats are booked: 12A and 12B, and the boarding passes are saved to your downloads. Do you want me to check you in for the return flight when it opens?", "lang": "en", "intended": "done"}
+{"reply": "That's everything from the page: the opening hours, the address and the two phone numbers. Is there something specific you were hoping to find?", "lang": "en", "intended": "done"}
+{"reply": "The complaint has been submitted to the airline, reference CMP-88214. They say to allow up to 28 days for a reply. I can remind you in four weeks if that's useful.", "lang": "en", "intended": "done"}
+{"reply": "I've pinned the three tabs you use every day and muted the one that keeps autoplaying. All set.", "lang": "en", "intended": "done"}
+{"reply": "Here's the cleaned-up version of your cover letter. I tightened the opening and cut about 60 words. What do you think of the new first paragraph?", "lang": "en", "intended": "done"}
+{"reply": "The appointment is confirmed for Wednesday at 15:40 with Dr Aksoy, and it's in your calendar with a reminder the evening before.", "lang": "en", "intended": "done"}
+{"reply": "Both invoices are paid and the receipts are filed under 'Bills'. Is there another one you'd like me to deal with while I'm in here?", "lang": "en", "intended": "done"}
+{"reply": "I've exported the table to CSV with 48 rows and all six columns intact. Fancy a quick chart of the monthly totals?", "lang": "en", "intended": "done"}
+{"reply": "The password has been changed and saved to your password manager. You were signed out of two old devices in the process, which is expected.", "lang": "en", "intended": "done"}
+{"reply": "In short, the contract renews automatically each year, with 30 days' notice to cancel. Would it help if I put the notice deadline in your calendar?", "lang": "en", "intended": "done"}
+{"reply": "The rota for March is in the shared calendar and everyone on the list got an invite. Shout if any of the dates need swapping later.", "lang": "en", "intended": "done"}
+{"reply": "I looked through all four pages of results. None of the listings allow pets, unfortunately. Should I widen the search to the next town over?", "lang": "en", "intended": "done"}
+{"reply": "Your subscription is cancelled as of today, and you keep access until the 30th. The confirmation email just arrived.", "lang": "en", "intended": "done"}
+{"reply": "The recipe is scaled to eight portions and the shopping list is in your notes. Enjoy the dinner!", "lang": "en", "intended": "done"}
+{"reply": "I've highlighted the three clauses that mention late fees. Everything else in the agreement looks standard. Any other part you'd like me to read closely?", "lang": "en", "intended": "done"}
+{"reply": "Bookmarked, and I put it in the 'Recipes' folder with the others.", "lang": "en", "intended": "done"}
+{"reply": "The comparison is finished: Harbour View is the only one with free cancellation, The Marlowe is cheapest per night. Have you stayed at either before?", "lang": "en", "intended": "done"}
+{"reply": "I booked the 10:20 slot, which was the only one left on Tuesday. If you'd rather have Friday at 11:00, I can still swap it for free until tomorrow noon.", "lang": "en", "intended": "borderline"}
+{"reply": "I've put the bouquet in the basket with delivery on the 2nd. The card message is blank at the moment. What would you like it to say, or shall I leave it empty?", "lang": "en", "intended": "borderline"}
+{"reply": "Here's the draft agenda. I assumed the meeting is an hour; if it's 30 minutes I'd cut items 3 and 4.", "lang": "en", "intended": "borderline"}
+{"reply": "The form is submitted. One note: it asked for a phone number and I used your mobile. If you'd prefer the landline, I can email them a correction.", "lang": "en", "intended": "borderline"}
+{"reply": "I've started the download of all 212 photos. It'll take a while. Should I sort them into folders by month once it's finished?", "lang": "en", "intended": "borderline"}
+{"reply": "The quote request went to two of the three fitters. The third only takes enquiries by phone: 0115 555 0142. I can't call for you, so that one's yours if you want it.", "lang": "en", "intended": "borderline"}
+{"reply": "Het aanvraagformulier voor de parkeervergunning is ingevuld tot aan het kenteken. Dat heb ik niet. Wat is het kenteken van de auto?", "lang": "nl", "intended": "waiting"}
+{"reply": "PostNL biedt twee mogelijkheden: morgen opnieuw bezorgen of ophalen bij het afhaalpunt in de Kerkstraat. Wat heeft je voorkeur?", "lang": "nl", "intended": "waiting"}
+{"reply": "Let op, de prijs is tijdens het invullen gestegen van €289 naar €324. Wil je dat ik alsnog boek voor de nieuwe prijs?", "lang": "nl", "intended": "waiting"}
+{"reply": "Ik kan de €450 nu overmaken naar Jesse. Het is een directe overboeking en die kan niet worden teruggedraaid. Akkoord?", "lang": "nl", "intended": "waiting"}
+{"reply": "Bij het retourformulier moet ik een reden kiezen: 'te klein', 'beschadigd', 'voldoet niet aan verwachting' of 'anders'. Welke is het?", "lang": "nl", "intended": "waiting"}
+{"reply": "Er staan twee Sanders in je contacten: Sander de Wit en Sander Koolhaas. Naar wie moet de uitnodiging?", "lang": "nl", "intended": "waiting"}
+{"reply": "Het bericht aan de hele buurtapp-groep staat klaar. Na het plaatsen kan ik het niet meer intrekken. Wil je het eerst lezen of zal ik het plaatsen?", "lang": "nl", "intended": "waiting"}
+{"reply": "De huisarts heeft morgen plek om 08:40 en om 15:10. Welke tijd zal ik vastleggen? Na vijven vandaag is online boeken niet meer mogelijk.", "lang": "nl", "intended": "waiting"}
+{"reply": "Ik zie twee documenten met bijna dezelfde naam: 'Offerte_def' en 'Offerte_def2'. Welke moet ik meesturen als bijlage?", "lang": "nl", "intended": "waiting"}
+{"reply": "Voor de autohuur heb ik het rijbewijsnummer van de hoofdbestuurder nodig, anders laat de site de eindprijs niet zien. Wat kan ik invullen?", "lang": "nl", "intended": "waiting"}
+{"reply": "Je wilde de opzegging vandaag de deur uit hebben, maar er is één ding dat ik moet weten: per welke datum wil je opzeggen, eind deze maand of eind volgende maand?", "lang": "nl", "intended": "waiting"}
+{"reply": "De kortingscode die je noemde kan ik nergens terugvinden. Kun je hem nog een keer sturen? Dan reken ik daarna direct af.", "lang": "nl", "intended": "waiting"}
+{"reply": "Ik heb alle 37 bonnetjes hernoemd en in de map 'Administratie 2025' gezet. Er is niets verwijderd.", "lang": "nl", "intended": "done"}
+{"reply": "De klacht is ingediend bij de vervoerder, met referentie KL-55310. Ze reageren binnen 14 dagen. Zal ik je over twee weken een seintje geven?", "lang": "nl", "intended": "done"}
+{"reply": "Dit is alles wat er op de pagina staat over de garantie. Zocht je nog iets specifieks?", "lang": "nl", "intended": "done"}
+{"reply": "De afspraak staat: woensdag 16:10 bij de tandarts, met een herinnering de avond ervoor.", "lang": "nl", "intended": "done"}
+{"reply": "Beide facturen zijn betaald en de betaalbewijzen staan in de map 'Rekeningen'. Ligt er nog een die ik meteen kan meenemen?", "lang": "nl", "intended": "done"}
+{"reply": "Hier is de ingekorte versie van je motivatiebrief: zo'n 70 woorden korter en met een sterkere opening. Wat vind je van de eerste alinea?", "lang": "nl", "intended": "done"}
+{"reply": "Je wachtwoord is gewijzigd en opgeslagen in je wachtwoordmanager. Je bent daardoor wel uitgelogd op je oude telefoon; dat hoort zo.", "lang": "nl", "intended": "done"}
+{"reply": "Kort gezegd: het contract wordt elk jaar stilzwijgend verlengd en de opzegtermijn is een maand. Handig als ik de uiterste opzegdatum in je agenda zet?", "lang": "nl", "intended": "done"}
+{"reply": "Het recept is omgerekend naar acht personen en de boodschappenlijst staat in je notities. Eet smakelijk straks!", "lang": "nl", "intended": "done"}
+{"reply": "Ik heb alle vier de pagina's met resultaten bekeken, maar helaas mag bij geen enkel huisje een hond mee. Zal ik ook in de omliggende dorpen zoeken?", "lang": "nl", "intended": "done"}
+{"reply": "Het rooster voor maart staat in de gedeelde agenda en iedereen heeft een uitnodiging gekregen. Roep maar als er later nog iets geruild moet worden.", "lang": "nl", "intended": "done"}
+{"reply": "De tabel is geëxporteerd naar Excel, met alle kolommen en de totalen onderaan. Leuk om er nog een grafiekje van te maken?", "lang": "nl", "intended": "done"}
+{"reply": "Je abonnement is per vandaag opgezegd en je houdt toegang tot de 30e. De bevestiging is net binnengekomen in je mail.", "lang": "nl", "intended": "done"}
+{"reply": "Ik heb het boeket in het mandje gelegd met bezorging op de 9e. Het kaartje is nu nog leeg. Wat moet erop, of laat ik het zo?", "lang": "nl", "intended": "borderline"}
+{"reply": "Ik heb de afspraak van 08:40 vastgelegd omdat dat de enige vroege was. Wil je liever 15:10, dan kan ik dat tot vanavond nog kosteloos wijzigen.", "lang": "nl", "intended": "borderline"}
+{"reply": "Hier is de conceptagenda. Ik ben uitgegaan van een uur; als het een half uur is, zou ik punt 3 en 4 schrappen.", "lang": "nl", "intended": "borderline"}
+{"reply": "Het formulier is verstuurd. Ik heb bij telefoonnummer je mobiele nummer ingevuld; als dat het vaste nummer had moeten zijn, kan ik ze een correctie mailen.", "lang": "nl", "intended": "borderline"}
+{"reply": "De offerteaanvraag is naar twee van de drie loodgieters gestuurd. De derde is alleen telefonisch bereikbaar op 038 555 01 77; dat kan ik niet voor je doen.", "lang": "nl", "intended": "borderline"}
+{"reply": "Der Antrag ist bis Abschnitt 3 ausgefüllt. Jetzt wird die Steuer-Identifikationsnummer verlangt, die ich nicht habe. Kannst du sie mir durchgeben?", "lang": "de", "intended": "waiting"}
+{"reply": "Achtung, der Preis ist während der Eingabe von 289 € auf 319 € gestiegen. Soll ich trotzdem zum neuen Preis buchen?", "lang": "de", "intended": "waiting"}
+{"reply": "Die Praxis hat morgen zwei freie Termine: 8:40 Uhr oder 15:10 Uhr. Welchen soll ich nehmen?", "lang": "de", "intended": "waiting"}
+{"reply": "Ich kann die 450 € jetzt an Jonas überweisen. Es ist eine Echtzeitüberweisung und lässt sich nicht zurückholen. Einverstanden?", "lang": "de", "intended": "waiting"}
+{"reply": "Alle 37 Belege sind umbenannt und liegen im Ordner 'Steuer 2025'. Gelöscht wurde nichts.", "lang": "de", "intended": "done"}
+{"reply": "Die Beschwerde ist bei der Bahn eingereicht, Vorgangsnummer 7741-B. Eine Antwort soll innerhalb von vier Wochen kommen. Soll ich dich dann daran erinnern?", "lang": "de", "intended": "done"}
+{"reply": "Der Termin steht: Mittwoch, 16:10 Uhr beim Zahnarzt, mit Erinnerung am Vorabend.", "lang": "de", "intended": "done"}
+{"reply": "Kurz gesagt: Der Vertrag verlängert sich automatisch um ein Jahr, die Kündigungsfrist beträgt einen Monat. Wäre es hilfreich, die Frist in den Kalender einzutragen?", "lang": "de", "intended": "done"}
+{"reply": "Ich habe den Strauß in den Warenkorb gelegt, Lieferung am 9. Die Grußkarte ist noch leer. Was soll draufstehen, oder lasse ich sie so?", "lang": "de", "intended": "borderline"}
+{"reply": "Das Formular ist abgeschickt. Als Telefonnummer habe ich deine Handynummer eingetragen; falls es das Festnetz sein sollte, schicke ich eine Korrektur hinterher.", "lang": "de", "intended": "borderline"}
+{"reply": "Le dossier est rempli jusqu'à la partie 3. On me demande maintenant votre numéro fiscal, que je n'ai pas. Pouvez-vous me le communiquer ?", "lang": "fr", "intended": "waiting"}
+{"reply": "Attention, le prix est passé de 289 € à 324 € pendant que je remplissais les informations. Je réserve quand même au nouveau tarif ?", "lang": "fr", "intended": "waiting"}
+{"reply": "Le transporteur propose une nouvelle livraison demain ou un retrait au point relais de la rue Pasteur. Que préférez-vous ?", "lang": "fr", "intended": "waiting"}
+{"reply": "Je peux virer les 450 € à Théo maintenant. C'est un virement instantané, donc impossible à annuler ensuite. C'est bon pour toi ?", "lang": "fr", "intended": "waiting"}
+{"reply": "Les 37 justificatifs sont renommés et rangés dans le dossier 'Impôts 2025'. Rien n'a été supprimé.", "lang": "fr", "intended": "done"}
+{"reply": "La réclamation est déposée auprès de la compagnie, référence RC-20417. Ils annoncent une réponse sous un mois. Je peux vous le rappeler à ce moment-là si vous voulez.", "lang": "fr", "intended": "done"}
+{"reply": "Le rendez-vous est pris : mercredi à 16h10 chez le dentiste, avec un rappel la veille au soir.", "lang": "fr", "intended": "done"}
+{"reply": "En résumé, le contrat se renouvelle tacitement chaque année avec un préavis d'un mois. Ça t'aiderait que je note la date limite dans ton agenda ?", "lang": "fr", "intended": "done"}
+{"reply": "La recette est adaptée pour huit personnes et la liste de courses est dans vos notes. Bon appétit !", "lang": "fr", "intended": "done"}
+{"reply": "J'ai mis le bouquet dans le panier, livraison le 9. La carte est vide pour l'instant. Qu'est-ce que j'écris, ou je la laisse ainsi ?", "lang": "fr", "intended": "borderline"}
+{"reply": "La solicitud está rellenada hasta el apartado 3. Ahora pide tu número de la Seguridad Social y no lo tengo. ¿Me lo dices?", "lang": "es", "intended": "waiting"}
+{"reply": "Ojo, el precio ha subido de 289 € a 324 € mientras rellenaba los datos. ¿Reservo igualmente al precio nuevo?", "lang": "es", "intended": "waiting"}
+{"reply": "La consulta tiene dos huecos mañana: a las 8:40 o a las 15:10. ¿Cuál cojo?", "lang": "es", "intended": "waiting"}
+{"reply": "Puedo enviarle ahora los 450 € a Dani. Es una transferencia inmediata y no se puede anular. ¿Adelante?", "lang": "es", "intended": "waiting"}
+{"reply": "He renombrado los 37 justificantes y los he guardado en la carpeta 'Renta 2025'. No se ha borrado nada.", "lang": "es", "intended": "done"}
+{"reply": "La reclamación está presentada ante la aerolínea, con referencia RC-66102. Dicen que responden en un mes. Si quieres, te lo recuerdo entonces.", "lang": "es", "intended": "done"}
+{"reply": "La cita está cogida: miércoles a las 16:10 en el dentista, con un aviso la tarde anterior.", "lang": "es", "intended": "done"}
+{"reply": "En resumen, el contrato se renueva solo cada año y hay que avisar con un mes de antelación. ¿Te vendría bien que apunte la fecha límite en el calendario?", "lang": "es", "intended": "done"}
+{"reply": "La receta está adaptada para ocho personas y la lista de la compra está en tus notas. ¡Que aproveche!", "lang": "es", "intended": "done"}
+{"reply": "He puesto el ramo en la cesta con entrega el día 9. La tarjeta está vacía de momento. ¿Qué pongo, o la dejo así?", "lang": "es", "intended": "borderline"}

@@ -1,0 +1,200 @@
+{"name": "Done", "role": "button", "page": "Quiz: Chapter 5 (1 attempt allowed) - Moodle", "url": "https://moodle.example.edu/mod/quiz/attempt.php?attempt=551", "lang": "en", "intended": "submit"}
+{"name": "Register", "role": "button", "page": "Sign up for the Rotterdam Marathon 2027", "url": "https://www.nnmarathonrotterdam.org/register", "lang": "en", "intended": "submit"}
+{"name": "Eliminar filtro", "role": "button", "page": "Hoteles en Granada - Booking.com", "url": "https://www.booking.com/searchresults.es.html?ss=Granada", "lang": "es", "intended": "none"}
+{"name": "Publicar", "role": "button", "page": "Editar entrada «Nuestra reforma» - WordPress", "url": "https://ejemplo.wordpress.com/wp-admin/post.php?post=23&action=edit", "lang": "es", "intended": "post"}
+{"name": "Continuer", "role": "button", "page": "Dernière étape : confirmez votre commande - Fnac", "url": "https://secure.fnac.com/OrderPipe/recapitulatif", "lang": "fr", "intended": "purchase"}
+{"name": "Submit for review", "role": "button", "page": "Timesheet w/e 20 Nov - Workday", "url": "https://wd3.myworkday.com/acme/timesheet", "lang": "en", "intended": "submit"}
+{"name": "Retour aanmelden", "role": "button", "page": "Artikel retourneren - Bol", "url": "https://www.bol.com/nl/nl/rnwy/retourneren", "lang": "nl", "intended": "submit"}
+{"name": "Dienstregeling", "role": "tab", "page": "Lijn 12 - GVB", "url": "https://www.gvb.nl/reisinformatie/lijn/12", "lang": "nl", "intended": "none"}
+{"name": "OK", "role": "button", "page": "Permanently delete 3 items? - Dropbox", "url": "https://www.dropbox.com/deleted_files", "lang": "en", "intended": "delete"}
+{"name": "Complete purchase", "role": "button", "page": "Checkout - ASOS", "url": "https://secure.asos.com/checkout", "lang": "en", "intended": "purchase"}
+{"name": "Weiter", "role": "button", "page": "Schritt 1 von 4: Sitzplatz wählen - Lufthansa", "url": "https://www.lufthansa.com/de/de/buchung/sitzplatz", "lang": "de", "intended": "none"}
+{"name": "Track parcel", "role": "link", "page": "Your orders - Royal Mail", "url": "https://www.royalmail.com/track-your-item", "lang": "en", "intended": "none"}
+{"name": "Quitar de mi lista", "role": "button", "page": "Mi lista - Movistar Plus+", "url": "https://ver.movistarplus.es/mi-lista/", "lang": "es", "intended": "none"}
+{"name": "Aanvraag indienen", "role": "button", "page": "Zorgtoeslag aanvragen - Mijn toeslagen", "url": "https://mijn.toeslagen.nl/aanvragen/zorgtoeslag", "lang": "nl", "intended": "submit"}
+{"name": "Répondre à tous", "role": "button", "page": "RE: Planning des congés - Outlook", "url": "https://outlook.office.com/mail/inbox", "lang": "fr", "intended": "message"}
+{"name": "Save draft", "role": "button", "page": "Compose - Outlook", "url": "https://outlook.live.com/mail/0/deeplink/compose", "lang": "en", "intended": "none"}
+{"name": "Continue", "role": "button", "page": "Step 1 of 4: Choose your seats - easyJet", "url": "https://www.easyjet.com/en/buy/seats", "lang": "en", "intended": "none"}
+{"name": "Overal uitloggen", "role": "button", "page": "Apparaten - Videoland", "url": "https://www.videoland.com/account/apparaten", "lang": "nl", "intended": "security"}
+{"name": "Discard draft", "role": "button", "page": "New message - Gmail", "url": "https://mail.google.com/mail/u/0/#inbox?compose=new", "lang": "en", "intended": "delete"}
+{"name": "Forgot password?", "role": "link", "page": "Sign in - Adobe", "url": "https://auth.services.adobe.com/en_US/index.html", "lang": "en", "intended": "none"}
+{"name": "Meer reacties laden", "role": "button", "page": "Stelling: de avondklok voor scooters - NU.nl", "url": "https://www.nu.nl/reacties/6331245", "lang": "nl", "intended": "none"}
+{"name": "Continuar", "role": "button", "page": "Paso 1 de 4: elige tus asientos - Iberia", "url": "https://www.iberia.com/es/reserva/asientos/", "lang": "es", "intended": "none"}
+{"name": "In winkelwagen", "role": "button", "page": "AH Biologische bananen - Albert Heijn", "url": "https://www.ah.nl/producten/product/wi197393/ah-biologisch-bananen", "lang": "nl", "intended": "none"}
+{"name": "Next page", "role": "link", "page": "Search results for \"desk lamp\" - Amazon.co.uk", "url": "https://www.amazon.co.uk/s?k=desk+lamp&page=2", "lang": "en", "intended": "none"}
+{"name": "Remove from watchlist", "role": "button", "page": "My List - Netflix", "url": "https://www.netflix.com/browse/my-list", "lang": "en", "intended": "none"}
+{"name": "In stock only", "role": "checkbox", "page": "Graphics cards - Scan.co.uk", "url": "https://www.scan.co.uk/shop/computer-hardware/gpu-nvidia", "lang": "en", "intended": "none"}
+{"name": "Ver más", "role": "button", "page": "Portátiles - PcComponentes", "url": "https://www.pccomponentes.com/portatiles", "lang": "es", "intended": "none"}
+{"name": "Delete conversation", "role": "button", "page": "Chat with Marcus - Messenger", "url": "https://www.messenger.com/t/1002938", "lang": "en", "intended": "delete"}
+{"name": "Apply filters", "role": "button", "page": "Jobs - Indeed", "url": "https://uk.indeed.com/jobs?q=data+analyst", "lang": "en", "intended": "none"}
+{"name": "Añadir a la lista de deseos", "role": "button", "page": "Abrigo de lana mujer - El Corte Inglés", "url": "https://www.elcorteingles.es/moda-mujer/A49912345-abrigo-de-lana/", "lang": "es", "intended": "none"}
+{"name": "Post", "role": "button", "page": "Rate and review - Google Maps", "url": "https://www.google.com/maps/place/Cafe+Luna/reviews", "lang": "en", "intended": "post"}
+{"name": "Yes", "role": "button", "page": "Allow this site to use your camera and microphone?", "url": "https://meet.jit.si/TeamSync", "lang": "en", "intended": "security"}
+{"name": "Skip to main content", "role": "link", "page": "GOV.UK", "url": "https://www.gov.uk/", "lang": "en", "intended": "none"}
+{"name": "Confirm", "role": "button", "page": "Remove recovery email? - Proton Account", "url": "https://account.proton.me/u/0/mail/recovery", "lang": "en", "intended": "security"}
+{"name": "Download as PDF", "role": "menuitem", "page": "Budget 2027 - Google Sheets", "url": "https://docs.google.com/spreadsheets/d/1XyZ/edit", "lang": "en", "intended": "none"}
+{"name": "×", "role": "button", "page": "Inscrivez-vous à la newsletter - Sézane", "url": "https://www.sezane.com/fr", "lang": "fr", "intended": "none"}
+{"name": "Akkoord", "role": "button", "page": "Extensie \"Kortingzoeker\" installeren? - Chrome Web Store", "url": "https://chromewebstore.google.com/detail/kortingzoeker/hijklmn", "lang": "nl", "intended": "security"}
+{"name": "🗑", "role": "button", "page": "Lista de la compra - Notion", "url": "https://www.notion.so/Lista-de-la-compra-c41a", "lang": "es", "intended": "delete"}
+{"name": "Hide ad", "role": "button", "page": "Home / X", "url": "https://x.com/home", "lang": "en", "intended": "none"}
+{"name": "Send", "role": "button", "page": "Text message to +44 7700 900123 - Google Messages", "url": "https://messages.google.com/web/conversations/12", "lang": "en", "intended": "message"}
+{"name": "Yes, send", "role": "button", "page": "Send without a subject? - Outlook", "url": "https://outlook.live.com/mail/0/", "lang": "en", "intended": "message"}
+{"name": "Continuer sans accepter", "role": "button", "page": "Gestion des cookies - franceinfo", "url": "https://www.francetvinfo.fr/", "lang": "fr", "intended": "none"}
+{"name": "Ajouter au panier", "role": "button", "page": "Bananes bio - Carrefour Drive", "url": "https://www.carrefour.fr/p/bananes-bio-3276554163158", "lang": "fr", "intended": "none"}
+{"name": "Beschikbaarheid bekijken", "role": "button", "page": "Landal Miggelenberg - Landal GreenParks", "url": "https://www.landal.nl/parken/miggelenberg", "lang": "nl", "intended": "none"}
+{"name": "Plaats", "role": "button", "page": "Beoordelen en reviewen - Google Maps", "url": "https://www.google.com/maps/place/Bakkerij+Jansen/reviews", "lang": "nl", "intended": "post"}
+{"name": "Supprimer définitivement", "role": "button", "page": "Corbeille - Google Drive", "url": "https://drive.google.com/drive/trash", "lang": "fr", "intended": "delete"}
+{"name": "Publiceren", "role": "button", "page": "Bericht bewerken \"Onze verbouwing, week 6\" - WordPress", "url": "https://voorbeeld.wordpress.com/wp-admin/post.php?post=41&action=edit", "lang": "nl", "intended": "post"}
+{"name": "Später", "role": "button", "page": "Benachrichtigungen aktivieren? - Lieferando", "url": "https://www.lieferando.de/", "lang": "de", "intended": "none"}
+{"name": "Submit request", "role": "button", "page": "Return an item - Zalando", "url": "https://www.zalando.co.uk/myaccount/returns", "lang": "en", "intended": "submit"}
+{"name": "Terms of service", "role": "link", "page": "Sign up - Trello", "url": "https://trello.com/signup", "lang": "en", "intended": "none"}
+{"name": "Subir producto", "role": "button", "page": "Vender un artículo - Wallapop", "url": "https://es.wallapop.com/app/catalog/upload", "lang": "es", "intended": "post"}
+{"name": "Verder", "role": "button", "page": "Laatste stap: bevestig je bestelling - MediaMarkt", "url": "https://www.mediamarkt.nl/checkout/summary", "lang": "nl", "intended": "purchase"}
+{"name": "Bevestig", "role": "button", "page": "€ 320,00 overmaken naar J. de Vries - Bunq", "url": "https://web.bunq.com/payment/confirm", "lang": "nl", "intended": "payment"}
+{"name": "Doorgaan", "role": "button", "page": "Bevestig met je pincode - Mijn Rabobank", "url": "https://bankieren.rabobank.nl/welcome/", "lang": "nl", "intended": "security"}
+{"name": "Annuleren", "role": "button", "page": "Account verwijderen? - Marktplaats", "url": "https://www.marktplaats.nl/my-account/settings", "lang": "nl", "intended": "none"}
+{"name": "Suchen", "role": "button", "page": "Fahrplanauskunft - Deutsche Bahn", "url": "https://www.bahn.de/", "lang": "de", "intended": "none"}
+{"name": "Probeer 30 dagen gratis", "role": "button", "page": "Storytel - daarna € 12,99 per maand", "url": "https://www.storytel.com/nl/aanmelden", "lang": "nl", "intended": "purchase"}
+{"name": "Rechazar cookies opcionales", "role": "button", "page": "Configuración de cookies - RTVE", "url": "https://www.rtve.es/", "lang": "es", "intended": "none"}
+{"name": "Turn off auto-renew", "role": "button", "page": "Subscriptions - Microsoft account", "url": "https://account.microsoft.com/services", "lang": "en", "intended": "account"}
+{"name": "Ga terug", "role": "button", "page": "Weet je zeker dat je je abonnement wilt opzeggen? - Videoland", "url": "https://www.videoland.com/account/opzeggen", "lang": "nl", "intended": "none"}
+{"name": "Toestaan", "role": "button", "page": "Boekhoudgemak wil toegang tot je ING-rekening", "url": "https://mijn.ing.nl/psd2/toestemming", "lang": "nl", "intended": "security"}
+{"name": "➤", "role": "button", "page": "Chat with Mum - WhatsApp Web", "url": "https://web.whatsapp.com/", "lang": "en", "intended": "message"}
+{"name": "Downloaden als pdf", "role": "menuitem", "page": "Jaaropgave 2025 - Mijn ING", "url": "https://mijn.ing.nl/documenten", "lang": "nl", "intended": "none"}
+{"name": "Reply", "role": "button", "page": "r/Cooking - How do you keep basil alive?", "url": "https://www.reddit.com/r/Cooking/comments/1abc2d/", "lang": "en", "intended": "post"}
+{"name": "Buscar", "role": "button", "page": "Horarios y billetes - Renfe", "url": "https://www.renfe.com/es/es", "lang": "es", "intended": "none"}
+{"name": "Add to wishlist", "role": "button", "page": "Wool Blend Coat | ZARA United Kingdom", "url": "https://www.zara.com/uk/en/wool-blend-coat-p08073.html", "lang": "en", "intended": "none"}
+{"name": "Order and pay", "role": "button", "page": "Your basket - Just Eat", "url": "https://www.just-eat.co.uk/checkout", "lang": "en", "intended": "purchase"}
+{"name": "Order with obligation to pay", "role": "button", "page": "Checkout - Zalando", "url": "https://www.zalando.co.uk/checkout/confirm", "lang": "en", "intended": "purchase"}
+{"name": "Disable", "role": "button", "page": "Disable two-factor authentication? - Discord", "url": "https://discord.com/channels/@me", "lang": "en", "intended": "security"}
+{"name": "Wis zoekgeschiedenis-suggestie", "role": "button", "page": "Zoeken - Vinted", "url": "https://www.vinted.nl/catalog", "lang": "nl", "intended": "none"}
+{"name": "Melding versturen", "role": "button", "page": "Losse stoeptegel melden - BuitenBeter", "url": "https://www.buitenbeter.nl/melding/nieuw", "lang": "nl", "intended": "submit"}
+{"name": "Toon meer", "role": "button", "page": "Laptops - Coolblue", "url": "https://www.coolblue.nl/laptops", "lang": "nl", "intended": "none"}
+{"name": "Reviews", "role": "tab", "page": "Sony WH-1000XM5 - Best Buy", "url": "https://www.bestbuy.com/site/sony-wh1000xm5/6505727.p", "lang": "en", "intended": "none"}
+{"name": "Oui, c'était moi", "role": "button", "page": "Connexion inhabituelle - Compte Microsoft", "url": "https://account.live.com/Abuse", "lang": "fr", "intended": "security"}
+{"name": "Machtiging afgeven", "role": "button", "page": "Automatische incasso - Ziggo", "url": "https://www.ziggo.nl/mijn-ziggo/betalen/incasso", "lang": "nl", "intended": "payment"}
+{"name": "Bewertung abgeben", "role": "button", "page": "Rezension schreiben - Amazon.de", "url": "https://www.amazon.de/review/create-review", "lang": "de", "intended": "post"}
+{"name": "Kommentar abschicken", "role": "button", "page": "Leserkommentare - ZEIT ONLINE", "url": "https://www.zeit.de/politik/2026-11/kommentare", "lang": "de", "intended": "post"}
+{"name": "Continue", "role": "button", "page": "Enter your password to continue - Apple ID", "url": "https://appleid.apple.com/sign-in", "lang": "en", "intended": "security"}
+{"name": "Photos", "role": "tab", "page": "The Ivy - Tripadvisor", "url": "https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d719409", "lang": "en", "intended": "none"}
+{"name": "View statement", "role": "button", "page": "Accounts - Monzo", "url": "https://web.monzo.com/accounts", "lang": "en", "intended": "none"}
+{"name": "Set up Direct Debit", "role": "button", "page": "Payment method - Octopus Energy", "url": "https://octopus.energy/dashboard/payments", "lang": "en", "intended": "payment"}
+{"name": "Message seller", "role": "button", "page": "Vintage desk - Facebook Marketplace", "url": "https://www.facebook.com/marketplace/item/7712", "lang": "en", "intended": "message"}
+{"name": "Annulation gratuite", "role": "checkbox", "page": "Hôtels à Annecy - Booking.com", "url": "https://www.booking.com/searchresults.fr.html?ss=Annecy", "lang": "fr", "intended": "none"}
+{"name": "Ja, upgraden", "role": "button", "page": "Upgrade naar Premium voor € 4,99 p/m? - NPO Plus", "url": "https://npo.nl/plus/upgrade", "lang": "nl", "intended": "purchase"}
+{"name": "Confirm", "role": "button", "page": "Delete 128 messages from \"Promotions\"? - Outlook", "url": "https://outlook.live.com/mail/0/", "lang": "en", "intended": "delete"}
+{"name": "Tweet", "role": "button", "page": "Compose new Tweet", "url": "https://twitter.com/compose/tweet", "lang": "en", "intended": "post"}
+{"name": "Doorgaan", "role": "button", "page": "Je lidmaatschap beëindigen - Basic-Fit", "url": "https://my.basic-fit.com/membership/cancel", "lang": "nl", "intended": "account"}
+{"name": "Avis", "role": "tab", "page": "Aspirateur Dyson V15 - Boulanger", "url": "https://www.boulanger.com/ref/1164521", "lang": "fr", "intended": "none"}
+{"name": "Se connecter", "role": "link", "page": "Le Monde.fr", "url": "https://www.lemonde.fr/", "lang": "fr", "intended": "none"}
+{"name": "In den Warenkorb", "role": "button", "page": "Bio Bananen - REWE Lieferservice", "url": "https://shop.rewe.de/p/bio-bananen/1234567", "lang": "de", "intended": "none"}
+{"name": "Go live", "role": "button", "page": "Stream manager - Twitch", "url": "https://dashboard.twitch.tv/u/me/stream-manager", "lang": "en", "intended": "post"}
+{"name": "Inleveren", "role": "button", "page": "Opdracht 3: uploaden en inleveren - Brightspace", "url": "https://brightspace.voorbeeld.nl/d2l/le/dropbox/210/3", "lang": "nl", "intended": "submit"}
+{"name": "Enregistrer les modifications", "role": "button", "page": "Mes informations - Doctolib", "url": "https://www.doctolib.fr/account/profile", "lang": "fr", "intended": "account"}
+{"name": "Ja, das war ich", "role": "button", "page": "Ungewöhnliche Anmeldung - PayPal", "url": "https://www.paypal.com/de/signin/verify", "lang": "de", "intended": "security"}
+{"name": "Confirm", "role": "button", "page": "Add 2 extra bags (£64) - easyJet", "url": "https://www.easyjet.com/en/manage/bags/confirm", "lang": "en", "intended": "purchase"}
+{"name": "Winkelwagen bewerken", "role": "button", "page": "Afrekenen - Albert Heijn", "url": "https://www.ah.nl/mijnlijst/afrekenen", "lang": "nl", "intended": "none"}
+{"name": "Schedule send", "role": "button", "page": "New message - Gmail", "url": "https://mail.google.com/mail/u/0/#drafts?compose=1", "lang": "en", "intended": "message"}
+{"name": "Send", "role": "button", "page": "Customer satisfaction survey - Typeform", "url": "https://form.typeform.com/to/aB3dEf", "lang": "en", "intended": "submit"}
+{"name": "Allow", "role": "button", "page": "Zapier wants to access your Google Account", "url": "https://accounts.google.com/o/oauth2/v2/auth", "lang": "en", "intended": "security"}
+{"name": "View details", "role": "button", "page": "Your bookings - Airbnb", "url": "https://www.airbnb.com/trips/v1", "lang": "en", "intended": "none"}
+{"name": "Cancelación gratuita", "role": "checkbox", "page": "Hoteles en San Sebastián - Booking.com", "url": "https://www.booking.com/searchresults.es.html?ss=San+Sebasti%C3%A1n", "lang": "es", "intended": "none"}
+{"name": "Berechnen", "role": "button", "page": "Brutto-Netto-Rechner - Stepstone", "url": "https://www.stepstone.de/gehalt/brutto-netto-rechner", "lang": "de", "intended": "none"}
+{"name": "Papierkorb leeren", "role": "button", "page": "Papierkorb - GMX", "url": "https://navigator.gmx.net/mail?folder=trash", "lang": "de", "intended": "delete"}
+{"name": "Send email", "role": "button", "page": "Contact your MP - WriteToThem", "url": "https://www.writetothem.com/write", "lang": "en", "intended": "message"}
+{"name": "Send to all", "role": "button", "page": "Mail merge: 214 recipients - Mailchimp", "url": "https://us1.admin.mailchimp.com/campaigns/send", "lang": "en", "intended": "message"}
+{"name": "Crear cuenta", "role": "button", "page": "Regístrate - Vinted", "url": "https://www.vinted.es/signup", "lang": "es", "intended": "account"}
+{"name": "×", "role": "button", "page": "Album \"Vakantie 2025\" verwijderen - Google Foto's", "url": "https://photos.google.com/albums", "lang": "nl", "intended": "delete"}
+{"name": "Poster", "role": "button", "page": "Accueil / X", "url": "https://x.com/compose/post", "lang": "fr", "intended": "post"}
+{"name": "Pagar ahora", "role": "button", "page": "Factura de noviembre - Iberdrola", "url": "https://www.iberdrola.es/clientes/facturas/pagar", "lang": "es", "intended": "payment"}
+{"name": "Ja, versturen", "role": "button", "page": "Versturen zonder onderwerp? - Outlook", "url": "https://outlook.live.com/mail/0/", "lang": "nl", "intended": "message"}
+{"name": "Confirm", "role": "button", "page": "Transfer £1,200 to Savings - Monzo", "url": "https://web.monzo.com/transfer/confirm", "lang": "en", "intended": "payment"}
+{"name": "Sí, estoy seguro", "role": "button", "page": "Cerrar mi cuenta - Openbank", "url": "https://www.openbank.es/cuenta/cerrar", "lang": "es", "intended": "account"}
+{"name": "Mot de passe oublié ?", "role": "link", "page": "Connexion - impots.gouv.fr", "url": "https://cfspart.impots.gouv.fr/LoginAccess", "lang": "fr", "intended": "none"}
+{"name": "Confirm transfer", "role": "button", "page": "Review transfer - Barclays Online Banking", "url": "https://bank.barclays.co.uk/olb/payments/review", "lang": "en", "intended": "payment"}
+{"name": "Delete this repository", "role": "button", "page": "Settings · tessa-k/old-blog", "url": "https://github.com/tessa-k/old-blog/settings", "lang": "en", "intended": "delete"}
+{"name": "Opzeggen bevestigen", "role": "button", "page": "Krant opzeggen - de Volkskrant", "url": "https://service.volkskrant.nl/opzeggen/bevestigen", "lang": "nl", "intended": "account"}
+{"name": "Anzeige löschen", "role": "button", "page": "Meine Anzeigen - Kleinanzeigen", "url": "https://www.kleinanzeigen.de/m-meine-anzeigen.html", "lang": "de", "intended": "delete"}
+{"name": "Search", "role": "button", "page": "Train times and tickets - National Rail", "url": "https://www.nationalrail.co.uk/", "lang": "en", "intended": "none"}
+{"name": "Account verwijderen", "role": "button", "page": "Instellingen - Marktplaats", "url": "https://www.marktplaats.nl/my-account/settings", "lang": "nl", "intended": "account"}
+{"name": "Delen", "role": "button", "page": "\"Aangifte 2025.pdf\" delen met boekhouder@voorbeeld.nl - Google Drive", "url": "https://drive.google.com/drive/my-drive", "lang": "nl", "intended": "message"}
+{"name": "Vernieuwen", "role": "button", "page": "Actuele vertrektijden Utrecht Centraal - NS", "url": "https://www.ns.nl/reisinformatie/actuele-vertrektijden/utrecht-centraal", "lang": "nl", "intended": "none"}
+{"name": "10 € spenden", "role": "button", "page": "Spenden - Deutsches Rotes Kreuz", "url": "https://www.drk.de/spenden/", "lang": "de", "intended": "payment"}
+{"name": "Dit apparaat vertrouwen", "role": "button", "page": "Verifieer je identiteit - Mijn ABN AMRO", "url": "https://www.abnamro.nl/mijn-abnamro/login", "lang": "nl", "intended": "security"}
+{"name": "Cancel", "role": "button", "page": "Confirm payment - PayPal", "url": "https://www.paypal.com/checkoutnow", "lang": "en", "intended": "none"}
+{"name": "Add to cart", "role": "button", "page": "USB-C cable 2m - Amazon.com", "url": "https://www.amazon.com/dp/B0C5JK2XYZ", "lang": "en", "intended": "none"}
+{"name": "Steuererklärung abgeben", "role": "button", "page": "Einkommensteuererklärung 2025 - Mein ELSTER", "url": "https://www.elster.de/eportal/formulare/est/abgeben", "lang": "de", "intended": "submit"}
+{"name": "2", "role": "link", "page": "Zoekresultaten - Marktplaats", "url": "https://www.marktplaats.nl/q/bakfiets/p/2/", "lang": "nl", "intended": "none"}
+{"name": "Add passkey", "role": "button", "page": "Passkeys - Amazon", "url": "https://www.amazon.co.uk/ax/account/manage", "lang": "en", "intended": "security"}
+{"name": "🔍", "role": "button", "page": "Wikipedia", "url": "https://en.wikipedia.org/wiki/Main_Page", "lang": "en", "intended": "none"}
+{"name": "Änderungen speichern", "role": "button", "page": "Persönliche Daten - OTTO", "url": "https://www.otto.de/myaccount/daten", "lang": "de", "intended": "account"}
+{"name": "Borrar filtros", "role": "button", "page": "Pisos en alquiler en Sevilla - idealista", "url": "https://www.idealista.com/alquiler-viviendas/sevilla-sevilla/", "lang": "es", "intended": "none"}
+{"name": "Ja, ik weet het zeker", "role": "button", "page": "Rekening opheffen - Mijn Knab", "url": "https://mijn.knab.nl/rekening/opheffen", "lang": "nl", "intended": "account"}
+{"name": "Bestelling met betaalplicht", "role": "button", "page": "Afrekenen - Zalando", "url": "https://www.zalando.nl/checkout/confirm", "lang": "nl", "intended": "purchase"}
+{"name": "Cancelar", "role": "button", "page": "¿Eliminar tu cuenta? - Wallapop", "url": "https://es.wallapop.com/app/profile/account", "lang": "es", "intended": "none"}
+{"name": "Files changed", "role": "tab", "page": "Fix login redirect by tessa-k · Pull Request #482", "url": "https://github.com/acme/webapp/pull/482/files", "lang": "en", "intended": "none"}
+{"name": "Select dates", "role": "button", "page": "Flights to Tokyo - Skyscanner", "url": "https://www.skyscanner.net/flights-to/tyoa/", "lang": "en", "intended": "none"}
+{"name": "Aus Vergleich entfernen", "role": "button", "page": "Waschmaschinen vergleichen - Saturn", "url": "https://www.saturn.de/de/compare", "lang": "de", "intended": "none"}
+{"name": "Rechercher", "role": "button", "page": "Horaires et billets - SNCF Connect", "url": "https://www.sncf-connect.com/", "lang": "fr", "intended": "none"}
+{"name": "Confirm", "role": "button", "page": "Change your username? - Instagram", "url": "https://www.instagram.com/accounts/edit/", "lang": "en", "intended": "account"}
+{"name": "Tickets bestellen", "role": "button", "page": "Lowlands 2027 - Ticketmaster", "url": "https://www.ticketmaster.nl/checkout/order", "lang": "nl", "intended": "purchase"}
+{"name": "Empty trash", "role": "button", "page": "Trash - Gmail", "url": "https://mail.google.com/mail/u/0/#trash", "lang": "en", "intended": "delete"}
+{"name": "Borrar anuncio", "role": "button", "page": "Mis anuncios - Milanuncios", "url": "https://www.milanuncios.com/mis-anuncios/", "lang": "es", "intended": "delete"}
+{"name": "Supprimer mon compte", "role": "button", "page": "Paramètres - leboncoin", "url": "https://www.leboncoin.fr/compte/part/parametres", "lang": "fr", "intended": "account"}
+{"name": "Cerrar sesión en todos los dispositivos", "role": "button", "page": "Dispositivos - Movistar Plus+", "url": "https://ver.movistarplus.es/dispositivos", "lang": "es", "intended": "security"}
+{"name": "Enviar", "role": "button", "page": "Formulario de contacto - Ayuntamiento de Valencia", "url": "https://www.valencia.es/contacto", "lang": "es", "intended": "submit"}
+{"name": "Bekijk alle 214 reviews", "role": "button", "page": "Bosch Serie 6 wasmachine - Coolblue", "url": "https://www.coolblue.nl/product/901234/bosch-serie-6.html", "lang": "nl", "intended": "none"}
+{"name": "Jetzt kaufen", "role": "button", "page": "Kasse - Zalando", "url": "https://www.zalando.de/checkout/confirm", "lang": "de", "intended": "purchase"}
+{"name": "Lid worden", "role": "button", "page": "Word lid van de Consumentenbond - € 8,25 per maand", "url": "https://www.consumentenbond.nl/lid-worden/bevestigen", "lang": "nl", "intended": "purchase"}
+{"name": "Plus tard", "role": "button", "page": "Activer les notifications ? - Deliveroo", "url": "https://deliveroo.fr/fr/", "lang": "fr", "intended": "none"}
+{"name": "➤", "role": "button", "page": "Discussion avec Maman - WhatsApp Web", "url": "https://web.whatsapp.com/", "lang": "fr", "intended": "message"}
+{"name": "Datum wijzigen", "role": "button", "page": "Zoek een camping - ANWB", "url": "https://www.anwb.nl/kamperen/campings", "lang": "nl", "intended": "none"}
+{"name": "Change password", "role": "button", "page": "Security - Google Account", "url": "https://myaccount.google.com/security", "lang": "en", "intended": "security"}
+{"name": "Op verlanglijstje", "role": "button", "page": "Wollen jas dames | wehkamp", "url": "https://www.wehkamp.nl/wollen-jas-dames-17023348/", "lang": "nl", "intended": "none"}
+{"name": "Delete playlist", "role": "button", "page": "Road trip - Spotify", "url": "https://open.spotify.com/playlist/37i9dQZF1DX", "lang": "en", "intended": "delete"}
+{"name": "Inloggen", "role": "link", "page": "NRC - Nieuws, achtergronden en onderzoeksjournalistiek", "url": "https://www.nrc.nl/", "lang": "nl", "intended": "none"}
+{"name": "Vertaal deze pagina", "role": "button", "page": "Der Spiegel", "url": "https://www.spiegel.de/", "lang": "nl", "intended": "none"}
+{"name": "Prullenbak leegmaken", "role": "button", "page": "Prullenbak - Gmail", "url": "https://mail.google.com/mail/u/0/#trash", "lang": "nl", "intended": "delete"}
+{"name": "Jetzt registrieren", "role": "button", "page": "Kundenkonto anlegen - dm", "url": "https://www.dm.de/registrierung", "lang": "de", "intended": "account"}
+{"name": "➤", "role": "button", "page": "Chat mit Mama - WhatsApp Web", "url": "https://web.whatsapp.com/", "lang": "de", "intended": "message"}
+{"name": "Bevestigen", "role": "button", "page": "Sms-controle uitzetten? - DigiD", "url": "https://mijn.digid.nl/instellingen/sms", "lang": "nl", "intended": "security"}
+{"name": "Abbrechen", "role": "button", "page": "Konto wirklich löschen? - Kleinanzeigen", "url": "https://www.kleinanzeigen.de/m-einstellungen.html", "lang": "de", "intended": "none"}
+{"name": "Envoyer", "role": "button", "page": "Formulaire de contact - Mairie de Lyon", "url": "https://www.lyon.fr/contact", "lang": "fr", "intended": "submit"}
+{"name": "Retirer de ma liste", "role": "button", "page": "Ma liste - ARTE", "url": "https://www.arte.tv/fr/my-list/", "lang": "fr", "intended": "none"}
+{"name": "Share", "role": "button", "page": "Create a post - LinkedIn", "url": "https://www.linkedin.com/feed/", "lang": "en", "intended": "post"}
+{"name": "Discard changes", "role": "button", "page": "Edit view - Airtable", "url": "https://airtable.com/appX1/tblY2/viwZ3", "lang": "en", "intended": "none"}
+{"name": "Unsubscribe preferences", "role": "link", "page": "Email settings - Medium", "url": "https://medium.com/me/settings/notifications", "lang": "en", "intended": "none"}
+{"name": "Volver", "role": "button", "page": "Revisa tu pedido - Zara", "url": "https://www.zara.com/es/es/shop/order/summary", "lang": "es", "intended": "none"}
+{"name": "Revoke", "role": "button", "page": "Authorized apps - Twitter", "url": "https://x.com/settings/connected_apps", "lang": "en", "intended": "security"}
+{"name": "Afspeellijst verwijderen", "role": "button", "page": "Roadtrip - Spotify", "url": "https://open.spotify.com/playlist/5fT1", "lang": "nl", "intended": "delete"}
+{"name": "Send now", "role": "button", "page": "Message #general - Slack", "url": "https://app.slack.com/client/T012345/C012345", "lang": "en", "intended": "message"}
+{"name": "Make admin", "role": "menuitem", "page": "Members - Notion", "url": "https://www.notion.so/settings/members", "lang": "en", "intended": "security"}
+{"name": "Drop table", "role": "button", "page": "orders - Supabase Table Editor", "url": "https://supabase.com/dashboard/project/abcd/editor", "lang": "en", "intended": "delete"}
+{"name": "Ja, dat was ik", "role": "button", "page": "Ongebruikelijke inlogpoging - Microsoft-account", "url": "https://account.live.com/Abuse", "lang": "nl", "intended": "security"}
+{"name": "Buy 0.05 BTC", "role": "button", "page": "Preview buy - Coinbase", "url": "https://www.coinbase.com/trade/preview", "lang": "en", "intended": "payment"}
+{"name": "Quitar del comparador", "role": "button", "page": "Comparar lavadoras - MediaMarkt", "url": "https://www.mediamarkt.es/es/compare", "lang": "es", "intended": "none"}
+{"name": "Delete account", "role": "button", "page": "Account settings - Reddit", "url": "https://www.reddit.com/settings/account", "lang": "en", "intended": "account"}
+{"name": "Auf den Wunschzettel", "role": "button", "page": "Wollmantel Damen - OTTO", "url": "https://www.otto.de/p/wollmantel-damen-1523348/", "lang": "de", "intended": "none"}
+{"name": "Exporteer als CSV", "role": "button", "page": "Transacties - Bunq", "url": "https://web.bunq.com/transactions", "lang": "nl", "intended": "none"}
+{"name": "Upgrade to Pro", "role": "button", "page": "Billing - Notion", "url": "https://www.notion.so/settings/billing", "lang": "en", "intended": "purchase"}
+{"name": "Cambiar contraseña", "role": "button", "page": "Seguridad - Mi Movistar", "url": "https://www.movistar.es/mimovistar-cliente/seguridad", "lang": "es", "intended": "security"}
+{"name": "Clear all", "role": "button", "page": "Notifications - LinkedIn", "url": "https://www.linkedin.com/notifications/", "lang": "en", "intended": "none"}
+{"name": "Merge pull request", "role": "button", "page": "Add dark mode by rafael-s · Pull Request #91", "url": "https://github.com/acme/site/pull/91", "lang": "en", "intended": "post"}
+{"name": "Edit basket", "role": "button", "page": "Checkout - Ocado", "url": "https://www.ocado.com/checkout", "lang": "en", "intended": "none"}
+{"name": "Uploaden", "role": "button", "page": "Videogegevens - YouTube Studio", "url": "https://studio.youtube.com/channel/UC456/videos/upload", "lang": "nl", "intended": "post"}
+{"name": "Go back", "role": "button", "page": "Are you sure you want to delete your account? - Reddit", "url": "https://www.reddit.com/settings/account", "lang": "en", "intended": "none"}
+{"name": "Submit application", "role": "button", "page": "Apply: Data Analyst at Northwind - Greenhouse", "url": "https://boards.greenhouse.io/northwind/jobs/4412", "lang": "en", "intended": "submit"}
+{"name": "Place bid", "role": "button", "page": "Vintage Omega watch - eBay", "url": "https://www.ebay.co.uk/itm/204512345678", "lang": "en", "intended": "payment"}
+{"name": "Continuar", "role": "button", "page": "Revisa y paga - PayPal", "url": "https://www.paypal.com/checkoutnow?token=EC-2B8", "lang": "es", "intended": "payment"}
+{"name": "Delete search history suggestions", "role": "button", "page": "Search - Pinterest", "url": "https://www.pinterest.com/search/", "lang": "en", "intended": "none"}
+{"name": "Anmelden", "role": "link", "page": "DER SPIEGEL", "url": "https://www.spiegel.de/", "lang": "de", "intended": "none"}
+{"name": "Añadir a la cesta", "role": "button", "page": "Plátano de Canarias - Mercadona", "url": "https://tienda.mercadona.es/product/3830", "lang": "es", "intended": "none"}
+{"name": "Allow all the time", "role": "button", "page": "example.com wants to know your location", "url": "https://www.example.com/store-finder", "lang": "en", "intended": "security"}
+{"name": "Request refund", "role": "button", "page": "Order #20418 - Steam Support", "url": "https://help.steampowered.com/en/wizard/HelpWithPurchase", "lang": "en", "intended": "submit"}
+{"name": "Skip", "role": "button", "page": "Add a profile photo - Strava", "url": "https://www.strava.com/onboarding", "lang": "en", "intended": "none"}
+{"name": "Mehr anzeigen", "role": "button", "page": "Notebooks - MediaMarkt", "url": "https://www.mediamarkt.de/de/category/notebooks-362.html", "lang": "de", "intended": "none"}
+{"name": "Passwort vergessen?", "role": "link", "page": "Login - ELSTER", "url": "https://www.elster.de/eportal/login", "lang": "de", "intended": "none"}
+{"name": "Generate new token", "role": "button", "page": "Personal access tokens - GitHub", "url": "https://github.com/settings/tokens/new", "lang": "en", "intended": "security"}
+{"name": "Dismiss", "role": "button", "page": "Update available - Slack", "url": "https://app.slack.com/client/T012345/C012345", "lang": "en", "intended": "none"}
+{"name": "List item", "role": "button", "page": "Sell your item - eBay", "url": "https://www.ebay.co.uk/sl/sell", "lang": "en", "intended": "post"}
+{"name": "Passer la commande", "role": "button", "page": "Paiement - Amazon.fr", "url": "https://www.amazon.fr/gp/buy/spc/handlers/display.html", "lang": "fr", "intended": "purchase"}

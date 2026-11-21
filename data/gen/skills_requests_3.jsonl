@@ -1,0 +1,140 @@
+{"skill": "recipe-from-fridge", "message": "I've got half a cabbage, eggs and some feta. dinner?", "lang": "en"}
+{"skill": "recipe-from-fridge", "message": "nothing in the house except rice, a tin of tomatoes and frozen peas, help", "lang": "en"}
+{"skill": "recipe-from-fridge", "message": "what can I make without going to the shop: chicken thighs, leeks, cream", "lang": "en"}
+{"skill": "recipe-from-fridge", "message": "ik heb nog courgette, gehakt en wat rijst liggen, wat maak ik daarvan", "lang": "nl"}
+{"skill": "recipe-from-fridge", "message": "wat eten we vanavond? er ligt alleen nog prei, spek en een zak aardappels", "lang": "nl"}
+{"skill": "recipe-from-fridge", "message": "il me reste des pâtes, deux courgettes et un peu de chèvre, je fais quoi ce soir ?", "lang": "fr"}
+{"skill": "recipe-from-fridge", "message": "solo tengo huevos, patatas y un pimiento, ¿qué ceno?", "lang": "es"}
+{"skill": "meal-plan", "message": "figure out what we're eating monday to sunday, Noor is vegetarian and Sam won't touch fish", "lang": "en"}
+{"skill": "meal-plan", "message": "I'm so tired of deciding every evening what's for tea, sort the next seven days", "lang": "en"}
+{"skill": "meal-plan", "message": "next week's suppers please, cheap, two adults two kids, one nut-free", "lang": "en"}
+{"skill": "meal-plan", "message": "bedenk even wat we de hele week eten, de kinderen lusten geen champignons", "lang": "nl"}
+{"skill": "meal-plan", "message": "weekmenu graag, vier personen, twee keer vega en niet te ingewikkeld", "lang": "nl"}
+{"skill": "meal-plan", "message": "organízame las cenas de lunes a domingo, mi hija es celíaca", "lang": "es"}
+{"skill": "meal-plan", "message": "Was kochen wir nächste Woche? Bitte sieben Abendessen, eins der Kinder mag kein Gemüse", "lang": "de"}
+{"skill": "recipe-scaler", "message": "this serves 4 but there'll be 11 of us on sunday", "lang": "en"}
+{"skill": "recipe-scaler", "message": "what's 2 and a half cups of flour and a stick of butter in normal units", "lang": "en"}
+{"skill": "recipe-scaler", "message": "halve this cake, I only have a small tin", "lang": "en"}
+{"skill": "recipe-scaler", "message": "dit is voor 6 personen maar we zijn maar met z'n tweeën, reken even om", "lang": "nl"}
+{"skill": "recipe-scaler", "message": "hoeveel gram is 1 cup suiker en 3/4 cup boter in dit amerikaanse baksel", "lang": "nl"}
+{"skill": "recipe-scaler", "message": "Das Gericht ist für 4 gedacht, ich brauche es für 10 Leute – rechne bitte um", "lang": "de"}
+{"skill": "recipe-scaler", "message": "c'est prévu pour 8, on sera 3, adapte les quantités et mets tout en grammes", "lang": "fr"}
+{"skill": "recipe-cleaner", "message": "I just want to know how to make the damn pancakes, not read about her grandmother", "lang": "en"}
+{"skill": "recipe-cleaner", "message": "get rid of all the clutter here and show me only what I need to cook this", "lang": "en"}
+{"skill": "recipe-cleaner", "message": "too many popups on this food blog, what do I need and what do I do", "lang": "en"}
+{"skill": "recipe-cleaner", "message": "ik moet eerst 3 schermen scrollen voor ik bij het gerecht zelf ben, geef me alleen wat ik nodig heb", "lang": "nl"}
+{"skill": "recipe-cleaner", "message": "haal al die reclame en dat hele verhaal weg, wat moet erin en hoe maak ik het", "lang": "nl"}
+{"skill": "recipe-cleaner", "message": "cette page est pleine de blabla, donne-moi juste la liste et la préparation", "lang": "fr"}
+{"skill": "recipe-cleaner", "message": "quítame toda la paja de este blog y dime solo qué lleva y cómo se hace", "lang": "es"}
+{"skill": "wine-pairing", "message": "making mushroom risotto for my in-laws, what do I pour", "lang": "en"}
+{"skill": "wine-pairing", "message": "red or white with duck breast and cherry sauce?", "lang": "en"}
+{"skill": "wine-pairing", "message": "something non-alcoholic that works with spicy thai curry", "lang": "en"}
+{"skill": "wine-pairing", "message": "wat schenk ik bij stoofvlees met rode kool", "lang": "nl"}
+{"skill": "wine-pairing", "message": "we eten zaterdag kaasfondue, welke fles haal ik erbij", "lang": "nl"}
+{"skill": "wine-pairing", "message": "¿qué pongo de beber con un cordero asado?", "lang": "es"}
+{"skill": "wine-pairing", "message": "Was trinkt man zu Lachs mit Zitronensoße – eher Riesling oder Grauburgunder?", "lang": "de"}
+{"skill": "workout-plan", "message": "10k race in eight weeks, what should my next seven days look like", "lang": "en"}
+{"skill": "workout-plan", "message": "I can do mon wed sat, want to lift and jog, lay it out", "lang": "en"}
+{"skill": "workout-plan", "message": "getting back in shape after a knee thing, what do I do which day", "lang": "en"}
+{"skill": "workout-plan", "message": "ik wil drie keer hardlopen en twee keer krachttraining doen, hoe deel ik dat in", "lang": "nl"}
+{"skill": "workout-plan", "message": "maak even een sportrooster, ik train voor de dam tot damloop", "lang": "nl"}
+{"skill": "workout-plan", "message": "Ich will für den Halbmarathon trainieren und zweimal ins Fitnessstudio – wie teile ich mir das ein?", "lang": "de"}
+{"skill": "workout-plan", "message": "je reprends le sport, propose-moi un programme : deux footings et une séance de muscu", "lang": "fr"}
+{"skill": "calorie-estimate", "message": "how bad was that burger and fries I just had", "lang": "en"}
+{"skill": "calorie-estimate", "message": "bowl of oats with banana, peanut butter and whole milk, what's that roughly", "lang": "en"}
+{"skill": "calorie-estimate", "message": "am I getting enough if lunch is two eggs on toast and a yoghurt? trying to build muscle", "lang": "en"}
+{"skill": "calorie-estimate", "message": "hoeveel kcal zit er ongeveer in een bord spaghetti bolognese met kaas", "lang": "nl"}
+{"skill": "calorie-estimate", "message": "ik at net een broodje kroket en een cola, wat tikt dat aan", "lang": "nl"}
+{"skill": "calorie-estimate", "message": "ça fait combien, à peu près, une part de quiche lorraine avec une salade ?", "lang": "fr"}
+{"skill": "calorie-estimate", "message": "¿cuánto engorda un plato de paella y una caña?", "lang": "es"}
+{"skill": "symptom-notes", "message": "seeing the doctor thursday about these headaches, help me not forget anything", "lang": "en"}
+{"skill": "symptom-notes", "message": "been dizzy on and off since september, started after the new pills, put that in order for the appointment", "lang": "en"}
+{"skill": "symptom-notes", "message": "I always blank in the consulting room. write up what's been going on with my stomach", "lang": "en"}
+{"skill": "symptom-notes", "message": "ik moet morgen naar de huisarts voor mijn rug, zet even op een rij wat ik heb en sinds wanneer", "lang": "nl"}
+{"skill": "symptom-notes", "message": "al drie weken hoest ik 's nachts, soms koorts, schrijf dat netjes op voor de dokter", "lang": "nl"}
+{"skill": "symptom-notes", "message": "el martes voy al médico por los mareos, ordéname todo lo que me ha pasado", "lang": "es"}
+{"skill": "symptom-notes", "message": "Ich habe Freitag einen Termin beim Hausarzt wegen der Knieschmerzen, fass bitte den Verlauf zusammen", "lang": "de"}
+{"skill": "school-newsletter-digest", "message": "another six-page mail from the primary, what do I actually have to do or remember", "lang": "en"}
+{"skill": "school-newsletter-digest", "message": "when is sports day and do they need packed lunch? it's somewhere in the weekly bulletin", "lang": "en"}
+{"skill": "school-newsletter-digest", "message": "did I miss anything important in what Mrs Adeyemi's office sent round this week", "lang": "en"}
+{"skill": "school-newsletter-digest", "message": "de weekbrief van de basisschool is weer een lap tekst, wat moet ik weten", "lang": "nl"}
+{"skill": "school-newsletter-digest", "message": "staat er in het bericht van juf Ilse iets over wanneer de schoolfoto's zijn", "lang": "nl"}
+{"skill": "school-newsletter-digest", "message": "Was steht Wichtiges im Elternbrief der Grundschule? Termine und was wir mitbringen müssen", "lang": "de"}
+{"skill": "school-newsletter-digest", "message": "l'école a encore envoyé un long message, c'est quoi les choses à retenir pour nous ?", "lang": "fr"}
+{"skill": "absence-note", "message": "Milo threw up all night, he's staying home, let school know", "lang": "en"}
+{"skill": "absence-note", "message": "Zara has the orthodontist at 10 on wednesday, tell her form tutor", "lang": "en"}
+{"skill": "absence-note", "message": "need to excuse Ben from PE this week, sprained ankle", "lang": "en"}
+{"skill": "absence-note", "message": "Lotte heeft koorts en blijft thuis, meld haar even af bij de juf", "lang": "nl"}
+{"skill": "absence-note", "message": "Sem moet dinsdagmiddag naar de tandarts, laat de mentor weten dat hij eerder weg moet", "lang": "nl"}
+{"skill": "absence-note", "message": "Jules a de la fièvre ce matin, préviens sa maîtresse qu'il ne viendra pas", "lang": "fr"}
+{"skill": "absence-note", "message": "Lucía tiene fiebre y hoy no va al cole, escríbele a su tutora", "lang": "es"}
+{"skill": "kids-activity-ideas", "message": "it's pouring and my two are climbing the walls. they're 4 and 7", "lang": "en"}
+{"skill": "kids-activity-ideas", "message": "what can we do saturday that isn't screens? she's 10", "lang": "en"}
+{"skill": "kids-activity-ideas", "message": "bored 6yo, sunny afternoon, small garden, go", "lang": "en"}
+{"skill": "kids-activity-ideas", "message": "het regent de hele dag en ze vervelen zich te pletter, tips? 3 en 6 jaar", "lang": "nl"}
+{"skill": "kids-activity-ideas", "message": "wat is er leuk om te doen met een peuter op woensdagmiddag", "lang": "nl"}
+{"skill": "kids-activity-ideas", "message": "llueve y los niños están insoportables, ¿qué hacemos en casa? tienen 5 y 8 años", "lang": "es"}
+{"skill": "kids-activity-ideas", "message": "Schulfrei und Dauerregen – was kann ich mit zwei Achtjährigen unternehmen?", "lang": "de"}
+{"skill": "homework-helper", "message": "my daughter doesn't get fractions and I can't make it clear without doing it for her", "lang": "en"}
+{"skill": "homework-helper", "message": "year 5 maths sheet on long division, how do I guide him through it", "lang": "en"}
+{"skill": "homework-helper", "message": "she's 12 and stuck on photosynthesis for biology tomorrow, make it click for her", "lang": "en"}
+{"skill": "homework-helper", "message": "mijn zoon van 9 snapt de staartdelingen niet, hoe leg ik dat uit zonder het voor te zeggen", "lang": "nl"}
+{"skill": "homework-helper", "message": "Evi moet een som met procenten maken uit groep 7 en loopt vast, help haar op weg", "lang": "nl"}
+{"skill": "homework-helper", "message": "Mein Sohn (3. Klasse) versteht das schriftliche Subtrahieren nicht, wie bringe ich ihm das bei?", "lang": "de"}
+{"skill": "homework-helper", "message": "ma fille de CM1 bloque sur un exercice de fractions, aide-la à comprendre sans lui donner la solution", "lang": "fr"}
+{"skill": "bedtime-story", "message": "Ella won't sleep unless there's a tale about her bunny Mr Flop, got one?", "lang": "en"}
+{"skill": "bedtime-story", "message": "something calm to read aloud tonight with Theo as a pirate", "lang": "en"}
+{"skill": "bedtime-story", "message": "5 minute sleepy adventure for twins who love dragons and trains", "lang": "en"}
+{"skill": "bedtime-story", "message": "verzin een verhaaltje voor het slapengaan over Tijn en zijn knuffelolifant", "lang": "nl"}
+{"skill": "bedtime-story", "message": "de meiden willen vanavond iets horen over een eenhoorn die in Zwolle woont, niet te lang", "lang": "nl"}
+{"skill": "bedtime-story", "message": "invente une petite histoire pour endormir Manon, avec son doudou lapin", "lang": "fr"}
+{"skill": "bedtime-story", "message": "cuéntame un cuento cortito para dormir a Mateo, que salga su osito", "lang": "es"}
+{"skill": "birthday-party-planner", "message": "Isla turns 6 in three weeks and I've done nothing. twelve kids. help.", "lang": "en"}
+{"skill": "birthday-party-planner", "message": "what do you do with ten 8 year olds for two hours on a saturday, it's my son's do", "lang": "en"}
+{"skill": "birthday-party-planner", "message": "dinosaur theme for my son's 5th, need the whole afternoon figured out", "lang": "en"}
+{"skill": "birthday-party-planner", "message": "Finn wordt 7 en wil een feestje met 8 vriendjes, hoe pak ik dat aan", "lang": "nl"}
+{"skill": "birthday-party-planner", "message": "kinderfeestje thuis voor een meisje van 5, wat doen we en wat eten ze", "lang": "nl"}
+{"skill": "birthday-party-planner", "message": "mi hijo cumple 9 y quiere invitar a toda la clase, organízame la fiesta", "lang": "es"}
+{"skill": "birthday-party-planner", "message": "Meine Tochter wird 8 und will mit sechs Freundinnen feiern – was machen wir den Nachmittag über?", "lang": "de"}
+{"skill": "diy-howto", "message": "how do I hang a heavy mirror on a plasterboard wall", "lang": "en"}
+{"skill": "diy-howto", "message": "the bathroom sealant is mouldy, I want to redo it myself", "lang": "en"}
+{"skill": "diy-howto", "message": "never laid laminate before, walk me through it", "lang": "en"}
+{"skill": "diy-howto", "message": "hoe vervang ik zelf een kraanleertje, en wat heb ik nodig", "lang": "nl"}
+{"skill": "diy-howto", "message": "ik wil een plank ophangen aan een gipswand, hoe doe ik dat zonder dat ie eraf valt", "lang": "nl"}
+{"skill": "diy-howto", "message": "Wie tausche ich eine Steckdose selbst aus, und welches Werkzeug brauche ich?", "lang": "de"}
+{"skill": "diy-howto", "message": "comment poser une étagère dans un mur en placo ? explique-moi tout", "lang": "fr"}
+{"skill": "paint-calculator", "message": "bedroom is 4 by 3.5, ceilings 2.6, two coats. how many tins?", "lang": "en"}
+{"skill": "paint-calculator", "message": "how many boxes of laminate for a 22 square metre living room", "lang": "en"}
+{"skill": "paint-calculator", "message": "doing a 1.8 x 2.4 bathroom wall with 30x60s, what do I order", "lang": "en"}
+{"skill": "paint-calculator", "message": "hoeveel liter verf heb ik nodig voor een kamer van 5 bij 4 met een plafond van 2,50", "lang": "nl"}
+{"skill": "paint-calculator", "message": "hoeveel pakken laminaat moet ik halen voor 18 m2, met een beetje zaagverlies", "lang": "nl"}
+{"skill": "paint-calculator", "message": "combien de pots de peinture pour un salon de 25 m² avec 2,5 m sous plafond ?", "lang": "fr"}
+{"skill": "paint-calculator", "message": "¿cuántas cajas de azulejos necesito para un suelo de 12 metros cuadrados?", "lang": "es"}
+{"skill": "plant-care", "message": "my monstera has yellow leaves with brown edges, what am I doing wrong", "lang": "en"}
+{"skill": "plant-care", "message": "how often should I water a fiddle leaf fig in winter", "lang": "en"}
+{"skill": "plant-care", "message": "bought an orchid, know nothing, keep it alive for me", "lang": "en"}
+{"skill": "plant-care", "message": "mijn calathea krijgt bruine randjes, wat doe ik fout", "lang": "nl"}
+{"skill": "plant-care", "message": "hoe vaak moet een vingerplant water en mag ie in de zon", "lang": "nl"}
+{"skill": "plant-care", "message": "a mi ficus se le caen las hojas, ¿qué le pasa?", "lang": "es"}
+{"skill": "plant-care", "message": "Meine Orchidee lässt die Blätter hängen, wie rette ich sie?", "lang": "de"}
+{"skill": "appliance-troubleshoot", "message": "dishwasher is beeping and showing E24", "lang": "en"}
+{"skill": "appliance-troubleshoot", "message": "washing machine won't drain, Bosch series 6", "lang": "en"}
+{"skill": "appliance-troubleshoot", "message": "oven clock flashes F7 and it refuses to heat", "lang": "en"}
+{"skill": "appliance-troubleshoot", "message": "mijn wasmachine geeft F21 op het schermpje, wat nu", "lang": "nl"}
+{"skill": "appliance-troubleshoot", "message": "de vaatwasser pompt het water niet meer weg, wat kan ik zelf doen", "lang": "nl"}
+{"skill": "appliance-troubleshoot", "message": "Der Trockner zeigt E64 und hört mitten im Programm auf", "lang": "de"}
+{"skill": "appliance-troubleshoot", "message": "mon lave-linge affiche E18 et ne vidange plus, je fais quoi ?", "lang": "fr"}
+{"skill": "tradesman-quote-request", "message": "need a few roofers to price up fixing the leak above the dormer", "lang": "en"}
+{"skill": "tradesman-quote-request", "message": "I want estimates for a new bathroom, how do I word it so they take me seriously", "lang": "en"}
+{"skill": "tradesman-quote-request", "message": "message three electricians about rewiring the kitchen and ask what it'd cost", "lang": "en"}
+{"skill": "tradesman-quote-request", "message": "ik wil een paar schilders een prijsopgave vragen voor het buitenwerk", "lang": "nl"}
+{"skill": "tradesman-quote-request", "message": "vraag bij drie loodgieters een offerte aan voor een nieuwe cv-ketel", "lang": "nl"}
+{"skill": "tradesman-quote-request", "message": "je veux demander des devis à plusieurs plombiers pour refaire la salle de bain", "lang": "fr"}
+{"skill": "tradesman-quote-request", "message": "pide presupuesto a un par de fontaneros para cambiar la caldera", "lang": "es"}
+{"skill": "moving-checklist", "message": "we got the keys for the new flat on march 1st, what needs doing between now and then", "lang": "en"}
+{"skill": "moving-checklist", "message": "relocating to Leeds in six weeks, I'm overwhelmed, what order do I tackle things", "lang": "en"}
+{"skill": "moving-checklist", "message": "who do I need to tell that I'm going to live somewhere else, and when do I transfer the broadband", "lang": "en"}
+{"skill": "moving-checklist", "message": "we gaan over twee maanden verhuizen, wat moet ik allemaal regelen en wanneer", "lang": "nl"}
+{"skill": "moving-checklist", "message": "wie moet ik allemaal laten weten dat we ergens anders gaan wonen en wanneer zet ik energie en internet over", "lang": "nl"}
+{"skill": "moving-checklist", "message": "nos mudamos en un mes, ¿qué tengo que ir gestionando semana a semana?", "lang": "es"}
+{"skill": "moving-checklist", "message": "Umzug Anfang April – was muss ich bis wann erledigen (Strom, Ummelden, Nachsendeauftrag)?", "lang": "de"}

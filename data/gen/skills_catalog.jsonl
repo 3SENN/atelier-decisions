@@ -1,0 +1,80 @@
+{"name": "weekly-status-report", "description": "Turns my scribbles and finished tickets into the end-of-week progress summary my manager expects."}
+{"name": "meeting-notes", "description": "Cleans up what I typed during a call into decisions, action items and who owns them."}
+{"name": "meeting-agenda", "description": "Drafts a timed agenda for a meeting I'm hosting, with a goal per topic."}
+{"name": "standup-update", "description": "Writes my daily standup in three lines: done yesterday, doing today, blockers."}
+{"name": "expense-report", "description": "Gathers my receipts and fills in the monthly expense claim for my employer."}
+{"name": "invoice-reminders", "description": "Writes a polite but firm reminder to clients whose invoices are past due."}
+{"name": "invoice-maker", "description": "Creates a new invoice for a client from my hours, rate and VAT details."}
+{"name": "slide-outline", "description": "Turns a topic or document into a slide-by-slide outline for a presentation."}
+{"name": "job-application-tailor", "description": "Adapts my CV and cover letter to the vacancy I have open."}
+{"name": "linkedin-post", "description": "Writes a LinkedIn post in my own voice about something that happened at work."}
+{"name": "inbox-triage", "description": "Goes through my unread mail and tells me what actually needs an answer today."}
+{"name": "polite-decline", "description": "Writes a friendly no to invitations and requests without burning bridges."}
+{"name": "follow-up-nudge", "description": "Drafts a short, non-pushy follow-up when someone hasn't replied to me."}
+{"name": "unsubscribe-sweep", "description": "Finds newsletters I never open and unsubscribes me from them."}
+{"name": "email-tone-softener", "description": "Rewrites my blunt email draft so it sounds kinder but still says the same thing."}
+{"name": "out-of-office", "description": "Sets up my auto-reply for when I'm away, with dates and who to contact instead."}
+{"name": "find-meeting-slot", "description": "Checks everyone's calendars and proposes three times that work for the whole group."}
+{"name": "week-planner", "description": "Blocks time in my calendar for my to-dos around the appointments I already have."}
+{"name": "birthday-reminders", "description": "Keeps track of the birthdays of friends and family and warns me a week ahead."}
+{"name": "reschedule-helper", "description": "Moves an appointment to a new time and writes the note to the people involved."}
+{"name": "price-compare", "description": "Looks up the product I'm viewing in other shops and tells me where it's cheapest right now."}
+{"name": "review-summarizer", "description": "Boils down hundreds of customer reviews into the real pros and cons."}
+{"name": "gift-ideas", "description": "Suggests presents for someone based on their interests and my budget."}
+{"name": "grocery-list", "description": "Builds my supermarket list, grouped by aisle, from what we plan to eat."}
+{"name": "return-request", "description": "Handles sending an online order back: fills in the return form and asks for the refund."}
+{"name": "deal-watcher", "description": "Keeps an eye on an item and tells me when the price drops below what I want to pay."}
+{"name": "secondhand-listing", "description": "Writes the ad for things I want to sell on marketplace sites, with a fair asking price."}
+{"name": "trip-planner", "description": "Builds a day-by-day itinerary for a destination with sights, food and travel times."}
+{"name": "packing-list", "description": "Makes a list of what to put in my suitcase based on destination, weather and length of stay."}
+{"name": "flight-finder", "description": "Searches flights with my preferences: no dawn departures, hand luggage only, max one stop."}
+{"name": "hotel-shortlist", "description": "Narrows places to stay down to three options that match my criteria."}
+{"name": "train-route", "description": "Finds the best public transport connection door to door, including transfers and platform changes."}
+{"name": "travel-phrasebook", "description": "Gives me the twenty phrases I'll need in the local language, with pronunciation."}
+{"name": "delay-compensation", "description": "Claims money back from the airline or railway when my journey was delayed or cancelled."}
+{"name": "budget-check", "description": "Sorts this month's bank transactions into categories and shows where I overspent."}
+{"name": "subscription-audit", "description": "Lists all my recurring paid subscriptions and points out which ones I could drop."}
+{"name": "tax-return-prep", "description": "Collects the documents and figures I need for my annual income tax return."}
+{"name": "letter-explainer", "description": "Explains official letters from the government, insurer or bank in plain language and says what I have to do."}
+{"name": "cancel-contract", "description": "Writes the cancellation letter for a contract or membership, with notice period and reference numbers."}
+{"name": "split-the-bill", "description": "Works out who owes whom after shared costs like a group holiday or a dinner."}
+{"name": "recipe-from-fridge", "description": "Suggests what to cook tonight from the ingredients I still have at home."}
+{"name": "meal-plan", "description": "Plans a week of dinners for my family, taking allergies and picky eaters into account."}
+{"name": "recipe-scaler", "description": "Converts a recipe to a different number of servings and from cups to grams."}
+{"name": "recipe-cleaner", "description": "Strips the life story and ads from a recipe page and leaves just ingredients and steps."}
+{"name": "wine-pairing", "description": "Recommends a wine or other drink that goes with the dish I'm serving."}
+{"name": "workout-plan", "description": "Puts together my training schedule for the week for running and the gym."}
+{"name": "calorie-estimate", "description": "Estimates the calories and protein in a meal I describe."}
+{"name": "symptom-notes", "description": "Turns my health complaints into a tidy timeline I can show my GP."}
+{"name": "school-newsletter-digest", "description": "Pulls the dates and to-dos for parents out of the school's newsletters."}
+{"name": "absence-note", "description": "Writes the message to the teacher when my child is ill or has to miss class."}
+{"name": "kids-activity-ideas", "description": "Comes up with things to do with the children, depending on their age and the weather."}
+{"name": "homework-helper", "description": "Explains my kid's homework at their level without just handing over the answer."}
+{"name": "bedtime-story", "description": "Makes up a short bedtime story starring my children and their favourite toys."}
+{"name": "birthday-party-planner", "description": "Organises a children's birthday party: invitations, games, timing and snacks."}
+{"name": "diy-howto", "description": "Gives step-by-step instructions plus a tools and materials list for a job around the house."}
+{"name": "paint-calculator", "description": "Calculates how much paint, tiles or flooring I need from the room's measurements."}
+{"name": "plant-care", "description": "Tells me how to look after a houseplant and figures out what's wrong when it looks sad."}
+{"name": "appliance-troubleshoot", "description": "Looks up the error code or manual of a household appliance and tells me what to try before calling a repairman."}
+{"name": "tradesman-quote-request", "description": "Writes a clear request for quotes to send to contractors, describing the job."}
+{"name": "moving-checklist", "description": "Gives me a timeline of everything to arrange when moving house, from utilities to address changes."}
+{"name": "flashcards", "description": "Turns a page or my notes into question-and-answer cards for memorising."}
+{"name": "exam-study-schedule", "description": "Spreads the material for my exams over the days I have left."}
+{"name": "paper-summarizer", "description": "Summarises a scientific article: research question, method, findings and limitations."}
+{"name": "citation-formatter", "description": "Turns my sources into correctly formatted references in APA or another style."}
+{"name": "essay-feedback", "description": "Critiques the structure and argument of my essay the way a strict tutor would."}
+{"name": "language-practice", "description": "Chats with me in the language I'm learning and corrects my mistakes."}
+{"name": "commit-message", "description": "Writes a git commit message from my staged diff in conventional-commit format."}
+{"name": "code-review", "description": "Reviews a pull request for bugs, edge cases and style issues."}
+{"name": "regex-builder", "description": "Builds a regular expression from examples and explains each part."}
+{"name": "error-explainer", "description": "Explains a stack trace or error message and suggests the most likely fix."}
+{"name": "sql-helper", "description": "Writes a SQL query from a plain-language question about our database tables."}
+{"name": "proofread", "description": "Fixes spelling, grammar and punctuation without changing my style."}
+{"name": "instagram-caption", "description": "Writes a caption with hashtags for a photo I'm about to post."}
+{"name": "customer-reply", "description": "Answers customer questions and complaints for my webshop in our friendly house style."}
+{"name": "product-description", "description": "Writes the product text for new items in my online store."}
+{"name": "social-media-calendar", "description": "Plans a month of posts for my business accounts with themes per week."}
+{"name": "board-game-rules", "description": "Explains the rules of a board or card game quickly and settles rule disputes."}
+{"name": "garden-calendar", "description": "Tells me what to sow, prune and harvest in the garden this month."}
+{"name": "chord-finder", "description": "Finds the chords of a song and simplifies them for a beginner on guitar or ukulele."}
+{"name": "book-recommendation", "description": "Suggests what to read next based on books I loved or hated."}

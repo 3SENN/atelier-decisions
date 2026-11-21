@@ -1,0 +1,242 @@
+{
+ "waits": {
+  "n": 568,
+  "chosen": 0.95,
+  "T_kl": 1.1,
+  "T_verdict": 0.95,
+  "at_1": {
+   "agree": 0.9437,
+   "conflict": 0.0088,
+   "overreach": 0.0246,
+   "underreach": 0.0229
+  },
+  "at_T_kl": {
+   "agree": 0.9331,
+   "conflict": 0.0088,
+   "overreach": 0.0246,
+   "underreach": 0.0335
+  },
+  "at_T_verdict": {
+   "agree": 0.9472,
+   "conflict": 0.0088,
+   "overreach": 0.0246,
+   "underreach": 0.0194
+  }
+ },
+ "intent": {
+  "n": 664,
+  "chosen": 1.15,
+  "T_kl": 1.15,
+  "T_verdict": 1.15,
+  "at_1": {
+   "agree": 0.7982,
+   "conflict": 0.003,
+   "overreach": 0.0723,
+   "underreach": 0.1265
+  },
+  "at_T_kl": {
+   "agree": 0.7967,
+   "conflict": 0.003,
+   "overreach": 0.0482,
+   "underreach": 0.1521
+  },
+  "at_T_verdict": {
+   "agree": 0.7967,
+   "conflict": 0.003,
+   "overreach": 0.0482,
+   "underreach": 0.1521
+  }
+ },
+ "effort": {
+  "n": 739,
+  "chosen": 1.3,
+  "T_kl": 1.15,
+  "T_verdict": 1.3,
+  "at_1": {
+   "agree": 0.7578,
+   "conflict": 0.0041,
+   "overreach": 0.1055,
+   "underreach": 0.1326
+  },
+  "at_T_kl": {
+   "agree": 0.7551,
+   "conflict": 0.0027,
+   "overreach": 0.0677,
+   "underreach": 0.1746
+  },
+  "at_T_verdict": {
+   "agree": 0.751,
+   "conflict": 0.0,
+   "overreach": 0.0338,
+   "underreach": 0.2152
+  }
+ },
+ "lasting": {
+  "n": 591,
+  "chosen": 1.75,
+  "T_kl": 1.1,
+  "T_verdict": 1.75,
+  "at_1": {
+   "agree": 0.9002,
+   "conflict": 0.0,
+   "overreach": 0.0389,
+   "underreach": 0.0609
+  },
+  "at_T_kl": {
+   "agree": 0.8968,
+   "conflict": 0.0,
+   "overreach": 0.0321,
+   "underreach": 0.0711
+  },
+  "at_T_verdict": {
+   "agree": 0.8308,
+   "conflict": 0.0,
+   "overreach": 0.0034,
+   "underreach": 0.1658
+  }
+ },
+ "skill": {
+  "n": 2817,
+  "chosen": 1.8,
+  "T_kl": 1.35,
+  "T_verdict": 1.8,
+  "at_1": {
+   "agree": 0.9496,
+   "conflict": 0.0138,
+   "overreach": 0.0121,
+   "underreach": 0.0245
+  },
+  "at_T_kl": {
+   "agree": 0.9436,
+   "conflict": 0.0114,
+   "overreach": 0.0092,
+   "underreach": 0.0359
+  },
+  "at_T_verdict": {
+   "agree": 0.9382,
+   "conflict": 0.0085,
+   "overreach": 0.0071,
+   "underreach": 0.0461
+  }
+ },
+ "dictation": {
+  "n": 167,
+  "chosen": 1.3,
+  "T_kl": 1.05,
+  "T_verdict": 1.3,
+  "at_1": {
+   "agree": 0.8263,
+   "conflict": 0.0,
+   "overreach": 0.0479,
+   "underreach": 0.1257
+  },
+  "at_T_kl": {
+   "agree": 0.8263,
+   "conflict": 0.0,
+   "overreach": 0.0479,
+   "underreach": 0.1257
+  },
+  "at_T_verdict": {
+   "agree": 0.8084,
+   "conflict": 0.0,
+   "overreach": 0.006,
+   "underreach": 0.1856
+  }
+ },
+ "target": {
+  "n": 384,
+  "chosen": 1.6,
+  "T_kl": 1.25,
+  "T_verdict": 1.6,
+  "at_1": {
+   "agree": 0.8438,
+   "conflict": 0.0,
+   "overreach": 0.0547,
+   "underreach": 0.1016
+  },
+  "at_T_kl": {
+   "agree": 0.8203,
+   "conflict": 0.0,
+   "overreach": 0.0365,
+   "underreach": 0.1432
+  },
+  "at_T_verdict": {
+   "agree": 0.7734,
+   "conflict": 0.0,
+   "overreach": 0.013,
+   "underreach": 0.2135
+  }
+ },
+ "place": {
+  "n": 425,
+  "chosen": 1.05,
+  "T_kl": 1.0,
+  "T_verdict": 1.05,
+  "at_1": {
+   "agree": 0.9506,
+   "conflict": 0.0024,
+   "overreach": 0.0212,
+   "underreach": 0.0259
+  },
+  "at_T_kl": {
+   "agree": 0.9506,
+   "conflict": 0.0024,
+   "overreach": 0.0212,
+   "underreach": 0.0259
+  },
+  "at_T_verdict": {
+   "agree": 0.9412,
+   "conflict": 0.0,
+   "overreach": 0.0165,
+   "underreach": 0.0424
+  }
+ },
+ "kind": {
+  "n": 516,
+  "chosen": 0.95,
+  "T_kl": 1.0,
+  "T_verdict": 0.95,
+  "at_1": {
+   "agree": 0.9651,
+   "conflict": 0.0,
+   "overreach": 0.0213,
+   "underreach": 0.0136
+  },
+  "at_T_kl": {
+   "agree": 0.9651,
+   "conflict": 0.0,
+   "overreach": 0.0213,
+   "underreach": 0.0136
+  },
+  "at_T_verdict": {
+   "agree": 0.9632,
+   "conflict": 0.0,
+   "overreach": 0.0271,
+   "underreach": 0.0097
+  }
+ },
+ "open": {
+  "n": 34,
+  "chosen": 1.1,
+  "T_kl": 1.0,
+  "T_verdict": 1.1,
+  "at_1": {
+   "agree": 0.8529,
+   "conflict": 0.0,
+   "overreach": 0.1471,
+   "underreach": 0.0
+  },
+  "at_T_kl": {
+   "agree": 0.8529,
+   "conflict": 0.0,
+   "overreach": 0.1471,
+   "underreach": 0.0
+  },
+  "at_T_verdict": {
+   "agree": 0.9412,
+   "conflict": 0.0,
+   "overreach": 0.0588,
+   "underreach": 0.0
+  }
+ }
+}

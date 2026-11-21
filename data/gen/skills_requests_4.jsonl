@@ -1,0 +1,140 @@
+{"skill": "flashcards", "message": "quiz me on this chapter about the cell cycle", "lang": "en"}
+{"skill": "flashcards", "message": "need to cram these 40 Spanish verbs by friday, make something I can drill", "lang": "en"}
+{"skill": "flashcards", "message": "convert my lecture slides on contract law into things I can test myself with", "lang": "en"}
+{"skill": "flashcards", "message": "maak overhoorkaartjes van deze samenvatting geschiedenis", "lang": "nl"}
+{"skill": "flashcards", "message": "ik moet deze begrippen van biologie uit mijn hoofd leren, maak er iets van waarmee ik kan stampen", "lang": "nl"}
+{"skill": "flashcards", "message": "Mach mir aus diesem Text Karteikarten zum Abfragen", "lang": "de"}
+{"skill": "flashcards", "message": "transforme ce chapitre en fiches de révision recto verso", "lang": "fr"}
+{"skill": "exam-study-schedule", "message": "finals start in 19 days, four subjects, I've barely begun", "lang": "en"}
+{"skill": "exam-study-schedule", "message": "how do I divide 12 chapters of organic chem over the two weeks before the test", "lang": "en"}
+{"skill": "exam-study-schedule", "message": "resits on the 14th and 17th, plan my revision so I don't panic", "lang": "en"}
+{"skill": "exam-study-schedule", "message": "ik heb over drie weken tentamens en nog 600 bladzijden te gaan, hoe verdeel ik dat", "lang": "nl"}
+{"skill": "exam-study-schedule", "message": "maak een leerplanning voor mijn eindexamens, wiskunde kost me de meeste tijd", "lang": "nl"}
+{"skill": "exam-study-schedule", "message": "j'ai mes partiels dans 15 jours, organise mes révisions matière par matière", "lang": "fr"}
+{"skill": "exam-study-schedule", "message": "tengo selectividad en tres semanas, repárteme los temas por días", "lang": "es"}
+{"skill": "paper-summarizer", "message": "what did this study actually find? I don't have time for 14 pages", "lang": "en"}
+{"skill": "paper-summarizer", "message": "give me the gist of this journal piece on sleep and memory, and how solid it is", "lang": "en"}
+{"skill": "paper-summarizer", "message": "is the sample size in this pdf any good, and what's their conclusion", "lang": "en"}
+{"skill": "paper-summarizer", "message": "wat is de conclusie van dit onderzoek en hoe hebben ze het aangepakt", "lang": "nl"}
+{"skill": "paper-summarizer", "message": "vat dit stuk uit Nature over microplastics even samen, ik heb het morgen nodig voor de werkgroep", "lang": "nl"}
+{"skill": "paper-summarizer", "message": "resúmeme este paper: qué investigan, cómo y qué concluyen", "lang": "es"}
+{"skill": "paper-summarizer", "message": "Worum geht es in dieser Studie und was sind die wichtigsten Ergebnisse?", "lang": "de"}
+{"skill": "citation-formatter", "message": "need my bibliography in harvard, here are the links", "lang": "en"}
+{"skill": "citation-formatter", "message": "how do I cite this website and this book chapter properly for my thesis", "lang": "en"}
+{"skill": "citation-formatter", "message": "put these five things in my works cited, MLA 9", "lang": "en"}
+{"skill": "citation-formatter", "message": "zet deze boeken en artikelen even in de goede notatie voor mijn literatuurlijst", "lang": "nl"}
+{"skill": "citation-formatter", "message": "hoe verwijs ik naar dit rapport van het CBS in mijn scriptie", "lang": "nl"}
+{"skill": "citation-formatter", "message": "Bring mein Literaturverzeichnis bitte in die richtige Zitierform", "lang": "de"}
+{"skill": "citation-formatter", "message": "mets ces ouvrages aux normes pour la bibliographie de mon mémoire", "lang": "fr"}
+{"skill": "essay-feedback", "message": "be brutal: does my reasoning about the Weimar republic hold together", "lang": "en"}
+{"skill": "essay-feedback", "message": "handing this in tomorrow, where are the weak spots", "lang": "en"}
+{"skill": "essay-feedback", "message": "my teacher said my last piece 'lacked a clear line'. does this one?", "lang": "en"}
+{"skill": "essay-feedback", "message": "wil je mijn betoog over kernenergie eens kritisch doorlezen, klopt de opbouw", "lang": "nl"}
+{"skill": "essay-feedback", "message": "ik moet dit morgen inleveren, waar zitten de zwakke plekken in mijn redenering", "lang": "nl"}
+{"skill": "essay-feedback", "message": "lis ma dissertation et dis-moi franchement ce qui ne tient pas debout", "lang": "fr"}
+{"skill": "essay-feedback", "message": "revisa mi trabajo sobre la revolución industrial, ¿se entiende la tesis y está bien hilado?", "lang": "es"}
+{"skill": "language-practice", "message": "let's talk in Italian for a bit, fix me when I mess up", "lang": "en"}
+{"skill": "language-practice", "message": "I need to keep my French from rusting, have a conversation with me about the weekend", "lang": "en"}
+{"skill": "language-practice", "message": "pretend you're a waiter in Madrid and I'm ordering, tell me afterwards what I got wrong", "lang": "en"}
+{"skill": "language-practice", "message": "ik wil even oefenen met Spaans praten, verbeter me maar als het niet klopt", "lang": "nl"}
+{"skill": "language-practice", "message": "zullen we een gesprekje in het Duits doen? ik heb volgende week een mondeling", "lang": "nl"}
+{"skill": "language-practice", "message": "quiero soltarme con el inglés, hablemos un rato y me vas corrigiendo", "lang": "es"}
+{"skill": "language-practice", "message": "Lass uns ein bisschen auf Niederländisch plaudern, und sag mir, was ich falsch mache", "lang": "de"}
+{"skill": "commit-message", "message": "I've changed like 9 files, what do I call this", "lang": "en"}
+{"skill": "commit-message", "message": "ready to push the login fix, write the summary line and body", "lang": "en"}
+{"skill": "commit-message", "message": "git add done. describe what I did.", "lang": "en"}
+{"skill": "commit-message", "message": "ik heb de wijzigingen klaarstaan, bedenk even een nette omschrijving voor in git", "lang": "nl"}
+{"skill": "commit-message", "message": "wat zet ik bij deze check-in? ik heb de cache-bug gefixt en wat opgeruimd", "lang": "nl"}
+{"skill": "commit-message", "message": "Ich will einchecken – formulier mir die Beschreibung für die Änderungen", "lang": "de"}
+{"skill": "commit-message", "message": "j'ai fini mes modifs, propose un intitulé clair pour l'historique git", "lang": "fr"}
+{"skill": "code-review", "message": "Anouk opened a PR on the payments module, have a look before I approve", "lang": "en"}
+{"skill": "code-review", "message": "anything dodgy in this merge request?", "lang": "en"}
+{"skill": "code-review", "message": "sanity check my branch before I ask the team, especially the null handling", "lang": "en"}
+{"skill": "code-review", "message": "kijk even mee naar deze PR van Thijs, zie jij iets geks", "lang": "nl"}
+{"skill": "code-review", "message": "kan je mijn code nalopen voor ik hem merge, ik twijfel over de foutafhandeling", "lang": "nl"}
+{"skill": "code-review", "message": "jette un œil à cette merge request, tu vois des problèmes ?", "lang": "fr"}
+{"skill": "code-review", "message": "échale un ojo a este PR antes de que lo apruebe, a ver si se me escapa algo", "lang": "es"}
+{"skill": "regex-builder", "message": "need a pattern that matches dutch postcodes like 1234 AB but not 1234AB1", "lang": "en"}
+{"skill": "regex-builder", "message": "how do I grab everything between the square brackets in these log lines", "lang": "en"}
+{"skill": "regex-builder", "message": "I want to find all dates written like 03-11-2025 in a text file with search and replace", "lang": "en"}
+{"skill": "regex-builder", "message": "ik zoek een patroon dat alle e-mailadressen uit een tekst vist", "lang": "nl"}
+{"skill": "regex-builder", "message": "hoe match ik telefoonnummers die met 06 beginnen, met of zonder streepje", "lang": "nl"}
+{"skill": "regex-builder", "message": "necesito un patrón que detecte matrículas tipo 1234 BCD", "lang": "es"}
+{"skill": "regex-builder", "message": "Ich brauche ein Muster, das deutsche IBANs in einem Text erkennt", "lang": "de"}
+{"skill": "error-explainer", "message": "TypeError: Cannot read properties of undefined (reading 'map') — why??", "lang": "en"}
+{"skill": "error-explainer", "message": "my build dies with exit code 137 and I don't know what that means", "lang": "en"}
+{"skill": "error-explainer", "message": "python says KeyError: 'user_id' on line 48, what's going on", "lang": "en"}
+{"skill": "error-explainer", "message": "ik krijg een NullPointerException bij het opstarten, wat betekent dat hier", "lang": "nl"}
+{"skill": "error-explainer", "message": "npm install geeft ERESOLVE unable to resolve dependency tree, hoe los ik dit op", "lang": "nl"}
+{"skill": "error-explainer", "message": "Was bedeutet 'segmentation fault (core dumped)' und woran liegt das bei mir?", "lang": "de"}
+{"skill": "error-explainer", "message": "j'ai 'ModuleNotFoundError: No module named requests' alors que je l'ai installé, pourquoi ?", "lang": "fr"}
+{"skill": "sql-helper", "message": "how many customers ordered more than twice last quarter? orders and customers are separate", "lang": "en"}
+{"skill": "sql-helper", "message": "I need the top 10 products by revenue per region out of our warehouse", "lang": "en"}
+{"skill": "sql-helper", "message": "pull all users who signed up in may but never logged in", "lang": "en"}
+{"skill": "sql-helper", "message": "ik wil weten welke klanten dit jaar nog niks besteld hebben, hoe haal ik dat eruit", "lang": "nl"}
+{"skill": "sql-helper", "message": "geef me de omzet per maand uit orders, gegroepeerd per verkoper", "lang": "nl"}
+{"skill": "sql-helper", "message": "sors-moi la liste des clients sans commande depuis six mois, j'ai clients et commandes", "lang": "fr"}
+{"skill": "sql-helper", "message": "¿cómo saco el total de ventas por vendedor del último trimestre? tengo ventas y empleados", "lang": "es"}
+{"skill": "proofread", "message": "check this for typos before I send it, don't rewrite it", "lang": "en"}
+{"skill": "proofread", "message": "is my comma use ok in this paragraph", "lang": "en"}
+{"skill": "proofread", "message": "english isn't my first language, catch my mistakes in this cover note but leave the wording alone", "lang": "en"}
+{"skill": "proofread", "message": "wil je dit even nalezen op taalfouten, verder niks veranderen", "lang": "nl"}
+{"skill": "proofread", "message": "staan er nog d/t-fouten in dit stukje?", "lang": "nl"}
+{"skill": "proofread", "message": "corrígeme las faltas de este texto, pero no me cambies las frases", "lang": "es"}
+{"skill": "proofread", "message": "Lies das bitte Korrektur – nur Tippfehler und Kommas, sonst nichts anfassen", "lang": "de"}
+{"skill": "instagram-caption", "message": "posting this sunset pic from Santorini, need something witty underneath", "lang": "en"}
+{"skill": "instagram-caption", "message": "what do I write with my marathon finish line shot, plus tags", "lang": "en"}
+{"skill": "instagram-caption", "message": "pic of my sourdough for the gram, words please", "lang": "en"}
+{"skill": "instagram-caption", "message": "ik wil dit kiekje van ons weekendje Texel op insta zetten, bedenk een leuk onderschrift", "lang": "nl"}
+{"skill": "instagram-caption", "message": "wat zet ik bij dit plaatje van mijn nieuwe tattoo, met een paar tags", "lang": "nl"}
+{"skill": "instagram-caption", "message": "Ich poste gleich ein Bild vom Wandern in den Alpen, was schreib ich drunter?", "lang": "de"}
+{"skill": "instagram-caption", "message": "je publie ce cliché de mon chien à la plage, trouve-moi une légende sympa", "lang": "fr"}
+{"skill": "customer-reply", "message": "a buyer says her parcel never showed up and she's furious, what do we tell her", "lang": "en"}
+{"skill": "customer-reply", "message": "someone asks if the candles are vegan and whether we ship to Norway", "lang": "en"}
+{"skill": "customer-reply", "message": "one-star guy in the support inbox again, respond for me", "lang": "en"}
+{"skill": "customer-reply", "message": "iemand mailt dat haar bestelling kapot is aangekomen, wat schrijven we terug", "lang": "nl"}
+{"skill": "customer-reply", "message": "er vraagt iemand of we ook naar België verzenden en hoe lang dat duurt, beantwoord jij dat even", "lang": "nl"}
+{"skill": "customer-reply", "message": "une acheteuse râle à cause d'un retard de livraison, réponds-lui comme on fait d'habitude", "lang": "fr"}
+{"skill": "customer-reply", "message": "nos escriben preguntando si se puede cambiar la talla de un pedido, contéstale tú", "lang": "es"}
+{"skill": "product-description", "message": "adding these linen aprons to the site, need copy for the page", "lang": "en"}
+{"skill": "product-description", "message": "new arrival: hand-poured soy candle, fig scent, 220g. sell it.", "lang": "en"}
+{"skill": "product-description", "message": "listing our oak chopping boards tomorrow, write the blurb", "lang": "en"}
+{"skill": "product-description", "message": "ik zet nieuwe oorbellen in de webshop, schrijf een wervend tekstje erbij", "lang": "nl"}
+{"skill": "product-description", "message": "we hebben een nieuwe wollen sjaal in het assortiment, maak daar een verkooptekst voor", "lang": "nl"}
+{"skill": "product-description", "message": "voy a subir estas tazas de cerámica a la web, escríbeme la ficha", "lang": "es"}
+{"skill": "product-description", "message": "Neu im Sortiment: handgenähte Kulturbeutel – schreib mir was für den Shop", "lang": "de"}
+{"skill": "social-media-calendar", "message": "what should the bakery be putting on insta and facebook throughout december", "lang": "en"}
+{"skill": "social-media-calendar", "message": "I never know what to share for the studio, give me a schedule for the next four weeks", "lang": "en"}
+{"skill": "social-media-calendar", "message": "content ideas mapped to dates for the salon, february", "lang": "en"}
+{"skill": "social-media-calendar", "message": "wat moeten we de komende weken online zetten voor de fietsenwinkel, maak een schema", "lang": "nl"}
+{"skill": "social-media-calendar", "message": "contentplanning voor januari voor mijn yogastudio graag, 3 berichten per week", "lang": "nl"}
+{"skill": "social-media-calendar", "message": "Plane bitte die Beiträge für unser Café im Dezember, Woche für Woche", "lang": "de"}
+{"skill": "social-media-calendar", "message": "prépare le planning de publications de la boutique pour les quatre semaines à venir", "lang": "fr"}
+{"skill": "board-game-rules", "message": "we just unboxed Wingspan, how does a turn work", "lang": "en"}
+{"skill": "board-game-rules", "message": "can you build a road through someone else's settlement in Catan? we're arguing", "lang": "en"}
+{"skill": "board-game-rules", "message": "how does scoring work in Ticket to Ride again", "lang": "en"}
+{"skill": "board-game-rules", "message": "mag je bij monopoly huizen bouwen als je nog niet alle straten hebt? we hebben ruzie", "lang": "nl"}
+{"skill": "board-game-rules", "message": "hoe ging klaverjassen ook alweer, leg het snel uit", "lang": "nl"}
+{"skill": "board-game-rules", "message": "on n'est pas d'accord : au Uno, on peut poser un +4 sur un +2 ?", "lang": "fr"}
+{"skill": "board-game-rules", "message": "¿cómo se juega a Carcassonne? explícamelo rápido que ya está todo en la mesa", "lang": "es"}
+{"skill": "garden-calendar", "message": "what should I be doing on the allotment in november", "lang": "en"}
+{"skill": "garden-calendar", "message": "is it too late to plant garlic?", "lang": "en"}
+{"skill": "garden-calendar", "message": "when do I cut back the roses and the lavender", "lang": "en"}
+{"skill": "garden-calendar", "message": "wat kan er nu de grond in in de moestuin", "lang": "nl"}
+{"skill": "garden-calendar", "message": "wanneer knip ik de hortensia en de appelboom terug", "lang": "nl"}
+{"skill": "garden-calendar", "message": "¿qué toca plantar en el huerto en marzo?", "lang": "es"}
+{"skill": "garden-calendar", "message": "Was steht im Oktober draußen an – was kann ich noch aussäen?", "lang": "de"}
+{"skill": "chord-finder", "message": "how do I play Wonderwall, I've had my guitar for two weeks", "lang": "en"}
+{"skill": "chord-finder", "message": "what are the fingerings for Riptide on uke", "lang": "en"}
+{"skill": "chord-finder", "message": "this one's got too many barre shapes, give me an easier version of Hotel California", "lang": "en"}
+{"skill": "chord-finder", "message": "welke akkoorden heeft 'Zoutelande'? liefst makkelijk, ik speel net", "lang": "nl"}
+{"skill": "chord-finder", "message": "ik wil 'Het is een nacht' kunnen begeleiden op gitaar, hoe gaat dat", "lang": "nl"}
+{"skill": "chord-finder", "message": "Welche Griffe brauche ich für 'Über den Wolken'? Bin Anfänger", "lang": "de"}
+{"skill": "chord-finder", "message": "c'est quoi les accords de 'La Vie en rose' au ukulélé, version facile ?", "lang": "fr"}
+{"skill": "book-recommendation", "message": "just finished Piranesi and I'm bereft. what now?", "lang": "en"}
+{"skill": "book-recommendation", "message": "I couldn't stand The Alchemist but adored Station Eleven, what should I pick up", "lang": "en"}
+{"skill": "book-recommendation", "message": "something for the beach, liked the Thursday Murder Club", "lang": "en"}
+{"skill": "book-recommendation", "message": "ik heb net 'Het diner' uit en vond het geweldig, wat nu?", "lang": "nl"}
+{"skill": "book-recommendation", "message": "tip voor een goede thriller, ik hou van Scandinavische schrijvers", "lang": "nl"}
+{"skill": "book-recommendation", "message": "j'ai dévoré 'L'Élégance du hérisson', tu me conseilles quoi ensuite ?", "lang": "fr"}
+{"skill": "book-recommendation", "message": "me encantó 'La sombra del viento', ¿qué leo ahora?", "lang": "es"}

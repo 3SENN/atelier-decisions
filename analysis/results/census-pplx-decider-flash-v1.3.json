@@ -1,0 +1,247 @@
+{
+ "total": 4539918336,
+ "groups": {
+  "token embeddings (248k vocab)": {
+   "params": 635699200,
+   "bytes": 1271398400,
+   "tensors": 1,
+   "role": "needed only for tokens Atelier text uses"
+  },
+  "decoder: norms": {
+   "params": 163840,
+   "bytes": 327680,
+   "tensors": 64,
+   "role": "needed (compute)"
+  },
+  "decoder: Gated DeltaNet mixer": {
+   "params": 1011356160,
+   "bytes": 2022712320,
+   "tensors": 216,
+   "role": "needed (compute)"
+  },
+  "decoder: SwiGLU MLP": {
+   "params": 2264924160,
+   "bytes": 4529848320,
+   "tensors": 96,
+   "role": "needed (compute)"
+  },
+  "decoder: full-attention mixer (non-causal)": {
+   "params": 293605376,
+   "bytes": 587210752,
+   "tensors": 48,
+   "role": "needed (compute)"
+  },
+  "final norm": {
+   "params": 2560,
+   "bytes": 5120,
+   "tensors": 1,
+   "role": "needed"
+  },
+  "vision tower (27 ViT blocks + merger)": {
+   "params": 333514240,
+   "bytes": 667028480,
+   "tensors": 297,
+   "role": "unused for text-only decisions"
+  },
+  "readout head [255 codes x hidden]": {
+   "params": 652800,
+   "bytes": 1305600,
+   "tensors": 1,
+   "role": "needed"
+  }
+ },
+ "per_layer": {
+  "0": {
+   "input_layernorm": 2560,
+   "linear_attn": 42139840,
+   "mlp": 70778880,
+   "post_attention_layernorm": 2560
+  },
+  "1": {
+   "input_layernorm": 2560,
+   "linear_attn": 42139840,
+   "mlp": 70778880,
+   "post_attention_layernorm": 2560
+  },
+  "10": {
+   "input_layernorm": 2560,
+   "linear_attn": 42139840,
+   "mlp": 70778880,
+   "post_attention_layernorm": 2560
+  },
+  "11": {
+   "input_layernorm": 2560,
+   "mlp": 70778880,
+   "post_attention_layernorm": 2560,
+   "self_attn": 36700672
+  },
+  "12": {
+   "input_layernorm": 2560,
+   "linear_attn": 42139840,
+   "mlp": 70778880,
+   "post_attention_layernorm": 2560
+  },
+  "13": {
+   "input_layernorm": 2560,
+   "linear_attn": 42139840,
+   "mlp": 70778880,
+   "post_attention_layernorm": 2560
+  },
+  "14": {
+   "input_layernorm": 2560,
+   "linear_attn": 42139840,
+   "mlp": 70778880,
+   "post_attention_layernorm": 2560
+  },
+  "15": {
+   "input_layernorm": 2560,
+   "mlp": 70778880,
+   "post_attention_layernorm": 2560,
+   "self_attn": 36700672
+  },
+  "16": {
+   "input_layernorm": 2560,
+   "linear_attn": 42139840,
+   "mlp": 70778880,
+   "post_attention_layernorm": 2560
+  },
+  "2": {
+   "input_layernorm": 2560,
+   "linear_attn": 42139840,
+   "mlp": 70778880,
+   "post_attention_layernorm": 2560
+  },
+  "3": {
+   "input_layernorm": 2560,
+   "mlp": 70778880,
+   "post_attention_layernorm": 2560,
+   "self_attn": 36700672
+  },
+  "4": {
+   "input_layernorm": 2560,
+   "linear_attn": 42139840,
+   "mlp": 70778880,
+   "post_attention_layernorm": 2560
+  },
+  "5": {
+   "input_layernorm": 2560,
+   "linear_attn": 42139840,
+   "mlp": 70778880,
+   "post_attention_layernorm": 2560
+  },
+  "6": {
+   "input_layernorm": 2560,
+   "linear_attn": 42139840,
+   "mlp": 70778880,
+   "post_attention_layernorm": 2560
+  },
+  "7": {
+   "input_layernorm": 2560,
+   "mlp": 70778880,
+   "post_attention_layernorm": 2560,
+   "self_attn": 36700672
+  },
+  "8": {
+   "input_layernorm": 2560,
+   "linear_attn": 42139840,
+   "mlp": 70778880,
+   "post_attention_layernorm": 2560
+  },
+  "9": {
+   "input_layernorm": 2560,
+   "linear_attn": 42139840,
+   "mlp": 70778880,
+   "post_attention_layernorm": 2560
+  },
+  "17": {
+   "input_layernorm": 2560,
+   "linear_attn": 42139840,
+   "mlp": 70778880,
+   "post_attention_layernorm": 2560
+  },
+  "18": {
+   "input_layernorm": 2560,
+   "linear_attn": 42139840,
+   "mlp": 70778880,
+   "post_attention_layernorm": 2560
+  },
+  "19": {
+   "input_layernorm": 2560,
+   "mlp": 70778880,
+   "post_attention_layernorm": 2560,
+   "self_attn": 36700672
+  },
+  "20": {
+   "input_layernorm": 2560,
+   "linear_attn": 42139840,
+   "mlp": 70778880,
+   "post_attention_layernorm": 2560
+  },
+  "21": {
+   "input_layernorm": 2560,
+   "linear_attn": 42139840,
+   "mlp": 70778880,
+   "post_attention_layernorm": 2560
+  },
+  "22": {
+   "input_layernorm": 2560,
+   "linear_attn": 42139840,
+   "mlp": 70778880,
+   "post_attention_layernorm": 2560
+  },
+  "23": {
+   "input_layernorm": 2560,
+   "mlp": 70778880,
+   "post_attention_layernorm": 2560,
+   "self_attn": 36700672
+  },
+  "24": {
+   "input_layernorm": 2560,
+   "linear_attn": 42139840,
+   "mlp": 70778880,
+   "post_attention_layernorm": 2560
+  },
+  "25": {
+   "input_layernorm": 2560,
+   "linear_attn": 42139840,
+   "mlp": 70778880,
+   "post_attention_layernorm": 2560
+  },
+  "26": {
+   "input_layernorm": 2560,
+   "linear_attn": 42139840,
+   "mlp": 70778880,
+   "post_attention_layernorm": 2560
+  },
+  "27": {
+   "input_layernorm": 2560,
+   "mlp": 70778880,
+   "post_attention_layernorm": 2560,
+   "self_attn": 36700672
+  },
+  "28": {
+   "input_layernorm": 2560,
+   "linear_attn": 42139840,
+   "mlp": 70778880,
+   "post_attention_layernorm": 2560
+  },
+  "29": {
+   "input_layernorm": 2560,
+   "linear_attn": 42139840,
+   "mlp": 70778880,
+   "post_attention_layernorm": 2560
+  },
+  "30": {
+   "input_layernorm": 2560,
+   "linear_attn": 42139840,
+   "mlp": 70778880,
+   "post_attention_layernorm": 2560
+  },
+  "31": {
+   "input_layernorm": 2560,
+   "mlp": 70778880,
+   "post_attention_layernorm": 2560,
+   "self_attn": 36700672
+  }
+ }
+}

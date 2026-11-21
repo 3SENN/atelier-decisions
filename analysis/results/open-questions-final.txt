@@ -1,0 +1,7 @@
+source                n verdict   sure s/t conflict overreach
+probe-areas         200    0.23 0.20/0.94    0.040     0.000
+probe-family        100    0.75 0.81/0.98    0.040     0.020
+probe-money          47    0.55 0.77/0.98    0.191     0.021
+probe-purchase       53    0.94 0.98/0.98    0.019     0.019
+probe-urgency        50    0.10 0.42/0.86    0.260     0.100
+ALL                 450    0.45 0.51/0.95    0.078     0.020

@@ -1,0 +1,140 @@
+{"skill": "weekly-status-report", "message": "friday again, boss wants the usual update", "lang": "en"}
+{"skill": "weekly-status-report", "message": "can you pull together what the team got done since monday so I can send it up the chain", "lang": "en"}
+{"skill": "weekly-status-report", "message": "Hanneke asked for my wrap-up before 4pm, my jira board is in the other tab", "lang": "en"}
+{"skill": "weekly-status-report", "message": "het is weer vrijdagmiddag, wil je mijn overzichtje voor Marloes in elkaar zetten?", "lang": "nl"}
+{"skill": "weekly-status-report", "message": "wat heb ik de afgelopen dagen eigenlijk allemaal afgerond? moet het zo naar mn leidinggevende sturen", "lang": "nl"}
+{"skill": "weekly-status-report", "message": "Schon wieder Freitag – ich brauch den üblichen Wochenrückblick für meinen Chef", "lang": "de"}
+{"skill": "weekly-status-report", "message": "c'est la fin de semaine, tu me prépares le point d'avancement habituel pour ma responsable ?", "lang": "fr"}
+{"skill": "meeting-notes", "message": "just got off the phone with the supplier and my scribbles are a mess, can you make sense of them", "lang": "en"}
+{"skill": "meeting-notes", "message": "who agreed to do what in that kickoff? here's what I jotted down", "lang": "en"}
+{"skill": "meeting-notes", "message": "turn this transcript from the budget sync into something I can send round to everyone who was there", "lang": "en"}
+{"skill": "meeting-notes", "message": "kun je van mijn aantekeningen van het overleg van vanochtend iets leesbaars maken, met wie wat gaat doen", "lang": "nl"}
+{"skill": "meeting-notes", "message": "we hebben net een uur vergaderd en ik weet nu al niet meer wat we hebben afgesproken, dit is wat ik heb getypt", "lang": "nl"}
+{"skill": "meeting-notes", "message": "je sors de réunion, voici mes notes en vrac, tu peux en faire un compte rendu propre ?", "lang": "fr"}
+{"skill": "meeting-notes", "message": "acabo de terminar la reunión con el equipo de ventas, ordéname estos apuntes: acuerdos y tareas pendientes", "lang": "es"}
+{"skill": "meeting-agenda", "message": "I'm running the quarterly planning thing on Tuesday, 90 minutes, need a structure for it", "lang": "en"}
+{"skill": "meeting-agenda", "message": "what should we cover in the kickoff with the new agency and in what order", "lang": "en"}
+{"skill": "meeting-agenda", "message": "got 45 min with the board next week and five things to get through, help me fit them in", "lang": "en"}
+{"skill": "meeting-agenda", "message": "ik zit donderdag het teamoverleg voor, kun je een opzetje maken met tijden erbij", "lang": "nl"}
+{"skill": "meeting-agenda", "message": "welke punten moeten er op de lijst voor de ouderraad van maandag? we hebben maar een uur", "lang": "nl"}
+{"skill": "meeting-agenda", "message": "el lunes dirijo la reunión de arranque del proyecto, prepárame el orden del día con minutos por punto", "lang": "es"}
+{"skill": "meeting-agenda", "message": "Ich leite morgen das Jour fixe, kannst du mir eine Tagesordnung mit Zeitfenstern aufsetzen?", "lang": "de"}
+{"skill": "standup-update", "message": "daily in 5 min, what do I say", "lang": "en"}
+{"skill": "standup-update", "message": "quick one for the 9:15 scrum: look at my commits from the day before and what's on my plate now", "lang": "en"}
+{"skill": "standup-update", "message": "need my three bullets for the team channel this morning, still stuck on the vpn thing btw", "lang": "en"}
+{"skill": "standup-update", "message": "zo begint de daily, zet even op een rij wat ik gister gedaan heb en wat ik nu oppak", "lang": "nl"}
+{"skill": "standup-update", "message": "berichtje voor het ochtendrondje in slack graag, ik wacht nog steeds op de review van Joris", "lang": "nl"}
+{"skill": "standup-update", "message": "Gleich ist Daily, fass kurz zusammen, woran ich gestern saß und was heute ansteht", "lang": "de"}
+{"skill": "standup-update", "message": "le point du matin commence dans dix minutes, prépare mon petit topo : hier, aujourd'hui, ce qui me bloque", "lang": "fr"}
+{"skill": "expense-report", "message": "I've got a pile of taxi and hotel slips from the Lyon trip that finance needs", "lang": "en"}
+{"skill": "expense-report", "message": "end of month, need to get my out-of-pocket stuff reimbursed, the pdfs are in my downloads", "lang": "en"}
+{"skill": "expense-report", "message": "can you submit my costs from the conference so I get paid back", "lang": "en"}
+{"skill": "expense-report", "message": "ik moet mijn declaratie nog indienen, de bonnetjes van de lunch en de trein staan in mijn mail", "lang": "nl"}
+{"skill": "expense-report", "message": "kan je mijn onkosten van oktober invullen in dat formulier van HR", "lang": "nl"}
+{"skill": "expense-report", "message": "il faut que je me fasse rembourser mes frais du déplacement à Nantes, j'ai les tickets en photo", "lang": "fr"}
+{"skill": "expense-report", "message": "tengo que pasar los gastos del viaje a Bilbao a contabilidad, ¿me rellenas la hoja?", "lang": "es"}
+{"skill": "invoice-reminders", "message": "Brightwell still hasn't paid for the September job, it's been six weeks", "lang": "en"}
+{"skill": "invoice-reminders", "message": "who owes me money right now? chase them, nicely", "lang": "en"}
+{"skill": "invoice-reminders", "message": "third time I have to ask the Okafor studio to settle up, make this one a bit sterner", "lang": "en"}
+{"skill": "invoice-reminders", "message": "die klant van de website heeft na 30 dagen nog steeds niet betaald, stuur er even iets achteraan", "lang": "nl"}
+{"skill": "invoice-reminders", "message": "er staan nog drie betalingen open van vorige maand, kun je die mensen even aanschrijven", "lang": "nl"}
+{"skill": "invoice-reminders", "message": "el cliente de la reforma lleva dos meses sin pagarme, escríbele algo educado pero claro", "lang": "es"}
+{"skill": "invoice-reminders", "message": "Firma Lindqvist hat nach drei Wochen immer noch nicht überwiesen, bitte freundlich nachhaken", "lang": "de"}
+{"skill": "invoice-maker", "message": "bill Tamsin for 14 hours at 85, same details as last time", "lang": "en"}
+{"skill": "invoice-maker", "message": "job's done for the bakery, time to send them what they owe: 3 days plus materials", "lang": "en"}
+{"skill": "invoice-maker", "message": "need to charge the Hartwell project for October, timesheet is in the open tab", "lang": "en"}
+{"skill": "invoice-maker", "message": "ik heb 22 uur gewerkt voor Van Dalen Advies, maak daar even de rekening voor, 21% btw", "lang": "nl"}
+{"skill": "invoice-maker", "message": "klus bij de tandartspraktijk is klaar, kun je de nota opmaken? €450 excl.", "lang": "nl"}
+{"skill": "invoice-maker", "message": "Bitte stell dem Büro Petzold 12 Stunden à 70 Euro in Rechnung, Leistungszeitraum Oktober", "lang": "de"}
+{"skill": "invoice-maker", "message": "j'ai fini la mission pour l'agence Morvan, fais-moi la facture : 5 jours à 400 € HT", "lang": "fr"}
+{"skill": "slide-outline", "message": "I have to present our churn findings to leadership on Thursday, 10 minutes, where do I even start", "lang": "en"}
+{"skill": "slide-outline", "message": "make a deck skeleton out of this report", "lang": "en"}
+{"skill": "slide-outline", "message": "giving a talk at the meetup about home battery storage, need the storyline", "lang": "en"}
+{"skill": "slide-outline", "message": "ik moet volgende week een praatje houden over ons nieuwe rooster, kun je een opbouw voor de dia's maken", "lang": "nl"}
+{"skill": "slide-outline", "message": "maak van dit stuk een opzet voor een powerpoint van max 8 sheets", "lang": "nl"}
+{"skill": "slide-outline", "message": "je dois faire un exposé de 15 minutes sur notre bilan carbone, propose-moi un plan diapo par diapo", "lang": "fr"}
+{"skill": "slide-outline", "message": "tengo que exponer el plan de marketing el jueves, ármame el esquema de las diapositivas", "lang": "es"}
+{"skill": "job-application-tailor", "message": "this opening at Novacrest looks perfect for me, help me apply", "lang": "en"}
+{"skill": "job-application-tailor", "message": "make my resume fit this product manager role, they want more stakeholder stuff", "lang": "en"}
+{"skill": "job-application-tailor", "message": "found a job ad I like, what should I change in my motivation text so I don't get filtered out", "lang": "en"}
+{"skill": "job-application-tailor", "message": "ik wil solliciteren op deze functie bij de gemeente, kun je mijn brief erop aanpassen", "lang": "nl"}
+{"skill": "job-application-tailor", "message": "deze baan bij het ziekenhuis sluit vrijdag, help me even om er goed op te reageren", "lang": "nl"}
+{"skill": "job-application-tailor", "message": "quiero presentarme a esta oferta de diseñadora, adapta mi currículum a lo que piden", "lang": "es"}
+{"skill": "job-application-tailor", "message": "Die Stelle hier passt gut zu mir – kannst du Anschreiben und Lebenslauf darauf zuschneiden?", "lang": "de"}
+{"skill": "linkedin-post", "message": "we shipped the new booking app today, want to brag a little to my network, professionally", "lang": "en"}
+{"skill": "linkedin-post", "message": "I just passed my PMP exam, write something for my professional profile that isn't cringe", "lang": "en"}
+{"skill": "linkedin-post", "message": "spoke at the logistics summit yesterday, should share that with my connections", "lang": "en"}
+{"skill": "linkedin-post", "message": "ik ben vandaag 5 jaar in dienst, iets leuks voor linkedin graag, niet te slijmerig", "lang": "nl"}
+{"skill": "linkedin-post", "message": "we zoeken een nieuwe collega, schrijf even een berichtje dat ik op mijn tijdlijn kan zetten voor mijn zakelijke netwerk", "lang": "nl"}
+{"skill": "linkedin-post", "message": "Wir haben den Innovationspreis gewonnen – schreib mir einen Beitrag für mein berufliches Netzwerk", "lang": "de"}
+{"skill": "linkedin-post", "message": "j'ai changé de poste ce mois-ci, rédige-moi une annonce pour mon réseau pro, ton naturel", "lang": "fr"}
+{"skill": "inbox-triage", "message": "back from holiday, 340 emails, help", "lang": "en"}
+{"skill": "inbox-triage", "message": "what in my mailbox is actually urgent this morning", "lang": "en"}
+{"skill": "inbox-triage", "message": "anything I have to respond to before lunch? skim gmail for me", "lang": "en"}
+{"skill": "inbox-triage", "message": "ik heb 80 nieuwe berichten, welke moet ik echt nu oppakken", "lang": "nl"}
+{"skill": "inbox-triage", "message": "loop even door mijn postvak en zeg wat kan wachten", "lang": "nl"}
+{"skill": "inbox-triage", "message": "je rentre de congé, ma boîte déborde, dis-moi ce qui est prioritaire", "lang": "fr"}
+{"skill": "inbox-triage", "message": "tengo la bandeja de entrada a reventar, ¿qué es lo importante de hoy?", "lang": "es"}
+{"skill": "polite-decline", "message": "Priya invited me to her housewarming saturday but I really can't be bothered, how do I get out of it nicely", "lang": "en"}
+{"skill": "polite-decline", "message": "they want me on yet another committee. I need to say I can't without sounding rude", "lang": "en"}
+{"skill": "polite-decline", "message": "a recruiter keeps pitching me a role, turn him down kindly", "lang": "en"}
+{"skill": "polite-decline", "message": "ik wil onder die borrel van vrijdag uit zonder dat het lullig overkomt", "lang": "nl"}
+{"skill": "polite-decline", "message": "de buurvrouw vraagt of ik weer wil collecteren, hoe zeg ik netjes dat ik dit jaar oversla", "lang": "nl"}
+{"skill": "polite-decline", "message": "me han pedido dar una charla en el cole y no puedo, ayúdame a rechazarlo con tacto", "lang": "es"}
+{"skill": "polite-decline", "message": "Ich muss für die Hochzeit von Jannik absagen, soll aber herzlich klingen", "lang": "de"}
+{"skill": "follow-up-nudge", "message": "sent Marcus the proposal ten days ago, crickets", "lang": "en"}
+{"skill": "follow-up-nudge", "message": "the landlord never got back to me about the boiler, ping him again", "lang": "en"}
+{"skill": "follow-up-nudge", "message": "how do I bump my email to the professor without being annoying", "lang": "en"}
+{"skill": "follow-up-nudge", "message": "ik heb vorige week een mail gestuurd naar de aannemer en nog niks gehoord, geef hem even een zetje", "lang": "nl"}
+{"skill": "follow-up-nudge", "message": "Fenna zou terugkomen op mijn vraag over het contract maar het blijft stil, kun je er iets achteraan sturen", "lang": "nl"}
+{"skill": "follow-up-nudge", "message": "Seit zwei Wochen keine Antwort von der Hausverwaltung, bitte höflich nachhaken", "lang": "de"}
+{"skill": "follow-up-nudge", "message": "toujours pas de réponse du service RH à mon message de lundi, relance-les gentiment", "lang": "fr"}
+{"skill": "unsubscribe-sweep", "message": "my inbox is 90% promo junk, get me off those lists", "lang": "en"}
+{"skill": "unsubscribe-sweep", "message": "why do I still get mails from that mattress company, make it stop, and all the others like it", "lang": "en"}
+{"skill": "unsubscribe-sweep", "message": "clean out the marketing senders I signed up for years ago and have ignored ever since", "lang": "en"}
+{"skill": "unsubscribe-sweep", "message": "ik krijg elke dag reclamemails van winkels waar ik ooit iets kocht, meld me daar eens overal af", "lang": "nl"}
+{"skill": "unsubscribe-sweep", "message": "al die mailings lees ik toch niet, kan je die stopzetten", "lang": "nl"}
+{"skill": "unsubscribe-sweep", "message": "je reçois trop de pubs par mail, désabonne-moi de tout ce que je ne lis pas", "lang": "fr"}
+{"skill": "unsubscribe-sweep", "message": "quítame de todas esas listas de correo de tiendas, no abro ni una", "lang": "es"}
+{"skill": "email-tone-softener", "message": "I wrote this while angry, can you make it less harsh before I hit send", "lang": "en"}
+{"skill": "email-tone-softener", "message": "does this sound too aggressive? fix it but keep my point", "lang": "en"}
+{"skill": "email-tone-softener", "message": "my reply to Dev comes across as cold I think, warm it up", "lang": "en"}
+{"skill": "email-tone-softener", "message": "dit mailtje is wel erg kortaf geworden, maak het wat vriendelijker", "lang": "nl"}
+{"skill": "email-tone-softener", "message": "ik was pissig toen ik dit schreef, kun je de scherpe randjes eraf halen zonder dat de boodschap verandert", "lang": "nl"}
+{"skill": "email-tone-softener", "message": "este correo me ha quedado muy seco, suavízalo un poco sin cambiar lo que digo", "lang": "es"}
+{"skill": "email-tone-softener", "message": "Meine Antwort an den Kunden klingt ziemlich schroff, mach sie bitte etwas netter", "lang": "de"}
+{"skill": "out-of-office", "message": "I'm off from the 23rd till Jan 4, people should go to Ines for urgent stuff", "lang": "en"}
+{"skill": "out-of-office", "message": "leaving for two weeks tomorrow, sort out the automatic response on my mail", "lang": "en"}
+{"skill": "out-of-office", "message": "on parental leave starting monday, what should my vacation responder say", "lang": "en"}
+{"skill": "out-of-office", "message": "ik ben volgende week op vakantie, zet even mijn afwezigheidsmelding aan, Bram neemt waar", "lang": "nl"}
+{"skill": "out-of-office", "message": "vanaf morgen ben ik er drie dagen niet, mensen die mailen moeten weten dat ik niet reageer", "lang": "nl"}
+{"skill": "out-of-office", "message": "Ich bin ab Montag zwei Wochen im Urlaub, richte bitte die Abwesenheitsnotiz ein, Vertretung ist Frau Albers", "lang": "de"}
+{"skill": "out-of-office", "message": "je pars en congé du 3 au 17 août, prépare mon message d'absence, renvoyer vers Capucine", "lang": "fr"}
+{"skill": "find-meeting-slot", "message": "when can me, Tobias and Wen all sit down for an hour this week", "lang": "en"}
+{"skill": "find-meeting-slot", "message": "need 30 min with the design folks before friday, is there any gap", "lang": "en"}
+{"skill": "find-meeting-slot", "message": "find a moment where the four of us are free for the retro", "lang": "en"}
+{"skill": "find-meeting-slot", "message": "wanneer kunnen Sanne, Ruben en ik volgende week een uurtje samen zitten", "lang": "nl"}
+{"skill": "find-meeting-slot", "message": "prik even een datum voor het etentje met de oud-collega's, kijk wanneer iedereen kan", "lang": "nl"}
+{"skill": "find-meeting-slot", "message": "trouve un créneau commun pour moi, Léonie et Hugo la semaine prochaine", "lang": "fr"}
+{"skill": "find-meeting-slot", "message": "¿cuándo estamos libres los tres para vernos una hora? mira las agendas", "lang": "es"}
+{"skill": "week-planner", "message": "I have way too much to do before friday and no idea when to do it", "lang": "en"}
+{"skill": "week-planner", "message": "fit the report writing, gym twice and the dentist call into my schedule somehow", "lang": "en"}
+{"skill": "week-planner", "message": "monday morning. here's my list. where does it all go?", "lang": "en"}
+{"skill": "week-planner", "message": "ik heb deze week een hoop taken liggen, kun je die verdelen over de gaten in mijn agenda", "lang": "nl"}
+{"skill": "week-planner", "message": "plan even focusuren in voor dat rapport, ik heb alleen woensdag en donderdag ruimte volgens mij", "lang": "nl"}
+{"skill": "week-planner", "message": "tengo mil cosas pendientes, repártemelas entre los huecos libres de estos días", "lang": "es"}
+{"skill": "week-planner", "message": "Verteil meine Aufgabenliste bitte auf die freien Lücken zwischen meinen Terminen", "lang": "de"}
+{"skill": "birthday-reminders", "message": "I forgot my sister's big day AGAIN. never again please", "lang": "en"}
+{"skill": "birthday-reminders", "message": "whose turn is it to get a card from me in december?", "lang": "en"}
+{"skill": "birthday-reminders", "message": "add uncle Rolf, he turns 70 on march 9th, and give me a heads up beforehand", "lang": "en"}
+{"skill": "birthday-reminders", "message": "wie is er binnenkort jarig? ik vergeet het altijd", "lang": "nl"}
+{"skill": "birthday-reminders", "message": "oma wordt 12 februari 85, zet dat erin en geef me op tijd een seintje", "lang": "nl"}
+{"skill": "birthday-reminders", "message": "Wer aus der Verwandtschaft hat diesen Monat Geburtstag? Ich verpasse das ständig", "lang": "de"}
+{"skill": "birthday-reminders", "message": "note que l'anniversaire de Maëlle tombe le 6 juin et préviens-moi quelques jours avant", "lang": "fr"}
+{"skill": "reschedule-helper", "message": "can't make the 2pm with Oksana, push it to thursday and let her know", "lang": "en"}
+{"skill": "reschedule-helper", "message": "something came up, my dentist thing tomorrow has to shift to next week", "lang": "en"}
+{"skill": "reschedule-helper", "message": "bump our 1:1 by an hour and tell Callum sorry", "lang": "en"}
+{"skill": "reschedule-helper", "message": "ik red het morgen om 10 uur niet, verzet het naar vrijdag en laat het de anderen weten", "lang": "nl"}
+{"skill": "reschedule-helper", "message": "kan het overleg met de accountant een dagje opschuiven? stuur hem ook even een berichtje", "lang": "nl"}
+{"skill": "reschedule-helper", "message": "je ne pourrai pas être là mardi, décale le rendez-vous à jeudi et préviens tout le monde", "lang": "fr"}
+{"skill": "reschedule-helper", "message": "me ha surgido algo, pasa la cita de mañana al lunes y avisa a Rocío", "lang": "es"}

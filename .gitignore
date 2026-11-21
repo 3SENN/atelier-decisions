@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.pyc
+models/
+runs/
+data/cache/
+data/teacher/
+*.safetensors
+*.onnx
+*.gguf
+!runtime/**/*.json
+data/pool/
+*.log
+node_modules/
+# Saved versions (model files and data through Git LFS: .gitattributes)
+!releases/**

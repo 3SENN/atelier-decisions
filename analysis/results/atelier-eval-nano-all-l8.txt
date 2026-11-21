@@ -1,0 +1,104 @@
+﻿
+ RUN  v5.1.0 C:/Users/senne/github/atelier
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > needsYou
+atelier-nano (custom) needsYou: rule alone 5/10, with the model 7/10; 7/9 right when sure (78%), unsure on 1, 0 flipped with the order, 5 ms median and 30 ms at the 90th percentile
+  wrong: {"reply":"I found three flights. Which one should I book: the 8:05, the 12:40 or the 18:15 → false
+  wrong: {"reply":"Before I send it, should the email go to the whole team or only to Sam?","expect → false
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > dictation
+atelier-nano (custom) dictation: rule alone 4/8, with the model 6/8; 3/4 right when sure (75%), unsure on 4, 0 flipped with the order, 4 ms median and 4 ms at the 90th percentile
+  wrong: {"spoken":"add a friendly sign-off","field":"Here are the numbers you asked for.","expect" → true
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > agentClicks
+atelier-nano (custom) agentClicks: rule alone 5/12, with the model 11/12; 7/7 right when sure (100%), unsure on 5, 0 flipped with the order, 5 ms median and 5 ms at the 90th percentile
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > searchOrAsk
+atelier-nano (custom) searchOrAsk: rule alone 5/10, with the model 9/10; 9/9 right when sure (100%), unsure on 1, 0 flipped with the order, 3 ms median and 3 ms at the 90th percentile
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > voiceTarget
+atelier-nano (custom) voiceTarget: rule alone 3/6, with the model 6/6; 3/3 right when sure (100%), unsure on 3, 0 flipped with the order, 3 ms median and 4 ms at the 90th percentile
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > effort
+atelier-nano (custom) effort: rule alone 3/12, with the model 4/12; 3/3 right when sure (100%), unsure on 9, 0 flipped with the order, 4 ms median and 5 ms at the 90th percentile
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > memory
+atelier-nano (custom) memory: rule alone 5/10, with the model 9/10; 5/6 right when sure (83%), unsure on 4, 0 flipped with the order, 4 ms median and 6 ms at the 90th percentile
+  wrong: {"transcript":"You: My daughter Emma starts swimming lessons on Wednesdays at 4, remind me → false
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > tabs
+atelier-nano (custom) tabs: rule alone 0/12, with the model 9/12; 9/10 right when sure (90%), unsure on 2, 0 flipped with the order, 5 ms median and 5 ms at the 90th percentile
+  wrong: {"title":"Hotels in Lisbon - Booking.com","url":"https://www.booking.com/city/pt/lisbon.ht → {"topic":"travel"}
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > skills
+atelier-nano (custom) skills: rule alone 2/10, with the model 2/10; 2/9 right when sure, unsure on 1, 29 ms median and 38 ms at the 90th percentile
+  wrong: can you do my status update for this week? → none
+  wrong: I've got 4 taxi receipts from the Berlin trip, can you claim → travel-pack
+  wrong: what should we eat this week? make me a list for the superma → none
+  wrong: please look at https://github.com/acme/api/pull/412 and comm → none
+  wrong: we're going to Iceland 3-10 March, what should I bring? → none
+  wrong: which customers still owe us money? nudge them → none
+  wrong: kun je een post schrijven over ons nieuwe kantoor voor mijn  → none
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > labeling (the companion’s label_items)
+atelier-nano (custom) labeling 12 emails in 170 ms: topic 11/11 right when sure, unsure on 1; today 7/8 right when sure, unsure on 4
+  wrong: From: Jonas. Are we still on for dinner tonight at 7? Let me → today: no
+
+ ❯ tests/decisionsEval.test.ts (10 tests | 3 failed) 1368ms
+   ❯ quick decisions against a real decision model (10)
+     × needsYou 118ms
+     × dictation 61ms
+     × skills 531ms
+node.exe : 
+At C:\Program Files\nodejs\npx.ps1:16 char:5
++     & "$basedir/node$exe"  "$basedir/node_modules/npm/bin/npx-cli.js" ...
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/decisionsEval.test.ts > quick decisions against a real decision model > needsYou
+AssertionError: needsYou: {"reply":"I found three flights. Which one should I book: the 8:05, the 12:40 or the 18:15 → 
+false; {"reply":"Before I send it, should the email go to the whole team or only to Sam?","expect → false: expected 
+0.7777777777777778 to be greater than or equal to 0.8
+ ❯ measure tests/decisionsEval.test.ts:224:52
+    222|   )
+    223|   expect(flips, `${name} changed its answer when the options were reve…
+    224|   expect(accuracy, `${name}: ${wrong.join('; ')}`).toBeGreaterThanOrEq…
+       |                                                    ^
+    225| }
+    226|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  tests/decisionsEval.test.ts > quick decisions against a real decision model > dictation
+AssertionError: dictation: {"spoken":"add a friendly sign-off","field":"Here are the numbers you asked for.","expect" 
+→ true: expected 0.75 to be greater than or equal to 0.8
+ ❯ measure tests/decisionsEval.test.ts:224:52
+    222|   )
+    223|   expect(flips, `${name} changed its answer when the options were reve…
+    224|   expect(accuracy, `${name}: ${wrong.join('; ')}`).toBeGreaterThanOrEq…
+       |                                                    ^
+    225| }
+    226|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  tests/decisionsEval.test.ts > quick decisions against a real decision model > skills
+AssertionError: can you do my status update for this week? → none; I've got 4 taxi receipts from the Berlin trip, can 
+you claim → travel-pack; what should we eat this week? make me a list for the superma → none; please look at 
+https://github.com/acme/api/pull/412 and comm → none; we're going to Iceland 3-10 March, what should I bring? → none; 
+which customers still owe us money? nudge them → none; kun je een post schrijven over ons nieuwe kantoor voor mijn  → 
+none: expected 0.2222222222222222 to be greater than or equal to 0.8
+ ❯ tests/decisionsEval.test.ts:353:57
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed | 7 passed (10)
+   Start at  17:53:12
+   Duration  6.41s (transform 60%, tests 22%, import 18%)
+
