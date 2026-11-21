@@ -1,0 +1,71 @@
+"""Saves a model version under releases/<version>: everything needed to ship it, measure it and keep training it.
+
+    python tools/make_release.py --version v0.2 --model runs/nano-v02-l22 --report v0.2-l22 \
+        --data data/teacher/pool-v1.flash.jsonl ... --weights runs/DATA_WEIGHTS.json
+
+Copies the shipped ONNX files, the trimmed tokenizer, calibration and the PyTorch checkpoint; the version's
+capability report (analysis/capabilities.py) and the cross-version comparison; zips the teacher-labelled data it
+was trained on and the LLM-written inputs; writes MANIFEST.json (SHA-256 of every file). The model card is
+written by hand next to it (MODEL_CARD.md), since what a version can't do needs words, not numbers.
+"""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import shutil
+import time
+import zipfile
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--version", required=True)
+    parser.add_argument("--model", type=Path, required=True)
+    parser.add_argument("--report", required=True, help="name of its capability report")
+    parser.add_argument("--data", type=Path, nargs="+", required=True)
+    parser.add_argument("--weights", type=Path)
+    parser.add_argument("--tokenizer", type=Path, default=ROOT / "runs" / "tokenizer-32k")
+    args = parser.parse_args()
+
+    out = ROOT / "releases" / args.version
+    (out / "model").mkdir(parents=True, exist_ok=True)
+    (out / "eval").mkdir(exist_ok=True)
+    (out / "data").mkdir(exist_ok=True)
+    onnx = args.model / "onnx"
+    for name in ("model.emb4.int8.onnx", "model.int8.onnx", "tokenizer.json", "tokenizer_config.json", "vocab.json", "calibration.json", "report.json"):
+        shutil.copy2(onnx / name, out / "model" / name)
+    for name in ("student.pt", "config.json", "calibration-report.json", "train.log"):
+        if (args.model / name).exists():
+            shutil.copy2(args.model / name, out / "model" / name)
+    shutil.copy2(args.tokenizer / "keep.json", out / "model" / "tokenizer-keep.json")
+    if args.weights and args.weights.exists():
+        shutil.copy2(args.weights, out / "model" / "data-weights.json")
+    results = ROOT / "analysis" / "results"
+    for src in (results / f"capabilities-{args.report}.json", results / f"atelier-eval-{args.report}.txt",
+                ROOT / "docs" / "capabilities" / f"{args.report}.md", ROOT / "docs" / "capabilities" / "README.md"):
+        if src.exists():
+            shutil.copy2(src, out / "eval" / (src.name if src.name != "README.md" else "all-versions.md"))
+    with zipfile.ZipFile(out / "data" / "teacher-labels.zip", "w", zipfile.ZIP_DEFLATED, compresslevel=9) as z:
+        for path in args.data:
+            z.write(path, path.resolve().relative_to(ROOT).as_posix())
+    with zipfile.ZipFile(out / "data" / "llm-written-inputs.zip", "w", zipfile.ZIP_DEFLATED, compresslevel=9) as z:
+        for folder in ("gen", "gen2"):
+            for path in sorted((ROOT / "data" / folder).glob("*.jsonl")):
+                z.write(path, path.relative_to(ROOT).as_posix())
+    files = {}
+    for path in sorted(out.rglob("*")):
+        if path.is_file() and path.name != "MANIFEST.json":
+            files[path.relative_to(out).as_posix()] = {"bytes": path.stat().st_size, "sha256": hashlib.sha256(path.read_bytes()).hexdigest()}
+    (out / "MANIFEST.json").write_text(json.dumps({"version": args.version, "date": time.strftime("%Y-%m-%d"), "model": str(args.model),
+                                                   "files": files}, indent=1))
+    total = sum(f["bytes"] for f in files.values())
+    print(f"{out}: {len(files)} files, {total / 1e6:.0f} MB")
+
+
+if __name__ == "__main__":
+    main()

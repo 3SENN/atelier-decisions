@@ -1,0 +1,87 @@
+{
+ "version": "v0.2",
+ "date": "2026-11-22",
+ "model": "runs\\nano-v02-l22",
+ "files": {
+  "data/llm-written-inputs.zip": {
+   "bytes": 462299,
+   "sha256": "8f725a3712899d3429aaec495ba84e2137f4769ec462927dbc4f57d812b40846"
+  },
+  "data/teacher-labels.zip": {
+   "bytes": 19880501,
+   "sha256": "6a65e9114499558a996dd39b0b018f446f82b9fd37e404cf30cd3e1796aa734d"
+  },
+  "eval/all-versions.md": {
+   "bytes": 2079,
+   "sha256": "2704eff763e09adad7ef83c4df7fdd8df89f51dfcb51d092f52707c3942a75e3"
+  },
+  "eval/atelier-eval-v0.2-l22.txt": {
+   "bytes": 3059,
+   "sha256": "6c8b5a95586feabce3fdb9d03ec498349787619f0342ab015cff86e5a83a150f"
+  },
+  "eval/capabilities-v0.2-l22.json": {
+   "bytes": 21296,
+   "sha256": "c54eaf8264464c08f157130406b834819cf38dd029247e89f14d356e515c6f4a"
+  },
+  "eval/v0.2-l22.md": {
+   "bytes": 6370,
+   "sha256": "90b6ed0732d6c9caf9a5e46de741a100572bc1570586866917e176e517166573"
+  },
+  "model/calibration-report.json": {
+   "bytes": 4350,
+   "sha256": "d3853cca7b45c6db15e40e9d922fe8cb8783d96348a18f59bcb146f556b6f56d"
+  },
+  "model/calibration.json": {
+   "bytes": 176,
+   "sha256": "a3fe42d7e39a9bce3d50dd3276acd24ff617690eb06157248db901848533d83d"
+  },
+  "model/config.json": {
+   "bytes": 1980,
+   "sha256": "3c7784a65320d1c84f8b826ddbe4a76b30d3606e3dee56319133d5ce081a3ed3"
+  },
+  "model/data-weights.json": {
+   "bytes": 21,
+   "sha256": "c539b0b3aab15f05528b0432625c54863e2875a96dabb7ecef5c940d736cf7fd"
+  },
+  "model/model.emb4.int8.onnx": {
+   "bytes": 54249484,
+   "sha256": "70e9e5fe704d97cfaf77124ba9740b11e50f8b8e3eb660a5da15c92b24fe8ff7"
+  },
+  "model/model.int8.onnx": {
+   "bytes": 60545832,
+   "sha256": "958e21e72c9d3ef0f26fe8ae1dd8183aea1e99a2145d5669bac3ea83d5747bab"
+  },
+  "model/report.json": {
+   "bytes": 671,
+   "sha256": "09b51398ec0b63be73d6f52f997248f12b138c79affc403a74a434f4f6301bca"
+  },
+  "model/student.pt": {
+   "bytes": 236570283,
+   "sha256": "a6b3061c063b63c4ed5e9e377ec39742f913bdb1b413004e051541b629d7ec27"
+  },
+  "model/tokenizer-keep.json": {
+   "bytes": 308232,
+   "sha256": "abc8fd0bd6d96989c834a2e0f2d4302e648f7f38e1cb34105fb4d5d9f5c7dde4"
+  },
+  "model/tokenizer.json": {
+   "bytes": 2235313,
+   "sha256": "5a976b6650b911c2f57da96c73c4c93bf388e7cb53eeff65005719e90717ae34"
+  },
+  "model/tokenizer_config.json": {
+   "bytes": 46440,
+   "sha256": "ea349495764b24570b4560fe2e4a557e5c0a47e6bce782c2409b1d6445cf8633"
+  },
+  "model/train.log": {
+   "bytes": 11639,
+   "sha256": "20f8969f00521cee53df3d5d167afb425e4beff8756a47fd22f3fd82eaa2a70b"
+  },
+  "model/vocab.json": {
+   "bytes": 294971,
+   "sha256": "9d836ff3d79188b12fdd8a9a2c3877ace79ed7bcc8ef0a7a0a153e6ca99533e7"
+  },
+  "MODEL_CARD.md": {
+   "bytes": 2981,
+   "sha256": "b569b1562709f36e90d701538ca78ac8ca1d37bd6d140ec63beb485dd6752320"
+  }
+ }
+}

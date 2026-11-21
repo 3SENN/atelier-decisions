@@ -1,0 +1,1109 @@
+{
+ "name": "v0.2-l12",
+ "model": "runs\\nano-v02-l12",
+ "file": "model.emb4.int8.onnx",
+ "mb": 34.4,
+ "date": "2026-11-21 23:06",
+ "atelier_eval": {
+  "needsYou": {
+   "n": 10,
+   "rule": 5,
+   "model": 10,
+   "sure_right": 9,
+   "sure": 9,
+   "unsure": 1
+  },
+  "dictation": {
+   "n": 8,
+   "rule": 4,
+   "model": 7,
+   "sure_right": 3,
+   "sure": 3,
+   "unsure": 5
+  },
+  "agentClicks": {
+   "n": 12,
+   "rule": 5,
+   "model": 12,
+   "sure_right": 8,
+   "sure": 8,
+   "unsure": 4
+  },
+  "searchOrAsk": {
+   "n": 10,
+   "rule": 5,
+   "model": 10,
+   "sure_right": 10,
+   "sure": 10,
+   "unsure": 0
+  },
+  "voiceTarget": {
+   "n": 6,
+   "rule": 3,
+   "model": 5,
+   "sure_right": 2,
+   "sure": 2,
+   "unsure": 4
+  },
+  "effort": {
+   "n": 12,
+   "rule": 3,
+   "model": 9,
+   "sure_right": 7,
+   "sure": 7,
+   "unsure": 5
+  },
+  "memory": {
+   "n": 10,
+   "rule": 5,
+   "model": 10,
+   "sure_right": 5,
+   "sure": 5,
+   "unsure": 5
+  },
+  "tabs": {
+   "n": 12,
+   "rule": 0,
+   "model": 10,
+   "sure_right": 10,
+   "sure": 12,
+   "unsure": 0
+  },
+  "skills": {
+   "n": 10,
+   "rule": 2,
+   "model": 6,
+   "sure_right": 6,
+   "sure": 8,
+   "unsure": 2
+  },
+  "_tests": {
+   "failed": 1,
+   "passed": 9
+  }
+ },
+ "held_out_by_decision": {
+  "needsYou": {
+   "n": 568,
+   "agree": 0.8768,
+   "conflict": 0.0088,
+   "overreach": 0.0335,
+   "underreach": 0.037,
+   "declined": 0.044,
+   "coverage": 0.9032,
+   "precision": 0.9532
+  },
+  "ALL": {
+   "n": 6303,
+   "agree": 0.8607,
+   "conflict": 0.0049,
+   "overreach": 0.0238,
+   "underreach": 0.1041,
+   "declined": 0.0075,
+   "coverage": 0.6786,
+   "precision": 0.9577
+  },
+  "searchOrAsk": {
+   "n": 664,
+   "agree": 0.762,
+   "conflict": 0.0,
+   "overreach": 0.0331,
+   "underreach": 0.1973,
+   "declined": 0.012,
+   "coverage": 0.5994,
+   "precision": 0.9447
+  },
+  "effort": {
+   "n": 739,
+   "agree": 0.7388,
+   "conflict": 0.0,
+   "overreach": 0.0555,
+   "underreach": 0.2016,
+   "declined": 0.0081,
+   "coverage": 0.3491,
+   "precision": 0.8411
+  },
+  "memory": {
+   "n": 591,
+   "agree": 0.8173,
+   "conflict": 0.0,
+   "overreach": 0.0068,
+   "underreach": 0.1675,
+   "declined": 0.0085,
+   "coverage": 0.3367,
+   "precision": 0.9799
+  },
+  "tabs": {
+   "n": 425,
+   "agree": 0.9482,
+   "conflict": 0.0024,
+   "overreach": 0.0235,
+   "underreach": 0.0259,
+   "declined": 0.0,
+   "coverage": 0.7459,
+   "precision": 0.9653
+  },
+  "dictation": {
+   "n": 167,
+   "agree": 0.8084,
+   "conflict": 0.0,
+   "overreach": 0.018,
+   "underreach": 0.1557,
+   "declined": 0.018,
+   "coverage": 0.6168,
+   "precision": 0.9709
+  },
+  "voiceTarget": {
+   "n": 384,
+   "agree": 0.7917,
+   "conflict": 0.0,
+   "overreach": 0.0286,
+   "underreach": 0.1797,
+   "declined": 0.0,
+   "coverage": 0.4062,
+   "precision": 0.9295
+  },
+  "agentClicks": {
+   "n": 516,
+   "agree": 0.9477,
+   "conflict": 0.0,
+   "overreach": 0.0446,
+   "underreach": 0.0078,
+   "declined": 0.0,
+   "coverage": 0.5252,
+   "precision": 0.9151
+  },
+  "labeling": {
+   "n": 34,
+   "agree": 0.9118,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.0882,
+   "declined": 0.0,
+   "coverage": 0.5,
+   "precision": 1.0
+  },
+  "skills": {
+   "n": 2215,
+   "agree": 0.9165,
+   "conflict": 0.0113,
+   "overreach": 0.0077,
+   "underreach": 0.0646,
+   "declined": 0.0,
+   "coverage": 0.9233,
+   "precision": 0.9795
+  }
+ },
+ "held_out_by_language": {
+  "en": {
+   "n": 3860,
+   "agree": 0.8642,
+   "conflict": 0.0039,
+   "overreach": 0.0251,
+   "underreach": 0.0974,
+   "declined": 0.0104,
+   "coverage": 0.6984,
+   "precision": 0.9585
+  },
+  "ALL": {
+   "n": 6303,
+   "agree": 0.8607,
+   "conflict": 0.0049,
+   "overreach": 0.0238,
+   "underreach": 0.1041,
+   "declined": 0.0075,
+   "coverage": 0.6786,
+   "precision": 0.9577
+  },
+  "nl": {
+   "n": 1058,
+   "agree": 0.8667,
+   "conflict": 0.0066,
+   "overreach": 0.0217,
+   "underreach": 0.1049,
+   "declined": 0.0009,
+   "coverage": 0.6531,
+   "precision": 0.9566
+  },
+  "fr": {
+   "n": 475,
+   "agree": 0.8189,
+   "conflict": 0.0021,
+   "overreach": 0.0337,
+   "underreach": 0.1432,
+   "declined": 0.0021,
+   "coverage": 0.6084,
+   "precision": 0.9412
+  },
+  "es": {
+   "n": 503,
+   "agree": 0.8628,
+   "conflict": 0.0119,
+   "overreach": 0.0139,
+   "underreach": 0.1074,
+   "declined": 0.004,
+   "coverage": 0.6561,
+   "precision": 0.9606
+  },
+  "de": {
+   "n": 407,
+   "agree": 0.8575,
+   "conflict": 0.0049,
+   "overreach": 0.0172,
+   "underreach": 0.1155,
+   "declined": 0.0074,
+   "coverage": 0.6658,
+   "precision": 0.9668
+  }
+ },
+ "held_out_open_by_source": {
+  "gliclass": {
+   "n": 408,
+   "agree": 0.4314,
+   "conflict": 0.0784,
+   "overreach": 0.027,
+   "underreach": 0.4534,
+   "declined": 0.0098,
+   "coverage": 0.3995,
+   "precision": 0.7362
+  },
+  "ALL": {
+   "n": 777,
+   "agree": 0.4054,
+   "conflict": 0.0502,
+   "overreach": 0.018,
+   "underreach": 0.5199,
+   "declined": 0.0077,
+   "coverage": 0.3269,
+   "precision": 0.7913
+  },
+  "zeroshot": {
+   "n": 284,
+   "agree": 0.4296,
+   "conflict": 0.007,
+   "overreach": 0.0035,
+   "underreach": 0.5563,
+   "declined": 0.007,
+   "coverage": 0.2676,
+   "precision": 0.9605
+  },
+  "gen2-tools": {
+   "n": 23,
+   "agree": 0.1739,
+   "conflict": 0.0435,
+   "overreach": 0.0435,
+   "underreach": 0.7391,
+   "declined": 0.0,
+   "coverage": 0.1304,
+   "precision": 0.3333
+  },
+  "gen2-pages": {
+   "n": 35,
+   "agree": 0.2571,
+   "conflict": 0.0571,
+   "overreach": 0.0286,
+   "underreach": 0.6571,
+   "declined": 0.0,
+   "coverage": 0.2286,
+   "precision": 0.625
+  },
+  "gen2-routines": {
+   "n": 27,
+   "agree": 0.1481,
+   "conflict": 0.0741,
+   "overreach": 0.0,
+   "underreach": 0.7778,
+   "declined": 0.0,
+   "coverage": 0.1481,
+   "precision": 0.5
+  }
+ },
+ "probe_languages": {
+  "en": {
+   "n": 150,
+   "agree": 0.6667,
+   "conflict": 0.0067,
+   "overreach": 0.0467,
+   "underreach": 0.28,
+   "declined": 0.0,
+   "coverage": 0.2067,
+   "precision": 0.7419
+  },
+  "ALL": {
+   "n": 3000,
+   "agree": 0.6063,
+   "conflict": 0.002,
+   "overreach": 0.0257,
+   "underreach": 0.1387,
+   "declined": 0.5197,
+   "coverage": 0.095,
+   "precision": 0.7088
+  },
+  "nl": {
+   "n": 150,
+   "agree": 0.6,
+   "conflict": 0.0,
+   "overreach": 0.0667,
+   "underreach": 0.3333,
+   "declined": 0.0,
+   "coverage": 0.32,
+   "precision": 0.7917
+  },
+  "de": {
+   "n": 150,
+   "agree": 0.6467,
+   "conflict": 0.0,
+   "overreach": 0.0867,
+   "underreach": 0.2667,
+   "declined": 0.0,
+   "coverage": 0.2933,
+   "precision": 0.7045
+  },
+  "fr": {
+   "n": 150,
+   "agree": 0.7333,
+   "conflict": 0.0,
+   "overreach": 0.04,
+   "underreach": 0.2267,
+   "declined": 0.0,
+   "coverage": 0.22,
+   "precision": 0.8182
+  },
+  "es": {
+   "n": 150,
+   "agree": 0.7267,
+   "conflict": 0.0,
+   "overreach": 0.0333,
+   "underreach": 0.24,
+   "declined": 0.0,
+   "coverage": 0.2333,
+   "precision": 0.8571
+  },
+  "it": {
+   "n": 150,
+   "agree": 0.5667,
+   "conflict": 0.0133,
+   "overreach": 0.06,
+   "underreach": 0.36,
+   "declined": 0.0,
+   "coverage": 0.1333,
+   "precision": 0.45
+  },
+  "pt": {
+   "n": 150,
+   "agree": 0.6867,
+   "conflict": 0.0067,
+   "overreach": 0.0667,
+   "underreach": 0.2267,
+   "declined": 0.0267,
+   "coverage": 0.2133,
+   "precision": 0.6562
+  },
+  "sv": {
+   "n": 150,
+   "agree": 0.64,
+   "conflict": 0.0,
+   "overreach": 0.04,
+   "underreach": 0.32,
+   "declined": 0.0,
+   "coverage": 0.0933,
+   "precision": 0.5714
+  },
+  "pl": {
+   "n": 150,
+   "agree": 0.5867,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.0667,
+   "declined": 0.7533,
+   "coverage": 0.0067,
+   "precision": 1.0
+  },
+  "tr": {
+   "n": 150,
+   "agree": 0.4533,
+   "conflict": 0.0067,
+   "overreach": 0.0067,
+   "underreach": 0.1133,
+   "declined": 0.7533,
+   "coverage": 0.02,
+   "precision": 0.3333
+  },
+  "id": {
+   "n": 150,
+   "agree": 0.6333,
+   "conflict": 0.0067,
+   "overreach": 0.06,
+   "underreach": 0.3,
+   "declined": 0.0,
+   "coverage": 0.14,
+   "precision": 0.5238
+  },
+  "ru": {
+   "n": 150,
+   "agree": 0.54,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.0067,
+   "declined": 0.9933,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "el": {
+   "n": 150,
+   "agree": 0.5333,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.0,
+   "declined": 0.9867,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "zh": {
+   "n": 150,
+   "agree": 0.5267,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.0,
+   "declined": 1.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "ja": {
+   "n": 150,
+   "agree": 0.62,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.0,
+   "declined": 0.9933,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "ko": {
+   "n": 150,
+   "agree": 0.5267,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.0,
+   "declined": 1.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "ar": {
+   "n": 150,
+   "agree": 0.6267,
+   "conflict": 0.0,
+   "overreach": 0.0067,
+   "underreach": 0.0333,
+   "declined": 0.8867,
+   "coverage": 0.02,
+   "precision": 0.6667
+  },
+  "hi": {
+   "n": 150,
+   "agree": 0.5333,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.0,
+   "declined": 1.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "he": {
+   "n": 150,
+   "agree": 0.5667,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.0,
+   "declined": 1.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "th": {
+   "n": 150,
+   "agree": 0.7133,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.0,
+   "declined": 1.0,
+   "coverage": 0.0,
+   "precision": null
+  }
+ },
+ "probe_open_unseen": {
+  "probe-areas": {
+   "n": 200,
+   "agree": 0.09,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.91,
+   "declined": 0.0,
+   "coverage": 0.03,
+   "precision": 1.0
+  },
+  "ALL": {
+   "n": 450,
+   "agree": 0.1689,
+   "conflict": 0.0244,
+   "overreach": 0.0067,
+   "underreach": 0.8,
+   "declined": 0.0,
+   "coverage": 0.1556,
+   "precision": 0.8
+  },
+  "probe-money": {
+   "n": 47,
+   "agree": 0.4468,
+   "conflict": 0.0638,
+   "overreach": 0.0,
+   "underreach": 0.4894,
+   "declined": 0.0,
+   "coverage": 0.4894,
+   "precision": 0.8696
+  },
+  "probe-purchase": {
+   "n": 53,
+   "agree": 0.3585,
+   "conflict": 0.0566,
+   "overreach": 0.0189,
+   "underreach": 0.566,
+   "declined": 0.0,
+   "coverage": 0.434,
+   "precision": 0.8261
+  },
+  "probe-urgency": {
+   "n": 50,
+   "agree": 0.22,
+   "conflict": 0.02,
+   "overreach": 0.02,
+   "underreach": 0.74,
+   "declined": 0.0,
+   "coverage": 0.14,
+   "precision": 0.7143
+  },
+  "probe-family": {
+   "n": 100,
+   "agree": 0.07,
+   "conflict": 0.04,
+   "overreach": 0.01,
+   "underreach": 0.88,
+   "declined": 0.0,
+   "coverage": 0.11,
+   "precision": 0.5455
+  }
+ },
+ "probe_open_browser_families": {
+  "email-thread-resolved": {
+   "n": 10,
+   "agree": 0.2,
+   "conflict": 0.0,
+   "overreach": 0.1,
+   "underreach": 0.7,
+   "declined": 0.0,
+   "coverage": 0.3,
+   "precision": 0.6667
+  },
+  "ALL": {
+   "n": 480,
+   "agree": 0.2104,
+   "conflict": 0.0646,
+   "overreach": 0.0042,
+   "underreach": 0.7146,
+   "declined": 0.0229,
+   "coverage": 0.1667,
+   "precision": 0.5875
+  },
+  "customer-intent": {
+   "n": 10,
+   "agree": 0.0,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 1.0,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "dark-pattern-type": {
+   "n": 10,
+   "agree": 0.1,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.9,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "work-mode": {
+   "n": 10,
+   "agree": 0.2,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.8,
+   "declined": 0.0,
+   "coverage": 0.1,
+   "precision": 1.0
+  },
+  "destructive-action": {
+   "n": 10,
+   "agree": 0.6,
+   "conflict": 0.1,
+   "overreach": 0.0,
+   "underreach": 0.3,
+   "declined": 0.0,
+   "coverage": 0.6,
+   "precision": 0.8333
+  },
+  "form-submission-result": {
+   "n": 10,
+   "agree": 0.2,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.8,
+   "declined": 0.0,
+   "coverage": 0.1,
+   "precision": 1.0
+  },
+  "ticket-availability": {
+   "n": 10,
+   "agree": 0.2,
+   "conflict": 0.3,
+   "overreach": 0.0,
+   "underreach": 0.5,
+   "declined": 0.0,
+   "coverage": 0.3,
+   "precision": 0.0
+  },
+  "tool-output-prompt-injection": {
+   "n": 10,
+   "agree": 0.1,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.9,
+   "declined": 0.0,
+   "coverage": 0.1,
+   "precision": 1.0
+  },
+  "total-cost-within-budget": {
+   "n": 10,
+   "agree": 0.6,
+   "conflict": 0.0,
+   "overreach": 0.1,
+   "underreach": 0.3,
+   "declined": 0.0,
+   "coverage": 0.5,
+   "precision": 0.8
+  },
+  "message-contains-credentials": {
+   "n": 10,
+   "agree": 0.2,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.8,
+   "declined": 0.0,
+   "coverage": 0.2,
+   "precision": 1.0
+  },
+  "summary-faithful": {
+   "n": 10,
+   "agree": 0.0,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 1.0,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "invite-conflicts-with-agenda": {
+   "n": 10,
+   "agree": 0.2,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.8,
+   "declined": 0.0,
+   "coverage": 0.2,
+   "precision": 1.0
+  },
+  "oauth-scope-excessive": {
+   "n": 10,
+   "agree": 0.2,
+   "conflict": 0.2,
+   "overreach": 0.0,
+   "underreach": 0.6,
+   "declined": 0.0,
+   "coverage": 0.4,
+   "precision": 0.5
+  },
+  "rental-scam-likelihood": {
+   "n": 10,
+   "agree": 0.3,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.7,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "brand-impersonating-domain": {
+   "n": 10,
+   "agree": 0.0,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 1.0,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "review-likely-fake": {
+   "n": 10,
+   "agree": 0.8,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.0,
+   "declined": 1.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "support-ticket-escalate": {
+   "n": 10,
+   "agree": 0.4,
+   "conflict": 0.4,
+   "overreach": 0.0,
+   "underreach": 0.2,
+   "declined": 0.0,
+   "coverage": 0.8,
+   "precision": 0.5
+  },
+  "energy-rating-meets-minimum": {
+   "n": 10,
+   "agree": 0.2,
+   "conflict": 0.2,
+   "overreach": 0.0,
+   "underreach": 0.6,
+   "declined": 0.0,
+   "coverage": 0.4,
+   "precision": 0.5
+  },
+  "task-due-category": {
+   "n": 10,
+   "agree": 0.0,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 1.0,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "price-currency-as-expected": {
+   "n": 10,
+   "agree": 0.2,
+   "conflict": 0.1,
+   "overreach": 0.0,
+   "underreach": 0.7,
+   "declined": 0.0,
+   "coverage": 0.3,
+   "precision": 0.6667
+  },
+  "news-relevant-to-interest": {
+   "n": 10,
+   "agree": 0.0,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 1.0,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "expense-claim-check": {
+   "n": 10,
+   "agree": 0.5,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.5,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "contract-type": {
+   "n": 10,
+   "agree": 0.2,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.8,
+   "declined": 0.0,
+   "coverage": 0.1,
+   "precision": 1.0
+  },
+  "network-request-kind": {
+   "n": 10,
+   "agree": 0.0,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 1.0,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "email-automated-or-human": {
+   "n": 10,
+   "agree": 0.4,
+   "conflict": 0.1,
+   "overreach": 0.0,
+   "underreach": 0.5,
+   "declined": 0.0,
+   "coverage": 0.4,
+   "precision": 0.75
+  },
+  "email-meeting-request": {
+   "n": 10,
+   "agree": 0.2,
+   "conflict": 0.1,
+   "overreach": 0.0,
+   "underreach": 0.7,
+   "declined": 0.0,
+   "coverage": 0.3,
+   "precision": 0.6667
+  },
+  "chat-sincere-or-sarcastic": {
+   "n": 10,
+   "agree": 0.0,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 1.0,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "seller-trustworthiness": {
+   "n": 10,
+   "agree": 0.2,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.8,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "commute-within-limit": {
+   "n": 10,
+   "agree": 0.3,
+   "conflict": 0.3,
+   "overreach": 0.0,
+   "underreach": 0.4,
+   "declined": 0.0,
+   "coverage": 0.6,
+   "precision": 0.5
+  },
+  "chat-directed-at-user": {
+   "n": 10,
+   "agree": 0.1,
+   "conflict": 0.5,
+   "overreach": 0.0,
+   "underreach": 0.4,
+   "declined": 0.0,
+   "coverage": 0.6,
+   "precision": 0.1667
+  },
+  "tool-next-step": {
+   "n": 10,
+   "agree": 0.1,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.9,
+   "declined": 0.0,
+   "coverage": 0.1,
+   "precision": 1.0
+  },
+  "snapshot-is-real-content": {
+   "n": 10,
+   "agree": 0.1,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.9,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "free-returns": {
+   "n": 10,
+   "agree": 0.2,
+   "conflict": 0.1,
+   "overreach": 0.0,
+   "underreach": 0.7,
+   "declined": 0.0,
+   "coverage": 0.2,
+   "precision": 0.5
+  },
+  "result-is-ad": {
+   "n": 10,
+   "agree": 0.2,
+   "conflict": 0.2,
+   "overreach": 0.0,
+   "underreach": 0.5,
+   "declined": 0.1,
+   "coverage": 0.4,
+   "precision": 0.5
+  },
+  "tab-group-suggestion": {
+   "n": 10,
+   "agree": 0.0,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 1.0,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "reply-all-appropriate": {
+   "n": 10,
+   "agree": 0.3,
+   "conflict": 0.1,
+   "overreach": 0.0,
+   "underreach": 0.6,
+   "declined": 0.0,
+   "coverage": 0.2,
+   "precision": 0.5
+  },
+  "pre-ticked-optional-box": {
+   "n": 10,
+   "agree": 0.1,
+   "conflict": 0.3,
+   "overreach": 0.0,
+   "underreach": 0.6,
+   "declined": 0.0,
+   "coverage": 0.4,
+   "precision": 0.25
+  },
+  "lowest-unit-price": {
+   "n": 10,
+   "agree": 0.6,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.4,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "chat-which-colleague-about": {
+   "n": 10,
+   "agree": 0.2,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.8,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "housing-type": {
+   "n": 10,
+   "agree": 0.0,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 1.0,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "warranty-covers-issue": {
+   "n": 10,
+   "agree": 0.1,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.9,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "travel-advisory-level": {
+   "n": 10,
+   "agree": 0.1,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.9,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "notion-page-type": {
+   "n": 10,
+   "agree": 0.0,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 1.0,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "tool-error-next-action": {
+   "n": 10,
+   "agree": 0.4,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.6,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "invite-response-suggest": {
+   "n": 10,
+   "agree": 0.2,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.8,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "age-restricted-content": {
+   "n": 10,
+   "agree": 0.1,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.9,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "cheapest-plan-for-usage": {
+   "n": 10,
+   "agree": 0.5,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.5,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "document-needs-signature": {
+   "n": 10,
+   "agree": 0.3,
+   "conflict": 0.1,
+   "overreach": 0.0,
+   "underreach": 0.6,
+   "declined": 0.0,
+   "coverage": 0.4,
+   "precision": 0.75
+  }
+ },
+ "probe_tabs_many_groups": {
+  "probe-many-groups": {
+   "n": 150,
+   "agree": 0.6467,
+   "conflict": 0.0,
+   "overreach": 0.0467,
+   "underreach": 0.3067,
+   "declined": 0.0,
+   "coverage": 0.3067,
+   "precision": 0.8478
+  },
+  "ALL": {
+   "n": 150,
+   "agree": 0.6467,
+   "conflict": 0.0,
+   "overreach": 0.0467,
+   "underreach": 0.3067,
+   "declined": 0.0,
+   "coverage": 0.3067,
+   "precision": 0.8478
+  }
+ }
+}
