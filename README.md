@@ -35,6 +35,18 @@ without any eval case; `analysis/results/atelier-eval-final-shipped.txt`):
 
 On 6,905 held-out teacher-labelled questions: 88.1% the teacher's verdict, 0.5% sure answers that contradict it.
 
+## Versions
+
+Each is saved whole under `releases/<version>` (model, checkpoint, tokenizer, calibration, its reports, the data it
+was trained on, `MANIFEST.json` with SHA-256, and a `MODEL_CARD.md` with what it can't do). The tables above and
+under "How we got there" describe v0.1 unless they say otherwise.
+
+| Version | Student | Shipped | Atelier tests passed | Atelier's decisions (held out): decides / right | New kinds of browser questions (held-out families): decides / right |
+|---|---|---|---|---|---|
+| v0.1 | mmBERT-small, 12 layers | 34.4 MB | 9 of 10 | 67% / 96.5% | 28% / 45% |
+| v0.2 | 22 layers + 16k open decisions | 54.2 MB | 10 of 10 | 73% / 95.5% | 24% / 62% |
+| v0.3 | 22 layers + 480 browser question families | 54.2 MB | 10 of 10 (effort 12/12) | 72% / 95.0% | 37% / 66%; a second held-out set 29% / 62% |
+
 ## Layout
 
 | Path | What |
@@ -57,6 +69,10 @@ On 6,905 held-out teacher-labelled questions: 88.1% the teacher's verdict, 0.5% 
 | `integration/atelier-on-device-decisions.patch`, `docs/integration.md` | The built-in "On this computer" provider for Atelier (utility process, settings, packaging, tests) |
 | `docs/research.md` | What the field offers (teachers, compression, distillation, runtimes, data), with sources |
 | `runtime/node` | The on-device runner: TypeScript, `onnxruntime-node`, the pure-JS tokenizer; System One in and out |
+| `data/build_open.py`, `data/build_gen3.py` | Open decisions (gliclass, zero-shot tasks) and browser question families written by Fable (`data/gen2`, `data/gen3`), with whole families held out as tests of new kinds of questions |
+| `analysis/capabilities.py` | Every version's capability report: Atelier's eval, held out per decision, and probes it never trained on (`docs/capabilities/`) |
+| `analysis/selective.py` | Whether a stricter cutoff makes it right more often on new kinds of questions (fitted on one held-out set, measured on another) |
+| `student/train_mini.py` | atelier-mini: the teacher's own architecture at 0.8B (Qwen3.5-0.8B read the decider's way), LoRA-distilled on the same labels |
 | `analysis/` | Tensor census, teacher comparison, vocabulary coverage; results in `analysis/results/` |
 | `third_party/pplx_decider` | Perplexity's inference code (Apache-2.0), vendored for the teachers |
 
@@ -88,6 +104,33 @@ attention layer, and the last layers barely change it.
 
 So flash's last ~8 layers are a cheap depth cut before any healing, and the 26B's middle (layers 3-27, block
 influence 0.003-0.02) is the classic ShortGPT pruning target.
+
+**Toward a general decider (v0.2 work, `docs/capabilities/README.md`)**. Coverage = how often it decides;
+precision = how often it is right when it does. On Atelier's own decisions every version decides about 70% and is
+right 96% of the time. On kinds of questions it never saw, the picture by student:
+
+| Student | Size | New kinds of questions: decides / right | Held-out browser families: decides / right |
+|---|---|---|---|
+| v0.1 (12 layers, Atelier data) | 34 MB | 51% / 81% | 28% / 45% |
+| 22 layers, same data | 54 MB | 51% / 83% | 22% / 50% |
+| 12 layers + 16k open decisions | 34 MB | 16% / 80% | 17% / 59% |
+| **v0.2**: 22 layers + 16k open decisions | 54 MB | 40% / **88%** | 24% / **62%** |
+| mmBERT-base 12 layers + 57k open decisions | 83 MB | 40% / 87% | 19% / 62% |
+| **v0.3**: 22 layers + 480 browser families (x3) | 54 MB | **64% / 90%** | **37% / 66%** (2nd set 29% / 62%) |
+
+Depth helps Atelier's decisions (v0.2 passes all ten tests); width (mmBERT-base) adds nothing at 50% more size.
+Within kinds of questions it has seen plenty of, the student is already good (98.6% right when deciding on held-out
+synthetic zero-shot tasks); on new kinds of browser questions it is not, and the teachers agree with each other
+on those (flash vs 26B: 89% of verdicts, 1.9% conflicts), so that is a real gap, not teacher noise.
+
+Variety helps, slowly: four times the browser question families (v0.3) moved precision on families it never saw from
+62% to 66%. And a stricter cutoff does not rescue it (`analysis/selective.py`, `analysis/results/selective-*.json`):
+on held-out families its precision stays at 60-69% at every temperature, because where it is wrong it is sure. On
+balanced yes/no questions v0.2 contradicted the teacher on 32 of the 91 it decided; the worst families need
+arithmetic or a comparison (is the total within budget, does the rating meet the minimum). Part of the 88-90% on
+"new kinds of questions" is base rate (the teacher answers "no" to 85% of them). A 59M encoder learns the kinds of
+questions it is shown; it does not work out new ones. The next test is a student with a general language prior:
+atelier-mini (`student/train_mini.py`), the teacher's own architecture at 0.8B.
 
 **The two teachers on a broad sample** (`analysis/results/flash-vs-26b-subset.txt`: 2,640 pool requests, 3,425
 questions, labelled by both): top answer 91.3%, verdict 84.9%, sure verdicts that contradict each other 0.6%.

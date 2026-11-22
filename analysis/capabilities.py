@@ -45,6 +45,7 @@ PROBES = {
     "languages": ROOT / "data" / "teacher" / "probe-lang.flash.jsonl",
     "open_unseen": ROOT / "data" / "teacher" / "probe-open.flash.jsonl",
     "open_browser_families": ROOT / "data" / "teacher" / "open-heldout.flash.jsonl",
+    "open_browser_families_2": ROOT / "data" / "teacher" / "gen3-heldout.flash.jsonl",
     "tabs_many_groups": ROOT / "data" / "teacher" / "probe-tabs.flash.jsonl",
 }
 GUARD = {"min_latin": 0.7, "max_bytes": 0.1, "min_letters": 8}
@@ -203,7 +204,7 @@ def write_markdown(r: dict) -> None:
     if "held_out_open_by_source" in r:
         table("Held out, open questions per source", r["held_out_open_by_source"], "Source")
     for key, title in (("probe_languages", "Probe: 20 languages (never seen)"), ("probe_open_unseen", "Probe: new kinds of questions about new text"),
-                       ("probe_open_browser_families", "Probe: held-out browser question families"), ("probe_tabs_many_groups", "Probe: 18-28 tab groups")):
+                       ("probe_open_browser_families", "Probe: held-out browser question families"), ("probe_open_browser_families_2", "Probe: held-out browser question families, second set"), ("probe_tabs_many_groups", "Probe: 18-28 tab groups")):
         if key in r:
             data = r[key]
             if len(data) > 25:  # many families: show the overall and the 10 worst
@@ -229,7 +230,7 @@ def compare() -> None:
             cells.append(f"{e['model']}/{e['n']} ({e['sure_right']}/{e['sure']} sure)" if e else "")
         lines.append(f"| Atelier eval: {use} | " + " | ".join(cells) + " |")
     for key, label in (("held_out_by_decision", "Held out"), ("probe_open_unseen", "New kinds of questions"),
-                       ("probe_open_browser_families", "Held-out browser families"), ("probe_languages", "20 languages (guarded)")):
+                       ("probe_open_browser_families", "Held-out browser families"), ("probe_open_browser_families_2", "Held-out browser families (2nd set)"), ("probe_languages", "20 languages (guarded)")):
         cells = [(f"{pct(r[key]['ALL']['agree'])} agree, decides {pct(r[key]['ALL'].get('coverage', 0))}, right when deciding "
                   f"{pct(r[key]['ALL']['precision']) if r[key]['ALL'].get('precision') is not None else '-'}") if key in r else "" for r in reports]
         lines.append(f"| {label} | " + " | ".join(cells) + " |")

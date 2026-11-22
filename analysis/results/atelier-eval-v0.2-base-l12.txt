@@ -1,0 +1,40 @@
+﻿
+ RUN  v5.1.0 C:/Users/senne/github/atelier
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > needsYou
+atelier-nano (custom) needsYou: rule alone 5/10, with the model 10/10; 10/10 right when sure (100%), unsure on 0, 0 flipped with the order, 9 ms median and 39 ms at the 90th percentile
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > dictation
+atelier-nano (custom) dictation: rule alone 4/8, with the model 7/8; 3/3 right when sure (100%), unsure on 5, 0 flipped with the order, 9 ms median and 12 ms at the 90th percentile
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > agentClicks
+atelier-nano (custom) agentClicks: rule alone 5/12, with the model 12/12; 8/8 right when sure (100%), unsure on 4, 0 flipped with the order, 13 ms median and 14 ms at the 90th percentile
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > searchOrAsk
+atelier-nano (custom) searchOrAsk: rule alone 5/10, with the model 10/10; 10/10 right when sure (100%), unsure on 0, 0 flipped with the order, 6 ms median and 7 ms at the 90th percentile
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > voiceTarget
+atelier-nano (custom) voiceTarget: rule alone 3/6, with the model 6/6; 3/3 right when sure (100%), unsure on 3, 0 flipped with the order, 9 ms median and 10 ms at the 90th percentile
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > effort
+atelier-nano (custom) effort: rule alone 3/12, with the model 9/12; 6/6 right when sure (100%), unsure on 6, 0 flipped with the order, 11 ms median and 15 ms at the 90th percentile
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > memory
+atelier-nano (custom) memory: rule alone 5/10, with the model 10/10; 5/5 right when sure (100%), unsure on 5, 0 flipped with the order, 12 ms median and 15 ms at the 90th percentile
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > tabs
+atelier-nano (custom) tabs: rule alone 0/12, with the model 10/12; 10/10 right when sure (100%), unsure on 2, 0 flipped with the order, 14 ms median and 15 ms at the 90th percentile
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > skills
+atelier-nano (custom) skills: rule alone 2/10, with the model 7/10; 6/7 right when sure, unsure on 3, 86 ms median and 106 ms at the 90th percentile
+  wrong: which customers still owe us money? nudge them ΓåÆ none
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > labeling (the companionΓÇÖs label_items)
+atelier-nano (custom) labeling 12 emails in 11 ms: topic 0/0 right when sure, unsure on 12; today 0/0 right when sure, unsure on 12
+
+
+ Test Files  1 passed (1)
+      Tests  10 passed (10)
+   Start at  02:42:33
+   Duration  8.37s (transform 45%, tests 42%, import 13%)
+

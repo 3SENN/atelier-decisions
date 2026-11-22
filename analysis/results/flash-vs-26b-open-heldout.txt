@@ -1,0 +1,4 @@
+use             n   top1  verdict   |dp|   sure A/B conflict
+open          480  0.915    0.892  0.084 0.88/0.92    0.019
+ALL           480  0.915    0.892  0.084 0.88/0.92    0.019
+

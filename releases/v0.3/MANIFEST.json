@@ -1,0 +1,91 @@
+{
+ "version": "v0.3",
+ "date": "2026-11-22",
+ "model": "runs\\nano-v03-l22",
+ "files": {
+  "data/llm-written-inputs.zip": {
+   "bytes": 841742,
+   "sha256": "5c85eee51b25d04256e6717d96a5e952f9c7028bc72533c5c39b8d831ccc9219"
+  },
+  "data/teacher-labels.zip": {
+   "bytes": 31769870,
+   "sha256": "0940c2d3315af60bead418bf764351241e636cd18c6857b4d431226230bcdd2a"
+  },
+  "eval/all-versions.md": {
+   "bytes": 3033,
+   "sha256": "552a9dbfe00cb25c31e5411396e21d96579ffb76c461cd7b9bc7dd39463223df"
+  },
+  "eval/atelier-eval-v0.3-l22.txt": {
+   "bytes": 3126,
+   "sha256": "755ec2ffcd35c865b133d671b2777493dd0efd0f7b83a97ea6173c01e0ad8459"
+  },
+  "eval/capabilities-v0.3-l22.json": {
+   "bytes": 36037,
+   "sha256": "221ba47bdbb6958fb1a019064b8fe3e2ba1437dc3733519f795352a8712b83bf"
+  },
+  "eval/selective-v0.3-l22.json": {
+   "bytes": 25324,
+   "sha256": "6f494588db5191c5f03966c3adf6580a5d1b94ea22f223bbe7efb6200649079e"
+  },
+  "eval/v0.3-l22.md": {
+   "bytes": 7531,
+   "sha256": "6e128adc1d7861bdabebfb4887a1aaa74300a6ae088b3b9bb3d40a4143316be9"
+  },
+  "model/calibration-report.json": {
+   "bytes": 4350,
+   "sha256": "37b6b7065415bb645870a1b33cd75e421b76f1b80baa7d2e58e3c3359bd6bc3f"
+  },
+  "model/calibration.json": {
+   "bytes": 174,
+   "sha256": "3df20afc0d6fde58475eb329cc1c09a1a24b3d18ee66aaebc521fea6e214b03b"
+  },
+  "model/config.json": {
+   "bytes": 1980,
+   "sha256": "3c7784a65320d1c84f8b826ddbe4a76b30d3606e3dee56319133d5ce081a3ed3"
+  },
+  "model/data-weights.json": {
+   "bytes": 70,
+   "sha256": "59e960b70dc207901fc4977ede28b24f7a1452479551e70a4528be1a91c58f65"
+  },
+  "model/model.emb4.int8.onnx": {
+   "bytes": 54249484,
+   "sha256": "a9ef98890592908760d14e27bf0d009eea5b700f811995347ca00ce3a382041a"
+  },
+  "model/model.int8.onnx": {
+   "bytes": 60545832,
+   "sha256": "85c0ef10cf3e45644fcde0f494dbc1dbc8c9f7a5790bd355f76a0fbefdae4fae"
+  },
+  "model/report.json": {
+   "bytes": 673,
+   "sha256": "b46fb080da30975328a3cd0992154fa894801da0f1473e49521366a011a03e23"
+  },
+  "model/student.pt": {
+   "bytes": 236570283,
+   "sha256": "4a8e147ace5f4e7b4db8689907af0e4489405954e8a363f522d47c3d227116b4"
+  },
+  "model/tokenizer-keep.json": {
+   "bytes": 308232,
+   "sha256": "abc8fd0bd6d96989c834a2e0f2d4302e648f7f38e1cb34105fb4d5d9f5c7dde4"
+  },
+  "model/tokenizer.json": {
+   "bytes": 2235313,
+   "sha256": "5a976b6650b911c2f57da96c73c4c93bf388e7cb53eeff65005719e90717ae34"
+  },
+  "model/tokenizer_config.json": {
+   "bytes": 46440,
+   "sha256": "ea349495764b24570b4560fe2e4a557e5c0a47e6bce782c2409b1d6445cf8633"
+  },
+  "model/train.log": {
+   "bytes": 9700,
+   "sha256": "8edc4e169feb8806e7a7d4712b236935a7e871f261edf0e6f7a7bcc3151cb304"
+  },
+  "model/vocab.json": {
+   "bytes": 294971,
+   "sha256": "9d836ff3d79188b12fdd8a9a2c3877ace79ed7bcc8ef0a7a0a153e6ca99533e7"
+  },
+  "MODEL_CARD.md": {
+   "bytes": 3531,
+   "sha256": "cdee58f9777561c1ecb6a93d4014812697d0f44170945e2a949ff8c0842ef8db"
+  }
+ }
+}

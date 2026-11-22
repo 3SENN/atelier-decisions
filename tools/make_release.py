@@ -46,7 +46,7 @@ def main() -> None:
     if args.weights and args.weights.exists():
         shutil.copy2(args.weights, out / "model" / "data-weights.json")
     results = ROOT / "analysis" / "results"
-    for src in (results / f"capabilities-{args.report}.json", results / f"atelier-eval-{args.report}.txt",
+    for src in (results / f"capabilities-{args.report}.json", results / f"atelier-eval-{args.report}.txt", results / f"selective-{args.report}.json",
                 ROOT / "docs" / "capabilities" / f"{args.report}.md", ROOT / "docs" / "capabilities" / "README.md"):
         if src.exists():
             shutil.copy2(src, out / "eval" / (src.name if src.name != "README.md" else "all-versions.md"))
@@ -54,7 +54,7 @@ def main() -> None:
         for path in args.data:
             z.write(path, path.resolve().relative_to(ROOT).as_posix())
     with zipfile.ZipFile(out / "data" / "llm-written-inputs.zip", "w", zipfile.ZIP_DEFLATED, compresslevel=9) as z:
-        for folder in ("gen", "gen2"):
+        for folder in ("gen", "gen2", "gen3"):
             for path in sorted((ROOT / "data" / folder).glob("*.jsonl")):
                 z.write(path, path.relative_to(ROOT).as_posix())
     files = {}
