@@ -80,6 +80,37 @@ class Model:
         return softmax(scores[e["markers"]] / float(self.temps.get(e["kind"], 1.0))), e["kind"]
 
 
+class MiniModel:
+    """atelier-mini through llama.cpp (student/serve_mini.py): no language guard, its own calibrated temperatures."""
+
+    def __init__(self, model_dir: Path, gguf: Path) -> None:
+        from serve_mini import Mini
+
+        calibration = model_dir / "calibration.json"
+        self.mini = Mini(model_dir / "merged", gguf, 6, json.loads(calibration.read_text()) if calibration.exists() else None)
+        # Raw scores per question survive the run (analysis/cascade.py and later reports reuse them).
+        self.cache_file = model_dir / f"scores-{gguf.stem}.json"
+        self.scores: dict[str, list[float]] = json.loads(self.cache_file.read_text()) if self.cache_file.exists() else {}
+        self.cache: dict[str, tuple[np.ndarray, str]] = {}
+
+    def unreadable(self, state) -> bool:
+        return False
+
+    def probs(self, state, key: str, q: dict) -> tuple[np.ndarray, str]:
+        h = hashlib.md5(json.dumps([state, key, q], sort_keys=True, ensure_ascii=False).encode()).hexdigest()
+        if h not in self.cache:
+            if h not in self.scores:
+                enc = self.mini.encoder.plan({"state": state, "questions": {key: q}}, None, "separate")[0]
+                self.scores[h] = (self.mini.readout @ self.mini.hidden(enc.input_ids.tolist())).tolist()[: len(option_labels(q))]
+            kind = fixed_kind(key, q) or "open"
+            self.cache[h] = (softmax(np.array(self.scores[h]) / float(self.mini.temperatures.get(kind, 1.0))), kind)
+        return self.cache[h]
+
+    def close(self) -> None:
+        self.cache_file.write_text(json.dumps(self.scores))
+        self.mini.close()
+
+
 def score_rows(model: Model, rows: list[dict], group, guard: bool = True) -> dict:
     """Agreement with the teacher's verdict per group: agree, conflict (both sure, differ), overreach (student sure,
     teacher not), underreach, declined (guard), n."""
@@ -145,9 +176,13 @@ def atelier_eval(folder: Path, file: str, name: str) -> dict:
                         f"http://127.0.0.1:{port}", "-Model", "atelier-nano", "-Out", str(out)], capture_output=True, timeout=1200)
     finally:
         server.terminate()
+    return parse_atelier_eval(out)
+
+
+def parse_atelier_eval(out: Path) -> dict:
     text = re.sub(r"\s*\n\s*", " ", out.read_text(encoding="utf-8", errors="replace"))
     result = {}
-    for m in re.finditer(r"atelier-nano \(custom\) (\w+): rule alone (\d+)/(\d+), with the model (\d+)/\d+; (\d+)/(\d+) right when sure.*?unsure on (\d+)", text):
+    for m in re.finditer(r"atelier-[\w-]+ \(custom\) (\w+): rule alone (\d+)/(\d+), with the model (\d+)/\d+; (\d+)/(\d+) right when sure.*?unsure on (\d+)", text):
         use, rule, n, model_right, sure_right, sure, unsure = m.groups()
         result[use] = {"n": int(n), "rule": int(rule), "model": int(model_right), "sure_right": int(sure_right), "sure": int(sure), "unsure": int(unsure)}
     m = re.search(r"Tests\s+(?:(\d+) failed \| )?(\d+) passed", text)
@@ -155,12 +190,15 @@ def atelier_eval(folder: Path, file: str, name: str) -> dict:
     return result
 
 
-def run(model_dir: Path, name: str, file: str) -> dict:
-    folder = model_dir / "onnx" if (model_dir / "onnx").is_dir() else model_dir
-    model = Model(folder, file)
-    report: dict = {"name": name, "model": str(model_dir), "file": file, "mb": round((folder / file).stat().st_size / 1e6, 1),
-                    "date": time.strftime("%Y-%m-%d %H:%M")}
-    report["atelier_eval"] = atelier_eval(folder, file, name)
+def run(model_dir: Path, name: str, file: str, gguf: Path | None = None, eval_file: Path | None = None) -> dict:
+    if gguf:
+        model, size = MiniModel(model_dir, gguf), gguf.stat().st_size
+    else:
+        folder = model_dir / "onnx" if (model_dir / "onnx").is_dir() else model_dir
+        model, size = Model(folder, file), (folder / file).stat().st_size
+    report: dict = {"name": name, "model": str(model_dir), "file": gguf.name if gguf else file, "mb": round(size / 1e6, 1),
+                    "date": time.strftime("%Y-%m-%d %H:%M"), "guard": not gguf}
+    report["atelier_eval"] = parse_atelier_eval(eval_file) if eval_file else atelier_eval(folder, file, name)
     held = held_out(POOLS)
     report["held_out_by_decision"] = score_rows(model, held, lambda r: r["meta"]["use"])
     report["held_out_by_language"] = score_rows(model, held, lambda r: r["meta"].get("lang", "?"))
@@ -174,6 +212,8 @@ def run(model_dir: Path, name: str, file: str) -> dict:
     RESULTS.mkdir(parents=True, exist_ok=True)
     (RESULTS / f"capabilities-{name}.json").write_text(json.dumps(report, indent=1))
     write_markdown(report)
+    if gguf:
+        model.close()
     return report
 
 
@@ -230,7 +270,7 @@ def compare() -> None:
             cells.append(f"{e['model']}/{e['n']} ({e['sure_right']}/{e['sure']} sure)" if e else "")
         lines.append(f"| Atelier eval: {use} | " + " | ".join(cells) + " |")
     for key, label in (("held_out_by_decision", "Held out"), ("probe_open_unseen", "New kinds of questions"),
-                       ("probe_open_browser_families", "Held-out browser families"), ("probe_open_browser_families_2", "Held-out browser families (2nd set)"), ("probe_languages", "20 languages (guarded)")):
+                       ("probe_open_browser_families", "Held-out browser families"), ("probe_open_browser_families_2", "Held-out browser families (2nd set)"), ("probe_languages", "20 languages (nano guarded, mini not)")):
         cells = [(f"{pct(r[key]['ALL']['agree'])} agree, decides {pct(r[key]['ALL'].get('coverage', 0))}, right when deciding "
                   f"{pct(r[key]['ALL']['precision']) if r[key]['ALL'].get('precision') is not None else '-'}") if key in r else "" for r in reports]
         lines.append(f"| {label} | " + " | ".join(cells) + " |")
@@ -245,9 +285,11 @@ def main() -> None:
     parser.add_argument("--name")
     parser.add_argument("--file", default="model.emb4.int8.onnx")
     parser.add_argument("--compare", action="store_true")
+    parser.add_argument("--gguf", type=Path, help="atelier-mini: score through llama.cpp with this GGUF")
+    parser.add_argument("--atelier-eval-file", type=Path, help="parse this Atelier eval output instead of running runtime/node")
     args = parser.parse_args()
     if args.model:
-        report = run(args.model, args.name or args.model.name, args.file)
+        report = run(args.model, args.name or args.model.name, args.file, args.gguf, args.atelier_eval_file)
         print(json.dumps({k: v for k, v in report.items() if k in ("name", "mb", "atelier_eval")}, indent=1))
     if args.compare or not args.model:
         compare()

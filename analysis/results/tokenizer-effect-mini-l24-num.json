@@ -1,0 +1,90 @@
+{
+ "Qwen2 rule (as trained)": {
+  "ar": {
+   "n": 150,
+   "agree": 0.7133,
+   "coverage": 0.16,
+   "precision": 0.7917,
+   "tokens": 163.0
+  },
+  "en": {
+   "n": 150,
+   "agree": 0.7733,
+   "coverage": 0.2933,
+   "precision": 0.8636,
+   "tokens": 161.9
+  },
+  "hi": {
+   "n": 150,
+   "agree": 0.5733,
+   "coverage": 0.0867,
+   "precision": 0.6923,
+   "tokens": 178.1
+  },
+  "ja": {
+   "n": 150,
+   "agree": 0.7133,
+   "coverage": 0.1467,
+   "precision": 0.8182,
+   "tokens": 161.5
+  },
+  "ru": {
+   "n": 150,
+   "agree": 0.78,
+   "coverage": 0.28,
+   "precision": 0.9286,
+   "tokens": 163.9
+  },
+  "th": {
+   "n": 150,
+   "agree": 0.7067,
+   "coverage": 0.0667,
+   "precision": 0.4,
+   "tokens": 169.6
+  }
+ },
+ "Qwen3.5 rule (base's file)": {
+  "ar": {
+   "n": 150,
+   "agree": 0.7133,
+   "coverage": 0.16,
+   "precision": 0.7917,
+   "tokens": 163.0
+  },
+  "en": {
+   "n": 150,
+   "agree": 0.7733,
+   "coverage": 0.2933,
+   "precision": 0.8636,
+   "tokens": 161.9
+  },
+  "hi": {
+   "n": 150,
+   "agree": 0.6067,
+   "coverage": 0.12,
+   "precision": 0.7778,
+   "tokens": 170.0
+  },
+  "ja": {
+   "n": 150,
+   "agree": 0.7133,
+   "coverage": 0.1467,
+   "precision": 0.8182,
+   "tokens": 161.5
+  },
+  "ru": {
+   "n": 150,
+   "agree": 0.78,
+   "coverage": 0.28,
+   "precision": 0.9286,
+   "tokens": 163.9
+  },
+  "th": {
+   "n": 150,
+   "agree": 0.7667,
+   "coverage": 0.1333,
+   "precision": 0.7,
+   "tokens": 162.9
+  }
+ }
+}

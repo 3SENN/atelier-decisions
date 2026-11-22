@@ -1,0 +1,1842 @@
+{
+ "name": "mini-0.8b-150k",
+ "model": "runs\\mini-l24-150k",
+ "file": "mini-l24-150k-Q5_K_M-e4.decider.gguf",
+ "mb": 515.2,
+ "date": "2026-11-22 10:52",
+ "guard": false,
+ "atelier_eval": {
+  "needsYou": {
+   "n": 10,
+   "rule": 5,
+   "model": 10,
+   "sure_right": 10,
+   "sure": 10,
+   "unsure": 0
+  },
+  "dictation": {
+   "n": 8,
+   "rule": 4,
+   "model": 6,
+   "sure_right": 2,
+   "sure": 2,
+   "unsure": 6
+  },
+  "agentClicks": {
+   "n": 12,
+   "rule": 5,
+   "model": 12,
+   "sure_right": 8,
+   "sure": 8,
+   "unsure": 4
+  },
+  "searchOrAsk": {
+   "n": 10,
+   "rule": 5,
+   "model": 10,
+   "sure_right": 10,
+   "sure": 10,
+   "unsure": 0
+  },
+  "voiceTarget": {
+   "n": 6,
+   "rule": 3,
+   "model": 6,
+   "sure_right": 3,
+   "sure": 3,
+   "unsure": 3
+  },
+  "effort": {
+   "n": 12,
+   "rule": 3,
+   "model": 11,
+   "sure_right": 10,
+   "sure": 10,
+   "unsure": 2
+  },
+  "memory": {
+   "n": 10,
+   "rule": 5,
+   "model": 10,
+   "sure_right": 5,
+   "sure": 5,
+   "unsure": 5
+  },
+  "tabs": {
+   "n": 12,
+   "rule": 0,
+   "model": 10,
+   "sure_right": 10,
+   "sure": 10,
+   "unsure": 2
+  },
+  "skills": {
+   "n": 10,
+   "rule": 2,
+   "model": 9,
+   "sure_right": 9,
+   "sure": 9,
+   "unsure": 1
+  },
+  "_tests": {
+   "failed": 0,
+   "passed": 10
+  }
+ },
+ "held_out_by_decision": {
+  "needsYou": {
+   "n": 568,
+   "agree": 0.9313,
+   "conflict": 0.0018,
+   "overreach": 0.0246,
+   "underreach": 0.0423,
+   "declined": 0.0,
+   "coverage": 0.9331,
+   "precision": 0.9717
+  },
+  "ALL": {
+   "n": 6303,
+   "agree": 0.892,
+   "conflict": 0.003,
+   "overreach": 0.0221,
+   "underreach": 0.083,
+   "declined": 0.0,
+   "coverage": 0.7044,
+   "precision": 0.9644
+  },
+  "searchOrAsk": {
+   "n": 664,
+   "agree": 0.8238,
+   "conflict": 0.003,
+   "overreach": 0.0331,
+   "underreach": 0.1401,
+   "declined": 0.0,
+   "coverage": 0.6642,
+   "precision": 0.9456
+  },
+  "effort": {
+   "n": 739,
+   "agree": 0.77,
+   "conflict": 0.0014,
+   "overreach": 0.0474,
+   "underreach": 0.1813,
+   "declined": 0.0,
+   "coverage": 0.3654,
+   "precision": 0.8667
+  },
+  "memory": {
+   "n": 591,
+   "agree": 0.8816,
+   "conflict": 0.0,
+   "overreach": 0.0102,
+   "underreach": 0.1083,
+   "declined": 0.0,
+   "coverage": 0.4078,
+   "precision": 0.9751
+  },
+  "tabs": {
+   "n": 425,
+   "agree": 0.9506,
+   "conflict": 0.0,
+   "overreach": 0.0259,
+   "underreach": 0.0235,
+   "declined": 0.0,
+   "coverage": 0.7506,
+   "precision": 0.9655
+  },
+  "dictation": {
+   "n": 167,
+   "agree": 0.7725,
+   "conflict": 0.0,
+   "overreach": 0.024,
+   "underreach": 0.2036,
+   "declined": 0.0,
+   "coverage": 0.5928,
+   "precision": 0.9596
+  },
+  "voiceTarget": {
+   "n": 384,
+   "agree": 0.7734,
+   "conflict": 0.0,
+   "overreach": 0.0182,
+   "underreach": 0.2083,
+   "declined": 0.0,
+   "coverage": 0.3672,
+   "precision": 0.9504
+  },
+  "agentClicks": {
+   "n": 516,
+   "agree": 0.938,
+   "conflict": 0.0,
+   "overreach": 0.0388,
+   "underreach": 0.0233,
+   "declined": 0.0,
+   "coverage": 0.5039,
+   "precision": 0.9231
+  },
+  "labeling": {
+   "n": 34,
+   "agree": 0.9118,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.0882,
+   "declined": 0.0,
+   "coverage": 0.5,
+   "precision": 1.0
+  },
+  "skills": {
+   "n": 2215,
+   "agree": 0.953,
+   "conflict": 0.0068,
+   "overreach": 0.009,
+   "underreach": 0.0312,
+   "declined": 0.0,
+   "coverage": 0.958,
+   "precision": 0.9835
+  }
+ },
+ "held_out_by_language": {
+  "en": {
+   "n": 3860,
+   "agree": 0.9008,
+   "conflict": 0.0031,
+   "overreach": 0.0197,
+   "underreach": 0.0764,
+   "declined": 0.0,
+   "coverage": 0.7233,
+   "precision": 0.9685
+  },
+  "ALL": {
+   "n": 6303,
+   "agree": 0.892,
+   "conflict": 0.003,
+   "overreach": 0.0221,
+   "underreach": 0.083,
+   "declined": 0.0,
+   "coverage": 0.7044,
+   "precision": 0.9644
+  },
+  "nl": {
+   "n": 1058,
+   "agree": 0.8762,
+   "conflict": 0.0,
+   "overreach": 0.0274,
+   "underreach": 0.0964,
+   "declined": 0.0,
+   "coverage": 0.6673,
+   "precision": 0.9589
+  },
+  "fr": {
+   "n": 475,
+   "agree": 0.8821,
+   "conflict": 0.0021,
+   "overreach": 0.0274,
+   "underreach": 0.0884,
+   "declined": 0.0,
+   "coverage": 0.6589,
+   "precision": 0.9553
+  },
+  "es": {
+   "n": 503,
+   "agree": 0.8887,
+   "conflict": 0.004,
+   "overreach": 0.0219,
+   "underreach": 0.0855,
+   "declined": 0.0,
+   "coverage": 0.6899,
+   "precision": 0.9625
+  },
+  "de": {
+   "n": 407,
+   "agree": 0.8649,
+   "conflict": 0.0098,
+   "overreach": 0.0246,
+   "underreach": 0.1007,
+   "declined": 0.0,
+   "coverage": 0.6929,
+   "precision": 0.9504
+  }
+ },
+ "held_out_open_by_source": {
+  "gliclass": {
+   "n": 408,
+   "agree": 0.7426,
+   "conflict": 0.0245,
+   "overreach": 0.0441,
+   "underreach": 0.1887,
+   "declined": 0.0,
+   "coverage": 0.6912,
+   "precision": 0.9007
+  },
+  "ALL": {
+   "n": 777,
+   "agree": 0.722,
+   "conflict": 0.0206,
+   "overreach": 0.036,
+   "underreach": 0.2214,
+   "declined": 0.0,
+   "coverage": 0.6499,
+   "precision": 0.9129
+  },
+  "zeroshot": {
+   "n": 284,
+   "agree": 0.7641,
+   "conflict": 0.0,
+   "overreach": 0.0246,
+   "underreach": 0.2113,
+   "declined": 0.0,
+   "coverage": 0.6373,
+   "precision": 0.9613
+  },
+  "gen2-tools": {
+   "n": 23,
+   "agree": 0.6087,
+   "conflict": 0.087,
+   "overreach": 0.0,
+   "underreach": 0.3043,
+   "declined": 0.0,
+   "coverage": 0.5217,
+   "precision": 0.8333
+  },
+  "gen2-pages": {
+   "n": 35,
+   "agree": 0.5143,
+   "conflict": 0.0286,
+   "overreach": 0.0286,
+   "underreach": 0.4286,
+   "declined": 0.0,
+   "coverage": 0.4571,
+   "precision": 0.875
+  },
+  "gen2-routines": {
+   "n": 27,
+   "agree": 0.3333,
+   "conflict": 0.1111,
+   "overreach": 0.0741,
+   "underreach": 0.4815,
+   "declined": 0.0,
+   "coverage": 0.5185,
+   "precision": 0.6429
+  }
+ },
+ "probe_languages": {
+  "en": {
+   "n": 150,
+   "agree": 0.72,
+   "conflict": 0.0,
+   "overreach": 0.02,
+   "underreach": 0.26,
+   "declined": 0.0,
+   "coverage": 0.2,
+   "precision": 0.9
+  },
+  "ALL": {
+   "n": 3000,
+   "agree": 0.688,
+   "conflict": 0.002,
+   "overreach": 0.0257,
+   "underreach": 0.2843,
+   "declined": 0.0,
+   "coverage": 0.1767,
+   "precision": 0.8434
+  },
+  "nl": {
+   "n": 150,
+   "agree": 0.6867,
+   "conflict": 0.0,
+   "overreach": 0.0133,
+   "underreach": 0.3,
+   "declined": 0.0,
+   "coverage": 0.3,
+   "precision": 0.9556
+  },
+  "de": {
+   "n": 150,
+   "agree": 0.76,
+   "conflict": 0.0,
+   "overreach": 0.02,
+   "underreach": 0.22,
+   "declined": 0.0,
+   "coverage": 0.2733,
+   "precision": 0.9268
+  },
+  "fr": {
+   "n": 150,
+   "agree": 0.76,
+   "conflict": 0.0,
+   "overreach": 0.0267,
+   "underreach": 0.2133,
+   "declined": 0.0,
+   "coverage": 0.22,
+   "precision": 0.8788
+  },
+  "es": {
+   "n": 150,
+   "agree": 0.7667,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.2333,
+   "declined": 0.0,
+   "coverage": 0.2067,
+   "precision": 1.0
+  },
+  "it": {
+   "n": 150,
+   "agree": 0.66,
+   "conflict": 0.0,
+   "overreach": 0.0267,
+   "underreach": 0.3133,
+   "declined": 0.0,
+   "coverage": 0.1467,
+   "precision": 0.8182
+  },
+  "pt": {
+   "n": 150,
+   "agree": 0.7467,
+   "conflict": 0.0,
+   "overreach": 0.02,
+   "underreach": 0.2333,
+   "declined": 0.0,
+   "coverage": 0.1733,
+   "precision": 0.8846
+  },
+  "sv": {
+   "n": 150,
+   "agree": 0.7267,
+   "conflict": 0.0,
+   "overreach": 0.0333,
+   "underreach": 0.24,
+   "declined": 0.0,
+   "coverage": 0.1667,
+   "precision": 0.8
+  },
+  "pl": {
+   "n": 150,
+   "agree": 0.72,
+   "conflict": 0.0,
+   "overreach": 0.0333,
+   "underreach": 0.2467,
+   "declined": 0.0,
+   "coverage": 0.2067,
+   "precision": 0.8387
+  },
+  "tr": {
+   "n": 150,
+   "agree": 0.5133,
+   "conflict": 0.0067,
+   "overreach": 0.02,
+   "underreach": 0.46,
+   "declined": 0.0,
+   "coverage": 0.1067,
+   "precision": 0.75
+  },
+  "id": {
+   "n": 150,
+   "agree": 0.7533,
+   "conflict": 0.0,
+   "overreach": 0.0267,
+   "underreach": 0.22,
+   "declined": 0.0,
+   "coverage": 0.1867,
+   "precision": 0.8571
+  },
+  "ru": {
+   "n": 150,
+   "agree": 0.7667,
+   "conflict": 0.0,
+   "overreach": 0.0067,
+   "underreach": 0.2267,
+   "declined": 0.0,
+   "coverage": 0.24,
+   "precision": 0.9722
+  },
+  "el": {
+   "n": 150,
+   "agree": 0.6133,
+   "conflict": 0.0,
+   "overreach": 0.0467,
+   "underreach": 0.34,
+   "declined": 0.0,
+   "coverage": 0.1733,
+   "precision": 0.7308
+  },
+  "zh": {
+   "n": 150,
+   "agree": 0.7,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.3,
+   "declined": 0.0,
+   "coverage": 0.1733,
+   "precision": 1.0
+  },
+  "ja": {
+   "n": 150,
+   "agree": 0.7,
+   "conflict": 0.0,
+   "overreach": 0.0133,
+   "underreach": 0.2867,
+   "declined": 0.0,
+   "coverage": 0.1067,
+   "precision": 0.875
+  },
+  "ko": {
+   "n": 150,
+   "agree": 0.5933,
+   "conflict": 0.0133,
+   "overreach": 0.0267,
+   "underreach": 0.3667,
+   "declined": 0.0,
+   "coverage": 0.1333,
+   "precision": 0.7
+  },
+  "ar": {
+   "n": 150,
+   "agree": 0.7133,
+   "conflict": 0.0,
+   "overreach": 0.04,
+   "underreach": 0.2467,
+   "declined": 0.0,
+   "coverage": 0.1733,
+   "precision": 0.7692
+  },
+  "hi": {
+   "n": 150,
+   "agree": 0.56,
+   "conflict": 0.0133,
+   "overreach": 0.0467,
+   "underreach": 0.38,
+   "declined": 0.0,
+   "coverage": 0.1333,
+   "precision": 0.55
+  },
+  "he": {
+   "n": 150,
+   "agree": 0.5933,
+   "conflict": 0.0067,
+   "overreach": 0.0467,
+   "underreach": 0.3533,
+   "declined": 0.0,
+   "coverage": 0.1267,
+   "precision": 0.5789
+  },
+  "th": {
+   "n": 150,
+   "agree": 0.7067,
+   "conflict": 0.0,
+   "overreach": 0.0467,
+   "underreach": 0.2467,
+   "declined": 0.0,
+   "coverage": 0.0867,
+   "precision": 0.4615
+  }
+ },
+ "probe_open_unseen": {
+  "probe-areas": {
+   "n": 200,
+   "agree": 0.725,
+   "conflict": 0.0,
+   "overreach": 0.005,
+   "underreach": 0.27,
+   "declined": 0.0,
+   "coverage": 0.675,
+   "precision": 0.9926
+  },
+  "ALL": {
+   "n": 450,
+   "agree": 0.8044,
+   "conflict": 0.0133,
+   "overreach": 0.0133,
+   "underreach": 0.1689,
+   "declined": 0.0,
+   "coverage": 0.7933,
+   "precision": 0.9664
+  },
+  "probe-money": {
+   "n": 47,
+   "agree": 0.7447,
+   "conflict": 0.1064,
+   "overreach": 0.0213,
+   "underreach": 0.1277,
+   "declined": 0.0,
+   "coverage": 0.8723,
+   "precision": 0.8537
+  },
+  "probe-purchase": {
+   "n": 53,
+   "agree": 0.9623,
+   "conflict": 0.0189,
+   "overreach": 0.0189,
+   "underreach": 0.0,
+   "declined": 0.0,
+   "coverage": 1.0,
+   "precision": 0.9623
+  },
+  "probe-urgency": {
+   "n": 50,
+   "agree": 0.86,
+   "conflict": 0.0,
+   "overreach": 0.06,
+   "underreach": 0.08,
+   "declined": 0.0,
+   "coverage": 0.84,
+   "precision": 0.9286
+  },
+  "probe-family": {
+   "n": 100,
+   "agree": 0.88,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.12,
+   "declined": 0.0,
+   "coverage": 0.86,
+   "precision": 1.0
+  }
+ },
+ "probe_open_browser_families": {
+  "email-thread-resolved": {
+   "n": 10,
+   "agree": 0.8,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.2,
+   "declined": 0.0,
+   "coverage": 0.7,
+   "precision": 1.0
+  },
+  "ALL": {
+   "n": 480,
+   "agree": 0.4417,
+   "conflict": 0.0625,
+   "overreach": 0.0229,
+   "underreach": 0.4729,
+   "declined": 0.0,
+   "coverage": 0.4333,
+   "precision": 0.8029
+  },
+  "customer-intent": {
+   "n": 10,
+   "agree": 0.6,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.4,
+   "declined": 0.0,
+   "coverage": 0.6,
+   "precision": 1.0
+  },
+  "dark-pattern-type": {
+   "n": 10,
+   "agree": 0.3,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.7,
+   "declined": 0.0,
+   "coverage": 0.2,
+   "precision": 1.0
+  },
+  "work-mode": {
+   "n": 10,
+   "agree": 0.4,
+   "conflict": 0.0,
+   "overreach": 0.1,
+   "underreach": 0.5,
+   "declined": 0.0,
+   "coverage": 0.5,
+   "precision": 0.8
+  },
+  "destructive-action": {
+   "n": 10,
+   "agree": 0.6,
+   "conflict": 0.1,
+   "overreach": 0.1,
+   "underreach": 0.2,
+   "declined": 0.0,
+   "coverage": 0.8,
+   "precision": 0.75
+  },
+  "form-submission-result": {
+   "n": 10,
+   "agree": 0.6,
+   "conflict": 0.0,
+   "overreach": 0.1,
+   "underreach": 0.3,
+   "declined": 0.0,
+   "coverage": 0.7,
+   "precision": 0.8571
+  },
+  "ticket-availability": {
+   "n": 10,
+   "agree": 0.2,
+   "conflict": 0.2,
+   "overreach": 0.1,
+   "underreach": 0.5,
+   "declined": 0.0,
+   "coverage": 0.4,
+   "precision": 0.25
+  },
+  "tool-output-prompt-injection": {
+   "n": 10,
+   "agree": 0.5,
+   "conflict": 0.2,
+   "overreach": 0.0,
+   "underreach": 0.3,
+   "declined": 0.0,
+   "coverage": 0.7,
+   "precision": 0.7143
+  },
+  "total-cost-within-budget": {
+   "n": 10,
+   "agree": 0.2,
+   "conflict": 0.2,
+   "overreach": 0.1,
+   "underreach": 0.5,
+   "declined": 0.0,
+   "coverage": 0.3,
+   "precision": 0.0
+  },
+  "message-contains-credentials": {
+   "n": 10,
+   "agree": 0.4,
+   "conflict": 0.4,
+   "overreach": 0.0,
+   "underreach": 0.2,
+   "declined": 0.0,
+   "coverage": 0.8,
+   "precision": 0.5
+  },
+  "summary-faithful": {
+   "n": 10,
+   "agree": 0.5,
+   "conflict": 0.3,
+   "overreach": 0.0,
+   "underreach": 0.2,
+   "declined": 0.0,
+   "coverage": 0.8,
+   "precision": 0.625
+  },
+  "invite-conflicts-with-agenda": {
+   "n": 10,
+   "agree": 0.1,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.9,
+   "declined": 0.0,
+   "coverage": 0.1,
+   "precision": 1.0
+  },
+  "oauth-scope-excessive": {
+   "n": 10,
+   "agree": 0.0,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 1.0,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "rental-scam-likelihood": {
+   "n": 10,
+   "agree": 0.3,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.7,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "brand-impersonating-domain": {
+   "n": 10,
+   "agree": 0.1,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.9,
+   "declined": 0.0,
+   "coverage": 0.1,
+   "precision": 1.0
+  },
+  "review-likely-fake": {
+   "n": 10,
+   "agree": 0.8,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.2,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "support-ticket-escalate": {
+   "n": 10,
+   "agree": 0.5,
+   "conflict": 0.2,
+   "overreach": 0.0,
+   "underreach": 0.3,
+   "declined": 0.0,
+   "coverage": 0.7,
+   "precision": 0.7143
+  },
+  "energy-rating-meets-minimum": {
+   "n": 10,
+   "agree": 0.3,
+   "conflict": 0.2,
+   "overreach": 0.0,
+   "underreach": 0.5,
+   "declined": 0.0,
+   "coverage": 0.5,
+   "precision": 0.6
+  },
+  "task-due-category": {
+   "n": 10,
+   "agree": 0.2,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.8,
+   "declined": 0.0,
+   "coverage": 0.2,
+   "precision": 1.0
+  },
+  "price-currency-as-expected": {
+   "n": 10,
+   "agree": 0.6,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.4,
+   "declined": 0.0,
+   "coverage": 0.6,
+   "precision": 1.0
+  },
+  "news-relevant-to-interest": {
+   "n": 10,
+   "agree": 0.0,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 1.0,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "expense-claim-check": {
+   "n": 10,
+   "agree": 0.5,
+   "conflict": 0.0,
+   "overreach": 0.1,
+   "underreach": 0.4,
+   "declined": 0.0,
+   "coverage": 0.2,
+   "precision": 0.5
+  },
+  "contract-type": {
+   "n": 10,
+   "agree": 0.5,
+   "conflict": 0.2,
+   "overreach": 0.1,
+   "underreach": 0.2,
+   "declined": 0.0,
+   "coverage": 0.8,
+   "precision": 0.625
+  },
+  "network-request-kind": {
+   "n": 10,
+   "agree": 0.7,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.3,
+   "declined": 0.0,
+   "coverage": 0.7,
+   "precision": 1.0
+  },
+  "email-automated-or-human": {
+   "n": 10,
+   "agree": 0.7,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.3,
+   "declined": 0.0,
+   "coverage": 0.6,
+   "precision": 1.0
+  },
+  "email-meeting-request": {
+   "n": 10,
+   "agree": 0.6,
+   "conflict": 0.1,
+   "overreach": 0.0,
+   "underreach": 0.3,
+   "declined": 0.0,
+   "coverage": 0.7,
+   "precision": 0.8571
+  },
+  "chat-sincere-or-sarcastic": {
+   "n": 10,
+   "agree": 0.3,
+   "conflict": 0.3,
+   "overreach": 0.0,
+   "underreach": 0.4,
+   "declined": 0.0,
+   "coverage": 0.6,
+   "precision": 0.5
+  },
+  "seller-trustworthiness": {
+   "n": 10,
+   "agree": 0.4,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.6,
+   "declined": 0.0,
+   "coverage": 0.2,
+   "precision": 1.0
+  },
+  "commute-within-limit": {
+   "n": 10,
+   "agree": 0.3,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.7,
+   "declined": 0.0,
+   "coverage": 0.3,
+   "precision": 1.0
+  },
+  "chat-directed-at-user": {
+   "n": 10,
+   "agree": 0.5,
+   "conflict": 0.1,
+   "overreach": 0.0,
+   "underreach": 0.4,
+   "declined": 0.0,
+   "coverage": 0.6,
+   "precision": 0.8333
+  },
+  "tool-next-step": {
+   "n": 10,
+   "agree": 0.3,
+   "conflict": 0.1,
+   "overreach": 0.0,
+   "underreach": 0.6,
+   "declined": 0.0,
+   "coverage": 0.4,
+   "precision": 0.75
+  },
+  "snapshot-is-real-content": {
+   "n": 10,
+   "agree": 0.7,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.3,
+   "declined": 0.0,
+   "coverage": 0.6,
+   "precision": 1.0
+  },
+  "free-returns": {
+   "n": 10,
+   "agree": 0.6,
+   "conflict": 0.1,
+   "overreach": 0.1,
+   "underreach": 0.2,
+   "declined": 0.0,
+   "coverage": 0.8,
+   "precision": 0.75
+  },
+  "result-is-ad": {
+   "n": 10,
+   "agree": 0.6,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.4,
+   "declined": 0.0,
+   "coverage": 0.6,
+   "precision": 1.0
+  },
+  "tab-group-suggestion": {
+   "n": 10,
+   "agree": 0.7,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.3,
+   "declined": 0.0,
+   "coverage": 0.7,
+   "precision": 1.0
+  },
+  "reply-all-appropriate": {
+   "n": 10,
+   "agree": 0.4,
+   "conflict": 0.0,
+   "overreach": 0.1,
+   "underreach": 0.5,
+   "declined": 0.0,
+   "coverage": 0.4,
+   "precision": 0.75
+  },
+  "pre-ticked-optional-box": {
+   "n": 10,
+   "agree": 0.4,
+   "conflict": 0.1,
+   "overreach": 0.0,
+   "underreach": 0.5,
+   "declined": 0.0,
+   "coverage": 0.5,
+   "precision": 0.8
+  },
+  "lowest-unit-price": {
+   "n": 10,
+   "agree": 0.6,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.4,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "chat-which-colleague-about": {
+   "n": 10,
+   "agree": 0.2,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.8,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "housing-type": {
+   "n": 10,
+   "agree": 0.4,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.6,
+   "declined": 0.0,
+   "coverage": 0.4,
+   "precision": 1.0
+  },
+  "warranty-covers-issue": {
+   "n": 10,
+   "agree": 0.2,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.8,
+   "declined": 0.0,
+   "coverage": 0.1,
+   "precision": 1.0
+  },
+  "travel-advisory-level": {
+   "n": 10,
+   "agree": 0.3,
+   "conflict": 0.0,
+   "overreach": 0.1,
+   "underreach": 0.6,
+   "declined": 0.0,
+   "coverage": 0.4,
+   "precision": 0.75
+  },
+  "notion-page-type": {
+   "n": 10,
+   "agree": 0.5,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.5,
+   "declined": 0.0,
+   "coverage": 0.5,
+   "precision": 1.0
+  },
+  "tool-error-next-action": {
+   "n": 10,
+   "agree": 0.7,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.3,
+   "declined": 0.0,
+   "coverage": 0.3,
+   "precision": 1.0
+  },
+  "invite-response-suggest": {
+   "n": 10,
+   "agree": 0.3,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.7,
+   "declined": 0.0,
+   "coverage": 0.1,
+   "precision": 1.0
+  },
+  "age-restricted-content": {
+   "n": 10,
+   "agree": 0.8,
+   "conflict": 0.0,
+   "overreach": 0.1,
+   "underreach": 0.1,
+   "declined": 0.0,
+   "coverage": 0.9,
+   "precision": 0.8889
+  },
+  "cheapest-plan-for-usage": {
+   "n": 10,
+   "agree": 0.5,
+   "conflict": 0.1,
+   "overreach": 0.0,
+   "underreach": 0.4,
+   "declined": 0.0,
+   "coverage": 0.1,
+   "precision": 0.0
+  },
+  "document-needs-signature": {
+   "n": 10,
+   "agree": 0.5,
+   "conflict": 0.1,
+   "overreach": 0.0,
+   "underreach": 0.4,
+   "declined": 0.0,
+   "coverage": 0.6,
+   "precision": 0.8333
+  }
+ },
+ "probe_open_browser_families_2": {
+  "refund-method-outcome": {
+   "n": 8,
+   "agree": 0.25,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.75,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "ALL": {
+   "n": 576,
+   "agree": 0.3958,
+   "conflict": 0.0382,
+   "overreach": 0.0208,
+   "underreach": 0.5451,
+   "declined": 0.0,
+   "coverage": 0.3854,
+   "precision": 0.8468
+  },
+  "confirmation-friction-type": {
+   "n": 8,
+   "agree": 0.375,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.625,
+   "declined": 0.0,
+   "coverage": 0.375,
+   "precision": 1.0
+  },
+  "payment-method-matches-request": {
+   "n": 8,
+   "agree": 0.25,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.75,
+   "declined": 0.0,
+   "coverage": 0.25,
+   "precision": 1.0
+  },
+  "retry-would-duplicate": {
+   "n": 8,
+   "agree": 0.625,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.375,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "click-accepts-legal-terms": {
+   "n": 8,
+   "agree": 0.625,
+   "conflict": 0.125,
+   "overreach": 0.0,
+   "underreach": 0.25,
+   "declined": 0.0,
+   "coverage": 0.75,
+   "precision": 0.8333
+  },
+  "cancel-flow-step-kind": {
+   "n": 8,
+   "agree": 0.5,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.5,
+   "declined": 0.0,
+   "coverage": 0.5,
+   "precision": 1.0
+  },
+  "action-scope-vs-request": {
+   "n": 8,
+   "agree": 0.25,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.75,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "agent-proceed-or-ask": {
+   "n": 8,
+   "agree": 0.375,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.625,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "recurring-edit-scope": {
+   "n": 8,
+   "agree": 0.375,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.625,
+   "declined": 0.0,
+   "coverage": 0.375,
+   "precision": 1.0
+  },
+  "regenerate-invalidates-old": {
+   "n": 8,
+   "agree": 0.875,
+   "conflict": 0.125,
+   "overreach": 0.0,
+   "underreach": 0.0,
+   "declined": 0.0,
+   "coverage": 1.0,
+   "precision": 0.875
+  },
+  "attempts-remaining": {
+   "n": 8,
+   "agree": 0.625,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.375,
+   "declined": 0.0,
+   "coverage": 0.5,
+   "precision": 1.0
+  },
+  "input-violates-constraint": {
+   "n": 8,
+   "agree": 0.125,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.875,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "target-reachability": {
+   "n": 8,
+   "agree": 0.25,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.75,
+   "declined": 0.0,
+   "coverage": 0.25,
+   "precision": 1.0
+  },
+  "task-completion-state": {
+   "n": 8,
+   "agree": 0.25,
+   "conflict": 0.0,
+   "overreach": 0.125,
+   "underreach": 0.625,
+   "declined": 0.0,
+   "coverage": 0.25,
+   "precision": 0.5
+  },
+  "dialog-choice-for-intent": {
+   "n": 8,
+   "agree": 0.375,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.625,
+   "declined": 0.0,
+   "coverage": 0.375,
+   "precision": 1.0
+  },
+  "list-sort-order": {
+   "n": 8,
+   "agree": 0.625,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.375,
+   "declined": 0.0,
+   "coverage": 0.375,
+   "precision": 1.0
+  },
+  "sql-statement-effect": {
+   "n": 8,
+   "agree": 0.5,
+   "conflict": 0.25,
+   "overreach": 0.0,
+   "underreach": 0.25,
+   "declined": 0.0,
+   "coverage": 0.75,
+   "precision": 0.6667
+  },
+  "open-reveals-seen-status": {
+   "n": 8,
+   "agree": 0.5,
+   "conflict": 0.125,
+   "overreach": 0.0,
+   "underreach": 0.375,
+   "declined": 0.0,
+   "coverage": 0.625,
+   "precision": 0.8
+  },
+  "setting-applies-to": {
+   "n": 8,
+   "agree": 0.75,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.25,
+   "declined": 0.0,
+   "coverage": 0.75,
+   "precision": 1.0
+  },
+  "tax-letter-kind": {
+   "n": 8,
+   "agree": 0.125,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.875,
+   "declined": 0.0,
+   "coverage": 0.125,
+   "precision": 1.0
+  },
+  "applicable-tariff": {
+   "n": 8,
+   "agree": 0.125,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.875,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "deductible-remaining": {
+   "n": 8,
+   "agree": 0.125,
+   "conflict": 0.125,
+   "overreach": 0.0,
+   "underreach": 0.75,
+   "declined": 0.0,
+   "coverage": 0.25,
+   "precision": 0.5
+  },
+  "sick-note-required": {
+   "n": 8,
+   "agree": 0.25,
+   "conflict": 0.125,
+   "overreach": 0.125,
+   "underreach": 0.5,
+   "declined": 0.0,
+   "coverage": 0.5,
+   "precision": 0.5
+  },
+  "mortgage-rate-change-direction": {
+   "n": 8,
+   "agree": 0.625,
+   "conflict": 0.125,
+   "overreach": 0.0,
+   "underreach": 0.25,
+   "declined": 0.0,
+   "coverage": 0.625,
+   "precision": 0.8
+  },
+  "payee-details-changed": {
+   "n": 8,
+   "agree": 0.625,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.375,
+   "declined": 0.0,
+   "coverage": 0.625,
+   "precision": 1.0
+  },
+  "energy-bill-estimated-or-actual": {
+   "n": 8,
+   "agree": 0.125,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.875,
+   "declined": 0.0,
+   "coverage": 0.125,
+   "precision": 1.0
+  },
+  "cancel-window-open": {
+   "n": 8,
+   "agree": 0.125,
+   "conflict": 0.125,
+   "overreach": 0.125,
+   "underreach": 0.625,
+   "declined": 0.0,
+   "coverage": 0.25,
+   "precision": 0.0
+  },
+  "outage-affects-address": {
+   "n": 8,
+   "agree": 0.375,
+   "conflict": 0.25,
+   "overreach": 0.125,
+   "underreach": 0.25,
+   "declined": 0.0,
+   "coverage": 0.625,
+   "precision": 0.4
+  },
+  "deposit-return-outcome": {
+   "n": 8,
+   "agree": 0.5,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.5,
+   "declined": 0.0,
+   "coverage": 0.5,
+   "precision": 1.0
+  },
+  "valuation-vs-reference": {
+   "n": 8,
+   "agree": 0.125,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.875,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "maintenance-visit-due": {
+   "n": 8,
+   "agree": 0.25,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.75,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "moving-checklist-item-done": {
+   "n": 8,
+   "agree": 0.75,
+   "conflict": 0.125,
+   "overreach": 0.0,
+   "underreach": 0.125,
+   "declined": 0.0,
+   "coverage": 0.75,
+   "precision": 0.8333
+  },
+  "legal-letter-kind": {
+   "n": 8,
+   "agree": 0.5,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.5,
+   "declined": 0.0,
+   "coverage": 0.375,
+   "precision": 1.0
+  },
+  "vignette-valid-for-trip": {
+   "n": 8,
+   "agree": 0.375,
+   "conflict": 0.0,
+   "overreach": 0.125,
+   "underreach": 0.5,
+   "declined": 0.0,
+   "coverage": 0.5,
+   "precision": 0.75
+  },
+  "vehicle-transfer-complete": {
+   "n": 8,
+   "agree": 0.375,
+   "conflict": 0.125,
+   "overreach": 0.125,
+   "underreach": 0.375,
+   "declined": 0.0,
+   "coverage": 0.625,
+   "precision": 0.6
+  },
+  "study-credit-requirement-met": {
+   "n": 8,
+   "agree": 0.625,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.375,
+   "declined": 0.0,
+   "coverage": 0.625,
+   "precision": 1.0
+  },
+  "leave-balance-sufficient": {
+   "n": 8,
+   "agree": 0.25,
+   "conflict": 0.125,
+   "overreach": 0.0,
+   "underreach": 0.625,
+   "declined": 0.0,
+   "coverage": 0.25,
+   "precision": 0.5
+  },
+  "jobseeker-obligation-met": {
+   "n": 8,
+   "agree": 0.5,
+   "conflict": 0.125,
+   "overreach": 0.125,
+   "underreach": 0.25,
+   "declined": 0.0,
+   "coverage": 0.75,
+   "precision": 0.6667
+  },
+  "tuition-instalment-status": {
+   "n": 8,
+   "agree": 0.5,
+   "conflict": 0.0,
+   "overreach": 0.125,
+   "underreach": 0.375,
+   "declined": 0.0,
+   "coverage": 0.5,
+   "precision": 0.75
+  },
+  "enclosed-form-must-return": {
+   "n": 8,
+   "agree": 0.625,
+   "conflict": 0.125,
+   "overreach": 0.0,
+   "underreach": 0.25,
+   "declined": 0.0,
+   "coverage": 0.75,
+   "precision": 0.8333
+  },
+  "privacy-policy-third-party-sharing": {
+   "n": 8,
+   "agree": 0.75,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.25,
+   "declined": 0.0,
+   "coverage": 0.75,
+   "precision": 1.0
+  },
+  "arbitration-clause-present": {
+   "n": 8,
+   "agree": 0.875,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.125,
+   "declined": 0.0,
+   "coverage": 0.875,
+   "precision": 1.0
+  },
+  "license-allows-commercial-use": {
+   "n": 8,
+   "agree": 0.375,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.625,
+   "declined": 0.0,
+   "coverage": 0.375,
+   "precision": 1.0
+  },
+  "readability-level": {
+   "n": 8,
+   "agree": 0.0,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 1.0,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "claim-certainty": {
+   "n": 8,
+   "agree": 0.375,
+   "conflict": 0.0,
+   "overreach": 0.125,
+   "underreach": 0.5,
+   "declined": 0.0,
+   "coverage": 0.25,
+   "precision": 0.5
+  },
+  "allergen-present": {
+   "n": 8,
+   "agree": 0.0,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 1.0,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "table-purpose": {
+   "n": 8,
+   "agree": 0.25,
+   "conflict": 0.125,
+   "overreach": 0.0,
+   "underreach": 0.625,
+   "declined": 0.0,
+   "coverage": 0.375,
+   "precision": 0.6667
+  },
+  "changelog-security-fix": {
+   "n": 8,
+   "agree": 0.875,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.125,
+   "declined": 0.0,
+   "coverage": 0.875,
+   "precision": 1.0
+  },
+  "config-file-format": {
+   "n": 8,
+   "agree": 0.0,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 1.0,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "sql-statement-kind": {
+   "n": 8,
+   "agree": 0.75,
+   "conflict": 0.125,
+   "overreach": 0.0,
+   "underreach": 0.125,
+   "declined": 0.0,
+   "coverage": 0.875,
+   "precision": 0.8571
+  },
+  "version-release-channel": {
+   "n": 8,
+   "agree": 0.625,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.375,
+   "declined": 0.0,
+   "coverage": 0.625,
+   "precision": 1.0
+  },
+  "comment-stance": {
+   "n": 8,
+   "agree": 0.125,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.875,
+   "declined": 0.0,
+   "coverage": 0.125,
+   "precision": 1.0
+  },
+  "review-main-complaint": {
+   "n": 8,
+   "agree": 0.125,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.875,
+   "declined": 0.0,
+   "coverage": 0.125,
+   "precision": 1.0
+  },
+  "podcast-episode-topic": {
+   "n": 8,
+   "agree": 0.875,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.125,
+   "declined": 0.0,
+   "coverage": 0.875,
+   "precision": 1.0
+  },
+  "text-block-role": {
+   "n": 8,
+   "agree": 0.375,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.625,
+   "declined": 0.0,
+   "coverage": 0.375,
+   "precision": 1.0
+  },
+  "number-format-locale": {
+   "n": 8,
+   "agree": 0.125,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.875,
+   "declined": 0.0,
+   "coverage": 0.125,
+   "precision": 1.0
+  },
+  "bank-line-expense-category": {
+   "n": 8,
+   "agree": 0.5,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.5,
+   "declined": 0.0,
+   "coverage": 0.25,
+   "precision": 1.0
+  },
+  "romance-scam-likelihood": {
+   "n": 8,
+   "agree": 0.625,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.375,
+   "declined": 0.0,
+   "coverage": 0.5,
+   "precision": 1.0
+  },
+  "gift-list-within-budget": {
+   "n": 8,
+   "agree": 0.375,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.625,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "call-note-outcome": {
+   "n": 8,
+   "agree": 0.125,
+   "conflict": 0.125,
+   "overreach": 0.0,
+   "underreach": 0.75,
+   "declined": 0.0,
+   "coverage": 0.25,
+   "precision": 0.5
+  },
+  "chain-message-hoax": {
+   "n": 8,
+   "agree": 0.5,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.5,
+   "declined": 0.0,
+   "coverage": 0.5,
+   "precision": 1.0
+  },
+  "note-finished-or-fragment": {
+   "n": 8,
+   "agree": 0.25,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.75,
+   "declined": 0.0,
+   "coverage": 0.125,
+   "precision": 1.0
+  },
+  "ocr-text-quality": {
+   "n": 8,
+   "agree": 0.125,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.875,
+   "declined": 0.0,
+   "coverage": 0.125,
+   "precision": 1.0
+  },
+  "trial-ends-before-date": {
+   "n": 8,
+   "agree": 0.5,
+   "conflict": 0.0,
+   "overreach": 0.125,
+   "underreach": 0.375,
+   "declined": 0.0,
+   "coverage": 0.5,
+   "precision": 0.75
+  },
+  "payment-request-expected": {
+   "n": 8,
+   "agree": 0.25,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.75,
+   "declined": 0.0,
+   "coverage": 0.25,
+   "precision": 1.0
+  },
+  "contact-field-misplaced": {
+   "n": 8,
+   "agree": 0.25,
+   "conflict": 0.125,
+   "overreach": 0.0,
+   "underreach": 0.625,
+   "declined": 0.0,
+   "coverage": 0.375,
+   "precision": 0.6667
+  },
+  "group-chat-activity-state": {
+   "n": 8,
+   "agree": 0.5,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.5,
+   "declined": 0.0,
+   "coverage": 0.25,
+   "precision": 1.0
+  },
+  "weekly-habit-target-met": {
+   "n": 8,
+   "agree": 0.625,
+   "conflict": 0.125,
+   "overreach": 0.0,
+   "underreach": 0.25,
+   "declined": 0.0,
+   "coverage": 0.75,
+   "precision": 0.8333
+  },
+  "official-letter-action": {
+   "n": 8,
+   "agree": 0.5,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.5,
+   "declined": 0.0,
+   "coverage": 0.5,
+   "precision": 1.0
+  },
+  "school-notice-which-child": {
+   "n": 8,
+   "agree": 0.0,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 1.0,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "outgoing-message-send-timing": {
+   "n": 8,
+   "agree": 0.125,
+   "conflict": 0.125,
+   "overreach": 0.25,
+   "underreach": 0.5,
+   "declined": 0.0,
+   "coverage": 0.5,
+   "precision": 0.25
+  },
+  "voice-memo-kind": {
+   "n": 8,
+   "agree": 0.375,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.625,
+   "declined": 0.0,
+   "coverage": 0.375,
+   "precision": 1.0
+  }
+ },
+ "probe_tabs_many_groups": {
+  "probe-many-groups": {
+   "n": 150,
+   "agree": 0.5,
+   "conflict": 0.0,
+   "overreach": 0.0733,
+   "underreach": 0.4267,
+   "declined": 0.0,
+   "coverage": 0.2133,
+   "precision": 0.6562
+  },
+  "ALL": {
+   "n": 150,
+   "agree": 0.5,
+   "conflict": 0.0,
+   "overreach": 0.0733,
+   "underreach": 0.4267,
+   "declined": 0.0,
+   "coverage": 0.2133,
+   "precision": 0.6562
+  }
+ }
+}

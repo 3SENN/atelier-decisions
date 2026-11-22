@@ -38,6 +38,59 @@ Not yet: crash reports from the utility process are not collected; the model is 
 is data, read only by ONNX Runtime); macOS x64 has no onnxruntime-node 1.31 binary (onnxruntime-web's WASM build
 would be the fallback there).
 
+## nano, then mini: the cascade (runtime/node; not in the patch yet)
+
+atelier-mini (Qwen3.5-0.8B read the decider's way, run by llama.cpp) works out kinds of questions the nano was never
+shown, but it is about 30 times slower. So the two run as one decider:
+
+1. **The nano answers first**, in milliseconds.
+2. **The mini gets what the nano can't settle:** a question the nano declines (an open question, text it can't read)
+   or is unsure about by Atelier's own cutoffs (`runtime/node/src/readers.ts`, a port of `student/readers.py`).
+3. **The rule decides** what the mini is unsure about too.
+
+```bash
+python student/export_mini.py --model runs/mini-l24 --gguf runs/mini-l24/mini-l24-Q4_K_M-e4.decider.gguf --out runs/mini-l24/runtime
+cd runtime/node
+node --experimental-strip-types src/mini_parity.ts ../../runs/mini-l24/runtime        # token ids = Python: 608/608
+node --experimental-strip-types src/server.ts ../../runs/nano-v03-l22/onnx 8011 4 --mini ../../runs/mini-l24/runtime \
+    --llama-server ../../models/llama.cpp-b12620/bin/llama-server.exe                      # model "atelier-nano+mini"
+```
+
+Each answer says which model gave it (`routes`). `--mini-only` serves the mini alone.
+
+The runtime folder comes from `student/export_mini.py`. It holds:
+
+- the marked GGUF;
+- the readout (`readout.f32`, 1 MB);
+- `decision.json`: answer codes, temperatures, the chat-template prefix, escaped special tokens, separator and marker ids;
+- the tokenizer.
+
+The runner tokenizes and sends token ids to llama-server's `/embedding`, which returns the final hidden state at the
+marker. The runner applies the readout and the temperature.
+
+**Tokenizer:** the runner uses the base's own `tokenizer.json`, so llama.cpp, tokenizers.js and Python agree token for
+token (608 of 608).
+
+- **Teachers and the mini differ:** transformers 5.17 builds Qwen3.5's tokenizer with the older Qwen2 split rule. The
+  teachers ship that rule in their own files, so it is right for them. The mini's base was pretrained with the newer
+  rule, which keeps combining marks with their letters.
+- **It matters for Hindi and Thai:** with the base's rule the mini is right 70% of the time when it decides on Thai
+  instead of 40%, and 78% instead of 69% on Hindi (`analysis/tokenizer_effect.py`). Other languages don't change.
+- **So every mini script now loads the tokenizer through `student/mini_tokenizer.py`.**
+
+**For Atelier this means:**
+
+- **Packaging:** a llama-server binary per platform (CPU build; Metal on macOS) next to `onnxruntime-node`, and a
+  model of 469 MB. That is too big to bundle, so it would be an optional download: "decide new kinds of questions
+  on this computer".
+- **Process:** the utility process starts llama-server on first use, like the nano's session.
+- **Memory:** 0.8 GB for llama-server at the default 4096-token batch, and 370 MB for the Node runner with the nano
+  and the mini's tokenizer.
+
+**On phones:** llama.cpp runs the same GGUF on Android and iOS. A port needs about 100 lines of prompt building, the
+tokenizer and the 255 x 1024 readout. At 0.8B and 4 bits, expect around a second per question on a phone CPU; that
+is an estimate, not a measurement. The nano stays the phone's first answer.
+
 ## Without the patch
 
 Atelier already accepts any System One server as "your own server", and treats one on this computer (localhost,

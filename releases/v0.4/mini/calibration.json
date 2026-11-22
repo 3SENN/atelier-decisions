@@ -1,0 +1,12 @@
+{
+ "dictation": 1.25,
+ "effort": 1.2,
+ "intent": 1.15,
+ "kind": 0.8,
+ "lasting": 1.55,
+ "open": 1.45,
+ "place": 0.95,
+ "skill": 1.1,
+ "target": 1.5,
+ "waits": 1.2
+}

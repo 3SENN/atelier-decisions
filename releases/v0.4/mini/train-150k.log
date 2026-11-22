@@ -1,0 +1,91 @@
+left out 3420 requests that share a text with Atelier's eval cases
+152030 training questions (73 over 1024 tokens dropped), 3741 held out; encoded in 102s; mean length 206 tokens
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]Loading weights:   7%|7         | 35/473 [00:00<00:01, 337.86it/s]Loading weights:  15%|#4        | 69/473 [00:00<00:01, 297.25it/s]Loading weights:  21%|##1       | 100/473 [00:00<00:01, 298.45it/s]Loading weights:  28%|##7       | 131/473 [00:00<00:01, 301.82it/s]Loading weights:  37%|###6      | 175/473 [00:00<00:00, 347.09it/s]Loading weights: 100%|##########| 473/473 [00:00<00:00, 865.71it/s]
+blocks 24, body 498M, 186 adapted linears, trainable 43.6M
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+step 0/3886 loss 4.3271 5.9 q/s ~251 min left, peak 3.1 GiB
+step 50/3886 loss 2.3517 12.1 q/s ~205 min left, peak 3.5 GiB
+step 100/3886 loss 1.4976 12.4 q/s ~199 min left, peak 3.5 GiB
+step 150/3886 loss 1.2636 12.0 q/s ~196 min left, peak 3.5 GiB
+step 200/3886 loss 1.0175 12.2 q/s ~193 min left, peak 3.5 GiB
+step 250/3886 loss 1.0468 12.1 q/s ~190 min left, peak 3.5 GiB
+step 300/3886 loss 0.8603 12.2 q/s ~187 min left, peak 3.5 GiB
+step 350/3886 loss 0.8387 12.3 q/s ~184 min left, peak 3.5 GiB
+step 400/3886 loss 0.7626 12.4 q/s ~181 min left, peak 3.5 GiB
+step 450/3886 loss 0.7339 12.5 q/s ~179 min left, peak 3.5 GiB
+step 500/3886 loss 0.6681 12.7 q/s ~176 min left, peak 3.5 GiB
+step 550/3886 loss 0.6201 12.6 q/s ~173 min left, peak 3.5 GiB
+step 600/3886 loss 0.6150 12.7 q/s ~171 min left, peak 3.5 GiB
+step 650/3886 loss 0.5922 12.8 q/s ~168 min left, peak 3.5 GiB
+step 700/3886 loss 0.7523 12.8 q/s ~165 min left, peak 3.5 GiB
+step 750/3886 loss 0.6769 12.7 q/s ~163 min left, peak 3.5 GiB
+step 800/3886 loss 0.6349 12.7 q/s ~160 min left, peak 3.5 GiB
+step 850/3886 loss 0.6076 12.7 q/s ~158 min left, peak 3.5 GiB
+step 900/3886 loss 0.5922 12.7 q/s ~155 min left, peak 3.5 GiB
+step 950/3886 loss 0.5822 12.7 q/s ~152 min left, peak 3.5 GiB
+step 1000/3886 loss 0.5926 12.6 q/s ~150 min left, peak 3.5 GiB
+step 1050/3886 loss 0.5746 12.5 q/s ~147 min left, peak 3.5 GiB
+step 1100/3886 loss 0.5434 12.5 q/s ~145 min left, peak 3.5 GiB
+step 1150/3886 loss 0.5335 12.6 q/s ~142 min left, peak 3.5 GiB
+step 1200/3886 loss 0.5194 12.6 q/s ~139 min left, peak 3.5 GiB
+step 1250/3886 loss 0.5502 12.6 q/s ~137 min left, peak 3.5 GiB
+step 1300/3886 loss 0.5301 12.6 q/s ~134 min left, peak 3.5 GiB
+step 1350/3886 loss 0.4668 12.6 q/s ~132 min left, peak 3.5 GiB
+step 1400/3886 loss 0.4749 12.6 q/s ~129 min left, peak 3.5 GiB
+step 1450/3886 loss 0.5092 12.6 q/s ~126 min left, peak 3.5 GiB
+step 1500/3886 loss 0.4858 12.6 q/s ~124 min left, peak 3.5 GiB
+step 1550/3886 loss 0.4686 12.6 q/s ~121 min left, peak 3.5 GiB
+step 1600/3886 loss 0.4534 12.6 q/s ~119 min left, peak 3.5 GiB
+step 1650/3886 loss 0.4463 12.7 q/s ~116 min left, peak 3.5 GiB
+step 1700/3886 loss 0.4193 12.7 q/s ~114 min left, peak 3.5 GiB
+step 1750/3886 loss 0.4307 12.7 q/s ~111 min left, peak 3.5 GiB
+step 1800/3886 loss 0.4385 12.6 q/s ~108 min left, peak 3.5 GiB
+step 1850/3886 loss 0.4073 12.6 q/s ~106 min left, peak 3.5 GiB
+step 1900/3886 loss 0.3946 12.6 q/s ~103 min left, peak 3.5 GiB
+step 1950/3886 loss 0.3873 12.6 q/s ~101 min left, peak 3.5 GiB
+step 2000/3886 loss 0.3892 12.6 q/s ~98 min left, peak 3.5 GiB
+step 2050/3886 loss 0.3774 12.6 q/s ~95 min left, peak 3.5 GiB
+step 2100/3886 loss 0.3614 12.7 q/s ~93 min left, peak 3.5 GiB
+step 2150/3886 loss 0.3532 12.6 q/s ~90 min left, peak 3.5 GiB
+step 2200/3886 loss 0.3329 12.6 q/s ~88 min left, peak 3.5 GiB
+step 2250/3886 loss 0.3522 12.6 q/s ~85 min left, peak 3.5 GiB
+step 2300/3886 loss 0.3200 12.6 q/s ~83 min left, peak 3.5 GiB
+step 2350/3886 loss 0.2863 12.6 q/s ~80 min left, peak 3.5 GiB
+step 2400/3886 loss 0.3143 12.6 q/s ~78 min left, peak 3.5 GiB
+step 2450/3886 loss 0.3047 12.6 q/s ~75 min left, peak 3.5 GiB
+step 2500/3886 loss 0.3142 12.6 q/s ~72 min left, peak 3.5 GiB
+step 2550/3886 loss 0.3295 12.5 q/s ~70 min left, peak 3.5 GiB
+step 2600/3886 loss 0.2800 12.5 q/s ~67 min left, peak 3.5 GiB
+step 2650/3886 loss 0.2676 12.5 q/s ~65 min left, peak 3.5 GiB
+step 2700/3886 loss 0.2594 12.5 q/s ~62 min left, peak 3.5 GiB
+step 2750/3886 loss 0.2510 12.5 q/s ~59 min left, peak 3.5 GiB
+step 2800/3886 loss 0.2299 12.5 q/s ~57 min left, peak 3.5 GiB
+step 2850/3886 loss 0.2508 12.5 q/s ~54 min left, peak 3.5 GiB
+step 2900/3886 loss 0.2429 12.5 q/s ~52 min left, peak 3.5 GiB
+step 2950/3886 loss 0.2760 12.5 q/s ~49 min left, peak 3.5 GiB
+step 3000/3886 loss 0.2657 12.4 q/s ~47 min left, peak 3.5 GiB
+step 3050/3886 loss 0.2615 12.4 q/s ~44 min left, peak 3.5 GiB
+step 3100/3886 loss 0.2400 12.4 q/s ~41 min left, peak 3.5 GiB
+step 3150/3886 loss 0.2220 12.4 q/s ~39 min left, peak 3.5 GiB
+step 3200/3886 loss 0.2073 12.4 q/s ~36 min left, peak 3.5 GiB
+step 3250/3886 loss 0.2180 12.4 q/s ~33 min left, peak 3.5 GiB
+step 3300/3886 loss 0.1946 12.4 q/s ~31 min left, peak 3.5 GiB
+step 3350/3886 loss 0.2081 12.4 q/s ~28 min left, peak 3.5 GiB
+step 3400/3886 loss 0.1912 12.4 q/s ~26 min left, peak 3.5 GiB
+step 3450/3886 loss 0.2189 12.4 q/s ~23 min left, peak 3.5 GiB
+step 3500/3886 loss 0.2024 12.4 q/s ~20 min left, peak 3.5 GiB
+step 3550/3886 loss 0.2221 12.4 q/s ~18 min left, peak 3.5 GiB
+step 3600/3886 loss 0.1862 12.4 q/s ~15 min left, peak 3.5 GiB
+step 3650/3886 loss 0.1927 12.3 q/s ~12 min left, peak 3.5 GiB
+step 3700/3886 loss 0.2099 12.3 q/s ~10 min left, peak 3.5 GiB
+step 3750/3886 loss 0.2140 12.4 q/s ~7 min left, peak 3.5 GiB
+step 3800/3886 loss 0.2189 12.4 q/s ~4 min left, peak 3.5 GiB
+step 3850/3886 loss 0.2152 12.3 q/s ~2 min left, peak 3.5 GiB
+step 3885/3886 loss 0.2248 12.3 q/s ~0 min left, peak 3.5 GiB
+== final
+  [final] held_out               n= 3741 agree 0.852  decides 73%  right when deciding 0.9183
+  [final] eval-26b               n=  348 agree 0.940  decides 87%  right when deciding 0.967
+  [final] open_unseen            n=  450 agree 0.869  decides 88%  right when deciding 0.9548
+  [final] browser_families       n=  480 agree 0.519  decides 59%  right when deciding 0.7544
+  [final] browser_families_2     n=  576 agree 0.496  decides 55%  right when deciding 0.7956
+saved to runs\mini-l24-150k

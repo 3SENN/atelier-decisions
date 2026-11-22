@@ -1,0 +1,433 @@
+{
+ "args": {
+  "data": "[WindowsPath('data/teacher/pool-v1.flash.jsonl'), WindowsPath('data/teacher/pool-v2.flash.jsonl'), WindowsPath('data/teacher/pool-v3.flash.jsonl'), WindowsPath('data/teacher/pool-v4.flash.jsonl'), WindowsPath('data/teacher/pool-v5.flash.jsonl'), WindowsPath('data/teacher/pool-v6.flash.jsonl'), WindowsPath('data/teacher/pool-open-generic.flash.jsonl'), WindowsPath('data/teacher/pool-open2.flash.jsonl'), WindowsPath('data/teacher/pool-gen2train.flash.jsonl'), WindowsPath('data/teacher/pool-gen3.flash.jsonl'), WindowsPath('data/teacher/pool-numeric.truth.jsonl')]",
+  "extra_eval": "[WindowsPath('data/teacher/eval-26b.jsonl')]",
+  "base": "C:\\Users\\senne\\github\\atelierdecisionmodel\\models\\Qwen3.5-0.8B",
+  "layers": "None",
+  "out": "runs\\mini-l24-num",
+  "questions": "40000",
+  "epochs": "1.0",
+  "lr": "0.0001",
+  "readout_lr": "0.0005",
+  "rank": "64",
+  "max_length": "1024",
+  "max_tokens": "8192",
+  "eval_every": "0",
+  "seed": "0",
+  "device": "cuda",
+  "checkpointing": "True",
+  "eval_limit": "None",
+  "init": "runs\\mini-l24-150k\\mini.pt",
+  "weight": "['pool-numeric.truth=6']"
+ },
+ "result": {
+  "held_out": {
+   "T=1.0": {
+    "n": 3648,
+    "agree": 0.7974,
+    "coverage": 0.7059,
+    "precision": 0.9254
+   },
+   "T=1.5": {
+    "n": 3648,
+    "agree": 0.7481,
+    "coverage": 0.611,
+    "precision": 0.9583
+   },
+   "T=2.0": {
+    "n": 3648,
+    "agree": 0.6801,
+    "coverage": 0.5263,
+    "precision": 0.9714
+   },
+   "T=3.0": {
+    "n": 3648,
+    "agree": 0.5677,
+    "coverage": 0.4019,
+    "precision": 0.985
+   },
+   "by_group_T1": {
+    "ALL": {
+     "n": 3648,
+     "agree": 0.7974,
+     "coverage": 0.7059,
+     "precision": 0.9254
+    },
+    "open:noul": {
+     "n": 1023,
+     "agree": 0.6344,
+     "coverage": 0.696,
+     "precision": 0.8947
+    },
+    "needsYou": {
+     "n": 160,
+     "agree": 0.9313,
+     "coverage": 0.95,
+     "precision": 0.9539
+    },
+    "agentClicks": {
+     "n": 159,
+     "agree": 0.9371,
+     "coverage": 0.4843,
+     "precision": 0.9351
+    },
+    "searchOrAsk": {
+     "n": 190,
+     "agree": 0.8421,
+     "coverage": 0.7316,
+     "precision": 0.8993
+    },
+    "tabs": {
+     "n": 115,
+     "agree": 0.9304,
+     "coverage": 0.687,
+     "precision": 0.9747
+    },
+    "effort": {
+     "n": 221,
+     "agree": 0.7964,
+     "coverage": 0.4842,
+     "precision": 0.8224
+    },
+    "open:choice": {
+     "n": 569,
+     "agree": 0.6819,
+     "coverage": 0.5518,
+     "precision": 0.8726
+    },
+    "skills": {
+     "n": 820,
+     "agree": 0.9671,
+     "coverage": 0.9768,
+     "precision": 0.9838
+    },
+    "voiceTarget": {
+     "n": 132,
+     "agree": 0.8485,
+     "coverage": 0.4394,
+     "precision": 0.931
+    },
+    "memory": {
+     "n": 180,
+     "agree": 0.9222,
+     "coverage": 0.4778,
+     "precision": 0.9535
+    },
+    "open:score": {
+     "n": 22,
+     "agree": 0.5455,
+     "coverage": 0.4545,
+     "precision": 0.4
+    },
+    "dictation": {
+     "n": 57,
+     "agree": 0.8421,
+     "coverage": 0.7018,
+     "precision": 0.925
+    }
+   }
+  },
+  "eval-26b": {
+   "T=1.0": {
+    "n": 348,
+    "agree": 0.9425,
+    "coverage": 0.8736,
+    "precision": 0.9671
+   },
+   "T=1.5": {
+    "n": 348,
+    "agree": 0.8649,
+    "coverage": 0.7845,
+    "precision": 0.9744
+   },
+   "T=2.0": {
+    "n": 348,
+    "agree": 0.75,
+    "coverage": 0.658,
+    "precision": 0.9782
+   },
+   "T=3.0": {
+    "n": 348,
+    "agree": 0.6092,
+    "coverage": 0.5172,
+    "precision": 0.9722
+   },
+   "by_group_T1": {
+    "ALL": {
+     "n": 348,
+     "agree": 0.9425,
+     "coverage": 0.8736,
+     "precision": 0.9671
+    },
+    "open:choice": {
+     "n": 13,
+     "agree": 0.8462,
+     "coverage": 0.9231,
+     "precision": 0.9167
+    },
+    "open:noul": {
+     "n": 15,
+     "agree": 0.7333,
+     "coverage": 0.9333,
+     "precision": 0.7857
+    },
+    "eval:needsYou": {
+     "n": 20,
+     "agree": 1.0,
+     "coverage": 1.0,
+     "precision": 1.0
+    },
+    "eval:dictation": {
+     "n": 16,
+     "agree": 0.875,
+     "coverage": 0.375,
+     "precision": 1.0
+    },
+    "eval:agentClicks": {
+     "n": 24,
+     "agree": 1.0,
+     "coverage": 0.6667,
+     "precision": 1.0
+    },
+    "eval:searchOrAsk": {
+     "n": 20,
+     "agree": 0.9,
+     "coverage": 1.0,
+     "precision": 0.9
+    },
+    "eval:voiceTarget": {
+     "n": 12,
+     "agree": 1.0,
+     "coverage": 0.5,
+     "precision": 1.0
+    },
+    "eval:effort": {
+     "n": 24,
+     "agree": 0.9167,
+     "coverage": 0.8333,
+     "precision": 1.0
+    },
+    "eval:memory": {
+     "n": 20,
+     "agree": 1.0,
+     "coverage": 0.5,
+     "precision": 1.0
+    },
+    "eval:tabs": {
+     "n": 24,
+     "agree": 0.8333,
+     "coverage": 0.8333,
+     "precision": 1.0
+    },
+    "eval:skills": {
+     "n": 160,
+     "agree": 0.975,
+     "coverage": 1.0,
+     "precision": 0.975
+    }
+   }
+  },
+  "open_unseen": {
+   "T=1.0": {
+    "n": 450,
+    "agree": 0.8711,
+    "coverage": 0.88,
+    "precision": 0.9621
+   },
+   "T=1.5": {
+    "n": 450,
+    "agree": 0.7622,
+    "coverage": 0.7333,
+    "precision": 0.9818
+   },
+   "T=2.0": {
+    "n": 450,
+    "agree": 0.5333,
+    "coverage": 0.5,
+    "precision": 0.9778
+   },
+   "T=3.0": {
+    "n": 450,
+    "agree": 0.2222,
+    "coverage": 0.1822,
+    "precision": 0.9634
+   },
+   "by_group_T1": {
+    "ALL": {
+     "n": 450,
+     "agree": 0.8711,
+     "coverage": 0.88,
+     "precision": 0.9621
+    },
+    "open:choice": {
+     "n": 200,
+     "agree": 0.84,
+     "coverage": 0.83,
+     "precision": 0.9699
+    },
+    "open:noul": {
+     "n": 200,
+     "agree": 0.905,
+     "coverage": 0.93,
+     "precision": 0.9677
+    },
+    "open:score": {
+     "n": 50,
+     "agree": 0.86,
+     "coverage": 0.88,
+     "precision": 0.9091
+    }
+   }
+  },
+  "browser_families": {
+   "T=1.0": {
+    "n": 480,
+    "agree": 0.5208,
+    "coverage": 0.5687,
+    "precision": 0.7912
+   },
+   "T=1.5": {
+    "n": 480,
+    "agree": 0.4542,
+    "coverage": 0.4396,
+    "precision": 0.8341
+   },
+   "T=2.0": {
+    "n": 480,
+    "agree": 0.3125,
+    "coverage": 0.2542,
+    "precision": 0.8279
+   },
+   "T=3.0": {
+    "n": 480,
+    "agree": 0.1917,
+    "coverage": 0.0938,
+    "precision": 0.8667
+   },
+   "by_group_T1": {
+    "ALL": {
+     "n": 480,
+     "agree": 0.5208,
+     "coverage": 0.5687,
+     "precision": 0.7912
+    },
+    "open:noul": {
+     "n": 204,
+     "agree": 0.5196,
+     "coverage": 0.6569,
+     "precision": 0.7836
+    },
+    "open:choice": {
+     "n": 236,
+     "agree": 0.5551,
+     "coverage": 0.5805,
+     "precision": 0.8029
+    },
+    "open:score": {
+     "n": 40,
+     "agree": 0.325,
+     "coverage": 0.05,
+     "precision": 0.5
+    }
+   }
+  },
+  "browser_families_2": {
+   "T=1.0": {
+    "n": 576,
+    "agree": 0.526,
+    "coverage": 0.5799,
+    "precision": 0.7964
+   },
+   "T=1.5": {
+    "n": 576,
+    "agree": 0.3767,
+    "coverage": 0.3628,
+    "precision": 0.8373
+   },
+   "T=2.0": {
+    "n": 576,
+    "agree": 0.2691,
+    "coverage": 0.2188,
+    "precision": 0.8651
+   },
+   "T=3.0": {
+    "n": 576,
+    "agree": 0.1476,
+    "coverage": 0.0712,
+    "precision": 0.8293
+   },
+   "by_group_T1": {
+    "ALL": {
+     "n": 576,
+     "agree": 0.526,
+     "coverage": 0.5799,
+     "precision": 0.7964
+    },
+    "open:choice": {
+     "n": 400,
+     "agree": 0.5075,
+     "coverage": 0.54,
+     "precision": 0.8148
+    },
+    "open:noul": {
+     "n": 160,
+     "agree": 0.5687,
+     "coverage": 0.6625,
+     "precision": 0.7736
+    },
+    "open:score": {
+     "n": 16,
+     "agree": 0.5625,
+     "coverage": 0.75,
+     "precision": 0.6667
+    }
+   }
+  },
+  "numeric": {
+   "T=1.0": {
+    "n": 1280,
+    "agree": 0.4836,
+    "coverage": 0.5703,
+    "precision": 0.8479
+   },
+   "T=1.5": {
+    "n": 1280,
+    "agree": 0.4406,
+    "coverage": 0.4914,
+    "precision": 0.8967
+   },
+   "T=2.0": {
+    "n": 1280,
+    "agree": 0.4031,
+    "coverage": 0.4305,
+    "precision": 0.9365
+   },
+   "T=3.0": {
+    "n": 1280,
+    "agree": 0.3359,
+    "coverage": 0.3445,
+    "precision": 0.9751
+   },
+   "by_group_T1": {
+    "ALL": {
+     "n": 1280,
+     "agree": 0.4836,
+     "coverage": 0.5703,
+     "precision": 0.8479
+    },
+    "open:noul": {
+     "n": 1220,
+     "agree": 0.5074,
+     "coverage": 0.5984,
+     "precision": 0.8479
+    },
+    "open:choice": {
+     "n": 60,
+     "agree": 0.0,
+     "coverage": 0.0,
+     "precision": null
+    }
+   }
+  }
+ }
+}

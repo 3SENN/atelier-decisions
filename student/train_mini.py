@@ -27,7 +27,6 @@ from collections import defaultdict
 from pathlib import Path
 
 import torch
-from transformers import AutoProcessor
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "student"))
@@ -36,6 +35,7 @@ sys.path.insert(0, str(ROOT / "third_party"))
 from atelier_uses import use_of  # noqa: E402
 from format import fixed_kind, option_labels  # noqa: E402
 from pplx_decider.model import enable_noncausal_full_attention  # noqa: E402
+from mini_tokenizer import mini_processor  # noqa: E402
 from pplx_decider.protocol import Encoder  # noqa: E402
 from readers import verdict  # noqa: E402
 from train import eval_question_keys, loss_of, question_key, read_jsonl, without_eval  # noqa: E402
@@ -44,6 +44,7 @@ PROBES = {
     "open_unseen": ROOT / "data" / "teacher" / "probe-open.flash.jsonl",
     "browser_families": ROOT / "data" / "teacher" / "open-heldout.flash.jsonl",
     "browser_families_2": ROOT / "data" / "teacher" / "gen3-heldout.flash.jsonl",
+    "numeric": ROOT / "data" / "teacher" / "numeric-test.truth.jsonl",  # the true answer, not a teacher's
 }
 FLASH = ROOT / "models" / "pplx-decider-flash-v1.3"
 
@@ -237,6 +238,8 @@ def main() -> None:
     parser.add_argument("--device", default="cuda")
     parser.add_argument("--checkpointing", action="store_true")
     parser.add_argument("--eval-limit", type=int, default=None, help="cap each evaluation set (smoke tests)")
+    parser.add_argument("--init", type=Path, help="continue from this mini.pt (same base, blocks and rank)")
+    parser.add_argument("--weight", nargs="*", default=[], help="override runs/DATA_WEIGHTS.json: file-stem=copies")
     args = parser.parse_args()
 
     rng = random.Random(args.seed)
@@ -244,7 +247,7 @@ def main() -> None:
     device = torch.device(args.device)
     if device.type == "cpu":
         reference_kernels()
-    processor = AutoProcessor.from_pretrained(str(args.base))
+    processor = mini_processor(args.base)
     processor.tokenizer.padding_side = "left"
     config = json.loads((FLASH / "decision_config.json").read_text())
     codes, token_ids = list(config["codes"]), list(config["token_ids"])
@@ -255,6 +258,7 @@ def main() -> None:
 
     weights_file = ROOT / "runs" / "DATA_WEIGHTS.json"
     weights = json.loads(weights_file.read_text()) if weights_file.exists() else {}
+    weights |= {k: float(v) for k, v in (w.split("=", 1) for w in args.weight)}
     rows = without_eval([row for path in args.data for row in read_jsonl(path) for _ in range(int(weights.get(path.stem, 1)))])
     held = lambda r: int(hashlib.md5(json.dumps(r["request"], sort_keys=True).encode()).hexdigest(), 16) % 20 == 0  # noqa: E731
     train_rows = [r for r in rows if not held(r)]
@@ -285,6 +289,11 @@ def main() -> None:
           f"encoded in {time.perf_counter() - t0:.0f}s; mean length {sum(len(e['ids']) for e in train) / len(train):.0f} tokens", flush=True)
 
     model = MiniDecider(args.base, args.layers, args.rank, 2.0 * args.rank, token_ids).to(device)
+    if args.init:
+        start = torch.load(args.init, map_location="cpu")
+        assert (start["layers"], start["rank"]) == (args.layers, args.rank), "--init must match --layers and --rank"
+        assert not model.load_state_dict(start["trainable"], strict=False).unexpected_keys
+        print(f"continuing from {args.init}", flush=True)
     if args.checkpointing:
         model.text.gradient_checkpointing_enable(gradient_checkpointing_kwargs={"use_reentrant": False})
     n_body = sum(p.numel() for n, p in model.text.named_parameters() if "embed_tokens" not in n and ".A" not in n[-2:] and ".B" not in n[-2:])

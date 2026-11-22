@@ -30,6 +30,10 @@ def main() -> None:
     parser.add_argument("--data", type=Path, nargs="+", required=True)
     parser.add_argument("--weights", type=Path)
     parser.add_argument("--tokenizer", type=Path, default=ROOT / "runs" / "tokenizer-32k")
+    parser.add_argument("--mini", type=Path, help="atelier-mini run folder (adapters, calibration, logs)")
+    parser.add_argument("--mini-runtime", type=Path, help="its runtime folder from student/export_mini.py (GGUF, readout, tokenizer)")
+    parser.add_argument("--mini-report", help="name of the mini's capability report")
+    parser.add_argument("--extra-results", nargs="*", default=[], help="more files from analysis/results to keep with the version")
     args = parser.parse_args()
 
     out = ROOT / "releases" / args.version
@@ -50,6 +54,21 @@ def main() -> None:
                 ROOT / "docs" / "capabilities" / f"{args.report}.md", ROOT / "docs" / "capabilities" / "README.md"):
         if src.exists():
             shutil.copy2(src, out / "eval" / (src.name if src.name != "README.md" else "all-versions.md"))
+    if args.mini:
+        (out / "mini").mkdir(exist_ok=True)
+        for name in ("mini.pt", "report.json", "calibration.json", "calibration-report.json"):
+            if (args.mini / name).exists():
+                shutil.copy2(args.mini / name, out / "mini" / name)
+        log = ROOT / "runs" / f"train-{args.mini.name}.log"
+        if log.exists():
+            shutil.copy2(log, out / "mini" / "train.log")
+        for path in sorted((args.mini_runtime or args.mini / "runtime").iterdir()):
+            shutil.copy2(path, out / "mini" / path.name)
+    for name in ([f"capabilities-{args.mini_report}.json"] if args.mini_report else []) + list(args.extra_results):
+        if (results / name).exists():
+            shutil.copy2(results / name, out / "eval" / name)
+    if args.mini_report and (ROOT / "docs" / "capabilities" / f"{args.mini_report}.md").exists():
+        shutil.copy2(ROOT / "docs" / "capabilities" / f"{args.mini_report}.md", out / "eval" / f"{args.mini_report}.md")
     with zipfile.ZipFile(out / "data" / "teacher-labels.zip", "w", zipfile.ZIP_DEFLATED, compresslevel=9) as z:
         for path in args.data:
             z.write(path, path.resolve().relative_to(ROOT).as_posix())

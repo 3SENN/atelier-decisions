@@ -1,0 +1,35 @@
+left out 3420 requests that share a text with Atelier's eval cases
+39411 training questions (16 over 1024 tokens dropped), 3648 held out; encoded in 34s; mean length 195 tokens
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]Loading weights:   7%|7         | 34/473 [00:00<00:01, 331.48it/s]Loading weights:  14%|#4        | 68/473 [00:00<00:01, 334.46it/s]Loading weights:  23%|##2       | 107/473 [00:00<00:01, 351.25it/s]Loading weights:  30%|###       | 143/473 [00:00<00:00, 333.74it/s]Loading weights:  38%|###7      | 179/473 [00:00<00:00, 333.63it/s]Loading weights: 100%|##########| 473/473 [00:00<00:00, 747.34it/s]
+continuing from runs\mini-l24-150k\mini.pt
+blocks 24, body 498M, 186 adapted linears, trainable 43.6M
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+step 0/953 loss 0.5798 17.8 q/s ~69 min left, peak 3.2 GiB
+step 50/953 loss 0.3924 12.3 q/s ~47 min left, peak 3.5 GiB
+step 100/953 loss 0.3414 12.6 q/s ~45 min left, peak 3.5 GiB
+step 150/953 loss 0.3212 13.3 q/s ~42 min left, peak 3.5 GiB
+step 200/953 loss 0.3302 13.0 q/s ~39 min left, peak 3.5 GiB
+step 250/953 loss 0.2956 13.0 q/s ~37 min left, peak 3.5 GiB
+step 300/953 loss 0.3353 13.4 q/s ~34 min left, peak 3.5 GiB
+step 350/953 loss 0.3094 13.3 q/s ~31 min left, peak 3.5 GiB
+step 400/953 loss 0.3238 13.4 q/s ~29 min left, peak 3.5 GiB
+step 450/953 loss 0.2878 13.3 q/s ~26 min left, peak 3.5 GiB
+step 500/953 loss 0.2485 13.2 q/s ~24 min left, peak 3.5 GiB
+step 550/953 loss 0.2960 13.3 q/s ~21 min left, peak 3.5 GiB
+step 600/953 loss 0.2875 13.3 q/s ~18 min left, peak 3.5 GiB
+step 650/953 loss 0.2610 13.4 q/s ~16 min left, peak 3.5 GiB
+step 700/953 loss 0.2591 13.4 q/s ~13 min left, peak 3.5 GiB
+step 750/953 loss 0.2431 13.4 q/s ~11 min left, peak 3.5 GiB
+step 800/953 loss 0.2621 13.4 q/s ~8 min left, peak 3.5 GiB
+step 850/953 loss 0.2558 13.4 q/s ~5 min left, peak 3.5 GiB
+step 900/953 loss 0.2330 13.2 q/s ~3 min left, peak 3.5 GiB
+step 950/953 loss 0.2112 13.2 q/s ~0 min left, peak 3.5 GiB
+step 952/953 loss 0.2053 13.2 q/s ~0 min left, peak 3.5 GiB
+== final
+  [final] held_out               n= 3648 agree 0.797  decides 71%  right when deciding 0.9254
+  [final] eval-26b               n=  348 agree 0.943  decides 87%  right when deciding 0.9671
+  [final] open_unseen            n=  450 agree 0.871  decides 88%  right when deciding 0.9621
+  [final] browser_families       n=  480 agree 0.521  decides 57%  right when deciding 0.7912
+  [final] browser_families_2     n=  576 agree 0.526  decides 58%  right when deciding 0.7964
+  [final] numeric                n= 1280 agree 0.484  decides 57%  right when deciding 0.8479
+saved to runs\mini-l24-num
