@@ -1,0 +1,327 @@
+{"decoy": "placeholder", "lang": "en", "text": "API_KEY=<your-key-here>"}
+{"decoy": "placeholder", "lang": "en", "text": "password: YOUR_PASSWORD_HERE"}
+{"decoy": "placeholder", "lang": "en", "text": "export STRIPE_KEY=\"sk_live_REPLACE_ME\""}
+{"decoy": "placeholder", "lang": "en", "text": "Authorization: Bearer <ACCESS_TOKEN>"}
+{"decoy": "placeholder", "lang": "en", "text": "DATABASE_URL=postgres://USER:PASSWORD@HOST:5432/DBNAME"}
+{"decoy": "placeholder", "lang": "en", "text": "Set the Wi-Fi password to [insert password] before printing the welcome sheet."}
+{"decoy": "placeholder", "lang": "en", "text": "\"client_secret\": \"${CLIENT_SECRET}\""}
+{"decoy": "placeholder", "lang": "en", "text": "Log in with your username and the password you chose at signup."}
+{"decoy": "placeholder", "lang": "en", "text": "token = os.environ[\"GITHUB_TOKEN\"]"}
+{"decoy": "placeholder", "lang": "en", "text": "Enter the 6-digit code we texted you: _ _ _ _ _ _"}
+{"decoy": "placeholder", "lang": "en", "text": "smtp_password: \"changeme\"  # placeholder, real value comes from the vault at deploy time"}
+{"decoy": "placeholder", "lang": "en", "text": "Dear [First name], your temporary password is [TEMP_PASSWORD]."}
+{"decoy": "placeholder", "lang": "nl", "text": "WACHTWOORD=<vul hier je wachtwoord in>"}
+{"decoy": "placeholder", "lang": "nl", "text": "Vul bij API_KEY je eigen sleutel in: API_KEY=jouw-sleutel-hier"}
+{"decoy": "placeholder", "lang": "nl", "text": "Beste [naam], uw inlogcode is [CODE]."}
+{"decoy": "placeholder", "lang": "nl", "text": "wifi-wachtwoord: (nog invullen)"}
+{"decoy": "placeholder", "lang": "de", "text": "PASSWORT=<hier-eintragen>"}
+{"decoy": "placeholder", "lang": "de", "text": "Sehr geehrte/r [Name], Ihr Zugangscode lautet [CODE]."}
+{"decoy": "placeholder", "lang": "fr", "text": "MOT_DE_PASSE=<votre-mot-de-passe>"}
+{"decoy": "placeholder", "lang": "fr", "text": "Remplacez VOTRE_CLE_API par la clé fournie dans votre espace client."}
+{"decoy": "placeholder", "lang": "es", "text": "CONTRASEÑA=<tu-contraseña-aquí>"}
+{"decoy": "placeholder", "lang": "es", "text": "Sustituye TU_TOKEN por el token de tu cuenta."}
+{"decoy": "placeholder", "lang": "ja", "text": "API_KEY=ここにキーを入力"}
+{"decoy": "placeholder", "lang": "pt", "text": "SENHA=<a-sua-senha-aqui>"}
+{"decoy": "masked", "lang": "en", "text": "password: ********"}
+{"decoy": "masked", "lang": "en", "text": "Card on file: Visa ending in 4471"}
+{"decoy": "masked", "lang": "en", "text": "API key: sk_live_••••••••••••••••3f9a"}
+{"decoy": "masked", "lang": "en", "text": "We sent a code to the number ending in 82."}
+{"decoy": "masked", "lang": "en", "text": "token=ghp_************************ (hidden)"}
+{"decoy": "masked", "lang": "en", "text": "Paid with Mastercard **** **** **** 9034."}
+{"decoy": "masked", "lang": "en", "text": "Signed in as t***a.r***@brightloom.io"}
+{"decoy": "masked", "lang": "en", "text": "DATABASE_URL=postgres://app:*****@db.internal:5432/orders"}
+{"decoy": "masked", "lang": "en", "text": "Your IBAN ending in 0042 will be debited on the 28th."}
+{"decoy": "masked", "lang": "en", "text": "Secret: ●●●●●●●●●●●●  [Show]"}
+{"decoy": "masked", "lang": "en", "text": "Wi-Fi password ········ (tap to reveal on the router label)"}
+{"decoy": "masked", "lang": "en", "text": "AWS_SECRET_ACCESS_KEY=****************************************"}
+{"decoy": "masked", "lang": "nl", "text": "wachtwoord: ********"}
+{"decoy": "masked", "lang": "nl", "text": "Betaald met pas eindigend op 4471."}
+{"decoy": "masked", "lang": "nl", "text": "We hebben een code gestuurd naar 06-******82."}
+{"decoy": "masked", "lang": "nl", "text": "Uw rekening NL** **** **** **00 42 wordt op de 28e afgeschreven."}
+{"decoy": "masked", "lang": "de", "text": "Passwort: ********"}
+{"decoy": "masked", "lang": "de", "text": "Bezahlt mit Karte, Endziffern 9034."}
+{"decoy": "masked", "lang": "fr", "text": "mot de passe : ********"}
+{"decoy": "masked", "lang": "fr", "text": "Carte Visa se terminant par 4471."}
+{"decoy": "masked", "lang": "es", "text": "contraseña: ********"}
+{"decoy": "masked", "lang": "es", "text": "Tarjeta terminada en 9034."}
+{"decoy": "masked", "lang": "ja", "text": "パスワード：********"}
+{"decoy": "masked", "lang": "ru", "text": "Пароль: ********"}
+{"decoy": "redacted", "lang": "en", "text": "The password was [REDACTED] in the report before it went to the client."}
+{"decoy": "redacted", "lang": "en", "text": "api_key: [redacted by security team]"}
+{"decoy": "redacted", "lang": "en", "text": "Token removed from this log line for safety: Authorization: Bearer <redacted>"}
+{"decoy": "redacted", "lang": "en", "text": "\"password\": \"***REDACTED***\""}
+{"decoy": "redacted", "lang": "en", "text": "I've deleted the message with the key from the channel, so there's nothing sensitive here any more."}
+{"decoy": "redacted", "lang": "en", "text": "Connection string: [REMOVED]"}
+{"decoy": "redacted", "lang": "en", "text": "The screenshot has the card number blacked out."}
+{"decoy": "redacted", "lang": "en", "text": "secret=<scrubbed>"}
+{"decoy": "redacted", "lang": "en", "text": "Credentials omitted on purpose; ask Felix in person if you need them."}
+{"decoy": "redacted", "lang": "en", "text": "x-api-key: [FILTERED]"}
+{"decoy": "redacted", "lang": "en", "text": "The private key block was stripped from this paste before sharing."}
+{"decoy": "redacted", "lang": "en", "text": "PIN: (not included in this email)"}
+{"decoy": "redacted", "lang": "nl", "text": "Het wachtwoord is uit dit bericht verwijderd."}
+{"decoy": "redacted", "lang": "nl", "text": "api_sleutel: [weggelaten]"}
+{"decoy": "redacted", "lang": "nl", "text": "De inloggegevens staan hier bewust niet in; vraag ze even mondeling aan Sanne."}
+{"decoy": "redacted", "lang": "nl", "text": "Het kaartnummer op de scan is zwartgemaakt."}
+{"decoy": "redacted", "lang": "de", "text": "Passwort: [entfernt]"}
+{"decoy": "redacted", "lang": "de", "text": "Die Zugangsdaten wurden aus dem Protokoll geschwärzt."}
+{"decoy": "redacted", "lang": "fr", "text": "mot de passe : [supprimé]"}
+{"decoy": "redacted", "lang": "fr", "text": "La clé a été retirée de ce message par l'équipe sécurité."}
+{"decoy": "redacted", "lang": "es", "text": "contraseña: [eliminada]"}
+{"decoy": "redacted", "lang": "es", "text": "Los datos de acceso se han omitido a propósito en este correo."}
+{"decoy": "redacted", "lang": "ru", "text": "Пароль удалён из этого сообщения."}
+{"decoy": "redacted", "lang": "pt", "text": "senha: [removida]"}
+{"decoy": "talks_about_password", "lang": "en", "text": "I changed my password yesterday, all good."}
+{"decoy": "talks_about_password", "lang": "en", "text": "Please remember to update your password every 90 days."}
+{"decoy": "talks_about_password", "lang": "en", "text": "I forgot my password again, can you help me reset it?"}
+{"decoy": "talks_about_password", "lang": "en", "text": "The password must be at least 12 characters and include a number."}
+{"decoy": "talks_about_password", "lang": "en", "text": "I'll give you the Wi-Fi password when you get here."}
+{"decoy": "talks_about_password", "lang": "en", "text": "We never ask for your password by email."}
+{"decoy": "talks_about_password", "lang": "en", "text": "The API key is in the vault under \"payments/prod\"; request access from Ines."}
+{"decoy": "talks_about_password", "lang": "en", "text": "Did you get the code they texted you? Don't send it here, just type it in."}
+{"decoy": "talks_about_password", "lang": "en", "text": "My password manager says three of my logins were reused."}
+{"decoy": "talks_about_password", "lang": "en", "text": "The token is stored in the CI secrets, not in the repo."}
+{"decoy": "talks_about_password", "lang": "en", "text": "He wrote the PIN on a sticky note, which is exactly what we told him not to do."}
+{"decoy": "talks_about_password", "lang": "en", "text": "Two-factor is now mandatory for everyone in finance."}
+{"decoy": "talks_about_password", "lang": "nl", "text": "Ik heb gisteren mijn wachtwoord gewijzigd, alles werkt weer."}
+{"decoy": "talks_about_password", "lang": "nl", "text": "Het wachtwoord krijg je van mij als je op kantoor bent."}
+{"decoy": "talks_about_password", "lang": "nl", "text": "Ben je je wachtwoord vergeten? Dan kun je het zelf opnieuw instellen."}
+{"decoy": "talks_about_password", "lang": "nl", "text": "De sleutel staat in de kluis, niet in de code."}
+{"decoy": "talks_about_password", "lang": "nl", "text": "Wij vragen nooit per e-mail om je pincode."}
+{"decoy": "talks_about_password", "lang": "de", "text": "Ich habe mein Passwort gestern geändert, jetzt klappt alles."}
+{"decoy": "talks_about_password", "lang": "de", "text": "Das Passwort bekommst du telefonisch von mir."}
+{"decoy": "talks_about_password", "lang": "fr", "text": "J'ai changé mon mot de passe hier, tout fonctionne."}
+{"decoy": "talks_about_password", "lang": "fr", "text": "Je te donnerai le code du wifi quand tu arriveras."}
+{"decoy": "talks_about_password", "lang": "es", "text": "Cambié mi contraseña ayer, todo bien."}
+{"decoy": "talks_about_password", "lang": "es", "text": "La contraseña debe tener al menos 12 caracteres."}
+{"decoy": "talks_about_password", "lang": "ja", "text": "昨日パスワードを変更しました。問題ありません。"}
+{"decoy": "reset_link_mention", "lang": "en", "text": "We've sent a password reset link to your email address."}
+{"decoy": "reset_link_mention", "lang": "en", "text": "Click \"Forgot password\" on the login page and you'll get a link."}
+{"decoy": "reset_link_mention", "lang": "en", "text": "The reset link expires after one hour, so request a new one if needed."}
+{"decoy": "reset_link_mention", "lang": "en", "text": "I never received the reset email, could you resend it?"}
+{"decoy": "reset_link_mention", "lang": "en", "text": "To set a new password, go to Settings > Security > Reset password."}
+{"decoy": "reset_link_mention", "lang": "en", "text": "A sign-in link was sent to t***@brightloom.io."}
+{"decoy": "reset_link_mention", "lang": "en", "text": "If you didn't request a password reset, you can safely ignore this message."}
+{"decoy": "reset_link_mention", "lang": "en", "text": "Ines will trigger a reset for your account this afternoon."}
+{"decoy": "reset_link_mention", "lang": "en", "text": "Check your spam folder for the verification email."}
+{"decoy": "reset_link_mention", "lang": "en", "text": "You can reset it yourself at harborlane.org/account/forgot."}
+{"decoy": "reset_link_mention", "lang": "en", "text": "The magic link only works on the device that requested it."}
+{"decoy": "reset_link_mention", "lang": "nl", "text": "We hebben een link gestuurd om je wachtwoord opnieuw in te stellen."}
+{"decoy": "reset_link_mention", "lang": "nl", "text": "Klik op \"Wachtwoord vergeten\" op de inlogpagina."}
+{"decoy": "reset_link_mention", "lang": "nl", "text": "De resetlink is een uur geldig; vraag anders een nieuwe aan."}
+{"decoy": "reset_link_mention", "lang": "nl", "text": "Ik heb de resetmail niet ontvangen, kun je hem nog eens sturen?"}
+{"decoy": "reset_link_mention", "lang": "de", "text": "Wir haben Ihnen einen Link zum Zurücksetzen des Passworts geschickt."}
+{"decoy": "reset_link_mention", "lang": "de", "text": "Klicken Sie auf der Anmeldeseite auf „Passwort vergessen“."}
+{"decoy": "reset_link_mention", "lang": "fr", "text": "Nous vous avons envoyé un lien pour réinitialiser votre mot de passe."}
+{"decoy": "reset_link_mention", "lang": "fr", "text": "Cliquez sur « Mot de passe oublié » sur la page de connexion."}
+{"decoy": "reset_link_mention", "lang": "es", "text": "Te hemos enviado un enlace para restablecer tu contraseña."}
+{"decoy": "reset_link_mention", "lang": "es", "text": "Pulsa en «He olvidado mi contraseña» en la página de inicio de sesión."}
+{"decoy": "reset_link_mention", "lang": "ru", "text": "Мы отправили ссылку для сброса пароля на вашу почту."}
+{"decoy": "reset_link_mention", "lang": "pt", "text": "Enviámos um link para redefinir a sua senha."}
+{"decoy": "order_or_booking_ref", "lang": "en", "text": "Your booking reference is QX7P2L."}
+{"decoy": "order_or_booking_ref", "lang": "en", "text": "Order #48213-B has shipped."}
+{"decoy": "order_or_booking_ref", "lang": "en", "text": "Confirmation number: HLB-2026-119384"}
+{"decoy": "order_or_booking_ref", "lang": "en", "text": "Please quote ticket ID SUP-77104 in any reply."}
+{"decoy": "order_or_booking_ref", "lang": "en", "text": "Your reservation code for the restaurant is TABLE-5591."}
+{"decoy": "order_or_booking_ref", "lang": "en", "text": "Flight KL1023, PNR ZM4T8K, seat 14C."}
+{"decoy": "order_or_booking_ref", "lang": "en", "text": "Case reference 2026/0471/KR has been assigned to an adviser."}
+{"decoy": "order_or_booking_ref", "lang": "en", "text": "Your click-and-collect order 90317746 is ready at the Bristol store."}
+{"decoy": "order_or_booking_ref", "lang": "en", "text": "Hotel confirmation 7719.204.881, check-in from 15:00."}
+{"decoy": "order_or_booking_ref", "lang": "en", "text": "Membership number 0042-7731 is printed on the back of your card."}
+{"decoy": "order_or_booking_ref", "lang": "en", "text": "Rental agreement RA-663920, pick-up at Terminal 2."}
+{"decoy": "order_or_booking_ref", "lang": "nl", "text": "Uw boekingsnummer is QX7P2L."}
+{"decoy": "order_or_booking_ref", "lang": "nl", "text": "Bestelling 48213-B is verzonden."}
+{"decoy": "order_or_booking_ref", "lang": "nl", "text": "Vermeld bij vragen dossiernummer 2026-0471."}
+{"decoy": "order_or_booking_ref", "lang": "nl", "text": "Reserveringscode voor het restaurant: TAFEL-5591"}
+{"decoy": "order_or_booking_ref", "lang": "nl", "text": "Uw klantnummer is 100482-K."}
+{"decoy": "order_or_booking_ref", "lang": "de", "text": "Ihre Buchungsnummer lautet QX7P2L."}
+{"decoy": "order_or_booking_ref", "lang": "de", "text": "Bestellung Nr. 48213-B wurde versandt."}
+{"decoy": "order_or_booking_ref", "lang": "fr", "text": "Votre référence de réservation est QX7P2L."}
+{"decoy": "order_or_booking_ref", "lang": "fr", "text": "Commande n° 48213-B expédiée."}
+{"decoy": "order_or_booking_ref", "lang": "es", "text": "Su localizador de reserva es QX7P2L."}
+{"decoy": "order_or_booking_ref", "lang": "es", "text": "El pedido n.º 48213-B ha sido enviado."}
+{"decoy": "order_or_booking_ref", "lang": "ja", "text": "ご予約番号は QX7P2L です。"}
+{"decoy": "tracking_number", "lang": "en", "text": "Tracking number: 1Z999AA10123456784"}
+{"decoy": "tracking_number", "lang": "en", "text": "Your parcel 3SABCD1234567 is out for delivery."}
+{"decoy": "tracking_number", "lang": "en", "text": "Track it with code JD014600003828392841 on the DHL site."}
+{"decoy": "tracking_number", "lang": "en", "text": "USPS tracking 9400 1000 0000 0000 0000 00 shows \"in transit\"."}
+{"decoy": "tracking_number", "lang": "en", "text": "Royal Mail reference RN123456785GB, signed for."}
+{"decoy": "tracking_number", "lang": "en", "text": "Container MSKU7719204 cleared customs on Tuesday."}
+{"decoy": "tracking_number", "lang": "en", "text": "The courier's waybill is 7741-0098-2213, delivery window 9-12."}
+{"decoy": "tracking_number", "lang": "en", "text": "FedEx 7712 4409 8830 was left with the neighbour at number 14."}
+{"decoy": "tracking_number", "lang": "en", "text": "Return label barcode: RET-00482-99317."}
+{"decoy": "tracking_number", "lang": "en", "text": "Shipment LP00481726354 has left the sorting centre."}
+{"decoy": "tracking_number", "lang": "nl", "text": "Track & trace: 3SABCD1234567"}
+{"decoy": "tracking_number", "lang": "nl", "text": "Uw pakket met code JVGL0612345600012345 wordt morgen bezorgd."}
+{"decoy": "tracking_number", "lang": "nl", "text": "PostNL-barcode 3SQWER9876543, afgeleverd bij de buren."}
+{"decoy": "tracking_number", "lang": "nl", "text": "De zending 05212345678901 ligt klaar bij het afhaalpunt."}
+{"decoy": "tracking_number", "lang": "de", "text": "Sendungsnummer: 00340434161094042557"}
+{"decoy": "tracking_number", "lang": "de", "text": "Ihr Paket JJD000390007882134455 ist unterwegs."}
+{"decoy": "tracking_number", "lang": "fr", "text": "Numéro de suivi : 6A12345678901"}
+{"decoy": "tracking_number", "lang": "fr", "text": "Votre colis 8R40012345678 est en cours de livraison."}
+{"decoy": "tracking_number", "lang": "es", "text": "Número de seguimiento: PQ4F6P0704219930128001"}
+{"decoy": "tracking_number", "lang": "es", "text": "Tu paquete 1Z999AA10123456784 llega mañana."}
+{"decoy": "tracking_number", "lang": "ru", "text": "Трек-номер посылки: RA123456789RU"}
+{"decoy": "tracking_number", "lang": "pt", "text": "Código de rastreio: RR123456785PT"}
+{"decoy": "git_sha_or_uuid", "lang": "en", "text": "commit 9f3c2e1 fixed it"}
+{"decoy": "git_sha_or_uuid", "lang": "en", "text": "Request ID: 3f2b8c1e-7a4d-4e9b-9c55-0d1e2f3a4b5c"}
+{"decoy": "git_sha_or_uuid", "lang": "en", "text": "Reverted in a1b2c3d4e5f60718293a4b5c6d7e8f9012345678."}
+{"decoy": "git_sha_or_uuid", "lang": "en", "text": "Image digest sha256:4c1e9d0a7b3f52e86c0d9a1b7e4f3c2d5a6b8091e2f3c4d5a6b7c8d9e0f1a2b3"}
+{"decoy": "git_sha_or_uuid", "lang": "en", "text": "trace_id=7d9f0c2ab41e4f6c span_id=19be33a0"}
+{"decoy": "git_sha_or_uuid", "lang": "en", "text": "Build 4471 from 0c8e5fa is green."}
+{"decoy": "git_sha_or_uuid", "lang": "en", "text": "The row with id 6b1d2e3f-0a9c-4b8d-8e7f-5a4b3c2d1e0f was a duplicate."}
+{"decoy": "git_sha_or_uuid", "lang": "en", "text": "Cherry-pick e7d41b0 onto release/2.9 please."}
+{"decoy": "git_sha_or_uuid", "lang": "en", "text": "ETag: \"5d8c72a5edda8d6a2f1b9c0e\""}
+{"decoy": "git_sha_or_uuid", "lang": "en", "text": "md5 checksum of the installer: 9e107d9d372bb6826bd81d3542a419d6"}
+{"decoy": "git_sha_or_uuid", "lang": "en", "text": "Device ID 0F3A-77C1-B209 was enrolled on Monday."}
+{"decoy": "git_sha_or_uuid", "lang": "en", "text": "Correlation id c0ffee12-3456-4789-abcd-ef0123456789, please include it in the bug report."}
+{"decoy": "git_sha_or_uuid", "lang": "nl", "text": "commit 9f3c2e1 heeft het opgelost"}
+{"decoy": "git_sha_or_uuid", "lang": "nl", "text": "Aanvraag-ID: 3f2b8c1e-7a4d-4e9b-9c55-0d1e2f3a4b5c"}
+{"decoy": "git_sha_or_uuid", "lang": "nl", "text": "Teruggedraaid in b41d7e2, zie de PR."}
+{"decoy": "git_sha_or_uuid", "lang": "nl", "text": "De controlesom van het bestand is 9e107d9d372bb6826bd81d3542a419d6."}
+{"decoy": "git_sha_or_uuid", "lang": "de", "text": "Commit 9f3c2e1 hat den Fehler behoben."}
+{"decoy": "git_sha_or_uuid", "lang": "de", "text": "Vorgangs-ID: 6b1d2e3f-0a9c-4b8d-8e7f-5a4b3c2d1e0f"}
+{"decoy": "git_sha_or_uuid", "lang": "fr", "text": "Le commit 9f3c2e1 a corrigé le problème."}
+{"decoy": "git_sha_or_uuid", "lang": "fr", "text": "Identifiant de la requête : 3f2b8c1e-7a4d-4e9b-9c55-0d1e2f3a4b5c"}
+{"decoy": "git_sha_or_uuid", "lang": "es", "text": "El commit 9f3c2e1 lo arregló."}
+{"decoy": "git_sha_or_uuid", "lang": "es", "text": "ID de la solicitud: 6b1d2e3f-0a9c-4b8d-8e7f-5a4b3c2d1e0f"}
+{"decoy": "git_sha_or_uuid", "lang": "ja", "text": "コミット 9f3c2e1 で修正されました。"}
+{"decoy": "coupon_code", "lang": "en", "text": "use code SPRING25 for 25% off"}
+{"decoy": "coupon_code", "lang": "en", "text": "Enter WELCOME10 at checkout for 10% off your first order."}
+{"decoy": "coupon_code", "lang": "en", "text": "Free shipping this weekend with code SHIPFREE."}
+{"decoy": "coupon_code", "lang": "en", "text": "Your referral code is TESSA-R-40; friends get £5 off."}
+{"decoy": "coupon_code", "lang": "en", "text": "Black Friday deal: BF2026 takes 30% off everything."}
+{"decoy": "coupon_code", "lang": "en", "text": "Gift voucher LARK-GIFT-50 is worth 50 euros in the shop."}
+{"decoy": "coupon_code", "lang": "en", "text": "Students save 15% with STUDENT15."}
+{"decoy": "coupon_code", "lang": "en", "text": "Promo code EARLYBIRD ends on Sunday at midnight."}
+{"decoy": "coupon_code", "lang": "en", "text": "Apply code BUNDLE3 to get the third book free."}
+{"decoy": "coupon_code", "lang": "en", "text": "Newsletter subscribers: HELLO5 gives you five dollars off."}
+{"decoy": "coupon_code", "lang": "en", "text": "The conference discount code is DEVDAYS-TEAM for groups of four or more."}
+{"decoy": "coupon_code", "lang": "nl", "text": "Gebruik code LENTE25 voor 25% korting."}
+{"decoy": "coupon_code", "lang": "nl", "text": "Met kortingscode WELKOM10 krijg je 10% korting op je eerste bestelling."}
+{"decoy": "coupon_code", "lang": "nl", "text": "Gratis verzending dit weekend met code GRATISVERZENDING."}
+{"decoy": "coupon_code", "lang": "nl", "text": "Actiecode SINT2026 is geldig tot en met 5 december."}
+{"decoy": "coupon_code", "lang": "nl", "text": "Je cadeaubon CADEAU-50 is 50 euro waard."}
+{"decoy": "coupon_code", "lang": "de", "text": "Mit dem Code FRÜHLING25 sparen Sie 25 %."}
+{"decoy": "coupon_code", "lang": "de", "text": "Gutscheincode WILLKOMMEN10 für die erste Bestellung."}
+{"decoy": "coupon_code", "lang": "fr", "text": "Utilisez le code PRINTEMPS25 pour 25 % de réduction."}
+{"decoy": "coupon_code", "lang": "fr", "text": "Livraison offerte avec le code LIVRAISON."}
+{"decoy": "coupon_code", "lang": "es", "text": "Usa el código PRIMAVERA25 para un 25 % de descuento."}
+{"decoy": "coupon_code", "lang": "es", "text": "Envío gratis con el código ENVIOGRATIS."}
+{"decoy": "coupon_code", "lang": "pt", "text": "Use o código PRIMAVERA25 para 25% de desconto."}
+{"decoy": "public_key", "lang": "en", "text": "-----BEGIN PUBLIC KEY-----\nMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEq1x8vY3mJt0c9FhR2pQkLw7ZsUeXn4aB\n6dGyT5oKjH1uVfC0rWmN8iPzSxA3lEbD9tQgYh2J7cRkOa4MvU5w==\n-----END PUBLIC KEY-----"}
+{"decoy": "public_key", "lang": "en", "text": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJq7mT2xW9cPz4fVbN8rKdYh3uLoE6sGa1tQyXw0ZiCe tessa@brightloom"}
+{"decoy": "public_key", "lang": "en", "text": "Add my public key to authorized_keys: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC7vXk2mP9dQ4hT1wZs felix@kestrelworks"}
+{"decoy": "public_key", "lang": "en", "text": "Our PGP fingerprint is 4A7C 19E2 B03D 88F1 6C5A  2D90 7E3B F1A4 0C6D 9E21."}
+{"decoy": "public_key", "lang": "en", "text": "The server's host key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8."}
+{"decoy": "public_key", "lang": "en", "text": "Publishable key (safe for the browser): pk_test_51Nq8examplePublishable00"}
+{"decoy": "public_key", "lang": "en", "text": "The certificate's SHA-1 thumbprint is 5F:3A:91:0C:7D:22:B8:E4:6A:19:C3:D0:4E:87:F2:1B:9C:55:0A:D6."}
+{"decoy": "public_key", "lang": "en", "text": "DKIM record: v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC3x9"}
+{"decoy": "public_key", "lang": "en", "text": "Verify the release with our public key, published at kestrelworks.com/keys/release.asc."}
+{"decoy": "public_key", "lang": "en", "text": "age public key: age1qz8f3m7x2k9c0w5v4t6n8d7s3r2p1l0j9h8g7f6e5d4c3b2a1zyxwv"}
+{"decoy": "public_key", "lang": "en", "text": "Wallet address for donations: 0x52908400098527886E0F7030069857D2E4169EE7"}
+{"decoy": "public_key", "lang": "en", "text": "The site key for the captcha widget is 6LdExampleSiteKeyAAAAAB-public, it goes in the HTML."}
+{"decoy": "public_key", "lang": "nl", "text": "Mijn publieke sleutel: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHk2pWq8vXz3mT5bN7cRd0 sanne@zonnehoek"}
+{"decoy": "public_key", "lang": "nl", "text": "De vingerafdruk van onze PGP-sleutel is 4A7C 19E2 B03D 88F1 6C5A 2D90 7E3B F1A4 0C6D 9E21."}
+{"decoy": "public_key", "lang": "nl", "text": "Zet deze publieke sleutel in authorized_keys: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDf8 bram@werkplek"}
+{"decoy": "public_key", "lang": "nl", "text": "De publieke sleutel staat op onze website, die mag iedereen hebben."}
+{"decoy": "public_key", "lang": "de", "text": "Mein öffentlicher Schlüssel: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPm4tZx7qLw2 lena@brandt-it"}
+{"decoy": "public_key", "lang": "de", "text": "Der Fingerabdruck des Serverschlüssels lautet SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8."}
+{"decoy": "public_key", "lang": "fr", "text": "Ma clé publique : ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEt9vQm3xZ camille@moreau-conseil"}
+{"decoy": "public_key", "lang": "fr", "text": "L'empreinte de notre clé PGP est 4A7C 19E2 B03D 88F1 6C5A 2D90 7E3B F1A4 0C6D 9E21."}
+{"decoy": "public_key", "lang": "es", "text": "Mi clave pública: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBn6yRk1wP lucia@garcia-dev"}
+{"decoy": "public_key", "lang": "es", "text": "La huella de la clave del servidor es SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8."}
+{"decoy": "public_key", "lang": "ja", "text": "公開鍵はこちらです：ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGh5kTn2 sato@example"}
+{"decoy": "example_in_docs", "lang": "en", "text": "sk_test_xxxxxxxxxxxx (example from the docs)"}
+{"decoy": "example_in_docs", "lang": "en", "text": "For example, a key looks like AKIAIOSFODNN7EXAMPLE — this one is from the AWS documentation."}
+{"decoy": "example_in_docs", "lang": "en", "text": "The tutorial uses password \"hunter2\" as a joke; obviously pick your own."}
+{"decoy": "example_in_docs", "lang": "en", "text": "Sample request: curl -H \"Authorization: Bearer abc123\" https://api.example.com/v1/ping"}
+{"decoy": "example_in_docs", "lang": "en", "text": "In the docs the test card 4242 4242 4242 4242 with any future date always succeeds."}
+{"decoy": "example_in_docs", "lang": "en", "text": "Example connection string: postgres://user:password@localhost:5432/mydb"}
+{"decoy": "example_in_docs", "lang": "en", "text": "A weak password such as \"123456\" or \"password\" will be rejected by the form."}
+{"decoy": "example_in_docs", "lang": "en", "text": "The README shows TOKEN=your_token_goes_here as the format."}
+{"decoy": "example_in_docs", "lang": "en", "text": "e.g. JWT: eyJhbGciOiJIUzI1NiJ9.e30.example-signature (truncated sample from jwt.io)"}
+{"decoy": "example_in_docs", "lang": "en", "text": "Lesson 3 exercise: crack the hash of the password \"letmein\" using the wordlist."}
+{"decoy": "example_in_docs", "lang": "en", "text": "The style guide's dummy login is jane.doe@example.com / Passw0rd! and it does not exist anywhere."}
+{"decoy": "example_in_docs", "lang": "en", "text": "Format of a recovery code: xxxx-xxxx-xxxx, for instance abcd-efgh-ijkl in the screenshot."}
+{"decoy": "example_in_docs", "lang": "nl", "text": "Bijvoorbeeld: API_KEY=abc123 (voorbeeld uit de handleiding, werkt niet echt)."}
+{"decoy": "example_in_docs", "lang": "nl", "text": "In de documentatie staat testkaart 4242 4242 4242 4242, die werkt alleen in de testomgeving."}
+{"decoy": "example_in_docs", "lang": "nl", "text": "Een zwak wachtwoord zoals \"welkom01\" wordt door het formulier geweigerd."}
+{"decoy": "example_in_docs", "lang": "nl", "text": "Voorbeeld van een verbinding: mysql://gebruiker:wachtwoord@localhost/testdb"}
+{"decoy": "example_in_docs", "lang": "de", "text": "Zum Beispiel: API_KEY=abc123 (Beispiel aus der Dokumentation)."}
+{"decoy": "example_in_docs", "lang": "de", "text": "Ein schwaches Passwort wie „123456“ wird vom Formular abgelehnt."}
+{"decoy": "example_in_docs", "lang": "fr", "text": "Par exemple : API_KEY=abc123 (exemple tiré de la documentation)."}
+{"decoy": "example_in_docs", "lang": "fr", "text": "Un mot de passe faible comme « azerty » sera refusé par le formulaire."}
+{"decoy": "example_in_docs", "lang": "es", "text": "Por ejemplo: API_KEY=abc123 (ejemplo de la documentación)."}
+{"decoy": "example_in_docs", "lang": "es", "text": "Una contraseña débil como «123456» será rechazada por el formulario."}
+{"decoy": "example_in_docs", "lang": "ru", "text": "Например: API_KEY=abc123 (пример из документации, не настоящий ключ)."}
+{"decoy": "expired_and_says_so_explicitly_revoked", "lang": "en", "text": "The old key key_live_7Qm2xT9bVc4L was revoked last week, so it's safe that it's in the history."}
+{"decoy": "expired_and_says_so_explicitly_revoked", "lang": "en", "text": "That password (Maple!Tram42) hasn't worked since the reset in March; the account is closed."}
+{"decoy": "expired_and_says_so_explicitly_revoked", "lang": "en", "text": "Code 481927 expired ten minutes ago, I'll have to request a new one."}
+{"decoy": "expired_and_says_so_explicitly_revoked", "lang": "en", "text": "Token tok_9f2c7ab41e0d was rotated yesterday and no longer authenticates."}
+{"decoy": "expired_and_says_so_explicitly_revoked", "lang": "en", "text": "The leaked Wi-Fi password \"harbor-guest-2024\" was changed the same day and is now useless."}
+{"decoy": "expired_and_says_so_explicitly_revoked", "lang": "en", "text": "Card 5413 3300 8901 7742 was cancelled by the bank on 3 November; the replacement hasn't arrived."}
+{"decoy": "expired_and_says_so_explicitly_revoked", "lang": "en", "text": "# deprecated: api_key = \"pw_old_31c8e7d0\" — disabled by the provider, kept for the audit trail"}
+{"decoy": "expired_and_says_so_explicitly_revoked", "lang": "en", "text": "Those backup codes (3391-2208, 7714-0056) were all invalidated when I regenerated the set."}
+{"decoy": "expired_and_says_so_explicitly_revoked", "lang": "en", "text": "Session abc9f31e77 was terminated by the admin, so the cookie is dead."}
+{"decoy": "expired_and_says_so_explicitly_revoked", "lang": "en", "text": "The demo login trial@fernhillsoft.com / Trial2025 was deactivated at the end of the trial."}
+{"decoy": "expired_and_says_so_explicitly_revoked", "lang": "en", "text": "Incident note: the exposed deploy token dt_44ac09 has been revoked and replaced."}
+{"decoy": "expired_and_says_so_explicitly_revoked", "lang": "en", "text": "Your one-time link has already been used and cannot be opened again."}
+{"decoy": "expired_and_says_so_explicitly_revoked", "lang": "nl", "text": "De oude sleutel key_live_7Qm2xT9bVc4L is vorige week ingetrokken en werkt niet meer."}
+{"decoy": "expired_and_says_so_explicitly_revoked", "lang": "nl", "text": "Dat wachtwoord (Fiets!Brug42) is sinds de reset in maart ongeldig."}
+{"decoy": "expired_and_says_so_explicitly_revoked", "lang": "nl", "text": "Code 481927 is tien minuten geleden verlopen, ik moet een nieuwe aanvragen."}
+{"decoy": "expired_and_says_so_explicitly_revoked", "lang": "nl", "text": "De pas met nummer 5413 3300 8901 7742 is op 3 november geblokkeerd door de bank."}
+{"decoy": "expired_and_says_so_explicitly_revoked", "lang": "nl", "text": "Het uitgelekte token tok_9f2c7ab41e0d is gisteren vervangen en doet niets meer."}
+{"decoy": "expired_and_says_so_explicitly_revoked", "lang": "de", "text": "Der alte Schlüssel key_live_7Qm2xT9bVc4L wurde letzte Woche widerrufen und funktioniert nicht mehr."}
+{"decoy": "expired_and_says_so_explicitly_revoked", "lang": "de", "text": "Der Code 481927 ist vor zehn Minuten abgelaufen."}
+{"decoy": "expired_and_says_so_explicitly_revoked", "lang": "fr", "text": "L'ancienne clé key_live_7Qm2xT9bVc4L a été révoquée la semaine dernière et ne fonctionne plus."}
+{"decoy": "expired_and_says_so_explicitly_revoked", "lang": "fr", "text": "Le code 481927 a expiré il y a dix minutes."}
+{"decoy": "expired_and_says_so_explicitly_revoked", "lang": "es", "text": "La clave antigua key_live_7Qm2xT9bVc4L fue revocada la semana pasada y ya no funciona."}
+{"decoy": "expired_and_says_so_explicitly_revoked", "lang": "es", "text": "El código 481927 caducó hace diez minutos."}
+{"decoy": "expired_and_says_so_explicitly_revoked", "lang": "ja", "text": "古いキー key_live_7Qm2xT9bVc4L は先週無効化されており、もう使えません。"}
+{"decoy": "invoice_or_iban_reference", "lang": "en", "text": "Invoice INV-2026-00417 is due on 30 November."}
+{"decoy": "invoice_or_iban_reference", "lang": "en", "text": "Please pay to IBAN GB29 NWBK 6016 1331 9268 19, reference 48213."}
+{"decoy": "invoice_or_iban_reference", "lang": "en", "text": "Payment reference: RF18 5390 0754 7034"}
+{"decoy": "invoice_or_iban_reference", "lang": "en", "text": "Our VAT number is GB 123 4567 89."}
+{"decoy": "invoice_or_iban_reference", "lang": "en", "text": "Credit note CN-0098 offsets invoice 2026-311."}
+{"decoy": "invoice_or_iban_reference", "lang": "en", "text": "Sort code 20-00-00, account 55779911, payee Larkrise Studio Ltd."}
+{"decoy": "invoice_or_iban_reference", "lang": "en", "text": "PO number 4500078812 must appear on the invoice."}
+{"decoy": "invoice_or_iban_reference", "lang": "en", "text": "BIC/SWIFT: NWBKGB2L, bank address on the letterhead."}
+{"decoy": "invoice_or_iban_reference", "lang": "en", "text": "Direct debit mandate MND-77104-A will collect £42.50 monthly."}
+{"decoy": "invoice_or_iban_reference", "lang": "en", "text": "Quote Q-2291 is valid for 30 days."}
+{"decoy": "invoice_or_iban_reference", "lang": "en", "text": "Receipt no. 000184-22 for the parking fee is attached."}
+{"decoy": "invoice_or_iban_reference", "lang": "nl", "text": "Factuur 2026-00417 vervalt op 30 november."}
+{"decoy": "invoice_or_iban_reference", "lang": "nl", "text": "Graag overmaken naar NL91 ABNA 0417 1643 00 o.v.v. factuurnummer 48213."}
+{"decoy": "invoice_or_iban_reference", "lang": "nl", "text": "Betalingskenmerk: 1234 5678 9012 3456"}
+{"decoy": "invoice_or_iban_reference", "lang": "nl", "text": "Ons btw-nummer is NL123456789B01, KvK 12345678."}
+{"decoy": "invoice_or_iban_reference", "lang": "nl", "text": "Creditnota CN-0098 hoort bij factuur 2026-311."}
+{"decoy": "invoice_or_iban_reference", "lang": "de", "text": "Rechnung RE-2026-00417 ist am 30. November fällig."}
+{"decoy": "invoice_or_iban_reference", "lang": "de", "text": "Bitte überweisen Sie auf DE89 3704 0044 0532 0130 00, Verwendungszweck 48213."}
+{"decoy": "invoice_or_iban_reference", "lang": "fr", "text": "La facture FA-2026-00417 est due le 30 novembre."}
+{"decoy": "invoice_or_iban_reference", "lang": "fr", "text": "Merci de régler sur l'IBAN FR76 3000 6000 0112 3456 7890 189, référence 48213."}
+{"decoy": "invoice_or_iban_reference", "lang": "es", "text": "La factura F-2026-00417 vence el 30 de noviembre."}
+{"decoy": "invoice_or_iban_reference", "lang": "es", "text": "Transferencia al IBAN ES91 2100 0418 4502 0005 1332, concepto 48213."}
+{"decoy": "invoice_or_iban_reference", "lang": "pt", "text": "A fatura FT 2026/417 vence a 30 de novembro."}
+{"decoy": "username_only", "lang": "en", "text": "My username is tessa.rowe, I'll tell you the rest by phone."}
+{"decoy": "username_only", "lang": "en", "text": "Log in as user \"orders\"; the password is in the team vault."}
+{"decoy": "username_only", "lang": "en", "text": "GitHub handle: @felix-okafor"}
+{"decoy": "username_only", "lang": "en", "text": "The account email is finance@kestrelworks.com."}
+{"decoy": "username_only", "lang": "en", "text": "ssh ops@backup01.fernhillsoft.com (key-based, no password)"}
+{"decoy": "username_only", "lang": "en", "text": "Customer ID: 100482, user name: pvenkat"}
+{"decoy": "username_only", "lang": "en", "text": "You can find me on Slack as @ines.m."}
+{"decoy": "username_only", "lang": "en", "text": "Login: admin  (ask IT for credentials)"}
+{"decoy": "username_only", "lang": "en", "text": "The service account is called svc-reporting."}
+{"decoy": "username_only", "lang": "en", "text": "My Skype is live:harborlane.events and I'm online until six."}
+{"decoy": "username_only", "lang": "en", "text": "Your Apple ID is t.rowe@brightloom.io."}
+{"decoy": "username_only", "lang": "nl", "text": "Mijn gebruikersnaam is jdevries, de rest geef ik je telefonisch."}
+{"decoy": "username_only", "lang": "nl", "text": "Log in als gebruiker \"kantoor\"; het wachtwoord staat in de kluis."}
+{"decoy": "username_only", "lang": "nl", "text": "Het account staat op naam van penningmeester@roeiclubdewiel.nl."}
+{"decoy": "username_only", "lang": "nl", "text": "Je vindt me op Teams als sanne.bakker."}
+{"decoy": "username_only", "lang": "nl", "text": "Inlognaam: beheer (wachtwoord opvragen bij ICT)"}
+{"decoy": "username_only", "lang": "de", "text": "Mein Benutzername ist l.brandt, den Rest sage ich dir am Telefon."}
+{"decoy": "username_only", "lang": "de", "text": "Anmeldename: wartung (Passwort bei der IT erfragen)"}
+{"decoy": "username_only", "lang": "fr", "text": "Mon identifiant est c.moreau, je te donne le reste par téléphone."}
+{"decoy": "username_only", "lang": "fr", "text": "Identifiant : compta (mot de passe à demander au service informatique)"}
+{"decoy": "username_only", "lang": "es", "text": "Mi usuario es lgarcia, el resto te lo digo por teléfono."}
+{"decoy": "username_only", "lang": "es", "text": "Usuario: soporte (pide la contraseña a informática)"}
+{"decoy": "username_only", "lang": "ru", "text": "Мой логин ivanova.o, остальное скажу по телефону."}
+{"decoy": "username_only", "lang": "pt", "text": "O meu utilizador é rcosta, o resto digo-te por telefone."}

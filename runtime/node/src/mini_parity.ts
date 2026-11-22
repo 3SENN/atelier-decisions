@@ -16,12 +16,14 @@ let same = 0
 let total = 0
 for (const line of readFileSync(join(dir, 'parity.jsonl'), 'utf8').split('\n')) {
   if (!line.trim()) continue
-  const { request, ids } = JSON.parse(line) as { request: DecisionRequest; ids: Record<string, number[]> }
+  const { request, ids, mapped } = JSON.parse(line) as { request: DecisionRequest; ids: Record<string, number[]>; mapped?: Record<string, number[]> }
   for (const [key, q] of Object.entries(request.questions)) {
     const ours = mini.ids(request.state, q)
     const ref = ids[key] ?? []
     total++
-    if (ours.length === ref.length && ours.every((t, i) => t === ref[i])) same++
+    // With a trimmed vocabulary, the ids as sent must match Python's mapping too.
+    const sentSame = !mapped || JSON.stringify(mini.sent(ours)) === JSON.stringify(mapped[key])
+    if (ours.length === ref.length && ours.every((t, i) => t === ref[i]) && sentSame) same++
     else if (total - same <= 3) {
       const i = ours.findIndex((t, j) => t !== ref[j])
       console.log(`differs at token ${i} (${ours.length} vs ${ref.length}):`, ours.slice(Math.max(0, i - 3), i + 5), ref.slice(Math.max(0, i - 3), i + 5))

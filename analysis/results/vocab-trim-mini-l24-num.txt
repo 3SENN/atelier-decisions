@@ -1,0 +1,63 @@
+atelier-mini v0.4 (mini-l24-num, Q5_K_M + 4-bit embeddings): full vocabulary (248,320 rows, 515 MB) vs trimmed to the tokens the training pools use (121,208 rows, 436 MB; student/vocab_trim.py).
+
+Same verdicts on 3,099 questions (analysis/mini_quant.py; Atelier's held-out decisions, new kinds, browser families): 99.7%.
+mini-l24-num-Q5_K_M-e4.decider.gguf (515.2 MB, 0 ms/question, same verdict as first 100.0%)
+  browser_families     n=  480 agree 45.0% decides 44.4% right 82.6% sure-and-contradicts 4.4%
+  browser_families_2   n=  576 agree 39.6% decides 38.7% right 83.9% sure-and-contradicts 4.3%
+  new_kinds            n=  450 agree 78.4% decides 75.6% right 98.2% sure-and-contradicts 0.4%
+  held_out_quarter     n= 1593 agree 88.6% decides 71.3% right 95.6% sure-and-contradicts 0.1%
+mini-l24-num-Q5_K_M-e4v.decider.gguf (435.5 MB, 211 ms/question, same verdict as first 99.7%)
+  browser_families     n=  480 agree 44.4% decides 43.8% right 82.4% sure-and-contradicts 4.4%
+  browser_families_2   n=  576 agree 39.2% decides 38.2% right 84.1% sure-and-contradicts 4.2%
+  new_kinds            n=  450 agree 78.4% decides 75.6% right 98.2% sure-and-contradicts 0.4%
+  held_out_quarter     n= 1593 agree 88.6% decides 71.3% right 95.6% sure-and-contradicts 0.1%
+
+The 20-language probe (data/teacher/probe-lang.flash.jsonl): same verdict, and decided-and-right as a share of all questions.
+lang      n    same  right full  right trimmed
+ar      150     88%         13%             7%
+de      150    100%         23%            23%
+el      150     94%         15%            15%
+en      150    100%         25%            25%
+es      150    100%         21%            21%
+fr      150    100%         21%            21%
+he      150     96%          6%             7%
+hi      150     98%          9%            10%
+id      150     92%         17%            10%
+it      150     93%         18%            15%
+ja      150     91%         12%            11%
+ko      150     83%         13%             1%
+nl      150    100%         27%            27%
+pl      150     88%         17%             9%
+pt      150     95%         19%            17%
+ru      150     93%         26%            23%
+sv      150     98%         11%            11%
+th      150     93%          9%             5%
+tr      150     94%          7%             5%
+zh      150     91%         18%            12%
+ALL    3000   94.4%       16.3%          13.8%
+
+
+Share of the probe's tokens a trim would drop (spelled with smaller kept tokens), by what is kept:
+lang  dropped(data only)  +id<100k  +id<150k  +id<200k
+ar      2.0%      2.0%      1.9%      0.7%
+el      1.6%      1.6%      1.5%      0.5%
+he      0.8%      0.8%      0.8%      0.6%
+hi      0.4%      0.4%      0.4%      0.2%
+id      1.6%      1.4%      1.4%      0.3%
+it      0.9%      0.8%      0.8%      0.3%
+ja      1.6%      1.6%      1.2%      0.4%
+ko      2.6%      2.2%      2.0%      0.4%
+pl      1.7%      1.4%      1.4%      0.5%
+pt      0.4%      0.3%      0.3%      0.1%
+ru      1.5%      1.5%      1.4%      0.5%
+sv      0.6%      0.5%      0.5%      0.1%
+th      2.3%      2.3%      2.1%      0.6%
+tr      1.2%      1.0%      1.0%      0.5%
+zh      1.6%      1.4%      0.0%      0.0%
+de/en/es/fr/nl 0.0% under every rule.
+Embedding table at 4 bits: data only 70 MB; + id<100k 83 MB; + id<150k 107 MB; + id<200k 124 MB; full 143 MB.
+
+Verdict: trimming to the data's vocabulary costs nothing on the languages the mini was trained on, but a 2% share of
+spelled tokens is enough to lose most decisions in Korean (13% -> 1% right) and many in Arabic, Thai, Polish,
+Indonesian and Chinese. v0.5 ships the full vocabulary; the trim stays available (vocab_trim.py, and both runners
+map ids through a vocab.json when one is there).

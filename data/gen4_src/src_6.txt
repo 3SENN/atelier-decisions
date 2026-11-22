@@ -1,0 +1,426 @@
+@@ date-in-school-holiday | noul
+Q: According to the school calendar shown, does the date the family is asking about fall inside a school holiday (no lessons that day)?
+## hi/y
+केंद्रीय विद्यालय — अवकाश सूची 2026-27
+शरदकालीन अवकाश: 16 अक्टूबर से 25 अक्टूबर 2026 (दोनों दिन सम्मिलित) · शीतकालीन अवकाश: 24 दिसंबर 2026 से 2 जनवरी 2027
+पूछी गई तारीख़: 25 अक्टूबर 2026
+## th/n | ตามปฏิทินโรงเรียนที่แสดง วันที่ครอบครัวสอบถามอยู่ในช่วงปิดเทอมหรือวันหยุดของโรงเรียน (ไม่มีการเรียนการสอน) หรือไม่
+ปฏิทินการศึกษา ปีการศึกษา 2569
+ปิดภาคเรียนที่ 1: 11 ต.ค. – 31 ต.ค. 2569 · เปิดภาคเรียนที่ 2: 1 พ.ย. 2569 · สอบกลางภาค: 21–25 ธ.ค. 2569
+วันที่สอบถาม: 2 พฤศจิกายน 2569
+## en/n
+Term dates 2026/27 — Hertfordshire
+Autumn half term: Mon 26 Oct – Fri 30 Oct. Term ends Fri 18 Dec. Christmas holiday: Mon 21 Dec – Fri 1 Jan. INSET day: Mon 4 Jan (pupils not in school). Pupils return Tue 5 Jan.
+Date asked about: Friday 18 December
+## it/y | Secondo il calendario scolastico mostrato, la data chiesta dalla famiglia cade in un periodo di vacanza (niente lezioni quel giorno)?
+Calendario scolastico Lombardia 2026/27
+Vacanze natalizie: dal 23 dicembre 2026 al 6 gennaio 2027 compresi. Carnevale ambrosiano: 12 e 13 febbraio 2027. Vacanze pasquali: dal 25 al 30 marzo 2027.
+Data richiesta: 6 gennaio 2027
+## pt/n | De acordo com o calendário escolar apresentado, a data que a família pergunta fica dentro de umas férias escolares (sem aulas nesse dia)?
+Calendário escolar 2026/2027 — Portugal
+1.º período termina a 16 de dezembro. Interrupção do Natal: 17 de dezembro a 3 de janeiro. 2.º período inicia a 4 de janeiro de 2027.
+Data perguntada: 4 de janeiro de 2027
+## sw/y
+Kalenda ya shule 2026 — Wizara ya Elimu
+Muhula wa pili unafungwa: 4 Desemba 2026. Likizo ya mwisho wa mwaka: 5 Desemba 2026 hadi 10 Januari 2027. Shule kufunguliwa: 11 Januari 2027.
+Tarehe inayoulizwa: 20 Desemba 2026
+## zh/n | 依照所示的學校行事曆,家長詢問的日期是否落在學校假期內(當天不上課)?
+115 學年度行事曆
+寒假:116 年 1 月 21 日(四)至 2 月 10 日(三)。2 月 11 日(四)開學日,正式上課。
+詢問日期:116 年 2 月 11 日
+## he/y | לפי לוח החופשות המוצג, האם התאריך שהמשפחה שואלת עליו נמצא בתוך חופשה (אין לימודים באותו יום)?
+לוח חופשות תשפ"ז — משרד החינוך
+חנוכה: מיום ראשון, כ"ו בכסלו (6.12.2026) עד יום ראשון, ד' בטבת (13.12.2026). הלימודים יתחדשו ביום שני 14.12.2026.
+התאריך הנשאל: יום חמישי 10.12.2026
+
+@@ pickup-person-authorised | noul
+Q: The school or nursery lists who may collect the child. Is the person who has come to collect the child on that authorised list?
+## hi/n | स्कूल या क्रेच ने उन लोगों की सूची दी है जो बच्चे को ले जा सकते हैं। क्या बच्चे को लेने आया व्यक्ति उस अधिकृत सूची में है?
+~authorised: लिटिल स्टेप्स प्री-स्कूल · बच्चा: कबीर मल्होत्रा · अधिकृत: माँ — श्वेता मल्होत्रा; पिता — अमित मल्होत्रा; नानी — उषा कपूर
+~arrived: "मैं कबीर का चाचा हूँ, सुमित मल्होत्रा, भैया ने भेजा है"
+## th/y
+~authorised: เนิร์สเซอรี่บ้านรักเด็ก · ด.ญ.ใบเตย · ผู้มีสิทธิ์รับ: คุณแม่ (ศิริรัตน์), คุณพ่อ (ธนพล), คุณยาย (สมศรี บุญมา), พี่เลี้ยง (น.ส.แอน)
+~arrived: ผู้มารับแจ้งชื่อ "สมศรี บุญมา เป็นยายค่ะ" พร้อมบัตรรับเด็กหมายเลข 27
+## en/n
+~authorised: Busy Bees Nursery — Child: Isla Okafor — Collection list: Chidi Okafor (dad), Hannah Okafor (mum), Ruth Brennan (childminder). Password: "puffin"
+~arrived: Woman at the door: "Hi, I'm Hannah's sister Kate, she asked me to grab Isla today." Doesn't know the password.
+## ja/y
+~authorised: ひまわり保育園 お迎え登録者(山本 蒼くん):母 山本 恵、父 山本 大輔、祖父 山本 茂、ファミリーサポート 佐野さん
+~arrived: 「蒼の祖父の山本茂です。今日は娘の代わりに来ました」お迎えカード提示あり
+## zh/n | 学校或托儿所列出了可以接孩子的人。来接孩子的这个人在授权名单上吗?
+~authorised: 阳光幼儿园 中二班 · 幼儿:周子涵 · 接送人登记:妈妈 刘敏、爸爸 周建国、奶奶 王秀英
+~arrived: 来人自称"我是子涵的舅舅刘强,他妈妈让我来接",无接送卡
+## ko/y | 학교나 어린이집에 아이를 데려갈 수 있는 사람의 명단이 있습니다. 아이를 데리러 온 사람이 그 명단에 있나요?
+~authorised: 해솔어린이집 · 원아: 김도윤 · 귀가 동의서 등록 보호자: 엄마 이수진, 아빠 김태호, 이모 이수연
+~arrived: "도윤이 이모 이수연이에요, 신분증 여기 있습니다"
+## ru/n
+~authorised: Детский сад № 148 · Ребёнок: Миша Соколов · Доверенность на право забирать: мама — Соколова А. В., папа — Соколов Д. И., бабушка — Петрова Н. С.
+~arrived: «Здравствуйте, я соседка, Людмила Ивановна, Аня попросила сегодня забрать Мишу»
+## uk/y | Заклад має перелік осіб, які можуть забирати дитину. Чи є в цьому переліку людина, яка прийшла по дитину?
+~authorised: ЗДО «Сонечко» · Дитина: Соломія Бондаренко · Заява батьків, мають право забирати: мати Бондаренко О. П., батько Бондаренко В. М., старший брат Бондаренко Максим (17 р.)
+~arrived: «Я Максим, брат Соломійки, ось учнівський квиток»
+
+@@ listing-furnished-state | choice
+Q: According to the rental listing, in what state of furnishing is the home offered?
+C: furnished=Fully furnished (furniture and appliances, ready to move in) ;; semi=Partly furnished (some fittings/appliances such as wardrobes, kitchen units, AC) ;; unfurnished=Empty: no furniture or appliances
+## hi/semi
+99acres · 2 BHK, इंदिरापुरम
+"सेमी-फ़र्निश्ड: दोनों कमरों में वार्डरोब, मॉड्यूलर किचन, गीज़र, पंखे-लाइट लगे हैं। बेड, सोफ़ा, फ़्रिज, वॉशिंग मशीन किरायेदार को ख़ुद लाने होंगे।" किराया ₹18,500 + मेंटेनेंस
+## th/furnished | ตามประกาศให้เช่า ที่พักนี้ให้มาในสภาพการตกแต่งแบบใด
+คอนโด Ideo Sukhumvit 93 · 1 ห้องนอน 34 ตร.ม.
+"เฟอร์นิเจอร์ครบ พร้อมเครื่องใช้ไฟฟ้า: เตียง 6 ฟุต โซฟา ทีวี ตู้เย็น ไมโครเวฟ เครื่องซักผ้า แอร์ 2 ตัว หิ้วกระเป๋าเข้าอยู่ได้เลย" 16,000 บ./เดือน
+## en/unfurnished
+Rightmove — 2 bed terraced house, Sheffield S6
+"Offered unfurnished. White goods not included; there are spaces for a washing machine and fridge-freezer. Carpets and curtain poles remain." £850 pcm
+## ar/furnished | بحسب إعلان الإيجار، ما حالة تأثيث المسكن المعروض؟
+بيوت · شقة غرفتين وصالة، مرسى دبي
+"مفروشة بالكامل: أثاث فاخر، مطبخ مجهز بجميع الأجهزة، غسالة ومجفف، تلفزيون. جاهزة للسكن فوراً." ١١٠٬٠٠٠ درهم سنوياً
+## he/unfurnished
+יד2 · 3 חדרים, רמת גן
+"הדירה מושכרת ריקה, בלי ריהוט ובלי מוצרי חשמל. יש הכנה למזגן בסלון ונקודת גז. המטבח — ארונות בלבד." 6,200 ₪
+## fa/semi | طبق آگهی اجاره، این خانه با چه وضعیتی از نظر اثاثیه عرضه می‌شود؟
+دیوار · آپارتمان ۷۵ متری، سعادت‌آباد
+«کابینت کامل، گاز رومیزی، هود، کمد دیواری و کولر گازی دارد. یخچال، لباسشویی و مبلمان ندارد.» ودیعه ۴۰۰ میلیون، اجاره ۲۵ میلیون
+## bn/unfurnished
+Bproperty · ৩ বেডের ফ্ল্যাট, ধানমন্ডি
+"সম্পূর্ণ খালি ফ্ল্যাট, কোনো আসবাব বা এসি নেই। টাইলস করা মেঝে, গ্যাসের লাইন আছে। ভাড়া ৩৫,০০০ টাকা + সার্ভিস চার্জ।"
+## ta/furnished | வாடகை விளம்பரத்தின்படி, வீடு எந்த அளவு தளவாடங்களுடன் வழங்கப்படுகிறது?
+NoBroker · 1 BHK, வேளச்சேரி
+"முழுமையாக ஃபர்னிஷ் செய்யப்பட்டது: கட்டில், மெத்தை, சோஃபா, டிவி, ஃபிரிட்ஜ், வாஷிங் மெஷின், ஏசி, கேஸ் அடுப்பு எல்லாம் உண்டு. துணியுடன் வந்தால் போதும்." வாடகை ₹22,000
+
+@@ lease-minimum-term-fits | noul
+Q: The state gives how long the user plans to stay and the listing's minimum lease term. Is the planned stay at least as long as the minimum term (so the listing can be rented for it)?
+## hi/n
+~stay: 6 महीने की इंटर्नशिप (दिसंबर–मई)
+~listing: 1 RK, कोरमंगला · "लॉक-इन पीरियड 11 महीने। इससे पहले ख़ाली करने पर पूरा डिपॉज़िट ज़ब्त।"
+## th/y | สถานะระบุระยะเวลาที่ผู้ใช้ตั้งใจจะพักและระยะสัญญาเช่าขั้นต่ำของประกาศ ระยะเวลาที่ตั้งใจพักยาวอย่างน้อยเท่ากับสัญญาขั้นต่ำหรือไม่
+~stay: 1 ปี (ย้ายมาทำงานที่ขอนแก่น)
+~listing: หอพักใกล้ มข. "สัญญาขั้นต่ำ 6 เดือน มัดจำ 2 เดือน"
+## en/n
+~stay: 3 months (visiting researcher, Jan–Mar)
+~listing: SpareRoom, Fallowfield: "Minimum term 6 months, no short lets, sorry."
+## vi/y
+~stay: 12 tháng
+~listing: Căn hộ mini Cầu Giấy — "Hợp đồng tối thiểu 6 tháng, cọc 1 tháng, ưu tiên ở lâu dài."
+## id/n | Status menyebutkan berapa lama pengguna berencana tinggal dan masa sewa minimum pada iklan. Apakah rencana tinggal setidaknya selama masa sewa minimum?
+~stay: 2 bulan (magang di Bandung)
+~listing: Kost putri Dago — "Sewa minimal 3 bulan, bayar di muka. Tidak menerima sewa harian/bulanan."
+## tr/y | Durumda kullanıcının ne kadar kalmayı planladığı ve ilanın asgari kira süresi veriliyor. Planlanan süre en az asgari süre kadar mı?
+~stay: 9 ay (Erasmus sonrası staj)
+~listing: Sahibinden · 1+1 Kadıköy — "En az 6 aylık kontrat yapılır, 2 depozito."
+## el/n
+~stay: 4 μήνες (εποχική εργασία, Ιούνιος–Σεπτέμβριος)
+~listing: Spitogatos · Γκαρσονιέρα Ηράκλειο — «Ελάχιστη διάρκεια μίσθωσης 12 μήνες. Όχι βραχυχρόνια.»
+## pl/y | Stan podaje, jak długo użytkownik planuje mieszkać, oraz minimalny okres najmu z ogłoszenia. Czy planowany pobyt jest co najmniej tak długi jak okres minimalny?
+~stay: 12 miesięcy (studia podyplomowe)
+~listing: OLX · kawalerka Wrocław Krzyki — „Umowa najmu okazjonalnego na minimum 12 miesięcy, kaucja 2500 zł.”
+
+@@ tenant-type-accepted | noul
+Q: The state describes the prospective tenant and the landlord's stated preference. Would this tenant be accepted under the listing's stated tenant requirements?
+## hi/n
+~tenant: 26 वर्षीय अविवाहित युवक, IT कंपनी में नौकरी
+~listing: MagicBricks · 2 BHK द्वारका — "केवल परिवार (फ़ैमिली) के लिए। बैचलर्स कृपया संपर्क न करें। शुद्ध शाकाहारी को प्राथमिकता।"
+## th/y | สถานะบรรยายผู้เช่าและเงื่อนไขผู้เช่าที่เจ้าของระบุ ผู้เช่ารายนี้ตรงตามเงื่อนไขของประกาศหรือไม่
+~tenant: นักศึกษาหญิง ปี 2 ม.เชียงใหม่
+~listing: หอพักสตรีศรีวิไล หลัง มช. — "รับเฉพาะผู้หญิง นักศึกษาหรือคนทำงานก็ได้ ห้ามพาผู้ชายขึ้นห้อง"
+## it/n
+~tenant: Coppia con un bambino di 3 anni, entrambi lavoratori
+~listing: Stanza singola in appartamento condiviso, Bologna zona universitaria — "Solo studentesse, no coppie, no lavoratori."
+## pt/y | O estado descreve o candidato a inquilino e a preferência indicada pelo senhorio. Este inquilino seria aceite segundo os requisitos do anúncio?
+~tenant: Estudante de mestrado, 23 anos, com fiador
+~listing: Idealista · T1 em Coimbra — "Arrenda-se a estudantes ou jovens trabalhadores. Exige-se fiador ou 3 cauções."
+## sw/n | Hali inaeleza mpangaji mtarajiwa na matakwa ya mwenye nyumba. Je, mpangaji huyu atakubalika kwa masharti ya tangazo?
+~tenant: Familia ya watu sita (wazazi na watoto wanne)
+~listing: Chumba kimoja self-contained, Sinza — "Kinafaa kwa mtu mmoja au wanandoa wasio na watoto. Familia kubwa hairuhusiwi."
+## zh/y
+~tenant: 上班族女性,28 歲,不養寵物
+~listing: 591 租屋網 · 大安區套房 —「限女性,學生或上班族皆可,禁養寵物、禁菸。」
+## ko/n | 상태에는 입주 희망자와 집주인이 밝힌 선호 조건이 나와 있습니다. 이 희망자는 공고의 입주 조건에 맞나요?
+~tenant: 30대 남성 직장인
+~listing: 직방 · 신촌 원룸 — "여성 전용 건물입니다. 남성 입주 불가. 보증금 1,000 / 월 55"
+## ar/y | يصف الوضع المستأجر المحتمل وتفضيلات المالك المعلنة. هل يُقبل هذا المستأجر وفق شروط الإعلان؟
+~tenant: عائلة: زوج وزوجة وطفلان
+~listing: شقة ثلاث غرف في حي الروضة، جدة — "للعوائل فقط، لا يُؤجَّر للعزاب."
+
+@@ agent-commission-payable | noul
+Q: According to the listing, will the tenant have to pay a broker/agency fee or commission to rent this home?
+## hi/y | लिस्टिंग के अनुसार, क्या किरायेदार को यह घर किराये पर लेने के लिए ब्रोकर/एजेंसी का शुल्क या कमीशन देना पड़ेगा?
+Housing.com · 1 BHK अंधेरी ईस्ट
+किराया ₹32,000 · डिपॉज़िट ₹1,00,000 · ब्रोकरेज: एक महीने का किराया (₹32,000) डील पक्की होने पर देय · पोस्ट किया: शिवम रियल्टर्स
+## th/n
+ประกาศเจ้าของปล่อยเช่าเอง · ทาวน์โฮม 2 ชั้น รามอินทรา
+12,000 บ./เดือน มัดจำ 2 เดือน ล่วงหน้า 1 เดือน "ไม่ผ่านนายหน้า ไม่มีค่าคอมมิชชั่น ติดต่อเจ้าของโดยตรง"
+## en/n
+OpenRent — 1 bed flat, Bristol BS3
+£1,150 pcm · Deposit £1,326 · "No tenant fees: under the Tenant Fees Act 2019 you won't be charged any admin or agency fees. Holding deposit of one week's rent is deducted from the first month."
+## ja/y
+SUUMO · 1K 世田谷区 駅徒歩6分
+賃料 82,000円 · 管理費 4,000円 · 敷金1ヶ月 · 礼金1ヶ月 · 仲介手数料:賃料の1.1ヶ月分(税込) · 取引態様:仲介
+## zh/n | 根据房源信息,租客租这套房是否需要支付中介费或佣金?
+自如 · 朝阳区 合租 主卧
+月租 3,260 元 · 押一付三 · 服务费:首年免收 · "业主直签平台房源,0 中介费"
+## ko/y | 매물 정보에 따르면, 세입자가 이 집을 임차하려면 중개수수료를 내야 하나요?
+네이버 부동산 · 망원동 투룸
+보증금 3,000 / 월세 85 · 중개보수: 법정 요율(0.4%) 적용, 약 43만 원 (부가세 별도) · ○○공인중개사사무소
+## ru/y
+ЦИАН · 1-комн. квартира, м. Сокол
+65 000 ₽/мес. · Залог 65 000 ₽ · Комиссия агента: 50% от месячной платы (32 500 ₽), оплачивает наниматель · Агентство «Этажи»
+## uk/n | Чи доведеться орендареві, згідно з оголошенням, платити комісію ріелтору або агентству за оренду цього житла?
+OLX · 2-кімнатна, Львів, Сихів
+14 000 грн + комунальні · «Здаю як власниця, без посередників і без комісії. Ріелторів прошу не турбувати.»
+
+@@ quiet-hours-in-effect | noul
+Q: According to the building or local rule quoted, are quiet hours (no noisy work, music, drilling) in force at the stated day and time?
+## hi/n
+गुलमोहर अपार्टमेंट्स सोसाइटी नियम: तोड़-फोड़, ड्रिलिंग व ठोकने का काम केवल सोमवार से शनिवार, सुबह 10 से दोपहर 1 और शाम 4 से 6 बजे के बीच। दोपहर 1–4 बजे और रविवार को पूरी तरह वर्जित।
+समय: बुधवार, सुबह 11:15
+## th/y | ตามกฎของอาคารหรือท้องถิ่นที่อ้างถึง ช่วงเวลาห้ามส่งเสียงดัง (งานช่าง เปิดเพลง เจาะผนัง) มีผลอยู่ในวันและเวลาที่ระบุหรือไม่
+ระเบียบนิติบุคคลอาคารชุด ลุมพินี เพลส: ห้ามส่งเสียงดังรบกวนผู้พักอาศัยตั้งแต่เวลา 22.00–08.00 น. งานตกแต่งต่อเติมทำได้เฉพาะจันทร์–เสาร์ 09.00–17.00 น.
+เวลา: วันพฤหัสบดี 23.10 น.
+## en/n
+Tenancy handbook, Maple Court: "Quiet hours are 11pm to 7am Sunday–Thursday, and midnight to 8am on Fridays and Saturdays."
+Time: Friday, 11:20pm
+## ar/y | بحسب قاعدة المبنى أو اللائحة المحلية المذكورة، هل ساعات الهدوء (منع الأعمال المزعجة والموسيقى والحفر) سارية في اليوم والوقت المذكورين؟
+لائحة اتحاد الملاك — برج الياسمين: يُمنع إحداث الضوضاء وأعمال الصيانة من الساعة ٢ ظهراً حتى ٤ عصراً (وقت القيلولة) ومن ١٠ مساءً حتى ٧ صباحاً.
+الوقت: الثلاثاء، ٣:١٠ عصراً
+## he/y
+תקנות למניעת מפגעים (רעש): אסור להפעיל מכשירי קול, לשיר או לבצע שיפוצים באזור מגורים בין 14:00 ל-16:00 ובין 23:00 ל-07:00. בערבי שבת וחג — מ-17:00.
+הזמן: יום רביעי, 14:40
+## fa/n | طبق قانون ساختمان یا مقررات محلی ذکرشده، آیا ساعات سکوت (ممنوعیت کار پرسروصدا، موسیقی، دریل‌کاری) در روز و ساعت اعلام‌شده برقرار است؟
+آیین‌نامه مجتمع مسکونی نگین: ساعات سکوت و ممنوعیت بنایی از ۱۴ تا ۱۶ و از ۲۲ تا ۸ صبح است. روزهای جمعه هرگونه عملیات ساختمانی ممنوع است؛ سایر فعالیت‌های عادی آزاد.
+زمان: دوشنبه، ساعت ۱۷:۳۰
+## bn/y | উদ্ধৃত ভবন বা স্থানীয় নিয়ম অনুযায়ী, উল্লিখিত দিন ও সময়ে কি নীরবতার সময় (শব্দযুক্ত কাজ, গান, ড্রিলিং নিষেধ) কার্যকর?
+আবাসন সমিতির নিয়ম: রাত ১০টা থেকে সকাল ৭টা পর্যন্ত উচ্চ শব্দে গান-বাজনা, ড্রিল মেশিন ও হাতুড়ির কাজ নিষিদ্ধ। পরীক্ষার মরসুমে (ফেব্রুয়ারি–মার্চ) নিষেধ সন্ধ্যা ৬টা থেকে।
+সময়: ১২ মার্চ, সন্ধ্যা ৭:২০
+## ta/n
+குடியிருப்போர் சங்க விதி: இரவு 10 மணி முதல் காலை 6 மணி வரை ஒலிபெருக்கி, துளையிடும் இயந்திரம் பயன்படுத்தக் கூடாது. பண்டிகை நாட்களில் (தீபாவளி, பொங்கல்) இரவு 11 மணி வரை அனுமதி உண்டு.
+நேரம்: தீபாவளி அன்று, இரவு 10:30
+
+@@ parking-space-included | noul
+Q: Does the rent or price of this home include a parking space for the tenant's car at no extra charge?
+## hi/n
+NoBroker · 3 BHK, व्हाइटफ़ील्ड
+किराया ₹42,000 · मेंटेनेंस ₹4,500 · कवर्ड कार पार्किंग उपलब्ध: ₹2,000 प्रति माह अतिरिक्त · दोपहिया पार्किंग निःशुल्क
+## th/y | ค่าเช่าหรือราคาของที่พักนี้รวมที่จอดรถยนต์สำหรับผู้เช่าโดยไม่มีค่าใช้จ่ายเพิ่มหรือไม่
+คอนโด Life Asoke · 1 ห้องนอน
+ค่าเช่า 23,000 บ./เดือน รวมค่าส่วนกลางแล้ว · ที่จอดรถ: ได้สิทธิ์จอด 1 คัน (สติกเกอร์ฟรี รวมในค่าเช่า) · คันที่สอง 1,500 บ./เดือน
+## en/n
+Zoopla — 2 bed flat, Manchester M4
+£1,400 pcm. No allocated parking. On-street resident permits available from the council (£90/yr, subject to availability). Secure bike store included.
+## vi/y | Tiền thuê hoặc giá của căn nhà này đã bao gồm chỗ đậu ô tô cho người thuê mà không tính thêm phí chưa?
+Batdongsan.com.vn · Nhà phố 4 tầng, Quận 7
+Giá thuê 28 triệu/tháng · Gara ô tô trong nhà (1 xe 7 chỗ) thuộc căn nhà, không tính thêm tiền · Cọc 2 tháng
+## id/n
+Rumah123 · Apartemen Kalibata City, 2BR
+Sewa Rp 4.500.000/bulan sudah termasuk IPL. Parkir mobil: berlangganan ke pengelola Rp 350.000/bulan, slot terbatas (daftar tunggu). Parkir motor Rp 100.000/bulan.
+## tr/y | Bu evin kirasına veya fiyatına, kiracının arabası için ek ücret ödemeden bir otopark yeri dahil mi?
+Emlakjet · 2+1 site içi daire, Ataşehir
+Kira 38.000 TL · Aidat 3.200 TL · Kapalı otoparkta daireye ait 1 araçlık yer kiraya dahildir · 7/24 güvenlik
+## el/n | Περιλαμβάνει το ενοίκιο ή η τιμή αυτής της κατοικίας θέση στάθμευσης για το αυτοκίνητο του ενοικιαστή χωρίς επιπλέον χρέωση;
+Spitogatos · Διαμέρισμα 78 τ.μ., Παγκράτι
+Ενοίκιο 780 € · Χωρίς θέση στάθμευσης. Διατίθεται θέση στην πυλωτή μόνο με ξεχωριστή μίσθωση 70 €/μήνα από άλλον ιδιοκτήτη.
+## pl/y
+Otodom · 2 pokoje, Gdańsk Przymorze
+Czynsz najmu 3 200 zł + media · Miejsce postojowe w hali garażowej (nr 41) w cenie najmu · Komórka lokatorska dodatkowo 100 zł
+
+@@ listing-owner-or-agent | choice
+Q: Who posted this property listing?
+C: owner=The owner or landlord directly ;; agent=A broker, agency or property manager ;; unclear=It cannot be told from the listing
+## hi/agent | यह प्रॉपर्टी लिस्टिंग किसने डाली है?
+OLX · 2 BHK फ़्लैट, वैशाली नगर, जयपुर
+"हमारे पास सभी बजट के फ़्लैट, विला और प्लॉट उपलब्ध हैं। साइट विज़िट के लिए कॉल करें — गणपति प्रॉपर्टीज़, RERA रजि. नं. RAJ/A/2023/1147। कमीशन लागू।"
+## th/owner
+ให้เช่าบ้านเดี่ยว 3 ห้องนอน ซอยนวมินทร์ 74
+"เจ้าของปล่อยเช่าเองค่ะ บ้านเคยอยู่เองมาก่อน ย้ายไปต่างจังหวัดเลยปล่อยเช่า นัดดูบ้านได้เสาร์-อาทิตย์ โทรหาป้าจิตโดยตรง"
+## en/unclear
+Craigslist — $1,950 / 1br — Sunny apt near Logan Square
+Hardwood floors, heat included, laundry in building. Available Dec 1. Reply by email with your move-in date and a little about yourself.
+## it/agent
+Immobiliare.it · Bilocale via Padova, Milano
+Rif. MI-2281 · "Tecnocasa Affiliato Loreto propone in locazione..." Provvigione: una mensilità + IVA. Classe energetica E.
+## pt/owner | Quem publicou este anúncio de imóvel?
+OLX · Apartamento 2 quartos, Tijuca
+"Direto com o proprietário, sem imobiliária e sem taxa. Sou o dono, moro no prédio ao lado e mostro o apartamento à noite ou no fim de semana. Aceito seguro-fiança."
+## sw/unclear | Ni nani aliyeweka tangazo hili la nyumba?
+Nyumba inapangishwa — Mbezi Beach
+Vyumba 3, sebule, jiko, maji ya DAWASA na umeme wa LUKU. Kodi Sh 600,000 kwa mwezi, miezi 6. Piga 07xx xxx 318.
+## zh/agent
+591 租屋網 · 信義區 兩房一廳
+刊登者:仲介 陳先生(信義房屋 松仁店)· 經紀業名稱:信義房屋仲介股份有限公司 · 服務費:半個月租金
+## ru/owner | Кто разместил это объявление о недвижимости?
+Авито · 2-к. квартира, 54 м², Казань
+«Сдаю свою квартиру сама, собственник (документы покажу). Агентам просьба не звонить, комиссии нет. Квартира после ремонта, жили сами.»
+
+@@ housing-lottery-result | choice
+Q: What is the outcome of the user's application in this housing allocation, ballot or lottery?
+C: selected=Selected / allotted a unit ;; waitlist=Placed on a reserve or waiting list ;; not_selected=Not selected
+## hi/waitlist
+DDA आवासीय योजना 2026 — ड्रॉ परिणाम
+आवेदन सं. 2026-LIG-0048817 · श्रेणी: LIG, नरेला
+परिणाम: प्रतीक्षा सूची क्रमांक 143। मुख्य सूची के आवंटी द्वारा फ़्लैट सरेंडर करने पर प्रतीक्षा सूची से आवंटन किया जाएगा।
+## th/selected | ผลการสมัครของผู้ใช้ในการจัดสรรที่อยู่อาศัยหรือการจับสลากนี้เป็นอย่างไร
+การเคหะแห่งชาติ — โครงการบ้านเคหะสุขประชา ร่มเกล้า
+ผลการจับสลาก: นางสาววรรณา ใจดี — ได้รับสิทธิ์เช่า อาคาร B ชั้น 3 ห้อง 312 กรุณามาทำสัญญาภายในวันที่ 15 ธ.ค. 2569
+## ja/not_selected
+UR都市機構 新築賃貸住宅 抽選結果のお知らせ
+申込番号 0274 · 物件:ヌーヴェル赤羽台 2LDK
+誠に残念ながら、今回の抽選では落選となりました。補欠の設定はございません。
+## zh/selected | 用户在这次住房分配、摇号或抽签中的申请结果是什么?
+北京市共有产权住房摇号结果查询
+申请编码:GC2026-0038841 · 项目:朝阳区金盏嘉园
+结果:已中签,选房顺序号 217。请于 12 月 5 日前携带材料到现场选房。
+## ko/waitlist
+청약홈 · 당첨사실 조회
+○○ 자이 더 센트럴 84A형 · 일반공급
+결과: 예비입주자 선정 (예비순번 38번) — 당첨자 계약 포기 시 순번에 따라 연락드립니다.
+## ru/not_selected | Каков результат заявки пользователя в этом распределении жилья или жеребьёвке?
+Программа «Молодая семья» — итоги отбора на 2027 год
+Заявление № 4471 от 14.03.2026 · Семья Кузнецовых
+По итогам распределения субсидий ваша семья в список получателей 2027 года не включена. Вы сохраняете место в общей очереди; повторная подача не требуется.
+## uk/selected
+єОселя · Результат розгляду
+Заявка № 000218734 · Категорія: військовослужбовець
+Статус: Погоджено. Вам схвалено кредит під 3% річних, оберіть житло протягом 60 днів.
+## vi/waitlist | Kết quả hồ sơ của người dùng trong đợt phân bổ hoặc bốc thăm nhà ở này là gì?
+Sở Xây dựng Hà Nội — Kết quả bốc thăm mua nhà ở xã hội dự án NHS Trung Văn
+Hồ sơ số 1184 · Ông Đỗ Văn Thắng
+Kết quả: Không trúng đợt 1; thuộc danh sách dự phòng (số thứ tự 26), được xét khi có căn hộ bị trả lại.
+
+@@ job-shift-pattern | choice
+Q: What working-time pattern does this job posting describe?
+C: day=Regular daytime hours ;; night=Night work ;; rotating=Rotating or changing shifts ;; flexible=Flexible hours chosen by the worker
+## hi/rotating | इस नौकरी के विज्ञापन में काम के समय का कौन-सा पैटर्न बताया गया है?
+Naukri.com · कस्टमर सपोर्ट एग्ज़ीक्यूटिव, गुरुग्राम
+"24×7 प्रोसेस — रोटेशनल शिफ़्ट (सुबह/दोपहर/रात), हर हफ़्ते शिफ़्ट बदलेगी। रोटेशनल वीक-ऑफ़। नाइट शिफ़्ट में कैब सुविधा।" वेतन ₹22,000–28,000
+## th/night
+JobThai · พนักงานแพ็คสินค้า คลังสินค้าบางนา
+"ทำงานกะดึกประจำ 20.00–05.00 น. จันทร์–เสาร์ มีค่ากะ 80 บาท/คืน มีรถรับส่ง ไม่มีการสลับกะ"
+## en/flexible
+Indeed — Freelance delivery rider, Leeds
+"Be your own boss: log in whenever suits you, no minimum hours, no fixed shifts. Peak-time bonuses on Friday and Saturday evenings if you choose to ride."
+## ar/day | ما نمط أوقات العمل الذي يصفه إعلان الوظيفة هذا؟
+بيت.كوم · محاسب عام — الرياض
+"الدوام من الأحد إلى الخميس، من ٨ صباحاً حتى ٥ مساءً، مع ساعة استراحة. لا يوجد عمل ليلي أو مناوبات."
+## he/rotating
+AllJobs · מאבטח/ת לקניון עזריאלי
+"עבודה במשמרות מתחלפות: בוקר, צהריים ולילה, לפי סידור עבודה שבועי. נדרשת זמינות לפחות ל-2 משמרות לילה בשבוע ולסופ"ש אחד בחודש."
+## fa/day | این آگهی شغلی چه الگوی زمان کاری را توصیف می‌کند؟
+جاب‌ویژن · کارشناس فروش — تهران، ونک
+«ساعت کاری: شنبه تا چهارشنبه ۸:۳۰ تا ۱۷، پنجشنبه‌ها تعطیل. بدون شیفت شب.»
+## bn/night
+bdjobs · সিকিউরিটি গার্ড, উত্তরা
+"শুধুমাত্র রাতের ডিউটি: রাত ১০টা থেকে সকাল ৬টা, সপ্তাহে ৬ দিন। দিনের শিফটের কোনো পদ খালি নেই। রাতের খাবার কোম্পানি দেবে।"
+## ta/flexible | இந்த வேலை அறிவிப்பு எந்த வகையான பணி நேர முறையை விவரிக்கிறது?
+ஸ்விக்கி டெலிவரி பார்ட்னர் — கோயம்புத்தூர்
+"உங்களுக்கு வசதியான நேரத்தில் லாகின் செய்து வேலை செய்யலாம். குறைந்தபட்ச நேரம் இல்லை, நிலையான ஷிஃப்ட் இல்லை. பகுதி நேரமாகவும் செய்யலாம்."
+
+@@ job-experience-years-met | noul
+Q: The state gives the candidate's years of relevant experience and the job posting. Does the candidate meet the minimum experience the posting requires?
+## hi/n
+~candidate: 2 साल का अनुभव (जावा डेवलपर)
+~posting: सीनियर सॉफ़्टवेयर इंजीनियर — पुणे · "न्यूनतम 5 वर्ष का Java/Spring Boot अनुभव अनिवार्य। फ़्रेशर्स और 5 साल से कम अनुभव वाले आवेदन न करें।"
+## th/y | สถานะระบุจำนวนปีประสบการณ์ของผู้สมัครและประกาศรับสมัครงาน ผู้สมัครมีประสบการณ์ถึงขั้นต่ำที่ประกาศกำหนดหรือไม่
+~candidate: ประสบการณ์งานบัญชี 4 ปี
+~posting: เจ้าหน้าที่บัญชีอาวุโส — "ประสบการณ์ด้านบัญชีอย่างน้อย 3 ปีขึ้นไป หากเคยทำสำนักงานบัญชีจะพิจารณาเป็นพิเศษ"
+## en/y
+~candidate: No prior experience (school leaver)
+~posting: Apprentice electrician, Hull — "No experience needed — full training given. GCSE Maths and English grade 4+ required."
+## vi/n | Trạng thái nêu số năm kinh nghiệm của ứng viên và tin tuyển dụng. Ứng viên có đáp ứng số năm kinh nghiệm tối thiểu mà tin yêu cầu không?
+~candidate: 1 năm kinh nghiệm bán hàng
+~posting: Trưởng nhóm kinh doanh — VietnamWorks · "Yêu cầu tối thiểu 3 năm kinh nghiệm kinh doanh B2B, trong đó ít nhất 1 năm quản lý nhóm."
+## id/y
+~candidate: 2 tahun sebagai admin gudang
+~posting: Staff Admin Gudang — JobStreet · "Pengalaman minimal 1 tahun di bidang yang sama. Menguasai Excel."
+## tr/n | Durumda adayın ilgili deneyim yılı ve iş ilanı veriliyor. Aday, ilanın istediği asgari deneyimi karşılıyor mu?
+~candidate: 3 yıl deneyim (ön muhasebe)
+~posting: Muhasebe Uzmanı — Kariyer.net · "En az 5 yıl deneyimli, SMMM belgesi olan adaylar tercih edilir; 5 yıldan az deneyimli başvurular değerlendirilmeyecektir."
+## el/y
+~candidate: 6 χρόνια προϋπηρεσία ως νοσηλεύτρια
+~posting: Νοσηλευτής/τρια ΜΕΘ — Ιδιωτική κλινική, Θεσσαλονίκη · «Απαραίτητη προϋπηρεσία τουλάχιστον 2 ετών σε νοσοκομείο.»
+## pl/n | Stan podaje staż kandydata i ogłoszenie o pracę. Czy kandydat spełnia minimalne wymagane doświadczenie?
+~candidate: 11 miesięcy doświadczenia jako magazynier
+~posting: Operator wózka widłowego — Pracuj.pl · „Wymagamy: minimum 2 lata doświadczenia na wózkach wysokiego składowania, uprawnienia UDT.”
+
+@@ job-application-method | choice
+Q: How does this job posting ask candidates to apply?
+C: online_form=Through an online form or the job portal's apply button ;; email=By sending a CV by email ;; walk_in=By coming in person (walk-in interview) ;; phone_chat=By phone call or a messaging app (WhatsApp, LINE, Zalo...)
+## hi/walk_in
+वॉक-इन इंटरव्यू: डिलीवरी एग्ज़ीक्यूटिव (50 पद)
+तारीख़: 24–26 नवंबर, सुबह 10 से शाम 4 बजे · स्थान: Delhivery हब, प्लॉट 14, ओखला फ़ेज़ 2 · साथ लाएँ: आधार, DL, 2 फ़ोटो। पहले से आवेदन की ज़रूरत नहीं।
+## th/phone_chat | ประกาศรับสมัครงานนี้ให้ผู้สมัครสมัครด้วยวิธีใด
+รับสมัครพนักงานเสิร์ฟ ร้านหมูกระทะเฮียตี๋ ลาดพร้าว 101
+สนใจแอดไลน์ @heatee101 หรือโทร 08x-xxx-2290 (คุณหน่อย) ส่งชื่อ อายุ และรูปถ่ายมาทางไลน์ได้เลย ไม่ต้องส่งอีเมล
+## en/online_form
+Civil Service Jobs — Executive Officer, DVLA Swansea
+Apply online only via the "Apply now" button below; you'll complete a personal statement and behaviour examples. CVs sent by email or post will not be considered. Closes 23:55 on 6 Dec.
+## it/email | In che modo questo annuncio di lavoro chiede ai candidati di candidarsi?
+Studio Legale Ferraro cerca praticante — Torino
+Inviare curriculum e lettera di presentazione all'indirizzo selezione@studioferraro.example con oggetto "Praticante 2027". Non si accettano candidature telefoniche.
+## pt/phone_chat
+Vaga: Auxiliar de cozinha — Restaurante Sabor Mineiro, Contagem
+Interessados chamar no WhatsApp (31) 9xxxx-4420 com nome, idade e bairro. Não precisa enviar currículo por e-mail.
+## sw/walk_in | Tangazo hili la kazi linawataka waombaji waombe kwa njia gani?
+NAFASI ZA KAZI: Wahudumu 10 — Hoteli ya Kibo Palace, Arusha
+Usaili wa papo kwa papo utafanyika Jumatatu 30/11/2026 kuanzia saa 2 asubuhi hotelini. Fika na vyeti halisi na barua ya utambulisho. Hakuna maombi ya mtandaoni.
+## zh/email
+104 人力銀行 · 行政助理(台中)
+應徵方式:請將履歷與自傳寄至 hr@taichung-trading.example,信件主旨註明「應徵行政助理」。恕不接受電話詢問,合則約談。
+## ta/online_form | இந்த வேலை அறிவிப்பு விண்ணப்பதாரர்களை எந்த முறையில் விண்ணப்பிக்கச் சொல்கிறது?
+TNPSC குரூப் 4 அறிவிக்கை
+விண்ணப்பங்கள் www.tnpsc.gov.in இணையதளம் வழியாக மட்டுமே பெறப்படும். ஒருமுறைப் பதிவு (OTR) கட்டாயம். அஞ்சல் அல்லது நேரில் அளிக்கப்படும் விண்ணப்பங்கள் நிராகரிக்கப்படும்.
+
+@@ job-salary-period | choice
+Q: For which period is the pay in this job posting quoted?
+C: hourly=Per hour ;; daily=Per day or per shift ;; monthly=Per month ;; annual=Per year
+## hi/annual
+LinkedIn · प्रोडक्ट मैनेजर, बेंगलुरु
+CTC: ₹24–30 LPA (लाख प्रति वर्ष), ESOPs अलग से। वेरिएबल पे CTC का 10%।
+## th/daily | ค่าจ้างในประกาศงานนี้ระบุเป็นรายช่วงเวลาใด
+รับสมัครพนักงานรายวัน แผนกบรรจุ โรงงานอาหารแช่แข็ง สมุทรสาคร
+ค่าแรง 400 บาท/วัน + OT ชั่วโมงละ 75 บาท จ่ายทุก 15 วัน
+## en/hourly
+Barista — Costa Coffee, Cardiff Bay
+£12.60 per hour (aged 21+), 24-hour contract, paid 4-weekly. Free drinks on shift.
+## ja/hourly | この求人の給与は、どの期間あたりで提示されていますか?
+タウンワーク · コンビニスタッフ(ローソン 中野坂上店)
+時給 1,250円〜(22時以降は深夜手当で1,563円)· 週2日・1日4時間からOK · 交通費規定支給
+## zh/monthly
+BOSS直聘 · 前端开发工程师(杭州)
+薪资 18-25K·14薪 · 五险一金 · 双休
+(K 指每月税前千元)
+## ko/annual | 이 채용 공고의 급여는 어떤 기간 기준으로 제시되어 있나요?
+사람인 · 마케팅 매니저 (판교)
+연봉 5,200만 원 ~ 6,000만 원 (경력에 따라 협의) · 성과급 별도 · 4대 보험
+## ru/monthly
+hh.ru · Менеджер по продажам, Екатеринбург
+от 70 000 до 110 000 ₽ за месяц, на руки · оклад + % · оформление по ТК
+## uk/daily | За який період вказано оплату в цьому оголошенні про роботу?
+Work.ua · Різноробочий на будівництво, Київ
+Оплата 1 200 грн за зміну (8 годин), розрахунок щоп'ятниці. Обід за рахунок фірми.
+
+@@ job-benefit-included | noul
+Q: The state names a benefit the job seeker wants. Does the job posting explicitly offer that benefit?
+## hi/y
+~wanted: रहने की सुविधा (आवास)
+~posting: होटल स्टाफ़ चाहिए — मनाली · कुक व हेल्पर · वेतन ₹14,000–18,000 · "रहना और खाना होटल की तरफ़ से फ़्री। साल में एक बार घर जाने का किराया।"
+## th/n | สถานะระบุสวัสดิการที่ผู้หางานต้องการ ประกาศรับสมัครงานระบุชัดเจนว่ามีสวัสดิการนั้นหรือไม่
+~wanted: ที่พักฟรี
+~posting: พนักงานขายหน้าร้าน เซ็นทรัลเวสต์เกต · เงินเดือน 13,500 + คอมมิชชั่น · สวัสดิการ: ประกันสังคม ชุดยูนิฟอร์ม เบี้ยขยัน วันหยุดพักร้อน
+## ar/y | يذكر الوضع ميزة يريدها الباحث عن عمل. هل يقدّم إعلان الوظيفة هذه الميزة صراحةً؟
+~wanted: تذاكر سفر سنوية
+~posting: مهندس مدني — شركة مقاولات، الدوحة · الراتب ١٢٬٠٠٠ ريال · "المزايا: سكن مؤثث، مواصلات، تأمين طبي، تذكرة سفر سنوية للموظف، إجازة ٣٠ يوماً."
+## he/n
+~wanted: רכב צמוד
+~posting: נציג/ת מכירות שטח — אזור השרון · "שכר בסיס + עמלות, סיבוס, קרן השתלמות מהיום הראשון. נדרש רכב פרטי — החזר הוצאות דלק לפי ק"מ."
+## fa/y | وضعیت، مزیتی را که کارجو می‌خواهد مشخص می‌کند. آیا آگهی شغلی به‌صراحت آن مزیت را ارائه می‌دهد؟
+~wanted: سرویس رفت‌وآمد
+~posting: اپراتور تولید — شهرک صنعتی شمس‌آباد · «حقوق قانون کار + اضافه‌کاری، بیمه از روز اول، سرویس رفت و برگشت از متروی شاهد، ناهار گرم.»
+## bn/n | এখানে চাকরিপ্রার্থী যে সুবিধাটি চান তার নাম দেওয়া আছে। চাকরির বিজ্ঞপ্তিতে কি সেই সুবিধা স্পষ্টভাবে দেওয়ার কথা বলা আছে?
+~wanted: দুপুরের খাবার
+~posting: জুনিয়র অফিসার, গার্মেন্টস বায়িং হাউস, গুলশান · বেতন ২৫,০০০ টাকা · সুবিধা: বছরে দুটি উৎসব বোনাস, মোবাইল বিল, বার্ষিক ইনক্রিমেন্ট।
+## ta/y
+~wanted: மருத்துவக் காப்பீடு
+~posting: மெஷின் ஆபரேட்டர் — ஓசூர் · சம்பளம் ₹16,500 · "ESI, PF, குழு மருத்துவக் காப்பீடு (குடும்பத்துடன்), கேண்டீன் மானியம், போக்குவரத்து வசதி."
+## pl/n | Stan wskazuje benefit, na którym zależy kandydatowi. Czy ogłoszenie o pracę wyraźnie oferuje ten benefit?
+~wanted: prywatna opieka medyczna
+~posting: Kasjer-sprzedawca, Biedronka, Radom · „Oferujemy: umowę o pracę, premię za frekwencję, paczki świąteczne, kartę sportową (współfinansowaną). Bezpłatne badania wstępne medycyny pracy.”

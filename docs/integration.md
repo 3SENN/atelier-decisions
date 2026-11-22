@@ -3,14 +3,16 @@
 ## Built in: "On this computer" (patch ready)
 
 `integration/atelier-on-device-decisions.patch` adds Atelier's own decision model as a provider that needs no key,
-no network and no setting up. It was built on the branch `on-device-decisions` in a separate worktree
-(`../atelier-on-device`), so the main checkout is untouched; nothing is committed.
+no network and no setting up, and (later commits) atelier-mini as an optional download for new kinds of questions,
+now v0.5. It was built on the branch `on-device-decisions` in a separate worktree (`../atelier-on-device`), so the
+main checkout is untouched: four local commits there, not pushed. The patch is `git diff` from Atelier's main (`7430717`)
+to that branch and applies cleanly to it.
 
 ```bash
 cd atelier
 git apply ../atelierdecisionmodel/integration/atelier-on-device-decisions.patch   # or: git worktree / branch on-device-decisions
 npm install
-ATELIER_DECISION_MODEL_SRC=../atelierdecisionmodel/runs/<student>/onnx node scripts/fetch-decision-model.mjs
+ATELIER_DECISION_MODEL_SRC=../atelierdecisionmodel/runs/nano-v03-l22/onnx node scripts/fetch-decision-model.mjs   # or releases/v0.5/model
 npm run dev    # Settings › Quick decisions › On this computer › Use it
 ```
 
@@ -21,7 +23,7 @@ npm run dev    # Settings › Quick decisions › On this computer › Use it
 | Transport | `src/main/decisions/device.ts`, `feature.ts` | `atelier-device://` answered by a utility process instead of the network: started on the first question, warmed 10 s after start when it is among your models, stopped after five quiet minutes; a crash is a failed request (the rule decides), three in a row make it unavailable until restart |
 | Model | `src/main/decisions/deviceHelper.ts`, `device/nano.ts`, `device/format.ts` | the runner from `runtime/node` (ONNX Runtime CPU, 2 threads, the pure-JS tokenizer), loaded in the utility process; it declines text it can't read and questions that aren't Atelier's own (`refusal`, so the rule decides) |
 | Settings | `QuickDecisions.tsx`, `i18n/{en,nl}/decisions.ts` | a row with Ready / Not installed and "Use it" (adds `atelier-nano`, which turns quick decisions on if it was your first model) |
-| Packaging | `electron-builder.yml`, `package.json`, `scripts/fetch-decision-model.mjs` | `native/decisions/build` to `Resources/decision-model` (37 MB: the 34 MB model, tokenizer, vocabulary map, calibration); `onnxruntime-node` 1.31.1 as a dependency (N-API, unpacked from the asar), `@huggingface/tokenizers` bundled; `npm run package` ships without the model and says so when there is none |
+| Packaging | `electron-builder.yml`, `package.json`, `scripts/fetch-decision-model.mjs` | `native/decisions/build` to `Resources/decision-model` (57 MB: the 54 MB model of nano v0.3, tokenizer, vocabulary map, calibration); `onnxruntime-node` 1.31.1 as a dependency (N-API, unpacked from the asar), `@huggingface/tokenizers` bundled; `npm run package` ships without the model and says so when there is none |
 | Tests | `tests/decisionsDevice.test.ts`, `tests/decisions.test.ts` | the route, not installed, bad requests, crash limit, cancel, warm-up; the provider end to end (no key, its own address, one request, the rule without files) |
 | Docs | `docs/decisions.md` › On this computer | how it works, where the files come from, how it is calibrated |
 
@@ -30,29 +32,72 @@ fail fail the same on `main`: this Node's SQLite has no FTS5), and the built `ou
 a real Electron utility process with the final model: first answer 0.9 s (process start and model load, which the
 warm-up 10 s after start takes care of), then 1-5 ms; Russian text and an open question answered `refusal`.
 
-Next: let the on-device model hand what it is unsure of to a hosted model in your list, not only what it fails
-on (a cascade: most decisions stay on this computer, a few go out, the rule decides when both are unsure); this
-changes how the decider reads answers, so it is a decision for Atelier, not part of the patch.
+The checks above were made with nano v0.1 (34 MB); the patch now fetches v0.3, which Atelier's eval passed through
+the same runtime (10 of 10 tests). What the nano is unsure of now goes to the mini on this computer (below); handing
+it to a hosted model in your list instead would change how the decider reads answers, so that stays a decision for
+Atelier.
 
 Not yet: crash reports from the utility process are not collected; the model is not code-signed separately (it
 is data, read only by ONNX Runtime); macOS x64 has no onnxruntime-node 1.31 binary (onnxruntime-web's WASM build
 would be the fallback there).
 
-## nano, then mini: the cascade (runtime/node; not in the patch yet)
+## nano, then mini: the cascade (in the patch, an optional download)
 
 atelier-mini (Qwen3.5-0.8B read the decider's way, run by llama.cpp) works out kinds of questions the nano was never
 shown, but it is about 30 times slower. So the two run as one decider:
 
 1. **The nano answers first**, in milliseconds.
 2. **The mini gets what the nano can't settle:** a question the nano declines (an open question, text it can't read)
-   or is unsure about by Atelier's own cutoffs (`runtime/node/src/readers.ts`, a port of `student/readers.py`).
+   or is unsure about by Atelier's own cutoffs (a port of `student/readers.py`).
 3. **The rule decides** what the mini is unsure about too.
 
+### In Atelier (the patch's later commits)
+
+The patch now carries the cascade into Atelier's utility process, and the mini as an optional download:
+
+| Piece | Where | What it does |
+|---|---|---|
+| Cascade | `src/main/decisions/device/cascade.ts`, `readers.ts` | nano first; a refusal or an answer Atelier's reader would not take goes to the mini; a failed or stopped mini leaves the nano's answers; `routes` says who answered |
+| Mini | `device/mini.ts`, `miniFiles.ts` | prompts and token ids as the training code makes them (608/608 with `ATELIER_MINI_PARITY`, v0.4 and v0.5), llama-server on 127.0.0.1, readout and temperature in the helper, states cut at 2048 tokens, cancelled questions skipped; a trimmed vocabulary (`vocab.json`) is mapped as the training code maps it |
+| Helper | `deviceHelper.ts`, `device.ts` | the mini loads on the first question the nano leaves open (never at warm-up); a new helper when the mini is installed or removed; stopped requests are cancelled in the helper; llama-server stopped by its pid with the helper |
+| Download | `deviceMini.ts`, `device/miniManifest.ts` | file by file against sizes and SHA-256 compiled into Atelier, staged and swapped in whole, resumed with range requests, through `net.fetch`; offered only when the manifest has a download location and a server build for this platform |
+| Settings | `QuickDecisions.tsx`, `i18n/{en,nl}/decisions.ts` | "New kinds of questions" under On this computer: Download (size), progress, Stop, Remove |
+| Tests | `tests/decisionsDeviceMini.test.ts` | routing and fallbacks, readers' cutoffs, the download (checksums, resume, ranges ignored, stop, remove, paths leaving the folder, a folder set from outside), server lifetime, respawn, cancel |
+
+Checked on this Windows machine:
+
+- **Builds and tests:** typecheck clean, i18n 100%, the decision tests passing (115, with v0.5's parity).
+- **The download:** the real installer against a local server, 585 MB with every file checked (v0.4's files; v0.5's
+  are the same set and sizes, with new checksums).
+- **The built helper in Electron:** run as a utility process with the nano and the mini.
+  - The nano kept its own decisions.
+  - Russian, Thai, an open price question and three email labels went to the mini: 2 s for the first (llama-server
+    starting cold), 0.1-0.6 s after that.
+  - llama-server stopped with the helper.
+
+**What's left before people can download it is a decision for you:** where the files live.
+`tools/mini_dist.py` makes the folder to host (`model/`, `server/<platform>/`) and the manifest that Atelier compiles
+in. Its `base` is empty, so Settings offers no download yet.
+
+- **The host:** a Hugging Face model repository suits a 0.5 GB file; Git LFS on GitHub has a small bandwidth quota.
+- **The other platforms:** macOS and Linux need llama.cpp's builds for them added with `--server`.
+
 ```bash
-python student/export_mini.py --model runs/mini-l24 --gguf runs/mini-l24/mini-l24-Q4_K_M-e4.decider.gguf --out runs/mini-l24/runtime
+python tools/mini_dist.py --runtime runs/mini-v05/runtime --version v0.5 --out runs/mini-dist-v05 \
+    --server win32-x64=models/llama.cpp-b12620/bin --licence models/llama.cpp-b12620/src/LICENSE --base https://<host>/
+cp runs/mini-dist-v05/miniManifest.ts ../atelier-on-device/src/main/decisions/device/miniManifest.ts
+```
+
+During development, `ATELIER_DECISION_MINI=<runtime folder with a server/ copy of llama-server>` uses a folder as it
+is, and `ATELIER_DECISION_MINI_URL=<base>` tries a download location.
+
+### Outside Atelier (runtime/node)
+
+```bash
+python student/export_mini.py --model runs/mini-v05 --gguf runs/mini-v05/mini-v05-Q5_K_M-e4.decider.gguf --out runs/mini-v05/runtime
 cd runtime/node
-node --experimental-strip-types src/mini_parity.ts ../../runs/mini-l24/runtime        # token ids = Python: 608/608
-node --experimental-strip-types src/server.ts ../../runs/nano-v03-l22/onnx 8011 4 --mini ../../runs/mini-l24/runtime \
+node --experimental-strip-types src/mini_parity.ts ../../runs/mini-v05/runtime        # token ids = Python: 608/608
+node --experimental-strip-types src/server.ts ../../runs/nano-v03-l22/onnx 8011 4 --mini ../../runs/mini-v05/runtime \
     --llama-server ../../models/llama.cpp-b12620/bin/llama-server.exe                      # model "atelier-nano+mini"
 ```
 
@@ -76,16 +121,11 @@ token (608 of 608).
   rule, which keeps combining marks with their letters.
 - **It matters for Hindi and Thai:** with the base's rule the mini is right 70% of the time when it decides on Thai
   instead of 40%, and 78% instead of 69% on Hindi (`analysis/tokenizer_effect.py`). Other languages don't change.
-- **So every mini script now loads the tokenizer through `student/mini_tokenizer.py`.**
+- **So every mini script loads the tokenizer through `student/mini_tokenizer.py`**, and v0.5's mini is the first trained
+  with it from the start.
 
-**For Atelier this means:**
-
-- **Packaging:** a llama-server binary per platform (CPU build; Metal on macOS) next to `onnxruntime-node`, and a
-  model of 469 MB. That is too big to bundle, so it would be an optional download: "decide new kinds of questions
-  on this computer".
-- **Process:** the utility process starts llama-server on first use, like the nano's session.
-- **Memory:** 0.8 GB for llama-server at the default 4096-token batch, and 370 MB for the Node runner with the nano
-  and the mini's tokenizer.
+**Memory:** 0.8 GB for llama-server at a 4096-token batch (Atelier uses 2048: about 0.5 GB), and 370 MB for the Node
+runner with the nano and the mini's tokenizer.
 
 **On phones:** llama.cpp runs the same GGUF on Android and iOS. A port needs about 100 lines of prompt building, the
 tokenizer and the 255 x 1024 readout. At 0.8B and 4 bits, expect around a second per question on a phone CPU; that

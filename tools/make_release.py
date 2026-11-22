@@ -34,6 +34,8 @@ def main() -> None:
     parser.add_argument("--mini-runtime", type=Path, help="its runtime folder from student/export_mini.py (GGUF, readout, tokenizer)")
     parser.add_argument("--mini-report", help="name of the mini's capability report")
     parser.add_argument("--extra-results", nargs="*", default=[], help="more files from analysis/results to keep with the version")
+    parser.add_argument("--integration", action="store_true", help="also keep integration/atelier-on-device-decisions.patch (Atelier's side)")
+    parser.add_argument("--dist", type=Path, help="the mini's download folder (tools/mini_dist.py): keeps its manifest.json and miniManifest.ts")
     args = parser.parse_args()
 
     out = ROOT / "releases" / args.version
@@ -73,9 +75,18 @@ def main() -> None:
         for path in args.data:
             z.write(path, path.resolve().relative_to(ROOT).as_posix())
     with zipfile.ZipFile(out / "data" / "llm-written-inputs.zip", "w", zipfile.ZIP_DEFLATED, compresslevel=9) as z:
-        for folder in ("gen", "gen2", "gen3"):
+        for folder in ("gen", "gen2", "gen3", "gen4", "security_src"):
             for path in sorted((ROOT / "data" / folder).glob("*.jsonl")):
                 z.write(path, path.relative_to(ROOT).as_posix())
+        if (ROOT / "data" / "existing_families.txt").exists():
+            z.write(ROOT / "data" / "existing_families.txt", "data/existing_families.txt")
+    if args.integration:
+        (out / "integration").mkdir(exist_ok=True)
+        shutil.copy2(ROOT / "integration" / "atelier-on-device-decisions.patch", out / "integration" / "atelier-on-device-decisions.patch")
+    if args.dist:
+        (out / "download").mkdir(exist_ok=True)
+        for name in ("manifest.json", "miniManifest.ts"):
+            shutil.copy2(args.dist / name, out / "download" / name)
     files = {}
     for path in sorted(out.rglob("*")):
         if path.is_file() and path.name != "MANIFEST.json":

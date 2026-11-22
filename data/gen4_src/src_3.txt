@@ -1,0 +1,465 @@
+@@ lottery-ticket-match | noul
+Q: The state shows the official draw results and the number on the user's ticket. Does the user's ticket win any prize under the rules shown?
+## hi/n
+~results: केरल राज्य लॉटरी · कारुण्य KR-731 · ड्रॉ 21/11/2026 — प्रथम पुरस्कार ₹80 लाख: KM 482917 · सांत्वना ₹8,000: बाक़ी सीरीज़ में वही नंबर 482917 · आठवाँ पुरस्कार ₹100 (अंतिम 4 अंक): 0314, 2278, 5591, 7702, 9046
+~ticket: KM 482971
+## th/y | สถานะแสดงผลการออกรางวัลอย่างเป็นทางการและหมายเลขบนสลากของผู้ใช้ สลากของผู้ใช้ถูกรางวัลใดรางวัลหนึ่งตามกติกาที่แสดงหรือไม่
+~results: ผลสลากกินแบ่งรัฐบาล งวดวันที่ 16 พฤศจิกายน 2569 — รางวัลที่ 1: 407318 · เลขหน้า 3 ตัว: 152, 884 · เลขท้าย 3 ตัว: 069, 531 · เลขท้าย 2 ตัว: 47
+~ticket: 918247
+## en/n
+~results: EuroMillions, Fri 20 Nov 2026 — Main numbers: 07 19 23 38 44 · Lucky Stars: 03 11. Lowest prize tier: 2 main numbers.
+~ticket: 05 19 27 31 49 · Lucky Stars 02 09
+## vi/y | Trạng thái hiển thị kết quả quay số chính thức và dãy số trên vé của người dùng. Vé của người dùng có trúng giải nào theo quy định được nêu không?
+~results: Xổ số kiến thiết TP.HCM ngày 21/11/2026 — Giải ĐB: 518204 · Giải nhất: 30977 · ... · Giải tám (trùng 2 số cuối): 63
+~ticket: 742163
+## id/n | Status menampilkan hasil undian resmi dan nomor pada kupon pengguna. Apakah kupon pengguna memenangkan hadiah apa pun menurut aturan yang ditampilkan?
+~results: Undian Panen Hadiah Simpedes BRI Cabang Klaten, 14 November 2026 — Grand prize mobil: 0047-01-003318 · Motor: 0047-01-011902, 0047-01-020447 · Hadiah hiburan TV LED: 0047-01-007765. Hanya nomor kupon yang tercantum yang menang.
+~ticket: 0047-01-011920
+## tr/y
+~results: Milli Piyango Süper Loto · 19.11.2026 çekilişi — Kazanan numaralar: 4 · 17 · 22 · 38 · 41 · 56. İkramiye için en az 2 bilmek gerekir.
+~ticket: 9 · 17 · 23 · 38 · 45 · 60
+## el/n | Η κατάσταση δείχνει τα επίσημα αποτελέσματα της κλήρωσης και τους αριθμούς του δελτίου του χρήστη. Κερδίζει το δελτίο κάποιο έπαθλο σύμφωνα με τους κανόνες που φαίνονται;
+~results: ΤΖΟΚΕΡ κλήρωση 2845 (19/11/2026): 8, 14, 27, 33, 40 + Τζόκερ 6. Η μικρότερη κατηγορία κερδών είναι 1+1 (ένας αριθμός και ο Τζόκερ) ή 3 αριθμοί.
+~ticket: 8, 15, 28, 34, 41 + Τζόκερ 16
+## pl/y
+~results: Lotto, losowanie 21.11.2026 — 5, 12, 23, 31, 37, 48. Najniższa wygrana: „trójka” (3 trafione liczby) — 24 zł.
+~ticket: 5, 13, 23, 30, 37, 49
+
+@@ last-departure-catchable | noul
+Q: Given the current time, the time needed to reach the stop, and the timetable shown, can the user still catch a departure today/tonight on this line?
+C: true=At least one remaining departure can be reached in time ;; false=The last departure will have left before the user can get there
+## hi/y | अभी के समय, स्टॉप तक पहुँचने में लगने वाले समय और दी गई समय-सारणी के अनुसार, क्या उपयोगकर्ता आज इस लाइन की कोई गाड़ी अब भी पकड़ सकता है?
+अभी: रात 10:38 · स्टेशन तक पैदल: 12 मिनट
+दिल्ली मेट्रो ब्लू लाइन — राजीव चौक से नोएडा इलेक्ट्रॉनिक सिटी की ओर
+आख़िरी ट्रेनें: 22:44 · 22:56 · 23:10 (अंतिम)
+## th/n
+ตอนนี้ 23.52 น. · เดินไปสถานี 9 นาที
+BTS สายสุขุมวิท สถานีอโศก มุ่งหน้าเคหะฯ
+ขบวนสุดท้าย: 23.47 · 23.58 (ขบวนสุดท้ายของวัน)
+## en/n
+Now: 00:21 · Walk to stop: 6 min
+Night services from Piccadilly Gardens (Stop D) — 43 to Airport
+Last departures: 23:55, 00:25. No night bus on Sundays.
+## it/y | Dati l'ora attuale, il tempo per raggiungere la fermata e l'orario mostrato, l'utente può ancora prendere una corsa di questa linea oggi/stanotte?
+Ora: 23:31 · A piedi fino alla fermata: 7 min
+Metro M1 Duomo → Sesto 1° Maggio
+Ultime corse: 23:36 · 23:48 · 00:04 (ultima)
+## pt/n | Tendo em conta a hora atual, o tempo para chegar à paragem e o horário apresentado, o utilizador ainda consegue apanhar uma partida desta linha hoje?
+Agora: 00:52 · Caminhada até à estação: 8 min
+Metro de Lisboa — Linha Verde, Cais do Sodré → Telheiras
+Último comboio: 00:58
+## sw/y
+Sasa: saa 3:40 usiku (21:40) · Kutembea hadi kituoni: dakika 10
+Mwendokasi (DART) Kimara – Kivukoni
+Mabasi ya mwisho kutoka Kimara: 21:45, 22:00, 22:15 (la mwisho)
+## zh/n | 依照目前時間、走到車站所需時間與時刻表,使用者今晚還趕得上這條路線的班次嗎?
+現在時間:00:03 · 步行至月台:5 分鐘
+台北捷運 板南線 忠孝復興站 往頂埔
+末班車:00:06
+## he/y
+עכשיו: 23:10 · הליכה לתחנה: 15 דקות
+רכבת ישראל — תל אביב סבידור מרכז ← חיפה חוף הכרמל
+רכבות אחרונות: 23:14 · 23:44 · 00:14
+
+@@ ride-fare-surge-level | score
+Q: Compare the price quoted now with the usual price stated for the same ride. How strong is the surge?
+C: No surge: the price is about the usual level or lower ;; Moderate: clearly above usual, up to about 1.5 times ;; Heavy: more than about 1.5 times the usual price
+## hi/3 | अभी बताई गई क़ीमत की तुलना उसी राइड की सामान्य क़ीमत से करें। सर्ज कितना ज़्यादा है?
+Ola · कनॉट प्लेस → गुरुग्राम साइबर हब
+Mini: ₹742 ⚡ पीक प्राइसिंग — बारिश के कारण माँग ज़्यादा
+"इस रूट का सामान्य किराया क़रीब ₹380-400 रहता है"
+## th/1
+Grab · สยามพารากอน → อารีย์ซอย 1
+GrabCar: ฿118 (ราคาปกติของเส้นทางนี้ ฿115-125)
+ไม่มีค่าบริการช่วงความต้องการสูง
+## en/2
+Uber · King's Cross → Clapham Junction
+UberX £31.40 — "Fares are slightly higher due to increased demand"
+Your last three trips on this route: £24.10, £25.60, £23.90
+## ja/1 | 今提示されている料金を、同じ区間の通常料金と比べてください。割増はどの程度ですか?
+GO タクシーアプリ 渋谷駅 → 三軒茶屋
+事前確定運賃:1,900円(迎車料金込み)
+通常時の目安:1,800〜2,000円 ※現在、需給による変動なし
+## zh/3
+滴滴出行 · 国贸 → 望京SOHO
+快车预估 96 元(当前排队 47 人,动态调价 2.1 倍)
+平时同路线约 45 元
+## ko/2 | 지금 제시된 요금을 같은 구간의 평소 요금과 비교하세요. 할증이 얼마나 심한가요?
+카카오 T · 강남역 → 판교역
+블루 예상 요금 29,800원 (탄력요금 적용 중)
+평소 이 시간대 예상: 약 23,000원
+## ru/3
+Яндекс Go · Шереметьево → Тверская
+Комфорт: 4 350 ₽ ⚡ Высокий спрос
+Обычно эта поездка стоит около 1 900 ₽
+## uk/1 | Порівняйте ціну зараз зі звичайною ціною тієї самої поїздки. Наскільки сильне підвищення?
+Bolt · Вокзал Львів → вул. Стрийська, 45
+Bolt: 142 ₴ · Підвищений попит відсутній
+Минулі поїздки цим маршрутом: 138 ₴, 150 ₴, 145 ₴
+
+@@ road-closure-hits-trip | noul
+Q: The state gives a road closure notice (festival, parade, works) and the user's planned drive. Will the closure be in force on that road at the time the user plans to use it?
+## hi/y
+~notice: ट्रैफ़िक एडवाइज़री: गणेश विसर्जन के कारण लालबाग से गिरगाँव चौपाटी तक डॉ. बाबासाहेब आंबेडकर रोड 27 सितंबर दोपहर 12 बजे से 28 सितंबर सुबह 6 बजे तक सभी वाहनों के लिए बंद रहेगा।
+~plan: 27 सितंबर, शाम 7 बजे, दादर से आंबेडकर रोड होते हुए भायखला
+## th/n | สถานะมีประกาศปิดถนน (งานเทศกาล ขบวนแห่ งานก่อสร้าง) และแผนการขับรถของผู้ใช้ ถนนเส้นนั้นจะปิดอยู่ในช่วงเวลาที่ผู้ใช้จะใช้หรือไม่
+~notice: บช.น. ประกาศปิดการจราจรถนนสีลมตลอดสาย ช่วงงานสงกรานต์ วันที่ 13–15 เม.ย. 70 ตั้งแต่เวลา 12.00–24.00 น. ของทุกวัน
+~plan: วันที่ 14 เม.ย. 70 เวลา 08.30 น. ขับผ่านถนนสีลมไปโรงพยาบาลบีเอ็นเอช
+## en/n
+~notice: Notting Hill Carnival: Ladbroke Grove closed to all traffic between Harrow Road and Holland Park Avenue, Sun 30 Aug 06:00 to Tue 1 Sep 06:00.
+~plan: Tuesday 1 September, 9:15 am, van delivery via Ladbroke Grove
+## ar/y | يتضمن الوضع إشعاراً بإغلاق طريق (مهرجان، موكب، أعمال) وخطة قيادة المستخدم. هل سيكون الإغلاق سارياً على ذلك الطريق في الوقت الذي ينوي المستخدم استخدامه؟
+~notice: المرور: إغلاق طريق الكورنيش من دوار الشراع حتى فندق الشيراتون بمناسبة احتفالات اليوم الوطني، يوم الجمعة ١٨ ديسمبر من الساعة ٣ عصراً حتى منتصف الليل.
+~plan: الجمعة ١٨ ديسمبر، الساعة ٩:٣٠ مساءً، المرور عبر الكورنيش إلى الخليج الغربي
+## he/n
+~notice: עיריית ירושלים: לרגל מרתון ירושלים ייסגרו לתנועה שדרות רופין ורחוב יפו ביום שישי 12.3 משעה 05:30 ועד 13:30.
+~plan: יום שישי 12.3 בשעה 15:00, נסיעה דרך שדרות רופין למוזיאון ישראל
+## fa/y | وضعیت شامل اطلاعیه بسته‌شدن یک خیابان (مراسم، راهپیمایی، عملیات عمرانی) و برنامه رانندگی کاربر است. آیا در زمانی که کاربر می‌خواهد از آن خیابان عبور کند، مسیر بسته خواهد بود؟
+~notice: پلیس راهور تهران: به مناسبت راهپیمایی ۲۲ بهمن، خیابان آزادی حدفاصل میدان انقلاب تا میدان آزادی از ساعت ۶ صبح تا پایان مراسم (حدود ۱۳) مسدود است.
+~plan: ۲۲ بهمن، ساعت ۱۰ صبح، عبور از خیابان آزادی به سمت فرودگاه مهرآباد
+## bn/n
+~notice: ডিএমপি ট্রাফিক: পহেলা বৈশাখের মঙ্গল শোভাযাত্রা উপলক্ষে ১৪ এপ্রিল ভোর ৫টা থেকে সকাল ১১টা পর্যন্ত শাহবাগ থেকে টিএসসি হয়ে দোয়েল চত্বর পর্যন্ত সড়ক বন্ধ থাকবে।
+~plan: ১৫ এপ্রিল সকাল ৮টা, শাহবাগ হয়ে ঢাকা মেডিকেল
+## ta/y
+~notice: மதுரை மாநகரக் காவல்: சித்திரைத் திருவிழா தேரோட்டத்தை முன்னிட்டு ஏப்ரல் 30 காலை 5 மணி முதல் மதியம் 2 மணி வரை நான்கு மாசி வீதிகளிலும் வாகனப் போக்குவரத்து தடை செய்யப்படுகிறது.
+~plan: ஏப்ரல் 30, காலை 11.15, கிழக்கு மாசி வீதி வழியாக ரயில் நிலையம்
+
+@@ platform-change-announced | noul
+Q: Does the station display or announcement say that the user's train or bus now leaves from a different platform/bay/gate than originally planned?
+## hi/y | क्या स्टेशन के डिस्प्ले या उद्घोषणा में कहा गया है कि उपयोगकर्ता की ट्रेन/बस अब मूल रूप से तय प्लेटफ़ॉर्म की जगह किसी दूसरे प्लेटफ़ॉर्म से जाएगी?
+NTES · 12952 मुंबई राजधानी (नई दिल्ली)
+यात्रीगण कृपया ध्यान दें: गाड़ी संख्या 12952 आज प्लेटफ़ॉर्म संख्या 3 के स्थान पर प्लेटफ़ॉर्म संख्या 5 से रवाना होगी। प्रस्थान 16:55, समय पर।
+## th/n
+สถานีกลางกรุงเทพอภิวัฒน์ — ขบวน 9 ด่วนพิเศษอุตราวิถี ไปเชียงใหม่
+ออก 18.40 น. · ชานชาลา 5 (ตามกำหนด)
+ประกาศ: ขบวนรถล่าช้าประมาณ 20 นาที ขออภัยในความไม่สะดวก
+## ja/y | 駅の案内表示や放送は、ユーザーの乗る列車・バスが当初の予定とは別のホーム(のりば)から発車すると伝えていますか?
+【のりば変更】本日、特急しなの13号 長野行き(名古屋 12:00発)は、車両点検の影響により10番線から11番線に変更して発車します。ご注意ください。
+## vi/n
+Ga Sài Gòn — Tàu SE2 đi Hà Nội
+Giờ tàu chạy: 21:10 (đổi từ 20:35 do tránh tàu). Ke ga số 2 như ghi trên vé. Hành khách vui lòng có mặt trước 30 phút.
+## id/y | Apakah papan informasi atau pengumuman stasiun menyatakan bahwa kereta/bus pengguna kini berangkat dari peron/jalur yang berbeda dari rencana semula?
+Stasiun Gambir · KA 76 Argo Lawu tujuan Solo Balapan
+PERUBAHAN JALUR: keberangkatan pukul 20.45 dipindahkan dari jalur 3 ke jalur 1. Mohon penumpang menyesuaikan.
+## tr/n | İstasyon ekranı veya anonsu, kullanıcının treninin/otobüsünün başlangıçta planlanandan farklı bir perondan kalkacağını söylüyor mu?
+Ankara YHT Garı · 81012 Ankara–İstanbul (Söğütlüçeşme)
+Kalkış 10:20 · Peron 4 · Durum: Zamanında
+Duyuru: 5 no'lu perondaki asansör arızalıdır, lütfen yürüyen merdiveni kullanınız.
+## el/y
+Σταθμός Λαρίσης — Intercity 56 για Θεσσαλονίκη, αναχ. 14:22
+ΠΡΟΣΟΧΗ: Η αμαξοστοιχία θα αναχωρήσει από την αποβάθρα 2 αντί της αποβάθρας 4. Παρακαλούνται οι επιβάτες να μετακινηθούν.
+## pl/n | Czy tablica lub komunikat na dworcu informuje, że pociąg/autobus użytkownika odjeżdża teraz z innego peronu/stanowiska niż pierwotnie planowano?
+Warszawa Centralna · IC 1350 „Sukiennice” do Krakowa Gł.
+Odjazd 15:05 · peron 3 tor 2 · opóźniony ok. 10 min
+Uwaga: zmieniona kolejność wagonów — wagon 7 na początku składu.
+
+@@ rail-booking-state | choice
+Q: What is the current state of this train/bus/flight booking?
+C: confirmed=Confirmed with a seat or berth ;; partial=Travel allowed but seat not fully secured (shared berth, standing, seat assigned later) ;; waitlisted=On a waiting list, not yet entitled to travel ;; cancelled=Cancelled or refunded
+## hi/partial
+IRCTC · PNR 284-5591047
+ट्रेन 12301 हावड़ा राजधानी · 27-NOV-2026 · 3A
+यात्री 1: बुकिंग स्थिति RLWL 12 → वर्तमान स्थिति RAC 7
+चार्ट तैयार नहीं। RAC यात्री ट्रेन में चढ़ सकते हैं; बर्थ साझा करनी पड़ सकती है।
+## th/confirmed | สถานะปัจจุบันของการจองรถไฟ/รถทัวร์/เที่ยวบินนี้คืออะไร
+D-Ticket การรถไฟแห่งประเทศไทย
+ขบวน 85 กรุงเทพอภิวัฒน์ – นครศรีธรรมราช · 4 ธ.ค. 69
+รถนอนปรับอากาศชั้น 2 คันที่ 11 ที่นั่ง 23 (เตียงล่าง) · ชำระเงินแล้ว 928 บาท · ออกตั๋วแล้ว
+## en/waitlisted
+Amtrak · Reservation 1F3A9C
+Northeast Regional 174, NYP → BOS, Wed 25 Nov
+Status: WAITLIST — you're #4 for Coach. We'll email you if a seat opens. You may not board without a confirmed reservation.
+## it/cancelled | Qual è lo stato attuale di questa prenotazione di treno/autobus/volo?
+Trenitalia · PNR QW7H2K
+Frecciarossa 9631 Milano C.le → Roma Termini, 29/11/2026
+Prenotazione annullata su richiesta del cliente il 20/11. Rimborso di € 71,90 (trattenuta 20%) disposto su carta.
+## pt/confirmed
+ClickBus · Viação Cometa
+São Paulo (Tietê) → Belo Horizonte · 27/11/2026 22:30 · Leito
+Poltrona 14 · Passagem emitida · Embarque: plataforma informada no painel 30 min antes
+## sw/waitlisted | Hali ya sasa ya nafasi hii ya safari (treni/basi/ndege) ni ipi?
+SGR Tanzania · Tiketi mtandaoni
+Dar es Salaam → Dodoma · 28/11/2026 · Daraja la Kawaida
+Hali: ORODHA YA KUSUBIRI (nafasi ya 9). Hutaruhusiwa kusafiri hadi upate uthibitisho wa kiti kwa SMS.
+## zh/partial | 這筆火車/客運/航班訂位目前的狀態是什麼?
+台鐵 e 訂通 · 訂票代碼 7 4 1 8 8 2 3
+自強號 125 次 臺北 → 臺東 · 11/28
+已付款取票 · 票種:無座票(站票)· 不劃位,車上若有空位可暫坐
+## bn/cancelled
+বাংলাদেশ রেলওয়ে ই-টিকিট
+সুবর্ণ এক্সপ্রেস (৭০২) ঢাকা → চট্টগ্রাম · ২৬ নভেম্বর ২০২৬ · স্নিগ্ধা
+টিকিট বাতিল করা হয়েছে। ফেরতযোগ্য অর্থ ৬৮০ টাকা ৮ কর্মদিবসের মধ্যে বিকাশ অ্যাকাউন্টে জমা হবে।
+
+@@ parking-free-at-time | noul
+Q: According to the parking rules on the sign or page, is parking free of charge at the day and time the user wants to park?
+## hi/n | साइन या पेज पर लिखे पार्किंग नियमों के अनुसार, क्या जिस दिन और समय उपयोगकर्ता गाड़ी खड़ी करना चाहता है तब पार्किंग मुफ़्त है?
+NDMC पार्किंग — खान मार्केट
+शुल्क: कार ₹20/घंटा, सुबह 9 से रात 11 बजे तक, सातों दिन। रात 11 से सुबह 9 बजे तक निःशुल्क।
+उपयोगकर्ता: रविवार, दोपहर 1:30 बजे
+## th/y
+ที่จอดรถเซ็นทรัลลาดพร้าว
+จอดฟรี 3 ชั่วโมงแรก ชั่วโมงถัดไป 30 บาท · จอดเกิน 3 ชม. ต้องประทับตราจากร้านค้า
+ผู้ใช้: วันเสาร์ เข้า 14.10 น. ออก 16.40 น.
+## en/y
+Pay & Display — Albert Street car park
+Mon–Sat 8am–6pm: £1.80/hour, max stay 4 hours. Sundays and bank holidays: no charge.
+User: Sunday, 11:00
+## ja/n
+タイムズ吉祥寺本町第3
+8:00-22:00 20分220円 / 22:00-8:00 60分110円
+当日最大料金 1,800円(24時まで)
+利用予定:平日 23:30〜翌1:00
+## zh/y | 根据标牌或页面上的停车规定,在用户想停车的日期和时间,停车是否免费?
+杭州市道路停车泊位(三类区域)
+收费时段 8:00—20:00;首30分钟免费,之后首小时3元。20:00—次日8:00 不收费。
+用户:周三 21:15 停入,22:30 驶离
+## ko/n | 표지판이나 안내문의 주차 규정에 따르면, 사용자가 주차하려는 요일과 시간에 주차가 무료인가요?
+서울시 공영주차장 (종묘)
+평일 09:00~21:00 5분당 400원 · 토요일 및 공휴일 09:00~21:00 유료 · 일요일 무료
+이용 예정: 토요일 15:00
+## ru/y
+Московский паркинг · зона 0102 (ул. Покровка)
+Платно: пн–сб, круглосуточно, 380 ₽/час. Воскресенье и нерабочие праздничные дни — бесплатно.
+Пользователь: воскресенье, 12:40
+## uk/n | Чи є паркування безкоштовним у день і час, коли користувач хоче припаркуватися, згідно з правилами на знаку або сторінці?
+Київтранспарксервіс · майданчик на вул. Хрещатик, 22
+Тариф I зони: 35 грн/год, щодня з 08:00 до 22:00. З 22:00 до 08:00 — безоплатно.
+Користувач: субота, 19:20
+
+@@ step-free-route | noul
+Q: Can a wheelchair user or someone with a pram complete this route or enter this place without using stairs, according to the accessibility information shown?
+## hi/n
+जयपुर मेट्रो · चाँदपोल स्टेशन
+लिफ़्ट: गेट नं. 2 की लिफ़्ट 30 नवंबर तक मरम्मत के लिए बंद। गेट नं. 1 और 3 पर केवल सीढ़ियाँ और एस्केलेटर (व्हीलचेयर हेतु अनुपयुक्त)। रैंप उपलब्ध नहीं।
+## th/y | จากข้อมูลการเข้าถึงที่แสดง ผู้ใช้รถเข็นหรือคนที่มากับรถเข็นเด็กสามารถเดินทางเส้นทางนี้หรือเข้าสถานที่นี้ได้โดยไม่ต้องใช้บันไดหรือไม่
+MRT สถานีสุขุมวิท → ทางเชื่อม Terminal 21
+ลิฟต์โดยสาร: ทางออก 3 (ใช้งานได้) ลงถึงชั้นชานชาลา · ทางลาดเชื่อมเข้าห้างชั้น LG · ประตูกว้างสำหรับรถเข็นมีทุกจุด
+## en/n
+Covent Garden station (Piccadilly line)
+Access to street: lifts and 193 stairs. Step-free access: lift to ticket hall only — there are 15 steps between the lift landing and the platforms. Not suitable for wheelchair users.
+## ar/y | هل يستطيع مستخدم الكرسي المتحرك أو من معه عربة أطفال إكمال هذا المسار أو دخول هذا المكان دون استخدام الدرج، بحسب معلومات الوصول المعروضة؟
+مترو دبي — محطة برج خليفة/دبي مول
+مصاعد من مستوى الشارع إلى الرصيف في كلا الاتجاهين، ممر مكيّف مستوٍ يربط المحطة بالمول (٨٢٠ م) مع ممرات متحركة. جميع البوابات تتضمن بوابة عريضة.
+## he/n | האם משתמש בכיסא גלגלים או הורה עם עגלה יכול להשלים את המסלול או להיכנס למקום בלי מדרגות, לפי מידע הנגישות המוצג?
+העיר העתיקה — מסלול הכותל דרך שער יפו
+המסלול עובר בסמטאות השוק וכולל כ-40 מדרגות. אין מעלית במקטע זה. מסלול נגיש חלופי קיים רק דרך שער האשפות (לא במסלול זה).
+## fa/y
+مترو تهران — ایستگاه تئاتر شهر
+آسانسور از سطح خیابان تا سکوی خط ۳ و ۴ فعال است. مسیر ویژه نابینایان و رمپ در ورودی ضلع شمال غربی. تعویض خط بدون پله از طریق آسانسور میانی امکان‌پذیر است.
+## bn/n
+ঢাকা মেট্রোরেল — কারওয়ান বাজার স্টেশন
+লিফট আছে তবে আজ বিকল (রক্ষণাবেক্ষণ চলছে)। চলন্ত সিঁড়ি শুধু উপরে ওঠার জন্য; নামতে সাধারণ সিঁড়ি ব্যবহার করতে হবে। হুইলচেয়ার যাত্রীদের ফার্মগেট স্টেশন ব্যবহারের অনুরোধ।
+## ta/y | காட்டப்பட்டுள்ள அணுகல் தகவலின்படி, சக்கர நாற்காலி பயன்படுத்துபவர் அல்லது குழந்தை வண்டியுடன் வருபவர் படிக்கட்டுகள் இல்லாமல் இந்த வழியைக் கடக்க அல்லது இந்த இடத்திற்குள் செல்ல முடியுமா?
+சென்னை மெட்ரோ — ஆலந்தூர் நிலையம்
+தரைத்தளத்திலிருந்து இரு நடைமேடைகளுக்கும் மின்தூக்கிகள் இயங்குகின்றன. நுழைவாயில் B-யில் சாய்தளம் உள்ளது. சக்கர நாற்காலிகள் நிலைய மேலாளர் அறையில் இலவசமாகக் கிடைக்கும்.
+
+@@ vehicle-restriction-applies-now | noul
+Q: A traffic restriction scheme is described (odd/even plates, truck hours, low-emission zone). Is the user's vehicle barred from driving there at the stated day and time?
+C: true=The restriction applies: this vehicle may not drive there then ;; false=The vehicle may drive there then (exempt, allowed day, outside hours)
+## hi/y
+दिल्ली ऑड-ईवन योजना: 23–29 नवंबर, सुबह 8 से रात 8 बजे तक। सम तारीख़ को सिर्फ़ सम अंक पर ख़त्म होने वाले नंबर की गाड़ियाँ, विषम तारीख़ को विषम। रविवार को छूट। CNG, EV और दोपहिया पर लागू नहीं।
+उपयोगकर्ता: पेट्रोल कार DL 3C AB 4127 · मंगलवार 24 नवंबर, सुबह 10 बजे
+## th/n | มีการอธิบายมาตรการจำกัดการจราจร (ป้ายทะเบียนคู่/คี่ เวลาห้ามรถบรรทุก เขตมลพิษต่ำ) รถของผู้ใช้ถูกห้ามวิ่งในบริเวณนั้นในวันและเวลาที่ระบุหรือไม่
+ประกาศ บช.น.: ห้ามรถบรรทุกตั้งแต่ 6 ล้อขึ้นไปเดินรถในเขตกรุงเทพชั้นใน เวลา 06.00–09.00 น. และ 16.00–20.00 น. เว้นวันหยุดราชการ
+ผู้ใช้: รถบรรทุก 6 ล้อ · วันพุธ เวลา 11.30 น. ถนนพระราม 4
+## en/n
+London ULEZ: £12.50 daily charge for non-compliant vehicles, 24/7 except Christmas Day. Petrol cars meeting Euro 4 (generally first registered after 2005) are compliant and may drive without charge or restriction.
+User: petrol Ford Fiesta, first registered 2014 · Monday 08:10
+## vi/y | Một quy định hạn chế giao thông được mô tả (biển chẵn/lẻ, giờ cấm xe tải, vùng phát thải thấp). Xe của người dùng có bị cấm lưu thông ở đó vào ngày giờ đã nêu không?
+Hà Nội: cấm xe tải trên 1,25 tấn lưu thông trong khu vực vành đai 3 từ 6h00 đến 21h00 hằng ngày. Xe có giấy phép của Sở GTVT được miễn.
+Người dùng: xe tải 2,5 tấn, không có giấy phép · thứ Năm, 14h30, đường Giải Phóng
+## id/n | Dijelaskan sebuah skema pembatasan lalu lintas (ganjil-genap, jam truk, zona emisi rendah). Apakah kendaraan pengguna dilarang melintas di sana pada hari dan jam yang disebutkan?
+Ganjil-Genap Jakarta: Senin–Jumat pukul 06.00–10.00 dan 16.00–21.00. Tanggal ganjil hanya pelat berakhiran ganjil, tanggal genap hanya genap. Tidak berlaku Sabtu, Minggu, libur nasional; motor dan mobil listrik dikecualikan.
+Pengguna: mobil bensin B 1482 TJK · Selasa 24 November, pukul 07.30, Jl. Sudirman
+## tr/y
+İstanbul UKOME kararı: Ağır tonajlı araçların (kamyon, çekici) 15 Temmuz Şehitler Köprüsü'nü kullanması yasaktır; FSM Köprüsü'nde ise 06.00–10.00 ve 16.00–22.00 arası geçiş yasağı uygulanır.
+Kullanıcı: çekici (TIR) · Çarşamba 17.45, FSM Köprüsü
+## el/y | Περιγράφεται ένα μέτρο περιορισμού της κυκλοφορίας (μονά-ζυγά, ώρες φορτηγών, ζώνη χαμηλών εκπομπών). Απαγορεύεται στο όχημα του χρήστη να κυκλοφορήσει εκεί τη συγκεκριμένη ημέρα και ώρα;
+Δακτύλιος Αθήνας: Δευτέρα–Πέμπτη 07:00–20:00, Παρασκευή 07:00–15:00. Τις μονές ημερομηνίες κυκλοφορούν οι πινακίδες που λήγουν σε μονό ψηφίο, τις ζυγές σε ζυγό. Εξαιρούνται ηλεκτρικά και Euro 6 κάτω των 120 g CO₂.
+Χρήστης: βενζινοκίνητο Euro 4, πινακίδα ΙΚΥ-3846 · Τετάρτη 25/11, ώρα 09:30, Πανεπιστημίου
+## pl/n
+Strefa Czystego Transportu w Krakowie: zakaz wjazdu dla aut benzynowych niespełniających normy Euro 4 (wyprodukowanych przed 2005 r.) i diesli poniżej Euro 6. Obowiązuje całą dobę. Mieszkańcy Krakowa, którzy kupili auto przed 26.06.2025, są zwolnieni.
+Użytkownik: mieszkanka Krakowa, benzyna z 2002 r., kupiona w 2019 r. · sobota 13:00
+
+@@ child-fare-category | choice
+Q: Given the fare rules and the child's age or height stated, which fare applies to the child?
+C: free=Travels free ;; reduced=Child/discounted fare ;; full=Full adult fare
+## hi/reduced | बताए गए किराया नियमों और बच्चे की उम्र/लंबाई के हिसाब से बच्चे पर कौन-सा किराया लगेगा?
+भारतीय रेल: 5 वर्ष से कम आयु के बच्चे निःशुल्क (बिना बर्थ)। 5 से 12 वर्ष से कम: बिना बर्थ लेने पर आधा किराया, बर्थ लेने पर पूरा किराया। 12 वर्ष व अधिक: पूरा किराया।
+बच्ची: 8 वर्ष, अलग बर्थ नहीं चाहिए (माँ के साथ)
+## th/free
+BTS: เด็กที่มีความสูงไม่เกิน 90 เซนติเมตร โดยสารฟรีเมื่อมากับผู้ปกครอง ส่วนสูงเกิน 90 ซม. คิดค่าโดยสารปกติ ไม่มีอัตราเด็ก
+เด็ก: 3 ขวบ สูง 88 ซม.
+## it/full | Date le regole tariffarie e l'età o l'altezza del bambino indicate, quale tariffa si applica al bambino?
+Trenitalia regionale: gratis fino a 4 anni non compiuti (senza posto). Ragazzi da 4 a 12 anni non compiuti: sconto 50%. Dai 12 anni: tariffa intera.
+Ragazzo: ha compiuto 12 anni il 3 novembre; viaggio del 28 novembre
+## pt/reduced
+CP — Comboios de Portugal: crianças até aos 3 anos (inclusive) viajam grátis sem ocupar lugar. Dos 4 aos 12 anos (inclusive): meio bilhete. A partir dos 13: bilhete inteiro.
+Criança: 12 anos
+## sw/free | Kwa kuzingatia kanuni za nauli na umri wa mtoto ulioelezwa, mtoto atalipa nauli ipi?
+Kivuko cha Kigamboni (TEMESA): Watoto chini ya miaka 5 hawalipi. Miaka 5 hadi 12: Sh 100. Watu wazima: Sh 200.
+Mtoto: miaka 4 na miezi 7
+## zh/full | 依照票價規定與所述兒童的年齡或身高,這名兒童適用哪一種票價?
+台灣高鐵:未滿 6 歲由購票旅客陪同且不佔位者免費;滿 6 歲未滿 12 歲兒童票半價;滿 12 歲購全票。
+兒童:民國 103 年 5 月生,乘車日 115 年 11 月 28 日
+## ru/reduced
+РЖД, поезда дальнего следования: дети до 5 лет — бесплатно без отдельного места; от 5 до 10 лет — детский тариф (скидка от 35 до 70%); с 10 лет — полный билет.
+Ребёнок: 9 лет 11 месяцев на дату отправления
+## ta/full | குறிப்பிடப்பட்ட கட்டண விதிகள் மற்றும் குழந்தையின் வயது/உயரத்தின்படி, குழந்தைக்கு எந்தக் கட்டணம் பொருந்தும்?
+TNSTC அரசுப் பேருந்து: 3 வயதுக்குட்பட்ட குழந்தைகளுக்குக் கட்டணம் இல்லை. 3 முதல் 12 வயது வரை (உயரம் 130 செ.மீ.க்குக் குறைவாக இருந்தால்) அரைக் கட்டணம். 130 செ.மீ.க்கு மேல் உயரம் இருந்தால் வயதைப் பொருட்படுத்தாமல் முழுக் கட்டணம்.
+குழந்தை: 11 வயது, உயரம் 138 செ.மீ.
+
+@@ strike-service-level | choice
+Q: During the strike or disruption described, what level of service runs on the line or route the user needs at the time they travel?
+C: normal=Runs normally ;; reduced=Runs with reduced frequency or guaranteed minimum service ;; none=Does not run at all
+## hi/none
+भारत बंद: 26 नवंबर को ऑटो-टैक्सी यूनियनों की हड़ताल। DTC बसें सामान्य रूप से चलेंगी, मेट्रो पर कोई असर नहीं। ऐप-आधारित कैब (Ola/Uber) और काली-पीली टैक्सियाँ सुबह 6 से शाम 6 बजे तक पूरी तरह बंद रहेंगी।
+उपयोगकर्ता: 26 नवंबर सुबह 9 बजे एयरपोर्ट के लिए Uber
+## th/normal | ในช่วงการนัดหยุดงานหรือเหตุขัดข้องที่อธิบายไว้ เส้นทางที่ผู้ใช้ต้องใช้จะให้บริการระดับใดในเวลาที่ผู้ใช้เดินทาง
+สหภาพฯ รถไฟประกาศหยุดเดินรถสายใต้ทุกขบวน วันที่ 25 พ.ย. 69 สายเหนือและสายอีสานเดินรถตามปกติทุกขบวน
+ผู้ใช้: 25 พ.ย. ขบวน 13 กรุงเทพฯ – เชียงใหม่
+## en/reduced
+RMT strike, Thursday 26 Nov: no service on Northern or TransPennine. LNER will run one train per hour between London King's Cross and Edinburgh, 07:30–18:30 only (normally two per hour).
+User: Thursday, 10:30 King's Cross to York (LNER)
+## ja/reduced | 説明されているストライキや運行障害の間、ユーザーが利用したい路線は、乗車する時間帯にどの程度運行されますか?
+【大雪に伴う計画運休】明日23日、函館本線は終日、通常の5割程度の本数で運転します。千歳線・快速エアポートは始発から正午まで全面運休。
+利用予定:23日 15時ごろ 函館本線 札幌→小樽
+## zh/none
+港铁公告:受台风影响,东铁线今日全日暂停服务。屯马线维持每10分钟一班有限度服务;机场快线照常。
+用户:今日下午 3 时乘东铁线由大围往罗湖
+## ko/normal | 설명된 파업이나 운행 차질 기간에, 사용자가 이용하려는 노선은 이동 시간대에 어느 수준으로 운행되나요?
+철도노조 파업 안내 (11/25~): KTX 평시 대비 68%, 새마을·무궁화 60% 수준 운행. 수도권 전철 1·3·4호선은 출근 시간대(07~09시) 100% 정상 운행, 그 외 시간대 75%.
+이용 예정: 11/25 08:10 수도권 전철 4호선
+## ru/none
+Забастовка авиадиспетчеров во Франции 27 ноября: Air France отменяет все рейсы из Парижа-Орли. Из аэропорта Шарль-де-Голль выполняется около 70% рейсов.
+Пользователь: 27 ноября, рейс AF6208 Орли — Тулуза
+## uk/reduced | Який рівень обслуговування буде на потрібній користувачеві лінії чи маршруті під час описаного страйку або збою в час його поїздки?
+Київський метрополітен: через аварійні роботи з 23 листопада на «синій» лінії між станціями «Деміївська» та «Теремки» потяги курсують у човниковому режимі з інтервалом 15 хв (звичайно 3–4 хв). Решта ліній — без змін.
+Користувач: 24 листопада, 08:30, «Теремки» → «Либідська»
+
+@@ checkin-still-open | noul
+Q: Given the cut-off rule and the time the user will arrive at the airport/terminal/port, will check-in or boarding still be open when they arrive?
+## hi/y
+IndiGo 6E-2134 दिल्ली → पटना · प्रस्थान 14:20
+चेक-इन काउंटर प्रस्थान से 60 मिनट पहले बंद हो जाते हैं। बोर्डिंग गेट 25 मिनट पहले बंद।
+उपयोगकर्ता का टर्मिनल पहुँचने का अनुमान: 13:05
+## th/n | จากกฎเวลาปิดรับและเวลาที่ผู้ใช้จะไปถึงสนามบิน/สถานี/ท่าเรือ เคาน์เตอร์เช็กอินหรือการขึ้นเครื่อง/เรือจะยังเปิดอยู่เมื่อไปถึงหรือไม่
+เรือเฟอร์รี่ราชาเฟอร์รี่ ดอนสัก – เกาะสมุย รอบ 15.00 น.
+รถยนต์ต้องเช็กอินก่อนเรือออกอย่างน้อย 45 นาที หลังจากนั้นไม่รับรถขึ้นเรือ
+Google Maps: ถึงท่าเรือดอนสัก 14.25 น.
+## en/n
+Ryanair FR1183 Stansted → Kraków, departs 06:35
+Bag drop closes strictly 40 minutes before scheduled departure.
+User (one checked bag): train arrives at Stansted Airport station 05:58; ~5 min walk to bag drop.
+## ar/y
+طيران الإمارات EK 927 دبي ← القاهرة · الإقلاع ٠٨:١٥
+تُغلق كاونترات إنهاء إجراءات السفر قبل ٦٠ دقيقة من موعد الإقلاع.
+وقت الوصول المتوقع إلى المبنى ٣: ٠٦:٥٠
+## he/n | בהינתן כלל הסגירה והשעה שבה המשתמש יגיע לשדה/לטרמינל, האם הצ'ק-אין עדיין יהיה פתוח כשיגיע?
+אל על LY 315 תל אביב ← לונדון · המראה 10:40
+דלפקי הצ'ק-אין נסגרים 75 דקות לפני ההמראה.
+Waze: הגעה לטרמינל 3 בשעה 09:32
+## fa/y | با توجه به قانون زمان بسته‌شدن پذیرش و ساعتی که کاربر به فرودگاه/پایانه می‌رسد، آیا هنگام رسیدن او پذیرش هنوز باز است؟
+ماهان W5 1055 تهران (مهرآباد) ← مشهد · پرواز ۱۷:۳۰
+کانتر پذیرش ۳۰ دقیقه پیش از پرواز بسته می‌شود.
+زمان تخمینی رسیدن به ترمینال ۲: ۱۶:۴۰
+## bn/n | কাট-অফ নিয়ম এবং ব্যবহারকারী কখন বিমানবন্দর/টার্মিনালে পৌঁছাবেন তা বিবেচনা করে, তিনি পৌঁছানোর সময় চেক-ইন কি খোলা থাকবে?
+বিমান বাংলাদেশ BG 147 ঢাকা → দুবাই · ছাড়ার সময় ১৯:৪৫
+আন্তর্জাতিক ফ্লাইটের চেক-ইন কাউন্টার ছাড়ার ৬০ মিনিট আগে বন্ধ হয়।
+যানজটের কারণে টার্মিনালে পৌঁছানোর সম্ভাব্য সময়: ১৮:৫৫
+## ta/y
+ஏர் இந்தியா எக்ஸ்பிரஸ் IX 682 திருச்சி → சிங்கப்பூர் · புறப்பாடு 23:10
+செக்-இன் கவுண்டர் புறப்படுவதற்கு 60 நிமிடங்களுக்கு முன் மூடப்படும்.
+பயனர் விமான நிலையம் வந்தடையும் நேரம்: இரவு 9:40
+
+@@ driver-plate-matches | noul
+Q: Does the licence plate of the car that arrived (as described in the message or note) match the plate the ride app assigned?
+## hi/n
+~app: Uber · आपका ड्राइवर: सुरेश · सफ़ेद Maruti Dzire · HR 26 DK 8472
+~arrived: गार्ड का मैसेज: "मैडम गेट पे सफ़ेद Dzire खड़ी है, नंबर HR 26 DK 8427, ड्राइवर बोल रहा है आपकी बुकिंग है"
+## th/y | ป้ายทะเบียนของรถที่มาถึง (ตามที่อธิบายในข้อความ) ตรงกับป้ายทะเบียนที่แอปเรียกรถกำหนดให้หรือไม่
+~app: Bolt · คนขับ: คุณวิชัย · Toyota Vios สีเทา · ทะเบียน 3กฮ 5921 กรุงเทพมหานคร
+~arrived: ข้อความจากเพื่อน: "รถมาแล้วนะ วีออสสีเทา 3กฮ-5921 จอดหน้าเซเว่น"
+## en/n
+~app: Bolt · Driver: Tomasz · Grey Toyota Prius · LR19 KXO
+~arrived: Text from flatmate: "there's a grey Prius outside, plate LR19 KXD, he's waving at me??"
+## vi/y
+~app: Xanh SM · Tài xế: Nguyễn Văn Hòa · VinFast VF e34 · 30K-582.16
+~arrived: Tin nhắn của bảo vệ: "Xe VinFast xanh biển số 30K-582.16 đang chờ ở cổng B nhé chị"
+## id/n | Apakah pelat nomor mobil yang datang (seperti disebut dalam pesan) cocok dengan pelat yang ditetapkan aplikasi?
+~app: Gocar · Driver: Bambang S. · Toyota Avanza hitam · B 2714 SKL
+~arrived: WhatsApp dari satpam: "Bu, ada Avanza hitam B 2174 SKL nunggu di lobby, katanya jemput Ibu"
+## tr/y | Gelen aracın plakası (mesajda anlatıldığı gibi), uygulamanın atadığı plakayla eşleşiyor mu?
+~app: BiTaksi · Sürücü: Hakan Ö. · Sarı Fiat Egea · 34 TDK 482
+~arrived: Kapıcıdan mesaj: "Abi sarı taksi geldi, plaka 34 TDK 482, aşağıda bekliyor"
+## el/n
+~app: FREE NOW · Οδηγός: Νίκος Π. · Skoda Octavia κίτρινο · ΤΑΕ-4183
+~arrived: Μήνυμα από τη μαμά: «Ήρθε ένα κίτρινο ταξί, ΤΑΕ-4138 γράφει η πινακίδα, να κατέβω;»
+## pl/y | Czy tablica rejestracyjna auta, które przyjechało (opisana w wiadomości), zgadza się z tablicą przypisaną w aplikacji?
+~app: Bolt · Kierowca: Andrij · Toyota Corolla srebrna · WE 4K812
+~arrived: SMS od córki: „Tato, stoi srebrna corolla WE 4K812 pod klatką, to twoja?”
+
+@@ map-place-closure-state | choice
+Q: According to this map listing, what is the status of the place?
+C: open=Operating normally ;; temp_closed=Temporarily closed (renovation, holiday, season) ;; perm_closed=Permanently closed ;; moved=Moved to a new address
+## hi/temp_closed
+Google Maps · शर्मा मिष्ठान भंडार ★4.3 (1,204)
+🔴 अस्थायी रूप से बंद
+मालिक की ओर से: "दुकान में रेनोवेशन चल रहा है, 5 दिसंबर से फिर खुलेंगे। असुविधा के लिए खेद है।"
+## th/moved | ตามข้อมูลบนแผนที่นี้ สถานที่นี้มีสถานะอย่างไร
+ร้านตัดผมลุงหมาย (สาขาเดิม ซอยอารีย์ 4)
+⚠ สถานที่นี้ย้ายแล้ว → ร้านตัดผมลุงหมาย ซอยอารีย์ 1 (เปิด 9.00–19.00)
+รีวิวล่าสุด: "ไปที่เดิมไม่เจอ ย้ายไปซอย 1 ตรงข้ามร้านกาแฟแล้วครับ"
+## en/perm_closed
+Google Maps · The Lamb & Flag ★4.1
+Permanently closed
+"Sad to see it go — boarded up since August, planning notice on the door for flats."
+## it/open | Secondo questa scheda sulla mappa, qual è lo stato del luogo?
+Ferramenta Rossetti · ★4,6 (212)
+Aperto ⋅ Chiude alle 19:30
+Aggiornato dall'attività 3 giorni fa. "Sempre aperti anche durante i lavori in via Mazzini, ingresso dal cortile."
+## pt/temp_closed
+Pastelaria Aliança — Rua Garrett
+Temporariamente fechado
+Aviso do proprietário: "Encerrado para férias de 16 a 30 de novembro. Voltamos a 1 de dezembro."
+## sw/perm_closed | Kulingana na taarifa hii ya ramani, hali ya mahali hapa ni ipi?
+Mama Ntilie Café — Kariakoo ★3.9
+Pamefungwa kabisa
+Maoni: "Wamefunga tangu Machi, jengo limebomolewa kupisha ujenzi wa soko jipya."
+## zh/moved
+Google 地圖 · 阿美鹹酥雞(舊址)
+此地點已遷移至:阿美鹹酥雞 — 中山路二段 118 號
+評論:「搬到對面巷口了,記得不要跑錯。」
+## ar/open | بحسب هذه البطاقة على الخريطة، ما حالة المكان؟
+خرائط Google · صيدلية الشفاء ★٤٫٥ (٣٨٨)
+مفتوح على مدار ٢٤ ساعة
+تم التحديث من قِبل النشاط التجاري قبل أسبوع · "خدمة توصيل متوفرة"
+
+@@ women-only-car-in-effect | noul
+Q: Per the rule shown, is the women-only restriction on this carriage/compartment/section in force at the stated day and time?
+## hi/y
+दिल्ली मेट्रो: हर ट्रेन का पहला कोच (चलने की दिशा में) हर समय, सभी दिनों में केवल महिलाओं के लिए आरक्षित है। उल्लंघन पर ₹250 जुर्माना।
+समय: रविवार, रात 9:50, येलो लाइन, पहला कोच
+## th/n | ตามกฎที่แสดง ข้อกำหนดเฉพาะสุภาพสตรีของตู้/ส่วนนี้มีผลบังคับใช้ในวันและเวลาที่ระบุหรือไม่
+ขสมก. ทดลองให้บริการ "รถเมล์เลดี้" สาย 515 เฉพาะสุภาพสตรีและเด็ก วันจันทร์–ศุกร์ ช่วงเวลาเร่งด่วน 06.00–08.30 น. และ 16.30–19.30 น. นอกเวลาดังกล่าวรับผู้โดยสารทั่วไป
+เวลา: วันอังคาร 13.15 น.
+## ja/n | 表示されている規則によると、この車両・区画の女性専用の扱いは、記載の曜日・時刻に適用されていますか?
+東京メトロ半蔵門線 女性専用車
+平日 始発から9時30分まで、渋谷方面行きの最後尾車両。土休日は実施しません。
+現在:平日 午前10時05分 最後尾車両
+## zh/y
+深圳地铁"女士优先车厢":工作日 7:30–9:30、17:30–19:30 高峰时段,列车首尾两节车厢供女士优先乘坐。
+时间:周四 18:10,1号线首节车厢
+## ko/n | 표시된 규칙에 따르면, 이 칸의 여성 전용(배려) 운영이 명시된 요일과 시간에 적용되고 있나요?
+부산 도시철도 1호선 여성배려칸
+운영 시간: 평일 출근 07:00~09:00, 퇴근 18:00~20:00, 5호차. 주말·공휴일 미운영.
+현재: 토요일 08:20, 5호차
+## ru/y
+РЖД: купе № 3 в вагоне 07 поезда 016А Москва — Мурманск продаётся как «женское» (Ж) на весь маршрут следования. Пассажиры-мужчины старше 10 лет в такое купе не допускаются.
+Поездка: 27.11, вагон 07, купе 3, участок Тверь — Петрозаводск
+## uk/n | Чи діє, згідно з показаним правилом, обмеження «тільки для жінок» для цього вагона/купе у зазначений день і час?
+Укрзалізниця: жіночі купе доступні в поїздах №№ 29/30, 81/82, 91/92. У поїзді № 43 Київ — Івано-Франківськ жіночі купе не передбачені; усі купе — змішані.
+Поїздка: 26.11, поїзд № 43, вагон 9, купе 5
+## fa/y | طبق قانون نمایش‌داده‌شده، آیا محدودیت «ویژه بانوان» برای این واگن/بخش در روز و ساعت ذکرشده برقرار است؟
+متروی تهران: واگن‌های اول و آخر هر قطار در تمام ساعات بهره‌برداری و همه روزهای هفته ویژه بانوان است. ورود آقایان ممنوع.
+زمان: جمعه، ساعت ۱۱:۲۰، خط ۱، واگن اول

@@ -1,0 +1,470 @@
+@@ ticket-format-accepted | choice
+Q: According to the ticket terms shown, in what form must the ticket be presented to travel or enter?
+C: mobile_ok=Showing it on a phone (QR/app/PDF) is enough ;; print_required=A printout on paper is required ;; collect=A physical ticket must be collected at a counter, machine or kiosk first
+## hi/mobile_ok | दिखाई गई टिकट शर्तों के अनुसार, यात्रा या प्रवेश के लिए टिकट किस रूप में दिखाना होगा?
+IRCTC ई-टिकट (ERS)
+यात्रा के दौरान ERS का प्रिंटआउट ज़रूरी नहीं है। IRCTC से आया SMS या मोबाइल पर ई-टिकट, साथ में मूल फ़ोटो पहचान पत्र दिखाना पर्याप्त है। पहचान पत्र न होने पर यात्री को बिना टिकट माना जाएगा।
+## th/collect
+Thai Ticket Major — คอนเสิร์ต BODYSLAM อิมแพ็ค อารีน่า
+วิธีรับบัตร: รับบัตรด้วยตนเองที่จุดจำหน่าย หรือที่บูธหน้างานก่อนเริ่มแสดง 2 ชม. โดยแสดงบัตรประชาชนและรหัสการจอง *ไม่สามารถใช้อีเมลยืนยันหรือภาพหน้าจอเข้างานได้*
+## en/print_required
+Megabus — booking MB-7741920
+IMPORTANT for this route (operated by partner FlixBus Polska): drivers cannot scan phone screens. You must print this confirmation on A4 and hand it to the driver. Passengers without a paper copy may be refused.
+## ja/collect | 表示されているチケット規約によると、乗車・入場の際にチケットをどの形で提示する必要がありますか?
+えきねっと 予約内容確認
+新幹線eチケットサービス対象外の区間を含むため、ご乗車前に駅の指定席券売機またはみどりの窓口で紙のきっぷをお受け取りください。予約確認メールでは乗車できません。
+## zh/mobile_ok
+铁路12306 · 电子客票
+G7 次 北京南 → 上海虹桥 11月27日
+本次列车实行电子客票,无需取纸质车票,持购票时使用的有效身份证件原件或 12306 App 动态二维码即可进站乘车。如需报销凭证可在乘车后 180 日内领取。
+## ko/print_required | 표시된 티켓 약관에 따르면, 탑승하거나 입장하려면 티켓을 어떤 형태로 제시해야 하나요?
+인터파크 투어 · 일본 JR 간사이 패스 교환권(바우처)
+본 교환권은 반드시 A4 용지에 인쇄하여 지참하셔야 합니다. 모바일 화면 제시는 현지 창구에서 인정되지 않습니다. 인쇄본과 여권을 제시하고 실물 패스로 교환하세요.
+## ru/mobile_ok | В каком виде, согласно показанным условиям, нужно предъявить билет для поездки или входа?
+РЖД · Электронная регистрация пройдена
+Поезд 104В Москва — Адлер, 28.11.2026, вагон 12, место 31
+Распечатывать билет не нужно: для посадки достаточно предъявить проводнику паспорт, указанный при покупке. Посадочный купон можно показать с экрана телефона.
+## uk/print_required
+Автостанція «Київ» · квиток онлайн № 0048821
+Увага! Перевізник ФОП Коваленко здійснює посадку лише за роздрукованим квитком. Якщо ви не маєте змоги роздрукувати, зверніться до каси автостанції (послуга друку — 10 грн).
+
+@@ delivery-minimum-met | noul
+Q: Does the current basket reach the restaurant's or shop's minimum order value for delivery (fees and tips do not count unless stated)?
+## hi/y
+Swiggy · बीकानेरवाला, सेक्टर 18
+न्यूनतम ऑर्डर: ₹149
+कार्ट: छोले भटूरे ×1 ₹135 · लस्सी ×1 ₹60 → आइटम कुल ₹195
+डिलीवरी शुल्क ₹32 · GST ₹9.75
+## th/n | ตะกร้าปัจจุบันถึงยอดสั่งซื้อขั้นต่ำสำหรับการจัดส่งของร้านแล้วหรือยัง (ค่าส่งและทิปไม่นับรวม เว้นแต่ระบุไว้)
+LINE MAN · ร้านโจ๊กสามย่าน
+สั่งขั้นต่ำ 100 บาท (ไม่รวมค่าส่ง)
+ตะกร้า: โจ๊กหมูใส่ไข่ ×1 ฿55 · ปาท่องโก๋ ×1 ฿20 → รวมค่าอาหาร ฿75
+ค่าส่ง ฿29 → รวมทั้งสิ้น ฿104
+## en/n
+Deliveroo · Dishoom Shoreditch
+Minimum order £15.00. "Add £2.10 more to place your order."
+Basket: Chicken Ruby £12.90
+Delivery fee £2.49 · Service fee £1.29
+## vi/y | Giỏ hàng hiện tại đã đạt giá trị đơn tối thiểu để giao hàng của quán chưa (không tính phí giao hàng và tiền tip trừ khi có ghi rõ)?
+ShopeeFood · Bún chả Hương Liên
+Đơn tối thiểu: 50.000đ
+Giỏ hàng: Bún chả đặc biệt ×1 65.000đ · Nem cua bể ×2 30.000đ → Tạm tính 95.000đ
+Phí giao hàng 16.000đ
+## id/n
+GoFood · Sate Khas Senayan
+Minimum pembelian Rp 40.000 (belum termasuk ongkir)
+Keranjang: Es teh manis ×2 Rp 16.000 · Kerupuk ×1 Rp 8.000 → Subtotal Rp 24.000
+Ongkir Rp 12.000 · Biaya layanan Rp 4.000
+## tr/y | Mevcut sepet, restoranın teslimat için minimum sipariş tutarına ulaşıyor mu (aksi belirtilmedikçe ücretler ve bahşiş sayılmaz)?
+Yemeksepeti · Köfteci Yusuf
+Min. sepet tutarı: 250 TL
+Sepet: Izgara köfte porsiyon 240 TL · Ayran 35 TL → Ara toplam 275 TL
+Gönderim ücreti: 29,90 TL
+## el/n | Φτάνει το τρέχον καλάθι την ελάχιστη παραγγελία του καταστήματος για παράδοση (τα έξοδα και το φιλοδώρημα δεν μετράνε);
+efood · Ο Θανάσης — Μοναστηράκι
+Ελάχιστη παραγγελία: 8,00 €
+Καλάθι: Πίτα γύρο χοιρινό ×1 4,20 € · Αναψυκτικό 1,80 € → Σύνολο προϊόντων 6,00 €
+Κόστος παράδοσης 1,50 € · Φιλοδώρημα 1,00 €
+## pl/y
+Pyszne.pl · Pierogarnia Stary Młyn
+Min. wartość zamówienia: 40,00 zł
+Koszyk: Pierogi ruskie 12 szt. 32,00 zł · Barszcz czerwony 11,00 zł → Razem produkty 43,00 zł
+Dostawa 6,99 zł
+
+@@ dietary-certification-level | choice
+Q: How well is the dietary or religious claim (halal, kosher, vegetarian, vegan, Jain) of this restaurant or product backed up?
+C: certified=Certified by a named authority or official mark ;; self_declared=Claimed by the owner or described so, but no certification shown ;; none=No such claim, or the listing indicates it does not comply
+## hi/certified
+पैकेट पर: हल्दीराम आलू भुजिया · 🟢 शाकाहारी चिह्न (FSSAI हरा बिंदु) · FSSAI लाइसेंस नं. 10013022002253 · "100% Vegetarian"
+## th/self_declared | คำกล่าวอ้างด้านอาหารหรือศาสนา (ฮาลาล โคเชอร์ มังสวิรัติ วีแกน เจ) ของร้านหรือสินค้านี้มีหลักฐานรองรับมากน้อยเพียงใด
+ร้านข้าวหมกไก่บังหมัด ★4.4
+เจ้าของร้านตอบรีวิว: "ร้านเราเป็นมุสลิมทำเองทุกขั้นตอน ไม่มีหมูแน่นอนครับ แต่ยังไม่ได้ยื่นขอเครื่องหมายฮาลาลจากสำนักงานคณะกรรมการกลางอิสลามฯ"
+## en/none
+Byron's Smokehouse — FAQs
+Is your meat halal? No. Our beef and pork are sourced from non-halal suppliers and are cooked on shared grills. We do offer two vegetarian sides.
+## it/self_declared
+Osteria La Tana — menu
+"Proponiamo diversi piatti vegani 🌱 preparati con cura dalla nostra chef." Nessun marchio o ente certificatore indicato; la cucina utilizza anche carne e latticini.
+## pt/certified | Até que ponto está comprovada a alegação alimentar ou religiosa (halal, kosher, vegetariano, vegano) deste restaurante ou produto?
+Frango Sadia congelado 1 kg
+Selo: Abate Halal certificado pela CDIAL Halal — Certificado n.º BR-2291/26. Produto inspecionado pelo SIF 104.
+## sw/none | Dai ya chakula au ya kidini (halal, kosher, mboga tupu) ya mgahawa au bidhaa hii imethibitishwa kwa kiwango gani?
+Nyama Choma Paradise — Arusha
+Menyu: mbuzi choma, kitimoto (nguruwe) rosti, bia baridi. Hakuna maelezo yoyote kuhusu halal. Jiko moja linatumika kwa nyama zote.
+## zh/certified
+全聯線上購 · 義美素食水餃
+包裝標示:全素 · 台灣素食推廣協會認證標章 編號 TVA-0417 · 清真認證:無
+(使用者查詢:素食)
+## ko/self_declared | 이 식당이나 제품의 식이·종교 관련 표시(할랄, 코셔, 채식, 비건)는 어느 정도로 뒷받침되나요?
+이태원 케밥하우스 — 네이버 플레이스
+사장님 소개글: "저희는 무슬림 사장이 직접 운영하며 할랄 고기만 사용합니다." KMF 할랄 인증 마크나 인증 번호는 표시되어 있지 않음.
+
+@@ fast-can-be-broken-now | noul
+Q: The state describes a fast (religious or medical), the time or condition at which it ends, and the current time. May the person eat now?
+## hi/n
+करवा चौथ व्रत · नई दिल्ली
+चंद्रोदय का समय: रात 8:14 बजे। व्रत चाँद देखकर अर्घ्य देने के बाद ही खोला जाता है।
+अभी का समय: शाम 7:40 बजे · आसमान में बादल, चाँद अभी नहीं निकला
+## th/y | สถานะอธิบายการอดอาหาร (ทางศาสนาหรือทางการแพทย์) เวลาหรือเงื่อนไขที่สิ้นสุด และเวลาปัจจุบัน ตอนนี้บุคคลนั้นรับประทานอาหารได้หรือยัง
+เดือนรอมฎอน ฮ.ศ. 1448 · จังหวัดปัตตานี
+เวลาละศีลอด (มัฆริบ) วันนี้: 18.27 น.
+ขณะนี้: 18.31 น. เสียงอาซานดังแล้ว
+## en/n
+Royal Infirmary pre-op letter: "Your operation is at 1:30 pm. Do not eat anything after 7:00 am on the day. You may drink clear water until 11:00 am. You can eat again only once the ward nurse says so after surgery."
+Now: 9:15 am on the day of the operation, not yet admitted.
+## ar/y | يصف الوضع صياماً (دينياً أو طبياً) ووقت أو شرط انتهائه والوقت الحالي. هل يجوز للشخص أن يأكل الآن؟
+إمساكية رمضان ١٤٤٨ — عمّان
+اليوم ١٤ رمضان · أذان المغرب: ٦:٠٢ م
+الساعة الآن: ٦:٠٥ م
+## he/n | המצב מתאר צום (דתי או רפואי), את השעה או התנאי שבו הוא מסתיים ואת השעה הנוכחית. האם מותר לאדם לאכול עכשיו?
+צום יום הכיפורים תשפ"ז — ירושלים
+כניסת הצום: 17:08 · צאת הצום: 18:21
+השעה כעת: 18:05, תפילת נעילה בעיצומה
+## fa/y
+اوقات شرعی تهران — ماه رمضان ۱۴۰۵
+اذان مغرب (افطار): ۱۸:۱۴
+ساعت فعلی: ۱۸:۲۰
+## bn/n | এখানে একটি রোজা/উপবাস (ধর্মীয় বা চিকিৎসাজনিত), সেটি কখন বা কোন শর্তে শেষ হয় এবং বর্তমান সময় দেওয়া আছে। ব্যক্তিটি কি এখন খেতে পারেন?
+রমজান ১৪৪৮ · ঢাকা ও আশপাশের এলাকা
+আজকের ইফতারের সময়: সন্ধ্যা ৬:০৪ মিনিট
+এখন সময়: বিকেল ৫:৫২ মিনিট
+## ta/y | இங்கு ஒரு நோன்பு/விரதம் (மத அல்லது மருத்துவ), அது முடியும் நேரம் அல்லது நிபந்தனை, தற்போதைய நேரம் ஆகியவை கூறப்பட்டுள்ளன. அந்த நபர் இப்போது சாப்பிடலாமா?
+அப்போலோ ஆய்வகம்: "ரத்த சர்க்கரை (Fasting) பரிசோதனைக்கு 8–10 மணி நேரம் உணவு உண்ணாமல் வரவும். ரத்த மாதிரி எடுத்த பின் உடனே சாப்பிடலாம்."
+நிலை: ரத்த மாதிரி காலை 7:10க்கு எடுக்கப்பட்டது ✓ · இப்போது காலை 7:25
+
+@@ dish-spice-level | score
+Q: How spicy (chilli heat) is this dish as described on the menu or in the reviews?
+C: Not spicy at all ;; Mild ;; Medium to hot ;; Extremely hot
+## hi/3 | मेन्यू या रिव्यू में बताए अनुसार यह डिश कितनी तीखी (मिर्च वाली) है?
+कोल्हापुरी मिसळ 🌶🌶🌶 — "तर्री वाला झणझणीत रस्सा, तीखा पसंद करने वालों के लिए। कम तीखा चाहिए तो ऑर्डर नोट में लिखें।" रिव्यू: "अच्छा-ख़ासा तीखा है, पर खाया जा सकता है, दही साथ में लेना।"
+## th/4
+ส้มตำปูปลาร้า "เผ็ดนรก" — พริกสวน 30 เม็ด รีวิว: "เผ็ดจนหูอื้อ น้ำตาไหล กินได้สามคำต้องยอมแพ้ ใครไม่กินเผ็ดจัดห้ามสั่งเด็ดขาด"
+## ar/1 | ما مدى حِدّة (حرارة الفلفل) هذا الطبق بحسب وصفه في القائمة أو في التقييمات؟
+منسف أردني باللحم البلدي — لحم خروف مطبوخ بالجميد الكركي، يقدَّم على أرز وخبز شراك مع اللوز والصنوبر. "طعم لبني حامض خفيف، بدون أي فلفل حار."
+## he/2
+שקשוקה ביתית — "פיקנטית בעדינות": עגבניות, פלפל מתוק, מעט פלפל צ'ומה. ביקורת: "הילדים אכלו בלי בעיה, רק קצת עוקץ בסוף."
+## fa/1 | این غذا طبق توضیح منو یا نظرات چقدر تند است (تندی فلفل)؟
+چلوکباب کوبیده — دو سیخ کوبیده گوسفندی با برنج ایرانی، کره، گوجه کبابی و سماق. توضیحات: «بدون ادویه تند؛ مناسب کودکان».
+## bn/3
+খাসির কালা ভুনা (চট্টগ্রামের রেসিপি) — "ঝাল: মাঝারি থেকে বেশি 🌶🌶🌶। গোলমরিচ ও শুকনা মরিচের ঝাঁঝ আছে।" রিভিউ: "বেশ ঝাল, তবে ভাতের সাথে দারুণ জমে।"
+## ta/2 | மெனு அல்லது மதிப்புரைகளில் விவரிக்கப்பட்டபடி இந்த உணவு எவ்வளவு காரமானது?
+சாம்பார் சாதம் (நெய்யுடன்) — "குழந்தைகளுக்கும் ஏற்ற லேசான காரம்." மதிப்புரை: "காரம் மிகக் குறைவு, கொஞ்சம் மிளகாய் வாசனை மட்டும்."
+## id/4
+Mie Gacoan Level 8 / Mie Setan "Iblis" — cabai rawit 60 biji. Ulasan: "Pedasnya nggak manusiawi, baru dua suap langsung keringetan dan sakit perut. Jangan coba kalau nggak kuat pedas banget."
+
+@@ delivery-handoff-mode | choice
+Q: According to the order's delivery instructions, how should the courier hand over the order?
+C: hand_to_me=Hand it to the customer in person (ring/call) ;; leave_at_door=Leave it at the door, no contact ;; reception=Leave with a guard, concierge, neighbour or reception ;; pickup=No delivery: the customer collects it
+## hi/reception | ऑर्डर के डिलीवरी निर्देशों के अनुसार, कूरियर को ऑर्डर कैसे सौंपना है?
+Zomato · ऑर्डर #48213
+डिलीवरी निर्देश: "सोसाइटी में डिलीवरी बॉय अंदर नहीं आ सकते। मेन गेट पर सिक्योरिटी गार्ड को दे दें, टावर C-1204 बोलना। घंटी/कॉल मत करना, बच्चा सो रहा है।"
+## th/leave_at_door
+foodpanda · หมายเหตุถึงไรเดอร์
+"แขวนไว้ที่ลูกบิดประตูห้อง 508 ได้เลยค่ะ ไม่ต้องเคาะ ไม่ต้องโทร จ่ายผ่านบัตรแล้ว ขอบคุณค่ะ"
+## en/hand_to_me
+Just Eat — Notes for driver
+"Buzzer's broken — please phone when you're outside and I'll come down to the front door to take it from you. Don't leave it in the hallway, things get nicked."
+## ja/leave_at_door | 注文の配達指示によると、配達員はどのように注文品を受け渡せばよいですか?
+出前館 ご注文 #D-90214
+受け取り方法:置き配(玄関前)
+備考:「インターホンは鳴らさず、ドアの前の棚に置いてください。置いたら写真だけ送ってください。」
+## zh/pickup
+美团外卖 · 订单详情
+配送方式:到店自取
+取餐码 A217 · 请于 12:20 后到店出示 · 门店:老乡鸡(徐家汇店)
+备注:不要香菜
+## ko/hand_to_me | 주문의 배달 요청사항에 따르면, 배달원은 주문을 어떻게 전달해야 하나요?
+배달의민족 주문 요청사항
+"현금 결제라 직접 받을게요. 도착하면 벨 눌러주세요. 문 앞에 두고 가지 마세요!"
+결제: 만나서 현금결제 23,500원
+## ru/reception
+Яндекс Еда · Комментарий курьеру
+«Офис на 9 этаже, курьеров наверх не пускают. Оставьте, пожалуйста, на ресепшене на первом этаже для Морозовой, охрана в курсе. Звонить не надо, я на совещании».
+## uk/pickup | Як кур'єр має передати замовлення відповідно до інструкцій щодо доставки?
+Glovo · Замовлення № 5518
+Спосіб отримання: Самовивіз із закладу «Львівські круасани», вул. Саксаганського, 59
+Готовність: 13:40 · Покажіть код 4471 на касі
+
+@@ kitchen-order-state | choice
+Q: Can the user place an order at this restaurant on the delivery app right now?
+C: open=Yes, ordering works normally ;; busy_paused=Temporarily not taking orders (too busy, no couriers, short pause) ;; closed=Closed for today or outside opening hours ;; preorder=Only scheduling an order for later is possible
+## hi/busy_paused | क्या उपयोगकर्ता अभी डिलीवरी ऐप पर इस रेस्टोरेंट से ऑर्डर कर सकता है?
+Zomato · पंजाबी तड़का ढाबा
+⚠ फ़िलहाल ऑर्डर स्वीकार नहीं कर रहा — रेस्टोरेंट में अभी बहुत भीड़ है। लगभग 20 मिनट बाद फिर कोशिश करें।
+खुलने का समय: 11:00–23:30
+## th/preorder
+GrabFood · ครัวเจ๊ง้อ
+ร้านปิดอยู่ · เปิดอีกครั้ง 10.00 น.
+สั่งล่วงหน้าได้: เลือกเวลาจัดส่งตั้งแต่ 10.30 น. เป็นต้นไป [สั่งล่วงหน้า]
+## en/closed
+Uber Eats · Mama Thai Kitchen
+Closed · Opens Monday 12:00
+"This store isn't accepting orders today." Scheduling is unavailable for this store.
+## vi/open | Người dùng có thể đặt món ở quán này trên ứng dụng giao đồ ăn ngay bây giờ không?
+GrabFood · Cơm tấm Ba Ghiền
+Đang mở cửa · 06:00–21:00 · Giao trong 25 phút
+Ưu đãi: Giảm 20K cho đơn từ 100K
+## id/busy_paused
+GoFood · Bakmi GM Thamrin
+Resto lagi rame banget 😅 Sementara belum bisa terima pesanan. Coba lagi beberapa saat ya.
+Jam buka hari ini: 10.00–22.00
+## tr/closed | Kullanıcı şu anda teslimat uygulamasında bu restorandan sipariş verebilir mi?
+Getir Yemek · Hacıoğlu Lahmacun
+Restoran kapalı · Çalışma saatleri: 11:00–23:00 · Şu an: 23:40
+İleri tarihli sipariş bu restoranda bulunmuyor.
+## el/preorder
+Wolt · Souvlaki Story — Γλυφάδα
+Κλειστό · Ανοίγει στις 12:30
+Μπορείτε να προγραμματίσετε παραγγελία για αργότερα σήμερα. [Προγραμματισμός παραγγελίας]
+## pl/open | Czy użytkownik może teraz złożyć zamówienie w tej restauracji w aplikacji z dostawą?
+Glovo · Bar Mleczny Familijny
+Otwarte do 20:00 · Dostawa 20–30 min · Opłata 4,99 zł
+Uwaga: dziś brak kompotu.
+
+@@ order-complaint-kind | choice
+Q: What is the customer's main complaint about this food or grocery order?
+C: missing=An item was left out ;; wrong=A different item or order was delivered ;; late=It arrived much too late ;; quality=Food cold, spilled, spoiled or badly prepared ;; overcharged=Charged more than it should have been
+## hi/missing | इस खाने/किराने के ऑर्डर के बारे में ग्राहक की मुख्य शिकायत क्या है?
+Blinkit सपोर्ट चैट
+ग्राहक: 6 चीज़ें मँगवाई थीं, थैले में 5 ही निकलीं। अमूल मक्खन 500 ग्राम है ही नहीं, जबकि बिल में ₹285 जुड़ा हुआ है। बाक़ी सब ठीक है और डिलीवरी भी 9 मिनट में आ गई थी।
+## th/quality
+รีวิว LINE MAN ★☆☆☆☆
+"ไรเดอร์มาเร็วดีค่ะ แต่ก๋วยเตี๋ยวต้มยำน้ำหกเลอะเต็มถุง เส้นอืดจนกินไม่ได้ ร้านแพ็กไม่ดีเลย ของครบนะคะแต่กินไม่ได้"
+## en/late
+Complaint to Domino's: "Order placed 18:05, tracker said 25–35 mins. It turned up at 19:50 — nearly two hours. To be fair the pizzas were the right ones and still warm-ish, but the kids had gone to bed hungry."
+## it/wrong | Qual è il reclamo principale del cliente riguardo a questo ordine di cibo o spesa?
+Chat assistenza Glovo
+Cliente: Ho ordinato una margherita e una diavola, mi è arrivato un sacchetto con due poke al salmone e lo scontrino di un altro cliente (Sig. Ferri). Il rider è arrivato puntuale, ma non è il mio ordine.
+## pt/overcharged
+Reclame Aqui — iFood
+"Pedi um combo de R$ 39,90 com cupom de R$ 10. Na fatura do cartão veio R$ 52,80, sem cupom e com uma taxa de serviço que não aparecia no fechamento. O lanche chegou certo e quente, o problema é o valor cobrado."
+## sw/late | Lalamiko kuu la mteja kuhusu oda hii ya chakula ni lipi?
+Ujumbe kwa huduma kwa wateja: "Niliagiza chipsi kuku saa 6:30 mchana, mkaniambia dakika 40. Chakula kimefika saa 9 alasiri! Chakula chenyewe kilikuwa sawa na kamili, ila kusubiri masaa mawili na nusu si haki."
+## zh/missing
+foodpanda 客服對話
+顧客:我點了雞腿便當兩個加一杯珍奶,便當有到、也是熱的,可是珍奶沒有送來,明細上明明有算 65 元。
+## vi/wrong | Khiếu nại chính của khách hàng về đơn đồ ăn này là gì?
+Đánh giá ShopeeFood ★★☆☆☆
+"Mình đặt phở bò tái không hành, quán giao bún bò Huế. Giao nhanh, đồ còn nóng nhưng mình không ăn cay được. Mong quán kiểm tra kỹ đơn trước khi giao."
+
+@@ alcohol-sale-allowed-now | noul
+Q: Under the local rule quoted, may the shop or app sell/deliver alcohol to this adult customer at the stated day and time?
+## hi/n
+दिल्ली आबकारी विभाग: 2026 के ड्राई डे — 26 जनवरी, 15 अगस्त, 2 अक्टूबर, तथा मतदान के दिन और मतगणना दिवस। ड्राई डे पर सभी शराब की दुकानें पूरे दिन बंद रहेंगी; सामान्य दिनों में 10:00–22:00 खुली।
+ग्राहक: 2 अक्टूबर, शाम 6 बजे
+## th/y | ตามกฎหมายท้องถิ่นที่อ้างถึง ร้านหรือแอปสามารถขาย/ส่งเครื่องดื่มแอลกอฮอล์ให้ลูกค้าผู้ใหญ่รายนี้ในวันและเวลาที่ระบุได้หรือไม่
+ร้านสะดวกซื้อ: จำหน่ายเครื่องดื่มแอลกอฮอล์ได้เฉพาะเวลา 11.00–14.00 น. และ 17.00–24.00 น. งดจำหน่ายในวันสำคัญทางพุทธศาสนา
+ลูกค้า: วันพฤหัสบดี (ไม่ใช่วันพระใหญ่) เวลา 19.20 น.
+## en/n
+Tesco Express, Leith Walk, Edinburgh: under Scottish licensing law, alcohol can only be sold between 10am and 10pm. Tills will not process alcohol outside these hours.
+Customer: Saturday, 10:25pm
+## tr/n | Aktarılan yerel kurala göre mağaza veya uygulama, bu yetişkin müşteriye belirtilen gün ve saatte alkol satabilir/teslim edebilir mi?
+4250 sayılı Kanun: Alkollü içkiler 22.00 ile 06.00 saatleri arasında perakende olarak satılamaz. Market ve tekel bayileri bu saatlerde alkol satışı yapamaz.
+Müşteri: Cuma, saat 22.35, tekel bayisi
+## pl/y | Czy zgodnie z przytoczonym lokalnym przepisem sklep może sprzedać alkohol temu dorosłemu klientowi w podanym dniu i o podanej godzinie?
+Uchwała Rady Miasta Krakowa: zakaz sprzedaży napojów alkoholowych w sklepach i na stacjach benzynowych w godz. 24:00–5:30. Zakaz nie dotyczy lokali gastronomicznych.
+Klient: sklep Żabka, środa, godz. 23:10
+## ru/y
+Закон Московской области: розничная продажа алкоголя запрещена с 23:00 до 08:00, а также 1 июня, 1 сентября и в день «последнего звонка». В остальные дни с 08:00 до 23:00 — разрешена.
+Покупатель: 22 ноября, 21:45
+## ko/n | 인용된 현지 규정에 따르면, 가게나 앱이 명시된 요일·시간에 이 성인 고객에게 주류를 판매/배달할 수 있나요?
+주류 통신판매 고시: 음식점은 조리한 음식과 함께 주문받은 경우에 한해 주류를 배달할 수 있으며, 주류 금액이 음식 금액보다 크면 안 됩니다. 주류만 단독 배달은 불가.
+주문: 소주 3병 15,000원 + 공깃밥 1개 1,000원 (성인 인증 완료)
+## uk/y
+Рішення КМВА: продаж алкогольних напоїв у закладах торгівлі Києва дозволено з 11:00 до 22:00. Поза цим часом каси блокують продаж.
+Покупець: АТБ на Оболоні, п'ятниця, 21:30
+
+@@ portion-serves-group | noul
+Q: Based on the stated serving sizes, is the quantity ordered enough for the number of people in the group?
+## hi/y
+कैटरिंग ऑर्डर — जन्मदिन पार्टी, 20 मेहमान
+शाही पनीर: 1 किलो की ट्रे 8–10 लोगों के लिए। ऑर्डर: 2 ट्रे
+तंदूरी रोटी: प्रति व्यक्ति 3 मानकर 60 नग — ऑर्डर: 60
+## th/n | จากขนาดเสิร์ฟที่ระบุ ปริมาณที่สั่งเพียงพอสำหรับจำนวนคนในกลุ่มหรือไม่
+สั่งข้าวกล่องประชุม 35 คน
+ชุดขนมจีนน้ำยา "ถาดใหญ่" เสิร์ฟได้ 10–12 ที่/ถาด
+สั่งแล้ว: 2 ถาด
+## it/n | In base alle porzioni indicate, la quantità ordinata è sufficiente per il numero di persone del gruppo?
+Pizzeria Da Gennaro — pizza al metro: 1 metro = 4-5 persone.
+Ordine per la festa di laurea (14 invitati): 2 metri di margherita
+## pt/y
+Churrascaria Boi na Brasa — kit churrasco: cada kit serve 5 pessoas (1,5 kg de carne + acompanhamentos).
+Pedido para 18 pessoas: 4 kits
+## sw/n | Kwa kuzingatia kiasi cha mlo kilichoelezwa, je, kiasi kilichoagizwa kinatosha kwa idadi ya watu katika kundi?
+Mama Lishe Catering: sinia moja la pilau linatosha watu 8.
+Oda ya harusi ndogo (wageni 50): sinia 5 za pilau
+## zh/y | 依照標示的份量,訂購的數量夠這群人吃嗎?
+歐式外燴 · 公司尾牙 30 人
+桶裝珍珠奶茶:每桶 5 公升,約 12–15 杯。訂購:3 桶(每人一杯)
+## ar/y
+مطعم مندي الريف — ذبيحة كاملة مع الرز تكفي ٢٠–٢٥ شخصاً، نصف ذبيحة ١٠–١٢ شخصاً.
+الطلب لعزيمة ٢٢ شخصاً: ذبيحة كاملة واحدة
+## el/n | Με βάση τις μερίδες που αναφέρονται, επαρκεί η ποσότητα που παραγγέλθηκε για τον αριθμό των ατόμων της παρέας;
+Ψησταριά «Ο Τζίμης»: το κιλό παϊδάκια αντιστοιχεί σε 3 μερίδες.
+Παραγγελία για 12 άτομα (ένα πιάτο παϊδάκια ο καθένας): 3 κιλά
+
+@@ cash-on-delivery-available | noul
+Q: Does this checkout offer paying in cash when the order arrives for this order?
+## hi/n | क्या इस चेकआउट में इस ऑर्डर के लिए डिलीवरी पर नक़द भुगतान (कैश ऑन डिलीवरी) का विकल्प उपलब्ध है?
+Flipkart · भुगतान विकल्प
+UPI · क्रेडिट/डेबिट कार्ड · नेट बैंकिंग · EMI
+कैश ऑन डिलीवरी — इस ऑर्डर के लिए उपलब्ध नहीं (₹50,000 से अधिक के ऑर्डर पर COD लागू नहीं)। ऑर्डर कुल: ₹64,990
+## th/y
+Shopee · วิธีการชำระเงิน
+○ ShopeePay ○ บัตรเครดิต/เดบิต ○ โอนผ่านธนาคาร ● เก็บเงินปลายทาง (COD) — มีค่าธรรมเนียม 2%
+ยอดรวม ฿459
+## en/n
+Checkout — Payment
+Card · Apple Pay · PayPal · Klarna (pay in 3)
+We're a cashless service: our couriers do not carry change or accept cash.
+## it/y | Questo checkout offre il pagamento in contanti alla consegna per questo ordine?
+Pagamento
+◦ Carta di credito ◦ PayPal ◦ Bonifico anticipato ◦ Contrassegno (+ € 4,90): paghi in contanti al corriere BRT alla consegna, importo massimo € 999,00
+Totale ordine: € 148,20
+## pt/n | Este checkout oferece pagamento em dinheiro na entrega para este pedido?
+iFood · Forma de pagamento
+Pague pelo app: Pix, Cartão de crédito, VR/Alelo
+Pague na entrega: Maquininha (crédito/débito). Dinheiro: indisponível — este restaurante não aceita dinheiro.
+## sw/y
+Jumia Tanzania · Malipo
+◉ Lipa Unapopokea (pesa taslimu au M-Pesa kwa msafirishaji)
+○ Kadi ya benki ○ M-Pesa sasa
+Jumla: TSh 87,500
+## zh/y | 這個結帳頁面是否提供這筆訂單「貨到付現金」的付款方式?
+momo 購物網 · 付款方式
+信用卡一次付清 / LINE Pay / ATM 轉帳 / 貨到付款(宅配員收現金,限 2 萬元以下)
+訂單金額:NT$ 3,280
+## he/n
+וולט · אמצעי תשלום
+כרטיס אשראי · Apple Pay · Bit · תן ביס / סיבוס
+תשלום במזומן אינו זמין במסעדה זו.
+
+@@ queue-number-called | choice
+Q: Comparing the user's queue ticket with the number now being served, where is the user in the queue?
+C: not_yet=Their number has not been reached yet ;; now=Their number is being called right now ;; missed=Their number has already been passed
+## hi/not_yet | उपयोगकर्ता के टोकन नंबर की तुलना अभी बुलाए जा रहे नंबर से करें। कतार में उपयोगकर्ता की क्या स्थिति है?
+SBI शाखा, लाजपत नगर · टोकन डिस्प्ले
+अभी सेवा में: काउंटर 2 — टोकन A-047 · काउंटर 4 — टोकन A-048
+आपका टोकन: A-063 · अनुमानित प्रतीक्षा: 35 मिनट
+## th/missed
+โรงพยาบาลรามาธิบดี · ห้องเจาะเลือด
+คิวที่กำลังเรียก: 218
+บัตรคิวของคุณ: 204 (ออกบัตร 07.12 น.)
+หมายเหตุ: หากเลยคิว กรุณาติดต่อเจ้าหน้าที่ช่อง 1
+## en/now
+Post Office — Camden High Street
+NOW SERVING ▶ Ticket C112 → Counter 5
+Your ticket: C112 (Parcels & Banking)
+## ja/missed
+区役所 住民課 窓口案内
+現在の呼び出し番号:1 5 6 番
+お客様の番号:149番 ※番号をお呼びした際にご不在の場合は、再度窓口へお声がけください。
+## zh/now | 比较用户的排队号与当前叫号。用户在队列中处于什么位置?
+招商银行(中关村支行)
+请 A0086 号到 3 号窗口办理业务
+您的排队号:A0086 · 前面等待 0 人
+## ko/not_yet | 사용자의 대기 번호표와 현재 호출 중인 번호를 비교하면, 사용자는 대기 순서에서 어디에 있나요?
+강남구 보건소 · 예방접종실
+현재 호출 번호: 37번
+내 번호표: 52번 · 대기 인원 15명
+## ru/missed | Сравните талон пользователя с номером, который обслуживается сейчас. Где пользователь в очереди?
+МФЦ «Мои документы» · район Сокол
+Сейчас обслуживаются: Б041 (окно 7), Б042 (окно 12)
+Ваш талон: Б038 · получен в 10:14
+## uk/now
+ЦНАП Шевченківського району
+Запрошується: талон П-019 до вікна № 4
+Ваш талон: П-019 · Послуга: оформлення паспорта
+
+@@ duty-roster-covers-date | noul
+Q: According to the duty roster shown (on-call pharmacy, clinic or service), is the named place on duty on the date the user needs?
+## hi/y
+ज़िला अस्पताल, उदयपुर — रविवार/अवकाश के दिन खुले रहने वाले मेडिकल स्टोर (रोस्टर नवंबर 2026)
+22 नवं.: जैन मेडिकोज़, सूरजपोल · 29 नवं.: अपोलो फ़ार्मेसी, हाथीपोल · 6 दिसं.: श्रीनाथ मेडिकल, चेतक सर्कल
+उपयोगकर्ता: अपोलो फ़ार्मेसी हाथीपोल, 29 नवंबर
+## th/n | จากตารางเวรที่แสดง (ร้านยา คลินิก หรือบริการที่อยู่เวร) สถานที่ที่ระบุอยู่เวรในวันที่ผู้ใช้ต้องการหรือไม่
+คลินิกทันตกรรมนอกเวลา รพ.มหาราชนครเชียงใหม่ — ตารางแพทย์เวรเดือน พ.ย. 69
+จ. 23: ทพญ.ศิริพร · อ. 24: ทพ.ธนากร · พ. 25: งดบริการ (ประชุมวิชาการ) · พฤ. 26: ทพญ.ศิริพร
+ผู้ใช้: ต้องการพบ ทพ.ธนากร วันพุธที่ 25
+## en/n
+NHS 111 — Pharmacies open Christmas Day 2026, Stockport area
+Boots, Merseyway: closed · Well Pharmacy, Bramhall: 10:00–12:00 · Asda Pharmacy, Portwood: closed
+User: Boots Merseyway, 25 December
+## vi/y
+Lịch trực Tết Nguyên đán 2027 — Trạm y tế phường Bến Nghé
+Mùng 1 (6/2): BS. Lê Thị Mai · Mùng 2 (7/2): BS. Phạm Quốc Hùng · Mùng 3 (8/2): BS. Lê Thị Mai
+Người dùng: muốn gặp BS. Hùng vào mùng 2 Tết
+## id/n | Menurut jadwal jaga yang ditampilkan (apotek, klinik, atau layanan siaga), apakah tempat yang disebut bertugas pada tanggal yang dibutuhkan pengguna?
+Jadwal Apotek Jaga Lebaran 1448 H — Kota Yogyakarta
+1 Syawal: Apotek Kimia Farma Malioboro · 2 Syawal: Apotek K-24 Gejayan · 3 Syawal: Apotek UGM
+Pengguna: Apotek K-24 Gejayan, 1 Syawal
+## tr/y | Gösterilen nöbet çizelgesine göre (nöbetçi eczane, klinik veya hizmet), adı geçen yer kullanıcının ihtiyaç duyduğu tarihte nöbetçi mi?
+Kadıköy Nöbetçi Eczaneler — 22 Kasım 2026 Pazar
+• Moda Eczanesi, Moda Cad. No:112 • Şifa Eczanesi, Bahariye Cad. No:41 • Yeni Acıbadem Eczanesi
+Nöbet: 09.00 – ertesi gün 09.00
+Kullanıcı: Şifa Eczanesi, 22 Kasım gecesi
+## el/n
+Εφημερεύοντα φαρμακεία Πάτρας — Κυριακή 22/11/2026
+08:00–08:00 επομένης: Παπαδόπουλος, Κορίνθου 215 · Γεωργίου, Μαιζώνος 88
+Διημερεύουν 08:00–14:00: Αντωνίου, Ρήγα Φεραίου 40
+Χρήστης: φαρμακείο Αντωνίου, Κυριακή στις 21:00
+## pl/y | Czy zgodnie z pokazanym grafikiem dyżurów (apteka, przychodnia, usługa) wskazane miejsce pełni dyżur w dniu, którego potrzebuje użytkownik?
+Dyżury nocne i świąteczne aptek — powiat wrzesiński, grudzień 2026
+24.12: Apteka „Pod Orłem”, Rynek 5 · 25.12: Apteka „Zdrowie”, ul. Kolejowa 12 · 26.12: Apteka „Pod Orłem”
+Użytkownik: Apteka „Zdrowie”, pierwszy dzień świąt (25.12)
+
+@@ medicine-sale-category | choice
+Q: According to this pharmacy listing or package text, how can this medicine be obtained?
+C: otc=Freely over the counter, no prescription ;; prescription=Only with a doctor's prescription ;; controlled=Specially controlled (narcotic/psychotropic: special prescription, ID, quantity limits)
+## hi/prescription | इस फ़ार्मेसी लिस्टिंग या पैकेट पर लिखे अनुसार यह दवा कैसे मिल सकती है?
+Tata 1mg · Azithral 500 टैबलेट (एज़िथ्रोमाइसिन)
+℞ प्रिस्क्रिप्शन आवश्यक · Schedule H दवा — "केवल पंजीकृत चिकित्सक के पर्चे पर ही खुदरा बिक्री"। ऑर्डर के लिए वैध पर्चा अपलोड करें।
+## th/otc
+ทิฟฟี่ เดย์ แผง 4 เม็ด — ยาสามัญประจำบ้าน
+บรรเทาอาการหวัด คัดจมูก ลดไข้ · จำหน่ายได้ในร้านสะดวกซื้อทั่วไป ไม่ต้องใช้ใบสั่งแพทย์
+## en/controlled
+Boots Online Doctor — Zopiclone 7.5mg
+Schedule 4 Controlled Drug. Supplied only against a valid prescription; private prescriptions limited to 30 days' supply and valid for 28 days. Photo ID is required on collection.
+## ar/otc | بحسب بيانات الصيدلية أو نص العبوة، كيف يمكن الحصول على هذا الدواء؟
+صيدلية النهدي · بنادول أدفانس ٥٠٠ ملغ، ٢٤ قرصاً
+يُصرف بدون وصفة طبية (OTC). مسكن للألم وخافض للحرارة. يُحفظ بعيداً عن متناول الأطفال.
+## he/prescription
+כללית · אוגמנטין 875 מ"ג
+תרופת מרשם — ניתנת במרשם רופא בלבד. השתתפות עצמית לחברי כללית: 19 ₪. לא נמכרת ללא מרשם.
+## fa/controlled | طبق اطلاعات داروخانه یا متن روی بسته، این دارو چگونه قابل تهیه است؟
+ترامادول ۱۰۰ میلی‌گرم — داروی تحت کنترل (مخدر)
+فروش فقط با نسخه معتبر پزشک و ثبت کد ملی بیمار در سامانه تیتک؛ حداکثر ۲۰ عدد در هر نسخه. عرضه بدون نسخه جرم است.
+## bn/prescription
+আরোগ্য অনলাইন ফার্মেসি · সেফ-৩ ২০০ মি.গ্রা. (সেফিক্সিম)
+অ্যান্টিবায়োটিক — লাল চিহ্নিত মোড়ক। রেজিস্টার্ড চিকিৎসকের প্রেসক্রিপশন ছাড়া বিক্রয় নিষিদ্ধ। অর্ডার করতে প্রেসক্রিপশনের ছবি আপলোড করুন।
+## ta/otc | இந்த மருந்தகப் பட்டியல் அல்லது உறையில் உள்ள விவரத்தின்படி, இந்த மருந்தை எப்படிப் பெறலாம்?
+அப்போலோ பார்மசி · விக்ஸ் ஆக்ஷன் 500 மாத்திரை
+மருத்துவர் சீட்டு தேவையில்லை. சளி, தலைவலி, காய்ச்சலுக்கான பொது மருந்து. கடைகளில் நேரடியாகக் கிடைக்கும்.
+
+@@ medicine-storage-requirement | choice
+Q: According to the leaflet or label text, where should this medicine be kept?
+C: room_temp=At room temperature (a cupboard is fine) ;; refrigerate=In the refrigerator ;; unclear=The text shown does not state storage conditions
+## hi/refrigerate
+Huminsulin 30/70 इंजेक्शन
+भंडारण: 2°C से 8°C के बीच रेफ़्रिजरेटर में रखें। जमने न दें (फ़्रीज़र में न रखें)। रोशनी से बचाएँ। इस्तेमाल शुरू करने के बाद 28 दिन तक उपयोग करें।
+## th/room_temp | ตามข้อความในเอกสารกำกับยาหรือฉลาก ควรเก็บยานี้ไว้ที่ใด
+พาราเซตามอล 500 มก. (ซาร่า)
+การเก็บรักษา: เก็บที่อุณหภูมิไม่เกิน 30°C ในที่แห้ง พ้นแสงแดด และพ้นมือเด็ก ไม่จำเป็นต้องแช่ตู้เย็น
+## en/unclear
+Amoxicillin 500mg capsules — pharmacy label
+Take ONE capsule THREE times a day. Complete the course. Mrs D. Achebe · 21/11/2026 · Qty 21
+## it/refrigerate | Secondo il foglietto illustrativo o l'etichetta, dove va conservato questo medicinale?
+Augmentin bambini sospensione orale
+Dopo la ricostituzione conservare in frigorifero (2°C – 8°C) e utilizzare entro 7 giorni. Agitare bene prima dell'uso.
+## pt/room_temp
+Ben-u-ron 500 mg comprimidos
+Conservação: não conservar acima de 25 °C. Conservar na embalagem de origem para proteger da humidade. Não necessita de frigorífico.
+## sw/unclear | Kulingana na maelezo ya kipeperushi au lebo, dawa hii inapaswa kuhifadhiwa wapi?
+Lebo ya duka la dawa: ALU (Artemether/Lumefantrine) vidonge 24
+Meza vidonge 4 mara mbili kwa siku kwa siku 3, pamoja na chakula chenye mafuta. Jina: Bi. Zawadi K. · Tarehe: 20/11/2026
+## zh/refrigerate | 依照仿單或標籤文字,這個藥品應該存放在哪裡?
+益生菌口服液(兒童用)
+保存方式:請置於 2–8°C 冷藏保存,開封後請於 14 天內用完。避免陽光直射。
+## ja/room_temp
+ロキソニンS 12錠
+保管及び取扱い上の注意:直射日光の当たらない湿気の少ない涼しい所に保管してください(室温保存)。小児の手の届かない所に保管してください。

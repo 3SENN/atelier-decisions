@@ -49,6 +49,7 @@ def main() -> None:
     parser.add_argument("--gguf", type=Path)
     parser.add_argument("--file", default="model.emb4.int8.onnx")
     parser.add_argument("--labels", type=Path)
+    parser.add_argument("--suite", default="numeric", help="numeric (data/build_numeric.py) or numeric2 (multi-step, data/build_numeric2.py)")
     args = parser.parse_args()
     if args.labels:
         model = Labels(args.labels)
@@ -57,14 +58,14 @@ def main() -> None:
     else:
         folder = args.model / "onnx" if (args.model / "onnx").is_dir() else args.model
         model = Model(folder, args.file)
-    rows = read_jsonl(TRUTH)
+    rows = read_jsonl(TRUTH.with_name(f"{args.suite}-test.truth.jsonl"))
     report = {"name": args.name,
               "by_split": score_rows(model, rows, lambda r: r["meta"]["split"], guard=False),
               "by_family": score_rows(model, rows, lambda r: f"{r['meta']['split']}/{r['meta']['family']}", guard=False),
               "by_margin": score_rows(model, rows, lambda r: f"{r['meta']['split']}/{r['meta']['margin']}", guard=False)}
     if args.gguf:
         model.close()
-    (ROOT / "analysis" / "results" / f"numeric-{args.name}.json").write_text(json.dumps(report, indent=1))
+    (ROOT / "analysis" / "results" / f"{args.suite}-{args.name}.json").write_text(json.dumps(report, indent=1))
     for part in ("by_split", "by_margin", "by_family"):
         print(f"{args.name} {part}")
         for group, row in sorted(report[part].items()):

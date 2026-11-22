@@ -44,7 +44,10 @@ PROBES = {
     "open_unseen": ROOT / "data" / "teacher" / "probe-open.flash.jsonl",
     "browser_families": ROOT / "data" / "teacher" / "open-heldout.flash.jsonl",
     "browser_families_2": ROOT / "data" / "teacher" / "gen3-heldout.flash.jsonl",
+    "browser_families_3": ROOT / "data" / "teacher" / "gen4-heldout.flash.jsonl",
     "numeric": ROOT / "data" / "teacher" / "numeric-test.truth.jsonl",  # the true answer, not a teacher's
+    "numeric2": ROOT / "data" / "teacher" / "numeric2-test.truth.jsonl",  # multi-step, the true answer
+    "security": ROOT / "data" / "teacher" / "security-test.truth.jsonl",  # answered by construction
 }
 FLASH = ROOT / "models" / "pplx-decider-flash-v1.3"
 

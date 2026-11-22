@@ -1,0 +1,588 @@
+@@ voice-note-asks-for-money | noul
+Q: This is the transcript of a voice message the user received. Does the sender ask the user to send, lend or pay money?
+C: true=The sender asks the user for money (a transfer, a loan, a payment of a share) ;; false=No request for money is made to the user
+## hi/y | यह उपयोगकर्ता को मिले वॉइस मैसेज का ट्रांसक्रिप्ट है। क्या भेजने वाला उपयोगकर्ता से पैसे भेजने, उधार देने या चुकाने को कह रहा है?
+[वॉइस नोट 0:42 · ऑटो-ट्रांसक्रिप्ट] हाँ बेटा सुनो, मैं मौसी बोल रही हूँ... अरे वो गैस वाले का बिल आया है ना, और मेरा Paytm चल ही नहीं रहा। तुम ज़रा 2,400 रुपये इस नंबर पे डाल दो ना, 98xxxx4410, शाम तक। मैं अगले हफ़्ते आऊँगी तो दे दूँगी। ठीक है? चलो रखती हूँ।
+## th/n | นี่คือข้อความเสียงที่ผู้ใช้ได้รับ (ถอดความแล้ว) ผู้ส่งขอให้ผู้ใช้โอนเงิน ให้ยืมเงิน หรือจ่ายเงินหรือไม่
+[ข้อความเสียง 0:31 · ถอดความอัตโนมัติ] แม่นะลูก เมื่อกี้แม่โอนค่าเทอมให้แล้วนะ สามพันห้า เข้าบัญชีกสิกรของหนูน่ะ เช็กดูด้วยว่าเข้าหรือยัง แล้วเย็นนี้ไม่ต้องซื้อกับข้าวมานะ แม่ทำแกงส้มไว้แล้ว
+## en/y
+Voice message (1:05), transcribed: Hey, it's Dami. So, uh, about Saturday — the hall wants the deposit by Thursday and I've covered everyone so far. Your share's forty quid. Whenever you get a sec, same account as last time. No stress, but, yeah, before Thursday would be ace.
+## ja/n
+【ボイスメッセージ 0:27・文字起こし】あ、もしもし、健太?おばあちゃんだけど。お年玉ね、もう現金書留で送ったから、届いたら電話ちょうだいね。振り込みじゃないからね、最近詐欺が多いから気をつけなさいよ。じゃあね。
+## zh/y | 这是用户收到的一条语音消息的转写。发送者是否要求用户转账、借钱或付款?
+【语音转文字 0:38】喂小林啊,我是你王哥。那个,我这两天手头有点紧,房东催着交房租,你看能不能先借我三千,微信转我就行,下月初发工资一准还你。不方便也没事啊,你回我一声。
+## ko/n
+[음성메시지 0:22 · 받아쓰기] 지은아 나야. 어제 밥값 네가 냈잖아, 방금 카카오페이로 만 팔천 원 보냈어. 받기 눌러줘~ 그리고 다음 주 모임 장소 정해지면 알려줄게.
+## ru/y | Это расшифровка голосового сообщения, которое получил пользователь. Просит ли отправитель перевести, одолжить или заплатить деньги?
+[Голосовое сообщение 0:49, расшифровка] Лен, привет, это я. Слушай, тут такое дело... у меня карту заблокировали, а мне срочно за лекарства маме надо заплатить. Скинь, пожалуйста, пять тысяч по номеру телефона на Сбер, я в пятницу верну, честное слово. Номер тот же.
+## uk/n
+[Голосове 0:35, автотранскрипція] Привіт, Тарасе. Дзвонила в ОСББ — нам за опалення нічого не треба доплачувати, навпаки, перерахунок зробили, мінус 312 гривень. Тож нічого не переказуй, я все з'ясувала. Увечері наберу.
+
+@@ chat-headcount-reached | noul
+Q: A group chat is organising something that needs a minimum number of people. Counting only firm confirmations (including guests they bring), has the required number been reached?
+## hi/y
+टर्फ बुकिंग (रविवार सुबह 7 बजे) — कम से कम 10 लोग चाहिए वरना कैंसल
+रोहित: मैं इन
+अंकित: इन +1 (भाई भी आएगा)
+सलमान: इन
+देवेश: पक्का नहीं, शाम को बताता हूँ
+प्रिया: इन, नेहा भी
+जतिन: in
+गुरप्रीत: मैं और हरमन दोनों
+मनोज: इन
+रोहित: तो कुल कितने हुए?
+## th/n | กลุ่มแชตกำลังนัดกิจกรรมที่ต้องมีคนครบจำนวนขั้นต่ำ นับเฉพาะคนที่ยืนยันแน่นอน (รวมคนที่พามาด้วย) ตอนนี้ครบจำนวนแล้วหรือยัง
+ทริปเขาใหญ่ 5-6 ธ.ค. รถตู้ต้องครบ 8 คนถึงจะออก
+เบียร์: ไปค่ะ
+ต้น: ไปครับ 2 คน (กับแฟน)
+มายด์: ติดงาน ไม่ได้ไปนะ 😢
+โอ๊ต: ไป
+ฝน: ขอดูก่อน ยังไม่ชัวร์
+นัท: ไปครับ
+เบียร์: ใครชวนเพื่อนได้ชวนเลยนะ
+## en/n
+Sunday 5-a-side, pitch needs 10 or we lose the slot.
+Marcus: in
+Joel: in
+Pri: in, bringing my cousin
+Tom: out this week, knee
+Ade: in
+Sam: in if I can get a lift?
+Luca: in
+Marcus: need the rest by Fri.
+## ar/y | مجموعة محادثة تنظّم نشاطاً يحتاج حداً أدنى من المشاركين. بحساب التأكيدات القاطعة فقط (مع من يحضرونهم)، هل اكتمل العدد المطلوب؟
+حجز ملعب الخماسي يوم الخميس ٩ مساءً — نحتاج ١٠ لاعبين
+أبو فهد: معكم
+سلطان: تم
+ماجد: أنا وأخوي
+تركي: ما أقدر هالأسبوع
+عبدالله: حاضر
+نواف: معكم ومعي اثنين من الدوام
+خالد: تم
+ريان: اكتبوني
+## he/y
+צריך מניין (10) למנחה באזכרה של סבא, יום שלישי 16:15 בבית העלמין
+אבי: בא
+יוסי: בא עם שני הבנים
+משה: אגיע
+דוד: לא אוכל, אני בחו"ל
+איתן: בא
+רפי: אני ואבא שלי
+נדב: מגיע
+שלום: בא בעז"ה
+## fa/n | یک گروه چت برنامه‌ای می‌چیند که حداقل تعداد نفرات لازم دارد. فقط با شمردن تأییدهای قطعی (و همراهانشان)، آیا تعداد لازم پر شده است؟
+دورهمی کوه جمعه، مینی‌بوس حداقل ۱۲ نفر می‌خواد
+سارا: هستم
+امیر: من و خانمم میایم
+نگار: نمی‌تونم، امتحان دارم
+بهنام: هستم
+مریم: احتمالاً، هنوز معلوم نیست
+کاوه: پایه‌م، سه نفریم
+سارا: تا چهارشنبه خبر بدید وگرنه کنسله
+## bn/y | একটি গ্রুপ চ্যাটে এমন কিছুর আয়োজন চলছে যাতে ন্যূনতম সংখ্যক লোক লাগবে। শুধু নিশ্চিত সম্মতি গুনলে (সঙ্গে আনা অতিথিসহ) প্রয়োজনীয় সংখ্যা কি পূরণ হয়েছে?
+পিকনিকের বাস — অন্তত ৮ জন না হলে ভাড়া পোষাবে না
+তন্ময়: যাচ্ছি
+রিয়া: আমি আর দিদি
+সৌরভ: আছি
+মৌ: এবার হবে না রে
+অর্ণব: যাব, সঙ্গে বউ
+পিউ: আমিও
+ইমন: কনফার্ম
+## ta/n
+ஞாயிறு கோயில் உழவாரப் பணி — குறைந்தது 15 பேர் தேவை
+முருகன்: வருகிறேன்
+லதா: நானும் கணவரும்
+செந்தில்: வர முடியாது, ஊருக்குப் போகிறேன்
+கவிதா: வருகிறேன்
+ரவி: எங்கள் வீட்டிலிருந்து 4 பேர் வருவோம்
+முருகன்: தெரிந்தவர்களிடமும் சொல்லுங்கள்
+
+@@ disappearing-message-active | noul
+Q: Based on the chat header, banners and settings text shown, will new messages sent in this chat be deleted automatically after some time (disappearing / auto-delete messages currently ON)?
+## hi/y | दिखाए गए चैट हेडर, बैनर और सेटिंग्स के आधार पर, क्या इस चैट में भेजे गए नए मैसेज कुछ समय बाद अपने-आप डिलीट हो जाएँगे (गायब होने वाले मैसेज अभी चालू हैं)?
+WhatsApp · स्नेहा दीदी
+⏱ आपने गायब होने वाले मैसेज चालू किए। नए मैसेज भेजे जाने के 7 दिन बाद इस चैट से गायब हो जाएँगे। बदलने के लिए टैप करें।
+आज
+स्नेहा दीदी: आधार की फोटो भेज दे
+## th/n
+LINE · กลุ่ม "บ้านเรา (5)"
+การตั้งค่าแชต > ลบข้อความอัตโนมัติ: ปิด
+อัลบั้ม 12 · โน้ต 3
+หมายเหตุ: รูปภาพและไฟล์ที่ไม่ได้บันทึกไว้อาจหมดอายุการดาวน์โหลดหลังช่วงเวลาหนึ่ง แต่ข้อความยังอยู่
+## en/n
+Telegram — chat with Oksana P.
+Auto-Delete Messages: Off
+Pinned: "Flat viewing Thu 18:30"
+Service message (3 Nov): Oksana disabled the auto-delete timer.
+## vi/y | Dựa vào tiêu đề, thông báo và phần cài đặt của cuộc trò chuyện, tin nhắn mới gửi trong đoạn chat này có tự động bị xóa sau một thời gian không (tin nhắn tự xóa đang BẬT)?
+Zalo · Trò chuyện với Chị Hạnh (kế toán)
+🕒 Tin nhắn tự xóa: 1 ngày
+"Bạn đã đặt thời gian tự xóa tin nhắn là 1 ngày. Tin nhắn mới sẽ tự động bị xóa ở cả hai phía sau khi hết thời gian."
+Chị Hạnh: em gửi lại số tài khoản nhé
+## id/n | Berdasarkan header, banner, dan teks pengaturan chat ini, apakah pesan baru yang dikirim akan terhapus otomatis setelah beberapa waktu (pesan sementara sedang AKTIF)?
+WhatsApp · Grup "Arisan RT 04"
+Info grup › Pesan sementara: Mati
+Pak Darto mengubah pengaturan grup agar hanya admin yang dapat mengedit info grup.
+Bu Wiwik: foto 1x lihat 📷 (Sudah dibuka)
+## tr/y
+Signal · Emre Kaya
+Kaybolan mesajlar · 4 hafta
+"Emre kaybolan mesaj süresini 4 hafta olarak ayarladı."
+Dün 21:14 — Emre: tapu fotokopisini attım, bakarsın
+## el/y | Με βάση την κεφαλίδα, τα μηνύματα συστήματος και τις ρυθμίσεις της συνομιλίας, θα διαγράφονται αυτόματα τα νέα μηνύματα μετά από κάποιο διάστημα (τα εξαφανιζόμενα μηνύματα είναι τώρα ενεργά);
+Viber · Κατερίνα Δ.
+Μυστική συνομιλία 🔒 — Αυτοκαταστροφή μηνυμάτων: 1 λεπτό μετά την ανάγνωση
+Η Κατερίνα: στείλε μου τον κωδικό του wifi
+## pl/n
+Messenger · Babcia Halinka
+Prywatność i pomoc › Znikające wiadomości: Wyłączone
+(Poprzednio: 24 godz. — wyłączone przez Ciebie 14.11.2026)
+Babcia: zdjęcie z imienin wysłałam, widzisz?
+
+@@ chat-reaction-meaning | choice
+Q: The user made a proposal or asked a yes/no question in a chat. What does the other person's reply (emoji, sticker, short phrase) mean?
+C: yes=The reply accepts or agrees ;; no=The reply declines or disagrees ;; unclear=The reply does not settle it (deflects, asks something, is ambiguous)
+## hi/yes
+आप: कल सुबह 6 बजे पार्क में दौड़ने चलें?
+विकास: 👍🏃‍♂️ पक्का, गेट नंबर 2 पे मिलते हैं
+## th/no | ผู้ใช้ชวนหรือถามคำถามแบบใช่/ไม่ใช่ในแชต คำตอบของอีกฝ่าย (อีโมจิ สติกเกอร์ ข้อความสั้น ๆ) หมายความว่าอย่างไร
+คุณ: เสาร์นี้ไปตลาดนัดจตุจักรกันมั้ย
+ปลา: [สติกเกอร์: หมีร้องไห้] งานเข้าอะแก ต้องส่งรายงานวันจันทร์ ไว้คราวหน้านะ 🙏
+## en/unclear
+You: Fancy splitting a cab to the airport Friday?
+Niamh: 👀
+Niamh: what time's your flight again
+## it/no | L'utente ha fatto una proposta o una domanda sì/no in chat. Che cosa significa la risposta dell'altra persona (emoji, sticker, frase breve)?
+Tu: Ci vediamo per un aperitivo giovedì ai Navigli?
+Giulia: Magari!! Ma giovedì ho la recita di Tommaso 😩 passo
+## pt/yes | O usuário fez uma proposta ou uma pergunta de sim/não num chat. O que significa a resposta da outra pessoa (emoji, figurinha, frase curta)?
+Você: Bora rachar o Uber pro churrasco do Léo?
+Thaís: [figurinha: cachorro dando joinha]
+Thaís: fechou, me pega às 11h
+## sw/unclear
+Wewe: Tunaweza kukutana kesho saa nne asubuhi pale Mlimani City?
+Baraka: 🤔 ngoja kwanza niangalie ratiba ya kazi, nitakujulisha jioni
+## zh/yes | 使用者在聊天中提出邀約或是非題。對方的回覆(表情符號、貼圖、簡短文字)是什麼意思?
+你:週日要不要一起去貓空喝茶?
+阿哲:[貼圖:熊大比 OK]
+阿哲:可以啊 幾點動物園站集合
+## ja/no
+あなた:金曜の忘年会、二次会も行く?
+美咲:🙅‍♀️ 終電早いからパスで〜 一次会だけ参加します
+
+@@ message-sent-to-wrong-chat | noul
+Q: Does the conversation indicate that a message here was sent to this chat by mistake (it was meant for someone else or another chat)?
+## hi/y
+सोसाइटी B-विंग (व्हाट्सऐप ग्रुप)
+मिसेज़ खन्ना: जानू आते वक़्त दही और धनिया ले आना, और हाँ मम्मी को मत बताना 😘
+मिसेज़ खन्ना: यह मैसेज डिलीट किया गया
+मिसेज़ खन्ना: सॉरी सबको 🙈 ग़लत चैट
+सेक्रेटरी: 😂 कोई बात नहीं
+## th/n | จากบทสนทนา มีข้อความที่ถูกส่งมาผิดแชตหรือไม่ (ตั้งใจจะส่งให้คนอื่นหรือกลุ่มอื่น)
+กลุ่ม "ผู้ปกครอง ป.3/2"
+ครูอ้อย: พรุ่งนี้ให้นักเรียนใส่ชุดพละนะคะ มีกิจกรรมกีฬาสี
+คุณแม่น้องภูมิ: รับทราบค่ะ
+คุณพ่อน้องใบข้าว: ขอโทษครับ ถามนอกเรื่องนิดนึง ค่ารถตู้เดือนนี้โอนบัญชีเดิมใช่ไหมครับ
+ครูอ้อย: ใช่ค่ะ บัญชีเดิม
+## ja/y | この会話から、誤ってこのチャットに送られたメッセージ(別の相手・別のグループ宛て)があると判断できますか?
+営業2課グループ(LINE WORKS)
+田中:部長マジで話長いよね、今日の定例も1時間超えそう笑
+田中がメッセージの送信を取り消しました
+田中:失礼しました、誤爆です…!
+佐々木部長:……定例は30分で終わらせます。
+## zh/n
+相亲相爱一家人(群聊)
+大姑:转发:《冬至养生必吃的八种食物》
+爸:收到
+小姨:@你 你妈让我问你元旦回不回来
+你:回,31号晚上的高铁
+大姑:[鼓掌][鼓掌]
+## ko/y | 이 대화에서 메시지가 실수로 이 채팅방에 잘못 보내졌다는 것(다른 사람이나 다른 방에 보내려던 것)을 알 수 있나요?
+동기모임 (카톡 단체방)
+수빈: 엄마 나 오늘 야근이라 저녁 먹고 들어갈게
+수빈: 아 방 잘못 들어왔다ㅋㅋㅋㅋ 미안
+현우: 어머니 저도 저녁 먹고 들어가겠습니다 ㅋㅋ
+## ru/n
+Чат «Подъезд №3, Лесная 14»
+Ирина (кв. 47): Соседи, кто оставил коляску у лифта? Мешает пройти.
+Олег (кв. 52): Это наша, сейчас уберу, извините.
+Ирина (кв. 47): Спасибо!
+Управляющая: Напоминаю, 25.11 отключение горячей воды с 10 до 16.
+## uk/y | Чи видно з розмови, що якесь повідомлення надіслали в цей чат помилково (воно призначалося комусь іншому або для іншого чату)?
+Батьківський чат 5-Б
+Наталя Іванівна: Завтра збираємо по 150 грн на подарунки до Миколая.
+Оксана (мама Данила): Сергію, забери малого о п'ятій, я не встигаю
+Оксана (мама Данила): Ой, перепрошую, не туди написала 🤦‍♀️
+Наталя Іванівна: Буває :)
+## ar/n | هل يتبيّن من المحادثة أن رسالة أُرسلت إلى هذه المحادثة بالخطأ (كانت موجّهة لشخص آخر أو مجموعة أخرى)؟
+مجموعة "عمارة النخيل - السكان"
+أم يوسف: يا جماعة المصعد عطلان من الصبح، أحد كلّم الصيانة؟
+أبو سارة: كلمتهم، يقولون يجون بعد العصر
+أم يوسف: الله يعطيك العافية
+حارس العمارة: تم تسجيل البلاغ رقم ٢٢٨٤
+
+@@ group-invite-link-usable | noul
+Q: Can the user still use this invite link to join the group or channel now (joining may require admin approval, that still counts as usable)?
+C: true=The link works: the user can join or request to join ;; false=The link is expired, revoked, the group is full or deleted
+## hi/n | क्या उपयोगकर्ता अभी इस इनवाइट लिंक से ग्रुप या चैनल में शामिल हो सकता है (एडमिन की मंज़ूरी लगे तब भी लिंक चालू माना जाएगा)?
+chat.whatsapp.com/Hq7…
+"बैच 2014 — केंद्रीय विद्यालय"
+इस ग्रुप में शामिल नहीं हो सकते क्योंकि यह इनवाइट लिंक रीसेट कर दिया गया है।
+[ठीक है]
+## th/y
+LINE OpenChat — "คนรักต้นไม้ด่าง 🌿"
+สมาชิก 3,214/5,000
+ต้องตอบคำถามก่อนเข้าร่วม: "คุณเลี้ยงต้นอะไรอยู่บ้าง?" แอดมินจะตรวจสอบคำขอของคุณ
+[ขอเข้าร่วม]
+## en/n
+Discord — Invite Invalid
+This invite may be expired, or you might not have permission to join.
+[Continue to Discord]
+(link shared by Wiktor on 02/10: "valid 7 days, hurry")
+## ar/y | هل ما زال بإمكان المستخدم استخدام رابط الدعوة هذا للانضمام إلى المجموعة أو القناة الآن (حتى لو تطلّب ذلك موافقة المشرف)؟
+تيليجرام · رابط دعوة
+"طلاب هندسة القاهرة - دفعة ٢٠٢٧"
+٤٬٨٧٠ عضو، ٣١٢ متصل
+[انضمام إلى المجموعة]
+هذه المجموعة عامة. الرابط لا تنتهي صلاحيته.
+## he/n | האם המשתמש עדיין יכול להשתמש בקישור ההזמנה הזה כדי להצטרף לקבוצה כעת (גם אם נדרש אישור מנהל)?
+וואטסאפ · הזמנה לקבוצה
+"הורי גן שקד תשפ"ז"
+לא ניתן להצטרף — הקבוצה מלאה (1,024 משתתפים).
+נסו לפנות למנהל/ת הקבוצה.
+## fa/y
+تلگرام — لینک دعوت
+«کلاس کنکور ریاضی استاد رحیمی»
+۱٬۲۰۴ عضو
+برای عضویت باید درخواست بفرستید. مدیران گروه درخواست شما را بررسی می‌کنند.
+[ارسال درخواست عضویت]
+اعتبار لینک: تا ۱۵ آذر ۱۴۰۵ — امروز: ۱ آذر ۱۴۰۵
+## bn/n | ব্যবহারকারী কি এখনও এই ইনভাইট লিংক দিয়ে গ্রুপে যোগ দিতে পারবেন (অ্যাডমিনের অনুমোদন লাগলেও লিংকটি সচল ধরা হবে)?
+মেসেঞ্জার · গ্রুপ লিংক
+"ঢাকা কলেজ ব্যাচ '১৮ পুনর্মিলনী"
+এই লিংকের মেয়াদ শেষ হয়ে গেছে। লিংকটি ১০ নভেম্বর ২০২৬ পর্যন্ত বৈধ ছিল।
+নতুন লিংকের জন্য গ্রুপের কোনো সদস্যকে বলুন।
+## ta/y
+WhatsApp · குழு அழைப்பு
+"அண்ணா நகர் நடைப்பயிற்சி குழு" — 87 உறுப்பினர்கள்
+இந்தக் குழுவை உருவாக்கியவர்: +91 98xxx xx210
+[குழுவில் சேர்]
+குறிப்பு: புதிய உறுப்பினர்கள் சேர்ந்த பின் பழைய செய்திகளைப் பார்க்க முடியாது.
+
+@@ sms-code-purpose | choice
+Q: A text message with a one-time code arrived. What is the code for?
+C: login=Signing in to an account ;; payment=Authorising a payment or transfer ;; password_reset=Resetting or changing a password/PIN ;; pickup=Collecting a parcel or confirming a delivery ;; signup=Verifying a phone number for a new registration
+## hi/payment | एक वन-टाइम कोड वाला SMS आया है। यह कोड किस काम के लिए है?
+VM-HDFCBK: 482913 आपके HDFC Bank कार्ड XX4471 से AMAZON PAY INDIA पर Rs.1,849.00 के लेनदेन का OTP है। 10 मिनट तक मान्य। किसी से साझा न करें। आपने नहीं किया? 18002586161 पर कॉल करें।
+## th/pickup
+[Kerry Express] พัสดุหมายเลข KEX0042817TH ถึงตู้รับพัสดุ สาขาลาดพร้าว 71 แล้ว รหัสเปิดตู้ 739205 กรุณารับภายใน 25/11/69 เวลา 20.00 น. เกินกำหนดส่งคืนต้นทาง
+## en/password_reset
+Monzo: 550 318 is your code to set a new PIN for your card ending 0926. We'll never call you to ask for it. Didn't request a new PIN? Freeze your card in the app.
+## vi/login | Có một tin nhắn SMS chứa mã dùng một lần. Mã này dùng để làm gì?
+[Shopee] Ma xac minh 603117 dung de dang nhap tai khoan Shopee tren thiet bi moi (Chrome, Windows). Ma co hieu luc 15 phut. KHONG chia se ma nay voi nguoi khac, ke ca nhan vien Shopee.
+## id/signup | Sebuah SMS berisi kode sekali pakai masuk. Kode itu untuk apa?
+<#> 4471 adalah kode verifikasi untuk mendaftarkan nomor Anda di aplikasi Gojek. Selamat bergabung! Jangan berikan kode ini kepada siapa pun termasuk pihak Gojek. AbC12dEfGhI
+## tr/payment
+Garanti BBVA: 4.250,00 TL tutarindaki HAVALE isleminiz icin sifreniz 918264. Alici: MEHMET YILDIZ. Sifrenizi kimseyle paylasmayin. Islem size ait degilse 444 0 333'u arayin. B001
+## el/pickup | Έφτασε ένα SMS με κωδικό μίας χρήσης. Για ποιον σκοπό είναι ο κωδικός;
+BOX NOW: Το δέμα σας από Skroutz σας περιμένει στο locker «ΑΒ Βασιλόπουλος Χαλάνδρι». Κωδικός παραλαβής: 5 0 8 1 7 2. Διαθέσιμο έως 24/11 23:59.
+## pl/signup
+InPost: 271904 to kod potwierdzajacy numer telefonu przy zakladaniu konta w aplikacji InPost Mobile. Nie zakladales konta? Zignoruj te wiadomosc. Kod wazny 5 min.
+
+@@ members-can-post-in-group | noul
+Q: Based on the group info and system messages, can ordinary members (not admins) send messages in this group right now?
+C: true=Ordinary members can post ;; false=Only admins can post (announcement-only or members muted)
+## hi/n
+"श्री राम कॉलोनी सूचना" · 256 सदस्य
+⚙️ एडमिन रेखा शर्मा ने ग्रुप की सेटिंग बदली — अब सिर्फ़ एडमिन ही मैसेज भेज सकते हैं।
+रेखा शर्मा: पानी का टैंकर कल सुबह 6 बजे आएगा।
+[केवल एडमिन मैसेज भेज सकते हैं]
+## th/y | จากข้อมูลกลุ่มและข้อความระบบ สมาชิกทั่วไป (ที่ไม่ใช่แอดมิน) ส่งข้อความในกลุ่มนี้ได้หรือไม่ในตอนนี้
+กลุ่ม "หมู่บ้านพฤกษา 12 ซอย 4" (148)
+ประกาศ 📌: ห้ามโพสต์ขายของ ฝ่าฝืนเตะออก — แอดมิน
+ป้าศรี: ใครเห็นแมวสีส้มบ้างคะ หายไปตั้งแต่เมื่อคืน
+ลุงชัย: เห็นแถวป้อมยามครับ
+[พิมพ์ข้อความ...]
+## en/n
+Telegram channel · "Hollis Road Mosque Announcements" · 1.9K subscribers
+You are a subscriber. Discussion group: not linked.
+Latest: "Jumu'ah this week 12:20 and 13:10. Car park closes 12:00."
+[Mute] [Share]
+## it/y | In base alle informazioni del gruppo e ai messaggi di sistema, i membri normali (non amministratori) possono inviare messaggi in questo gruppo adesso?
+Gruppo "Condominio Via Verdi 8" · 34 partecipanti
+Impostazioni gruppo → Invio messaggi: Tutti i partecipanti · Modifica info: Solo amministratori
+Sig.ra Bianchi: Qualcuno ha visto il mio pacco Amazon in portineria?
+## pt/n | Com base nas informações do grupo e nas mensagens do sistema, os membros comuns (não administradores) podem enviar mensagens neste grupo agora?
+Grupo "Pais 7.º B — Agrupamento de Benfica" · 52 participantes
+A administradora Marta Lopes alterou as definições: só os administradores podem enviar mensagens. (20:02)
+Marta Lopes: Grupo fechado até amanhã às 8h, para ninguém perder o aviso da visita de estudo.
+## sw/y
+Kikundi "Wazazi Darasa la Sita — Shule ya Msingi Upendo" · wanachama 61
+Mipangilio: Kutuma ujumbe — Washiriki wote. Kuhariri taarifa — Wasimamizi pekee.
+Mama Neema: Mkutano wa Jumamosi ni saa ngapi?
+Mwl. Juma: Saa tatu asubuhi, ukumbi mkuu.
+## zh/n | 根據群組資訊與系統訊息,一般成員(非管理員)現在可以在這個群組發言嗎?
+LINE 社群「文山區里民公告」· 2,031 人
+系統訊息:管理員已開啟「僅限管理員發言」。
+里長辦公室:11/28(六)上午資源回收車改至 9:30 抵達。
+(輸入欄已停用)
+## ko/y
+카카오톡 오픈채팅 "성수동 러닝크루 🏃" · 312명
+공지: 방장만 공지 등록 가능. 광고·홍보 글은 가리기 처리됩니다.
+달려라하니: 내일 6시 서울숲 3번 출구 맞죠?
+방장: 네 맞아요! 채팅은 자유롭게 하세요~
+
+@@ mass-holiday-greeting | noul
+Q: Is this message a generic mass or forwarded holiday greeting, rather than something written personally for the user?
+C: true=Generic broadcast/forwarded greeting with nothing specific to the user ;; false=Personal message that refers to the user or shared matters and invites a real reply
+## hi/y | क्या यह मैसेज सबको भेजी गई या फ़ॉरवर्ड की गई आम त्योहार की बधाई है, न कि ख़ास उपयोगकर्ता के लिए लिखा गया निजी संदेश?
+➡️ कई बार फ़ॉरवर्ड किया गया
+🪔✨ दीपों का यह पावन त्योहार आपके जीवन में खुशियों की बौछार लाए, लक्ष्मी जी आपके घर पधारें ✨🪔
+आपको एवं आपके पूरे परिवार को दीपावली की हार्दिक शुभकामनाएँ 🙏
+— गुप्ता परिवार, कानपुर
+## th/n
+สวัสดีปีใหม่จ้าแพร 🎉 ปีนี้ขอบคุณมากนะที่ช่วยดูแลแม่ตอนเราไปอบรมที่เชียงใหม่ ขอให้สอบใบประกอบฯ ผ่านรอบนี้นะ สู้ ๆ ว่างแล้วไปกินหมูกระทะร้านเดิมกัน เราเลี้ยงเอง
+## en/y
+Eid Mubarak to you and your loved ones! 🌙 May Allah accept our fasting and prayers and shower blessings on every home. Taqabbal Allahu minna wa minkum.
+~ Imran & family
+(Sent via broadcast list)
+## ja/n | このメッセージは、ユーザー個人に宛てて書かれたものではなく、一斉送信・転送された定型の季節の挨拶ですか?
+あけましておめでとう!去年は引っ越しの手伝い本当にありがとう、腰大丈夫だった?笑 今年こそ約束してた箱根行こうね。2月の連休あたり空いてる?
+## zh/y | 这条消息是群发或转发的通用节日祝福,而不是专门写给用户本人的吗?
+【群发】金龙辞旧岁,骏马迎新春!值此新春佳节之际,祝您及家人:身体健康、阖家幸福、财源广进、万事如意!🧧🧨
+——平安保险 您的客户经理 赵丽华 敬上
+## ko/n
+민지야 추석 잘 보내고 있어? 지난번에 말한 이직 면접은 어떻게 됐는지 궁금해서 연락했어. 연휴 끝나고 을지로에서 밥 한번 먹자, 내가 살게!
+## ru/y
+С Новым годом! 🎄🥂 Пусть в новом году сбываются мечты, а в доме царят тепло и достаток! Счастья, здоровья, удачи вам и вашим близким!
+(Переслано от «Открытки на каждый день»)
+## uk/n | Чи є це повідомлення масовим або пересланим святковим привітанням загального змісту, а не написаним особисто для користувача?
+Христос народився, Андрію! Як ви там із малою, вже одужала? Ми цього року кутю варили за рецептом твоєї мами — передай їй дякую. Приїжджайте на Василя, чекаємо.
+
+@@ child-pickup-who-today | choice
+Q: From this family chat, who is picking up the child from school or nursery today?
+C: mother=The mother ;; father=The father ;; grandparent=A grandmother or grandfather ;; other=Someone else (neighbour, sibling, driver, another parent) ;; unclear=Not settled or cannot be told
+## hi/grandparent
+पापा: आज मेरी मीटिंग 5 बजे तक है, आरव को नहीं ला पाऊँगा
+मम्मी: मैं भी क्लिनिक में फँसी हूँ
+पापा: माँ से पूछूँ?
+दादी: हाँ हाँ मैं ले आऊँगी, 3:15 पे छुट्टी होती है ना
+मम्मी: जी मम्मी जी, गेट नंबर 1 🙏
+## th/father | จากแชตครอบครัวนี้ วันนี้ใครเป็นคนไปรับลูกที่โรงเรียนหรือเนิร์สเซอรี่
+แม่: วันนี้แม่มีประชุมถึงห้าโมง ไปรับน้องข้าวปั้นไม่ทันนะ
+พ่อ: ได้ เดี๋ยวพ่อออกจากออฟฟิศบ่ายสามครึ่ง ไปรับเอง
+แม่: อย่าลืมกระเป๋าว่ายน้ำด้วยนะ
+พ่อ: โอเคครับ
+## ar/mother | من سيُحضر الطفل من المدرسة أو الحضانة اليوم بحسب محادثة العائلة هذه؟
+بابا: السواق مريض اليوم، مين يجيب لينا من المدرسة؟
+ماما: أنا أخلص دوامي ١٢:٣٠، بمرّ عليها بطريقي
+بابا: تمام، أنا عندي اجتماع للثلاثة
+ماما: خلاص لا تشيل هم
+## he/other
+אמא: אני תקועה בפקקים באיילון, לא אגיע לגן עד ארבע
+אבא: אני במילואים, אין מצב
+אמא: ביקשתי מיעל, אמא של עומר, היא אוספת את שניהם ונועה תחכה אצלם
+אבא: מעולה, תודה ליעל
+## fa/unclear | طبق این چت خانوادگی، امروز چه کسی بچه را از مدرسه یا مهد برمی‌دارد؟
+مامان: من امروز تا ۴ کلاس دارم، کی آرش رو از مهد میاره؟
+بابا: من شاید برسم، بستگی به جلسه داره
+مامان‌بزرگ: من پام درد می‌کنه مادر، ببینم چی میشه
+مامان: خب پس تا ظهر خبر بدید لطفاً
+## bn/father
+মা: আজ আমার অফিসে অডিট, তিতলিকে আনতে পারব না
+বাবা: ঠিক আছে, আমি হাফ-ডে নিয়েছি, সাড়ে তিনটেয় স্কুলের গেটে থাকব
+ঠাম্মা: আমি যাব?
+বাবা: না মা, তোমার কষ্ট করতে হবে না, আমিই যাচ্ছি
+## ta/grandparent | இந்தக் குடும்ப அரட்டையின்படி, இன்று குழந்தையைப் பள்ளியிலிருந்து யார் அழைத்து வருகிறார்?
+அம்மா: இன்னிக்கு எனக்கு பேங்க்ல லேட் ஆகும்
+அப்பா: நான் கோயம்புத்தூர்ல இருக்கேன், நாளைக்குதான் வருவேன்
+தாத்தா: நான் 3.30க்கு ஸ்கூட்டர்ல போய் கூட்டிட்டு வரேன், கவலைப்படாதீங்க
+அம்மா: சரி அப்பா, ஹெல்மெட் மறக்காதீங்க
+## pt/mother
+Pai: Hoje não consigo sair antes das 19h, tem fechamento
+Mãe: Eu ia pedir pra vó, mas ela tá no médico
+Mãe: Deixa, saio mais cedo e pego a Helena às 17h30
+Pai: Valeu, amor. A van só volta semana que vem né?
+Mãe: Isso
+
+@@ lost-found-post-kind | choice
+Q: In this neighbourhood group post, is the author reporting something they lost, something they found, or neither?
+C: lost=The author lost an item or pet and is looking for it ;; found=The author found an item or pet and seeks its owner ;; neither=Something else (sale, question, warning, giveaway)
+## hi/found | इस मोहल्ला ग्रुप पोस्ट में लिखने वाला कोई खोई हुई चीज़ बता रहा है, मिली हुई चीज़ बता रहा है, या कुछ और?
+सेक्टर 21 रेज़िडेंट्स
+आज सुबह सेंट्रल पार्क की बेंच पर एक चाबी का गुच्छा पड़ा मिला — Honda की चाबी और लाल रंग का गणेश जी वाला कीचेन। जिसका हो, निशानी बताकर C-114 से ले जाए। गार्ड के पास नहीं छोड़ा है।
+## th/lost
+กลุ่ม "คนลาดกระบัง"
+ช่วยด้วยค่ะ 🙏 น้องหมาพันธุ์ชิวาวา สีน้ำตาล ชื่อ "ถั่วแดง" ใส่ปลอกคอสีฟ้า หลุดออกจากบ้านซอยลาดกระบัง 46 เมื่อคืนประมาณสองทุ่ม ใครพบเห็นโทร 08x-xxx-4417 มีรางวัลให้ค่ะ
+## en/neither
+Harringay Ladder Neighbours
+Heads up — someone's going door to door on Wightman Rd claiming to collect "lost parcels" for Evri. He isn't from Evri. Didn't lose anything myself but don't hand anything over.
+## vi/found
+Cư dân Vinhomes Grand Park
+Em nhặt được 1 ví nam màu nâu ở sảnh S5.03 lúc 7h sáng nay, bên trong có CCCD tên Trần Quốc B*** và ít tiền. Anh nào đánh rơi liên hệ em hoặc xuống quầy lễ tân tòa S5.03 nhận lại nhé.
+## id/lost | Dalam postingan grup warga ini, apakah penulis melaporkan barang yang hilang, barang yang ditemukan, atau bukan keduanya?
+Info Warga Perum Griya Asri
+Mohon bantuannya bapak/ibu, STNK motor Vario atas nama Sutrisno jatuh kemungkinan di sekitar Indomaret depan gerbang sampai blok D tadi sore. Bagi yang menemukan mohon hubungi saya, blok D2 no. 7. Terima kasih 🙏
+## tr/neither | Bu mahalle grubu gönderisinde yazar kaybettiği bir şeyi mi, bulduğu bir şeyi mi bildiriyor, yoksa ikisi de değil mi?
+Moda Mahallesi Komşuları
+Taşınıyorum, 2 yıllık IKEA kitaplık ve çocuk bisikleti ücretsiz. Cumartesi öğlene kadar Bahariye'den gelip alan olursa onun. Bulamayan olursa sokağa bırakmayacağım, belediyeyi arayacağım.
+## el/found
+Γειτονιά Κυψέλης
+Βρέθηκε γκρι γατούλα με κόκκινο λουράκι στη Φωκίωνος Νέγρη, ύψος περιπτέρου. Είναι πολύ ήμερη, σίγουρα δεσποζόμενη. Την έχω προσωρινά σπίτι μου — όποιος την αναγνωρίζει ας στείλει μήνυμα με φωτογραφία.
+## pl/lost | Czy w tym poście na grupie sąsiedzkiej autor zgłasza, że coś zgubił, że coś znalazł, czy żadne z tych?
+Sąsiedzi Ursynów Kabaty
+Wczoraj ok. 18 w okolicy metra Kabaty wypadł mi z kieszeni czarny portfel z dokumentami na nazwisko Wiśniewski. Pieniądze nieważne, zależy mi na prawie jazdy. Znaleźne gwarantowane!
+
+@@ giveaway-entry-complete | noul
+Q: The post lists what must be done to enter a giveaway; the state also shows what the user has done so far. Has the user completed every required step?
+## hi/n
+~post: 🎁 GIVEAWAY! boAt ईयरबड्स जीतें। नियम: 1) @desi_gadgetwala को फ़ॉलो करें 2) इस पोस्ट को लाइक करें 3) कमेंट में 3 दोस्तों को टैग करें 4) पोस्ट को स्टोरी पर शेयर करें। विजेता 30 नवंबर को घोषित।
+~user_activity: फ़ॉलो कर रहे हैं ✓ · लाइक किया ✓ · आपका कमेंट: "@rahul_k @simran.07 मुझे चाहिए!" · स्टोरी: शेयर नहीं किया
+## th/y | โพสต์ระบุกติกาการร่วมลุ้นรางวัล และสถานะแสดงสิ่งที่ผู้ใช้ทำไปแล้ว ผู้ใช้ทำครบทุกขั้นตอนที่กำหนดแล้วหรือยัง
+~post: แจกบัตรกำนัลหมูกระทะ 2 ที่นั่ง 🐷🔥 กติกา: กดไลก์เพจ + กดแชร์โพสต์นี้เป็นสาธารณะ + คอมเมนต์ว่าอยากพาใครมากิน ประกาศผล 1 ธ.ค. 69
+~user_activity: ถูกใจเพจแล้ว · แชร์แล้ว (สาธารณะ 🌐) · คอมเมนต์ของคุณ: "อยากพาแม่ไปกินค่ะ"
+## en/y
+~post: WIN a £50 voucher for Little Dough Bakery! To enter: follow us, like this post, and tag one friend below. UK only. Extra entry (optional): share to your story. Closes Sunday 8pm.
+~user_activity: Following · Liked · Your comment: "@hattie_b this has your name on it" · Story: not shared
+## it/n
+~post: GIVEAWAY 🎄 Vinci un panettone artigianale! Per partecipare: segui @pasticceria.dalmasso, metti like, commenta taggando 2 amici e iscriviti alla newsletter (link in bio). Estrazione il 15/12.
+~user_activity: Segui già · Like messo · Commento: "@fra.conti @marty_88 🤞" · Newsletter: non iscritto
+## pt/y | A publicação indica o que é preciso fazer para participar num sorteio e o estado mostra o que o utilizador já fez. O utilizador completou todos os passos obrigatórios?
+~post: SORTEIO 🎉 Kit de churrasco completo! Regras: seguir @casadacarne_bh, curtir a foto e marcar 2 amigos nos comentários (pode comentar quantas vezes quiser). Resultado dia 05/12 nos stories.
+~user_activity: Seguindo ✓ · Curtiu ✓ · Seus comentários: "@duda.lima @pedrinho_mg bora" e "@tia_cida @joaovitor"
+## sw/n | Chapisho linaeleza hatua za kushiriki bahati nasibu, na hali inaonyesha alichofanya mtumiaji. Je, mtumiaji amekamilisha kila hatua inayotakiwa?
+~post: SHINDA simu ya Tecno Spark! Masharti: 1. Follow @duka_la_simu_tz 2. Like chapisho hili 3. Tuma screenshot ya risiti ya manunuzi yoyote dukani kwetu kupitia DM. Mshindi atatangazwa 20 Desemba.
+~user_activity: Unafuata ✓ · Umependa ✓ · DM: hakuna ujumbe uliotumwa
+## zh/y | 貼文列出參加抽獎必須完成的步驟,狀態也顯示使用者目前做了哪些。使用者是否已完成所有必要步驟?
+~post: 【抽獎】鼎泰豐禮券 1000 元 ×3 名!參加辦法:①按讚本粉專 ②公開分享本貼文 ③留言「小籠包我來了」並 tag 一位朋友。12/10 開獎。
+~user_activity: 已按讚粉專 · 已分享(公開)· 你的留言:「小籠包我來了 @陳怡君」
+## ru/n | В посте перечислено, что нужно сделать для участия в розыгрыше; также показано, что пользователь уже сделал. Выполнил ли пользователь все обязательные условия?
+~post: РОЗЫГРЫШ 🎁 Сертификат Ozon на 5000 ₽! Условия: быть подписанным на наш канал и на канал партнёра @uyutny_dom, нажать «Участвую» под постом. Итоги 1 декабря в 18:00 мск.
+~user_activity: Канал «Скидки дня»: вы подписаны · @uyutny_dom: не подписаны · Кнопка: «Вы участвуете ✅»
+
+@@ story-still-visible | noul
+Q: Stories on this platform disappear a fixed time after posting (24 hours unless the state says otherwise). Given the posting time and the current time, is the story still visible now?
+## hi/y
+Instagram स्टोरी — @chai_aur_kitaab
+पोस्ट किया गया: 21 नवंबर 2026, रात 9:40 बजे
+अभी का समय: 22 नवंबर 2026, शाम 6:05 बजे
+(हाइलाइट में नहीं जोड़ा गया)
+## th/n | สตอรี่บนแพลตฟอร์มนี้จะหายไปหลังโพสต์ตามเวลาที่กำหนด (24 ชั่วโมง เว้นแต่ระบุไว้เป็นอย่างอื่น) จากเวลาโพสต์และเวลาปัจจุบัน สตอรี่ยังมองเห็นได้อยู่หรือไม่
+Facebook Stories — ร้านป้านิดข้าวมันไก่
+โพสต์เมื่อ: 20 พ.ย. 2569 เวลา 07.15 น.
+ขณะนี้: 21 พ.ย. 2569 เวลา 08.30 น.
+ไม่ได้ปักหมุดหรือเก็บไว้ในไฮไลต์
+## en/n
+Snapchat — My Story
+Snap added: Fri 20 Nov, 11:52 pm
+Now: Sun 22 Nov, 12:10 am
+Story setting: default (24 h)
+## ja/y | このプラットフォームのストーリーは投稿から一定時間(特記がなければ24時間)で消えます。投稿時刻と現在時刻から、ストーリーは今も表示されていますか?
+LINE VOOM ストーリー
+投稿:令和8年11月22日 午前1時20分
+現在:令和8年11月22日 午後11時45分
+公開範囲:友だち
+## zh/n
+微信视频号·状态
+发布时间:2026年11月21日 14:30
+当前时间:2026年11月22日 14:31
+状态说明:发布 24 小时后自动消失
+## ko/y
+인스타그램 스토리 @haneul_bakes
+게시: 2026.11.21. 오후 3:10
+현재: 2026.11.22. 오후 2:55
+하이라이트: 추가 안 함
+## ru/y | Истории на этой платформе исчезают через фиксированное время после публикации (24 часа, если не указано иное). С учётом времени публикации и текущего времени, видна ли история сейчас?
+Telegram · История канала «Кофейня на Садовой»
+Опубликовано: 20.11.2026 в 19:00
+Срок показа: 48 часов
+Сейчас: 22.11.2026, 10:15
+## uk/n
+Instagram · сторіс @lviv.kava
+Опубліковано: 20.11.2026 о 08:45
+Зараз: 21.11.2026, 09:02
+У «Актуальне» не додано
+
+@@ post-comment-permission | choice
+Q: According to what is shown on this post, who is allowed to comment on it?
+C: everyone=Anyone can comment ;; restricted=Only a limited group (followers, friends, mentioned people, members) ;; off=Comments are turned off or closed
+## hi/off | इस पोस्ट पर जो दिख रहा है, उसके अनुसार इस पर कौन कमेंट कर सकता है?
+@sarkari_naukri_update · 2 घंटे पहले
+SSC CGL टियर-1 का रिज़ल्ट घोषित, लिंक बायो में।
+❤ 4,812
+इस पोस्ट पर कमेंट बंद कर दिए गए हैं।
+## th/restricted
+เพจ: หมอแล็บเล่าเรื่อง
+"อย่ากินยาพาราเกินวันละ 8 เม็ดนะครับ"
+👍 12K · แชร์ 3.4K
+💬 เพจนี้จำกัดผู้ที่แสดงความคิดเห็นได้ เฉพาะผู้ติดตามเพจเกิน 24 ชั่วโมงเท่านั้น
+## en/everyone
+r/AskUK · Posted by u/damp_flat_despair · 3h
+"Landlord says mould is 'lifestyle'. Is it?"
+412 comments · sorted by Best
+[Add a comment]
+Thread is not locked. Mods: be civil.
+## ar/restricted | بحسب ما يظهر في هذا المنشور، من يُسمح له بالتعليق عليه؟
+@salma_cooks · منذ ٥ ساعات
+طريقة المندي على أصوله 🍗
+٢٣٫٤ ألف إعجاب
+يمكن للحسابات التي تتابعها سلمى فقط التعليق على هذا المنشور.
+## he/everyone
+פייסבוק · קבוצה ציבורית "תושבי רמת גן מדברים"
+דנה לוי: מישהו יודע למה סגרו את רחוב ביאליק?
+38 תגובות · הקבוצה ציבורית, כל אחד יכול לפרסם ולהגיב
+[כתיבת תגובה...]
+## fa/off | طبق آنچه در این پست دیده می‌شود، چه کسانی می‌توانند زیر آن نظر بدهند؟
+@khabar_fori · ۴۵ دقیقه پیش
+اطلاعیه شماره ۳ درباره قطعی برق فردا
+♥ ۸٬۹۱۲
+امکان ثبت نظر برای این پست غیرفعال شده است.
+## bn/everyone | এই পোস্টে যা দেখা যাচ্ছে সে অনুযায়ী, কারা এতে মন্তব্য করতে পারে?
+YouTube · রান্নাঘরের গল্প
+"ইলিশ পাতুরি — ঠাকুমার রেসিপি" · ২.১ লাখ ভিউ
+মন্তব্য ১,৪০৩ · নতুন আগে
+[একটি মন্তব্য যোগ করুন...]
+## ta/off
+X (Twitter) · @chennai_rains
+"நாளை கனமழை எச்சரிக்கை — பள்ளிகளுக்கு விடுமுறை அறிவிப்பு இன்னும் வரவில்லை."
+🔁 2.3K ♥ 9K
+இந்தப் பதிவுக்கான பதில்கள் முடக்கப்பட்டுள்ளன. குறிப்பிடப்பட்டவர்கள் யாரும் இல்லை.
+
+@@ profile-official-or-fan | choice
+Q: Judging from this social profile, is it the official account of the person/brand/institution, a fan or community account, a parody, or can it not be told?
+C: official=Official account ;; fan=Fan, community or unofficial tribute account ;; parody=Parody or joke account ;; unclear=Cannot be told from what is shown
+## hi/fan
+@virat.kohli.fc_18
+"किंग कोहली के दीवाने ❤️ | Fan page | रोज़ नई एडिट | DM for promo"
+पोस्ट 4,210 · फ़ॉलोअर 1.2M · कोई वेरिफ़िकेशन बैज नहीं
+## th/official | จากโปรไฟล์โซเชียลนี้ เป็นบัญชีทางการของบุคคล/แบรนด์/หน่วยงาน เป็นบัญชีแฟนคลับ บัญชีล้อเลียน หรือบอกไม่ได้
+กรมอุตุนิยมวิทยา ✔ (เพจที่ยืนยันแล้ว)
+หน่วยงานราชการ · tmd.go.th · โทร 1182
+"พยากรณ์อากาศ เตือนภัย โดยกรมอุตุนิยมวิทยา กระทรวงดิจิทัลฯ"
+ผู้ติดตาม 2.9 ล้านคน
+## vi/parody
+@BoTruongBoBanhMi
+"Bộ trưởng Bộ Bánh Mì 🥖 | Tài khoản hài, không đại diện cơ quan nào | Chuyên ban hành nghị định ăn sáng"
+Tham gia tháng 4/2023 · 86,2 N người theo dõi
+## id/unclear | Dilihat dari profil media sosial ini, apakah ini akun resmi tokoh/merek/lembaga, akun penggemar atau komunitas, akun parodi, atau tidak bisa dipastikan?
+@pln_info123
+"Info listrik"
+12 postingan · 318 pengikut · tanpa centang biru · tanpa tautan
+Postingan terakhir: foto logo PLN, tanpa keterangan
+## tr/official | Bu sosyal medya profiline bakılırsa hesap; kişinin/markanın/kurumun resmî hesabı mı, hayran ya da topluluk hesabı mı, parodi mi, yoksa anlaşılamıyor mu?
+İstanbul Büyükşehir Belediyesi ✔ @istanbulbld
+"İBB resmî hesabıdır. Çözüm Merkezi: 153 · ibb.istanbul"
+Gri onay rozeti: Devlet kurumu
+4,1 Mn takipçi
+## el/fan
+@olympiacos_fans_peiraias
+«Ανεπίσημη σελίδα φίλων του Θρύλου 🔴⚪ Νέα, μεταγραφές, κερκίδα. Δεν έχουμε σχέση με την ΠΑΕ.»
+54 χιλ. ακόλουθοι
+## pl/parody
+@Minister_Pogody_PL
+„Ministerstwo Pogody RP (konto satyryczne). Rozporządzamy słońcem od 2019. Nie mylić z IMGW.”
+128 tys. obserwujących · brak weryfikacji
+## sw/unclear | Kwa kuangalia wasifu huu wa mtandao wa kijamii, je, ni akaunti rasmi ya mtu/kampuni/taasisi, akaunti ya mashabiki, akaunti ya mzaha, au haiwezi kujulikana?
+@diamond_platnumz_tz_
+Hakuna maelezo ya wasifu. Machapisho 7 · Wafuasi 2,041 · Hakuna alama ya uthibitisho
+Chapisho la mwisho: picha ya msanii jukwaani, maelezo: "🔥🔥"

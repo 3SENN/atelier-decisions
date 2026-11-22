@@ -1,0 +1,369 @@
+{
+ "name": "mini-0.8b-num",
+ "by_split": {
+  "family-seen": {
+   "n": 800,
+   "agree": 0.0988,
+   "conflict": 0.1275,
+   "overreach": 0.0,
+   "underreach": 0.7738,
+   "declined": 0.0,
+   "coverage": 0.2263,
+   "precision": 0.4365
+  },
+  "ALL": {
+   "n": 1400,
+   "agree": 0.0857,
+   "conflict": 0.1086,
+   "overreach": 0.0,
+   "underreach": 0.8057,
+   "declined": 0.0,
+   "coverage": 0.1943,
+   "precision": 0.4412
+  },
+  "family-unseen": {
+   "n": 600,
+   "agree": 0.0683,
+   "conflict": 0.0833,
+   "overreach": 0.0,
+   "underreach": 0.8483,
+   "declined": 0.0,
+   "coverage": 0.1517,
+   "precision": 0.4505
+  }
+ },
+ "by_family": {
+  "family-seen/warranty-still-valid": {
+   "n": 40,
+   "agree": 0.0,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 1.0,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "ALL": {
+   "n": 1400,
+   "agree": 0.0857,
+   "conflict": 0.1086,
+   "overreach": 0.0,
+   "underreach": 0.8057,
+   "declined": 0.0,
+   "coverage": 0.1943,
+   "precision": 0.4412
+  },
+  "family-seen/passport-valid-after-trip": {
+   "n": 40,
+   "agree": 0.075,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.925,
+   "declined": 0.0,
+   "coverage": 0.075,
+   "precision": 1.0
+  },
+  "family-seen/tip-at-least-percent": {
+   "n": 40,
+   "agree": 0.0,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 1.0,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "family-seen/price-increase-over-percent": {
+   "n": 40,
+   "agree": 0.025,
+   "conflict": 0.025,
+   "overreach": 0.0,
+   "underreach": 0.95,
+   "declined": 0.0,
+   "coverage": 0.05,
+   "precision": 0.5
+  },
+  "family-seen/vat-amount-correct": {
+   "n": 40,
+   "agree": 0.25,
+   "conflict": 0.25,
+   "overreach": 0.0,
+   "underreach": 0.5,
+   "declined": 0.0,
+   "coverage": 0.5,
+   "precision": 0.5
+  },
+  "family-seen/split-bill-share-within": {
+   "n": 40,
+   "agree": 0.05,
+   "conflict": 0.1,
+   "overreach": 0.0,
+   "underreach": 0.85,
+   "declined": 0.0,
+   "coverage": 0.15,
+   "precision": 0.3333
+  },
+  "family-seen/best-value-per-unit": {
+   "n": 40,
+   "agree": 0.0,
+   "conflict": 0.1,
+   "overreach": 0.0,
+   "underreach": 0.9,
+   "declined": 0.0,
+   "coverage": 0.1,
+   "precision": 0.0
+  },
+  "family-seen/installments-cost-more": {
+   "n": 40,
+   "agree": 0.0,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 1.0,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "family-seen/hours-total-at-least": {
+   "n": 40,
+   "agree": 0.075,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.925,
+   "declined": 0.0,
+   "coverage": 0.075,
+   "precision": 1.0
+  },
+  "family-seen/journey-within-hours": {
+   "n": 40,
+   "agree": 0.175,
+   "conflict": 0.3,
+   "overreach": 0.0,
+   "underreach": 0.525,
+   "declined": 0.0,
+   "coverage": 0.475,
+   "precision": 0.3684
+  },
+  "family-seen/connection-long-enough": {
+   "n": 40,
+   "agree": 0.0,
+   "conflict": 0.125,
+   "overreach": 0.0,
+   "underreach": 0.875,
+   "declined": 0.0,
+   "coverage": 0.125,
+   "precision": 0.0
+  },
+  "family-seen/recipe-scaled-enough": {
+   "n": 40,
+   "agree": 0.175,
+   "conflict": 0.4,
+   "overreach": 0.0,
+   "underreach": 0.425,
+   "declined": 0.0,
+   "coverage": 0.575,
+   "precision": 0.3043
+  },
+  "family-seen/average-rating-at-least": {
+   "n": 40,
+   "agree": 0.275,
+   "conflict": 0.275,
+   "overreach": 0.0,
+   "underreach": 0.45,
+   "declined": 0.0,
+   "coverage": 0.55,
+   "precision": 0.5
+  },
+  "family-seen/arrives-by-business-days": {
+   "n": 40,
+   "agree": 0.35,
+   "conflict": 0.425,
+   "overreach": 0.0,
+   "underreach": 0.225,
+   "declined": 0.0,
+   "coverage": 0.775,
+   "precision": 0.4516
+  },
+  "family-seen/budget-left-allows": {
+   "n": 40,
+   "agree": 0.0,
+   "conflict": 0.05,
+   "overreach": 0.0,
+   "underreach": 0.95,
+   "declined": 0.0,
+   "coverage": 0.05,
+   "precision": 0.0
+  },
+  "family-seen/currency-either-direction-within-budget": {
+   "n": 40,
+   "agree": 0.45,
+   "conflict": 0.45,
+   "overreach": 0.0,
+   "underreach": 0.1,
+   "declined": 0.0,
+   "coverage": 0.9,
+   "precision": 0.5
+  },
+  "family-seen/reach-before-closing": {
+   "n": 40,
+   "agree": 0.0,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 1.0,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "family-seen/storage-fits": {
+   "n": 40,
+   "agree": 0.025,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.975,
+   "declined": 0.0,
+   "coverage": 0.025,
+   "precision": 1.0
+  },
+  "family-seen/cheapest-plan-for-usage": {
+   "n": 40,
+   "agree": 0.0,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 1.0,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "family-seen/earliest-arrival": {
+   "n": 40,
+   "agree": 0.05,
+   "conflict": 0.05,
+   "overreach": 0.0,
+   "underreach": 0.9,
+   "declined": 0.0,
+   "coverage": 0.1,
+   "precision": 0.5
+  },
+  "family-unseen/yearly-plan-saves-percent": {
+   "n": 120,
+   "agree": 0.0167,
+   "conflict": 0.0083,
+   "overreach": 0.0,
+   "underreach": 0.975,
+   "declined": 0.0,
+   "coverage": 0.025,
+   "precision": 0.6667
+  },
+  "family-unseen/dose-interval-ok": {
+   "n": 120,
+   "agree": 0.0,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 1.0,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "family-unseen/fuel-enough-for-trip": {
+   "n": 120,
+   "agree": 0.0167,
+   "conflict": 0.0167,
+   "overreach": 0.0,
+   "underreach": 0.9667,
+   "declined": 0.0,
+   "coverage": 0.0333,
+   "precision": 0.5
+  },
+  "family-unseen/parcel-weight-limit": {
+   "n": 120,
+   "agree": 0.3083,
+   "conflict": 0.3917,
+   "overreach": 0.0,
+   "underreach": 0.3,
+   "declined": 0.0,
+   "coverage": 0.7,
+   "precision": 0.4405
+  },
+  "family-unseen/cheapest-with-shipping": {
+   "n": 120,
+   "agree": 0.0,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 1.0,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  }
+ },
+ "by_margin": {
+  "family-seen/near": {
+   "n": 201,
+   "agree": 0.1095,
+   "conflict": 0.1692,
+   "overreach": 0.0,
+   "underreach": 0.7214,
+   "declined": 0.0,
+   "coverage": 0.2786,
+   "precision": 0.3929
+  },
+  "ALL": {
+   "n": 1400,
+   "agree": 0.0857,
+   "conflict": 0.1086,
+   "overreach": 0.0,
+   "underreach": 0.8057,
+   "declined": 0.0,
+   "coverage": 0.1943,
+   "precision": 0.4412
+  },
+  "family-seen/far": {
+   "n": 334,
+   "agree": 0.0988,
+   "conflict": 0.0958,
+   "overreach": 0.0,
+   "underreach": 0.8054,
+   "declined": 0.0,
+   "coverage": 0.1946,
+   "precision": 0.5077
+  },
+  "family-seen/mid": {
+   "n": 265,
+   "agree": 0.0906,
+   "conflict": 0.1358,
+   "overreach": 0.0,
+   "underreach": 0.7736,
+   "declined": 0.0,
+   "coverage": 0.2264,
+   "precision": 0.4
+  },
+  "family-unseen/mid": {
+   "n": 246,
+   "agree": 0.0976,
+   "conflict": 0.0772,
+   "overreach": 0.0,
+   "underreach": 0.8252,
+   "declined": 0.0,
+   "coverage": 0.1748,
+   "precision": 0.5581
+  },
+  "family-unseen/near": {
+   "n": 136,
+   "agree": 0.0147,
+   "conflict": 0.0441,
+   "overreach": 0.0,
+   "underreach": 0.9412,
+   "declined": 0.0,
+   "coverage": 0.0588,
+   "precision": 0.25
+  },
+  "family-unseen/far": {
+   "n": 218,
+   "agree": 0.0688,
+   "conflict": 0.1147,
+   "overreach": 0.0,
+   "underreach": 0.8165,
+   "declined": 0.0,
+   "coverage": 0.1835,
+   "precision": 0.375
+  }
+ }
+}

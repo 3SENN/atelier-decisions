@@ -7,7 +7,7 @@
 // not llama.cpp's, which differs on a few non-Latin strings); src/mini_parity.ts checks the token ids.
 
 import { spawn, type ChildProcess } from 'node:child_process'
-import { readFileSync } from 'node:fs'
+import { existsSync, readFileSync } from 'node:fs'
 import { createServer } from 'node:net'
 import { join } from 'node:path'
 import { Tokenizer } from '@huggingface/tokenizers'
@@ -33,8 +33,9 @@ export interface MiniOptions {
   /** The llama-server executable (default: $LLAMA_SERVER, else llama-server on the PATH). */
   server?: string
   threads?: number
-  /** Longest sequence in tokens (state and one question; default 4096). Non-causal attention needs a whole question in
-   * one batch, so this also sets the compute buffer: about 1 GB resident at 8192, less at 4096. */
+  /** Longest sequence in tokens (state and one question; default 4096; a longer state is cut at the end). Non-causal
+   * attention needs a whole question in one batch, so this also sets the compute buffer: about 1 GB resident at 8192,
+   * less at 4096. */
   context?: number
   /** Layers on the GPU (Metal, Vulkan, CUDA builds); 0 keeps everything on the CPU. */
   gpuLayers?: number
@@ -56,6 +57,68 @@ function freePort(): Promise<number> {
   })
 }
 
+/**
+ * A trimmed vocabulary (the training code's student/vocab_trim.py, vocab.json next to the GGUF): the GGUF keeps only the
+ * embedding rows its data uses. Kept ids are renumbered; a dropped one is spelled with kept tokens (the longest kept
+ * prefix of its byte-level string, then the next), exactly as vocab_trim.VocabMap does.
+ */
+class VocabMap {
+  private readonly index = new Map<number, number>()
+  private readonly byString = new Map<string, number>()
+  private readonly tokens: Map<number, string>
+  private readonly longest: number
+  private readonly cache = new Map<number, number[]>()
+
+  constructor(keep: number[], tokens: Map<number, string>) {
+    this.tokens = tokens
+    let longest = 1
+    keep.forEach((old, i) => {
+      this.index.set(old, i)
+      const s = tokens.get(old)
+      if (s !== undefined) {
+        this.byString.set(s, i)
+        longest = Math.max(longest, s.length)
+      }
+    })
+    this.longest = longest
+  }
+
+  private spell(old: number): number[] {
+    const kept = this.index.get(old)
+    if (kept !== undefined) return [kept]
+    const cached = this.cache.get(old)
+    if (cached) return cached
+    const s = this.tokens.get(old) ?? ''
+    const out: number[] = []
+    let i = 0
+    while (i < s.length) {
+      let j = Math.min(s.length, i + this.longest)
+      for (; j > i; j--) {
+        const id = this.byString.get(s.slice(i, j))
+        if (id !== undefined) {
+          out.push(id)
+          break
+        }
+      }
+      if (j === i) throw new Error(`token ${old} can't be spelled with the kept vocabulary`)
+      i = j
+    }
+    this.cache.set(old, out)
+    return out
+  }
+
+  map(ids: number[]): number[] {
+    return ids.flatMap((id) => this.spell(id))
+  }
+}
+
+function vocabTokens(spec: { model: { vocab: Record<string, number> }; added_tokens?: Array<{ id: number; content: string }> }): Map<number, string> {
+  const out = new Map<number, string>()
+  for (const [t, id] of Object.entries(spec.model.vocab)) out.set(id, t)
+  for (const a of spec.added_tokens ?? []) out.set(a.id, a.content)
+  return out
+}
+
 function softmax(xs: number[]): number[] {
   const m = Math.max(...xs)
   const e = xs.map((x) => Math.exp(x - m))
@@ -70,27 +133,34 @@ export class MiniDecider {
   private readonly readout: Float32Array
   private readonly server: ChildProcess | null
   private readonly port: number
+  private readonly maxTokens: number
+  private readonly vocab: VocabMap | null
   private queue: Promise<unknown> = Promise.resolve()
 
-  private constructor(spec: Spec, tokenizer: Tokenizer, readout: Float32Array, server: ChildProcess | null, port: number) {
+  private constructor(spec: Spec, tokenizer: Tokenizer, readout: Float32Array, server: ChildProcess | null, port: number, maxTokens: number, vocab: VocabMap | null) {
     this.name = spec.model
     this.spec = spec
     this.tokenizer = tokenizer
     this.readout = readout
     this.server = server
     this.port = port
+    this.maxTokens = maxTokens
+    this.vocab = vocab
   }
 
   static async load(dir: string, options: MiniOptions = {}): Promise<MiniDecider> {
     const json = (name: string): unknown => JSON.parse(readFileSync(join(dir, name), 'utf8'))
     const spec = json('decision.json') as Spec
-    const tokenizer = new Tokenizer(json('tokenizer.json') as object, json('tokenizer_config.json') as object)
+    const spec_ = json('tokenizer.json') as Parameters<typeof vocabTokens>[0]
+    const tokenizer = new Tokenizer(spec_ as object, json('tokenizer_config.json') as object)
+    const vocab = existsSync(join(dir, 'vocab.json')) ? new VocabMap((json('vocab.json') as { keep: number[] }).keep, vocabTokens(spec_)) : null
     const bytes = readFileSync(join(dir, 'readout.f32'))
     const readout = new Float32Array(bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength))
     if (readout.length !== spec.codes.length * spec.hidden) throw new Error('readout.f32 does not match decision.json')
-    if (options.serve === false) return new MiniDecider(spec, tokenizer, readout, null, 0)
+    const maxTokens = options.context ?? 4096
+    if (options.serve === false) return new MiniDecider(spec, tokenizer, readout, null, 0, maxTokens, vocab)
     const port = await freePort()
-    const context = String(options.context ?? 4096)
+    const context = String(maxTokens)
     const server = spawn(options.server ?? process.env.LLAMA_SERVER ?? 'llama-server', [
       '-m', join(dir, 'mini.gguf'), '--embeddings', '--pooling', 'last', '-c', context, '-b', context, '-ub', context,
       '-t', String(options.threads ?? 4), '-ngl', String(options.gpuLayers ?? 0), '-np', '1',
@@ -101,7 +171,7 @@ export class MiniDecider {
     for (let i = 0; i < 240; i++) {
       if (exited) throw new Error('llama-server exited while loading the mini')
       try {
-        if ((await fetch(`http://127.0.0.1:${port}/health`)).ok) return new MiniDecider(spec, tokenizer, readout, server, port)
+        if ((await fetch(`http://127.0.0.1:${port}/health`)).ok) return new MiniDecider(spec, tokenizer, readout, server, port, maxTokens, vocab)
       } catch { /* not up yet */ }
       await new Promise((r) => setTimeout(r, 500))
     }
@@ -111,6 +181,11 @@ export class MiniDecider {
 
   async release(): Promise<void> {
     this.server?.kill()
+  }
+
+  /** The ids as llama-server gets them (mapped into a trimmed vocabulary when there is one). */
+  sent(ids: number[]): number[] {
+    return this.vocab ? this.vocab.map(ids) : ids
   }
 
   private escape(text: string): string {
@@ -137,14 +212,17 @@ export class MiniDecider {
     const lines = this.descriptions(q).map((d, i) => `${s.codes[i]}: ${this.escape(d)}`).join('\n')
     const instructions = q.instructions ? describe(q.instructions) : s.default_instructions
     const question = this.encode(s.question_label + this.escape(instructions) + s.options_label + lines)
-    return [...context, s.separator_id, ...question, s.marker_id]
+    // A state longer than the context is cut at the end (Atelier's copy, src/main/decisions/device/mini.ts, does the same).
+    const room = this.maxTokens - question.length - 2
+    if (room < 16) throw new Error('The question is too long for the mini')
+    return [...context.slice(0, room), s.separator_id, ...question, s.marker_id]
   }
 
   private async hidden(ids: number[]): Promise<number[]> {
     const res = await fetch(`http://127.0.0.1:${this.port}/embedding`, {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ content: ids, embd_normalize: -1 }),
+      body: JSON.stringify({ content: this.sent(ids), embd_normalize: -1 }),
     })
     if (!res.ok) throw new Error(`llama-server: ${res.status} ${await res.text()}`)
     const out = (await res.json()) as unknown

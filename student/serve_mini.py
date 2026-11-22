@@ -49,6 +49,12 @@ class Mini:
         self.temperatures = temperatures if temperatures is not None else decision.get("temperatures", {})
         self.readout = load_file(str(merged / "readout.safetensors"))["weight"]
         self.encoder = Encoder(mini_processor(merged), decision["codes"])
+        # A GGUF with a trimmed vocabulary (student/vocab_trim.py) comes with <gguf>.vocab.json: ids are mapped into it.
+        sidecar = gguf.with_suffix(".vocab.json")
+        self.vocab = None
+        if sidecar.exists():
+            from vocab_trim import load_map
+            self.vocab = load_map(sidecar, merged / "tokenizer.json")
         self.port = free_port()
         self.server = subprocess.Popen([str(SERVER), "-m", str(gguf), "--embeddings", "--pooling", "last", "-c", "8192",
                                         "-b", "8192", "-ub", "8192", "-t", str(threads), "--port", str(self.port),
@@ -65,6 +71,8 @@ class Mini:
         raise RuntimeError("llama-server did not start")
 
     def hidden(self, ids: list[int]) -> torch.Tensor:
+        if self.vocab is not None:
+            ids = self.vocab(ids)
         body = json.dumps({"content": ids, "embd_normalize": -1}).encode()
         req = urllib.request.Request(f"http://127.0.0.1:{self.port}/embedding", body, {"Content-Type": "application/json"})
         out = json.loads(urllib.request.urlopen(req, timeout=300).read())

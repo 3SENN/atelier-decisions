@@ -27,7 +27,8 @@ from capabilities import POOLS, PROBES, MiniModel, Model, held_out, read_jsonl, 
 from format import fixed_kind, option_labels  # noqa: E402
 from readers import verdict  # noqa: E402
 
-NUMERIC = ROOT / "data" / "teacher" / "numeric-test.truth.jsonl"
+# Suites answered by code or by construction: the "teacher" is the true answer.
+TRUTH = {name: ROOT / "data" / "teacher" / f"{name}-test.truth.jsonl" for name in ("numeric", "numeric2", "security")}
 
 
 def stats(pairs: list[tuple]) -> dict:
@@ -50,8 +51,7 @@ def main() -> None:
     folder = args.nano / "onnx" if (args.nano / "onnx").is_dir() else args.nano
     nano, mini = Model(folder, args.nano_file), MiniModel(args.mini, args.gguf)
     sets = {"held_out": held_out(POOLS), **{k: read_jsonl(p) for k, p in PROBES.items() if p.exists()}}
-    if NUMERIC.exists():
-        sets["numeric"] = read_jsonl(NUMERIC)
+    sets |= {name: read_jsonl(path) for name, path in TRUTH.items() if path.exists()}
     report: dict = {"name": args.name, "nano": str(args.nano), "mini": str(args.mini), "gguf": args.gguf.name}
     for name, rows in sets.items():
         groups: dict[str, dict[str, list]] = defaultdict(lambda: defaultdict(list))

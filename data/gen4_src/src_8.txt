@@ -1,0 +1,412 @@
+@@ holiday-date-confirmed-or-tentative | choice
+Q: How firm is the date of the holiday or day off announced here?
+C: confirmed=Officially confirmed for the stated date ;; tentative=Still provisional (depends on moon sighting, a pending decision, or approval) ;; moved=Officially shifted to a different date than first announced
+## hi/tentative
+केंद्र सरकार अवकाश सूची 2027 — ईद-उल-फ़ितर: 10 मार्च (बुधवार)*
+*चाँद दिखने पर निर्भर; तारीख़ में एक दिन का बदलाव संभव है। अंतिम घोषणा मरकज़ी चाँद कमेटी की सूचना के बाद की जाएगी।
+## th/confirmed | วันหยุดที่ประกาศในที่นี้มีความแน่นอนเพียงใด
+ราชกิจจานุเบกษา: คณะรัฐมนตรีมีมติเมื่อวันที่ 17 พ.ย. 2569 กำหนดให้วันศุกร์ที่ 4 ธันวาคม 2569 เป็นวันหยุดราชการเพิ่มเป็นกรณีพิเศษ ประกาศมีผลแล้ว ธนาคารแห่งประเทศไทยประกาศให้เป็นวันหยุดสถาบันการเงินด้วย
+## en/moved
+GOV.UK — Bank holidays: the early May bank holiday, originally listed for Monday 3 May, has been moved by royal proclamation to Friday 7 May to coincide with the anniversary commemorations. Employers should update rotas.
+## ar/tentative | ما مدى ثبات تاريخ العطلة المعلن هنا؟
+وكالة الأنباء: من المتوقع فلكياً أن يكون أول أيام عيد الفطر يوم الأربعاء ١٠ مارس، على أن تعلن المحكمة العليا الموعد النهائي بعد تحرّي هلال شوال مساء الاثنين.
+## he/moved
+הודעת ועדת השרים לסמלים וטקסים: מאחר שה' באייר חל השנה ביום שישי, יום העצמאות יוקדם ויצוין ביום חמישי, ג' באייר. יום הזיכרון יוקדם בהתאם ליום רביעי.
+## fa/confirmed | تاریخ تعطیلی اعلام‌شده در اینجا چقدر قطعی است؟
+ستاد استهلال دفتر رهبری: با رؤیت هلال ماه شوال در غروب دیروز، امروز چهارشنبه عید سعید فطر است. تعطیلی امروز و فردا طبق تقویم رسمی برقرار است.
+## bn/tentative
+জনপ্রশাসন মন্ত্রণালয়ের ছুটির তালিকা ২০২৭: ঈদুল আজহা — ১৭ মে (সোমবার)। *চাঁদ দেখা সাপেক্ষে। জাতীয় চাঁদ দেখা কমিটির সভার পর তারিখ চূড়ান্ত করা হবে।
+## ta/confirmed | இங்கு அறிவிக்கப்பட்ட விடுமுறை நாளின் தேதி எவ்வளவு உறுதியானது?
+தமிழ்நாடு அரசு அரசாணை (நிலை) எண் 612: 2027 ஜனவரி 14 (வியாழன்) பொங்கல், ஜனவரி 15 திருவள்ளுவர் நாள், ஜனவரி 16 உழவர் திருநாள் ஆகிய நாட்கள் அரசு விடுமுறை நாட்களாக அறிவிக்கப்பட்டு அரசிதழில் வெளியிடப்பட்டுள்ளன.
+
+@@ alert-protective-action | choice
+Q: What does this official weather or hazard alert tell people in the affected area to do?
+C: none=Nothing special; for information only ;; prepare=Stay alert and prepare (secure items, stock up, monitor updates) ;; shelter=Stay indoors / avoid going out or travelling ;; evacuate=Leave the area / move to a shelter or higher ground
+## hi/shelter | यह आधिकारिक मौसम या आपदा चेतावनी प्रभावित क्षेत्र के लोगों से क्या करने को कहती है?
+IMD रेड अलर्ट — मुंबई, ठाणे, रायगढ़: अगले 24 घंटों में अत्यधिक भारी वर्षा (204 मिमी से अधिक) की संभावना। BMC की अपील: नागरिक अत्यंत आवश्यक न हो तो घरों से बाहर न निकलें, समुद्र तट पर न जाएँ।
+## th/evacuate
+ปภ.แจ้งเตือนภัยระดับ 5 (สีแดง): มวลน้ำจากเขื่อนจะเข้าท่วมชุมชนริมแม่น้ำยม ต.ปากแคว ภายใน 3 ชั่วโมง ขอให้ประชาชนอพยพไปยังศูนย์พักพิงโรงเรียนเทศบาลวัดไทยชุมพลโดยด่วน
+## en/prepare
+Met Office Yellow warning of wind — Western Isles, Thu 03:00–15:00
+Gusts of 55–65 mph possible. Be aware: secure loose items such as bins and garden furniture, check ferry timetables before you travel and keep up to date with the forecast.
+## vi/evacuate | Cảnh báo thời tiết hoặc thiên tai chính thức này yêu cầu người dân trong vùng ảnh hưởng làm gì?
+Ban Chỉ huy PCTT tỉnh Quảng Nam: Bão số 9 dự kiến đổ bộ đêm nay, cấp 12 giật cấp 15. Yêu cầu toàn bộ người dân các xã ven biển Duy Hải, Duy Nghĩa sơ tán đến điểm tránh trú tập trung trước 15h hôm nay.
+## id/prepare
+BMKG — Peringatan Dini Cuaca: Waspada potensi hujan sedang hingga lebat disertai petir di wilayah Bogor, Depok, dan Jakarta Selatan pukul 14.00–17.00 WIB. Masyarakat diimbau waspada genangan, membersihkan saluran air, dan memantau informasi terbaru.
+## tr/shelter | Bu resmî hava veya afet uyarısı, etkilenen bölgedeki insanlara ne yapmalarını söylüyor?
+AFAD / Meteoroloji KIRMIZI kodlu uyarı — Antalya: Bu gece 21.00'den itibaren çok kuvvetli yağış ve hortum riski. Valilik: Zorunlu olmadıkça dışarı çıkmayınız, araç kullanmayınız; okullar yarın tatil edilmiştir.
+## el/none
+ΕΜΥ — Δελτίο καιρού: Αύριο στην Αττική γενικά αίθριος καιρός με λίγες νεφώσεις το μεσημέρι. Άνεμοι βόρειοι 3–4 μποφόρ. Θερμοκρασία έως 19 βαθμούς. Δεν είναι σε ισχύ έκτακτο δελτίο ή προειδοποίηση.
+## pl/none | Co ten oficjalny komunikat pogodowy lub ostrzeżenie każe robić ludziom na danym obszarze?
+IMGW — prognoza dla woj. małopolskiego: jutro zachmurzenie umiarkowane, bez opadów, temperatura maks. 6°C, wiatr słaby. Ostrzeżenia meteorologiczne: brak. Komunikat ma charakter informacyjny.
+
+@@ work-suspended-by-signal | noul
+Q: According to the official announcement for the storm signal or severe weather, are work/offices suspended for the user's area on the day in question?
+## hi/y
+ज़िलाधिकारी देहरादून का आदेश: मौसम विभाग के रेड अलर्ट के मद्देनज़र 24 नवंबर को देहरादून ज़िले के सभी सरकारी व निजी कार्यालय, स्कूल और आँगनवाड़ी केंद्र बंद रहेंगे। आवश्यक सेवाएँ चालू रहेंगी।
+उपयोगकर्ता: देहरादून में निजी कंपनी का कर्मचारी (आवश्यक सेवा नहीं), 24 नवंबर
+## th/n | ตามประกาศทางการเกี่ยวกับสัญญาณพายุหรือสภาพอากาศรุนแรง พื้นที่ของผู้ใช้มีการหยุดงาน/ปิดสำนักงานในวันดังกล่าวหรือไม่
+ศาลากลางจังหวัดสงขลา: เนื่องจากน้ำท่วม ให้หน่วยงานราชการใน อ.หาดใหญ่ และ อ.สะเดา หยุดทำการวันที่ 24 พ.ย. 69 อำเภออื่นปฏิบัติงานตามปกติ
+ผู้ใช้: ข้าราชการที่ว่าการ อ.เมืองสงขลา วันที่ 24 พ.ย.
+## en/n
+Hong Kong Observatory: The Strong Wind Signal No. 3 is in force and is expected to remain so for most of the day. No. 8 is not expected to be issued before 6 pm. Under the Labour Department code, work arrangements are normal under No. 3.
+User: office worker in Kowloon, today 9 am
+## it/y | Secondo l'annuncio ufficiale per l'allerta meteo, il lavoro/gli uffici sono sospesi nella zona dell'utente nel giorno in questione?
+Comune di Catania — Ordinanza sindacale: per l'allerta ROSSA del 23 novembre è disposta la chiusura di tutti gli uffici pubblici, delle scuole e dei mercati; sospese le attività non essenziali. Il personale opererà in lavoro agile ove possibile.
+Utente: impiegata dell'ufficio anagrafe comunale di Catania, 23 novembre
+## pt/n
+Defesa Civil de Santa Catarina: alerta laranja para ciclone extratropical no litoral norte. A Prefeitura de Joinville informa que o expediente nas repartições municipais segue NORMAL na terça-feira; apenas as aulas da rede municipal estão suspensas.
+Usuário: servidor da Secretaria da Fazenda de Joinville, terça-feira
+## sw/y | Kulingana na tangazo rasmi la hali mbaya ya hewa, je, kazi/ofisi zimesitishwa katika eneo la mtumiaji siku husika?
+Ofisi ya Mkuu wa Mkoa wa Lindi: Kutokana na Kimbunga Hidaya, ofisi zote za serikali na shule katika wilaya za Kilwa na Lindi Mjini zitafungwa Jumatatu tarehe 23/11. Watumishi wa afya na uokoaji wataendelea na kazi.
+Mtumiaji: karani wa halmashauri, Kilwa Masoko, Jumatatu
+## zh/y
+行政院人事行政總處 天然災害停止上班及上課情形:花蓮縣 明(24)日停止上班、停止上課。臺東縣 照常上班、照常上課。
+使用者:花蓮市某銀行行員,24 日
+## ja/n | 暴風警報や荒天に関する公式発表によると、ユーザーの地域では該当日に業務・出勤が停止されていますか?
+◯◯市役所 総務課:台風接近に伴い、明日24日は市立小中学校を臨時休校とします。市役所本庁舎および各支所は通常どおり開庁し、職員は通常勤務とします。
+ユーザー:市役所本庁舎の職員、24日
+
+@@ river-level-over-danger-mark | noul
+Q: Compare the current water level with the danger or warning mark given. Is the level at or above that mark?
+## hi/y
+केंद्रीय जल आयोग · यमुना, पुराना रेलवे पुल (दिल्ली)
+ख़तरे का निशान: 205.33 मीटर · चेतावनी स्तर: 204.50 मीटर
+वर्तमान जलस्तर (सुबह 8 बजे): 205.87 मीटर · रुझान: बढ़ता हुआ
+## th/n | เปรียบเทียบระดับน้ำปัจจุบันกับระดับวิกฤตหรือระดับเตือนภัยที่ให้ไว้ ระดับน้ำอยู่ที่หรือสูงกว่าระดับนั้นหรือไม่
+กรมชลประทาน · สถานี C.2 แม่น้ำเจ้าพระยา อ.เมืองนครสวรรค์
+ระดับตลิ่ง: 26.20 ม.รทก.
+ระดับน้ำ 06.00 น.: 24.85 ม.รทก. (ต่ำกว่าตลิ่ง 1.35 ม.) แนวโน้มทรงตัว
+## en/n
+Environment Agency — River Severn at Bewdley
+Flooding of property is possible above 4.50 m.
+Current level: 3.92 m at 07:15, falling slowly. Flood alert remains in place.
+## ja/y | 現在の水位を、示されている危険水位・警戒水位と比べてください。水位はその基準以上ですか?
+国土交通省 川の防災情報 · 多摩川 田園調布(上)観測所
+氾濫危険水位:8.40 m · 避難判断水位:7.60 m
+現在の水位(21:10):8.62 m ↑ 上昇中
+## zh/n
+长江水利委员会 · 汉口站
+警戒水位:27.30 米 · 保证水位:29.73 米
+当前水位(8时):26.94 米,较昨日上涨 0.21 米
+## ko/y | 현재 수위를 제시된 위험 수위 또는 경보 기준과 비교하세요. 수위가 그 기준 이상인가요?
+한강홍수통제소 · 잠수교 지점
+보행자 통제 수위: 5.50 m · 차량 통제 수위: 6.20 m
+현재 수위(15:40): 6.31 m — 상승 중
+(기준: 차량 통제 수위)
+## ru/y
+Росгидромет · р. Амур, г. Хабаровск
+Отметка опасного явления: 600 см
+Уровень воды на 08:00: 612 см (+9 см за сутки)
+## uk/n | Порівняйте поточний рівень води із зазначеною небезпечною або попереджувальною позначкою. Чи рівень дорівнює цій позначці або перевищує її?
+Укргідрометцентр · р. Тиса, пост Рахів
+Рівень початку затоплення заплави: 320 см
+Поточний рівень (06:00): 284 см, очікується підвищення на 20–30 см
+
+@@ tsunami-threat-level | choice
+Q: After the earthquake reported here, what does the bulletin say about tsunami danger for the coast concerned?
+C: none=No tsunami threat ;; advisory=Minor sea-level changes or advisory: stay away from the shore, no evacuation ordered ;; warning=Tsunami warning: evacuate coastal areas
+## hi/none | यहाँ बताए गए भूकंप के बाद, बुलेटिन संबंधित तट के लिए सुनामी के ख़तरे के बारे में क्या कहता है?
+INCOIS बुलेटिन-1: अंडमान सागर में रिक्टर पैमाने पर 5.8 तीव्रता का भूकंप, गहराई 90 किमी। मूल्यांकन: भारत के लिए कोई सुनामी ख़तरा नहीं। कोई कार्रवाई आवश्यक नहीं।
+## th/warning
+ศูนย์เตือนภัยพิบัติแห่งชาติ: แผ่นดินไหวขนาด 8.4 นอกชายฝั่งสุมาตรา เตือนภัยสึนามิ 6 จังหวัดอันดามัน คาดคลื่นถึงภูเก็ตเวลา 10.45 น. ให้ประชาชนและนักท่องเที่ยวอพยพออกจากชายหาดขึ้นที่สูงทันที
+## ar/advisory | بعد الزلزال المذكور هنا، ماذا تقول النشرة عن خطر التسونامي على الساحل المعني؟
+المركز الوطني للأرصاد: زلزال بقوة ٦٫٧ في بحر العرب. قد تحدث تغيرات طفيفة في مستوى سطح البحر على سواحل عُمان خلال الساعتين القادمتين. يُنصح بالابتعاد عن الشواطئ والموانئ؛ لا توجد أوامر إخلاء.
+## he/none
+המכון הגיאופיזי: רעידת אדמה בעוצמה 4.9 הורגשה באזור ים המלח. פיקוד העורף: אין חשש לצונאמי בחופי הים התיכון. אין הנחיות מיוחדות לציבור.
+## fa/warning | پس از زمین‌لرزه گزارش‌شده، این اطلاعیه درباره خطر سونامی برای ساحل مورد نظر چه می‌گوید؟
+مرکز ملی اقیانوس‌شناسی: زمین‌لرزه ۸٫۱ ریشتری در منطقه مکران. هشدار سونامی برای سواحل چابهار و کنارک صادر شد. ساکنان مناطق ساحلی فوراً به ارتفاعات بالاتر از ۲۰ متر بروند.
+## bn/advisory
+আবহাওয়া অধিদপ্তর: আন্দামান সাগরে ৭.০ মাত্রার ভূমিকম্প। কক্সবাজার ও টেকনাফ উপকূলে সমুদ্রের পানির উচ্চতায় সামান্য তারতম্য হতে পারে। জেলেদের সাগরে না নামতে ও পর্যটকদের সৈকত থেকে দূরে থাকতে বলা হয়েছে; সরিয়ে নেওয়ার নির্দেশ নেই।
+## ta/warning | இங்கு தெரிவிக்கப்பட்ட நிலநடுக்கத்திற்குப் பிறகு, சம்பந்தப்பட்ட கடற்கரைக்கான சுனாமி அபாயம் குறித்து அறிவிப்பு என்ன சொல்கிறது?
+INCOIS சுனாமி எச்சரிக்கை: சுமத்ரா அருகே 8.6 ரிக்டர் நிலநடுக்கம். நாகப்பட்டினம், கடலூர், சென்னை கடலோரப் பகுதிகளுக்கு சுனாமி எச்சரிக்கை. கடற்கரையிலிருந்து 1 கி.மீ.க்குள் வசிப்பவர்கள் உடனடியாக உயரமான இடங்களுக்குச் செல்லவும்.
+## id/none
+BMKG: Gempa M 5,6 — 42 km barat daya Pacitan, kedalaman 60 km. Gempa ini TIDAK BERPOTENSI TSUNAMI. Masyarakat diimbau tetap tenang dan tidak terpengaruh isu yang tidak dapat dipertanggungjawabkan.
+
+@@ alert-drill-or-real | choice
+Q: Is this emergency message a test or drill, or a real alert that requires action?
+C: drill=A test, exercise or drill; no real danger ;; real=A real emergency alert
+## hi/drill | क्या यह आपातकालीन संदेश एक परीक्षण या मॉक ड्रिल है, या असली चेतावनी जिस पर कार्रवाई ज़रूरी है?
+⚠ आपातकालीन चेतावनी: अत्यंत गंभीर
+यह भारत सरकार के दूरसंचार विभाग द्वारा सेल ब्रॉडकास्टिंग सिस्टम के माध्यम से भेजा गया एक नमूना परीक्षण संदेश है। कृपया इस संदेश पर ध्यान न दें क्योंकि आपकी ओर से किसी कार्रवाई की आवश्यकता नहीं है।
+## th/real
+🚨 Cell Broadcast — ปภ. 14.02 น.
+เกิดเหตุสารเคมีรั่วไหลจากโรงงานในนิคมฯ มาบตาพุด ผู้ที่อยู่ในรัศมี 3 กม. ให้ปิดประตูหน้าต่าง ปิดเครื่องปรับอากาศ และอยู่ในอาคารจนกว่าจะแจ้งเปลี่ยนแปลง นี่ไม่ใช่การซ้อม
+## en/drill
+Severe Alert — This is a test of Emergency Alerts, a UK government service that will warn you if there's a life-threatening emergency nearby. In a real emergency, follow the instructions in the alert to keep yourself and others safe. This is a test. You do not need to take any action.
+## vi/real | Tin nhắn khẩn cấp này là thử nghiệm/diễn tập hay là cảnh báo thật cần hành động?
+[Bộ TT&TT] Khẩn: Lũ quét đang xảy ra tại huyện Mường Lát, Thanh Hóa. Người dân sống ven suối Sim di chuyển ngay lên vùng cao, không qua ngầm tràn. Liên hệ cứu hộ: 112.
+## id/drill
+[BNPB] INI HANYA LATIHAN — Latihan evakuasi tsunami Kota Padang, Kamis 26/11 pukul 10.00 WIB. Sirene akan dibunyikan selama 3 menit. Tidak ada kejadian gempa yang sebenarnya. Mohon tidak panik.
+## tr/real | Bu acil durum mesajı bir test/tatbikat mı, yoksa harekete geçmeyi gerektiren gerçek bir uyarı mı?
+AFAD ACİL UYARI: İzmir Seferihisar açıklarında 6,6 büyüklüğünde deprem meydana geldi. Kıyı şeridinde tsunami riski bulunmaktadır. Sahilden derhal uzaklaşın, yüksek yerlere çıkın. Hasarlı binalara girmeyin.
+## el/drill
+112 — ΑΣΚΗΣΗ: Αυτό είναι δοκιμαστικό μήνυμα του Αριθμού Έκτακτης Ανάγκης 112 στο πλαίσιο της άσκησης «ΜΙΝΩΑΣ 2026». Δεν απαιτείται καμία ενέργεια. / This is a test message.
+## pl/real | Czy ten komunikat alarmowy jest testem lub ćwiczeniem, czy prawdziwym ostrzeżeniem wymagającym działania?
+ALERT RCB: Uwaga! Dziś i jutro (22/23.11) bardzo silny wiatr, w porywach do 130 km/h w woj. pomorskim. Możliwe przerwy w dostawie prądu. Nie wychodź z domu bez potrzeby, zabezpiecz rzeczy na balkonach.
+
+@@ alert-still-in-force | noul
+Q: Given the validity period of the alert and the current time stated, is the alert still in force now?
+## hi/y
+IMD ऑरेंज अलर्ट — घना कोहरा, पंजाब-हरियाणा
+वैधता: 21 नवंबर रात 10 बजे से 23 नवंबर सुबह 10 बजे तक
+अभी: 22 नवंबर, दोपहर 3:10 बजे
+## th/n | จากช่วงเวลาที่ประกาศเตือนมีผลและเวลาปัจจุบันที่ระบุ ประกาศเตือนยังมีผลอยู่หรือไม่ในขณะนี้
+กรมอุตุนิยมวิทยา ประกาศฉบับที่ 7: คลื่นลมแรงบริเวณอ่าวไทยตอนล่าง มีผลกระทบถึงวันที่ 21 พฤศจิกายน 2569 ฉบับนี้เป็นฉบับสุดท้าย
+ขณะนี้: 22 พฤศจิกายน 2569 เวลา 09.00 น.
+## en/n
+National Weather Service — Tornado Warning for Tulsa County
+Issued 4:12 PM CST · Until 4:45 PM CST
+Current time: 5:02 PM CST. No extension has been issued.
+## it/y | Dato il periodo di validità dell'allerta e l'ora attuale indicata, l'allerta è ancora in vigore adesso?
+Protezione Civile Liguria — Allerta ARANCIONE per temporali, zona B
+Validità: dalle 18:00 di sabato 21/11 alle 14:59 di domenica 22/11
+Ora: domenica 22/11, ore 11:30
+## pt/n
+IPMA — Aviso laranja de agitação marítima, distrito do Porto
+Válido de 20/11 às 06:00 até 21/11 às 21:00
+Agora: 22/11, 08:15
+## sw/y | Kwa kuzingatia muda wa tahadhari na saa ya sasa iliyotajwa, je, tahadhari bado inatumika sasa?
+TMA — Tahadhari ya mvua kubwa: mikoa ya Dar es Salaam, Pwani na Tanga
+Kuanzia: 21/11/2026 saa 3:00 usiku · Hadi: 23/11/2026 saa 3:00 asubuhi
+Sasa: 22/11/2026, saa 8:00 mchana
+## zh/n | 依照警報的有效期間與所述的目前時間,這項警報現在仍然有效嗎?
+中央氣象署 大雨特報
+發布時間:11/21 16:20 · 已於 11/22 05:30 解除
+現在時間:11/22 07:45
+## ko/y
+기상청 — 한파주의보: 강원 영서, 경기 북부
+발효: 11월 21일 21:00 · 해제 예고: 11월 23일 오전
+현재: 11월 22일 18:30 (해제 발표 없음)
+
+@@ sea-conditions-allow-small-boats | noul
+Q: According to the marine forecast or harbour notice, may small boats or fishing vessels go to sea in the area and period concerned?
+## hi/n
+IMD मछुआरा चेतावनी: 22 से 24 नवंबर तक उत्तर-पूर्वी अरब सागर और गुजरात तट पर 45–55 किमी/घंटा (झोंके 65 तक) की तेज़ हवाएँ। मछुआरों को इस अवधि में समुद्र में न जाने की सलाह दी जाती है।
+अवधि: 23 नवंबर, वेरावल बंदरगाह
+## th/y | ตามพยากรณ์อากาศทางทะเลหรือประกาศของท่าเรือ เรือเล็กหรือเรือประมงออกทะเลได้หรือไม่ในพื้นที่และช่วงเวลาดังกล่าว
+พยากรณ์อากาศทะเลอันดามัน 23 พ.ย. 69: คลื่นสูงประมาณ 1 เมตร ลมตะวันออกเฉียงเหนือ 10–20 กม./ชม. ท้องฟ้าโปร่ง ไม่มีประกาศเตือน เรือทุกประเภทเดินเรือได้ตามปกติ
+พื้นที่: ท่าเรือเกาะลันตา
+## en/n
+Stornoway Coastguard: Gale warning in force for sea area Hebrides — southwest gale 8 to severe gale 9, sea state very rough or high. Harbour master: small craft should not leave harbour until the warning is lifted.
+Period: this afternoon
+## ta/n | கடல் வானிலை முன்னறிவிப்பு அல்லது துறைமுக அறிவிப்பின்படி, குறிப்பிட்ட பகுதி மற்றும் காலத்தில் சிறு படகுகள் அல்லது மீன்பிடிப் படகுகள் கடலுக்குச் செல்லலாமா?
+மீன்வளத் துறை அறிவிப்பு: வங்கக்கடலில் உருவாகியுள்ள காற்றழுத்தத் தாழ்வு மண்டலம் காரணமாக நாகை, ராமநாதபுரம் மாவட்ட மீனவர்கள் நவம்பர் 25 வரை கடலுக்குச் செல்ல வேண்டாம். துறைமுகங்களில் 3ஆம் எண் புயல் எச்சரிக்கைக் கூண்டு ஏற்றப்பட்டுள்ளது.
+காலம்: நவம்பர் 23, ராமேஸ்வரம்
+## sw/y
+TMA — Utabiri wa bahari, pwani ya Tanga hadi Mtwara, 23/11: Upepo wa kusi kasi ya km 15–20 kwa saa, mawimbi madogo (mita 0.5–1.0). Hakuna tahadhari. Wavuvi na vyombo vidogo wanaweza kuendelea na shughuli zao kwa kuzingatia vifaa vya usalama.
+Eneo: Bagamoyo, kesho asubuhi
+## id/y | Menurut prakiraan cuaca maritim atau pengumuman pelabuhan, bolehkah kapal kecil atau perahu nelayan melaut di wilayah dan periode yang dimaksud?
+BMKG Maritim — Perairan Kepulauan Seribu, 23 November: tinggi gelombang 0,5–1,0 m (kategori rendah), angin barat laut 5–15 knot, cuaca cerah berawan. Aman untuk pelayaran kapal nelayan dan penyeberangan.
+## el/n | Σύμφωνα με τη ναυτική πρόγνωση ή την ανακοίνωση του λιμεναρχείου, επιτρέπεται να βγουν στη θάλασσα μικρά σκάφη ή αλιευτικά στην περιοχή και την περίοδο που αφορά;
+Λιμεναρχείο Ραφήνας: Απαγορευτικό απόπλου σε ισχύ λόγω ανέμων 8–9 μποφόρ στο Κεντρικό Αιγαίο. Δεν αποπλέουν μικρά σκάφη, αλιευτικά και ταχύπλοα μέχρι νεωτέρας.
+Περίοδος: σήμερα το απόγευμα
+## vi/y
+Đài Khí tượng Thủy văn Khánh Hòa — Dự báo biển ngày 23/11: gió đông bắc cấp 3–4, sóng cao 0,5–1,25 m, biển êm. Không có cảnh báo gió mạnh. Tàu thuyền nhỏ hoạt động bình thường.
+Khu vực: vịnh Nha Trang
+
+@@ prepaid-credit-below-alert | noul
+Q: This is a prepaid account with a stated low-balance threshold (alert, cut-off or minimum). Is the current balance below that threshold?
+## hi/y | यह एक प्रीपेड खाता है जिसमें कम बैलेंस की एक सीमा (अलर्ट, कट-ऑफ़ या न्यूनतम) बताई गई है। क्या मौजूदा बैलेंस उस सीमा से नीचे है?
+UPPCL स्मार्ट प्रीपेड मीटर · खाता 4471029856
+उपलब्ध बैलेंस: ₹38.20
+सूचना: बैलेंस ₹50 से कम होने पर अलर्ट SMS भेजा जाता है; ₹0 होने पर आपूर्ति कट जाएगी (रात 6 बजे से सुबह 8 बजे तक नहीं)।
+## th/n
+AIS วันทูคอล · 08x-xxx-7741
+ยอดเงินคงเหลือ: 62.50 บาท · วันหมดอายุ 14/01/70
+แพ็กเกจเน็ตรายสัปดาห์ต่ออายุอัตโนมัติ 35 บาท ทุกวันจันทร์ — ต้องมียอดเงินอย่างน้อย 35 บาทจึงจะต่ออายุได้
+## en/y
+British Gas Pay As You Go — Smart meter
+Gas credit: £1.42
+"Low credit alert sounds at £2.00. £10 emergency credit is available once you drop below £2.00."
+## ja/n | これはプリペイド式のアカウントで、残高不足のしきい値(通知・停止・最低額)が示されています。現在の残高はそのしきい値を下回っていますか?
+モバイルSuica
+残高:¥2,348
+オートチャージ設定:残高が ¥1,000 以下になると ¥3,000 を自動入金
+## zh/y
+国家电网 · 预付费电表 户号 3301 0827 4456
+当前剩余金额:18.36 元
+提示:剩余金额低于 30 元时短信预警,低于 0 元时自动断电。
+## ko/n | 이것은 선불 계정이며 잔액 부족 기준(알림, 차단 또는 최소 금액)이 명시되어 있습니다. 현재 잔액이 그 기준보다 낮은가요?
+하이패스 선불카드 (자동충전 미사용)
+현재 잔액: 12,400원
+안내: 잔액이 5,000원 미만이면 톨게이트 통과 시 '잔액 부족' 경고음이 울립니다.
+## ru/y
+Ростелеком · Лицевой счёт 478001123456
+Баланс: 46,80 ₽
+Порог отключения: при балансе ниже 100 ₽ доступ в интернет приостанавливается в 00:00 следующего дня.
+## uk/n | Це передплачений рахунок із зазначеним порогом низького балансу. Чи є поточний баланс нижчим за цей поріг?
+Київстар · Особистий рахунок
+Баланс: 187,45 грн
+Наступне списання за тариф «Все разом»: 175 грн, 25.11.2026. Якщо на рахунку менше 175 грн, послуги буде обмежено.
+
+@@ measured-speed-meets-plan | noul
+Q: Compare the speed-test result with the minimum or guaranteed speed the provider promises for this plan. Does the measured download speed meet that promise?
+## hi/n
+JioFiber प्लान ₹999 — "150 Mbps तक" · सेवा शर्तें: न्यूनतम सुनिश्चित स्पीड प्लान स्पीड का 50% (75 Mbps), LAN कनेक्शन पर।
+Speedtest (LAN केबल, 22/11 रात 9:14): डाउनलोड 41.6 Mbps · अपलोड 38.2 Mbps · पिंग 9 ms
+## th/y | เปรียบเทียบผลทดสอบความเร็วกับความเร็วขั้นต่ำหรือความเร็วที่ผู้ให้บริการรับประกันสำหรับแพ็กเกจนี้ ความเร็วดาวน์โหลดที่วัดได้เป็นไปตามที่รับประกันหรือไม่
+True Gigatex Fiber 1000/500 Mbps — เงื่อนไข: รับประกันความเร็วขั้นต่ำ 30% ของความเร็วแพ็กเกจ (300 Mbps) เมื่อทดสอบผ่านสาย LAN
+ผลทดสอบ nPerf (สาย LAN): ดาวน์โหลด 612 Mbps · อัปโหลด 388 Mbps
+## ar/n | قارن نتيجة اختبار السرعة بالحد الأدنى أو السرعة المضمونة التي يعد بها المزوّد لهذه الباقة. هل تحقق سرعة التنزيل المقيسة هذا الوعد؟
+STC فايبر — باقة ٥٠٠ ميجا · الحد الأدنى المضمون للسرعة: ٢٥٠ ميجابت/ث عبر الكيبل.
+نتيجة Speedtest (كيبل، ٨:٤٠ مساءً): تنزيل ١٨٢ ميجابت/ث · رفع ٩٥ ميجابت/ث
+## he/y
+בזק סיב אופטי 1000/100 — לפי תנאי השירות: מהירות הורדה מינימלית מובטחת 500 Mbps בחיבור קווי.
+בדיקת מהירות (כבל רשת, 21:05): הורדה 874 Mbps · העלאה 96 Mbps · פינג 3ms
+## fa/n | نتیجه تست سرعت را با حداقل سرعت یا سرعت تضمین‌شده اپراتور برای این سرویس مقایسه کنید. آیا سرعت دانلود اندازه‌گیری‌شده به آن حد می‌رسد؟
+مخابرات — سرویس FTTH صد مگابیتی · طبق مصوبه رگولاتوری، حداقل سرعت تضمینی ۵۰ درصد سرعت اسمی (۵۰ مگابیت بر ثانیه) است.
+تست سرعت (با کابل، ساعت ۲۲:۱۰): دانلود ۲۳٫۴ مگابیت بر ثانیه · آپلود ۱۸ مگابیت
+## bn/y
+লিংক৩ ব্রডব্যান্ড — ৫০ Mbps প্যাকেজ · প্রতিশ্রুতি: ন্যূনতম ৪০ Mbps (BDIX ও আন্তর্জাতিক, তারযুক্ত সংযোগে)।
+স্পিড টেস্ট (LAN, রাত ৯টা): ডাউনলোড ৪৭.৮ Mbps · আপলোড ৪৫.১ Mbps
+## ta/n | வேகச் சோதனை முடிவை, இந்தத் திட்டத்திற்கு வழங்குநர் உறுதியளிக்கும் குறைந்தபட்ச வேகத்துடன் ஒப்பிடுக. அளவிடப்பட்ட பதிவிறக்க வேகம் அந்த உறுதிமொழியை நிறைவேற்றுகிறதா?
+BSNL பாரத் ஃபைபர் — 100 Mbps திட்டம் · குறைந்தபட்ச உத்தரவாத வேகம்: 60 Mbps (LAN இணைப்பில்).
+Speedtest (LAN, இரவு 8:30): பதிவிறக்கம் 34.2 Mbps · பதிவேற்றம் 31.0 Mbps
+## tr/y
+Türk Telekom Fiber 100 Mbps — Taahhütname: "Asgari indirme hızı 35 Mbps'tir; kablolu bağlantıda ölçülür."
+Hız testi (ethernet, 20.45): İndirme 92,3 Mbps · Yükleme 18,7 Mbps · Gecikme 6 ms
+
+@@ payment-transaction-outcome | choice
+Q: What is the final outcome of this bill or utility payment according to the receipt or status screen?
+C: success=Paid successfully ;; pending=Still processing, outcome not final ;; failed=Failed; no money taken (or will not be taken) ;; reversed=Money was debited but has been or will be refunded because the payment did not go through
+## hi/reversed | रसीद या स्टेटस स्क्रीन के अनुसार इस बिल/यूटिलिटी भुगतान का अंतिम नतीजा क्या है?
+Paytm · बिजली बिल — BSES राजधानी · ₹2,340
+स्थिति: भुगतान विफल ❌ आपके बैंक खाते से राशि कट गई थी, पर बिलर तक नहीं पहुँची। ₹2,340 का रिफ़ंड शुरू कर दिया गया है; 3–5 कार्य दिवसों में खाते में आ जाएगा। UTR: 633109284471
+## th/success
+แอป MEA Smart Life · ชำระค่าไฟฟ้า
+รอบบิล ต.ค. 2569 จำนวน 1,284.57 บาท
+สถานะ: ชำระเงินสำเร็จ ✓ 22/11/2569 08:14 น. · เลขที่อ้างอิง 20261122081433 · ช่องทาง: พร้อมเพย์
+## en/pending
+Thames Water — Payment status
+£46.20 by bank transfer · Submitted 21 Nov
+"We've received your payment instruction. It can take up to 3 working days to show on your account. Status: Processing."
+## vi/failed | Kết quả cuối cùng của khoản thanh toán hóa đơn này theo biên nhận hoặc màn hình trạng thái là gì?
+MoMo · Thanh toán tiền điện EVN HCMC — 1.245.000đ
+Giao dịch thất bại. Nguồn tiền không đủ số dư. Tài khoản của bạn chưa bị trừ tiền. Vui lòng nạp thêm và thử lại.
+## id/success
+PLN Mobile · Pembelian Token Listrik Rp 100.000
+Status: BERHASIL · 22 Nov 2026 07.52 WIB
+Token: 4471-0928-5563-1180-2297 · 66,7 kWh · ID Pel 5214 0077 1234
+## tr/reversed | Makbuza veya durum ekranına göre bu fatura ödemesinin nihai sonucu nedir?
+İSKİ fatura ödeme — 418,60 TL
+İşleminiz tamamlanamadı. Kartınızdan çekilen 418,60 TL tutar bankanıza iade edilmiştir; iadenin hesabınıza yansıması 1–3 iş günü sürebilir. Fatura borcunuz devam etmektedir.
+## el/pending
+ΔΕΗ myΔΕΗ · Πληρωμή λογαριασμού 87,40 €
+Κατάσταση: Σε εκκρεμότητα — η πληρωμή σας βρίσκεται υπό επεξεργασία από την τράπεζα. Θα ενημερωθείτε με email μόλις ολοκληρωθεί ή απορριφθεί.
+## pl/failed | Jaki jest ostateczny wynik tej płatności za rachunek według potwierdzenia lub ekranu statusu?
+PGE eBOK · Płatność BLIK 214,37 zł
+Status: Odrzucona. Kod BLIK wygasł przed zatwierdzeniem w aplikacji banku. Środki nie zostały pobrane. Spróbuj ponownie.
+
+@@ subsidy-applied-on-bill | noul
+Q: Does this bill show that a government subsidy, rebate or social discount has actually been applied to the amount due?
+## hi/y
+Indane LPG · रिफ़िल बुकिंग रसीद
+सिलेंडर मूल्य: ₹903.00 · PMUY (उज्ज्वला) सब्सिडी ₹300.00 आपके बैंक खाते XX4417 में DBT द्वारा 20/11/2026 को जमा की गई · प्रभावी मूल्य ₹603.00
+## th/n | ใบแจ้งหนี้นี้แสดงว่ามีการนำเงินอุดหนุน ส่วนลดจากรัฐ หรือส่วนลดทางสังคมมาหักจากยอดที่ต้องชำระจริงหรือไม่
+การไฟฟ้าส่วนภูมิภาค · ใบแจ้งค่าไฟฟ้า ต.ค. 69
+หน่วยที่ใช้ 214 หน่วย · ค่าไฟฟ้า 912.48 บาท · ส่วนลดบัตรสวัสดิการแห่งรัฐ: 0.00 บาท (ไม่เข้าเงื่อนไข: ใช้ไฟเกิน 50 หน่วย) · รวมเงินที่ต้องชำระ 976.35 บาท
+## en/n
+Octopus Energy — Statement, October
+Electricity £84.12 · Gas £51.07 · Total £135.19
+Warm Home Discount: You've applied; eligibility is still being checked by DWP. If successful, £150 will be credited by 31 March.
+## it/y | Questa bolletta mostra che un contributo statale, bonus o sconto sociale è stato effettivamente applicato all'importo dovuto?
+Enel Energia — Bolletta luce ottobre-novembre
+Spesa per la materia energia € 96,40 · Trasporto e oneri € 41,15 · Bonus sociale elettrico (ISEE): − € 28,60 · Totale da pagare € 119,84
+## pt/n
+Copasa — Conta de água, 11/2026
+Consumo 14 m³ · Tarifa residencial: R$ 98,72 · Esgoto R$ 73,10
+Tarifa Social: cadastro não localizado — atualize seu CadÚnico para ter direito ao desconto. Total: R$ 171,82
+## sw/n | Je, bili hii inaonyesha kwamba ruzuku ya serikali au punguzo la kijamii limetumika kweli kwenye kiasi kinachodaiwa?
+DAWASA — Ankara ya maji, Oktoba 2026
+Matumizi: uniti 18 · Gharama ya maji: Sh 32,400 · Huduma ya mita: Sh 2,000 · Punguzo/ruzuku: Sh 0 · Jumla ya kulipa: Sh 34,400
+## zh/y
+台灣電力公司 電費通知單 115 年 10 月
+流動電費 1,248 元 · 節電獎勵 −36 元 · 身心障礙者維生器材用電優惠 −412 元 · 應繳總金額 800 元
+## ar/y | هل تُظهر هذه الفاتورة أن دعماً حكومياً أو خصماً اجتماعياً قد طُبِّق فعلاً على المبلغ المستحق؟
+الشركة السعودية للكهرباء — فاتورة شهر نوفمبر
+قيمة الاستهلاك ٤١٢٫٥٠ ريال · خصم مستفيدي الضمان الاجتماعي: −١٢٠٫٠٠ ريال · ضريبة القيمة المضافة ٤٣٫٨٨ ريال · المبلغ المستحق ٣٣٦٫٣٨ ريال
+
+@@ peak-tariff-now | noul
+Q: Under the time-of-use tariff shown, is the current time in the peak (most expensive) period?
+## hi/n | दिखाए गए टाइम-ऑफ़-डे टैरिफ़ के अनुसार, क्या मौजूदा समय पीक (सबसे महँगी) अवधि में आता है?
+MSEDCL ToD टैरिफ़: सुबह 9 से शाम 5 बजे — ₹0.80/यूनिट छूट (सोलर घंटे) · शाम 5 से रात 12 बजे — पीक, ₹1.10/यूनिट अतिरिक्त · रात 12 से सुबह 9 — सामान्य दर
+अभी: बुधवार, दोपहर 2:20 बजे
+## th/y
+กฟน. อัตรา TOU: Peak — จันทร์ถึงศุกร์ 09.00–22.00 น. (5.7982 บาท/หน่วย) · Off-Peak — จันทร์ถึงศุกร์ 22.00–09.00 น. และเสาร์ อาทิตย์ วันหยุดราชการทั้งวัน (2.6369 บาท/หน่วย)
+ขณะนี้: วันอังคาร (ไม่ใช่วันหยุด) 19.40 น.
+## en/n
+Octopus Agile-style tariff: Peak 4pm–7pm every day (39.8p/kWh). Off-peak all other times (avg 17.2p/kWh). Cheapest 12:30am–4:30am.
+Now: Saturday, 7:25pm
+## ja/y | 表示されている時間帯別料金プランでは、現在の時刻はピーク(最も高い)時間帯に当たりますか?
+東京電力 スマートライフS:午前1時〜午前6時 27.86円/kWh(夜間)· 午前6時〜翌午前1時 35.76円/kWh(昼間=高い時間帯)
+現在:木曜日 午後8時15分
+## zh/n
+浙江省居民峰谷电价:高峰时段 8:00–22:00,0.568 元/度;低谷时段 22:00–次日 8:00,0.288 元/度。
+现在:周五 23:05
+## ko/y | 표시된 계시별(시간대별) 요금제에서, 현재 시간은 최대부하(가장 비싼) 시간대에 해당하나요?
+한전 계시별 요금제(겨울철 11~2월): 경부하 22:00~08:00 · 중간부하 08:00~09:00, 12:00~16:00, 19:00~22:00 · 최대부하 09:00~12:00, 16:00~19:00
+현재: 11월 24일(화) 17:10
+## ru/n
+Мосэнергосбыт, трёхзонный тариф: пик — 07:00–10:00 и 17:00–21:00 (9,45 ₽/кВт·ч); полупик — 10:00–17:00 и 21:00–23:00 (7,26 ₽); ночь — 23:00–07:00 (3,71 ₽).
+Сейчас: среда, 12:30
+## uk/y | Чи припадає поточний час на піковий (найдорожчий) період за показаним тарифом за зонами доби?
+Тризонний тариф для населення: нічна зона 23:00–07:00 (коеф. 0,4) · напівпікова 07:00–08:00, 11:00–20:00, 22:00–23:00 (коеф. 1,0) · пікова 08:00–11:00 та 20:00–22:00 (коеф. 1,5)
+Зараз: понеділок, 20:45
+
+@@ utility-cut-active-at-time | noul
+Q: According to the scheduled outage or supply rotation shown, is the user's supply (power, water, gas) off at the stated time for their group or zone?
+C: true=The supply is cut at that time ;; false=The supply is on at that time
+## hi/n
+BWSSB जल आपूर्ति रोटेशन — ज़ोन साउथ-2: पानी एक दिन छोड़कर आता है। विषम तारीख़ों को सुबह 5 से 8 बजे तक आपूर्ति; सम तारीख़ों को कोई आपूर्ति नहीं।
+उपयोगकर्ता: 23 नवंबर, सुबह 6:30 बजे
+## th/y | ตามตารางดับไฟ/หยุดจ่ายน้ำหรือการหมุนเวียนจ่ายที่แสดง สาธารณูปโภคของผู้ใช้ (ไฟฟ้า น้ำ ก๊าซ) ถูกตัดในเวลาที่ระบุสำหรับกลุ่มหรือโซนของผู้ใช้หรือไม่
+การประปานครหลวง: หยุดจ่ายน้ำชั่วคราวเพื่อประสานท่อ ถนนลาดพร้าว ตั้งแต่ซอย 71 ถึงซอย 101 คืนวันพุธที่ 25 พ.ย. 69 เวลา 22.00 น. ถึง 05.00 น. ของวันรุ่งขึ้น
+ผู้ใช้: ลาดพร้าว 87 วันพฤหัสบดีที่ 26 พ.ย. เวลา 02.00 น.
+## en/y
+Eskom load-shedding — Stage 4, Group 11 (Randburg)
+Mon 23 Nov: 04:00–06:30 · 12:00–14:30 · 20:00–22:30
+User: Group 11, Monday 13:10
+## ar/n | بحسب جدول الانقطاع المبرمج أو تناوب التزويد المعروض، هل تكون خدمة المستخدم (كهرباء، ماء، غاز) مقطوعة في الوقت المذكور لمجموعته أو منطقته؟
+كهرباء لبنان — جدول التغذية لمنطقة الأشرفية (المجموعة ب): تغذية من ٦:٠٠ إلى ١٠:٠٠ ومن ١٨:٠٠ إلى ٢٢:٠٠. خارج هذه الأوقات: قطع.
+المستخدم: المجموعة ب، الساعة ٧:٤٥ مساءً
+## he/y
+מי אביבים: הפסקת מים יזומה לצורך תיקון קו ברחוב אבן גבירול 100–140, ביום שלישי 24.11 בין השעות 09:00 ל-14:00.
+המשתמש: אבן גבירול 122, יום שלישי 11:30
+## fa/n | طبق جدول قطعی برنامه‌ریزی‌شده یا نوبت‌بندی نمایش‌داده‌شده، آیا خدمات کاربر (برق، آب، گاز) در ساعت ذکرشده برای گروه یا منطقه او قطع است؟
+برق من — جدول خاموشی منطقه ۵ تهران، شهرک اکباتان (فاز ۲): سه‌شنبه ۳ آذر، ساعت ۱۱ تا ۱۳.
+کاربر: اکباتان فاز ۲، سه‌شنبه ۳ آذر، ساعت ۱۴:۲۰
+## bn/y
+ডেসকো লোডশেডিং সময়সূচি — মিরপুর ১০ (ফিডার-৩): ২৩ নভেম্বর সকাল ১০টা–১১টা, বিকেল ৩টা–৪টা, রাত ৮টা–৯টা।
+ব্যবহারকারী: ফিডার-৩, ২৩ নভেম্বর বিকেল ৩:৩৫
+## ta/n | காட்டப்பட்டுள்ள திட்டமிட்ட மின்தடை/விநியோக அட்டவணையின்படி, குறிப்பிட்ட நேரத்தில் பயனரின் பகுதிக்கு விநியோகம் (மின்சாரம், தண்ணீர், எரிவாயு) நிறுத்தப்பட்டிருக்குமா?
+TANGEDCO பராமரிப்புப் பணி மின்தடை: 24.11.2026 செவ்வாய் காலை 9 மணி முதல் பிற்பகல் 2 மணி வரை — தாம்பரம் கிழக்கு, சேலையூர், கேம்ப் ரோடு பகுதிகள்.
+பயனர்: சேலையூர், செவ்வாய் மாலை 4:15
+
+@@ technician-visit-window | choice
+Q: In which part of the day is the technician, meter reader or delivery visit scheduled?
+C: morning=Morning (before about 12:00) ;; afternoon=Afternoon (about 12:00 to 17:00) ;; evening=Evening (after about 17:00) ;; all_day=A whole-day window with no narrower slot
+## hi/afternoon | टेक्नीशियन, मीटर रीडर या डिलीवरी की विज़िट दिन के किस हिस्से में तय है?
+Airtel Xstream Fiber — इंस्टॉलेशन अपॉइंटमेंट
+आपका इंस्टॉलेशन 24 नवंबर को दोपहर 2:00 से शाम 4:00 बजे के बीच निर्धारित है। इंजीनियर: दीपक (98xxxx1120) पहुँचने से 30 मिनट पहले कॉल करेंगे।
+## th/all_day
+3BB — นัดหมายช่างติดตั้งอินเทอร์เน็ต
+วันที่ 25 พ.ย. 69 ช่างจะเข้าพื้นที่ระหว่างเวลา 09.00–18.00 น. ไม่สามารถระบุช่วงเวลาที่แน่นอนได้ กรุณามีผู้อยู่บ้านตลอดทั้งวัน ช่างจะโทรแจ้งก่อนเข้า
+## vi/morning | Lịch hẹn của kỹ thuật viên, nhân viên ghi chỉ số hoặc giao hàng rơi vào buổi nào trong ngày?
+VNPT — Lịch hẹn sửa chữa đường truyền
+Kỹ thuật viên Trần Văn Long sẽ đến địa chỉ của quý khách vào sáng thứ Ba 24/11, khung giờ 8h00–10h00. Mã phiếu: SC2611-0447.
+## id/evening
+IndiHome — Jadwal kunjungan teknisi
+Teknisi akan datang pada Rabu, 25 November 2026 pukul 18.30–20.00 WIB sesuai permintaan Anda (setelah jam kerja). Mohon siapkan KTP pemilik.
+## tr/morning | Teknisyen, sayaç okuma veya teslimat ziyareti günün hangi bölümüne planlanmış?
+İGDAŞ — Sayaç değişim randevusu
+Ekibimiz 26.11.2026 Perşembe günü 09.00–11.30 saatleri arasında adresinizde olacaktır. Lütfen evde 18 yaşından büyük biri bulunsun.
+## el/all_day
+ΔΕΔΔΗΕ — Αντικατάσταση μετρητή
+Το συνεργείο θα περάσει από τη διεύθυνσή σας την Τετάρτη 25/11 κάποια στιγμή μεταξύ 08:00 και 20:00. Δεν είναι δυνατός ο προσδιορισμός ακριβέστερης ώρας.
+## pl/evening | Na jaką porę dnia zaplanowano wizytę technika, inkasenta lub dostawę?
+Orange — Wizyta technika (instalacja światłowodu)
+Termin: środa 25.11.2026, przedział 17:30–20:00. Technik zadzwoni ok. 20 minut przed przyjazdem.
+## pt/afternoon
+EDP Comercial — Leitura e substituição de contador
+A visita do técnico está agendada para quinta-feira, 26/11, entre as 14h00 e as 16h30. Caso não possa estar presente, remarque através da linha 808 53 53 53.

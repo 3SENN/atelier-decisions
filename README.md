@@ -47,6 +47,7 @@ under "How we got there" describe v0.1 unless they say otherwise.
 | v0.2 | 22 layers + 16k open decisions | 54.2 MB | 10 of 10 | 73% / 95.5% | 24% / 62% |
 | v0.3 | 22 layers + 480 browser question families | 54.2 MB | 10 of 10 (effort 12/12) | 72% / 95.0% | 37% / 66%; a second held-out set 29% / 62% |
 | v0.4 | nano v0.3, then atelier-mini (Qwen3.5-0.8B) for what the nano declines or is unsure of | 54.2 MB + 515 MB | 10 of 10 (also answers label_items) | 76% / 93.9% (28% reach the mini) | 44% / 83%; second set 39% / 84%; numbers 50% / 89.5% |
+| v0.5 | nano v0.3, then mini v0.5: retrained from scratch, plus security and multi-step number questions with known answers and 480 more families | 54.2 MB + 515 MB | 10 of 10 | 76% / 93.9% | 44% / 81%; second set 41% / 83%; third set 38% / 82%; numbers 49% / 93%; **security 88% / 93%** |
 
 ## atelier-mini: a decider that works out new questions
 
@@ -63,33 +64,37 @@ atelier-mini (`student/train_mini.py`) is the teacher's own architecture at 0.8B
   - the readout starts from the embeddings of the code letters.
 - **Training:**
   - LoRA rank 64 on all 186 linear layers (43.6M trainable);
-  - KL distillation on the same flash labels as the nano, 150k questions;
-  - then 40k more, mixed with numeric questions answered by code (`data/build_numeric.py`, below);
+  - KL distillation on the same flash labels as the nano;
+  - v0.4: 150k questions, then 40k more mixed with numeric questions answered by code (`data/build_numeric.py`, below);
+  - v0.5: from scratch on 196k questions with the base's own tokenizer rule. The mix adds a third set of browser
+    families, multi-step numbers answered by code and security questions answered by construction (below);
   - about 12 questions a second on the RTX 3060.
 
 It keeps the base model's language prior, so it reads kinds of questions nobody wrote training data for far better
 than the nano does. Numbers needed teaching (below).
 
-In v0.4 the two run as one decider (`runtime/node`, `analysis/cascade.py`):
+Since v0.4 the two run as one decider (`runtime/node`, `analysis/cascade.py`):
 
 1. The nano answers first.
 2. The mini takes what the nano declines (open questions, unreadable text) or is unsure about by Atelier's cutoffs.
 3. The rule decides the rest.
 
-| | nano v0.3 alone (as shipped) | mini alone | **v0.4: nano, then mini** |
-|---|---|---|---|
-| Size | 54 MB | 515 MB (5-bit layers, 4-bit embeddings) | both |
-| Time per question, CPU | about 10 ms | about 0.2 s (6 threads) | 10 ms for 72% of Atelier's questions, 0.2 s for the rest |
-| Atelier tests | 10 of 10 | 10 of 10 | 10 of 10; sure answers all right except two skill misses (as v0.3) |
-| Atelier's decisions, held out: decides / right | 72% / 95.0% | 71% / 96.3% | 76% / 93.9% |
-| New kinds of questions | declined | 76% / 98.2% | 76% / 98.2% |
-| Held-out browser families | declined (37% / 66% if answered) | 44% / 82.6% | 44% / 82.6% |
-| Second held-out set | declined (29% / 62%) | 39% / 83.9% | 39% / 83.9% |
-| Numbers, against the true answer | declined (49% right if answered) | 50% / 89.5% | 50% / 89.5% |
-| 20 unseen languages | 14% / 72% (non-Latin declined) | 19% / 85% | 26% / 77% |
+| | nano v0.3 alone (as shipped) | mini v0.5 alone | **v0.5: nano, then mini** | v0.4: nano, then mini |
+|---|---|---|---|---|
+| Size | 54 MB | 515 MB (5-bit layers, 4-bit embeddings) | both | both |
+| Time per question, CPU | about 10 ms | 0.14-0.33 s (6 threads) | 10 ms for 72% of Atelier's questions, about 0.2 s for the rest | same |
+| Atelier tests | 10 of 10 | 10 of 10 | 10 of 10; sure answers right except the nano's two skill misses and one tab group | 10 of 10 |
+| Atelier's decisions, held out: decides / right | 72% / 95.0% | 72% / 96.2% | 76% / 93.9% | 76% / 93.9% |
+| New kinds of questions | declined | 75% / 97.9% | 75% / 97.9% | 76% / 98.2% |
+| Held-out browser families (three sets) | declined (37% / 66% if answered) | 38-44% / 81-83% | 38-44% / 81-83% | 39-44% / 80-84% |
+| Numbers, against the true answer | declined (49% right if answered) | 49% / 93.3% | 49% / 93.3% | 50% / 89.5% |
+| Numbers in several steps, against the true answer | declined | 14% / 84.1% (2.2% sure-wrong) | same | 19% / 44.1% (10.9%) |
+| Security, answers known by construction | declined | 88% / 93.2% (6.0% sure-wrong) | same | 46% / 73.2% (12.4%) |
+| 20 unseen languages | 14% / 72% (non-Latin declined) | 22% / 81% | 28% / 75% | 26% / 77% |
 
-Figures come from `analysis/results/cascade-v0.3+mini-num.json`, `docs/capabilities/mini-0.8b-num.md` and
-`analysis/results/numeric-*.json`; the model card is `releases/v0.4/MODEL_CARD.md`.
+Figures come from `analysis/results/cascade-v0.3+mini-v05.json` (v0.4: `cascade-v0.3+mini-num-newsets.json`),
+`docs/capabilities/mini-0.8b-v05.md` and `analysis/results/{numeric,numeric2,security}-*.json`; the model card is
+`releases/v0.5/MODEL_CARD.md`.
 
 On quantization: the 5-bit file gives the 8-bit file's verdict on 97.9% of 3,099 questions, and decides and is right
 as often (`analysis/mini_quant.py`). 4 bits everywhere (469 MB) decides 1-2 points less often.
@@ -105,16 +110,19 @@ final hidden state at the marker, and `student/serve_mini.py` applies the readou
   in front of it (`docs/integration.md`). Its token ids match Python on 608 of 608 questions, and its answers match
   to 3×10⁻⁷. Memory: 0.8 GB for llama-server, 370 MB for the Node runner.
 
-**What it can't do yet** (the v0.4 mini; `releases/v0.4/MODEL_CARD.md`):
+**What it can't do yet** (the v0.5 mini; `releases/v0.5/MODEL_CARD.md`):
 
-- **Arithmetic in several steps:** adding up a cart is right 63% of the time, an age from a birth date 37%, a
-  discount percentage 59%. It declines to pick the cheapest pack per unit.
-- **Currency conversion:** right 78% but sure, so 22% sure-wrong, like the teacher.
-- **New browser families:** right 82-84% when it decides; sure and contradicting the teacher on 4%.
-  - Security-relevant misses: it is sure and wrong on 4 of 10 "does this message contain credentials" cases and
-    2 of 10 "prompt injection in tool output". It must never be the only guard.
+- **Percentages, totals and conversions in several steps:** it leaves them to the rule. It decides 14% of
+  multi-step number questions, mostly dates and times.
+- **Security, not alone:**
+  - It is sure and wrong on 6% of security questions.
+  - On whether a sender belongs to the organisation it names, 16.5%.
+  - On whether a summary is faithful, 15%.
+  - On budgets across currencies, 13%.
+  - It must never be the only guard.
+- **New browser families:** right 81-83% when it decides; sure and contradicting the teacher on 5-6%.
 - **18-28 tab groups:** decided about half the time.
-- **Hindi and Thai:** decided 12-13% of the time.
+- **Languages:** 20 unseen languages are decided 22% of the time; Hebrew is weakest (10% decided, right 40%).
 - **Size and speed:** about 20 times slower than the nano and 10 times larger, hence the cascade.
 
 Pruning to 12 of the 24 blocks broke it: the language prior went with them. It keeps all 24.
@@ -159,6 +167,41 @@ whatever the price. It was right 54-58% of the time when it decided; the nano 49
 - **No other test got worse:** held-out decisions, new kinds of questions, browser families and Atelier's eval are
   the same or better.
 
+**v0.5: teach what the teacher gets wrong with answers that are known.** Two new test sets have answers that don't
+come from a teacher. Both have training families and families held out whole:
+
+- **Multi-step numbers** (`data/build_numeric2.py`): 25 families answered by code. The teacher decides 60% of them
+  and is right on only 73% of those (16% sure-wrong).
+- **Security** (`data/build_security.py`): 8 families answered by construction. Fable wrote the building blocks;
+  the secrets, lookalike domains and altered summaries are planted, so the answer follows from how the question
+  was built. The teacher is right on 95%.
+
+The mini was retrained from scratch with both, and with gen4's 408 trained browser families:
+
+| | Decides | Right when deciding | Sure and wrong |
+|---|---|---|---|
+| Security: v0.4 mini | 46% | 73% | 12.4% |
+| Security: **v0.5 mini** | **88%** | **93%** | 6.0% |
+| ... the 3 families it never saw | 87% | 91% | 7.7% |
+| Multi-step numbers: v0.4 mini | 19% | 44% | 10.9% |
+| Multi-step numbers: **v0.5 mini** | 14% | **84%** | **2.2%** |
+| ... the 5 families it never saw | 4% | 57% | 1.5% |
+
+- **Security:** about level with the teacher, except two families.
+  - Lookalike senders: 16.5% sure-wrong; it takes the real name under someone else's domain for the real one.
+  - Faithful summaries: 15% sure-wrong.
+- **One pass can count days, not multiply.**
+  - It learned date and time arithmetic: business days, warranty windows, earliest arrivals, reaching a shop
+    before it closes. There it decides 65-88% and is right 80-96%, better than the teacher.
+  - On percentages, VAT, tips, scaled recipes and split bills it never decides, even with 1,000 examples per family.
+  - It is not sure there, so it doesn't guess: the rule decides. The teacher guesses and is wrong a quarter of the
+    time.
+- **More families didn't make it more general.** gen4's 72 held-out families are 82% right (v0.4: 80%); the two
+  older sets are unchanged.
+  - Three sets of Fable families in, unseen families sit at 81-84% right when deciding.
+  - The jump from the nano (140M, 66%) to the mini (0.8B, 83%) on the same data points at size. A 2B mini on
+    v0.5's data is being trained to test that.
+
 ## Layout
 
 | Path | What |
@@ -193,6 +236,11 @@ whatever the price. It was right 54-58% of the time when it decided; the nano 49
 | `student/export_mini.py`, `student/mini_tokenizer.py` | The mini as a runtime folder (GGUF, readout, protocol, tokenizer, parity fixtures); its tokenizer with the base's own split rule |
 | `runtime/node/src/mini.ts`, `cascade.ts`, `readers.ts`, `mini_parity.ts` | The mini on llama-server from Node, the cascade, Atelier's readers in TypeScript, token-id parity with Python |
 | `analysis/tokenizer_effect.py`, `tools/purge_mark_scores.py` | What the tokenizer's split rule does to Hindi and Thai; re-scoring those after a tokenizer change |
+| `data/build_numeric2.py` | Numeric decisions in several steps (sums, percentages, VAT, units, currencies both ways, business days, journeys past midnight, connections, recipes, averages, plans): 20 trained families and 5 held out, answered by code; rows that depend on a convention are dropped |
+| `data/security_src/`, `data/build_security.py` | Security decisions answered by construction: building blocks written by Fable (carriers, secrets with typed placeholders, decoys, injections, imperatives for people, faithful and altered summaries), assembled with realistic random secrets and lookalike domains; three families held out |
+| `data/existing_families.txt`, `data/gen4/`, `data/build_gen4.py` | The 720 family names Fable was told not to repeat; 480 more Fable-written browser families (shopping and forms, work tools, everyday life in 20 languages, the agent's own judgement); 15% held out as a third test |
+| `tools/mini_dist.py` | The mini as Atelier's optional download: the folder to host (model, llama-server per platform, its licence) and the manifest with every file's size and SHA-256 that Atelier compiles in |
+| `student/vocab_trim.py` | A mini GGUF with only the vocabulary its data uses (dropped tokens spelled with kept ones; `vocab.json` beside it for the runners): 80 MB smaller, measured and not shipped (`analysis/results/vocab-trim-mini-l24-num.txt`) |
 | `analysis/` | Tensor census, teacher comparison, vocabulary coverage; results in `analysis/results/` |
 | `third_party/pplx_decider` | Perplexity's inference code (Apache-2.0), vendored for the teachers |
 
@@ -239,6 +287,7 @@ right 96% of the time. On kinds of questions it never saw, the picture by studen
 | **v0.3**: 22 layers + 480 browser families (x3) | 54 MB | **64% / 90%** | **37% / 66%** (2nd set 29% / 62%) |
 | atelier-mini (Qwen3.5-0.8B), 40k questions | 812 MB | 86% / 95% | 46% / 83% (2nd set 43% / 86%) |
 | **atelier-mini v0.4**: 150k questions, then numeric | 515 MB | 76% / **98%** | 44% / 83% (2nd set 39% / 84%) |
+| **atelier-mini v0.5**: from scratch, + gen4, multi-step numbers, security | 515 MB | 75% / 98% | 44% / 81% (2nd set 41% / 83%, 3rd 38% / 82%) |
 
 Depth helps Atelier's decisions (v0.2 passes all ten tests); width (mmBERT-base) adds nothing at 50% more size.
 Within kinds of questions it has seen plenty of, the student is already good (98.6% right when deciding on held-out
@@ -398,6 +447,28 @@ cd runtime/node && node --experimental-strip-types src/server.ts ../../runs/nano
 # Measure: numbers against the true answer, the cascade (capabilities.py --gguf for the full report)
 python analysis/numeric.py --name mini --model runs/mini-l24-num --gguf runs/mini-l24-num/mini-Q5_K_M-e4.decider.gguf
 python analysis/cascade.py --nano runs/nano-v03-l22 --mini runs/mini-l24-num --gguf runs/mini-l24-num/mini-Q5_K_M-e4.decider.gguf --name v0.4
+
+# v0.5: more data of three kinds, then the mini from scratch with the base's tokenizer rule
+python data/build_numeric2.py --out data/pool/pool-numeric2.jsonl --test data/pool/numeric2-test.jsonl --truth-dir data/teacher --per-family 1000
+python data/build_security.py --out data/pool/pool-security.jsonl --test data/pool/security-test.jsonl --truth-dir data/teacher
+python data/build_gen4.py --out data/pool/pool-gen4.jsonl --heldout data/pool/gen4-heldout.jsonl
+python teacher/label.py --checkpoint models/pplx-decider-flash-v1.3 --pool data/pool/pool-gen4.jsonl --out data/teacher/pool-gen4.flash.jsonl
+python teacher/label.py --checkpoint models/pplx-decider-flash-v1.3 --pool data/pool/gen4-heldout.jsonl --out data/teacher/gen4-heldout.flash.jsonl
+#   (teacher/label.py resumes from an existing --out by row count: delete it first when its pool changed)
+python student/train_mini.py --data data/teacher/pool-*.flash.jsonl data/teacher/pool-numeric.truth.jsonl \
+    data/teacher/pool-numeric2.truth.jsonl data/teacher/pool-security.truth.jsonl \
+    --weight pool-gen4.flash=3 pool-numeric.truth=2 pool-numeric2.truth=2 pool-security.truth=2 \
+    --extra-eval data/teacher/eval-26b.jsonl --out runs/mini-v05 --questions 200000 --checkpointing
+python student/calibrate_mini.py --model runs/mini-v05 --data data/teacher/pool-*.flash.jsonl
+#   then merge, convert, mark, quantize and export as above (runs/mini-v05/mini-v05-Q5_K_M-e4.decider.gguf)
+for s in numeric numeric2 security; do python analysis/numeric.py --suite $s --name mini-v05 --model runs/mini-v05 \
+    --gguf runs/mini-v05/mini-v05-Q5_K_M-e4.decider.gguf; done
+python analysis/cascade.py --nano runs/nano-v03-l22 --mini runs/mini-v05 --gguf runs/mini-v05/mini-v05-Q5_K_M-e4.decider.gguf --name v0.5
+
+# The mini as Atelier's download (docs/integration.md), and the vocabulary trim that was measured and not shipped
+python tools/mini_dist.py --runtime runs/mini-v05/runtime --version v0.5 --out runs/mini-dist-v05 \
+    --server win32-x64=models/llama.cpp-b12620/bin --licence models/llama.cpp-b12620/src/LICENSE [--base https://<host>/]
+python student/vocab_trim.py <gguf> <trimmed gguf> --data data/pool/pool-*.jsonl --runtime <a copy of the runtime folder>
 ```
 
 Notes from this machine: one GPU job at a time (two processes time-slice so badly on Windows that the labeller
