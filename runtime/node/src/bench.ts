@@ -1,3 +1,8 @@
+/* Copyright (c) 2026 The Atelier Authors. All rights reserved.
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at https://mozilla.org/MPL/2.0/. */
+
 // Latency of the on-device decider on Atelier's real requests, per request (all its questions), cold and warm.
 //   node --experimental-strip-types src/bench.ts <model dir> <requests.jsonl> [file] [threads...]
 

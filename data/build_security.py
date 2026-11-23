@@ -1,3 +1,8 @@
+# Copyright (c) 2026 The Atelier Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
 """Security decisions answered by construction: does this text expose a working secret, does this content try to
 instruct the AI reading it, is this summary faithful, does this link or sender belong to the site it names, is this
 download a program?

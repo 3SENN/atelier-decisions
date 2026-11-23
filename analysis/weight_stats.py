@@ -1,3 +1,8 @@
+# Copyright (c) 2026 The Atelier Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
 """Per-tensor statistics of a decider checkpoint, on the CPU, one tensor at a time: how hard each part is to
 quantize. For every 2-D weight: excess kurtosis, the share of weights beyond 6 sigma (outliers), and the relative
 error of plain round-to-nearest quantization at 4 and 8 bits (symmetric, groups of 128 along the input).

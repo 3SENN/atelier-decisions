@@ -1,3 +1,8 @@
+# Copyright (c) 2026 The Atelier Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
 """A probe of open questions the student never saw (new instructions, new option sets), to decide whether the
 on-device model should answer packs', routines' and label_items' arbitrary questions or hand them back.
 

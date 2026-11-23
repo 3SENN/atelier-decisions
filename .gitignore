@@ -12,5 +12,12 @@ data/teacher/
 data/pool/
 *.log
 node_modules/
-# Saved versions (model files and data through Git LFS: .gitattributes)
+.DS_Store
+# Saved versions: the text (manifests, model cards, reports, tokenizers, calibration, logs) is in git. The weights
+# and data archives are on Hugging Face; python tools/hf_release.py fetch <version> puts them back in place.
 !releases/**
+releases/**/*.onnx
+releases/**/*.pt
+releases/**/*.gguf
+releases/**/*.f32
+releases/**/*.zip

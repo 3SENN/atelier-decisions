@@ -1,3 +1,8 @@
+# Copyright (c) 2026 The Atelier Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
 """How much of mmBERT's 256k vocabulary Atelier's text actually uses, per language.
 
 Counts tokens over the request pools (states, questions, options as the student sees them) and reports, for a

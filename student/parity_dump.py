@@ -1,3 +1,8 @@
+# Copyright (c) 2026 The Atelier Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
 """Reference answers from an exported ONNX folder, computed in Python, for runtime/node/src/parity.ts.
 
     python student/parity_dump.py runs/nano-l8/onnx data/teacher/eval-flash.jsonl runs/nano-l8/onnx/parity.jsonl

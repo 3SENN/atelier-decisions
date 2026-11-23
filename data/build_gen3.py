@@ -1,3 +1,8 @@
+# Copyright (c) 2026 The Atelier Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
 """Pool gen3: 480 browser decision families written by Claude Fable 5.2 to add new KINDS of questions (data/gen3).
 
 15% of the families are held out whole (--heldout) as a second test of new kinds, next to the 48 held-out gen2

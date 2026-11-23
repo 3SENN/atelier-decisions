@@ -1,0 +1,54 @@
+Atelier decision model
+Copyright (c) 2026 The Atelier Authors (AUTHORS)
+
+The code in this repository is licensed under the Mozilla Public License 2.0 (LICENSE), the model weights under
+the Apache License 2.0 (LICENSES/Apache-2.0.txt), and the data written for this project under Creative Commons
+Attribution 4.0 International (LICENSES/CC-BY-4.0.txt). It builds on the work below, whose licences apply to what
+comes from it.
+
+
+Models
+------
+
+mmBERT-small (https://huggingface.co/jhu-clsp/mmBERT-small), Johns Hopkins University CLSP. MIT License.
+  The base of atelier-nano: its first layers and a trimmed vocabulary, fine-tuned by distillation.
+
+Qwen3.5-0.8B (https://huggingface.co/Qwen/Qwen3.5-0.8B), Alibaba Cloud. Apache License 2.0.
+  The base of atelier-mini. Changed: attention made non-causal, LoRA adapters trained by distillation and merged
+  into the weights, a new readout; converted to GGUF and quantized.
+
+pplx-decider-v1.3 and pplx-decider-flash-v1.3 (https://huggingface.co/perplexity-ai), Perplexity.
+Apache License 2.0; derived from Qwen models.
+  The teachers. Their answers are the labels the students learned from; none of their weights are in the students.
+
+
+Code
+----
+
+third_party/pplx_decider: Perplexity's inference code for the deciders. Apache License 2.0
+  (third_party/pplx_decider/LICENSE and NOTICE).
+
+llama.cpp (https://github.com/ggml-org/llama.cpp), the ggml authors. MIT License.
+  Runs atelier-mini. Its llama-server builds are part of the mini's download for Atelier, with their licence.
+
+
+Data
+----
+
+Text from these datasets is in the request pools and teacher labels (the data/ archives of each saved version).
+The data/build_*.py scripts sampled, filtered and rewrote it into Atelier's decision requests, and the teachers
+above labelled it.
+
+MASSIVE (https://huggingface.co/datasets/AmazonScience/massive), Amazon. CC BY 4.0.
+WildChat-1M (https://huggingface.co/datasets/allenai/WildChat-1M), Allen Institute for AI. ODC-BY 1.0.
+Mind2Web (https://huggingface.co/datasets/osunlp/Mind2Web), The Ohio State University. CC BY 4.0.
+glaive-function-calling-v2 (https://huggingface.co/datasets/glaiveai/glaive-function-calling-v2), Glaive AI.
+  Apache License 2.0.
+Synthetic-Persona-Chat (https://huggingface.co/datasets/google/Synthetic-Persona-Chat), Google. CC BY 4.0.
+gliclass-v2.0 (https://huggingface.co/datasets/knowledgator/gliclass-v2.0), Knowledgator. Apache License 2.0.
+synthetic_zeroshot_mixtral_v0.1 (https://huggingface.co/datasets/MoritzLaurer/synthetic_zeroshot_mixtral_v0.1),
+  Moritz Laurer. Apache License 2.0.
+
+The browser question families, the security building blocks and the natural inputs in data/gen, data/gen2,
+data/gen3, data/gen4, data/gen4_src and data/security_src were written for this project by Claude (Anthropic) and
+are part of the data licensed under CC BY 4.0 above.

@@ -1,3 +1,8 @@
+# Copyright (c) 2026 The Atelier Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
 """Per-decision temperatures for atelier-mini, with the same Atelier costs as student/calibrate.py, fitted on held-out
 teacher labels it never trained on (the 5% hash split). Writes <model>/calibration.json and calibration-report.json;
 student/merge_mini.py carries them into decision.json.

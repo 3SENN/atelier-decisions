@@ -1,3 +1,8 @@
+# Copyright (c) 2026 The Atelier Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
 # Expands compact sources (src_N.txt) into data/gen4/world_N.jsonl
 import json, sys, glob, os, re, collections
 here = os.path.dirname(os.path.abspath(__file__))

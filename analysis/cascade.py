@@ -1,3 +1,8 @@
+# Copyright (c) 2026 The Atelier Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
 """The two models as one decider: atelier-nano answers first (milliseconds), and whatever it declines or is unsure
 about goes to atelier-mini; what the mini is unsure about goes to the rule. How right is that, and how often does a
 question need the mini?

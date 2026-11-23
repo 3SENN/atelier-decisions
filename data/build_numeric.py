@@ -1,3 +1,8 @@
+# Copyright (c) 2026 The Atelier Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
 """Numeric browser decisions with answers computed by code: budgets, totals, ratings, dates, opening hours, file
 sizes, limits, unit prices, counts. Pages in five languages with their own number and date formats; questions in
 English or the page's language.

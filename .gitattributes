@@ -1,10 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text=auto
-# Saved versions are hashed in MANIFEST.json: check them out byte for byte, never with converted line endings
+# Saved versions are hashed in MANIFEST.json: check them out byte for byte, never with converted line endings.
+# Their weights and data archives are on Hugging Face, not in git (tools/hf_release.py, .gitignore).
 releases/** -text
-releases/**/*.zip filter=lfs diff=lfs merge=lfs -text
-releases/**/*.patch filter=lfs diff=lfs merge=lfs -text
-releases/**/*.onnx filter=lfs diff=lfs merge=lfs -text
-releases/**/*.pt filter=lfs diff=lfs merge=lfs -text
-releases/**/*.gguf filter=lfs diff=lfs merge=lfs -text
-releases/**/*.f32 filter=lfs diff=lfs merge=lfs -text

@@ -1,3 +1,8 @@
+# Copyright (c) 2026 The Atelier Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
 """Labels a request pool with a decider that fits on the GPU (flash): raw readout logits per question.
 
 Writes one JSONL row per request as it goes and resumes where it stopped, so a multi-hour run can be interrupted.

@@ -1,3 +1,8 @@
+# Copyright (c) 2026 The Atelier Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
 """The mini's processor, with the split rule of the base's own tokenizer.json.
 
 transformers 5.17 builds Qwen3.5's tokenizer with the Qwen2 split rule (letters only), not the rule in the file

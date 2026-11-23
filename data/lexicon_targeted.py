@@ -1,3 +1,8 @@
+# Copyright (c) 2026 The Atelier Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
 """Targeted building blocks for the decisions pool v1 covered badly (found with Atelier's eval): matching a request
 to a skill by meaning rather than shared words, personal facts mentioned in passing, and how much work a message
 is. Written fresh: nothing here repeats Atelier's eval cases, so the eval stays a fair test. The teacher labels."""

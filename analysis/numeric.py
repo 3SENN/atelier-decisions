@@ -1,3 +1,8 @@
+# Copyright (c) 2026 The Atelier Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
 """Numeric decisions against the true answer (data/build_numeric.py): does a model, or a teacher, get budgets,
 totals, ratings, dates, opening hours, file sizes, limits, unit prices and counts right?
 

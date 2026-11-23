@@ -1,3 +1,8 @@
+# Copyright (c) 2026 The Atelier Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
 """atelier-mini as a System One server: llama.cpp runs the backbone, this applies the decider's readout.
 
     python student/serve_mini.py --model runs/mini-l24 --gguf runs/mini-l24/mini-l24-Q8_0.decider.gguf --port 8020

@@ -1,3 +1,8 @@
+# Copyright (c) 2026 The Atelier Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
 """Does the split rule cost the mini accuracy on scripts with combining marks?
 
 The teachers (both pplx-decider checkpoints) ship a tokenizer.json with the Qwen2 split rule (letters only), and

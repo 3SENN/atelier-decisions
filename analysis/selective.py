@@ -1,3 +1,8 @@
+# Copyright (c) 2026 The Atelier Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
 """How strict must the model be on open questions (not Atelier's own) to be right most of the time when it decides?
 
 A softer temperature for open questions makes Atelier's readers (yes at 0.7, a choice at 0.75, a level at 0.6) see

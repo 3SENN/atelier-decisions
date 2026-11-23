@@ -1,3 +1,8 @@
+# Copyright (c) 2026 The Atelier Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
 """Pool v6: natural inputs written by a strong LLM (data/gen/*.jsonl), in Atelier's exact requests.
 
 The writers saw none of Atelier's eval cases; they wrote inputs only (their "intended" field is ignored: the

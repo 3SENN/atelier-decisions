@@ -10,9 +10,9 @@ to that branch and applies cleanly to it.
 
 ```bash
 cd atelier
-git apply ../atelierdecisionmodel/integration/atelier-on-device-decisions.patch   # or: git worktree / branch on-device-decisions
+git apply ../atelier-decisions/integration/atelier-on-device-decisions.patch   # or: git worktree / branch on-device-decisions
 npm install
-ATELIER_DECISION_MODEL_SRC=../atelierdecisionmodel/runs/nano-v03-l22/onnx node scripts/fetch-decision-model.mjs   # or releases/v0.5/model
+ATELIER_DECISION_MODEL_SRC=../atelier-decisions/runs/nano-v03-l22/onnx node scripts/fetch-decision-model.mjs   # or releases/v0.5/model
 npm run dev    # Settings › Quick decisions › On this computer › Use it
 ```
 

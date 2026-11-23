@@ -1,3 +1,8 @@
+/* Copyright (c) 2026 The Atelier Authors. All rights reserved.
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at https://mozilla.org/MPL/2.0/. */
+
 // Atelier's answer readers and cutoffs (atelier: src/shared/decisions.ts, src/main/decisions/uses.ts): a line-for-line
 // port of student/readers.py. A verdict is a sure answer that takes over from the rule, or null (unsure: the rule
 // decides). The cascade uses it to decide whether the nano's answer stands or the question goes to the mini.

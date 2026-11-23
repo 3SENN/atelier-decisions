@@ -1,3 +1,8 @@
+/* Copyright (c) 2026 The Atelier Authors. All rights reserved.
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at https://mozilla.org/MPL/2.0/. */
+
 // Parity with the Python reference: token ids (format.ts vs student/format.py) and answers (ONNX in Node vs
 // PyTorch). Reads a JSONL of {request, expect_ids?, expect_answers?} written by student/parity_dump.py.
 //   node --experimental-strip-types src/parity.ts <model dir> <dump.jsonl>
@@ -29,9 +34,12 @@ for (const row of rows) {
     if (got.type === 'noul' && expected.type === 'noul') {
       maxDiff = Math.max(maxDiff, Math.abs(got.noul - expected.noul))
       if (got.noul >= 0.5 !== expected.noul >= 0.5) flips++
-    } else if (got.type !== 'noul' && expected.type !== 'noul') {
+    } else if ('probabilities' in got && 'probabilities' in expected) {
       for (const k of Object.keys(expected.probabilities)) maxDiff = Math.max(maxDiff, Math.abs(got.probabilities[k] - expected.probabilities[k]))
       if ('choice' in got && 'choice' in expected && got.choice !== expected.choice) flips++
+    } else if (got.type !== expected.type) {
+      // One side declined (refusal) or answered another kind: a different verdict, not a crash.
+      flips++
     }
   }
 }

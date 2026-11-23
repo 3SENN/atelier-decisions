@@ -1,3 +1,8 @@
+# Copyright (c) 2026 The Atelier Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
 """Pool gen4: about 480 more browser decision families written by Claude Fable 5.2 (data/gen4): transactions and
 forms (shop_*), developer and work tools (work_*), everyday life in 20 languages and scripts (world_*), and the agent's
 own judgement while acting on pages (agent_*). Written against the list of the 720 families that already existed

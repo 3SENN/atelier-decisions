@@ -1,3 +1,8 @@
+# Copyright (c) 2026 The Atelier Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
 """Atelier's answer readers and cutoffs (src/shared/decisions.ts and src/main/decisions/uses.ts), in Python.
 
 What matters for Atelier is not the raw probability but the VERDICT a reader makes of it: a sure answer that takes

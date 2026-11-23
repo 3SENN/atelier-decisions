@@ -1,3 +1,8 @@
+# Copyright (c) 2026 The Atelier Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
 """How a System One question becomes the student's input: one sequence per question, options scored at markers.
 
     <bos> TAG [question text] <eos> OPT option 1 OPT option 2 ... <eos> state <eos>

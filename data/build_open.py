@@ -1,3 +1,8 @@
+# Copyright (c) 2026 The Atelier Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
 """The open pool: decisions of every kind, not only Atelier's ten, so the student learns to decide whatever it is
 asked (a pack's question, a routine's condition, label_items) instead of declining. Three sources, all labelled by
 the teacher:

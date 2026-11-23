@@ -1,3 +1,8 @@
+/* Copyright (c) 2026 The Atelier Authors. All rights reserved.
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at https://mozilla.org/MPL/2.0/. */
+
 // The student's input format: a line-for-line port of student/format.py (the contract between training and
 // this runtime). runtime/node/src/parity.ts checks the two produce the same token ids and answers.
 

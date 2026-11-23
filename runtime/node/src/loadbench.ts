@@ -1,3 +1,8 @@
+/* Copyright (c) 2026 The Atelier Authors. All rights reserved.
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at https://mozilla.org/MPL/2.0/. */
+
 // Cold start and memory of one configuration (run once per process): load, first answer, warm answers, RSS.
 //   node --experimental-strip-types src/loadbench.ts <model dir> <file> <arena on|off>
 import { readFileSync } from 'node:fs'

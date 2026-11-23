@@ -1,3 +1,8 @@
+# Copyright (c) 2026 The Atelier Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
 """Pool v5: natural variety where templates generalised badly (found by probing the student on Atelier's eval).
 
 - skills: glaive-function-calling-v2 (Apache-2.0): 113k real requests, each with the functions it was offered.

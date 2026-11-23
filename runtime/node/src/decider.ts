@@ -1,3 +1,8 @@
+/* Copyright (c) 2026 The Atelier Authors. All rights reserved.
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at https://mozilla.org/MPL/2.0/. */
+
 // The on-device decider: System One requests in, System One answers out, from a tiny ONNX student.
 // No network, no GPU: ONNX Runtime on the CPU, the pure-JS Hugging Face tokenizer, and a vocabulary remap.
 
@@ -53,7 +58,7 @@ function softmax(xs: number[]): number[] {
  * French and Spanish with a vocabulary trimmed to them: text in another script falls apart into single letters
  * or raw bytes, and its answers there are not to be trusted. A declined question is answered `refusal`, which
  * Atelier reads as an even spread, so the rule decides. Thresholds are set from the per-language probe
- * (atelierdecisionmodel: analysis/results/languages.txt).
+ * (atelier-decisions: analysis/results/languages.txt).
  */
 export interface Guard {
   /** Least share of the state's letters in Latin script. */
@@ -89,7 +94,7 @@ export interface DeciderOptions {
   /**
    * Questions other than Atelier's own (label_items, routines, packs): 'decline' (default) answers them `refusal`.
    * On questions and text it never saw, the model's sure answers contradicted the teacher's 6% of the time
-   * (36% for one kind of question), against under 1% on Atelier's own decisions (atelierdecisionmodel:
+   * (36% for one kind of question), against under 1% on Atelier's own decisions (atelier-decisions:
    * analysis/results/open-questions-*.txt), so those go to the rule or a larger model instead.
    */
   open?: 'decline' | 'answer'

@@ -1,6 +1,11 @@
+/* Copyright (c) 2026 The Atelier Authors. All rights reserved.
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at https://mozilla.org/MPL/2.0/. */
+
 // nano first, mini for the rest, the rule last. atelier-nano answers in milliseconds; a question it declines (an
 // open question, text it can't read) or is unsure about by Atelier's own cutoffs goes to atelier-mini; what the
-// mini is unsure about stays unsure, so Atelier's rule decides. atelierdecisionmodel: analysis/cascade.py measures it.
+// mini is unsure about stays unsure, so Atelier's rule decides. atelier-decisions: analysis/cascade.py measures it.
 
 import type { Answer, NanoDecider } from './decider.ts'
 import { fixedKind, optionLabels, type DecisionRequest, type Kind } from './format.ts'

@@ -1,3 +1,8 @@
+# Copyright (c) 2026 The Atelier Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
 """atelier-mini: the teacher's own architecture at 0.8B, distilled on the same labels as the nano.
 
 The nano (an mmBERT encoder) learns the kinds of questions it was shown but is near chance on new kinds of browser

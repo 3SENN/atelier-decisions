@@ -1,3 +1,8 @@
+# Copyright (c) 2026 The Atelier Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
 """A smaller vocabulary for atelier-mini: keep the tokens its training data uses, spell the rest with kept ones.
 
 Qwen3.5's embedding table has 248,320 rows (143 MB at 4 bits, a quarter of the mini's GGUF), and the mini's training

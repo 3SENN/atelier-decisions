@@ -1,3 +1,8 @@
+# Copyright (c) 2026 The Atelier Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
 """What quantization costs, in Atelier's terms: each exported ONNX variant on the held-out split (the same 5% the
 trainer holds out), compared with the teacher and with the fp32 export, one question per pass as the runtime does.
 

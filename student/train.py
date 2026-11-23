@@ -1,3 +1,8 @@
+# Copyright (c) 2026 The Atelier Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
 """Distils a teacher's decisions into the student.
 
     python student/train.py --data data/teacher/pool-v1.flash.jsonl --layers 8 --out runs/nano-l8

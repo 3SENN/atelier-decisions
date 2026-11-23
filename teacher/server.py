@@ -1,3 +1,8 @@
+# Copyright (c) 2026 The Atelier Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
 """A local System One server around a pplx decider checkpoint, so Atelier can use it as "your own server".
 
     python teacher/server.py --checkpoint models/pplx-decider-flash-v1.3 --port 8009 --log data/teacher/live.jsonl

@@ -1,3 +1,8 @@
+# Copyright (c) 2026 The Atelier Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
 """Exports the student for devices: vocabulary trimmed to the tokens Atelier's languages use, ONNX, int8.
 
     python student/export.py --model runs/nano-l8 --vocab-corpus data/pool/pool-v1.jsonl --out runs/nano-l8/onnx

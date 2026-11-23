@@ -1,3 +1,8 @@
+# Copyright (c) 2026 The Atelier Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
 """Drops the cached mini scores of requests whose text has combining marks (Hindi, Thai, ...), so the next report
 scores them again with the tokenizer the runtime uses (student/mini_tokenizer.py). Scores of every other request are
 the same under both split rules, token for token, and stay cached.

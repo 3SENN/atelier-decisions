@@ -1,3 +1,8 @@
+# Copyright (c) 2026 The Atelier Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
 """How the student does per language, against the teacher, on utterances it never saw (data/pool/probe-lang.jsonl:
 20 MASSIVE locales x search-or-ask, voice target, effort), with and without the readability guard of
 runtime/node/src/decider.ts (ported here). The guard's thresholds are chosen from this table: decline where the

@@ -1,3 +1,8 @@
+/* Copyright (c) 2026 The Atelier Authors. All rights reserved.
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at https://mozilla.org/MPL/2.0/. */
+
 // A System One server on 127.0.0.1 around the on-device decider, so Atelier (or its eval) can use it as
 // "your own server":
 //   node --experimental-strip-types src/server.ts <nano dir> [port] [threads] [model file] [decline|answer]

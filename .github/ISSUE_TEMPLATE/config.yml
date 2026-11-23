@@ -1,0 +1,19 @@
+# Copyright (c) 2026 The Atelier Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+blank_issues_enabled: false
+contact_links:
+  - name: Report a security vulnerability
+    url: https://github.com/3SENN/atelier-decisions/security/advisories/new
+    about: Please report security problems privately, never in a public issue.
+  - name: A problem in the Atelier browser
+    url: https://github.com/3SENN/atelier/issues
+    about: Bugs in Atelier itself, including its settings for quick decisions, go to Atelier's issues.
+  - name: Questions and ideas
+    url: https://github.com/3SENN/atelier/discussions
+    about: Ask a question or talk through an idea before opening an issue.
+  - name: Chat on Discord
+    url: https://discord.gg/sKUTVCYAZY
+    about: Talk with the community, get help and show what you built.

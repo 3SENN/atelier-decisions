@@ -1,5 +1,9 @@
 # Atelier decision model
 
+[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](LICENSE)
+[![Weights: Apache 2.0](https://img.shields.io/badge/Weights-Apache_2.0-blue.svg)](LICENSES/Apache-2.0.txt)
+[![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97_Hugging_Face-3SENN%2Fatelier--decisions-yellow)](https://huggingface.co/3SENN/atelier-decisions)
+
 A decision model built only for [Atelier](https://github.com/3SENN/atelier)'s quick decisions (is a reply waiting
 on you, would this click buy or delete something, is this a search or a question, ...): tens of megabytes,
 milliseconds on an ordinary CPU, nothing sent anywhere. It answers Atelier's existing System One requests, so it
@@ -7,6 +11,17 @@ drops in where a hosted decision model goes today, and the rule-first contract s
 rule decides.
 
 The model is distilled: big decision models are the teachers, and a tiny student learns their answers.
+
+It is part of Atelier, the browser you make your own, and open source like the rest of it:
+
+| Repository | For |
+|---|---|
+| [atelier](https://github.com/3SENN/atelier) | The browser, which asks these questions and runs these models |
+| **atelier-decisions** (this one) | The on-device decision models: their data, training, measurements and every saved version |
+| [atelier-apps](https://github.com/3SENN/atelier-apps) | Building apps, games and packs for Atelier |
+| [atelier-packs](https://github.com/3SENN/atelier-packs) | The community index of packs |
+
+Want to help? A decision it gets wrong is the most useful thing to report; see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 | | Teacher: pplx-decider-v1.3 | Teacher: pplx-decider-flash-v1.3 | Student: atelier-nano (final) |
 |---|---|---|---|
@@ -38,8 +53,11 @@ On 6,905 held-out teacher-labelled questions: 88.1% the teacher's verdict, 0.5% 
 ## Versions
 
 Each is saved whole under `releases/<version>` (model, checkpoint, tokenizer, calibration, its reports, the data it
-was trained on, `MANIFEST.json` with SHA-256, and a `MODEL_CARD.md` with what it can't do). The tables above and
-under "How we got there" describe v0.1 unless they say otherwise.
+was trained on, `MANIFEST.json` with SHA-256, and a `MODEL_CARD.md` with what it can't do). Git holds what can be
+read; the weights and data archives are at the same paths on
+[Hugging Face](https://huggingface.co/3SENN/atelier-decisions). `python tools/hf_release.py fetch v0.5` puts them in
+place and checks every file against the manifest. The tables above and under "How we got there" describe v0.1
+unless they say otherwise.
 
 | Version | Student | Shipped | Atelier tests passed | Atelier's decisions (held out): decides / right | New kinds of browser questions (held-out families): decides / right |
 |---|---|---|---|---|---|
@@ -242,6 +260,9 @@ The mini was retrained from scratch with both, and with gen4's 408 trained brows
 | `tools/mini_dist.py` | The mini as Atelier's optional download: the folder to host (model, llama-server per platform, its licence) and the manifest with every file's size and SHA-256 that Atelier compiles in |
 | `student/vocab_trim.py` | A mini GGUF with only the vocabulary its data uses (dropped tokens spelled with kept ones; `vocab.json` beside it for the runners): 80 MB smaller, measured and not shipped (`analysis/results/vocab-trim-mini-l24-num.txt`) |
 | `analysis/` | Tensor census, teacher comparison, vocabulary coverage; results in `analysis/results/` |
+| `releases/<version>`, `tools/make_release.py` | Every saved version, and the script that saves one: its text here, its weights and data archives on Hugging Face |
+| `tools/hf_release.py`, `hf/README.md` | A version's files from Hugging Face (`fetch`), checked against its manifest (`verify`); publishing a version, the model card and the mini's download (maintainers) |
+| `tools/check_headers.py` | Every source file carries the MPL-2.0 notice (`--fix` adds it) |
 | `third_party/pplx_decider` | Perplexity's inference code (Apache-2.0), vendored for the teachers |
 
 ## How we got there
@@ -402,9 +423,13 @@ median.
 
 Python 3.12 (`uv venv --python 3.12 .venv`), torch 2.14 (CUDA 13), transformers 5.17, `triton-windows`,
 `flash-linear-attention` + `fla-core` 0.5.2 (without them the Gated DeltaNet layers fall back to a slow, memory-
-hungry PyTorch path).
+hungry PyTorch path): `uv pip install -r requirements.txt` after torch for your machine.
 
 ```bash
+# A saved version's weights and data, from Hugging Face (instead of training it)
+python tools/hf_release.py fetch v0.5
+
+# The teachers and the students' bases
 hf download perplexity-ai/pplx-decider-flash-v1.3 --local-dir models/pplx-decider-flash-v1.3 --exclude "locate-span/*"
 hf download perplexity-ai/pplx-decider-v1.3 --local-dir models/pplx-decider-v1.3 --exclude "locate-span/*"
 hf download jhu-clsp/mmBERT-small --local-dir models/mmBERT-small
@@ -471,12 +496,28 @@ python tools/mini_dist.py --runtime runs/mini-v05/runtime --version v0.5 --out r
 python student/vocab_trim.py <gguf> <trimmed gguf> --data data/pool/pool-*.jsonl --runtime <a copy of the runtime folder>
 ```
 
-Notes from this machine: one GPU job at a time (two processes time-slice so badly on Windows that the labeller
-stalled), and Windows lets CUDA spill into shared system memory instead of failing, which makes an over-sized
-batch crawl rather than crash.
+Notes from the machine every version was made on (Windows, an RTX 3060 with 12 GB): one GPU job at a time (two
+processes time-slice so badly on Windows that the labeller stalled), and Windows lets CUDA spill into shared system
+memory instead of failing, which makes an over-sized batch crawl rather than crash.
 
 ## Licences
 
-Teachers: Apache-2.0 (Perplexity; Qwen bases), run locally. Student bases: mmBERT-small (nano), MIT; Qwen3.5-0.8B
-(mini), Apache-2.0. Runtime for the mini: llama.cpp, MIT. Data: MASSIVE
-(CC BY 4.0), WildChat-1M (ODC-BY), Mind2Web (CC BY 4.0).
+- **Code:** the [Mozilla Public License 2.0](LICENSE), like Atelier.
+- **Model weights** (every version's nano and mini): the [Apache License 2.0](LICENSES/Apache-2.0.txt). The students'
+  bases are mmBERT-small (nano), MIT, and Qwen3.5-0.8B (mini), Apache-2.0; the teachers they learned from are
+  Perplexity's pplx-decider-v1.3 and pplx-decider-flash-v1.3, Apache-2.0, run locally.
+- **Data written for this project** (`data/gen*`, `data/gen4_src`, `data/security_src` and the family lists in
+  `data/`): [CC BY 4.0](LICENSES/CC-BY-4.0.txt).
+- **Data from other datasets** keeps its own licence in the pools and labels of each version's `data/` archives:
+  MASSIVE, Mind2Web and Synthetic-Persona-Chat (CC BY 4.0), WildChat-1M (ODC-BY), glaive-function-calling-v2,
+  gliclass-v2.0 and synthetic_zeroshot_mixtral_v0.1 (Apache-2.0).
+- **Third-party code:** `third_party/pplx_decider` (Perplexity, Apache-2.0); llama.cpp, MIT, runs the mini.
+
+[NOTICE](NOTICE) lists every source with its licence and what was changed. The Atelier name and logo are trademarks;
+see Atelier's [trademark policy](https://github.com/3SENN/atelier/blob/main/TRADEMARKS.md).
+
+## Contributing and security
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for how to set up, how this project measures, and what a good change looks
+like. Report security problems privately: [SECURITY.md](SECURITY.md). Everyone taking part follows the
+[Code of Conduct](CODE_OF_CONDUCT.md).

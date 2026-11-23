@@ -1,3 +1,8 @@
+# Copyright (c) 2026 The Atelier Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
 """Saves a model version under releases/<version>: everything needed to ship it, measure it and keep training it.
 
     python tools/make_release.py --version v0.2 --model runs/nano-v02-l22 --report v0.2-l22 \
@@ -7,6 +12,9 @@ Copies the shipped ONNX files, the trimmed tokenizer, calibration and the PyTorc
 capability report (analysis/capabilities.py) and the cross-version comparison; zips the teacher-labelled data it
 was trained on and the LLM-written inputs; writes MANIFEST.json (SHA-256 of every file). The model card is
 written by hand next to it (MODEL_CARD.md), since what a version can't do needs words, not numbers.
+
+Then python tools/hf_release.py publish <version> puts the version on Hugging Face: git keeps its text, and
+ignores its weights and archives.
 """
 
 from __future__ import annotations
@@ -95,6 +103,7 @@ def main() -> None:
                                                    "files": files}, indent=1))
     total = sum(f["bytes"] for f in files.values())
     print(f"{out}: {len(files)} files, {total / 1e6:.0f} MB")
+    print(f"next: write {out.relative_to(ROOT).as_posix()}/MODEL_CARD.md, then python tools/hf_release.py publish {args.version}")
 
 
 if __name__ == "__main__":

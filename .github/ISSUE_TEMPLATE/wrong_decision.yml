@@ -1,0 +1,57 @@
+# Copyright (c) 2026 The Atelier Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+name: Wrong decision
+description: A model answers one of Atelier's questions wrong, or declines one it should answer.
+labels: [wrong-decision]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks: misses like this are what new training data is built from.
+        **Remove anything private** from the request before pasting it (names, addresses, messages, secrets).
+        If someone could exploit the miss to get past one of Atelier's safety questions, report it privately
+        instead: see SECURITY.md.
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: The saved version (releases/), or the Atelier version you saw it in (Settings › About).
+      placeholder: "v0.5"
+    validations:
+      required: true
+  - type: dropdown
+    id: model
+    attributes:
+      label: Which model answered
+      options: [atelier-nano, atelier-mini, "both (the cascade)", "I don't know"]
+    validations:
+      required: true
+  - type: textarea
+    id: request
+    attributes:
+      label: The request
+      description: The System One request (JSON), or the text and the question if you don't have it.
+      render: json
+    validations:
+      required: true
+  - type: textarea
+    id: answer
+    attributes:
+      label: What it answered
+      description: The answer, and how sure it was if you can see that.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What's right, and why
+    validations:
+      required: true
+  - type: textarea
+    id: where
+    attributes:
+      label: Where you saw it
+      description: In Atelier, through runtime/node, in one of the analysis scripts, ...

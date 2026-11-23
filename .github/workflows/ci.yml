@@ -1,0 +1,74 @@
+# Copyright (c) 2026 The Atelier Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+#
+# The checks that need no GPU, no teacher and no model files: licence notices, the Python compiles, the saved
+# versions' text matches their MANIFEST.json, and the Node runner typechecks. Training and measuring need a GPU
+# and the teachers, so they run by hand (README › Reproduce) and their results are committed with their numbers.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  python:
+    name: Notices, Python and saved versions
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+
+      - name: Licence notices
+        run: python tools/check_headers.py
+
+      - name: Python compiles
+        run: python -m compileall -q analysis data student teacher tools third_party
+
+      # The weights and archives are on Hugging Face; everything of a version that is in git must match its hash.
+      - name: Saved versions match their manifests
+        run: python tools/hf_release.py verify --all --present --quiet
+
+  runtime:
+    name: Node runner typechecks
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: runtime/node
+    steps:
+      - name: Check out
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Node 22
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: runtime/node/package-lock.json
+
+      # --ignore-scripts: the typecheck needs onnxruntime-node's types, not its native binaries.
+      - name: Install dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      - name: Typecheck
+        run: npm run typecheck
