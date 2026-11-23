@@ -81,16 +81,16 @@ Download one version (all of v0.5 is about 1 GB, v0.6 about 2 GB; add `model/*` 
 less):
 
 ```bash
-hf download 3SENN/atelier-decisions --include "releases/v0.5/*" --local-dir .
+hf download 3SENN/atelier-decisions --include "releases/v0.6/*" --local-dir .
 ```
 
-From a clone of the GitHub repository, `python tools/hf_release.py fetch v0.5` does the same and checks every file
+From a clone of the GitHub repository, `python tools/hf_release.py fetch v0.6` does the same and checks every file
 against the manifest. The runner in `runtime/node` then answers Atelier's System One requests on 127.0.0.1:
 
 ```bash
 cd runtime/node && npm ci
-node --experimental-strip-types src/server.ts ../../releases/v0.5/model 8011 \
-  --mini ../../releases/v0.5/mini --llama-server <path to llama-server>
+node --experimental-strip-types src/server.ts ../../releases/v0.6/model 8011 \
+  --mini ../../releases/v0.6/mini --llama-server <path to llama-server>
 ```
 
 The models read Atelier's request format (`student/format.py`, `runtime/node/src/format.ts`), not free text: they

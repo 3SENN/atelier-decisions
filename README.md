@@ -55,7 +55,7 @@ On 6,905 held-out teacher-labelled questions: 88.1% the teacher's verdict, 0.5% 
 Each is saved whole under `releases/<version>` (model, checkpoint, tokenizer, calibration, its reports, the data it
 was trained on, `MANIFEST.json` with SHA-256, and a `MODEL_CARD.md` with what it can't do). Git holds what can be
 read; the weights and data archives are at the same paths on
-[Hugging Face](https://huggingface.co/3SENN/atelier-decisions). `python tools/hf_release.py fetch v0.5` puts them in
+[Hugging Face](https://huggingface.co/3SENN/atelier-decisions). `python tools/hf_release.py fetch v0.6` puts them in
 place and checks every file against the manifest. The tables above and under "How we got there" describe v0.1
 unless they say otherwise.
 
@@ -475,7 +475,7 @@ hungry PyTorch path): `uv pip install -r requirements.txt` after torch for your 
 
 ```bash
 # A saved version's weights and data, from Hugging Face (instead of training it)
-python tools/hf_release.py fetch v0.5
+python tools/hf_release.py fetch v0.6
 
 # The teachers and the students' bases
 hf download perplexity-ai/pplx-decider-flash-v1.3 --local-dir models/pplx-decider-flash-v1.3 --exclude "locate-span/*"
@@ -559,7 +559,11 @@ python analysis/family_errors.py --mini runs/mini-2b-v05-cond --gguf-stem mini-2
 
 # The mini as Atelier's download (docs/integration.md), and the vocabulary trim that was measured and not shipped
 python tools/mini_dist.py --runtime runs/mini-2b-v05-cond/runtime --version v0.6 --out runs/mini-dist-v06 \
-    --server win32-x64=models/llama.cpp-b12620/bin --licence models/llama.cpp-b12620/src/LICENSE [--base https://<host>/]
+    --server win32-x64=models/llama.cpp-b12620/bin --server win32-arm64=<unpacked win-cpu-arm64 build> \
+    --server darwin-arm64=<unpacked macos-arm64 build> --server darwin-x64=<unpacked macos-x64 build> \
+    --server linux-x64=<unpacked ubuntu-x64 build> --server linux-arm64=<unpacked ubuntu-arm64 build> \
+    --licence models/llama.cpp-b12620/src/LICENSE --base https://huggingface.co/3SENN/atelier-decisions/resolve/main/dist/v0.6/
+python tools/hf_release.py publish-dist v0.6 runs/mini-dist-v06
 python student/vocab_trim.py <gguf> <trimmed gguf> --data data/pool/pool-*.jsonl --runtime <a copy of the runtime folder>
 ```
 

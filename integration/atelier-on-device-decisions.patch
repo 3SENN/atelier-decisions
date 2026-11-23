@@ -1,5 +1,5 @@
 diff --git a/docs/decisions.md b/docs/decisions.md
-index c917298..7dc4342 100644
+index c917298..781913b 100644
 --- a/docs/decisions.md
 +++ b/docs/decisions.md
 @@ -82,6 +82,7 @@ everything else is System One.
@@ -10,7 +10,7 @@ index c917298..7dc4342 100644
  | Your own server | any address (`/v1/systemone` or `/v1/decisions` added by model) | next to it | | Any other System One or Decisions service, or a server you run: Kev (Apache-2.0, Qwen-based, MLX on Apple Silicon) and the like; a key only if it asks |
  
  The providers are one table (`PROVIDER_DEFAULTS` in src/shared/decisions.ts):
-@@ -127,6 +128,87 @@ keeps the second from going out, and with both out the one that met it stops
+@@ -127,6 +128,88 @@ keeps the second from going out, and with both out the one that met it stops
  without its retry. The usage ledger counts a second request's input tokens, and the
  answer time shown is from the first send.
  
@@ -88,8 +88,9 @@ index c917298..7dc4342 100644
 +  hosts), so whoever serves the files can't change what runs. Files go to `<data>/decision-model-mini.partial`, are
 +  checked as they stream in, and the folder is swapped in whole only when all match; a stopped download resumes
 +  with a range request. It needs the model's size plus 200 MB free. Downloads go through Electron's `net` (the
-+  system's proxy). While the manifest has no download location (`base` empty), or no server build for this
-+  platform, the row isn't shown.
++  system's proxy). The files are hosted on Hugging Face (`3SENN/atelier-decisions`, under `dist/<version>/`), with
++  llama.cpp's CPU server for Windows (x64, arm64), macOS (arm64, x64) and Linux (x64, arm64). While the manifest has
++  no download location (`base` empty), or no server build for this platform, the row isn't shown.
 +- **Development**: `ATELIER_DECISION_MINI=<folder>` uses a folder as it is (the model project's runtime folder plus
 +  a `server/` with llama-server), never downloaded into or removed; `ATELIER_DECISION_MINI_URL=<base>` tries a
 +  download location. `ATELIER_MINI_PARITY=<runtime folder> npx vitest run tests/decisionsDeviceMini.test.ts` checks
@@ -98,7 +99,7 @@ index c917298..7dc4342 100644
  ## The rule-first contract (DC-01)
  
  Every one of Atelier's decisions calls `decider().decide({ use, rule, request, read })`
-@@ -365,5 +447,6 @@ itself and handed 25 to `label_items` on its own, which answered all 25.
+@@ -365,5 +448,6 @@ itself and handed 25 to `label_items` on its own, which answered all 25.
    first message (so caching and earlier thinking stay valid), and a connector
    left out could never be used later in that chat; every enabled connector
    stays in.
@@ -1285,10 +1286,10 @@ index 0000000..332f5ae
 +  join(dir, 'server', platform === 'win32' ? 'llama-server.exe' : 'llama-server')
 diff --git a/src/main/decisions/device/miniManifest.ts b/src/main/decisions/device/miniManifest.ts
 new file mode 100644
-index 0000000..75074ba
+index 0000000..0de44bf
 --- /dev/null
 +++ b/src/main/decisions/device/miniManifest.ts
-@@ -0,0 +1,194 @@
+@@ -0,0 +1,1002 @@
 +/* Copyright (c) 2026 The Atelier Authors. All rights reserved.
 + * This Source Code Form is subject to the terms of the Mozilla Public
 + * License, v. 2.0. If a copy of the MPL was not distributed with this file,
@@ -1301,7 +1302,7 @@ index 0000000..75074ba
 +
 +export const MINI_MANIFEST: MiniManifest = {
 +  version: 'v0.6',
-+  base: '',
++  base: 'https://huggingface.co/3SENN/atelier-decisions/resolve/main/dist/v0.6/',
 +  model: [
 +    {
 +      path: 'mini.gguf',
@@ -1479,6 +1480,814 @@ index 0000000..75074ba
 +        url: 'server/win32-x64/mtmd.dll',
 +        size: 3039744,
 +        sha256: '46f88bf61f860801e18406ec15f8c8fbedf11812957e0b1bb2c02e21004ed4fe',
++      },
++    ],
++    'win32-arm64': [
++      {
++        path: 'ggml-base.dll',
++        url: 'server/win32-arm64/ggml-base.dll',
++        size: 710144,
++        sha256: '6889f864792083ffc3072287d2ce2d9184c4a1666b154dfad1c06ea734e47a87',
++      },
++      {
++        path: 'ggml-cpu.dll',
++        url: 'server/win32-arm64/ggml-cpu.dll',
++        size: 892416,
++        sha256: 'e29e404db4324fdf5a94e312b78662cab47b75ede8555800591bd5c184040926',
++      },
++      {
++        path: 'ggml.dll',
++        url: 'server/win32-arm64/ggml.dll',
++        size: 70144,
++        sha256: '6d77d5fda7520dd5a856329ec5c521ff31826f162ecd9e7e196414a1c725c3b1',
++      },
++      {
++        path: 'libomp.dll',
++        url: 'server/win32-arm64/libomp.dll',
++        size: 786432,
++        sha256: '190b39fe8c05d985b1dce3fd01f35ce1327954562c4e128b1d107e5033f83d61',
++      },
++      {
++        path: 'LICENSE-llama.cpp',
++        url: 'server/win32-arm64/LICENSE-llama.cpp',
++        size: 1078,
++        sha256: '94f29bbed6a22c35b992c5c6ebf0e7c92f13b836b90f36f461c9cf2f0f1d010d',
++      },
++      {
++        path: 'LICENSE-LLVM-OpenMP',
++        url: 'server/win32-arm64/LICENSE-LLVM-OpenMP',
++        size: 19741,
++        sha256: 'fdad1758a9e1f9d5a81e18879b3406772115edc92c24bfa36b70c654f325e8e4',
++      },
++      {
++        path: 'llama-common.dll',
++        url: 'server/win32-arm64/llama-common.dll',
++        size: 7565824,
++        sha256: '887377ff8247979f98ca0e2d7643e88b9eed672412fa6436eb40c0f409cf887a',
++      },
++      {
++        path: 'llama-server-impl.dll',
++        url: 'server/win32-arm64/llama-server-impl.dll',
++        size: 8857088,
++        sha256: '1553067bd3a41dfd578775fbd575cb711d25476d45f69c07658746d026bbdda7',
++      },
++      {
++        path: 'llama-server.exe',
++        url: 'server/win32-arm64/llama-server.exe',
++        size: 10752,
++        sha256: 'dd34cb84a5a0f31d14f18aff7e74731e6532cf4d0817fe769eeaed05ca9a923b',
++      },
++      {
++        path: 'llama.dll',
++        url: 'server/win32-arm64/llama.dll',
++        size: 3476992,
++        sha256: '5d7e569ad188af2a50cabf78d9e94ff96103652771d4525ee738636e5b1017d5',
++      },
++      {
++        path: 'mtmd.dll',
++        url: 'server/win32-arm64/mtmd.dll',
++        size: 2539008,
++        sha256: '381a335dca0643e038c529567c15bb56e2165ab5fb64e670a9abe1838d0db7f1',
++      },
++    ],
++    'darwin-arm64': [
++      {
++        path: 'ggml-metal-tuning',
++        url: 'server/darwin-arm64/ggml-metal-tuning',
++        size: 87696,
++        sha256: '0c5c015b459833a54761aecaaf23020d3bb791f37fd483665acdd61282b1ac3b',
++      },
++      {
++        path: 'libggml-base.1.0.0.dylib',
++        url: 'server/darwin-arm64/libggml-base.1.0.0.dylib',
++        size: 770888,
++        sha256: 'c1f675a8cabd9ecd3e68a375d9b407e7a1f33b9a27f9c665d6dc47ae0c29848b',
++      },
++      {
++        path: 'libggml-base.1.dylib',
++        url: 'server/darwin-arm64/libggml-base.1.dylib',
++        size: 770888,
++        sha256: 'c1f675a8cabd9ecd3e68a375d9b407e7a1f33b9a27f9c665d6dc47ae0c29848b',
++      },
++      {
++        path: 'libggml-base.dylib',
++        url: 'server/darwin-arm64/libggml-base.dylib',
++        size: 770888,
++        sha256: 'c1f675a8cabd9ecd3e68a375d9b407e7a1f33b9a27f9c665d6dc47ae0c29848b',
++      },
++      {
++        path: 'libggml-blas.1.0.0.dylib',
++        url: 'server/darwin-arm64/libggml-blas.1.0.0.dylib',
++        size: 58776,
++        sha256: '8bfc2b86400db027c4d85571e838c149bd09e66093d707405f9be37fd51bdccc',
++      },
++      {
++        path: 'libggml-blas.1.dylib',
++        url: 'server/darwin-arm64/libggml-blas.1.dylib',
++        size: 58776,
++        sha256: '8bfc2b86400db027c4d85571e838c149bd09e66093d707405f9be37fd51bdccc',
++      },
++      {
++        path: 'libggml-blas.dylib',
++        url: 'server/darwin-arm64/libggml-blas.dylib',
++        size: 58776,
++        sha256: '8bfc2b86400db027c4d85571e838c149bd09e66093d707405f9be37fd51bdccc',
++      },
++      {
++        path: 'libggml-cpu.1.0.0.dylib',
++        url: 'server/darwin-arm64/libggml-cpu.1.0.0.dylib',
++        size: 976384,
++        sha256: '7738726f8d46032141aa17c0291ea55299aaf69dbe29c27aac7e40102256173a',
++      },
++      {
++        path: 'libggml-cpu.1.dylib',
++        url: 'server/darwin-arm64/libggml-cpu.1.dylib',
++        size: 976384,
++        sha256: '7738726f8d46032141aa17c0291ea55299aaf69dbe29c27aac7e40102256173a',
++      },
++      {
++        path: 'libggml-cpu.dylib',
++        url: 'server/darwin-arm64/libggml-cpu.dylib',
++        size: 976384,
++        sha256: '7738726f8d46032141aa17c0291ea55299aaf69dbe29c27aac7e40102256173a',
++      },
++      {
++        path: 'libggml-metal.1.0.0.dylib',
++        url: 'server/darwin-arm64/libggml-metal.1.0.0.dylib',
++        size: 5705080,
++        sha256: '072d36cd371406654118e1d4454f6b70b72695d87e334448ff6bc90efbeca13f',
++      },
++      {
++        path: 'libggml-metal.1.dylib',
++        url: 'server/darwin-arm64/libggml-metal.1.dylib',
++        size: 5705080,
++        sha256: '072d36cd371406654118e1d4454f6b70b72695d87e334448ff6bc90efbeca13f',
++      },
++      {
++        path: 'libggml-metal.dylib',
++        url: 'server/darwin-arm64/libggml-metal.dylib',
++        size: 5705080,
++        sha256: '072d36cd371406654118e1d4454f6b70b72695d87e334448ff6bc90efbeca13f',
++      },
++      {
++        path: 'libggml-rpc.1.0.0.dylib',
++        url: 'server/darwin-arm64/libggml-rpc.1.0.0.dylib',
++        size: 243488,
++        sha256: 'c1bef32eef9c6165ee283032f27ff998c30b804cd46cedb37d01a27732b52363',
++      },
++      {
++        path: 'libggml-rpc.1.dylib',
++        url: 'server/darwin-arm64/libggml-rpc.1.dylib',
++        size: 243488,
++        sha256: 'c1bef32eef9c6165ee283032f27ff998c30b804cd46cedb37d01a27732b52363',
++      },
++      {
++        path: 'libggml-rpc.dylib',
++        url: 'server/darwin-arm64/libggml-rpc.dylib',
++        size: 243488,
++        sha256: 'c1bef32eef9c6165ee283032f27ff998c30b804cd46cedb37d01a27732b52363',
++      },
++      {
++        path: 'libggml.1.0.0.dylib',
++        url: 'server/darwin-arm64/libggml.1.0.0.dylib',
++        size: 60016,
++        sha256: '7d3702e5e30ba6a7b342bee26496a018bc289d44c90c6c5627b75dd9862b2cde',
++      },
++      {
++        path: 'libggml.1.dylib',
++        url: 'server/darwin-arm64/libggml.1.dylib',
++        size: 60016,
++        sha256: '7d3702e5e30ba6a7b342bee26496a018bc289d44c90c6c5627b75dd9862b2cde',
++      },
++      {
++        path: 'libggml.dylib',
++        url: 'server/darwin-arm64/libggml.dylib',
++        size: 60016,
++        sha256: '7d3702e5e30ba6a7b342bee26496a018bc289d44c90c6c5627b75dd9862b2cde',
++      },
++      {
++        path: 'libllama-common.1.0.0.dylib',
++        url: 'server/darwin-arm64/libllama-common.1.0.0.dylib',
++        size: 8299256,
++        sha256: '76805aafd23db92720aed83059f1a295f1dfba69725820f19de319a947263a65',
++      },
++      {
++        path: 'libllama-common.1.dylib',
++        url: 'server/darwin-arm64/libllama-common.1.dylib',
++        size: 8299256,
++        sha256: '76805aafd23db92720aed83059f1a295f1dfba69725820f19de319a947263a65',
++      },
++      {
++        path: 'libllama-common.dylib',
++        url: 'server/darwin-arm64/libllama-common.dylib',
++        size: 8299256,
++        sha256: '76805aafd23db92720aed83059f1a295f1dfba69725820f19de319a947263a65',
++      },
++      {
++        path: 'libllama-server-impl.dylib',
++        url: 'server/darwin-arm64/libllama-server-impl.dylib',
++        size: 9477912,
++        sha256: '407ef07d008df5f7cfea3a99d4e576428586950674d3ec4062f423779ace867c',
++      },
++      {
++        path: 'libllama.1.0.0.dylib',
++        url: 'server/darwin-arm64/libllama.1.0.0.dylib',
++        size: 3920880,
++        sha256: 'b3cc714aff24de0590d7704220cb4d46d372593b9b12e974cb08f6e287346943',
++      },
++      {
++        path: 'libllama.1.dylib',
++        url: 'server/darwin-arm64/libllama.1.dylib',
++        size: 3920880,
++        sha256: 'b3cc714aff24de0590d7704220cb4d46d372593b9b12e974cb08f6e287346943',
++      },
++      {
++        path: 'libllama.dylib',
++        url: 'server/darwin-arm64/libllama.dylib',
++        size: 3920880,
++        sha256: 'b3cc714aff24de0590d7704220cb4d46d372593b9b12e974cb08f6e287346943',
++      },
++      {
++        path: 'libmtmd.1.0.0.dylib',
++        url: 'server/darwin-arm64/libmtmd.1.0.0.dylib',
++        size: 2224592,
++        sha256: '3ac7256ffee9ba9f370a40a8ccd67a4149a1475031c73f8cc37107c582289454',
++      },
++      {
++        path: 'libmtmd.1.dylib',
++        url: 'server/darwin-arm64/libmtmd.1.dylib',
++        size: 2224592,
++        sha256: '3ac7256ffee9ba9f370a40a8ccd67a4149a1475031c73f8cc37107c582289454',
++      },
++      {
++        path: 'libmtmd.dylib',
++        url: 'server/darwin-arm64/libmtmd.dylib',
++        size: 2224592,
++        sha256: '3ac7256ffee9ba9f370a40a8ccd67a4149a1475031c73f8cc37107c582289454',
++      },
++      {
++        path: 'LICENSE',
++        url: 'server/darwin-arm64/LICENSE',
++        size: 1078,
++        sha256: '94f29bbed6a22c35b992c5c6ebf0e7c92f13b836b90f36f461c9cf2f0f1d010d',
++      },
++      {
++        path: 'LICENSE-llama.cpp',
++        url: 'server/darwin-arm64/LICENSE-llama.cpp',
++        size: 1078,
++        sha256: '94f29bbed6a22c35b992c5c6ebf0e7c92f13b836b90f36f461c9cf2f0f1d010d',
++      },
++      {
++        path: 'llama-server',
++        url: 'server/darwin-arm64/llama-server',
++        size: 49984,
++        sha256: '685941b8df982e4e205fd20492f9aaa9418f2d1224ba3d311a686abd0edb0439',
++      },
++    ],
++    'darwin-x64': [
++      {
++        path: 'libggml-base.1.0.0.dylib',
++        url: 'server/darwin-x64/libggml-base.1.0.0.dylib',
++        size: 762000,
++        sha256: '3f471ed62e6c8f27d8187566e4fbb75dec450801a839d9835d6c1526ce7a211a',
++      },
++      {
++        path: 'libggml-base.1.dylib',
++        url: 'server/darwin-x64/libggml-base.1.dylib',
++        size: 762000,
++        sha256: '3f471ed62e6c8f27d8187566e4fbb75dec450801a839d9835d6c1526ce7a211a',
++      },
++      {
++        path: 'libggml-base.dylib',
++        url: 'server/darwin-x64/libggml-base.dylib',
++        size: 762000,
++        sha256: '3f471ed62e6c8f27d8187566e4fbb75dec450801a839d9835d6c1526ce7a211a',
++      },
++      {
++        path: 'libggml-blas.1.0.0.dylib',
++        url: 'server/darwin-x64/libggml-blas.1.0.0.dylib',
++        size: 33688,
++        sha256: '9561eec7ac21e78e3147eda63845531dd81d839a0ff871f9b06faf532972693c',
++      },
++      {
++        path: 'libggml-blas.1.dylib',
++        url: 'server/darwin-x64/libggml-blas.1.dylib',
++        size: 33688,
++        sha256: '9561eec7ac21e78e3147eda63845531dd81d839a0ff871f9b06faf532972693c',
++      },
++      {
++        path: 'libggml-blas.dylib',
++        url: 'server/darwin-x64/libggml-blas.dylib',
++        size: 33688,
++        sha256: '9561eec7ac21e78e3147eda63845531dd81d839a0ff871f9b06faf532972693c',
++      },
++      {
++        path: 'libggml-cpu.1.0.0.dylib',
++        url: 'server/darwin-x64/libggml-cpu.1.0.0.dylib',
++        size: 1628752,
++        sha256: 'c70a42391d6222a136818e2a4220387c6833b540b1e9fbfd52fabe78ea4eee3f',
++      },
++      {
++        path: 'libggml-cpu.1.dylib',
++        url: 'server/darwin-x64/libggml-cpu.1.dylib',
++        size: 1628752,
++        sha256: 'c70a42391d6222a136818e2a4220387c6833b540b1e9fbfd52fabe78ea4eee3f',
++      },
++      {
++        path: 'libggml-cpu.dylib',
++        url: 'server/darwin-x64/libggml-cpu.dylib',
++        size: 1628752,
++        sha256: 'c70a42391d6222a136818e2a4220387c6833b540b1e9fbfd52fabe78ea4eee3f',
++      },
++      {
++        path: 'libggml-rpc.1.0.0.dylib',
++        url: 'server/darwin-x64/libggml-rpc.1.0.0.dylib',
++        size: 224896,
++        sha256: '4ce517d7176c4e0ad4a27b8f4ced68ddd948fd7aba46dd48237f857634ae15a9',
++      },
++      {
++        path: 'libggml-rpc.1.dylib',
++        url: 'server/darwin-x64/libggml-rpc.1.dylib',
++        size: 224896,
++        sha256: '4ce517d7176c4e0ad4a27b8f4ced68ddd948fd7aba46dd48237f857634ae15a9',
++      },
++      {
++        path: 'libggml-rpc.dylib',
++        url: 'server/darwin-x64/libggml-rpc.dylib',
++        size: 224896,
++        sha256: '4ce517d7176c4e0ad4a27b8f4ced68ddd948fd7aba46dd48237f857634ae15a9',
++      },
++      {
++        path: 'libggml.1.0.0.dylib',
++        url: 'server/darwin-x64/libggml.1.0.0.dylib',
++        size: 43216,
++        sha256: '65f378a3f79f0a4175ff6a107c4ed046848d0d6825d87122fed84be535d1865e',
++      },
++      {
++        path: 'libggml.1.dylib',
++        url: 'server/darwin-x64/libggml.1.dylib',
++        size: 43216,
++        sha256: '65f378a3f79f0a4175ff6a107c4ed046848d0d6825d87122fed84be535d1865e',
++      },
++      {
++        path: 'libggml.dylib',
++        url: 'server/darwin-x64/libggml.dylib',
++        size: 43216,
++        sha256: '65f378a3f79f0a4175ff6a107c4ed046848d0d6825d87122fed84be535d1865e',
++      },
++      {
++        path: 'libllama-common.1.0.0.dylib',
++        url: 'server/darwin-x64/libllama-common.1.0.0.dylib',
++        size: 8834808,
++        sha256: 'ec7393087df867849d68087e05050132e3895ba25c4bc2771da1f506590b0e92',
++      },
++      {
++        path: 'libllama-common.1.dylib',
++        url: 'server/darwin-x64/libllama-common.1.dylib',
++        size: 8834808,
++        sha256: 'ec7393087df867849d68087e05050132e3895ba25c4bc2771da1f506590b0e92',
++      },
++      {
++        path: 'libllama-common.dylib',
++        url: 'server/darwin-x64/libllama-common.dylib',
++        size: 8834808,
++        sha256: 'ec7393087df867849d68087e05050132e3895ba25c4bc2771da1f506590b0e92',
++      },
++      {
++        path: 'libllama-server-impl.dylib',
++        url: 'server/darwin-x64/libllama-server-impl.dylib',
++        size: 9922432,
++        sha256: 'e34dce475408b17983eabd40666cf44c1a86573ee0115fe0f188d428c517eaff',
++      },
++      {
++        path: 'libllama.1.0.0.dylib',
++        url: 'server/darwin-x64/libllama.1.0.0.dylib',
++        size: 4252048,
++        sha256: 'bd6e9b491bec2802dd65ca12b3bccaa4c18e3d3f7725430ebac11900f9abb39e',
++      },
++      {
++        path: 'libllama.1.dylib',
++        url: 'server/darwin-x64/libllama.1.dylib',
++        size: 4252048,
++        sha256: 'bd6e9b491bec2802dd65ca12b3bccaa4c18e3d3f7725430ebac11900f9abb39e',
++      },
++      {
++        path: 'libllama.dylib',
++        url: 'server/darwin-x64/libllama.dylib',
++        size: 4252048,
++        sha256: 'bd6e9b491bec2802dd65ca12b3bccaa4c18e3d3f7725430ebac11900f9abb39e',
++      },
++      {
++        path: 'libmtmd.1.0.0.dylib',
++        url: 'server/darwin-x64/libmtmd.1.0.0.dylib',
++        size: 2417400,
++        sha256: '282d00b404bde7356257681ac922502bc846a0a098ab6f5dcd9f36702c9a61de',
++      },
++      {
++        path: 'libmtmd.1.dylib',
++        url: 'server/darwin-x64/libmtmd.1.dylib',
++        size: 2417400,
++        sha256: '282d00b404bde7356257681ac922502bc846a0a098ab6f5dcd9f36702c9a61de',
++      },
++      {
++        path: 'libmtmd.dylib',
++        url: 'server/darwin-x64/libmtmd.dylib',
++        size: 2417400,
++        sha256: '282d00b404bde7356257681ac922502bc846a0a098ab6f5dcd9f36702c9a61de',
++      },
++      {
++        path: 'LICENSE',
++        url: 'server/darwin-x64/LICENSE',
++        size: 1078,
++        sha256: '94f29bbed6a22c35b992c5c6ebf0e7c92f13b836b90f36f461c9cf2f0f1d010d',
++      },
++      {
++        path: 'LICENSE-llama.cpp',
++        url: 'server/darwin-x64/LICENSE-llama.cpp',
++        size: 1078,
++        sha256: '94f29bbed6a22c35b992c5c6ebf0e7c92f13b836b90f36f461c9cf2f0f1d010d',
++      },
++      {
++        path: 'llama-server',
++        url: 'server/darwin-x64/llama-server',
++        size: 20760,
++        sha256: 'cd361b0b72ac997347217d92fee1a67adf8a8259c9e5085f0c4c285279c3fb30',
++      },
++    ],
++    'linux-x64': [
++      {
++        path: 'libggml-base.so',
++        url: 'server/linux-x64/libggml-base.so',
++        size: 937600,
++        sha256: 'ffe077bf376b13b7a3c668d11a70968740f19eade6264d5d300721a7e68778b7',
++      },
++      {
++        path: 'libggml-base.so.1',
++        url: 'server/linux-x64/libggml-base.so.1',
++        size: 937600,
++        sha256: 'ffe077bf376b13b7a3c668d11a70968740f19eade6264d5d300721a7e68778b7',
++      },
++      {
++        path: 'libggml-base.so.1.0.0',
++        url: 'server/linux-x64/libggml-base.so.1.0.0',
++        size: 937600,
++        sha256: 'ffe077bf376b13b7a3c668d11a70968740f19eade6264d5d300721a7e68778b7',
++      },
++      {
++        path: 'libggml-cpu-alderlake.so',
++        url: 'server/linux-x64/libggml-cpu-alderlake.so',
++        size: 1476888,
++        sha256: '2f977cbc5b1805788187cbaa25220b833aefd9fcb0e64c67a793a9a2214383fe',
++      },
++      {
++        path: 'libggml-cpu-cannonlake.so',
++        url: 'server/linux-x64/libggml-cpu-cannonlake.so',
++        size: 1635832,
++        sha256: '26b2825103049b5bfffa80be1a65ab6453152f7c32fb93fb9e9865ba60b0bad7',
++      },
++      {
++        path: 'libggml-cpu-cascadelake.so',
++        url: 'server/linux-x64/libggml-cpu-cascadelake.so',
++        size: 1651920,
++        sha256: 'e8c485ed680844959eb76ec6b45af2b4ddfabb74aeda9093f373c956b2eabef5',
++      },
++      {
++        path: 'libggml-cpu-cooperlake.so',
++        url: 'server/linux-x64/libggml-cpu-cooperlake.so',
++        size: 1651992,
++        sha256: 'f54049992facc29d01bca74c01323503095b9fd7d4eb355600e72d4cbfe49c8c',
++      },
++      {
++        path: 'libggml-cpu-haswell.so',
++        url: 'server/linux-x64/libggml-cpu-haswell.so',
++        size: 1480984,
++        sha256: '039e232dc8243dc4d9c7b6ab879bc414bd203f46b4a937f13e62b444520b713d',
++      },
++      {
++        path: 'libggml-cpu-icelake.so',
++        url: 'server/linux-x64/libggml-cpu-icelake.so',
++        size: 1651920,
++        sha256: 'b444c3f789048ca3dc6dacf25d2f2f560e5810cd3a34d3f5e66b4941544f42ca',
++      },
++      {
++        path: 'libggml-cpu-ivybridge.so',
++        url: 'server/linux-x64/libggml-cpu-ivybridge.so',
++        size: 1416624,
++        sha256: 'ec15d63385780ad6e8426003bf7a0f2e59119293ff417a416a5de1b1a2286293',
++      },
++      {
++        path: 'libggml-cpu-piledriver.so',
++        url: 'server/linux-x64/libggml-cpu-piledriver.so',
++        size: 1412528,
++        sha256: 'b2a5a39d5112d0b7ac79bd47bf68e3242446fbc76742c3a8e595af524512b598',
++      },
++      {
++        path: 'libggml-cpu-sandybridge.so',
++        url: 'server/linux-x64/libggml-cpu-sandybridge.so',
++        size: 1385880,
++        sha256: 'b35b453b7063c1d0db9340c9dcce4cfa53d41d1a87be3c486eff8705117ab4e5',
++      },
++      {
++        path: 'libggml-cpu-sapphirerapids.so',
++        url: 'server/linux-x64/libggml-cpu-sapphirerapids.so',
++        size: 1918320,
++        sha256: '79747f60800ad66ed01ce0e839f49833aec55295a9e1f0f1b72d4f4741d61815',
++      },
++      {
++        path: 'libggml-cpu-skylakex.so',
++        url: 'server/linux-x64/libggml-cpu-skylakex.so',
++        size: 1635832,
++        sha256: 'a44e64ac9892ec05268fdb6f8e94bf58367a885d1b65da7e31413b7ec909a209',
++      },
++      {
++        path: 'libggml-cpu-sse42.so',
++        url: 'server/linux-x64/libggml-cpu-sse42.so',
++        size: 993520,
++        sha256: '8103927f863313ef364097b00192bab39f3353088989c37452f4004a54719061',
++      },
++      {
++        path: 'libggml-cpu-x64.so',
++        url: 'server/linux-x64/libggml-cpu-x64.so',
++        size: 993520,
++        sha256: '3b8b675c08e2963e5dc1b0915175756ac0660b657be824305793da772a308341',
++      },
++      {
++        path: 'libggml-cpu-zen4.so',
++        url: 'server/linux-x64/libggml-cpu-zen4.so',
++        size: 1651992,
++        sha256: 'de6d921ee1c28086c3d2193efb821d23cf9795152c5b3094acc450316d93054c',
++      },
++      {
++        path: 'libggml-rpc.so',
++        url: 'server/linux-x64/libggml-rpc.so',
++        size: 328712,
++        sha256: '4d62f439e87d372951c5a06999cbaafa935d5132abfc80720508e450a355ae69',
++      },
++      {
++        path: 'libggml.so',
++        url: 'server/linux-x64/libggml.so',
++        size: 51040,
++        sha256: '405441c70127eb7fbf000ee9681a8ef9e4a540f151bed57d1475b8115b6b46d4',
++      },
++      {
++        path: 'libggml.so.1',
++        url: 'server/linux-x64/libggml.so.1',
++        size: 51040,
++        sha256: '405441c70127eb7fbf000ee9681a8ef9e4a540f151bed57d1475b8115b6b46d4',
++      },
++      {
++        path: 'libggml.so.1.0.0',
++        url: 'server/linux-x64/libggml.so.1.0.0',
++        size: 51040,
++        sha256: '405441c70127eb7fbf000ee9681a8ef9e4a540f151bed57d1475b8115b6b46d4',
++      },
++      {
++        path: 'libllama-common.so',
++        url: 'server/linux-x64/libllama-common.so',
++        size: 7037384,
++        sha256: '10a9944cc9cb826a26afa4b9343e1414db00dca13286ec7e32487e26a6f49d32',
++      },
++      {
++        path: 'libllama-common.so.1',
++        url: 'server/linux-x64/libllama-common.so.1',
++        size: 7037384,
++        sha256: '10a9944cc9cb826a26afa4b9343e1414db00dca13286ec7e32487e26a6f49d32',
++      },
++      {
++        path: 'libllama-common.so.1.0.0',
++        url: 'server/linux-x64/libllama-common.so.1.0.0',
++        size: 7037384,
++        sha256: '10a9944cc9cb826a26afa4b9343e1414db00dca13286ec7e32487e26a6f49d32',
++      },
++      {
++        path: 'libllama-server-impl.so',
++        url: 'server/linux-x64/libllama-server-impl.so',
++        size: 7963368,
++        sha256: 'b1ff54cc027cd9e45a658611a23306b02cd3ced346b2875f27c9ee1b8853d1d1',
++      },
++      {
++        path: 'libllama.so',
++        url: 'server/linux-x64/libllama.so',
++        size: 5638904,
++        sha256: '5e850c9e9b899db180ded4435662f8bb84068fc9ae6b34b83fc6f7a6829a0847',
++      },
++      {
++        path: 'libllama.so.1',
++        url: 'server/linux-x64/libllama.so.1',
++        size: 5638904,
++        sha256: '5e850c9e9b899db180ded4435662f8bb84068fc9ae6b34b83fc6f7a6829a0847',
++      },
++      {
++        path: 'libllama.so.1.0.0',
++        url: 'server/linux-x64/libllama.so.1.0.0',
++        size: 5638904,
++        sha256: '5e850c9e9b899db180ded4435662f8bb84068fc9ae6b34b83fc6f7a6829a0847',
++      },
++      {
++        path: 'libmtmd.so',
++        url: 'server/linux-x64/libmtmd.so',
++        size: 3040056,
++        sha256: '4d6897efafc6a52aad25efdcdce05e3b3dc43185b80eb438785cc2fadd567a9f',
++      },
++      {
++        path: 'libmtmd.so.1',
++        url: 'server/linux-x64/libmtmd.so.1',
++        size: 3040056,
++        sha256: '4d6897efafc6a52aad25efdcdce05e3b3dc43185b80eb438785cc2fadd567a9f',
++      },
++      {
++        path: 'libmtmd.so.1.0.0',
++        url: 'server/linux-x64/libmtmd.so.1.0.0',
++        size: 3040056,
++        sha256: '4d6897efafc6a52aad25efdcdce05e3b3dc43185b80eb438785cc2fadd567a9f',
++      },
++      {
++        path: 'LICENSE',
++        url: 'server/linux-x64/LICENSE',
++        size: 1078,
++        sha256: '94f29bbed6a22c35b992c5c6ebf0e7c92f13b836b90f36f461c9cf2f0f1d010d',
++      },
++      {
++        path: 'LICENSE-llama.cpp',
++        url: 'server/linux-x64/LICENSE-llama.cpp',
++        size: 1078,
++        sha256: '94f29bbed6a22c35b992c5c6ebf0e7c92f13b836b90f36f461c9cf2f0f1d010d',
++      },
++      {
++        path: 'llama-server',
++        url: 'server/linux-x64/llama-server',
++        size: 30840,
++        sha256: 'a0109bfc3c1589bf840b498eb0ca1b933a0243aa595a65aac94c6f0d85977f42',
++      },
++    ],
++    'linux-arm64': [
++      {
++        path: 'libggml-base.so',
++        url: 'server/linux-arm64/libggml-base.so',
++        size: 870552,
++        sha256: '56bb87bc20f3620740cc23b5e22188db4d8f8a00f1705d5bd6161e40abaaca6e',
++      },
++      {
++        path: 'libggml-base.so.1',
++        url: 'server/linux-arm64/libggml-base.so.1',
++        size: 870552,
++        sha256: '56bb87bc20f3620740cc23b5e22188db4d8f8a00f1705d5bd6161e40abaaca6e',
++      },
++      {
++        path: 'libggml-base.so.1.0.0',
++        url: 'server/linux-arm64/libggml-base.so.1.0.0',
++        size: 870552,
++        sha256: '56bb87bc20f3620740cc23b5e22188db4d8f8a00f1705d5bd6161e40abaaca6e',
++      },
++      {
++        path: 'libggml-cpu-armv8.0_1.so',
++        url: 'server/linux-arm64/libggml-cpu-armv8.0_1.so',
++        size: 1004192,
++        sha256: '4375768bac43c6734625d5b476dc1d4fce908086640a613c1cf4afdaf60135b5',
++      },
++      {
++        path: 'libggml-cpu-armv8.2_1.so',
++        url: 'server/linux-arm64/libggml-cpu-armv8.2_1.so',
++        size: 1071128,
++        sha256: '6fbdca7b054294959de62b57d8dd97e8af92fe9ee84d58583c2503498c7183e5',
++      },
++      {
++        path: 'libggml-cpu-armv8.2_2.so',
++        url: 'server/linux-arm64/libggml-cpu-armv8.2_2.so',
++        size: 1071104,
++        sha256: '3089e714aade9abd90851ac14decceb0d3ffadf1c99e4b572cb8150d60eb0d30',
++      },
++      {
++        path: 'libggml-cpu-armv8.2_3.so',
++        url: 'server/linux-arm64/libggml-cpu-armv8.2_3.so',
++        size: 1071616,
++        sha256: '5a88f6e6ce8101164947cf05ee9776a18120e5de8900722a8d8d19a7046b3043',
++      },
++      {
++        path: 'libggml-cpu-armv8.6_1.so',
++        url: 'server/linux-arm64/libggml-cpu-armv8.6_1.so',
++        size: 1071936,
++        sha256: '76aa7256ba8da7ccf9f24e0060c89306d058fc53a1750c28643818d34a374d3e',
++      },
++      {
++        path: 'libggml-cpu-armv8.6_2.so',
++        url: 'server/linux-arm64/libggml-cpu-armv8.6_2.so',
++        size: 1071960,
++        sha256: 'c0dcfb3a4ec4fc10398117c393271e40a156668458c5e932e37051720800539b',
++      },
++      {
++        path: 'libggml-cpu-armv9.2_1.so',
++        url: 'server/linux-arm64/libggml-cpu-armv9.2_1.so',
++        size: 1071984,
++        sha256: '64beb88bde941c9791ad092ba702ddcab594e37a3994411777f971b8c0261a08',
++      },
++      {
++        path: 'libggml-cpu-armv9.2_2.so',
++        url: 'server/linux-arm64/libggml-cpu-armv9.2_2.so',
++        size: 1071984,
++        sha256: 'd32d6dbc67774cd489c8c0a0b68bc140790b03938a6934a2b3ae94c1a3eab44d',
++      },
++      {
++        path: 'libggml-rpc.so',
++        url: 'server/linux-arm64/libggml-rpc.so',
++        size: 337584,
++        sha256: 'c1e4ea71ea3ccaa3583d935422219c83c598dccbc1f8c9e8c14bd6eced1fbcf0',
++      },
++      {
++        path: 'libggml.so',
++        url: 'server/linux-arm64/libggml.so',
++        size: 77528,
++        sha256: '85c28a64805f8d5b9ddc207cac854d333276b4b8be170ec2be5f53a2eae70823',
++      },
++      {
++        path: 'libggml.so.1',
++        url: 'server/linux-arm64/libggml.so.1',
++        size: 77528,
++        sha256: '85c28a64805f8d5b9ddc207cac854d333276b4b8be170ec2be5f53a2eae70823',
++      },
++      {
++        path: 'libggml.so.1.0.0',
++        url: 'server/linux-arm64/libggml.so.1.0.0',
++        size: 77528,
++        sha256: '85c28a64805f8d5b9ddc207cac854d333276b4b8be170ec2be5f53a2eae70823',
++      },
++      {
++        path: 'libllama-common.so',
++        url: 'server/linux-arm64/libllama-common.so',
++        size: 6163344,
++        sha256: 'ae9391fd167da7c3969b041e4dc065607330a4701d760a0dc3b012987b2e0aa1',
++      },
++      {
++        path: 'libllama-common.so.1',
++        url: 'server/linux-arm64/libllama-common.so.1',
++        size: 6163344,
++        sha256: 'ae9391fd167da7c3969b041e4dc065607330a4701d760a0dc3b012987b2e0aa1',
++      },
++      {
++        path: 'libllama-common.so.1.0.0',
++        url: 'server/linux-arm64/libllama-common.so.1.0.0',
++        size: 6163344,
++        sha256: 'ae9391fd167da7c3969b041e4dc065607330a4701d760a0dc3b012987b2e0aa1',
++      },
++      {
++        path: 'libllama-server-impl.so',
++        url: 'server/linux-arm64/libllama-server-impl.so',
++        size: 7179448,
++        sha256: '4fa03090a73e164b71e3f78933bd2cc6dd884d8b536a2b1badd506735a5813b3',
++      },
++      {
++        path: 'libllama.so',
++        url: 'server/linux-arm64/libllama.so',
++        size: 5326456,
++        sha256: '69f544f301ad9ec5a7c0502920d59af90ab1729bf033a801942b2797743cdf2d',
++      },
++      {
++        path: 'libllama.so.1',
++        url: 'server/linux-arm64/libllama.so.1',
++        size: 5326456,
++        sha256: '69f544f301ad9ec5a7c0502920d59af90ab1729bf033a801942b2797743cdf2d',
++      },
++      {
++        path: 'libllama.so.1.0.0',
++        url: 'server/linux-arm64/libllama.so.1.0.0',
++        size: 5326456,
++        sha256: '69f544f301ad9ec5a7c0502920d59af90ab1729bf033a801942b2797743cdf2d',
++      },
++      {
++        path: 'libmtmd.so',
++        url: 'server/linux-arm64/libmtmd.so',
++        size: 2782072,
++        sha256: '5ed7171712e93dc4fbd80ba0386ba590f90908f981106010b21e5cc0108e9a88',
++      },
++      {
++        path: 'libmtmd.so.1',
++        url: 'server/linux-arm64/libmtmd.so.1',
++        size: 2782072,
++        sha256: '5ed7171712e93dc4fbd80ba0386ba590f90908f981106010b21e5cc0108e9a88',
++      },
++      {
++        path: 'libmtmd.so.1.0.0',
++        url: 'server/linux-arm64/libmtmd.so.1.0.0',
++        size: 2782072,
++        sha256: '5ed7171712e93dc4fbd80ba0386ba590f90908f981106010b21e5cc0108e9a88',
++      },
++      {
++        path: 'LICENSE',
++        url: 'server/linux-arm64/LICENSE',
++        size: 1078,
++        sha256: '94f29bbed6a22c35b992c5c6ebf0e7c92f13b836b90f36f461c9cf2f0f1d010d',
++      },
++      {
++        path: 'LICENSE-llama.cpp',
++        url: 'server/linux-arm64/LICENSE-llama.cpp',
++        size: 1078,
++        sha256: '94f29bbed6a22c35b992c5c6ebf0e7c92f13b836b90f36f461c9cf2f0f1d010d',
++      },
++      {
++        path: 'llama-server',
++        url: 'server/linux-arm64/llama-server',
++        size: 73144,
++        sha256: 'e4014091ca1d3ac6e99cc497a459cd50afad29d85894372eb1de35c8b25bf7e6',
 +      },
 +    ],
 +  },

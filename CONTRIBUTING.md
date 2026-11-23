@@ -33,16 +33,16 @@ cd atelier-decisions
 uv venv --python 3.12 .venv && source .venv/bin/activate     # Windows: .venv\Scripts\activate
 uv pip install torch --index-url https://download.pytorch.org/whl/cu130   # or the build for your machine
 uv pip install -r requirements.txt
-python tools/hf_release.py fetch v0.5     # v0.5's weights and data from Hugging Face, checked against MANIFEST.json
+python tools/hf_release.py fetch v0.6     # v0.6's weights and data from Hugging Face, checked against MANIFEST.json
 ```
 
-`fetch v0.5 --only model` gets just the nano (about 350 MB with its PyTorch checkpoint). The Node runner then answers
+`fetch v0.6 --only model` gets just the nano (about 350 MB with its PyTorch checkpoint). The Node runner then answers
 Atelier's requests on this computer:
 
 ```bash
 cd runtime/node
 npm ci
-node --experimental-strip-types src/server.ts ../../releases/v0.5/model 8011
+node --experimental-strip-types src/server.ts ../../releases/v0.6/model 8011
 ```
 
 The README's [Reproduce](README.md#reproduce) section has every step from the teachers to a saved version.

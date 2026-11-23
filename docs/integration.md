@@ -5,7 +5,7 @@
 `integration/atelier-on-device-decisions.patch` adds Atelier's own decision model as a provider that needs no key,
 no network and no setting up, and (later commits) atelier-mini as an optional download for new kinds of questions,
 now v0.6. It was built on the branch `on-device-decisions` in a separate worktree (`../atelier-on-device`), so the
-main checkout is untouched: five local commits there, not pushed. The patch is `git diff` from Atelier's main (`7430717`)
+main checkout is untouched: six local commits there, not pushed. The patch is `git diff` from Atelier's main (`7430717`)
 to that branch and applies cleanly to it.
 
 ```bash
@@ -76,16 +76,22 @@ Checked on this Windows machine:
     starting cold), 0.1-0.6 s after that.
   - llama-server stopped with the helper.
 
-**What's left before people can download it is a decision for you:** where the files live.
-`tools/mini_dist.py` makes the folder to host (`model/`, `server/<platform>/`) and the manifest that Atelier compiles
-in. Its `base` is empty, so Settings offers no download yet.
+**Where the files live:** the model project's Hugging Face repository, under `dist/<version>/`
+(`tools/hf_release.py publish-dist`). `tools/mini_dist.py` makes the folder to host (`model/`, `server/<platform>/`)
+and the manifest that Atelier compiles in, whose `base` points there, so Settings offers the download.
 
-- **The host:** a Hugging Face model repository suits a 1.3 GB file; Git LFS on GitHub has a small bandwidth quota.
-- **The other platforms:** macOS and Linux need llama.cpp's builds for them added with `--server`.
+- **Platforms:** llama.cpp's own CPU builds of release b12620, checked against the release's SHA-256: Windows x64 and
+  arm64, macOS arm64 and x64, Linux x64 and arm64 (24-76 MB each; library links in the archives become copies).
+- **Tested:** the Windows x64 server, here. The others are llama.cpp's builds as released, not yet run on a Mac or
+  Linux machine with the mini; Atelier marks them executable after download.
 
 ```bash
 python tools/mini_dist.py --runtime runs/mini-2b-v05-cond/runtime --version v0.6 --out runs/mini-dist-v06 \
-    --server win32-x64=models/llama.cpp-b12620/bin --licence models/llama.cpp-b12620/src/LICENSE --base https://<host>/
+    --server win32-x64=models/llama.cpp-b12620/bin --server win32-arm64=<unpacked win-cpu-arm64 build> \
+    --server darwin-arm64=<unpacked macos-arm64 build> --server darwin-x64=<unpacked macos-x64 build> \
+    --server linux-x64=<unpacked ubuntu-x64 build> --server linux-arm64=<unpacked ubuntu-arm64 build> \
+    --licence models/llama.cpp-b12620/src/LICENSE --base https://huggingface.co/3SENN/atelier-decisions/resolve/main/dist/v0.6/
+python tools/hf_release.py publish-dist v0.6 runs/mini-dist-v06
 cp runs/mini-dist-v06/miniManifest.ts ../atelier-on-device/src/main/decisions/device/miniManifest.ts
 ```
 
