@@ -1,0 +1,299 @@
+{
+ "name": "v0.3-l22",
+ "by_split": {
+  "family-seen": {
+   "n": 780,
+   "agree": 0.2449,
+   "conflict": 0.2487,
+   "overreach": 0.0,
+   "underreach": 0.5064,
+   "declined": 0.0,
+   "coverage": 0.4936,
+   "precision": 0.4961
+  },
+  "ALL": {
+   "n": 1280,
+   "agree": 0.2812,
+   "conflict": 0.2898,
+   "overreach": 0.0,
+   "underreach": 0.4289,
+   "declined": 0.0,
+   "coverage": 0.5711,
+   "precision": 0.4925
+  },
+  "family-unseen": {
+   "n": 500,
+   "agree": 0.338,
+   "conflict": 0.354,
+   "overreach": 0.0,
+   "underreach": 0.308,
+   "declined": 0.0,
+   "coverage": 0.692,
+   "precision": 0.4884
+  }
+ },
+ "by_family": {
+  "family-seen/price-vs-budget": {
+   "n": 60,
+   "agree": 0.1167,
+   "conflict": 0.1667,
+   "overreach": 0.0,
+   "underreach": 0.7167,
+   "declined": 0.0,
+   "coverage": 0.2833,
+   "precision": 0.4118
+  },
+  "ALL": {
+   "n": 1280,
+   "agree": 0.2812,
+   "conflict": 0.2898,
+   "overreach": 0.0,
+   "underreach": 0.4289,
+   "declined": 0.0,
+   "coverage": 0.5711,
+   "precision": 0.4925
+  },
+  "family-seen/cart-sum-vs-budget": {
+   "n": 60,
+   "agree": 0.25,
+   "conflict": 0.2667,
+   "overreach": 0.0,
+   "underreach": 0.4833,
+   "declined": 0.0,
+   "coverage": 0.5167,
+   "precision": 0.4839
+  },
+  "family-seen/cart-total-shown-vs-budget": {
+   "n": 60,
+   "agree": 0.2333,
+   "conflict": 0.25,
+   "overreach": 0.0,
+   "underreach": 0.5167,
+   "declined": 0.0,
+   "coverage": 0.4833,
+   "precision": 0.4828
+  },
+  "family-seen/rating-vs-minimum": {
+   "n": 60,
+   "agree": 0.3167,
+   "conflict": 0.2833,
+   "overreach": 0.0,
+   "underreach": 0.4,
+   "declined": 0.0,
+   "coverage": 0.6,
+   "precision": 0.5278
+  },
+  "family-seen/return-window-open": {
+   "n": 60,
+   "agree": 0.1833,
+   "conflict": 0.1833,
+   "overreach": 0.0,
+   "underreach": 0.6333,
+   "declined": 0.0,
+   "coverage": 0.3667,
+   "precision": 0.5
+  },
+  "family-seen/deadline-passed": {
+   "n": 60,
+   "agree": 0.35,
+   "conflict": 0.2667,
+   "overreach": 0.0,
+   "underreach": 0.3833,
+   "declined": 0.0,
+   "coverage": 0.6167,
+   "precision": 0.5676
+  },
+  "family-seen/open-now": {
+   "n": 60,
+   "agree": 0.4667,
+   "conflict": 0.4667,
+   "overreach": 0.0,
+   "underreach": 0.0667,
+   "declined": 0.0,
+   "coverage": 0.9333,
+   "precision": 0.5
+  },
+  "family-seen/upload-size-allowed": {
+   "n": 60,
+   "agree": 0.1833,
+   "conflict": 0.15,
+   "overreach": 0.0,
+   "underreach": 0.6667,
+   "declined": 0.0,
+   "coverage": 0.3333,
+   "precision": 0.55
+  },
+  "family-seen/per-customer-limit": {
+   "n": 60,
+   "agree": 0.0833,
+   "conflict": 0.05,
+   "overreach": 0.0,
+   "underreach": 0.8667,
+   "declined": 0.0,
+   "coverage": 0.1333,
+   "precision": 0.625
+  },
+  "family-seen/data-usage-over": {
+   "n": 60,
+   "agree": 0.1667,
+   "conflict": 0.2,
+   "overreach": 0.0,
+   "underreach": 0.6333,
+   "declined": 0.0,
+   "coverage": 0.3667,
+   "precision": 0.4545
+  },
+  "family-seen/cheapest-offer": {
+   "n": 60,
+   "agree": 0.0167,
+   "conflict": 0.1,
+   "overreach": 0.0,
+   "underreach": 0.8833,
+   "declined": 0.0,
+   "coverage": 0.1167,
+   "precision": 0.1429
+  },
+  "family-seen/currency-converted-within-budget": {
+   "n": 60,
+   "agree": 0.45,
+   "conflict": 0.4667,
+   "overreach": 0.0,
+   "underreach": 0.0833,
+   "declined": 0.0,
+   "coverage": 0.9167,
+   "precision": 0.4909
+  },
+  "family-seen/count-at-least": {
+   "n": 60,
+   "agree": 0.3667,
+   "conflict": 0.3833,
+   "overreach": 0.0,
+   "underreach": 0.25,
+   "declined": 0.0,
+   "coverage": 0.75,
+   "precision": 0.4889
+  },
+  "family-unseen/age-old-enough": {
+   "n": 100,
+   "agree": 0.34,
+   "conflict": 0.28,
+   "overreach": 0.0,
+   "underreach": 0.38,
+   "declined": 0.0,
+   "coverage": 0.62,
+   "precision": 0.5484
+  },
+  "family-unseen/discount-at-least": {
+   "n": 100,
+   "agree": 0.21,
+   "conflict": 0.31,
+   "overreach": 0.0,
+   "underreach": 0.48,
+   "declined": 0.0,
+   "coverage": 0.52,
+   "precision": 0.4038
+  },
+  "family-unseen/delivery-radius": {
+   "n": 100,
+   "agree": 0.19,
+   "conflict": 0.29,
+   "overreach": 0.0,
+   "underreach": 0.52,
+   "declined": 0.0,
+   "coverage": 0.48,
+   "precision": 0.3958
+  },
+  "family-unseen/group-fits-seats": {
+   "n": 100,
+   "agree": 0.54,
+   "conflict": 0.36,
+   "overreach": 0.0,
+   "underreach": 0.1,
+   "declined": 0.0,
+   "coverage": 0.9,
+   "precision": 0.6
+  },
+  "family-unseen/meeting-fits": {
+   "n": 100,
+   "agree": 0.41,
+   "conflict": 0.53,
+   "overreach": 0.0,
+   "underreach": 0.06,
+   "declined": 0.0,
+   "coverage": 0.94,
+   "precision": 0.4362
+  }
+ },
+ "by_margin": {
+  "family-seen/mid": {
+   "n": 264,
+   "agree": 0.1856,
+   "conflict": 0.2917,
+   "overreach": 0.0,
+   "underreach": 0.5227,
+   "declined": 0.0,
+   "coverage": 0.4773,
+   "precision": 0.3889
+  },
+  "ALL": {
+   "n": 1280,
+   "agree": 0.2812,
+   "conflict": 0.2898,
+   "overreach": 0.0,
+   "underreach": 0.4289,
+   "declined": 0.0,
+   "coverage": 0.5711,
+   "precision": 0.4925
+  },
+  "family-seen/far": {
+   "n": 266,
+   "agree": 0.2632,
+   "conflict": 0.1842,
+   "overreach": 0.0,
+   "underreach": 0.5526,
+   "declined": 0.0,
+   "coverage": 0.4474,
+   "precision": 0.5882
+  },
+  "family-seen/near": {
+   "n": 250,
+   "agree": 0.288,
+   "conflict": 0.272,
+   "overreach": 0.0,
+   "underreach": 0.44,
+   "declined": 0.0,
+   "coverage": 0.56,
+   "precision": 0.5143
+  },
+  "family-unseen/far": {
+   "n": 152,
+   "agree": 0.3421,
+   "conflict": 0.3882,
+   "overreach": 0.0,
+   "underreach": 0.2697,
+   "declined": 0.0,
+   "coverage": 0.7303,
+   "precision": 0.4685
+  },
+  "family-unseen/mid": {
+   "n": 189,
+   "agree": 0.3069,
+   "conflict": 0.3333,
+   "overreach": 0.0,
+   "underreach": 0.3598,
+   "declined": 0.0,
+   "coverage": 0.6402,
+   "precision": 0.4793
+  },
+  "family-unseen/near": {
+   "n": 159,
+   "agree": 0.3711,
+   "conflict": 0.3459,
+   "overreach": 0.0,
+   "underreach": 0.283,
+   "declined": 0.0,
+   "coverage": 0.717,
+   "precision": 0.5175
+  }
+ }
+}

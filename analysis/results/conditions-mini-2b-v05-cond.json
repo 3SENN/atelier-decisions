@@ -1,0 +1,299 @@
+{
+ "name": "mini-2b-v05-cond",
+ "by_split": {
+  "family-seen": {
+   "n": 480,
+   "agree": 0.7479,
+   "conflict": 0.0646,
+   "overreach": 0.0,
+   "underreach": 0.1875,
+   "declined": 0.0,
+   "coverage": 0.8125,
+   "precision": 0.9205
+  },
+  "ALL": {
+   "n": 960,
+   "agree": 0.6542,
+   "conflict": 0.126,
+   "overreach": 0.0,
+   "underreach": 0.2198,
+   "declined": 0.0,
+   "coverage": 0.7802,
+   "precision": 0.8385
+  },
+  "family-unseen": {
+   "n": 480,
+   "agree": 0.5604,
+   "conflict": 0.1875,
+   "overreach": 0.0,
+   "underreach": 0.2521,
+   "declined": 0.0,
+   "coverage": 0.7479,
+   "precision": 0.7493
+  }
+ },
+ "by_family": {
+  "family-seen/library-renewal-allowed": {
+   "n": 40,
+   "agree": 0.9,
+   "conflict": 0.05,
+   "overreach": 0.0,
+   "underreach": 0.05,
+   "declined": 0.0,
+   "coverage": 0.95,
+   "precision": 0.9474
+  },
+  "ALL": {
+   "n": 960,
+   "agree": 0.6542,
+   "conflict": 0.126,
+   "overreach": 0.0,
+   "underreach": 0.2198,
+   "declined": 0.0,
+   "coverage": 0.7802,
+   "precision": 0.8385
+  },
+  "family-seen/gym-class-booking-allowed": {
+   "n": 40,
+   "agree": 0.825,
+   "conflict": 0.1,
+   "overreach": 0.0,
+   "underreach": 0.075,
+   "declined": 0.0,
+   "coverage": 0.925,
+   "precision": 0.8919
+  },
+  "family-seen/league-playoff-eligible": {
+   "n": 40,
+   "agree": 0.85,
+   "conflict": 0.05,
+   "overreach": 0.0,
+   "underreach": 0.1,
+   "declined": 0.0,
+   "coverage": 0.9,
+   "precision": 0.9444
+  },
+  "family-seen/grant-application-eligible": {
+   "n": 40,
+   "agree": 0.95,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.05,
+   "declined": 0.0,
+   "coverage": 0.95,
+   "precision": 1.0
+  },
+  "family-seen/noisy-work-allowed": {
+   "n": 40,
+   "agree": 0.7,
+   "conflict": 0.1,
+   "overreach": 0.0,
+   "underreach": 0.2,
+   "declined": 0.0,
+   "coverage": 0.8,
+   "precision": 0.875
+  },
+  "family-seen/bulky-waste-pickup-accepted": {
+   "n": 40,
+   "agree": 0.775,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.225,
+   "declined": 0.0,
+   "coverage": 0.775,
+   "precision": 1.0
+  },
+  "family-seen/meeting-room-booking-valid": {
+   "n": 40,
+   "agree": 0.775,
+   "conflict": 0.175,
+   "overreach": 0.0,
+   "underreach": 0.05,
+   "declined": 0.0,
+   "coverage": 0.95,
+   "precision": 0.8158
+  },
+  "family-seen/volunteer-shift-signup-allowed": {
+   "n": 40,
+   "agree": 0.225,
+   "conflict": 0.125,
+   "overreach": 0.0,
+   "underreach": 0.65,
+   "declined": 0.0,
+   "coverage": 0.35,
+   "precision": 0.6429
+  },
+  "family-seen/lab-access-allowed": {
+   "n": 40,
+   "agree": 0.45,
+   "conflict": 0.05,
+   "overreach": 0.0,
+   "underreach": 0.5,
+   "declined": 0.0,
+   "coverage": 0.5,
+   "precision": 0.9
+  },
+  "family-seen/licence-seat-assignable": {
+   "n": 40,
+   "agree": 0.925,
+   "conflict": 0.05,
+   "overreach": 0.0,
+   "underreach": 0.025,
+   "declined": 0.0,
+   "coverage": 0.975,
+   "precision": 0.9487
+  },
+  "family-seen/classifieds-listing-accepted": {
+   "n": 40,
+   "agree": 0.925,
+   "conflict": 0.05,
+   "overreach": 0.0,
+   "underreach": 0.025,
+   "declined": 0.0,
+   "coverage": 0.975,
+   "precision": 0.9487
+  },
+  "family-seen/drone-flight-allowed": {
+   "n": 40,
+   "agree": 0.675,
+   "conflict": 0.025,
+   "overreach": 0.0,
+   "underreach": 0.3,
+   "declined": 0.0,
+   "coverage": 0.7,
+   "precision": 0.9643
+  },
+  "family-unseen/blood-donation-allowed": {
+   "n": 120,
+   "agree": 0.5,
+   "conflict": 0.1,
+   "overreach": 0.0,
+   "underreach": 0.4,
+   "declined": 0.0,
+   "coverage": 0.6,
+   "precision": 0.8333
+  },
+  "family-unseen/photo-contest-entry-valid": {
+   "n": 120,
+   "agree": 0.425,
+   "conflict": 0.375,
+   "overreach": 0.0,
+   "underreach": 0.2,
+   "declined": 0.0,
+   "coverage": 0.8,
+   "precision": 0.5312
+  },
+  "family-unseen/campsite-fire-allowed-now": {
+   "n": 120,
+   "agree": 0.5167,
+   "conflict": 0.2083,
+   "overreach": 0.0,
+   "underreach": 0.275,
+   "declined": 0.0,
+   "coverage": 0.725,
+   "precision": 0.7126
+  },
+  "family-unseen/tenant-pet-allowed": {
+   "n": 120,
+   "agree": 0.8,
+   "conflict": 0.0667,
+   "overreach": 0.0,
+   "underreach": 0.1333,
+   "declined": 0.0,
+   "coverage": 0.8667,
+   "precision": 0.9231
+  }
+ },
+ "by_margin": {
+  "family-seen/near": {
+   "n": 158,
+   "agree": 0.7658,
+   "conflict": 0.0759,
+   "overreach": 0.0,
+   "underreach": 0.1582,
+   "declined": 0.0,
+   "coverage": 0.8418,
+   "precision": 0.9098
+  },
+  "ALL": {
+   "n": 960,
+   "agree": 0.6542,
+   "conflict": 0.126,
+   "overreach": 0.0,
+   "underreach": 0.2198,
+   "declined": 0.0,
+   "coverage": 0.7802,
+   "precision": 0.8385
+  },
+  "family-seen/far": {
+   "n": 102,
+   "agree": 0.7255,
+   "conflict": 0.098,
+   "overreach": 0.0,
+   "underreach": 0.1765,
+   "declined": 0.0,
+   "coverage": 0.8235,
+   "precision": 0.881
+  },
+  "family-seen/mid": {
+   "n": 113,
+   "agree": 0.6991,
+   "conflict": 0.0442,
+   "overreach": 0.0,
+   "underreach": 0.2566,
+   "declined": 0.0,
+   "coverage": 0.7434,
+   "precision": 0.9405
+  },
+  "family-seen/exception": {
+   "n": 107,
+   "agree": 0.7944,
+   "conflict": 0.0374,
+   "overreach": 0.0,
+   "underreach": 0.1682,
+   "declined": 0.0,
+   "coverage": 0.8318,
+   "precision": 0.9551
+  },
+  "family-unseen/far": {
+   "n": 105,
+   "agree": 0.5238,
+   "conflict": 0.219,
+   "overreach": 0.0,
+   "underreach": 0.2571,
+   "declined": 0.0,
+   "coverage": 0.7429,
+   "precision": 0.7051
+  },
+  "family-unseen/near": {
+   "n": 130,
+   "agree": 0.5308,
+   "conflict": 0.1769,
+   "overreach": 0.0,
+   "underreach": 0.2923,
+   "declined": 0.0,
+   "coverage": 0.7077,
+   "precision": 0.75
+  },
+  "family-unseen/exception": {
+   "n": 125,
+   "agree": 0.672,
+   "conflict": 0.16,
+   "overreach": 0.0,
+   "underreach": 0.168,
+   "declined": 0.0,
+   "coverage": 0.832,
+   "precision": 0.8077
+  },
+  "family-unseen/mid": {
+   "n": 120,
+   "agree": 0.5083,
+   "conflict": 0.2,
+   "overreach": 0.0,
+   "underreach": 0.2917,
+   "declined": 0.0,
+   "coverage": 0.7083,
+   "precision": 0.7176
+  }
+ }
+}

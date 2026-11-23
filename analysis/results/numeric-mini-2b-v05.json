@@ -1,0 +1,299 @@
+{
+ "name": "mini-2b-v05",
+ "by_split": {
+  "family-seen": {
+   "n": 780,
+   "agree": 0.6603,
+   "conflict": 0.0385,
+   "overreach": 0.0,
+   "underreach": 0.3013,
+   "declined": 0.0,
+   "coverage": 0.6987,
+   "precision": 0.945
+  },
+  "ALL": {
+   "n": 1280,
+   "agree": 0.5594,
+   "conflict": 0.05,
+   "overreach": 0.0,
+   "underreach": 0.3906,
+   "declined": 0.0,
+   "coverage": 0.6094,
+   "precision": 0.9179
+  },
+  "family-unseen": {
+   "n": 500,
+   "agree": 0.402,
+   "conflict": 0.068,
+   "overreach": 0.0,
+   "underreach": 0.53,
+   "declined": 0.0,
+   "coverage": 0.47,
+   "precision": 0.8553
+  }
+ },
+ "by_family": {
+  "family-seen/price-vs-budget": {
+   "n": 60,
+   "agree": 1.0,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.0,
+   "declined": 0.0,
+   "coverage": 1.0,
+   "precision": 1.0
+  },
+  "ALL": {
+   "n": 1280,
+   "agree": 0.5594,
+   "conflict": 0.05,
+   "overreach": 0.0,
+   "underreach": 0.3906,
+   "declined": 0.0,
+   "coverage": 0.6094,
+   "precision": 0.9179
+  },
+  "family-seen/cart-sum-vs-budget": {
+   "n": 60,
+   "agree": 0.15,
+   "conflict": 0.0167,
+   "overreach": 0.0,
+   "underreach": 0.8333,
+   "declined": 0.0,
+   "coverage": 0.1667,
+   "precision": 0.9
+  },
+  "family-seen/cart-total-shown-vs-budget": {
+   "n": 60,
+   "agree": 1.0,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.0,
+   "declined": 0.0,
+   "coverage": 1.0,
+   "precision": 1.0
+  },
+  "family-seen/rating-vs-minimum": {
+   "n": 60,
+   "agree": 1.0,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.0,
+   "declined": 0.0,
+   "coverage": 1.0,
+   "precision": 1.0
+  },
+  "family-seen/return-window-open": {
+   "n": 60,
+   "agree": 0.25,
+   "conflict": 0.1,
+   "overreach": 0.0,
+   "underreach": 0.65,
+   "declined": 0.0,
+   "coverage": 0.35,
+   "precision": 0.7143
+  },
+  "family-seen/deadline-passed": {
+   "n": 60,
+   "agree": 0.7333,
+   "conflict": 0.1167,
+   "overreach": 0.0,
+   "underreach": 0.15,
+   "declined": 0.0,
+   "coverage": 0.85,
+   "precision": 0.8627
+  },
+  "family-seen/open-now": {
+   "n": 60,
+   "agree": 0.8,
+   "conflict": 0.1,
+   "overreach": 0.0,
+   "underreach": 0.1,
+   "declined": 0.0,
+   "coverage": 0.9,
+   "precision": 0.8889
+  },
+  "family-seen/upload-size-allowed": {
+   "n": 60,
+   "agree": 1.0,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.0,
+   "declined": 0.0,
+   "coverage": 1.0,
+   "precision": 1.0
+  },
+  "family-seen/per-customer-limit": {
+   "n": 60,
+   "agree": 1.0,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.0,
+   "declined": 0.0,
+   "coverage": 1.0,
+   "precision": 1.0
+  },
+  "family-seen/data-usage-over": {
+   "n": 60,
+   "agree": 0.15,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.85,
+   "declined": 0.0,
+   "coverage": 0.15,
+   "precision": 1.0
+  },
+  "family-seen/cheapest-offer": {
+   "n": 60,
+   "agree": 0.0,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 1.0,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "family-seen/currency-converted-within-budget": {
+   "n": 60,
+   "agree": 0.6833,
+   "conflict": 0.1167,
+   "overreach": 0.0,
+   "underreach": 0.2,
+   "declined": 0.0,
+   "coverage": 0.8,
+   "precision": 0.8542
+  },
+  "family-seen/count-at-least": {
+   "n": 60,
+   "agree": 0.8167,
+   "conflict": 0.05,
+   "overreach": 0.0,
+   "underreach": 0.1333,
+   "declined": 0.0,
+   "coverage": 0.8667,
+   "precision": 0.9423
+  },
+  "family-unseen/age-old-enough": {
+   "n": 100,
+   "agree": 0.06,
+   "conflict": 0.29,
+   "overreach": 0.0,
+   "underreach": 0.65,
+   "declined": 0.0,
+   "coverage": 0.35,
+   "precision": 0.1714
+  },
+  "family-unseen/discount-at-least": {
+   "n": 100,
+   "agree": 0.0,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 1.0,
+   "declined": 0.0,
+   "coverage": 0.0,
+   "precision": null
+  },
+  "family-unseen/delivery-radius": {
+   "n": 100,
+   "agree": 0.85,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.15,
+   "declined": 0.0,
+   "coverage": 0.85,
+   "precision": 1.0
+  },
+  "family-unseen/group-fits-seats": {
+   "n": 100,
+   "agree": 0.86,
+   "conflict": 0.02,
+   "overreach": 0.0,
+   "underreach": 0.12,
+   "declined": 0.0,
+   "coverage": 0.88,
+   "precision": 0.9773
+  },
+  "family-unseen/meeting-fits": {
+   "n": 100,
+   "agree": 0.24,
+   "conflict": 0.03,
+   "overreach": 0.0,
+   "underreach": 0.73,
+   "declined": 0.0,
+   "coverage": 0.27,
+   "precision": 0.8889
+  }
+ },
+ "by_margin": {
+  "family-seen/mid": {
+   "n": 264,
+   "agree": 0.6591,
+   "conflict": 0.0341,
+   "overreach": 0.0,
+   "underreach": 0.3068,
+   "declined": 0.0,
+   "coverage": 0.6932,
+   "precision": 0.9508
+  },
+  "ALL": {
+   "n": 1280,
+   "agree": 0.5594,
+   "conflict": 0.05,
+   "overreach": 0.0,
+   "underreach": 0.3906,
+   "declined": 0.0,
+   "coverage": 0.6094,
+   "precision": 0.9179
+  },
+  "family-seen/far": {
+   "n": 266,
+   "agree": 0.6429,
+   "conflict": 0.0338,
+   "overreach": 0.0,
+   "underreach": 0.3233,
+   "declined": 0.0,
+   "coverage": 0.6767,
+   "precision": 0.95
+  },
+  "family-seen/near": {
+   "n": 250,
+   "agree": 0.68,
+   "conflict": 0.048,
+   "overreach": 0.0,
+   "underreach": 0.272,
+   "declined": 0.0,
+   "coverage": 0.728,
+   "precision": 0.9341
+  },
+  "family-unseen/far": {
+   "n": 152,
+   "agree": 0.3947,
+   "conflict": 0.0329,
+   "overreach": 0.0,
+   "underreach": 0.5724,
+   "declined": 0.0,
+   "coverage": 0.4276,
+   "precision": 0.9231
+  },
+  "family-unseen/mid": {
+   "n": 189,
+   "agree": 0.3862,
+   "conflict": 0.0423,
+   "overreach": 0.0,
+   "underreach": 0.5714,
+   "declined": 0.0,
+   "coverage": 0.4286,
+   "precision": 0.9012
+  },
+  "family-unseen/near": {
+   "n": 159,
+   "agree": 0.4277,
+   "conflict": 0.1321,
+   "overreach": 0.0,
+   "underreach": 0.4403,
+   "declined": 0.0,
+   "coverage": 0.5597,
+   "precision": 0.764
+  }
+ }
+}

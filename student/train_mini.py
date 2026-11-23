@@ -53,6 +53,7 @@ PROBES = {
     "numeric": ROOT / "data" / "teacher" / "numeric-test.truth.jsonl",  # the true answer, not a teacher's
     "numeric2": ROOT / "data" / "teacher" / "numeric2-test.truth.jsonl",  # multi-step, the true answer
     "security": ROOT / "data" / "teacher" / "security-test.truth.jsonl",  # answered by construction
+    "conditions": ROOT / "data" / "teacher" / "conditions-test.truth.jsonl",  # rules applied to specifics, by code
 }
 FLASH = ROOT / "models" / "pplx-decider-flash-v1.3"
 

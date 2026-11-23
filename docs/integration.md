@@ -4,15 +4,15 @@
 
 `integration/atelier-on-device-decisions.patch` adds Atelier's own decision model as a provider that needs no key,
 no network and no setting up, and (later commits) atelier-mini as an optional download for new kinds of questions,
-now v0.5. It was built on the branch `on-device-decisions` in a separate worktree (`../atelier-on-device`), so the
-main checkout is untouched: four local commits there, not pushed. The patch is `git diff` from Atelier's main (`7430717`)
+now v0.6. It was built on the branch `on-device-decisions` in a separate worktree (`../atelier-on-device`), so the
+main checkout is untouched: five local commits there, not pushed. The patch is `git diff` from Atelier's main (`7430717`)
 to that branch and applies cleanly to it.
 
 ```bash
 cd atelier
 git apply ../atelier-decisions/integration/atelier-on-device-decisions.patch   # or: git worktree / branch on-device-decisions
 npm install
-ATELIER_DECISION_MODEL_SRC=../atelier-decisions/runs/nano-v03-l22/onnx node scripts/fetch-decision-model.mjs   # or releases/v0.5/model
+ATELIER_DECISION_MODEL_SRC=../atelier-decisions/runs/nano-v03-l22/onnx node scripts/fetch-decision-model.mjs   # or releases/v0.6/model
 npm run dev    # Settings › Quick decisions › On this computer › Use it
 ```
 
@@ -43,8 +43,8 @@ would be the fallback there).
 
 ## nano, then mini: the cascade (in the patch, an optional download)
 
-atelier-mini (Qwen3.5-0.8B read the decider's way, run by llama.cpp) works out kinds of questions the nano was never
-shown, but it is about 30 times slower. So the two run as one decider:
+atelier-mini (Qwen3.5-2B since v0.6, Qwen3.5-0.8B before; read the decider's way, run by llama.cpp) works out kinds
+of questions the nano was never shown, but it is about 30-60 times slower. So the two run as one decider:
 
 1. **The nano answers first**, in milliseconds.
 2. **The mini gets what the nano can't settle:** a question the nano declines (an open question, text it can't read)
@@ -58,7 +58,7 @@ The patch now carries the cascade into Atelier's utility process, and the mini a
 | Piece | Where | What it does |
 |---|---|---|
 | Cascade | `src/main/decisions/device/cascade.ts`, `readers.ts` | nano first; a refusal or an answer Atelier's reader would not take goes to the mini; a failed or stopped mini leaves the nano's answers; `routes` says who answered |
-| Mini | `device/mini.ts`, `miniFiles.ts` | prompts and token ids as the training code makes them (608/608 with `ATELIER_MINI_PARITY`, v0.4 and v0.5), llama-server on 127.0.0.1, readout and temperature in the helper, states cut at 2048 tokens, cancelled questions skipped; a trimmed vocabulary (`vocab.json`) is mapped as the training code maps it |
+| Mini | `device/mini.ts`, `miniFiles.ts` | prompts and token ids as the training code makes them (608/608 with `ATELIER_MINI_PARITY`, v0.4, v0.5 and v0.6), llama-server on 127.0.0.1, readout and temperature in the helper, states cut at 2048 tokens, cancelled questions skipped; a trimmed vocabulary (`vocab.json`) is mapped as the training code maps it |
 | Helper | `deviceHelper.ts`, `device.ts` | the mini loads on the first question the nano leaves open (never at warm-up); a new helper when the mini is installed or removed; stopped requests are cancelled in the helper; llama-server stopped by its pid with the helper |
 | Download | `deviceMini.ts`, `device/miniManifest.ts` | file by file against sizes and SHA-256 compiled into Atelier, staged and swapped in whole, resumed with range requests, through `net.fetch`; offered only when the manifest has a download location and a server build for this platform |
 | Settings | `QuickDecisions.tsx`, `i18n/{en,nl}/decisions.ts` | "New kinds of questions" under On this computer: Download (size), progress, Stop, Remove |
@@ -66,9 +66,10 @@ The patch now carries the cascade into Atelier's utility process, and the mini a
 
 Checked on this Windows machine:
 
-- **Builds and tests:** typecheck clean, i18n 100%, the decision tests passing (115, with v0.5's parity).
+- **Builds and tests:** typecheck clean, i18n 100% (8,419 keys), the decision tests passing (115, with v0.6's
+  parity).
 - **The download:** the real installer against a local server, 585 MB with every file checked (v0.4's files; v0.5's
-  are the same set and sizes, with new checksums).
+  are the same set and sizes, with new checksums; v0.6's are the same set at 1,357 MB, the model 1,286 MB).
 - **The built helper in Electron:** run as a utility process with the nano and the mini.
   - The nano kept its own decisions.
   - Russian, Thai, an open price question and three email labels went to the mini: 2 s for the first (llama-server
@@ -79,13 +80,13 @@ Checked on this Windows machine:
 `tools/mini_dist.py` makes the folder to host (`model/`, `server/<platform>/`) and the manifest that Atelier compiles
 in. Its `base` is empty, so Settings offers no download yet.
 
-- **The host:** a Hugging Face model repository suits a 0.5 GB file; Git LFS on GitHub has a small bandwidth quota.
+- **The host:** a Hugging Face model repository suits a 1.3 GB file; Git LFS on GitHub has a small bandwidth quota.
 - **The other platforms:** macOS and Linux need llama.cpp's builds for them added with `--server`.
 
 ```bash
-python tools/mini_dist.py --runtime runs/mini-v05/runtime --version v0.5 --out runs/mini-dist-v05 \
+python tools/mini_dist.py --runtime runs/mini-2b-v05-cond/runtime --version v0.6 --out runs/mini-dist-v06 \
     --server win32-x64=models/llama.cpp-b12620/bin --licence models/llama.cpp-b12620/src/LICENSE --base https://<host>/
-cp runs/mini-dist-v05/miniManifest.ts ../atelier-on-device/src/main/decisions/device/miniManifest.ts
+cp runs/mini-dist-v06/miniManifest.ts ../atelier-on-device/src/main/decisions/device/miniManifest.ts
 ```
 
 During development, `ATELIER_DECISION_MINI=<runtime folder with a server/ copy of llama-server>` uses a folder as it
@@ -124,12 +125,14 @@ token (608 of 608).
 - **So every mini script loads the tokenizer through `student/mini_tokenizer.py`**, and v0.5's mini is the first trained
   with it from the start.
 
-**Memory:** 0.8 GB for llama-server at a 4096-token batch (Atelier uses 2048: about 0.5 GB), and 370 MB for the Node
-runner with the nano and the mini's tokenizer.
+**Memory:** v0.6's 2B peaks at 1.9 GB for llama-server at Atelier's 2048-token batch (the 1.3 GB model and 0.6 GB of
+compute buffer); the 0.8B took 0.8 GB at a 4096-token batch and about 0.5 GB at 2048. The Node runner with the nano and
+the mini's tokenizer takes 370 MB.
 
 **On phones:** llama.cpp runs the same GGUF on Android and iOS. A port needs about 100 lines of prompt building, the
-tokenizer and the 255 x 1024 readout. At 0.8B and 4 bits, expect around a second per question on a phone CPU; that
-is an estimate, not a measurement. The nano stays the phone's first answer.
+tokenizer and the 255 x 2048 readout (255 x 1024 for the 0.8B). At 2B and 4-5 bits, expect a second or two per
+question on a phone CPU, and 1.3 GB to download; that is an estimate, not a measurement, and the 0.8B (v0.5) is the
+lighter choice there. The nano stays the phone's first answer.
 
 ## Without the patch
 

@@ -66,6 +66,7 @@ unless they say otherwise.
 | v0.3 | 22 layers + 480 browser question families | 54.2 MB | 10 of 10 (effort 12/12) | 72% / 95.0% | 37% / 66%; a second held-out set 29% / 62% |
 | v0.4 | nano v0.3, then atelier-mini (Qwen3.5-0.8B) for what the nano declines or is unsure of | 54.2 MB + 515 MB | 10 of 10 (also answers label_items) | 76% / 93.9% (28% reach the mini) | 44% / 83%; second set 39% / 84%; numbers 50% / 89.5% |
 | v0.5 | nano v0.3, then mini v0.5: retrained from scratch, plus security and multi-step number questions with known answers and 480 more families | 54.2 MB + 515 MB | 10 of 10 | 76% / 93.9% | 44% / 81%; second set 41% / 83%; third set 38% / 82%; numbers 49% / 93%; **security 88% / 93%** |
+| v0.6 | nano v0.3, then mini v0.6: **Qwen3.5-2B** on v0.5's data, then rules applied to a page (answers by code) | 54.2 MB + 1,286 MB | 10 of 10 (no sure answer of the mini wrong) | 77% / 93.7% | **51% / 87%; second set 50% / 89%; third set 60% / 88%**; numbers 60% / 89%; security 93% / 94%; **rules 78% / 84%** |
 
 ## atelier-mini: a decider that works out new questions
 
@@ -73,9 +74,10 @@ The nano learns the kinds of questions it is shown. On kinds it never saw, it is
 browser question families it is right 66% of the time when it decides, at any cutoff. On numbers it is at chance:
 "is €910 at or below €800" gets a coin flip. More data helps only slowly.
 
-atelier-mini (`student/train_mini.py`) is the teacher's own architecture at 0.8B:
+atelier-mini (`student/train_mini.py`) is the teacher's own architecture at 0.8B (v0.4, v0.5) and 2B (v0.6):
 
-- **Base:** Qwen3.5-0.8B (Apache-2.0): 24 blocks (18 Gated DeltaNet, 6 attention), hidden size 1024, a 248k-token vocabulary.
+- **Base:** Qwen3.5-0.8B or Qwen3.5-2B (Apache-2.0): 24 blocks (18 Gated DeltaNet, 6 attention), hidden size 1024 or
+  2048, the same 248k-token vocabulary.
 - **Read the decider's way:**
   - attention is non-causal;
   - the readout picks one of 255 answer codes at the `<|fim_suffix|>` marker;
@@ -86,7 +88,9 @@ atelier-mini (`student/train_mini.py`) is the teacher's own architecture at 0.8B
   - v0.4: 150k questions, then 40k more mixed with numeric questions answered by code (`data/build_numeric.py`, below);
   - v0.5: from scratch on 196k questions with the base's own tokenizer rule. The mix adds a third set of browser
     families, multi-step numbers answered by code and security questions answered by construction (below);
-  - about 12 questions a second on the RTX 3060.
+  - v0.6: the 2B (67.8M trainable) on v0.5's data and plan, then 38k more with rules applied to a page answered by
+    code (below);
+  - about 12 questions a second on the RTX 3060 at 0.8B, 7 at 2B.
 
 It keeps the base model's language prior, so it reads kinds of questions nobody wrote training data for far better
 than the nano does. Numbers needed teaching (below).
@@ -97,24 +101,25 @@ Since v0.4 the two run as one decider (`runtime/node`, `analysis/cascade.py`):
 2. The mini takes what the nano declines (open questions, unreadable text) or is unsure about by Atelier's cutoffs.
 3. The rule decides the rest.
 
-| | nano v0.3 alone (as shipped) | mini v0.5 alone | **v0.5: nano, then mini** | v0.4: nano, then mini |
+| | nano v0.3 alone (as shipped) | mini v0.6 alone (2B) | **v0.6: nano, then mini** | v0.5: nano, then mini (0.8B) |
 |---|---|---|---|---|
-| Size | 54 MB | 515 MB (5-bit layers, 4-bit embeddings) | both | both |
-| Time per question, CPU | about 10 ms | 0.14-0.33 s (6 threads) | 10 ms for 72% of Atelier's questions, about 0.2 s for the rest | same |
-| Atelier tests | 10 of 10 | 10 of 10 | 10 of 10; sure answers right except the nano's two skill misses and one tab group | 10 of 10 |
-| Atelier's decisions, held out: decides / right | 72% / 95.0% | 72% / 96.2% | 76% / 93.9% | 76% / 93.9% |
-| New kinds of questions | declined | 75% / 97.9% | 75% / 97.9% | 76% / 98.2% |
-| Held-out browser families (three sets) | declined (37% / 66% if answered) | 38-44% / 81-83% | 38-44% / 81-83% | 39-44% / 80-84% |
-| Numbers, against the true answer | declined (49% right if answered) | 49% / 93.3% | 49% / 93.3% | 50% / 89.5% |
-| Numbers in several steps, against the true answer | declined | 14% / 84.1% (2.2% sure-wrong) | same | 19% / 44.1% (10.9%) |
-| Security, answers known by construction | declined | 88% / 93.2% (6.0% sure-wrong) | same | 46% / 73.2% (12.4%) |
-| 20 unseen languages | 14% / 72% (non-Latin declined) | 22% / 81% | 28% / 75% | 26% / 77% |
+| Size | 54 MB | 1,286 MB (5-bit layers, 4-bit embeddings) | both | 54 MB + 515 MB |
+| Time per question, CPU | about 10 ms | 0.33-0.71 s (6 threads) | 10 ms for 72% of Atelier's questions, 0.4-0.5 s for the rest | 10 ms, then about 0.2 s |
+| Atelier tests | 10 of 10 | 10 of 10, no sure answer wrong | 10 of 10; sure answers right except the nano's two skill misses | 10 of 10, also one tab group wrong |
+| Atelier's decisions, held out: decides / right | 72% / 95.0% | 72% / 96.3% | 77% / 93.7% | 76% / 93.9% |
+| New kinds of questions | declined | 78% / 97.7% | 78% / 97.7% | 75% / 97.9% |
+| Held-out browser families (three sets) | declined (37% / 66% if answered) | 50-60% / 87-89% | 50-60% / 87-89% | 38-44% / 81-83% |
+| Numbers, against the true answer | declined (49% right if answered) | 60% / 88.6% (6.8% sure-wrong) | same | 49% / 93.3% (3.3%) |
+| Numbers in several steps, against the true answer | declined | 16% / 90.0% (1.6% sure-wrong) | same | 14% / 84.1% (2.2%) |
+| Security, answers known by construction | declined | 93% / 94.2% (5.4% sure-wrong) | same | 88% / 93.2% (6.0%) |
+| Rules applied to a page, against the true answer | declined (49% right if answered) | 78% / 83.9% (12.6% sure-wrong) | same | 32% / 53.8% (14.7%) |
+| 20 unseen languages | 14% / 72% (non-Latin declined) | 26% / 84% | 31% / 77% | 28% / 75% |
 
-Figures come from `analysis/results/cascade-v0.3+mini-v05.json` (v0.4: `cascade-v0.3+mini-num-newsets.json`),
-`docs/capabilities/mini-0.8b-v05.md` and `analysis/results/{numeric,numeric2,security}-*.json`; the model card is
-`releases/v0.5/MODEL_CARD.md`.
+Figures come from `analysis/results/cascade-v0.3+mini-2b-v05-cond.json` (v0.5: `cascade-v0.3+mini-v05.json`),
+`docs/capabilities/mini-2b-v05-cond.md` and `analysis/results/{numeric,numeric2,security,conditions}-*.json`; the
+model card is `releases/v0.6/MODEL_CARD.md`.
 
-On quantization: the 5-bit file gives the 8-bit file's verdict on 97.9% of 3,099 questions, and decides and is right
+On quantization (measured on the 0.8B): the 5-bit file gives the 8-bit file's verdict on 97.9% of 3,099 questions, and decides and is right
 as often (`analysis/mini_quant.py`). 4 bits everywhere (469 MB) decides 1-2 points less often.
 
 **Runtime.** `student/gguf_decider.py` marks a llama.cpp GGUF so that llama.cpp computes the decider exactly. It
@@ -126,22 +131,26 @@ final hidden state at the marker, and `student/serve_mini.py` applies the readou
 - **Why llama.cpp:** it runs the same file on CPU, Metal, Vulkan, Android and iOS.
 - **In Atelier's runner:** `runtime/node/src/mini.ts` runs the mini on llama-server, and `cascade.ts` puts the nano
   in front of it (`docs/integration.md`). Its token ids match Python on 608 of 608 questions, and its answers match
-  to 3×10⁻⁷. Memory: 0.8 GB for llama-server, 370 MB for the Node runner.
+  to 3×10⁻⁷. Memory for llama-server: 0.8 GB for the 0.8B, 1.9 GB peak for the 2B at Atelier's 2048-token batch;
+  370 MB for the Node runner.
 
-**What it can't do yet** (the v0.5 mini; `releases/v0.5/MODEL_CARD.md`):
+**What it can't do yet** (the v0.6 mini; `releases/v0.6/MODEL_CARD.md`):
 
-- **Percentages, totals and conversions in several steps:** it leaves them to the rule. It decides 14% of
+- **Rules it never trained on, alone:** sure and wrong on 19% of those questions (the teacher: 3%).
+- **Percentages, totals and conversions in several steps:** it leaves them to the rule. It decides 16% of
   multi-step number questions, mostly dates and times.
 - **Security, not alone:**
-  - It is sure and wrong on 6% of security questions.
-  - On whether a sender belongs to the organisation it names, 16.5%.
-  - On whether a summary is faithful, 15%.
-  - On budgets across currencies, 13%.
+  - It is sure and wrong on 5.4% of security questions.
+  - On whether a summary is faithful, 20% (it decides 88% of them now, was 46%).
+  - On whether a sender belongs to the organisation it names, 10%.
   - It must never be the only guard.
-- **New browser families:** right 81-83% when it decides; sure and contradicting the teacher on 5-6%.
+- **A regression on one unseen numeric family:** "does the group fit in the free seats" gets "no" where it is
+  plainly yes (26% sure-wrong; 2% before the rules suite). It reads "can we all book?" as a rule question.
+- **New browser families:** right 87-89% when it decides; sure and contradicting the teacher on 3-5%.
 - **18-28 tab groups:** decided about half the time.
-- **Languages:** 20 unseen languages are decided 22% of the time; Hebrew is weakest (10% decided, right 40%).
-- **Size and speed:** about 20 times slower than the nano and 10 times larger, hence the cascade.
+- **Languages:** 20 unseen languages are decided 26% of the time; Hebrew is weakest (17% decided, right 73%).
+- **Size and speed:** about 50 times slower than the nano and 24 times larger, hence the cascade. 1.3 GB to
+  download, up to 2 GB of memory.
 
 Pruning to 12 of the 24 blocks broke it: the language prior went with them. It keeps all 24.
 
@@ -220,6 +229,41 @@ The mini was retrained from scratch with both, and with gen4's 408 trained brows
   - The jump from the nano (140M, 66%) to the mini (0.8B, 83%) on the same data points at size. A 2B mini on
     v0.5's data is being trained to test that.
 
+**v0.6: size, then rules applied to a page.** The 2B on v0.5's data and plan (Qwen3.5-2B, 7.6 h) answered the
+question above:
+
+| Held-out browser families: agrees / decides / right when deciding | 0.8B (v0.5) | 2B, same data |
+|---|---|---|
+| First set (80 families) | 44% / 44% / 81% | 58% / 57% / 86% |
+| Second set (72) | 41% / 41% / 83% | 54% / 52% / 89% |
+| Third set (72) | 38% / 38% / 82% | 55% / 59% / 85% |
+
+Security and new kinds of questions improved with it, it decided more single comparisons (61% instead of 49%, right
+a little less often: 92% instead of 93%), and Atelier's held-out decisions stayed the same. Where it was still sure and contradicting the teacher on held-out families (`analysis/family_errors.py`), the
+yes/no questions about whether something is allowed or valid stood out. So a third suite with answers by code:
+
+- **Rules applied to the specifics on a page** (`data/build_conditions.py`): 16 families (a gym class, a library
+  renewal, lab access, a drone flight, ...), each with 2-4 conditions, a clause that waives one and a clause that
+  blocks regardless, in five languages. 12 are trained and 4 held out whole, and none is on a held-out browser
+  family's topic. The suite was designed after seeing the gap, which the model card says.
+- **Every student was near chance on it, the teacher wasn't:** flash is right on 93% of what it decides, the v0.5
+  mini 54%, the 2B 62% (it ignored the exception clauses: 41-44% right there).
+
+Both minis continued for 40k questions with the suite weighted 6:
+
+| Rules test (960 questions) | Decides | Right when deciding | Sure and wrong |
+|---|---|---|---|
+| 2B, before | 67% | 62% | 25.6% |
+| **2B + rules (v0.6)** | **78%** | **84%** | **12.6%** |
+| ... the 4 families it never saw | 75% | 75% | 18.8% |
+| 0.8B + rules (not shipped) | 23% | 82% | 4.1% |
+| flash (the teacher) | 93% | 93% | 6.3% |
+
+- **The 2B kept its other skills; the 0.8B didn't.** The 0.8B's held-out browser families fell to 72-77% right in
+  its training checks and it decided fewer numbers and security questions. The 2B's families stayed at 87-89%
+  right with fewer sure contradictions (3-5%), and multi-step numbers improved (90% right, 1.6% sure-wrong).
+- **One leak:** "can we all book seats?" (a held-out numeric family) now gets the rule treatment and a wrong "no".
+
 ## Layout
 
 | Path | What |
@@ -245,7 +289,7 @@ The mini was retrained from scratch with both, and with gen4's 408 trained brows
 | `data/build_open.py`, `data/build_gen3.py` | Open decisions (gliclass, zero-shot tasks) and browser question families written by Fable (`data/gen2`, `data/gen3`), with whole families held out as tests of new kinds of questions |
 | `analysis/capabilities.py` | Every version's capability report: Atelier's eval, held out per decision, and probes it never trained on (`docs/capabilities/`) |
 | `analysis/selective.py` | Whether a stricter cutoff makes it right more often on new kinds of questions (fitted on one held-out set, measured on another) |
-| `student/train_mini.py` | atelier-mini: the teacher's own architecture at 0.8B (Qwen3.5-0.8B read the decider's way), LoRA-distilled on the same labels |
+| `student/train_mini.py` | atelier-mini: the teacher's own architecture at 0.8B or 2B (Qwen3.5-0.8B or -2B read the decider's way), LoRA-distilled on the same labels |
 | `student/calibrate_mini.py`, `student/merge_mini.py` | The mini's per-decision temperatures; LoRA merged into the base, the readout and `decision.json` beside it |
 | `student/gguf_decider.py`, `student/serve_mini.py` | A llama.cpp GGUF marked to run the decider exactly (non-causal, last-token pooling); the mini as a System One server on llama-server |
 | `analysis/mini_parity.py`, `analysis/mini_quant.py` | llama.cpp against PyTorch, per quantization; which quantization keeps the verdicts |
@@ -258,6 +302,8 @@ The mini was retrained from scratch with both, and with gen4's 408 trained brows
 | `data/security_src/`, `data/build_security.py` | Security decisions answered by construction: building blocks written by Fable (carriers, secrets with typed placeholders, decoys, injections, imperatives for people, faithful and altered summaries), assembled with realistic random secrets and lookalike domains; three families held out |
 | `data/existing_families.txt`, `data/gen4/`, `data/build_gen4.py` | The 720 family names Fable was told not to repeat; 480 more Fable-written browser families (shopping and forms, work tools, everyday life in 20 languages, the agent's own judgement); 15% held out as a third test |
 | `tools/mini_dist.py` | The mini as Atelier's optional download: the folder to host (model, llama-server per platform, its licence) and the manifest with every file's size and SHA-256 that Atelier compiles in |
+| `data/build_conditions.py` | Rules applied to the specifics on a page (2-4 conditions, a clause that waives one, a clause that blocks regardless), yes/no in five languages, answered by code: 12 trained families and 4 held out, none on a held-out browser family's topic |
+| `analysis/family_errors.py` | Where a mini is sure and contradicts the teacher on held-out browser families (by source, question type, the teacher's answer), from cached scores |
 | `student/vocab_trim.py` | A mini GGUF with only the vocabulary its data uses (dropped tokens spelled with kept ones; `vocab.json` beside it for the runners): 80 MB smaller, measured and not shipped (`analysis/results/vocab-trim-mini-l24-num.txt`) |
 | `analysis/` | Tensor census, teacher comparison, vocabulary coverage; results in `analysis/results/` |
 | `releases/<version>`, `tools/make_release.py` | Every saved version, and the script that saves one: its text here, its weights and data archives on Hugging Face |
@@ -309,6 +355,8 @@ right 96% of the time. On kinds of questions it never saw, the picture by studen
 | atelier-mini (Qwen3.5-0.8B), 40k questions | 812 MB | 86% / 95% | 46% / 83% (2nd set 43% / 86%) |
 | **atelier-mini v0.4**: 150k questions, then numeric | 515 MB | 76% / **98%** | 44% / 83% (2nd set 39% / 84%) |
 | **atelier-mini v0.5**: from scratch, + gen4, multi-step numbers, security | 515 MB | 75% / 98% | 44% / 81% (2nd set 41% / 83%, 3rd 38% / 82%) |
+| atelier-mini 2B, v0.5's data | 1,286 MB | 80% / 99% | 57% / 86% (2nd set 52% / 89%, 3rd 59% / 85%) |
+| **atelier-mini v0.6**: the 2B + rules applied to a page | 1,286 MB | 78% / 98% | 51% / 87% (2nd set 50% / 89%, 3rd 60% / 88%) |
 
 Depth helps Atelier's decisions (v0.2 passes all ten tests); width (mmBERT-base) adds nothing at 50% more size.
 Within kinds of questions it has seen plenty of, the student is already good (98.6% right when deciding on held-out
@@ -490,21 +538,43 @@ for s in numeric numeric2 security; do python analysis/numeric.py --suite $s --n
     --gguf runs/mini-v05/mini-v05-Q5_K_M-e4.decider.gguf; done
 python analysis/cascade.py --nano runs/nano-v03-l22 --mini runs/mini-v05 --gguf runs/mini-v05/mini-v05-Q5_K_M-e4.decider.gguf --name v0.5
 
+# v0.6: the 2B on v0.5's data, then rules applied to a page (answers by code)
+hf download Qwen/Qwen3.5-2B --local-dir models/Qwen3.5-2B
+python student/train_mini.py --base models/Qwen3.5-2B <v0.5's --data and --weight> --extra-eval data/teacher/eval-26b.jsonl \
+    --out runs/mini-2b-v05 --questions 200000 --checkpointing
+python data/build_conditions.py --out data/pool/pool-conditions.jsonl --test data/pool/conditions-test.jsonl --truth-dir data/teacher
+python teacher/label.py --checkpoint models/pplx-decider-flash-v1.3 --pool data/pool/conditions-test.jsonl --out data/teacher/conditions-test.flash.jsonl
+python student/train_mini.py --base models/Qwen3.5-2B --data data/teacher/pool-*.flash.jsonl data/teacher/pool-numeric.truth.jsonl \
+    data/teacher/pool-numeric2.truth.jsonl data/teacher/pool-security.truth.jsonl data/teacher/pool-conditions.truth.jsonl \
+    --weight pool-gen4.flash=3 pool-numeric.truth=2 pool-numeric2.truth=2 pool-security.truth=2 pool-conditions.truth=6 \
+    --init runs/mini-2b-v05/mini.pt --extra-eval data/teacher/eval-26b.jsonl --out runs/mini-2b-v05-cond \
+    --questions 40000 --lr 1e-4 --readout-lr 5e-4 --checkpointing
+python student/calibrate_mini.py --model runs/mini-2b-v05-cond --data data/teacher/pool-*.flash.jsonl
+#   then merge, convert, mark, quantize and export as above (runs/mini-2b-v05-cond/mini-2b-v05-cond-Q5_K_M-e4.decider.gguf)
+for s in conditions numeric numeric2 security; do python analysis/numeric.py --suite $s --name mini-2b-v05-cond \
+    --model runs/mini-2b-v05-cond --gguf runs/mini-2b-v05-cond/mini-2b-v05-cond-Q5_K_M-e4.decider.gguf; done
+python analysis/cascade.py --nano runs/nano-v03-l22 --mini runs/mini-2b-v05-cond \
+    --gguf runs/mini-2b-v05-cond/mini-2b-v05-cond-Q5_K_M-e4.decider.gguf --name v0.3+mini-2b-v05-cond
+python analysis/family_errors.py --mini runs/mini-2b-v05-cond --gguf-stem mini-2b-v05-cond-Q5_K_M-e4.decider
+
 # The mini as Atelier's download (docs/integration.md), and the vocabulary trim that was measured and not shipped
-python tools/mini_dist.py --runtime runs/mini-v05/runtime --version v0.5 --out runs/mini-dist-v05 \
+python tools/mini_dist.py --runtime runs/mini-2b-v05-cond/runtime --version v0.6 --out runs/mini-dist-v06 \
     --server win32-x64=models/llama.cpp-b12620/bin --licence models/llama.cpp-b12620/src/LICENSE [--base https://<host>/]
 python student/vocab_trim.py <gguf> <trimmed gguf> --data data/pool/pool-*.jsonl --runtime <a copy of the runtime folder>
 ```
 
 Notes from the machine every version was made on (Windows, an RTX 3060 with 12 GB): one GPU job at a time (two
 processes time-slice so badly on Windows that the labeller stalled), and Windows lets CUDA spill into shared system
-memory instead of failing, which makes an over-sized batch crawl rather than crash.
+memory instead of failing, which makes an over-sized batch crawl rather than crash. A CPU evaluation of the 2B
+(llama-server on 6 threads plus ONNX on 4) next to GPU training left the desktop unusable; started with
+`nice -n 10` from Git Bash (below-normal priority, inherited by llama-server), both run and the desktop stays
+responsive.
 
 ## Licences
 
 - **Code:** the [Mozilla Public License 2.0](LICENSE), like Atelier.
 - **Model weights** (every version's nano and mini): the [Apache License 2.0](LICENSES/Apache-2.0.txt). The students'
-  bases are mmBERT-small (nano), MIT, and Qwen3.5-0.8B (mini), Apache-2.0; the teachers they learned from are
+  bases are mmBERT-small (nano), MIT, and Qwen3.5-0.8B and Qwen3.5-2B (mini), Apache-2.0; the teachers they learned from are
   Perplexity's pplx-decider-v1.3 and pplx-decider-flash-v1.3, Apache-2.0, run locally.
 - **Data written for this project** (`data/gen*`, `data/gen4_src`, `data/security_src` and the family lists in
   `data/`): [CC BY 4.0](LICENSES/CC-BY-4.0.txt).

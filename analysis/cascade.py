@@ -33,7 +33,7 @@ from format import fixed_kind, option_labels  # noqa: E402
 from readers import verdict  # noqa: E402
 
 # Suites answered by code or by construction: the "teacher" is the true answer.
-TRUTH = {name: ROOT / "data" / "teacher" / f"{name}-test.truth.jsonl" for name in ("numeric", "numeric2", "security")}
+TRUTH = {name: ROOT / "data" / "teacher" / f"{name}-test.truth.jsonl" for name in ("numeric", "numeric2", "security", "conditions")}
 
 
 def stats(pairs: list[tuple]) -> dict:

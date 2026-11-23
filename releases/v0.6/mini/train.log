@@ -1,0 +1,38 @@
+left out 3420 requests that share a text with Atelier's eval cases
+37545 training questions (11 over 1024 tokens dropped), 3454 held out; encoded in 40s; mean length 200 tokens
+Loading weights:   0%|          | 0/617 [00:00<?, ?it/s]Loading weights:   3%|3         | 19/617 [00:00<00:03, 162.05it/s]Loading weights:   6%|5         | 36/617 [00:00<00:04, 124.51it/s]Loading weights:   8%|7         | 49/617 [00:00<00:06, 84.81it/s] Loading weights:  10%|9         | 60/617 [00:00<00:06, 91.16it/s]Loading weights:  12%|#1        | 71/617 [00:00<00:05, 95.88it/s]Loading weights:  13%|#3        | 82/617 [00:00<00:06, 77.35it/s]Loading weights:  15%|#5        | 95/617 [00:01<00:05, 87.77it/s]Loading weights:  17%|#7        | 105/617 [00:01<00:05, 89.14it/s]Loading weights:  20%|#9        | 121/617 [00:01<00:04, 107.02it/s]Loading weights:  22%|##1       | 133/617 [00:01<00:05, 95.83it/s] Loading weights:  23%|##3       | 144/617 [00:01<00:05, 83.70it/s]Loading weights:  25%|##4       | 154/617 [00:01<00:06, 74.78it/s]Loading weights:  26%|##6       | 163/617 [00:01<00:06, 73.13it/s]Loading weights:  33%|###2      | 201/617 [00:01<00:03, 138.50it/s]Loading weights:  44%|####3     | 271/617 [00:02<00:01, 272.90it/s]Loading weights:  49%|####9     | 303/617 [00:02<00:01, 258.75it/s]Loading weights: 100%|##########| 617/617 [00:02<00:00, 275.68it/s]
+continuing from runs\mini-2b-v05\mini.pt
+blocks 24, body 1373M, 186 adapted linears, trainable 67.8M
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+step 0/930 loss 0.6803 5.6 q/s ~116 min left, peak 6.2 GiB
+step 50/930 loss 0.5089 6.7 q/s ~80 min left, peak 6.7 GiB
+step 100/930 loss 0.4238 6.7 q/s ~75 min left, peak 6.7 GiB
+step 150/930 loss 0.4236 6.8 q/s ~73 min left, peak 6.7 GiB
+step 200/930 loss 0.4396 6.9 q/s ~69 min left, peak 6.7 GiB
+step 250/930 loss 0.4450 7.0 q/s ~65 min left, peak 6.7 GiB
+step 300/930 loss 0.4421 7.1 q/s ~60 min left, peak 6.7 GiB
+step 350/930 loss 0.4553 7.2 q/s ~55 min left, peak 6.7 GiB
+step 400/930 loss 0.3943 7.2 q/s ~49 min left, peak 6.7 GiB
+step 450/930 loss 0.3633 7.2 q/s ~45 min left, peak 6.7 GiB
+step 500/930 loss 0.3504 7.2 q/s ~40 min left, peak 6.7 GiB
+step 550/930 loss 0.3570 7.3 q/s ~35 min left, peak 6.7 GiB
+step 600/930 loss 0.3495 7.4 q/s ~30 min left, peak 6.7 GiB
+step 650/930 loss 0.3428 7.4 q/s ~26 min left, peak 6.7 GiB
+step 700/930 loss 0.2939 7.3 q/s ~21 min left, peak 6.7 GiB
+step 750/930 loss 0.2925 7.3 q/s ~17 min left, peak 6.7 GiB
+step 800/930 loss 0.2757 7.2 q/s ~12 min left, peak 6.7 GiB
+step 850/930 loss 0.2846 7.1 q/s ~7 min left, peak 6.7 GiB
+step 900/930 loss 0.2683 7.1 q/s ~3 min left, peak 6.7 GiB
+step 929/930 loss 0.2536 7.1 q/s ~0 min left, peak 6.7 GiB
+== final
+  [final] held_out               n= 3454 agree 0.776  decides 74%  right when deciding 0.9118
+  [final] eval-26b               n=  348 agree 0.951  decides 88%  right when deciding 0.9738
+  [final] open_unseen            n=  450 agree 0.887  decides 88%  right when deciding 0.9723
+  [final] browser_families       n=  480 agree 0.637  decides 65%  right when deciding 0.8562
+  [final] browser_families_2     n=  576 agree 0.618  decides 65%  right when deciding 0.861
+  [final] browser_families_3     n=  576 agree 0.649  decides 73%  right when deciding 0.8369
+  [final] numeric                n= 1280 agree 0.597  decides 71%  right when deciding 0.8442
+  [final] numeric2               n= 1400 agree 0.216  decides 27%  right when deciding 0.8016
+  [final] security               n= 1000 agree 0.897  decides 96%  right when deciding 0.9393
+  [final] conditions             n=  960 agree 0.715  decides 87%  right when deciding 0.8176
+saved to runs\mini-2b-v05-cond

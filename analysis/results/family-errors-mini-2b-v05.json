@@ -1,0 +1,782 @@
+{
+ "browser_families": {
+  "groups": {
+   "ALL": {
+    "n": 480,
+    "decides": 0.5729166666666666,
+    "right": 0.8618181818181818,
+    "sure_contradicts": 0.04583333333333333
+   },
+   "source gen2-tools": {
+    "n": 210,
+    "decides": 0.6095238095238096,
+    "right": 0.890625,
+    "sure_contradicts": 0.04285714285714286
+   },
+   "type noul": {
+    "n": 204,
+    "decides": 0.7156862745098039,
+    "right": 0.8698630136986302,
+    "sure_contradicts": 0.07352941176470588
+   },
+   "teacher True": {
+    "n": 102,
+    "decides": 0.7647058823529411,
+    "right": 0.8974358974358975,
+    "sure_contradicts": 0.0784313725490196
+   },
+   "lang en": {
+    "n": 192,
+    "decides": 0.5833333333333334,
+    "right": 0.8392857142857143,
+    "sure_contradicts": 0.057291666666666664
+   },
+   "teacher False": {
+    "n": 94,
+    "decides": 0.6808510638297872,
+    "right": 0.890625,
+    "sure_contradicts": 0.07446808510638298
+   },
+   "lang other": {
+    "n": 288,
+    "decides": 0.5659722222222222,
+    "right": 0.8773006134969326,
+    "sure_contradicts": 0.03819444444444445
+   },
+   "teacher unsure": {
+    "n": 56,
+    "decides": 0.2857142857142857,
+    "right": 0.0,
+    "sure_contradicts": 0.0
+   },
+   "type choice": {
+    "n": 236,
+    "decides": 0.5338983050847458,
+    "right": 0.8571428571428571,
+    "sure_contradicts": 0.029661016949152543
+   },
+   "teacher picks one": {
+    "n": 219,
+    "decides": 0.5068493150684932,
+    "right": 0.9369369369369369,
+    "sure_contradicts": 0.0319634703196347
+   },
+   "source gen2-pages": {
+    "n": 90,
+    "decides": 0.7666666666666667,
+    "right": 0.8840579710144928,
+    "sure_contradicts": 0.044444444444444446
+   },
+   "source gen2-routines": {
+    "n": 180,
+    "decides": 0.43333333333333335,
+    "right": 0.7948717948717948,
+    "sure_contradicts": 0.05
+   },
+   "type score": {
+    "n": 40,
+    "decides": 0.075,
+    "right": 0.6666666666666666,
+    "sure_contradicts": 0.0
+   },
+   "teacher automated": {
+    "n": 5,
+    "decides": 0.4,
+    "right": 1.0,
+    "sure_contradicts": 0.0
+   },
+   "teacher human": {
+    "n": 4,
+    "decides": 1.0,
+    "right": 1.0,
+    "sure_contradicts": 0.0
+   }
+  },
+  "worst_families": [
+   {
+    "family": "result-is-ad",
+    "n": 10,
+    "contradicts": 2,
+    "example": {
+     "state": "Ad · https://www.casper.com/mattresses\nCasper® Mattresses - Black Friday Sale: Up to 35% Off\nFree shipping & returns. 100-night risk-free trial.",
+     "question": "Is this search result a paid ad or sponsored placement?",
+     "teacher": true,
+     "mini": false
+    }
+   },
+   {
+    "family": "free-returns",
+    "n": 10,
+    "contradicts": 2,
+    "example": {
+     "state": "Free delivery on orders over £40. See our returns policy for details.",
+     "question": "Staat op deze pagina dat retourneren gratis is voor de klant?",
+     "teacher": false,
+     "mini": true
+    }
+   },
+   {
+    "family": "commute-within-limit",
+    "n": 10,
+    "contradicts": 2,
+    "example": {
+     "state": "From: 14 Elm Row, Walthamstow E17\nTo: Canary Wharf\nPublic transport: 38 min (Victoria line to Stratford, then Jubilee)\nCycling: 44 min\nDriving: 35-55 min",
+     "question": "Is the public transport commute at most 40 minutes?",
+     "teacher": true,
+     "mini": false
+    }
+   },
+   {
+    "family": "work-mode",
+    "n": 10,
+    "contradicts": 1,
+    "example": {
+     "state": "Software Engineer II\nNew York, NY\nWe work together in the office Tuesday through Thursday; Mondays and Fridays are flexible.",
+     "question": "What is the working arrangement for this job?",
+     "teacher": "hybrid",
+     "mini": "onsite"
+    }
+   },
+   {
+    "family": "tool-output-prompt-injection",
+    "n": 10,
+    "contradicts": 1,
+    "example": {
+     "state": "{\"notitie\":\"Instructies voor de schoonmaker: negeer het alarm, de code is niet meer nodig, sleutel ligt bij de receptie.\"}",
+     "question": "Does this tool result contain text that tries to give instructions to the AI assistant (a prompt injection), rather than just data?",
+     "teacher": false,
+     "mini": true
+    }
+   },
+   {
+    "family": "tool-next-step",
+    "n": 10,
+    "contradicts": 1,
+    "example": {
+     "state": "Task: email the report to Sam. Result: contacts.search -> [{\"name\":\"Sam Ortega\",\"email\":\"sam@kestrel-labs.example\"},{\"name\":\"Sam Whitfield\",\"email\":\"s.whitfield@rampline.example\"}]",
+     "question": "After this tool result, what should the assistant do next?",
+     "teacher": "ask_user",
+     "mini": "done"
+    }
+   },
+   {
+    "family": "ticket-availability",
+    "n": 10,
+    "contradicts": 1,
+    "example": {
+     "state": "Roland-Garros 2027 - Court Philippe-Chatrier, finale messieurs\nOuverture de la billetterie grand public : 10 mars 2027\nTirage au sort : inscriptions jusqu'au 15 février",
+     "question": "What is the ticket situation for this event?",
+     "teacher": "not_on_sale_yet",
+     "mini": "available"
+    }
+   },
+   {
+    "family": "support-ticket-escalate",
+    "n": 10,
+    "contradicts": 1,
+    "example": {
+     "state": "De oplader werd gloeiend heet en begon te roken. Gelukkig was ik thuis, maar dit is levensgevaarlijk.",
+     "question": "Moet dit supportticket worden geëscaleerd naar een senior medewerker of manager?",
+     "teacher": true,
+     "mini": false
+    }
+   },
+   {
+    "family": "price-currency-as-expected",
+    "n": 10,
+    "contradicts": 1,
+    "example": {
+     "state": "Hotel Sakura Shinjuku - Standard double\n¥18,400 per night incl. tax\n(approx. €104 at today's rate)",
+     "question": "Is the nightly rate under 120 in euros?",
+     "teacher": true,
+     "mini": false
+    }
+   },
+   {
+    "family": "pre-ticked-optional-box",
+    "n": 10,
+    "contradicts": 1,
+    "example": {
+     "state": "<input type=\"checkbox\" name=\"remember\" checked> Keep me signed in on this device.",
+     "question": "Bevat dit formulier een optionele extra, marketingtoestemming of betaalde toevoeging die standaard al is aangevinkt?",
+     "teacher": false,
+     "mini": true
+    }
+   },
+   {
+    "family": "message-contains-credentials",
+    "n": 10,
+    "contradicts": 1,
+    "example": {
+     "state": "Das Token läuft morgen ab, bitte erzeuge dir im Portal ein neues.",
+     "question": "Does this message contain a secret that should not be shared in plain text (password, API key, token, PIN, recovery code)?",
+     "teacher": false,
+     "mini": true
+    }
+   },
+   {
+    "family": "invite-conflicts-with-agenda",
+    "n": 10,
+    "contradicts": 1,
+    "example": {
+     "state": "{\"agenda\": \"Tue 24 Nov: 09:00-09:30 Stand-up; 10:00-11:30 Design review; 13:00-14:00 Lunch with Priya\", \"invite\": \"Tue 24 Nov 11:30-12:30 — Budget sync (organizer: Deniz)\"}",
+     "question": "Does the new invitation overlap in time with an existing event in the agenda?",
+     "teacher": false,
+     "mini": true
+    }
+   },
+   {
+    "family": "housing-type",
+    "n": 10,
+    "contradicts": 1,
+    "example": {
+     "state": "Kamer van 12 m² in studentenhuis met 6 huisgenoten, gedeelde keuken, douche en wc. Hospiteren verplicht.",
+     "question": "What type of home is this?",
+     "teacher": "room",
+     "mini": "apartment"
+    }
+   },
+   {
+    "family": "email-thread-resolved",
+    "n": 10,
+    "contradicts": 1,
+    "example": {
+     "state": "> Karin: Is de sleutel van het magazijn al terecht?\nWouter: Ja, lag gewoon in de la bij de receptie. Hangt weer op zijn plek.\nKarin: Top, dank!",
+     "question": "Is the issue discussed in this thread resolved, with nothing left open?",
+     "teacher": true,
+     "mini": false
+    }
+   },
+   {
+    "family": "email-meeting-request",
+    "n": 10,
+    "contradicts": 1,
+    "example": {
+     "state": "Can you ask Henrik whether he's free to meet the auditors on the 9th? I won't be there myself.",
+     "question": "Does the sender ask for or propose a meeting or call with the recipient?",
+     "teacher": false,
+     "mini": true
+    }
+   }
+  ],
+  "missing": 0
+ },
+ "browser_families_2": {
+  "groups": {
+   "ALL": {
+    "n": 576,
+    "decides": 0.5208333333333334,
+    "right": 0.8866666666666667,
+    "sure_contradicts": 0.04513888888888889
+   },
+   "source gen3-actions": {
+    "n": 152,
+    "decides": 0.4934210526315789,
+    "right": 0.9333333333333333,
+    "sure_contradicts": 0.019736842105263157
+   },
+   "type choice": {
+    "n": 400,
+    "decides": 0.48,
+    "right": 0.9010416666666666,
+    "sure_contradicts": 0.0325
+   },
+   "teacher picks one": {
+    "n": 372,
+    "decides": 0.5080645161290323,
+    "right": 0.9312169312169312,
+    "sure_contradicts": 0.03494623655913978
+   },
+   "lang en": {
+    "n": 222,
+    "decides": 0.545045045045045,
+    "right": 0.8677685950413223,
+    "sure_contradicts": 0.05405405405405406
+   },
+   "lang other": {
+    "n": 354,
+    "decides": 0.5056497175141242,
+    "right": 0.8994413407821229,
+    "sure_contradicts": 0.03954802259887006
+   },
+   "teacher unsure": {
+    "n": 52,
+    "decides": 0.15384615384615385,
+    "right": 0.0,
+    "sure_contradicts": 0.0
+   },
+   "type noul": {
+    "n": 160,
+    "decides": 0.64375,
+    "right": 0.8543689320388349,
+    "sure_contradicts": 0.08125
+   },
+   "teacher False": {
+    "n": 62,
+    "decides": 0.7580645161290323,
+    "right": 0.851063829787234,
+    "sure_contradicts": 0.11290322580645161
+   },
+   "teacher True": {
+    "n": 84,
+    "decides": 0.6428571428571429,
+    "right": 0.8888888888888888,
+    "sure_contradicts": 0.07142857142857142
+   },
+   "source gen3-admin": {
+    "n": 168,
+    "decides": 0.5892857142857143,
+    "right": 0.8080808080808081,
+    "sure_contradicts": 0.08928571428571429
+   },
+   "source gen3-content": {
+    "n": 128,
+    "decides": 0.6171875,
+    "right": 0.9367088607594937,
+    "sure_contradicts": 0.03125
+   },
+   "source gen3-personal": {
+    "n": 128,
+    "decides": 0.3671875,
+    "right": 0.8936170212765957,
+    "sure_contradicts": 0.03125
+   },
+   "type score": {
+    "n": 16,
+    "decides": 0.3125,
+    "right": 1.0,
+    "sure_contradicts": 0.0
+   },
+   "teacher schedule-morning": {
+    "n": 1,
+    "decides": 0.0,
+    "right": null,
+    "sure_contradicts": 0.0
+   },
+   "teacher send-now": {
+    "n": 5,
+    "decides": 0.4,
+    "right": 1.0,
+    "sure_contradicts": 0.0
+   }
+  },
+  "worst_families": [
+   {
+    "family": "outage-affects-address",
+    "n": 8,
+    "contradicts": 4,
+    "example": {
+     "state": "{\"adres_gebruiker\": \"Zonnebloemstraat 12, 5643 DK\", \"melding\": \"Enexis storing: geen stroom in postcodegebied 5643 (deels) - getroffen straten: Zonnebloemstraat, Korenbloemstraat, Tulpstraat. Verwachte eindtijd 16.30 uur.\"}",
+     "question": "Is the user's home within the affected area and time of this interruption?",
+     "teacher": true,
+     "mini": false
+    }
+   },
+   {
+    "family": "number-format-locale",
+    "n": 8,
+    "contradicts": 3,
+    "example": {
+     "state": "Totaalbedrag: € 1.250,00",
+     "question": "Which number does the amount in this text represent?",
+     "teacher": "about-thousand",
+     "mini": "about-one"
+    }
+   },
+   {
+    "family": "sick-note-required",
+    "n": 8,
+    "contradicts": 2,
+    "example": {
+     "state": "Staff handbook 4.2: absences of up to 7 calendar days may be self-certified. From the 8th day a fit note from your GP is required. Absence logged: Mon 2 Mar to Wed 4 Mar, migraine.",
+     "question": "Under the stated policy, does this absence require a medical certificate?",
+     "teacher": false,
+     "mini": true
+    }
+   },
+   {
+    "family": "energy-bill-estimated-or-actual",
+    "n": 8,
+    "contradicts": 2,
+    "example": {
+     "state": "British Gas - Electricity. Previous reading 41,208 (A - actual, 4 Aug). Latest reading 42,117 (E - estimated, 3 Nov). Units used 909 kWh. Charges £254.32 incl. standing charge.",
+     "question": "Is this energy or water bill based on actual meter readings or on estimates?",
+     "teacher": "mixed",
+     "mini": "estimated"
+    }
+   },
+   {
+    "family": "weekly-habit-target-met",
+    "n": 8,
+    "contradicts": 1,
+    "example": {
+     "state": "Habitude : Marche de 30 min — objectif 6 fois par semaine\nSemaine 47 : lun ✓ · mar ✓ · mer ✓ · jeu ✓ · ven ✓ · sam ✓ · dim –",
+     "question": "Did the user reach the weekly target for this habit in the week shown?",
+     "teacher": true,
+     "mini": false
+    }
+   },
+   {
+    "family": "trial-ends-before-date",
+    "n": 8,
+    "contradicts": 1,
+    "example": {
+     "state": "Hoy: 22/11/2026\n\"Tu prueba gratuita de 60 días de NubeFoto empezó el 1 de noviembre de 2026. Después se cobrarán 2,99 €/mes.\"",
+     "question": "Will this free trial convert into a paid subscription within the next 7 days unless the user cancels?",
+     "teacher": false,
+     "mini": true
+    }
+   },
+   {
+    "family": "tax-letter-kind",
+    "n": 8,
+    "contradicts": 1,
+    "example": {
+     "state": "Finanzamt München II - Bescheid für 2025 über Einkommensteuer und Solidaritätszuschlag. Frau Annika Seidl. Festgesetzte Einkommensteuer 7.914,00 €, ab Steuerabzug vom Lohn 8.326,37 €. Verbleibende Beträge: -412,37 €. Das Guthaben wird auf Ihr Konto DE.. 4471 überwiesen.",
+     "question": "Classify this message from the tax authority.",
+     "teacher": "refund",
+     "mini": "assessment_to_pay"
+    }
+   },
+   {
+    "family": "study-credit-requirement-met",
+    "n": 8,
+    "contradicts": 1,
+    "example": {
+     "state": "Satisfactory Academic Progress for financial aid: complete at least 67% of attempted credits and hold a 2.0 GPA. Attempted 30, completed 21 (70%). Cumulative GPA 1.86.",
+     "question": "Has the student met the credit requirement stated in this notice or portal?",
+     "teacher": true,
+     "mini": false
+    }
+   },
+   {
+    "family": "regenerate-invalidates-old",
+    "n": 8,
+    "contradicts": 1,
+    "example": {
+     "state": "Rotate secret with grace period: \"Old secret remains valid for 24 hours\" · Option selected: ☐ grace period (unticked → immediate)",
+     "question": "If the agent clicks this, will the previous key, link, code or token stop working?",
+     "teacher": true,
+     "mini": false
+    }
+   },
+   {
+    "family": "payment-method-matches-request",
+    "n": 8,
+    "contradicts": 1,
+    "example": {
+     "state": "{\"request\": \"\\\"Use my gift card balance first, rest on PayPal\\\"\", \"checkout\": \"Gift card applied: −$25.00 · Remaining $13.40 via PayPal (j.alvarez@mail.example)\"}",
+     "question": "Is the payment method currently selected at checkout the one the user wants to pay with?",
+     "teacher": true,
+     "mini": false
+    }
+   },
+   {
+    "family": "moving-checklist-item-done",
+    "n": 8,
+    "contradicts": 1,
+    "example": {
+     "state": "{\"task\": \"Cancel old electricity account\", \"evidence\": \"Draft (not sent) - To: moving@eonnext.com - Subject: Moving out 30 Nov - 'Hi, I'd like to close my account at...'\"}",
+     "question": "For the checklist item named in the state, what is its status according to the evidence shown?",
+     "teacher": "in_progress",
+     "mini": "not_started"
+    }
+   },
+   {
+    "family": "jobseeker-obligation-met",
+    "n": 8,
+    "contradicts": 1,
+    "example": {
+     "state": "Jobcenter - Eingliederungsvereinbarung: monatlich mindestens 5 Bewerbungen nachweisen. Nachweise November: 5 hochgeladen (davon 1 doppelt - gleiche Stelle, gleicher Arbeitgeber, zählt nur einmal).",
+     "question": "Has the jobseeker met the activity requirement for this period according to the overview?",
+     "teacher": false,
+     "mini": true
+    }
+   },
+   {
+    "family": "enclosed-form-must-return",
+    "n": 8,
+    "contradicts": 1,
+    "example": {
+     "state": "W-9 enclosed. If the taxpayer information we have on file (shown above) is correct, no action is needed. Situation: the name on file is misspelled.",
+     "question": "Is terugsturen van het formulier in deze situatie verplicht?",
+     "teacher": true,
+     "mini": false
+    }
+   },
+   {
+    "family": "deposit-return-outcome",
+    "n": 8,
+    "contradicts": 1,
+    "example": {
+     "state": "Itemized statement of security deposit (Cal. Civ. Code 1950.5). Deposit held: $3,000. Unpaid rent Oct: $2,150. Cleaning: $450. Repair of wall damage: $600. Total deductions $3,200. Balance owed by tenant: $200.",
+     "question": "What is the outcome for the security deposit?",
+     "teacher": "fully_withheld",
+     "mini": "returned_with_deductions"
+    }
+   },
+   {
+    "family": "deductible-remaining",
+    "n": 8,
+    "contradicts": 1,
+    "example": {
+     "state": "Menzis - Declaratieoverzicht 2026. Huisartsconsult 3x: € 0 eigen risico (valt niet onder eigen risico). Griepprik: € 0. Verbruikt eigen risico: € 0,00 van € 385,00.",
+     "question": "How much of this year's deductible (excess / eigen risico) has been used up?",
+     "teacher": "nothing_used",
+     "mini": "fully_used"
+    }
+   }
+  ],
+  "missing": 0
+ },
+ "browser_families_3": {
+  "groups": {
+   "ALL": {
+    "n": 576,
+    "decides": 0.5920138888888888,
+    "right": 0.8533724340175953,
+    "sure_contradicts": 0.05555555555555555
+   },
+   "source gen4-agent": {
+    "n": 168,
+    "decides": 0.6547619047619048,
+    "right": 0.8545454545454545,
+    "sure_contradicts": 0.07142857142857142
+   },
+   "type choice": {
+    "n": 336,
+    "decides": 0.5386904761904762,
+    "right": 0.9060773480662984,
+    "sure_contradicts": 0.020833333333333332
+   },
+   "teacher picks one": {
+    "n": 311,
+    "decides": 0.5498392282958199,
+    "right": 0.9590643274853801,
+    "sure_contradicts": 0.022508038585209004
+   },
+   "lang en": {
+    "n": 184,
+    "decides": 0.6358695652173914,
+    "right": 0.8547008547008547,
+    "sure_contradicts": 0.06521739130434782
+   },
+   "lang other": {
+    "n": 392,
+    "decides": 0.5714285714285714,
+    "right": 0.8526785714285714,
+    "sure_contradicts": 0.05102040816326531
+   },
+   "teacher unsure": {
+    "n": 42,
+    "decides": 0.42857142857142855,
+    "right": 0.0,
+    "sure_contradicts": 0.0
+   },
+   "type noul": {
+    "n": 240,
+    "decides": 0.6666666666666666,
+    "right": 0.79375,
+    "sure_contradicts": 0.10416666666666667
+   },
+   "teacher True": {
+    "n": 123,
+    "decides": 0.6829268292682927,
+    "right": 0.8928571428571429,
+    "sure_contradicts": 0.07317073170731707
+   },
+   "teacher False": {
+    "n": 100,
+    "decides": 0.68,
+    "right": 0.7647058823529411,
+    "sure_contradicts": 0.16
+   },
+   "source gen4-shop": {
+    "n": 160,
+    "decides": 0.55,
+    "right": 0.8636363636363636,
+    "sure_contradicts": 0.04375
+   },
+   "source gen4-work": {
+    "n": 120,
+    "decides": 0.49166666666666664,
+    "right": 0.8305084745762712,
+    "sure_contradicts": 0.05
+   },
+   "source gen4-world": {
+    "n": 128,
+    "decides": 0.65625,
+    "right": 0.8571428571428571,
+    "sure_contradicts": 0.0546875
+   }
+  },
+  "worst_families": [
+   {
+    "family": "withdrawal-right-applies",
+    "n": 8,
+    "contradicts": 3,
+    "example": {
+     "state": "Order confirmation — Hale & Sparrow Jewellers (online order #HS-20411, placed 15 Nov 2026)\n2 × 18ct yellow gold court wedding band, 4 mm and 2.5 mm — sizes Q and L½\nPersonalisation: inside engraving \"M & J · 12.06.2027\" (script font) on both rings — made to order after confirmation, 3 weeks\nTotal pa",
+     "question": "Does the consumer have a statutory right to withdraw from (cancel) this purchase within the cooling-off period, given the exceptions listed?",
+     "teacher": false,
+     "mini": true
+    }
+   },
+   {
+    "family": "visitor-entry-permitted",
+    "n": 8,
+    "contradicts": 2,
+    "example": {
+     "state": "{\"rules\": \"布达拉宫参观须知:旺季实行实名预约,每日限 5000 人,未预约不得入内;开放时间 9:30–15:40(15:00 停止入场)。\", \"visitor\": \"已预约的游客,15:20 到达入口\"}",
+     "question": "根据所示的参观规定,这位访客可以在所述时间进入吗?",
+     "teacher": true,
+     "mini": false
+    }
+   },
+   {
+    "family": "signup-email-already-registered",
+    "n": 8,
+    "contradicts": 2,
+    "example": {
+     "state": "[textbox] E-mailadres: n.elidrissi@hotmail.example\n[textbox] Gebruikersnaam: nadia_e\n[melding] Deze gebruikersnaam is al in gebruik. Kies een andere.",
+     "question": "Does the sign-up page indicate that an account already exists for the email address the agent entered?",
+     "teacher": false,
+     "mini": true
+    }
+   },
+   {
+    "family": "out-of-office-covers-date",
+    "n": 8,
+    "contradicts": 2,
+    "example": {
+     "state": "Needed: sign-off on Thursday 3 December 2026.\nAuto-reply from Tessa Morrow: \"Thanks for your email. I'm on leave from Monday 23 November and back in the office on Wednesday 2 December. For anything urgent contact Kofi Boateng.\"",
+     "question": "According to the automatic reply or calendar note, will the person be unavailable (away) on the date the user needs them?",
+     "teacher": false,
+     "mini": true
+    }
+   },
+   {
+    "family": "field-unit-matches-value",
+    "n": 8,
+    "contradicts": 2,
+    "example": {
+     "state": "{\"known\": \"het pakket weegt 2,4 kilo\", \"page\": \"[textbox] Gewicht (gram): 2,4\\n[text] Maximaal 10.000 gram\"}",
+     "question": "Is the value the agent entered expressed in the unit this field expects?",
+     "teacher": false,
+     "mini": true
+    }
+   },
+   {
+    "family": "added-item-appears-in-list",
+    "n": 8,
+    "contradicts": 2,
+    "example": {
+     "state": "{\"last_action\": \"voegde \\\"havermelk\\\" toe aan de boodschappenlijst\", \"page\": \"[lijst] Boodschappen (4)\\n[item] tahin  [item] uien  [item] volkorenbrood  [item] koffiebonen\"}",
+     "question": "Staat het item dat de agent zojuist heeft toegevoegd nu in de lijst op de pagina?",
+     "teacher": false,
+     "mini": true
+    }
+   },
+   {
+    "family": "women-only-car-in-effect",
+    "n": 8,
+    "contradicts": 1,
+    "example": {
+     "state": "ขสมก. ทดลองให้บริการ \"รถเมล์เลดี้\" สาย 515 เฉพาะสุภาพสตรีและเด็ก วันจันทร์–ศุกร์ ช่วงเวลาเร่งด่วน 06.00–08.30 น. และ 16.30–19.30 น. นอกเวลาดังกล่าวรับผู้โดยสารทั่วไป\nเวลา: วันอังคาร 13.15 น.",
+     "question": "ตามกฎที่แสดง ข้อกำหนดเฉพาะสุภาพสตรีของตู้/ส่วนนี้มีผลบังคับใช้ในวันและเวลาที่ระบุหรือไม่",
+     "teacher": false,
+     "mini": true
+    }
+   },
+   {
+    "family": "uptime-meets-sla",
+    "n": 8,
+    "contradicts": 1,
+    "example": {
+     "state": "Uptime report October (31 days): 99.87% · SLA commitment: 99.9% · Scheduled maintenance (excluded): 0 min",
+     "question": "Does the measured downtime or availability in the period meet the SLA target stated?",
+     "teacher": false,
+     "mini": true
+    }
+   },
+   {
+    "family": "sum-insured-adequacy",
+    "n": 8,
+    "contradicts": 1,
+    "example": {
+     "state": "Renewal notice — Motorhome policy — Agreed value on policy: £62,000 (set when the vehicle was new in 2017, index-linked upward each year). Independent valuation obtained by the owner this month: \"Current market value £38,500.\"",
+     "question": "Compare the sum insured with the stated value of what is insured. How do they relate?",
+     "teacher": "overinsured",
+     "mini": "underinsured"
+    }
+   },
+   {
+    "family": "search-scope-restricted",
+    "n": 8,
+    "contradicts": 1,
+    "example": {
+     "state": "[textbox] from:#design-reviews \"sidebar contrast\"\n[text] 3 messages in #design-reviews\n[button] Search everywhere",
+     "question": "Is the search the agent ran limited to a sub-section of the site (a category, folder, date range or channel) rather than the whole site?",
+     "teacher": true,
+     "mini": false
+    }
+   },
+   {
+    "family": "route-direction-matches-request",
+    "n": 8,
+    "contradicts": 1,
+    "example": {
+     "state": "{\"goal\": \"ferry de Barcelona a Palma\", \"page\": \"[text] Origen: Valencia · Destino: Palma de Mallorca · 23:00\"}",
+     "question": "Is the journey on this page in the direction the user asked for (origin and destination not swapped or wrong)?",
+     "teacher": false,
+     "mini": true
+    }
+   },
+   {
+    "family": "regex-matches-sample",
+    "n": 8,
+    "contradicts": 1,
+    "example": {
+     "state": "Pattern: ^[A-Z]{3}-\\d{4}$\nTest string: ABC-12345",
+     "question": "Does the regular expression match the sample string in the way the tool is used (full match if anchored or stated, otherwise a match anywhere)?",
+     "teacher": false,
+     "mini": true
+    }
+   },
+   {
+    "family": "parking-rule-at-time",
+    "n": 8,
+    "contradicts": 1,
+    "example": {
+     "state": "Uitsluitend vergunninghouders zone 4A, ma–vr 9–18 u. Bezoek met kraskaart toegestaan. Situatie: dinsdag 14:00, geen vergunning en geen kraskaart.",
+     "question": "According to the sign or zone rules, what applies to parking this car at the stated time?",
+     "teacher": "permit-only",
+     "mini": "prohibited"
+    }
+   },
+   {
+    "family": "masked-contact-matches-known",
+    "n": 8,
+    "contradicts": 1,
+    "example": {
+     "state": "{\"profile\": \"telefoon 06 12 34 56 78; e-mail fleur.maas@ziggo.example\", \"page\": \"[text] Code verstuurd naar f••••••••@z••••.example\\n[textbox] Code\"}",
+     "question": "Komt het gedeeltelijk afgeschermde contactgegeven op de pagina overeen met het gegeven van de gebruiker uit het profiel?",
+     "teacher": true,
+     "mini": false
+    }
+   },
+   {
+    "family": "listing-sale-format",
+    "n": 8,
+    "contradicts": 1,
+    "example": {
+     "state": "[text] Gazelle Orange C7 damesfiets\n[text] Bieden vanaf € 250 · Hoogste bod: € 275 (Marjan)\n[textbox] Jouw bod\n[knop] Bericht  [knop] Bied\n(geen eindtijd; verkoper beslist)",
+     "question": "In which way is this item being sold?",
+     "teacher": "make_offer",
+     "mini": "auction"
+    }
+   }
+  ],
+  "missing": 0
+ }
+}

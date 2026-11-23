@@ -1,5 +1,5 @@
 diff --git a/docs/decisions.md b/docs/decisions.md
-index c917298..fd6b883 100644
+index c917298..7dc4342 100644
 --- a/docs/decisions.md
 +++ b/docs/decisions.md
 @@ -82,6 +82,7 @@ everything else is System One.
@@ -10,7 +10,7 @@ index c917298..fd6b883 100644
  | Your own server | any address (`/v1/systemone` or `/v1/decisions` added by model) | next to it | | Any other System One or Decisions service, or a server you run: Kev (Apache-2.0, Qwen-based, MLX on Apple Silicon) and the like; a key only if it asks |
  
  The providers are one table (`PROVIDER_DEFAULTS` in src/shared/decisions.ts):
-@@ -127,6 +128,85 @@ keeps the second from going out, and with both out the one that met it stops
+@@ -127,6 +128,87 @@ keeps the second from going out, and with both out the one that met it stops
  without its retry. The usage ledger counts a second request's input tokens, and the
  answer time shown is from the first send.
  
@@ -53,7 +53,7 @@ index c917298..fd6b883 100644
 +### New kinds of questions: atelier-mini (an optional download)
 +
 +What the small model declines or is unsure about can go to a larger one on the same computer: atelier-mini
-+(Qwen3.5-0.8B read the way a decision model reads, 0.5 GB with 4- and 5-bit weights, run by llama.cpp's
++(Qwen3.5-2B read the way a decision model reads, 1.3 GB with 4- and 5-bit weights, run by llama.cpp's
 +`llama-server` on the CPU). It is not part of Atelier's download: Settings › Quick decisions › On this computer
 +offers it under "New kinds of questions" once the small model is ready, and it can be removed there.
 +
@@ -62,18 +62,20 @@ index c917298..fd6b883 100644
 +  same cutoffs as uses.ts) goes to the mini; what the mini is unsure about stays unsure, so the rule decides. A
 +  reply says which model answered each question (`routes`), and `model` reads `atelier-nano+mini` when the mini
 +  answered any.
-+- **What it buys** (measured in the model project, v0.5, analysis/cascade.py): on Atelier's own held-out decisions
-+  the pair decides 76% (the small model alone 72%) and is right on 94% of those, with 28% of questions reaching
++- **What it buys** (measured in the model project, v0.6, analysis/cascade.py): on Atelier's own held-out decisions
++  the pair decides 77% (the small model alone 72%) and is right on 94% of those, with 28% of questions reaching
 +  the mini; Atelier's eval passes 10 of 10 tests and email labeling is answered instead of declined. On kinds of
-+  questions the small model never saw it decides 38-75% and is right on 81-98% of those; on numbers checked
-+  against the true answer, 49% and 93%. On security questions with known answers (credentials in a message, a
-+  prompt injection, a link or download that isn't what it says) it decides 88% and is right on 93%.
-+- **Where it is weak**: it is still sure and wrong on 6% of those security questions, on 17% of "does this sender
-+  belong to the organisation it names" and 15% of "is this summary faithful", and on 13% of budgets across
-+  currencies: never the only guard there. Arithmetic in several steps (percentages, totals) it mostly leaves to
-+  the rule: it decides 14% of those.
-+- **Cost**: about 0.2-0.5 s a question (so live decisions with a budget under a second mostly keep the rule when
-+  the small model is unsure), up to 1 GB of memory while the helper runs, a few seconds to load cold. It loads on
++  questions the small model never saw it decides 50-78% and is right on 87-98% of those; on numbers checked
++  against the true answer, 60% and 89%. On security questions with known answers (credentials in a message, a
++  prompt injection, a link or download that isn't what it says) it decides 93% and is right on 94%. On rules
++  applied to the specifics on a page (a booking, a renewal, an entry that has to meet two to four conditions and an
++  exception) it decides 78% and is right on 84%.
++- **Where it is weak**: it is still sure and wrong on 5% of those security questions and on 13% of the rules
++  questions (19% for kinds of rules it never trained on): never the only guard there. Arithmetic in several steps
++  (percentages, totals) it mostly leaves to the rule: it decides 16% of those.
++- **Cost**: about 0.3-0.7 s a question (so live decisions with a budget under a second mostly keep the rule when
++  the small model is unsure, and a slower computer leaves more of them to the rule), up to 2 GB of memory while
++  the helper runs, a few seconds to load cold. It loads on
 +  the first question the small model leaves open, not at start-up, and stops with the helper after five quiet
 +  minutes. A stopped or timed-out request is cancelled in the helper too, so the mini's queue moves on.
 +- **Its server**: the helper starts `llama-server` (the folder's `server/`, llama.cpp's CPU build for this
@@ -96,7 +98,7 @@ index c917298..fd6b883 100644
  ## The rule-first contract (DC-01)
  
  Every one of Atelier's decisions calls `decider().decide({ use, rule, request, read })`
-@@ -365,5 +445,6 @@ itself and handed 25 to `label_items` on its own, which answered all 25.
+@@ -365,5 +447,6 @@ itself and handed 25 to `label_items` on its own, which answered all 25.
    first message (so caching and earlier thinking stay valid), and a connector
    left out could never be used later in that chat; every enabled connector
    stays in.
@@ -362,7 +364,7 @@ index bd72420..5045afa 100644
      "@types/react": "19.3.0",
 diff --git a/scripts/fetch-decision-model.mjs b/scripts/fetch-decision-model.mjs
 new file mode 100644
-index 0000000..e54a1d2
+index 0000000..cf3152f
 --- /dev/null
 +++ b/scripts/fetch-decision-model.mjs
 @@ -0,0 +1,40 @@
@@ -376,7 +378,7 @@ index 0000000..e54a1d2
 +//
 +//   ATELIER_DECISION_MODEL_SRC=<folder> node scripts/fetch-decision-model.mjs
 +//
-+// The folder is a student export of the atelierdecisionmodel project (student/export.py): the model file,
++// The folder is a student export of the atelier-decisions project (student/export.py): the model file,
 +// the trimmed tokenizer, the vocabulary map and the calibration. Nothing is downloaded: the model is built
 +// and checked there (Atelier's own decision eval, parity of this runtime with the training code), and copied
 +// here as it is. Exits non-zero without a source, so `npm run package` ships without it and says so.
@@ -408,7 +410,7 @@ index 0000000..e54a1d2
 +console.log(`On-device decision model: ${(bytes / 1e6).toFixed(1)} MB in ${out}`)
 diff --git a/src/main/decisions/device.ts b/src/main/decisions/device.ts
 new file mode 100644
-index 0000000..c4cc68e
+index 0000000..833cee4
 --- /dev/null
 +++ b/src/main/decisions/device.ts
 @@ -0,0 +1,279 @@
@@ -434,7 +436,7 @@ index 0000000..c4cc68e
 +// go through route() instead of the network, so timeouts, compare mode, comparisons and the readers'
 +// cutoffs work exactly as for a hosted model.
 +
-+/** The model files a usable folder holds (the student export of the atelierdecisionmodel project). */
++/** The model files a usable folder holds (the student export of the atelier-decisions project). */
 +export const DEVICE_MODEL_FILES = ['model.emb4.int8.onnx', 'tokenizer.json', 'tokenizer_config.json', 'vocab.json'] as const
 +export const DEVICE_MODEL_ID = 'atelier-nano'
 +
@@ -536,7 +538,7 @@ index 0000000..c4cc68e
 +    }
 +  }
 +
-+  /** Loads the small model ahead of the first question (it takes up to a second cold), so that one is answered in time too. The mini loads on its first question, not here: it needs up to 1 GB of memory. */
++  /** Loads the small model ahead of the first question (it takes up to a second cold), so that one is answered in time too. The mini loads on its first question, not here: it needs up to 2 GB of memory. */
 +  warm(): void {
 +    if (!this.available()) return
 +    this.#request({ state: '', questions: { warm: { type: 'noul', instructions: 'warm-up' } } }, new AbortController().signal, true).catch(() => undefined)
@@ -693,7 +695,7 @@ index 0000000..c4cc68e
 +class RequestError extends Error {}
 diff --git a/src/main/decisions/device/cascade.ts b/src/main/decisions/device/cascade.ts
 new file mode 100644
-index 0000000..df5384c
+index 0000000..23ce2a8
 --- /dev/null
 +++ b/src/main/decisions/device/cascade.ts
 @@ -0,0 +1,73 @@
@@ -707,9 +709,9 @@ index 0000000..df5384c
 +// (readers.ts) goes to atelier-mini (mini.ts) when it is installed; what the mini is unsure about stays unsure, so
 +// Atelier's rule decides. If the mini fails or the request is stopped, the small model's answers stand.
 +//
-+// Measured in the atelierdecisionmodel project (analysis/cascade.py, v0.5): on Atelier's own held-out decisions it
-+// decides 76% (the small model alone 72%) and is right 94% of those; 28% of questions reach the mini. On kinds of
-+// questions the small model never saw (which it declines) it decides 38-75% and is right 81-98% of those.
++// Measured in the atelier-decisions project (analysis/cascade.py, v0.6): on Atelier's own held-out decisions it
++// decides 77% (the small model alone 72%) and is right 94% of those; 28% of questions reach the mini. On kinds of
++// questions the small model never saw (which it declines) it decides 50-78% and is right 87-98% of those.
 +
 +import type { DecisionRequest } from './format'
 +import { fixedKind, optionLabels } from './format'
@@ -772,7 +774,7 @@ index 0000000..df5384c
 +}
 diff --git a/src/main/decisions/device/format.ts b/src/main/decisions/device/format.ts
 new file mode 100644
-index 0000000..6b1913c
+index 0000000..8198983
 --- /dev/null
 +++ b/src/main/decisions/device/format.ts
 @@ -0,0 +1,150 @@
@@ -782,7 +784,7 @@ index 0000000..6b1913c
 + * You can obtain one at https://mozilla.org/MPL/2.0/. */
 +
 +// The on-device model's input format: a line-for-line port of the training code's student/format.py (the
-+// atelierdecisionmodel project), which its parity check holds to the same token ids and answers. Change both
++// atelier-decisions project), which its parity check holds to the same token ids and answers. Change both
 +// together, or the model reads text differently from how it learned it.
 +
 +export type Content = string | number | boolean | null | Content[] | { [k: string]: Content }
@@ -928,7 +930,7 @@ index 0000000..6b1913c
 +}
 diff --git a/src/main/decisions/device/mini.ts b/src/main/decisions/device/mini.ts
 new file mode 100644
-index 0000000..3b9d4c5
+index 0000000..562c4c4
 --- /dev/null
 +++ b/src/main/decisions/device/mini.ts
 @@ -0,0 +1,327 @@
@@ -938,16 +940,16 @@ index 0000000..3b9d4c5
 + * You can obtain one at https://mozilla.org/MPL/2.0/. */
 +
 +// atelier-mini, the on-device model's larger half (runs in the utility process, deviceHelper.ts, when its optional
-+// download is here: deviceMini.ts). Qwen3.5-0.8B read the way a decision model reads (non-causal attention, a
++// download is here: deviceMini.ts). Qwen3.5-2B read the way a decision model reads (non-causal attention, a
 +// 255-code readout at the <|fim_suffix|> marker), run by llama.cpp's llama-server on the CPU. llama-server computes
 +// the backbone from a GGUF marked for it and returns the final hidden state at the marker; this applies the readout
 +// and the per-decision temperature and answers in System One's format.
 +//
 +// It decides what the small model (nano.ts) declines or is unsure about: open questions (label_items, routines,
-+// packs), text in other scripts, and kinds of questions it was never shown. About 0.2-0.5 s a question.
++// packs), text in other scripts, and kinds of questions it was never shown. About 0.3-0.7 s a question.
 +//
 +// Prompts are built and tokenized here exactly as the training code does (the Hugging Face tokenizer, not
-+// llama.cpp's, which differs on a few non-Latin strings); the atelierdecisionmodel project's runtime/node checks the
++// llama.cpp's, which differs on a few non-Latin strings); the atelier-decisions project's runtime/node checks the
 +// token ids against it (mini_parity.ts), and this file builds them as its mini.ts does. Change both together.
 +
 +import { spawn, type ChildProcess } from 'node:child_process'
@@ -981,7 +983,7 @@ index 0000000..3b9d4c5
 +  threads?: number
 +  /** Most tokens per question, state and question together (default 2048; it was trained on up to 1024). A longer
 +   * state is cut at the end. Non-causal attention needs a whole question in one batch, so this also sets the
-+   * compute buffer: about 0.5 GB resident at 2048. */
++   * compute buffer: about 0.6 GB resident at 2048, beside the 1.3 GB model. */
 +  maxTokens?: number
 +  /** Called with the server's process id once it runs, so whoever stops this process can stop the server too. */
 +  onServer?(pid: number): void
@@ -1283,7 +1285,7 @@ index 0000000..332f5ae
 +  join(dir, 'server', platform === 'win32' ? 'llama-server.exe' : 'llama-server')
 diff --git a/src/main/decisions/device/miniManifest.ts b/src/main/decisions/device/miniManifest.ts
 new file mode 100644
-index 0000000..2475108
+index 0000000..75074ba
 --- /dev/null
 +++ b/src/main/decisions/device/miniManifest.ts
 @@ -0,0 +1,194 @@
@@ -1293,31 +1295,31 @@ index 0000000..2475108
 + * You can obtain one at https://mozilla.org/MPL/2.0/. */
 +
 +// atelier-mini's optional download (deviceMini.ts): every file with its size and SHA-256. Generated by the
-+// atelierdecisionmodel project's tools/mini_dist.py from the files it hosts; don't edit by hand.
++// atelier-decisions project's tools/mini_dist.py from the files it hosts; don't edit by hand.
 +
 +import type { MiniManifest } from '../deviceMini'
 +
 +export const MINI_MANIFEST: MiniManifest = {
-+  version: 'v0.5',
++  version: 'v0.6',
 +  base: '',
 +  model: [
 +    {
 +      path: 'mini.gguf',
 +      url: 'model/mini.gguf',
-+      size: 515225312,
-+      sha256: '88e3023da159b9177647cd54acbe47ceb3efd4dce1fce2e1debc2a59292bef8b',
++      size: 1285576416,
++      sha256: '20d1228a3ec16d8d39389a4fd240f1b7e6990139b9d8f2db00e4be657dda4527',
 +    },
 +    {
 +      path: 'readout.f32',
 +      url: 'model/readout.f32',
-+      size: 1044480,
-+      sha256: '9496eea69f0ea32a51dd227ca1d0b4861feee458649f051feb0b079c94664dd1',
++      size: 2088960,
++      sha256: '7026bdf5df6885c3e2c49ba831cb3326ba598a01043f6369842d6a1907f3b7b8',
 +    },
 +    {
 +      path: 'decision.json',
 +      url: 'model/decision.json',
-+      size: 3348,
-+      sha256: 'd9c464f51fc9ea7e5b18c8feda6873b3f8d926ad16f5b021e593a5b4c1ce7c36',
++      size: 3365,
++      sha256: '115308500ad5ff37d24f52a6316fda23a23fd887c9b21e96019a4dfa5958a1ee',
 +    },
 +    {
 +      path: 'tokenizer.json',
@@ -1483,7 +1485,7 @@ index 0000000..2475108
 +}
 diff --git a/src/main/decisions/device/nano.ts b/src/main/decisions/device/nano.ts
 new file mode 100644
-index 0000000..69e5d5c
+index 0000000..1775c58
 --- /dev/null
 +++ b/src/main/decisions/device/nano.ts
 @@ -0,0 +1,214 @@
@@ -1547,7 +1549,7 @@ index 0000000..69e5d5c
 + * French and Spanish with a vocabulary trimmed to them: text in another script falls apart into single letters
 + * or raw bytes, and its answers there are not to be trusted. A declined question is answered `refusal`, which
 + * Atelier reads as an even spread, so the rule decides. Thresholds are set from the per-language probe
-+ * (atelierdecisionmodel: analysis/results/languages.txt).
++ * (atelier-decisions: analysis/results/languages.txt).
 + */
 +export interface Guard {
 +  /** Least share of the state's letters in Latin script. */
@@ -1583,7 +1585,7 @@ index 0000000..69e5d5c
 +  /**
 +   * Questions other than Atelier's own (label_items, routines, packs): 'decline' (default) answers them `refusal`.
 +   * On questions and text it never saw, the model's sure answers contradicted the teacher's 6% of the time
-+   * (36% for one kind of question), against under 1% on Atelier's own decisions (atelierdecisionmodel:
++   * (36% for one kind of question), against under 1% on Atelier's own decisions (atelier-decisions:
 +   * analysis/results/open-questions-*.txt), so those go to the rule or a larger model instead.
 +   */
 +  open?: 'decline' | 'answer'
@@ -1703,7 +1705,7 @@ index 0000000..69e5d5c
 +}
 diff --git a/src/main/decisions/device/readers.ts b/src/main/decisions/device/readers.ts
 new file mode 100644
-index 0000000..0babedc
+index 0000000..cc3b2bf
 --- /dev/null
 +++ b/src/main/decisions/device/readers.ts
 @@ -0,0 +1,73 @@
@@ -1715,7 +1717,7 @@ index 0000000..0babedc
 +// Atelier's readers (uses.ts) as one function, for the on-device cascade (cascade.ts): would this answer take over
 +// from the rule (a verdict), or is it unsure (null, so the rule decides)? Only the cutoffs matter here, so it keys
 +// on the decision a question asks (format.ts fixedKind), not on its caller. A line-for-line port of the training
-+// code's student/readers.py (the atelierdecisionmodel project), which measured the cascade with these cutoffs:
++// code's student/readers.py (the atelier-decisions project), which measured the cascade with these cutoffs:
 +// change them together with uses.ts.
 +
 +import type { Answer } from './nano'
@@ -1862,7 +1864,7 @@ index 0000000..d3647cc
 +}
 diff --git a/src/main/decisions/deviceMini.ts b/src/main/decisions/deviceMini.ts
 new file mode 100644
-index 0000000..94663d7
+index 0000000..79bc0ae
 --- /dev/null
 +++ b/src/main/decisions/deviceMini.ts
 @@ -0,0 +1,229 @@
@@ -1879,7 +1881,7 @@ index 0000000..94663d7
 +import { deviceMiniDir } from './device'
 +
 +// atelier-mini as an optional download (docs/decisions.md › On this computer). The small model ships with Atelier;
-+// the mini (0.5 GB: the model and llama.cpp's server for this platform) is fetched only when you ask for it in
++// the mini (1.3 GB: the model and llama.cpp's server for this platform) is fetched only when you ask for it in
 +// Settings › Quick decisions. Every file is listed in the manifest that ships with Atelier (device/miniManifest.ts)
 +// with its size and SHA-256, so what lands on disk is exactly what was built and measured, whoever serves it.
 +//
@@ -2489,7 +2491,7 @@ index 1528f6d..d85b375 100644
    }
  }
 diff --git a/src/shared/i18n/en/decisions.ts b/src/shared/i18n/en/decisions.ts
-index de54cbd..6e362ec 100644
+index de54cbd..be32231 100644
 --- a/src/shared/i18n/en/decisions.ts
 +++ b/src/shared/i18n/en/decisions.ts
 @@ -85,6 +85,19 @@ export const decisions = {
@@ -2502,7 +2504,7 @@ index de54cbd..6e362ec 100644
 +  'decisions.device.missing': 'Not installed',
 +  'decisions.device.use': 'Use it',
 +  'decisions.device.mini': 'New kinds of questions',
-+  'decisions.device.mini.description': 'A larger model that also decides what the small one wasn’t made for: labeling, routines and packs, and pages in other scripts. It runs on this computer too, takes a few tenths of a second a question, and uses up to 1 GB of memory while it’s busy.',
++  'decisions.device.mini.description': 'A larger model that also decides what the small one wasn’t made for: labeling, routines and packs, and pages in other scripts. It runs on this computer too, takes a few tenths of a second a question, and uses up to 2 GB of memory while it’s busy.',
 +  'decisions.device.mini.ready': 'Installed',
 +  'decisions.device.mini.downloading': '{received} of {total} MB',
 +  'decisions.device.mini.download': 'Download ({size} MB)',
@@ -2513,7 +2515,7 @@ index de54cbd..6e362ec 100644
    'decisions.provider.openrouter': 'OpenRouter',
    'decisions.provider.experiential': 'Experiential Labs',
 diff --git a/src/shared/i18n/nl/decisions.ts b/src/shared/i18n/nl/decisions.ts
-index 9dba010..732dd9e 100644
+index 9dba010..1118c3d 100644
 --- a/src/shared/i18n/nl/decisions.ts
 +++ b/src/shared/i18n/nl/decisions.ts
 @@ -87,6 +87,19 @@ export const decisions = {
@@ -2526,7 +2528,7 @@ index 9dba010..732dd9e 100644
 +  'decisions.device.missing': 'Niet geïnstalleerd',
 +  'decisions.device.use': 'Gebruiken',
 +  'decisions.device.mini': 'Nieuwe soorten vragen',
-+  'decisions.device.mini.description': 'Een groter model dat ook beslist waarvoor het kleine niet gemaakt is: labelen, routines en pakketten, en pagina’s in andere schriften. Het draait ook op deze computer, doet een paar tienden van een seconde per vraag en gebruikt tot 1 GB geheugen terwijl het bezig is.',
++  'decisions.device.mini.description': 'Een groter model dat ook beslist waarvoor het kleine niet gemaakt is: labelen, routines en pakketten, en pagina’s in andere schriften. Het draait ook op deze computer, doet een paar tienden van een seconde per vraag en gebruikt tot 2 GB geheugen terwijl het bezig is.',
 +  'decisions.device.mini.ready': 'Geïnstalleerd',
 +  'decisions.device.mini.downloading': '{received} van {total} MB',
 +  'decisions.device.mini.download': 'Downloaden ({size} MB)',
@@ -2739,7 +2741,7 @@ index 0000000..19ec8c5
 +})
 diff --git a/tests/decisionsDeviceMini.test.ts b/tests/decisionsDeviceMini.test.ts
 new file mode 100644
-index 0000000..1d6f8d0
+index 0000000..9bb6b28
 --- /dev/null
 +++ b/tests/decisionsDeviceMini.test.ts
 @@ -0,0 +1,368 @@
@@ -2842,7 +2844,7 @@ index 0000000..1d6f8d0
 +})
 +
 +// The training code's own token ids for 600-odd questions (parity.jsonl in the mini's runtime folder, from the
-+// atelierdecisionmodel project's student/export_mini.py): the mini reads text exactly as it learned it. Needs the
++// atelier-decisions project's student/export_mini.py): the mini reads text exactly as it learned it. Needs the
 +// 20 MB tokenizer, so it runs when ATELIER_MINI_PARITY names that folder.
 +describe.skipIf(!process.env.ATELIER_MINI_PARITY)('the mini’s prompts', () => {
 +  it('are the same token ids the training code makes', async () => {

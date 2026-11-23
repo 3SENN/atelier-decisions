@@ -13,8 +13,9 @@ Models
 mmBERT-small (https://huggingface.co/jhu-clsp/mmBERT-small), Johns Hopkins University CLSP. MIT License.
   The base of atelier-nano: its first layers and a trimmed vocabulary, fine-tuned by distillation.
 
-Qwen3.5-0.8B (https://huggingface.co/Qwen/Qwen3.5-0.8B), Alibaba Cloud. Apache License 2.0.
-  The base of atelier-mini. Changed: attention made non-causal, LoRA adapters trained by distillation and merged
+Qwen3.5-0.8B (https://huggingface.co/Qwen/Qwen3.5-0.8B) and Qwen3.5-2B (https://huggingface.co/Qwen/Qwen3.5-2B),
+Alibaba Cloud. Apache License 2.0.
+  The bases of atelier-mini (0.8B in v0.4 and v0.5, 2B from v0.6). Changed: attention made non-causal, LoRA adapters trained by distillation and merged
   into the weights, a new readout; converted to GGUF and quantized.
 
 pplx-decider-v1.3 and pplx-decider-flash-v1.3 (https://huggingface.co/perplexity-ai), Perplexity.

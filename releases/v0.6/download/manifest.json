@@ -1,0 +1,184 @@
+{
+ "version": "v0.6",
+ "base": "",
+ "model": [
+  {
+   "path": "mini.gguf",
+   "url": "model/mini.gguf",
+   "size": 1285576416,
+   "sha256": "20d1228a3ec16d8d39389a4fd240f1b7e6990139b9d8f2db00e4be657dda4527"
+  },
+  {
+   "path": "readout.f32",
+   "url": "model/readout.f32",
+   "size": 2088960,
+   "sha256": "7026bdf5df6885c3e2c49ba831cb3326ba598a01043f6369842d6a1907f3b7b8"
+  },
+  {
+   "path": "decision.json",
+   "url": "model/decision.json",
+   "size": 3365,
+   "sha256": "115308500ad5ff37d24f52a6316fda23a23fd887c9b21e96019a4dfa5958a1ee"
+  },
+  {
+   "path": "tokenizer.json",
+   "url": "model/tokenizer.json",
+   "size": 19989340,
+   "sha256": "f229a221d0a5e414f8de2d9abe001bcb4cc0dbe8df86d6c21b85c0022d505aae"
+  },
+  {
+   "path": "tokenizer_config.json",
+   "url": "model/tokenizer_config.json",
+   "size": 16709,
+   "sha256": "49e2b6e395f959f077f1e992b338919c0d4a9732fc6e613995e06557f843500c"
+  }
+ ],
+ "servers": {
+  "win32-x64": [
+   {
+    "path": "ggml-base.dll",
+    "url": "server/win32-x64/ggml-base.dll",
+    "size": 840704,
+    "sha256": "29625af975119595b53c5744faba8d9a2fb40df7cdb50773e2fbcb6abe3f7ac6"
+   },
+   {
+    "path": "ggml-cpu-alderlake.dll",
+    "url": "server/win32-x64/ggml-cpu-alderlake.dll",
+    "size": 1498112,
+    "sha256": "7d3e5bce455a27b4051479708381cb1945e4dafc4ba9f5d61e0be625d8862d52"
+   },
+   {
+    "path": "ggml-cpu-cannonlake.dll",
+    "url": "server/win32-x64/ggml-cpu-cannonlake.dll",
+    "size": 1732608,
+    "sha256": "9850d99517a5a71096b8de3f129fbcd38e131288b6575dab18447db4b314afa0"
+   },
+   {
+    "path": "ggml-cpu-cascadelake.dll",
+    "url": "server/win32-x64/ggml-cpu-cascadelake.dll",
+    "size": 1701888,
+    "sha256": "0ab6ef52ab23d8f98ce90cbb66747c3ba4ac8bd050c38621795c760142c7b7ad"
+   },
+   {
+    "path": "ggml-cpu-cooperlake.dll",
+    "url": "server/win32-x64/ggml-cpu-cooperlake.dll",
+    "size": 1711104,
+    "sha256": "04147d1fea8477e089787b880e02a2dfdf09d70afa8db061e19450d769f8389e"
+   },
+   {
+    "path": "ggml-cpu-haswell.dll",
+    "url": "server/win32-x64/ggml-cpu-haswell.dll",
+    "size": 1504256,
+    "sha256": "40a539fb6985473570ff7112d993951484db7967d4684f48d5dd813bacc1aafa"
+   },
+   {
+    "path": "ggml-cpu-icelake.dll",
+    "url": "server/win32-x64/ggml-cpu-icelake.dll",
+    "size": 1710592,
+    "sha256": "50ceb68d94847e1b3efc50b93a1d9e4cdb26d48557032a4c76dd5dc7b6569cad"
+   },
+   {
+    "path": "ggml-cpu-ivybridge.dll",
+    "url": "server/win32-x64/ggml-cpu-ivybridge.dll",
+    "size": 1371648,
+    "sha256": "36da17b90195268b51462406a146184a2c478825ce96ef11aacb6b908f2ddca3"
+   },
+   {
+    "path": "ggml-cpu-piledriver.dll",
+    "url": "server/win32-x64/ggml-cpu-piledriver.dll",
+    "size": 1366016,
+    "sha256": "175daade41adac592aa0a5e689082b3171150674c351739498c90106b6401aa3"
+   },
+   {
+    "path": "ggml-cpu-sandybridge.dll",
+    "url": "server/win32-x64/ggml-cpu-sandybridge.dll",
+    "size": 1340928,
+    "sha256": "1f3270a67838daf7260251e15cdff0e7876e5115a76fb06dc719b839f7b11924"
+   },
+   {
+    "path": "ggml-cpu-sapphirerapids.dll",
+    "url": "server/win32-x64/ggml-cpu-sapphirerapids.dll",
+    "size": 1989632,
+    "sha256": "0c32f30f998b6799451c1cf04898da0ff1ad5c9dd63f75292adc30a39b84ab03"
+   },
+   {
+    "path": "ggml-cpu-skylakex.dll",
+    "url": "server/win32-x64/ggml-cpu-skylakex.dll",
+    "size": 1723904,
+    "sha256": "10fb7a3707182ddb99182384f9f20a75e8ec2cc7132100e8fd46ad2a5004aeff"
+   },
+   {
+    "path": "ggml-cpu-sse42.dll",
+    "url": "server/win32-x64/ggml-cpu-sse42.dll",
+    "size": 964096,
+    "sha256": "88b38ce6b4e87df6d74088aa580ffcfd1f18cee667a7cbf23f8735ec5efc9c2c"
+   },
+   {
+    "path": "ggml-cpu-x64.dll",
+    "url": "server/win32-x64/ggml-cpu-x64.dll",
+    "size": 957952,
+    "sha256": "6e87a6d6c84f7dd66f29d499a9c82870678cd10fca9a62e2a8f29ad0ff7f4b05"
+   },
+   {
+    "path": "ggml-cpu-zen4.dll",
+    "url": "server/win32-x64/ggml-cpu-zen4.dll",
+    "size": 1719808,
+    "sha256": "05de8bbcc3fc1d7f7c60af83cdc4366b6a6a7dda17e0cbd3e56859e47d042931"
+   },
+   {
+    "path": "ggml.dll",
+    "url": "server/win32-x64/ggml.dll",
+    "size": 78848,
+    "sha256": "b6f32db84cdba30d268728a20a0e26ab0c4729969916aac83608a11554eb4bad"
+   },
+   {
+    "path": "libomp.dll",
+    "url": "server/win32-x64/libomp.dll",
+    "size": 856064,
+    "sha256": "1e4222f195d84e7355109d778e751dfe3c085e42c947f7fe3d7853181329dd40"
+   },
+   {
+    "path": "LICENSE-llama.cpp",
+    "url": "server/win32-x64/LICENSE-llama.cpp",
+    "size": 1078,
+    "sha256": "94f29bbed6a22c35b992c5c6ebf0e7c92f13b836b90f36f461c9cf2f0f1d010d"
+   },
+   {
+    "path": "LICENSE-LLVM-OpenMP",
+    "url": "server/win32-x64/LICENSE-LLVM-OpenMP",
+    "size": 19741,
+    "sha256": "fdad1758a9e1f9d5a81e18879b3406772115edc92c24bfa36b70c654f325e8e4"
+   },
+   {
+    "path": "llama-common.dll",
+    "url": "server/win32-x64/llama-common.dll",
+    "size": 8622592,
+    "sha256": "e7d92bc29ba91be571ecc7af44ed0ed112c711e590b4e6918125fddeefcdaff4"
+   },
+   {
+    "path": "llama-server-impl.dll",
+    "url": "server/win32-x64/llama-server-impl.dll",
+    "size": 9839104,
+    "sha256": "11ccfdc47c4a36da1a7a206b580f83d09d50baa1e11c6f390aa72e27e0cbab8b"
+   },
+   {
+    "path": "llama-server.exe",
+    "url": "server/win32-x64/llama-server.exe",
+    "size": 10240,
+    "sha256": "7e86867914f4ada73fa4a1ec11b7246c2f645e98dd7c3494f69b5de6ee45e7c4"
+   },
+   {
+    "path": "llama.dll",
+    "url": "server/win32-x64/llama.dll",
+    "size": 3980288,
+    "sha256": "e9bdf672f53f36386634197bd8470487cbcb2f39907325106039ef6843aa220e"
+   },
+   {
+    "path": "mtmd.dll",
+    "url": "server/win32-x64/mtmd.dll",
+    "size": 3039744,
+    "sha256": "46f88bf61f860801e18406ec15f8c8fbedf11812957e0b1bb2c02e21004ed4fe"
+   }
+  ]
+ }
+}

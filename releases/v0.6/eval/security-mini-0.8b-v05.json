@@ -1,0 +1,219 @@
+{
+ "name": "mini-0.8b-v05",
+ "by_split": {
+  "family-seen": {
+   "n": 400,
+   "agree": 0.8575,
+   "conflict": 0.035,
+   "overreach": 0.0,
+   "underreach": 0.1075,
+   "declined": 0.0,
+   "coverage": 0.8925,
+   "precision": 0.9608
+  },
+  "ALL": {
+   "n": 1000,
+   "agree": 0.817,
+   "conflict": 0.06,
+   "overreach": 0.0,
+   "underreach": 0.123,
+   "declined": 0.0,
+   "coverage": 0.877,
+   "precision": 0.9316
+  },
+  "family-unseen": {
+   "n": 600,
+   "agree": 0.79,
+   "conflict": 0.0767,
+   "overreach": 0.0,
+   "underreach": 0.1333,
+   "declined": 0.0,
+   "coverage": 0.8667,
+   "precision": 0.9115
+  }
+ },
+ "by_family": {
+  "family-seen/secret-in-text": {
+   "n": 80,
+   "agree": 0.975,
+   "conflict": 0.025,
+   "overreach": 0.0,
+   "underreach": 0.0,
+   "declined": 0.0,
+   "coverage": 1.0,
+   "precision": 0.975
+  },
+  "ALL": {
+   "n": 1000,
+   "agree": 0.817,
+   "conflict": 0.06,
+   "overreach": 0.0,
+   "underreach": 0.123,
+   "declined": 0.0,
+   "coverage": 0.877,
+   "precision": 0.9316
+  },
+  "family-seen/injection-in-content": {
+   "n": 80,
+   "agree": 1.0,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.0,
+   "declined": 0.0,
+   "coverage": 1.0,
+   "precision": 1.0
+  },
+  "family-seen/summary-faithful": {
+   "n": 80,
+   "agree": 0.3125,
+   "conflict": 0.15,
+   "overreach": 0.0,
+   "underreach": 0.5375,
+   "declined": 0.0,
+   "coverage": 0.4625,
+   "precision": 0.6757
+  },
+  "family-seen/link-goes-where-it-says": {
+   "n": 80,
+   "agree": 1.0,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.0,
+   "declined": 0.0,
+   "coverage": 1.0,
+   "precision": 1.0
+  },
+  "family-seen/download-is-executable": {
+   "n": 80,
+   "agree": 1.0,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.0,
+   "declined": 0.0,
+   "coverage": 1.0,
+   "precision": 1.0
+  },
+  "family-unseen/secret-in-technical-text": {
+   "n": 200,
+   "agree": 0.925,
+   "conflict": 0.04,
+   "overreach": 0.0,
+   "underreach": 0.035,
+   "declined": 0.0,
+   "coverage": 0.965,
+   "precision": 0.9585
+  },
+  "family-unseen/injection-in-tool-output": {
+   "n": 200,
+   "agree": 0.735,
+   "conflict": 0.025,
+   "overreach": 0.0,
+   "underreach": 0.24,
+   "declined": 0.0,
+   "coverage": 0.76,
+   "precision": 0.9671
+  },
+  "family-unseen/sender-matches-organisation": {
+   "n": 200,
+   "agree": 0.71,
+   "conflict": 0.165,
+   "overreach": 0.0,
+   "underreach": 0.125,
+   "declined": 0.0,
+   "coverage": 0.875,
+   "precision": 0.8114
+  }
+ },
+ "by_margin": {
+  "family-seen/payload": {
+   "n": 188,
+   "agree": 0.8085,
+   "conflict": 0.0638,
+   "overreach": 0.0,
+   "underreach": 0.1277,
+   "declined": 0.0,
+   "coverage": 0.8723,
+   "precision": 0.9268
+  },
+  "ALL": {
+   "n": 1000,
+   "agree": 0.817,
+   "conflict": 0.06,
+   "overreach": 0.0,
+   "underreach": 0.123,
+   "declined": 0.0,
+   "coverage": 0.877,
+   "precision": 0.9316
+  },
+  "family-seen/decoy": {
+   "n": 50,
+   "agree": 0.96,
+   "conflict": 0.04,
+   "overreach": 0.0,
+   "underreach": 0.0,
+   "declined": 0.0,
+   "coverage": 1.0,
+   "precision": 0.96
+  },
+  "family-seen/other-payload": {
+   "n": 8,
+   "agree": 1.0,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.0,
+   "declined": 0.0,
+   "coverage": 1.0,
+   "precision": 1.0
+  },
+  "family-seen/neutral": {
+   "n": 154,
+   "agree": 0.8766,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.1234,
+   "declined": 0.0,
+   "coverage": 0.8766,
+   "precision": 1.0
+  },
+  "family-unseen/neutral": {
+   "n": 156,
+   "agree": 0.891,
+   "conflict": 0.0,
+   "overreach": 0.0,
+   "underreach": 0.109,
+   "declined": 0.0,
+   "coverage": 0.891,
+   "precision": 1.0
+  },
+  "family-unseen/payload": {
+   "n": 302,
+   "agree": 0.7715,
+   "conflict": 0.1225,
+   "overreach": 0.0,
+   "underreach": 0.106,
+   "declined": 0.0,
+   "coverage": 0.894,
+   "precision": 0.863
+  },
+  "family-unseen/other-payload": {
+   "n": 18,
+   "agree": 0.8889,
+   "conflict": 0.0556,
+   "overreach": 0.0,
+   "underreach": 0.0556,
+   "declined": 0.0,
+   "coverage": 0.9444,
+   "precision": 0.9412
+  },
+  "family-unseen/decoy": {
+   "n": 124,
+   "agree": 0.6935,
+   "conflict": 0.0645,
+   "overreach": 0.0,
+   "underreach": 0.2419,
+   "declined": 0.0,
+   "coverage": 0.7581,
+   "precision": 0.9149
+  }
+ }
+}

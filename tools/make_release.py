@@ -41,6 +41,7 @@ def main() -> None:
     parser.add_argument("--mini", type=Path, help="atelier-mini run folder (adapters, calibration, logs)")
     parser.add_argument("--mini-runtime", type=Path, help="its runtime folder from student/export_mini.py (GGUF, readout, tokenizer)")
     parser.add_argument("--mini-report", help="name of the mini's capability report")
+    parser.add_argument("--mini-base", type=Path, help="the run the mini continued from (--init): its train.log and report.json kept as base-train.log and base-report.json")
     parser.add_argument("--extra-results", nargs="*", default=[], help="more files from analysis/results to keep with the version")
     parser.add_argument("--integration", action="store_true", help="also keep integration/atelier-on-device-decisions.patch (Atelier's side)")
     parser.add_argument("--dist", type=Path, help="the mini's download folder (tools/mini_dist.py): keeps its manifest.json and miniManifest.ts")
@@ -72,6 +73,10 @@ def main() -> None:
         log = ROOT / "runs" / f"train-{args.mini.name}.log"
         if log.exists():
             shutil.copy2(log, out / "mini" / "train.log")
+        if args.mini_base:
+            for src, name in ((ROOT / "runs" / f"train-{args.mini_base.name}.log", "base-train.log"), (args.mini_base / "report.json", "base-report.json")):
+                if src.exists():
+                    shutil.copy2(src, out / "mini" / name)
         for path in sorted((args.mini_runtime or args.mini / "runtime").iterdir()):
             shutil.copy2(path, out / "mini" / path.name)
     for name in ([f"capabilities-{args.mini_report}.json"] if args.mini_report else []) + list(args.extra_results):

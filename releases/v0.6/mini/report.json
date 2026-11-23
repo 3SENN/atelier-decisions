@@ -1,0 +1,605 @@
+{
+ "args": {
+  "data": "[WindowsPath('data/teacher/pool-v1.flash.jsonl'), WindowsPath('data/teacher/pool-v2.flash.jsonl'), WindowsPath('data/teacher/pool-v3.flash.jsonl'), WindowsPath('data/teacher/pool-v4.flash.jsonl'), WindowsPath('data/teacher/pool-v5.flash.jsonl'), WindowsPath('data/teacher/pool-v6.flash.jsonl'), WindowsPath('data/teacher/pool-open-generic.flash.jsonl'), WindowsPath('data/teacher/pool-open2.flash.jsonl'), WindowsPath('data/teacher/pool-gen2train.flash.jsonl'), WindowsPath('data/teacher/pool-gen3.flash.jsonl'), WindowsPath('data/teacher/pool-gen4.flash.jsonl'), WindowsPath('data/teacher/pool-numeric.truth.jsonl'), WindowsPath('data/teacher/pool-numeric2.truth.jsonl'), WindowsPath('data/teacher/pool-security.truth.jsonl'), WindowsPath('data/teacher/pool-conditions.truth.jsonl')]",
+  "extra_eval": "[WindowsPath('data/teacher/eval-26b.jsonl')]",
+  "base": "models\\Qwen3.5-2B",
+  "layers": "None",
+  "out": "runs\\mini-2b-v05-cond",
+  "questions": "40000",
+  "epochs": "1.0",
+  "lr": "0.0001",
+  "readout_lr": "0.0005",
+  "rank": "64",
+  "max_length": "1024",
+  "max_tokens": "8192",
+  "eval_every": "0",
+  "seed": "0",
+  "device": "cuda",
+  "checkpointing": "True",
+  "eval_limit": "None",
+  "init": "runs\\mini-2b-v05\\mini.pt",
+  "weight": "['pool-gen4.flash=3', 'pool-numeric.truth=2', 'pool-numeric2.truth=2', 'pool-security.truth=2', 'pool-conditions.truth=6']"
+ },
+ "result": {
+  "held_out": {
+   "T=1.0": {
+    "n": 3454,
+    "agree": 0.7756,
+    "coverage": 0.7449,
+    "precision": 0.9118
+   },
+   "T=1.5": {
+    "n": 3454,
+    "agree": 0.7195,
+    "coverage": 0.6436,
+    "precision": 0.9469
+   },
+   "T=2.0": {
+    "n": 3454,
+    "agree": 0.6401,
+    "coverage": 0.5469,
+    "precision": 0.9614
+   },
+   "T=3.0": {
+    "n": 3454,
+    "agree": 0.5151,
+    "coverage": 0.4027,
+    "precision": 0.9878
+   },
+   "by_group_T1": {
+    "ALL": {
+     "n": 3454,
+     "agree": 0.7756,
+     "coverage": 0.7449,
+     "precision": 0.9118
+    },
+    "open:noul": {
+     "n": 1577,
+     "agree": 0.6709,
+     "coverage": 0.7521,
+     "precision": 0.8803
+    },
+    "searchOrAsk": {
+     "n": 135,
+     "agree": 0.8222,
+     "coverage": 0.7259,
+     "precision": 0.9388
+    },
+    "memory": {
+     "n": 126,
+     "agree": 0.8968,
+     "coverage": 0.4603,
+     "precision": 0.9138
+    },
+    "open:score": {
+     "n": 14,
+     "agree": 0.5,
+     "coverage": 0.2143,
+     "precision": 0.6667
+    },
+    "dictation": {
+     "n": 35,
+     "agree": 0.8286,
+     "coverage": 0.7143,
+     "precision": 0.88
+    },
+    "open:choice": {
+     "n": 460,
+     "agree": 0.7283,
+     "coverage": 0.6413,
+     "precision": 0.9017
+    },
+    "skills": {
+     "n": 584,
+     "agree": 0.9572,
+     "coverage": 0.976,
+     "precision": 0.9719
+    },
+    "tabs": {
+     "n": 72,
+     "agree": 0.9722,
+     "coverage": 0.8194,
+     "precision": 0.9661
+    },
+    "voiceTarget": {
+     "n": 78,
+     "agree": 0.8718,
+     "coverage": 0.5513,
+     "precision": 0.907
+    },
+    "needsYou": {
+     "n": 113,
+     "agree": 0.9292,
+     "coverage": 0.9558,
+     "precision": 0.9537
+    },
+    "effort": {
+     "n": 149,
+     "agree": 0.8054,
+     "coverage": 0.443,
+     "precision": 0.8636
+    },
+    "agentClicks": {
+     "n": 111,
+     "agree": 0.9369,
+     "coverage": 0.5586,
+     "precision": 0.9194
+    }
+   }
+  },
+  "eval-26b": {
+   "T=1.0": {
+    "n": 348,
+    "agree": 0.9511,
+    "coverage": 0.8764,
+    "precision": 0.9738
+   },
+   "T=1.5": {
+    "n": 348,
+    "agree": 0.908,
+    "coverage": 0.8218,
+    "precision": 0.979
+   },
+   "T=2.0": {
+    "n": 348,
+    "agree": 0.7874,
+    "coverage": 0.6897,
+    "precision": 0.9833
+   },
+   "T=3.0": {
+    "n": 348,
+    "agree": 0.6207,
+    "coverage": 0.5172,
+    "precision": 0.9833
+   },
+   "by_group_T1": {
+    "ALL": {
+     "n": 348,
+     "agree": 0.9511,
+     "coverage": 0.8764,
+     "precision": 0.9738
+    },
+    "open:choice": {
+     "n": 13,
+     "agree": 0.9231,
+     "coverage": 1.0,
+     "precision": 0.9231
+    },
+    "open:noul": {
+     "n": 15,
+     "agree": 0.7333,
+     "coverage": 0.9333,
+     "precision": 0.7857
+    },
+    "eval:needsYou": {
+     "n": 20,
+     "agree": 1.0,
+     "coverage": 1.0,
+     "precision": 1.0
+    },
+    "eval:dictation": {
+     "n": 16,
+     "agree": 0.875,
+     "coverage": 0.375,
+     "precision": 1.0
+    },
+    "eval:agentClicks": {
+     "n": 24,
+     "agree": 1.0,
+     "coverage": 0.6667,
+     "precision": 1.0
+    },
+    "eval:searchOrAsk": {
+     "n": 20,
+     "agree": 0.9,
+     "coverage": 1.0,
+     "precision": 0.9
+    },
+    "eval:voiceTarget": {
+     "n": 12,
+     "agree": 1.0,
+     "coverage": 0.5,
+     "precision": 1.0
+    },
+    "eval:effort": {
+     "n": 24,
+     "agree": 0.9167,
+     "coverage": 0.8333,
+     "precision": 1.0
+    },
+    "eval:memory": {
+     "n": 20,
+     "agree": 1.0,
+     "coverage": 0.5,
+     "precision": 1.0
+    },
+    "eval:tabs": {
+     "n": 24,
+     "agree": 0.8333,
+     "coverage": 0.8333,
+     "precision": 1.0
+    },
+    "eval:skills": {
+     "n": 160,
+     "agree": 0.9875,
+     "coverage": 1.0,
+     "precision": 0.9875
+    }
+   }
+  },
+  "open_unseen": {
+   "T=1.0": {
+    "n": 450,
+    "agree": 0.8867,
+    "coverage": 0.8822,
+    "precision": 0.9723
+   },
+   "T=1.5": {
+    "n": 450,
+    "agree": 0.7911,
+    "coverage": 0.7756,
+    "precision": 0.9771
+   },
+   "T=2.0": {
+    "n": 450,
+    "agree": 0.6311,
+    "coverage": 0.5844,
+    "precision": 0.9962
+   },
+   "T=3.0": {
+    "n": 450,
+    "agree": 0.3133,
+    "coverage": 0.2622,
+    "precision": 1.0
+   },
+   "by_group_T1": {
+    "ALL": {
+     "n": 450,
+     "agree": 0.8867,
+     "coverage": 0.8822,
+     "precision": 0.9723
+    },
+    "open:choice": {
+     "n": 200,
+     "agree": 0.865,
+     "coverage": 0.86,
+     "precision": 0.9651
+    },
+    "open:noul": {
+     "n": 200,
+     "agree": 0.92,
+     "coverage": 0.93,
+     "precision": 0.9839
+    },
+    "open:score": {
+     "n": 50,
+     "agree": 0.84,
+     "coverage": 0.78,
+     "precision": 0.9487
+    }
+   }
+  },
+  "browser_families": {
+   "T=1.0": {
+    "n": 480,
+    "agree": 0.6375,
+    "coverage": 0.6521,
+    "precision": 0.8562
+   },
+   "T=1.5": {
+    "n": 480,
+    "agree": 0.5479,
+    "coverage": 0.5208,
+    "precision": 0.876
+   },
+   "T=2.0": {
+    "n": 480,
+    "agree": 0.4167,
+    "coverage": 0.3625,
+    "precision": 0.8851
+   },
+   "T=3.0": {
+    "n": 480,
+    "agree": 0.2604,
+    "coverage": 0.1562,
+    "precision": 0.9467
+   },
+   "by_group_T1": {
+    "ALL": {
+     "n": 480,
+     "agree": 0.6375,
+     "coverage": 0.6521,
+     "precision": 0.8562
+    },
+    "open:noul": {
+     "n": 204,
+     "agree": 0.6373,
+     "coverage": 0.7402,
+     "precision": 0.8411
+    },
+    "open:choice": {
+     "n": 236,
+     "agree": 0.6695,
+     "coverage": 0.6568,
+     "precision": 0.871
+    },
+    "open:score": {
+     "n": 40,
+     "agree": 0.45,
+     "coverage": 0.175,
+     "precision": 0.8571
+    }
+   }
+  },
+  "browser_families_2": {
+   "T=1.0": {
+    "n": 576,
+    "agree": 0.6181,
+    "coverage": 0.6493,
+    "precision": 0.861
+   },
+   "T=1.5": {
+    "n": 576,
+    "agree": 0.5174,
+    "coverage": 0.5035,
+    "precision": 0.8931
+   },
+   "T=2.0": {
+    "n": 576,
+    "agree": 0.3663,
+    "coverage": 0.3056,
+    "precision": 0.9375
+   },
+   "T=3.0": {
+    "n": 576,
+    "agree": 0.1806,
+    "coverage": 0.092,
+    "precision": 0.9811
+   },
+   "by_group_T1": {
+    "ALL": {
+     "n": 576,
+     "agree": 0.6181,
+     "coverage": 0.6493,
+     "precision": 0.861
+    },
+    "open:choice": {
+     "n": 400,
+     "agree": 0.605,
+     "coverage": 0.6375,
+     "precision": 0.8549
+    },
+    "open:noul": {
+     "n": 160,
+     "agree": 0.6562,
+     "coverage": 0.6937,
+     "precision": 0.8649
+    },
+    "open:score": {
+     "n": 16,
+     "agree": 0.5625,
+     "coverage": 0.5,
+     "precision": 1.0
+    }
+   }
+  },
+  "browser_families_3": {
+   "T=1.0": {
+    "n": 576,
+    "agree": 0.6493,
+    "coverage": 0.7344,
+    "precision": 0.8369
+   },
+   "T=1.5": {
+    "n": 576,
+    "agree": 0.5816,
+    "coverage": 0.6146,
+    "precision": 0.8672
+   },
+   "T=2.0": {
+    "n": 576,
+    "agree": 0.441,
+    "coverage": 0.4219,
+    "precision": 0.8971
+   },
+   "T=3.0": {
+    "n": 576,
+    "agree": 0.2014,
+    "coverage": 0.1493,
+    "precision": 0.8837
+   },
+   "by_group_T1": {
+    "ALL": {
+     "n": 576,
+     "agree": 0.6493,
+     "coverage": 0.7344,
+     "precision": 0.8369
+    },
+    "open:choice": {
+     "n": 336,
+     "agree": 0.6577,
+     "coverage": 0.6815,
+     "precision": 0.9039
+    },
+    "open:noul": {
+     "n": 240,
+     "agree": 0.6375,
+     "coverage": 0.8083,
+     "precision": 0.7577
+    }
+   }
+  },
+  "numeric": {
+   "T=1.0": {
+    "n": 1280,
+    "agree": 0.5969,
+    "coverage": 0.707,
+    "precision": 0.8442
+   },
+   "T=1.5": {
+    "n": 1280,
+    "agree": 0.5258,
+    "coverage": 0.5969,
+    "precision": 0.8809
+   },
+   "T=2.0": {
+    "n": 1280,
+    "agree": 0.4836,
+    "coverage": 0.5281,
+    "precision": 0.9157
+   },
+   "T=3.0": {
+    "n": 1280,
+    "agree": 0.4125,
+    "coverage": 0.4266,
+    "precision": 0.967
+   },
+   "by_group_T1": {
+    "ALL": {
+     "n": 1280,
+     "agree": 0.5969,
+     "coverage": 0.707,
+     "precision": 0.8442
+    },
+    "open:noul": {
+     "n": 1220,
+     "agree": 0.6262,
+     "coverage": 0.7418,
+     "precision": 0.8442
+    },
+    "open:choice": {
+     "n": 60,
+     "agree": 0.0,
+     "coverage": 0.0,
+     "precision": null
+    }
+   }
+  },
+  "numeric2": {
+   "T=1.0": {
+    "n": 1400,
+    "agree": 0.2164,
+    "coverage": 0.27,
+    "precision": 0.8016
+   },
+   "T=1.5": {
+    "n": 1400,
+    "agree": 0.1436,
+    "coverage": 0.1607,
+    "precision": 0.8933
+   },
+   "T=2.0": {
+    "n": 1400,
+    "agree": 0.0921,
+    "coverage": 0.1007,
+    "precision": 0.9149
+   },
+   "T=3.0": {
+    "n": 1400,
+    "agree": 0.0443,
+    "coverage": 0.045,
+    "precision": 0.9841
+   },
+   "by_group_T1": {
+    "ALL": {
+     "n": 1400,
+     "agree": 0.2164,
+     "coverage": 0.27,
+     "precision": 0.8016
+    },
+    "open:noul": {
+     "n": 1160,
+     "agree": 0.2112,
+     "coverage": 0.2733,
+     "precision": 0.7729
+    },
+    "open:choice": {
+     "n": 240,
+     "agree": 0.2417,
+     "coverage": 0.2542,
+     "precision": 0.9508
+    }
+   }
+  },
+  "security": {
+   "T=1.0": {
+    "n": 1000,
+    "agree": 0.897,
+    "coverage": 0.955,
+    "precision": 0.9393
+   },
+   "T=1.5": {
+    "n": 1000,
+    "agree": 0.878,
+    "coverage": 0.933,
+    "precision": 0.9411
+   },
+   "T=2.0": {
+    "n": 1000,
+    "agree": 0.85,
+    "coverage": 0.898,
+    "precision": 0.9465
+   },
+   "T=3.0": {
+    "n": 1000,
+    "agree": 0.779,
+    "coverage": 0.81,
+    "precision": 0.9617
+   },
+   "by_group_T1": {
+    "ALL": {
+     "n": 1000,
+     "agree": 0.897,
+     "coverage": 0.955,
+     "precision": 0.9393
+    },
+    "open:noul": {
+     "n": 1000,
+     "agree": 0.897,
+     "coverage": 0.955,
+     "precision": 0.9393
+    }
+   }
+  },
+  "conditions": {
+   "T=1.0": {
+    "n": 960,
+    "agree": 0.7146,
+    "coverage": 0.874,
+    "precision": 0.8176
+   },
+   "T=1.5": {
+    "n": 960,
+    "agree": 0.6594,
+    "coverage": 0.7833,
+    "precision": 0.8418
+   },
+   "T=2.0": {
+    "n": 960,
+    "agree": 0.5938,
+    "coverage": 0.6781,
+    "precision": 0.8756
+   },
+   "T=3.0": {
+    "n": 960,
+    "agree": 0.4083,
+    "coverage": 0.4333,
+    "precision": 0.9423
+   },
+   "by_group_T1": {
+    "ALL": {
+     "n": 960,
+     "agree": 0.7146,
+     "coverage": 0.874,
+     "precision": 0.8176
+    },
+    "open:noul": {
+     "n": 960,
+     "agree": 0.7146,
+     "coverage": 0.874,
+     "precision": 0.8176
+    }
+   }
+  }
+ }
+}

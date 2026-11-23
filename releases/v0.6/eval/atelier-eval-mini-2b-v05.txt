@@ -1,0 +1,39 @@
+﻿
+ RUN  v5.1.0 C:/Users/senne/github/atelier
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > needsYou
+atelier-mini-2b-v05 (custom) needsYou: rule alone 5/10, with the model 9/10; 8/8 right when sure (100%), unsure on 2, 0 flipped with the order, 327 ms median and 387 ms at the 90th percentile
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > dictation
+atelier-mini-2b-v05 (custom) dictation: rule alone 4/8, with the model 6/8; 2/2 right when sure (100%), unsure on 6, 0 flipped with the order, 331 ms median and 343 ms at the 90th percentile
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > agentClicks
+atelier-mini-2b-v05 (custom) agentClicks: rule alone 5/12, with the model 12/12; 8/8 right when sure (100%), unsure on 4, 0 flipped with the order, 586 ms median and 601 ms at the 90th percentile
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > searchOrAsk
+atelier-mini-2b-v05 (custom) searchOrAsk: rule alone 5/10, with the model 10/10; 10/10 right when sure (100%), unsure on 0, 0 flipped with the order, 361 ms median and 395 ms at the 90th percentile
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > voiceTarget
+atelier-mini-2b-v05 (custom) voiceTarget: rule alone 3/6, with the model 6/6; 3/3 right when sure (100%), unsure on 3, 0 flipped with the order, 346 ms median and 353 ms at the 90th percentile
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > effort
+atelier-mini-2b-v05 (custom) effort: rule alone 3/12, with the model 11/12; 10/10 right when sure (100%), unsure on 2, 0 flipped with the order, 389 ms median and 443 ms at the 90th percentile
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > memory
+atelier-mini-2b-v05 (custom) memory: rule alone 5/10, with the model 10/10; 5/5 right when sure (100%), unsure on 5, 0 flipped with the order, 384 ms median and 423 ms at the 90th percentile
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > tabs
+atelier-mini-2b-v05 (custom) tabs: rule alone 0/12, with the model 10/12; 10/10 right when sure (100%), unsure on 2, 0 flipped with the order, 707 ms median and 757 ms at the 90th percentile
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > skills
+atelier-mini-2b-v05 (custom) skills: rule alone 2/10, with the model 10/10; 10/10 right when sure, unsure on 0, 2175 ms median and 2228 ms at the 90th percentile
+
+stdout | tests/decisionsEval.test.ts > quick decisions against a real decision model > labeling (the companion’s label_items)
+atelier-mini-2b-v05 (custom) labeling 12 emails in 7979 ms: topic 11/11 right when sure, unsure on 1; today 11/11 right when sure, unsure on 1
+
+
+ Test Files  1 passed (1)
+      Tests  10 passed (10)
+   Start at  06:27:45
+   Duration  126.61s (tests 96%, transform 3%, import 1%)
+

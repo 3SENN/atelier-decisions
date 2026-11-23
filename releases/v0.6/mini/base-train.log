@@ -1,0 +1,130 @@
+left out 3420 requests that share a text with Atelier's eval cases
+195939 training questions (76 over 1024 tokens dropped), 3514 held out; encoded in 154s; mean length 194 tokens
+Loading weights:   0%|          | 0/617 [00:00<?, ?it/s]Loading weights:   2%|2         | 14/617 [00:00<00:05, 113.12it/s]Loading weights:   4%|4         | 26/617 [00:00<00:05, 114.40it/s]Loading weights:   6%|6         | 38/617 [00:00<00:05, 113.37it/s]Loading weights:   8%|8         | 50/617 [00:00<00:06, 90.83it/s] Loading weights:  10%|9         | 60/617 [00:00<00:06, 85.65it/s]Loading weights:  11%|#1        | 69/617 [00:00<00:07, 74.83it/s]Loading weights:  13%|#3        | 82/617 [00:00<00:06, 79.96it/s]Loading weights:  15%|#4        | 91/617 [00:01<00:06, 80.35it/s]Loading weights:  16%|#6        | 100/617 [00:01<00:07, 70.02it/s]Loading weights:  18%|#7        | 108/617 [00:01<00:08, 63.38it/s]Loading weights:  19%|#8        | 115/617 [00:01<00:08, 61.77it/s]Loading weights:  20%|#9        | 122/617 [00:01<00:09, 52.08it/s]Loading weights:  21%|##1       | 130/617 [00:01<00:08, 56.23it/s]Loading weights:  22%|##2       | 136/617 [00:01<00:08, 55.50it/s]Loading weights:  25%|##5       | 156/617 [00:02<00:05, 90.08it/s]Loading weights:  30%|##9       | 185/617 [00:02<00:03, 137.31it/s]Loading weights:  35%|###4      | 214/617 [00:02<00:02, 177.18it/s]Loading weights:  38%|###7      | 234/617 [00:02<00:02, 172.91it/s]Loading weights: 100%|##########| 617/617 [00:02<00:00, 260.30it/s]
+blocks 24, body 1373M, 186 adapted linears, trainable 67.8M
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+step 0/4716 loss 2.3790 0.2 q/s ~12724 min left, peak 6.2 GiB
+step 50/4716 loss 1.8380 4.5 q/s ~709 min left, peak 6.7 GiB
+step 100/4716 loss 1.1720 5.5 q/s ~565 min left, peak 6.7 GiB
+step 150/4716 loss 0.9513 6.0 q/s ~509 min left, peak 6.7 GiB
+step 200/4716 loss 0.9218 4.8 q/s ~635 min left, peak 6.7 GiB
+step 250/4716 loss 0.8800 5.2 q/s ~582 min left, peak 6.7 GiB
+step 300/4716 loss 0.8293 5.6 q/s ~546 min left, peak 6.7 GiB
+step 350/4716 loss 0.7819 5.8 q/s ~518 min left, peak 6.7 GiB
+step 400/4716 loss 0.7512 5.8 q/s ~513 min left, peak 6.7 GiB
+step 450/4716 loss 0.7767 6.0 q/s ~495 min left, peak 6.7 GiB
+step 500/4716 loss 0.7589 6.1 q/s ~479 min left, peak 6.7 GiB
+step 550/4716 loss 0.7402 6.2 q/s ~466 min left, peak 6.7 GiB
+step 600/4716 loss 0.7318 6.2 q/s ~454 min left, peak 6.7 GiB
+step 650/4716 loss 0.6932 6.3 q/s ~443 min left, peak 6.7 GiB
+step 700/4716 loss 0.6663 6.4 q/s ~433 min left, peak 6.7 GiB
+step 750/4716 loss 0.6367 6.5 q/s ~424 min left, peak 6.7 GiB
+step 800/4716 loss 0.6397 6.6 q/s ~415 min left, peak 6.7 GiB
+step 850/4716 loss 0.6875 6.6 q/s ~407 min left, peak 6.7 GiB
+step 900/4716 loss 0.6221 6.7 q/s ~399 min left, peak 6.7 GiB
+step 950/4716 loss 0.6137 6.7 q/s ~392 min left, peak 6.7 GiB
+step 1000/4716 loss 0.5934 6.7 q/s ~384 min left, peak 6.7 GiB
+step 1050/4716 loss 0.6199 6.8 q/s ~377 min left, peak 6.7 GiB
+step 1100/4716 loss 0.5943 6.8 q/s ~371 min left, peak 6.7 GiB
+step 1150/4716 loss 0.6049 6.8 q/s ~364 min left, peak 6.7 GiB
+step 1200/4716 loss 0.5902 6.8 q/s ~358 min left, peak 6.7 GiB
+step 1250/4716 loss 0.6104 6.8 q/s ~351 min left, peak 6.7 GiB
+step 1300/4716 loss 0.5495 6.9 q/s ~345 min left, peak 6.7 GiB
+step 1350/4716 loss 0.6038 6.9 q/s ~339 min left, peak 6.7 GiB
+step 1400/4716 loss 0.5737 6.9 q/s ~333 min left, peak 6.7 GiB
+step 1450/4716 loss 0.5485 6.9 q/s ~327 min left, peak 6.7 GiB
+step 1500/4716 loss 0.5543 7.0 q/s ~321 min left, peak 6.7 GiB
+step 1550/4716 loss 0.5755 7.0 q/s ~315 min left, peak 6.7 GiB
+step 1600/4716 loss 0.5371 7.0 q/s ~309 min left, peak 6.7 GiB
+  [step 1600] held_out               n= 3514 agree 0.669  decides 59%  right when deciding 0.901
+  [step 1600] eval-26b               n=  348 agree 0.868  decides 80%  right when deciding 0.9606
+  [step 1600] open_unseen            n=  450 agree 0.802  decides 79%  right when deciding 0.9691
+  [step 1600] browser_families       n=  480 agree 0.435  decides 44%  right when deciding 0.7972
+  [step 1600] browser_families_2     n=  576 agree 0.366  decides 33%  right when deciding 0.883
+  [step 1600] browser_families_3     n=  576 agree 0.429  decides 46%  right when deciding 0.8045
+  [step 1600] numeric                n= 1280 agree 0.460  decides 55%  right when deciding 0.8414
+  [step 1600] numeric2               n= 1400 agree 0.107  decides 16%  right when deciding 0.6818
+  [step 1600] security               n= 1000 agree 0.815  decides 86%  right when deciding 0.9466
+step 1650/4716 loss 0.5455 6.8 q/s ~313 min left, peak 6.7 GiB
+step 1700/4716 loss 0.4958 6.8 q/s ~307 min left, peak 6.7 GiB
+step 1750/4716 loss 0.4937 6.9 q/s ~301 min left, peak 6.7 GiB
+step 1800/4716 loss 0.5063 6.9 q/s ~295 min left, peak 6.7 GiB
+step 1850/4716 loss 0.4953 6.9 q/s ~289 min left, peak 6.7 GiB
+step 1900/4716 loss 0.4849 6.9 q/s ~283 min left, peak 6.7 GiB
+step 1950/4716 loss 0.5093 7.0 q/s ~277 min left, peak 6.7 GiB
+step 2000/4716 loss 0.4888 7.0 q/s ~271 min left, peak 6.7 GiB
+step 2050/4716 loss 0.4706 7.0 q/s ~266 min left, peak 6.7 GiB
+step 2100/4716 loss 0.4654 7.0 q/s ~260 min left, peak 6.7 GiB
+step 2150/4716 loss 0.4780 7.0 q/s ~254 min left, peak 6.7 GiB
+step 2200/4716 loss 0.4681 7.0 q/s ~249 min left, peak 6.7 GiB
+step 2250/4716 loss 0.4806 7.1 q/s ~243 min left, peak 6.7 GiB
+step 2300/4716 loss 0.4647 7.1 q/s ~238 min left, peak 6.7 GiB
+step 2350/4716 loss 0.4381 7.1 q/s ~233 min left, peak 6.7 GiB
+step 2400/4716 loss 0.4456 7.1 q/s ~227 min left, peak 6.7 GiB
+step 2450/4716 loss 0.4265 7.1 q/s ~222 min left, peak 6.7 GiB
+step 2500/4716 loss 0.4092 7.1 q/s ~217 min left, peak 6.7 GiB
+step 2550/4716 loss 0.4489 7.1 q/s ~211 min left, peak 6.7 GiB
+step 2600/4716 loss 0.3928 7.2 q/s ~206 min left, peak 6.7 GiB
+step 2650/4716 loss 0.3597 7.1 q/s ~201 min left, peak 6.7 GiB
+step 2700/4716 loss 0.3579 7.2 q/s ~196 min left, peak 6.7 GiB
+step 2750/4716 loss 0.3894 7.2 q/s ~191 min left, peak 6.7 GiB
+step 2800/4716 loss 0.3862 7.2 q/s ~185 min left, peak 6.7 GiB
+step 2850/4716 loss 0.3551 7.2 q/s ~180 min left, peak 6.7 GiB
+step 2900/4716 loss 0.4017 7.2 q/s ~175 min left, peak 6.7 GiB
+step 2950/4716 loss 0.3908 7.2 q/s ~170 min left, peak 6.7 GiB
+step 3000/4716 loss 0.3651 7.2 q/s ~165 min left, peak 6.7 GiB
+step 3050/4716 loss 0.3451 7.2 q/s ~160 min left, peak 6.7 GiB
+step 3100/4716 loss 0.3076 7.2 q/s ~155 min left, peak 6.7 GiB
+step 3150/4716 loss 0.3424 7.2 q/s ~150 min left, peak 6.7 GiB
+step 3200/4716 loss 0.3114 7.2 q/s ~145 min left, peak 6.7 GiB
+  [step 3200] held_out               n= 3514 agree 0.739  decides 67%  right when deciding 0.9128
+  [step 3200] eval-26b               n=  348 agree 0.957  decides 88%  right when deciding 0.9739
+  [step 3200] open_unseen            n=  450 agree 0.822  decides 82%  right when deciding 0.9675
+  [step 3200] browser_families       n=  480 agree 0.644  decides 70%  right when deciding 0.8136
+  [step 3200] browser_families_2     n=  576 agree 0.580  decides 65%  right when deciding 0.809
+  [step 3200] browser_families_3     n=  576 agree 0.627  decides 72%  right when deciding 0.8184
+  [step 3200] numeric                n= 1280 agree 0.514  decides 55%  right when deciding 0.9268
+  [step 3200] numeric2               n= 1400 agree 0.122  decides 14%  right when deciding 0.855
+  [step 3200] security               n= 1000 agree 0.884  decides 95%  right when deciding 0.9286
+step 3250/4716 loss 0.3125 7.1 q/s ~143 min left, peak 6.7 GiB
+step 3300/4716 loss 0.3331 7.2 q/s ~138 min left, peak 6.7 GiB
+step 3350/4716 loss 0.3009 7.2 q/s ~133 min left, peak 6.7 GiB
+step 3400/4716 loss 0.2998 7.2 q/s ~128 min left, peak 6.7 GiB
+step 3450/4716 loss 0.3015 7.2 q/s ~123 min left, peak 6.7 GiB
+step 3500/4716 loss 0.2999 7.2 q/s ~118 min left, peak 6.7 GiB
+step 3550/4716 loss 0.2777 7.2 q/s ~113 min left, peak 6.7 GiB
+step 3600/4716 loss 0.3343 7.2 q/s ~108 min left, peak 6.7 GiB
+step 3650/4716 loss 0.3117 7.2 q/s ~103 min left, peak 6.7 GiB
+step 3700/4716 loss 0.3095 7.2 q/s ~98 min left, peak 6.7 GiB
+step 3750/4716 loss 0.3016 7.2 q/s ~93 min left, peak 6.7 GiB
+step 3800/4716 loss 0.2943 7.2 q/s ~88 min left, peak 6.7 GiB
+step 3850/4716 loss 0.2826 7.2 q/s ~83 min left, peak 6.7 GiB
+step 3900/4716 loss 0.2666 7.2 q/s ~78 min left, peak 6.7 GiB
+step 3950/4716 loss 0.2493 7.2 q/s ~73 min left, peak 6.7 GiB
+step 4000/4716 loss 0.2433 7.2 q/s ~69 min left, peak 6.7 GiB
+step 4050/4716 loss 0.2501 7.2 q/s ~64 min left, peak 6.7 GiB
+step 4100/4716 loss 0.2675 7.2 q/s ~59 min left, peak 6.7 GiB
+step 4150/4716 loss 0.2813 7.3 q/s ~54 min left, peak 6.7 GiB
+step 4200/4716 loss 0.2930 7.3 q/s ~49 min left, peak 6.7 GiB
+step 4250/4716 loss 0.2702 7.3 q/s ~44 min left, peak 6.7 GiB
+step 4300/4716 loss 0.2498 7.3 q/s ~40 min left, peak 6.7 GiB
+step 4350/4716 loss 0.2563 7.3 q/s ~35 min left, peak 6.7 GiB
+step 4400/4716 loss 0.2355 7.3 q/s ~30 min left, peak 6.7 GiB
+step 4450/4716 loss 0.2301 7.3 q/s ~25 min left, peak 6.7 GiB
+step 4500/4716 loss 0.2329 7.3 q/s ~20 min left, peak 6.7 GiB
+step 4550/4716 loss 0.2412 7.3 q/s ~16 min left, peak 6.7 GiB
+step 4600/4716 loss 0.2383 7.3 q/s ~11 min left, peak 6.7 GiB
+step 4650/4716 loss 0.2598 7.3 q/s ~6 min left, peak 6.7 GiB
+step 4700/4716 loss 0.2368 7.3 q/s ~1 min left, peak 6.7 GiB
+step 4715/4716 loss 0.2487 7.3 q/s ~0 min left, peak 6.7 GiB
+== final
+  [final] held_out               n= 3514 agree 0.775  decides 70%  right when deciding 0.9252
+  [final] eval-26b               n=  348 agree 0.951  decides 88%  right when deciding 0.9738
+  [final] open_unseen            n=  450 agree 0.893  decides 89%  right when deciding 0.9724
+  [final] browser_families       n=  480 agree 0.673  decides 71%  right when deciding 0.8496
+  [final] browser_families_2     n=  576 agree 0.622  decides 67%  right when deciding 0.842
+  [final] browser_families_3     n=  576 agree 0.644  decides 73%  right when deciding 0.8318
+  [final] numeric                n= 1280 agree 0.597  decides 67%  right when deciding 0.8873
+  [final] numeric2               n= 1400 agree 0.213  decides 27%  right when deciding 0.7905
+  [final] security               n= 1000 agree 0.906  decides 96%  right when deciding 0.9389
+saved to runs\mini-2b-v05

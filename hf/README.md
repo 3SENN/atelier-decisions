@@ -20,6 +20,7 @@ tags:
 base_model:
   - jhu-clsp/mmBERT-small
   - Qwen/Qwen3.5-0.8B
+  - Qwen/Qwen3.5-2B
 datasets:
   - AmazonScience/massive
   - allenai/WildChat-1M
@@ -38,13 +39,13 @@ which skill fits. They run on your computer and send nothing anywhere. When they
 
 - **atelier-nano** (`model/`): mmBERT-small, 22 layers, int8 ONNX with a 4-bit embedding table. **54 MB, about 10 ms
   a question** on an ordinary CPU (ONNX Runtime). Built into Atelier.
-- **atelier-mini** (`mini/`): Qwen3.5-0.8B read the way a decider reads (non-causal attention, a 255-code readout),
-  as a llama.cpp GGUF. **515 MB, 0.14-0.33 s a question** on the CPU. An optional download in Atelier, for what the
-  nano declines or is unsure of.
+- **atelier-mini** (`mini/`): Qwen3.5-2B (v0.6; Qwen3.5-0.8B in v0.4 and v0.5) read the way a decider reads
+  (non-causal attention, a 255-code readout), as a llama.cpp GGUF. **1.3 GB, 0.33-0.71 s a question** on the CPU
+  (v0.5: 515 MB, 0.14-0.33 s). An optional download in Atelier, for what the nano declines or is unsure of.
 
 Both are distilled from Perplexity's [pplx-decider-flash-v1.3](https://huggingface.co/perplexity-ai/pplx-decider-flash-v1.3)
-(and checked against [pplx-decider-v1.3](https://huggingface.co/perplexity-ai/pplx-decider-v1.3)), and from numeric
-and security questions whose answers are computed or known by construction.
+(and checked against [pplx-decider-v1.3](https://huggingface.co/perplexity-ai/pplx-decider-v1.3)), and from numeric,
+security and rules questions whose answers are computed or known by construction.
 
 **The code, the data builders, the training and every measurement are on GitHub:
 [3SENN/atelier-decisions](https://github.com/3SENN/atelier-decisions).** This repository holds the files too large
@@ -57,6 +58,7 @@ file with its size and SHA-256, and its `MODEL_CARD.md` says what changed, how i
 
 | Version | What's new | Model card |
 |---|---|---|
+| v0.6 | nano v0.3, then mini v0.6: Qwen3.5-2B, then rules applied to what's on a page | [MODEL_CARD.md](releases/v0.6/MODEL_CARD.md) |
 | v0.5 | nano v0.3, then mini v0.5: retrained with security and multi-step number questions | [MODEL_CARD.md](releases/v0.5/MODEL_CARD.md) |
 | v0.4 | nano v0.3, then the first atelier-mini | [MODEL_CARD.md](releases/v0.4/MODEL_CARD.md) |
 | v0.3 | nano: 22 layers and 480 browser question families | [MODEL_CARD.md](releases/v0.3/MODEL_CARD.md) |
@@ -75,7 +77,8 @@ In each version:
 
 ## Use
 
-Download one version (all of v0.5 is about 1 GB; add `model/*` or `mini/*` to the path to take less):
+Download one version (all of v0.5 is about 1 GB, v0.6 about 2 GB; add `model/*` or `mini/*` to the path to take
+less):
 
 ```bash
 hf download 3SENN/atelier-decisions --include "releases/v0.5/*" --local-dir .
@@ -95,20 +98,24 @@ answer Atelier's questions, plus open questions in the same format (the mini).
 
 ## What they can't do
 
-From the v0.5 model card, in short:
+From the v0.6 model card, in short:
 
-- **Not a guard on their own.** The mini is sure and wrong on 6% of security questions (16.5% on lookalike senders,
-  15% on whether a summary is faithful). Atelier never relies on it alone.
+- **Not a guard on their own.** The mini is sure and wrong on 5.4% of security questions (20% on whether a summary
+  is faithful, 10% on lookalike senders) and on 19% of rules questions of kinds it never trained on. Atelier never
+  relies on it alone.
 - **Arithmetic in several steps** (percentages, VAT, split bills): the mini declines and leaves it to the rule.
-- **New kinds of browser questions:** right 81-83% of the time when the mini decides; the nano declines them.
+- **New kinds of browser questions:** right 87-89% of the time when the mini decides (v0.5: 81-83%); the nano
+  declines them.
 - **Languages:** trained on English, Dutch, German, French and Spanish. The nano declines text that is mostly not
-  Latin script; the mini decides 22% of 20 unseen languages.
+  Latin script; the mini decides 26% of 20 unseen languages.
+- **Size:** v0.6's mini is a 1.3 GB download and uses up to 2 GB of memory; v0.5's 0.8B is the lighter one.
 
 ## Licence
 
 The weights are licensed under the Apache License 2.0. atelier-nano is built from
 [mmBERT-small](https://huggingface.co/jhu-clsp/mmBERT-small) (MIT), atelier-mini from
-[Qwen3.5-0.8B](https://huggingface.co/Qwen/Qwen3.5-0.8B) (Apache-2.0, changed as described above), and both learned
+[Qwen3.5-0.8B](https://huggingface.co/Qwen/Qwen3.5-0.8B) and [Qwen3.5-2B](https://huggingface.co/Qwen/Qwen3.5-2B)
+(Apache-2.0, changed as described above), and both learned
 from the pplx-decider teachers (Apache-2.0).
 
 In the `data/` archives, the data written for this project is CC BY 4.0. Text from other datasets keeps its own

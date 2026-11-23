@@ -54,7 +54,7 @@ def main() -> None:
     parser.add_argument("--gguf", type=Path)
     parser.add_argument("--file", default="model.emb4.int8.onnx")
     parser.add_argument("--labels", type=Path)
-    parser.add_argument("--suite", default="numeric", help="numeric (data/build_numeric.py) or numeric2 (multi-step, data/build_numeric2.py)")
+    parser.add_argument("--suite", default="numeric", help="numeric (data/build_numeric.py), numeric2 (multi-step, data/build_numeric2.py), security (data/build_security.py) or conditions (rules applied to specifics, data/build_conditions.py)")
     args = parser.parse_args()
     if args.labels:
         model = Labels(args.labels)

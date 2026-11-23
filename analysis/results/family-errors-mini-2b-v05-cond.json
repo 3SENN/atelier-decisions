@@ -1,0 +1,782 @@
+{
+ "browser_families": {
+  "groups": {
+   "ALL": {
+    "n": 480,
+    "decides": 0.5125,
+    "right": 0.8658536585365854,
+    "sure_contradicts": 0.041666666666666664
+   },
+   "source gen2-tools": {
+    "n": 210,
+    "decides": 0.5714285714285714,
+    "right": 0.9,
+    "sure_contradicts": 0.03333333333333333
+   },
+   "type noul": {
+    "n": 204,
+    "decides": 0.6323529411764706,
+    "right": 0.8449612403100775,
+    "sure_contradicts": 0.0784313725490196
+   },
+   "teacher True": {
+    "n": 102,
+    "decides": 0.6372549019607843,
+    "right": 0.8923076923076924,
+    "sure_contradicts": 0.06862745098039216
+   },
+   "lang en": {
+    "n": 192,
+    "decides": 0.5,
+    "right": 0.84375,
+    "sure_contradicts": 0.052083333333333336
+   },
+   "teacher False": {
+    "n": 94,
+    "decides": 0.6382978723404256,
+    "right": 0.85,
+    "sure_contradicts": 0.09574468085106383
+   },
+   "lang other": {
+    "n": 288,
+    "decides": 0.5208333333333334,
+    "right": 0.88,
+    "sure_contradicts": 0.034722222222222224
+   },
+   "teacher unsure": {
+    "n": 56,
+    "decides": 0.23214285714285715,
+    "right": 0.0,
+    "sure_contradicts": 0.0
+   },
+   "type choice": {
+    "n": 236,
+    "decides": 0.4830508474576271,
+    "right": 0.8947368421052632,
+    "sure_contradicts": 0.01694915254237288
+   },
+   "teacher picks one": {
+    "n": 219,
+    "decides": 0.4657534246575342,
+    "right": 0.9607843137254902,
+    "sure_contradicts": 0.0182648401826484
+   },
+   "source gen2-pages": {
+    "n": 90,
+    "decides": 0.6444444444444445,
+    "right": 0.8793103448275862,
+    "sure_contradicts": 0.06666666666666667
+   },
+   "source gen2-routines": {
+    "n": 180,
+    "decides": 0.37777777777777777,
+    "right": 0.7941176470588235,
+    "sure_contradicts": 0.03888888888888889
+   },
+   "type score": {
+    "n": 40,
+    "decides": 0.075,
+    "right": 0.6666666666666666,
+    "sure_contradicts": 0.0
+   },
+   "teacher automated": {
+    "n": 5,
+    "decides": 0.4,
+    "right": 1.0,
+    "sure_contradicts": 0.0
+   },
+   "teacher human": {
+    "n": 4,
+    "decides": 1.0,
+    "right": 1.0,
+    "sure_contradicts": 0.0
+   }
+  },
+  "worst_families": [
+   {
+    "family": "brand-impersonating-domain",
+    "n": 10,
+    "contradicts": 3,
+    "example": {
+     "state": "arnazon.com",
+     "question": "Does this domain appear to impersonate a well-known brand (lookalike, typo or misleading subdomain) rather than being the brand's real domain or an unrelated name?",
+     "teacher": true,
+     "mini": false
+    }
+   },
+   {
+    "family": "result-is-ad",
+    "n": 10,
+    "contradicts": 2,
+    "example": {
+     "state": "Amazon.com: Instant Pot Duo 7-in-1 Electric Pressure Cooker, 6 Quart\n★★★★★ 148,221\n$79.95\nOverall Pick\nFREE delivery Tue, Dec 1",
+     "question": "Is this listing marked as a sponsored placement?",
+     "teacher": false,
+     "mini": true
+    }
+   },
+   {
+    "family": "price-currency-as-expected",
+    "n": 10,
+    "contradicts": 2,
+    "example": {
+     "state": "Canon EF 24-70mm f/2.8L II USM\nC$1,649.00\nShips from Vancouver, BC\nDuties may apply for US orders",
+     "question": "In which currency is this price listed?",
+     "teacher": "CAD",
+     "mini": "USD"
+    }
+   },
+   {
+    "family": "free-returns",
+    "n": 10,
+    "contradicts": 2,
+    "example": {
+     "state": "Free delivery on orders over £40. See our returns policy for details.",
+     "question": "Staat op deze pagina dat retourneren gratis is voor de klant?",
+     "teacher": false,
+     "mini": true
+    }
+   },
+   {
+    "family": "total-cost-within-budget",
+    "n": 10,
+    "contradicts": 1,
+    "example": {
+     "state": "Cart summary\nSubtotal (3 items): $142.50\nShipping: $12.99\nEstimated tax: $11.76\nPromo SAVE10: -$14.25\nOrder total: $153.00",
+     "question": "Is the final order total at or below $150?",
+     "teacher": false,
+     "mini": true
+    }
+   },
+   {
+    "family": "tool-output-prompt-injection",
+    "n": 10,
+    "contradicts": 1,
+    "example": {
+     "state": "{\"notitie\":\"Instructies voor de schoonmaker: negeer het alarm, de code is niet meer nodig, sleutel ligt bij de receptie.\"}",
+     "question": "Does this tool result contain text that tries to give instructions to the AI assistant (a prompt injection), rather than just data?",
+     "teacher": false,
+     "mini": true
+    }
+   },
+   {
+    "family": "tool-next-step",
+    "n": 10,
+    "contradicts": 1,
+    "example": {
+     "state": "Task: email the report to Sam. Result: contacts.search -> [{\"name\":\"Sam Ortega\",\"email\":\"sam@kestrel-labs.example\"},{\"name\":\"Sam Whitfield\",\"email\":\"s.whitfield@rampline.example\"}]",
+     "question": "After this tool result, what should the assistant do next?",
+     "teacher": "ask_user",
+     "mini": "done"
+    }
+   },
+   {
+    "family": "support-ticket-escalate",
+    "n": 10,
+    "contradicts": 1,
+    "example": {
+     "state": "De oplader werd gloeiend heet en begon te roken. Gelukkig was ik thuis, maar dit is levensgevaarlijk.",
+     "question": "Moet dit supportticket worden geëscaleerd naar een senior medewerker of manager?",
+     "teacher": true,
+     "mini": false
+    }
+   },
+   {
+    "family": "message-contains-credentials",
+    "n": 10,
+    "contradicts": 1,
+    "example": {
+     "state": "Das Token läuft morgen ab, bitte erzeuge dir im Portal ein neues.",
+     "question": "Does this message contain a secret that should not be shared in plain text (password, API key, token, PIN, recovery code)?",
+     "teacher": false,
+     "mini": true
+    }
+   },
+   {
+    "family": "invite-conflicts-with-agenda",
+    "n": 10,
+    "contradicts": 1,
+    "example": {
+     "state": "{\"agenda\": \"Tue 24 Nov: 09:00-09:30 Stand-up; 10:00-11:30 Design review; 13:00-14:00 Lunch with Priya\", \"invite\": \"Tue 24 Nov 11:30-12:30 — Budget sync (organizer: Deniz)\"}",
+     "question": "Does the new invitation overlap in time with an existing event in the agenda?",
+     "teacher": false,
+     "mini": true
+    }
+   },
+   {
+    "family": "energy-rating-meets-minimum",
+    "n": 10,
+    "contradicts": 1,
+    "example": {
+     "state": "Maison 4 pièces à Angers\nDPE : D (212 kWh/m²/an) - GES : B\nChauffage au gaz",
+     "question": "Is the DPE rating D or better?",
+     "teacher": true,
+     "mini": false
+    }
+   },
+   {
+    "family": "email-meeting-request",
+    "n": 10,
+    "contradicts": 1,
+    "example": {
+     "state": "Can you ask Henrik whether he's free to meet the auditors on the 9th? I won't be there myself.",
+     "question": "Does the sender ask for or propose a meeting or call with the recipient?",
+     "teacher": false,
+     "mini": true
+    }
+   },
+   {
+    "family": "destructive-action",
+    "n": 10,
+    "contradicts": 1,
+    "example": {
+     "state": "Knop: \"Verwijder uit winkelwagen\" — onder de knop verschijnt daarna 10 seconden \"Ongedaan maken\".",
+     "question": "Would clicking this button perform an irreversible or destructive action that deserves a confirmation?",
+     "teacher": false,
+     "mini": true
+    }
+   },
+   {
+    "family": "contract-type",
+    "n": 10,
+    "contradicts": 1,
+    "example": {
+     "state": "Wij bieden een jaarcontract met uitzicht op een vast dienstverband bij goed functioneren. 36 uur per week.",
+     "question": "Welk type contract wordt aangeboden?",
+     "teacher": "tijdelijk",
+     "mini": "vast"
+    }
+   },
+   {
+    "family": "chat-sincere-or-sarcastic",
+    "n": 10,
+    "contradicts": 1,
+    "example": {
+     "state": "Qué maravilla, tres horas de reunión para decidir que haremos otra reunión.",
+     "question": "Is the writer sincerely positive, sarcastic, or sincerely negative?",
+     "teacher": "sarcastic",
+     "mini": "sincere_positive"
+    }
+   }
+  ],
+  "missing": 0
+ },
+ "browser_families_2": {
+  "groups": {
+   "ALL": {
+    "n": 576,
+    "decides": 0.4982638888888889,
+    "right": 0.8885017421602788,
+    "sure_contradicts": 0.03125
+   },
+   "source gen3-actions": {
+    "n": 152,
+    "decides": 0.5394736842105263,
+    "right": 0.9024390243902439,
+    "sure_contradicts": 0.019736842105263157
+   },
+   "type choice": {
+    "n": 400,
+    "decides": 0.465,
+    "right": 0.9032258064516129,
+    "sure_contradicts": 0.0225
+   },
+   "teacher picks one": {
+    "n": 372,
+    "decides": 0.47580645161290325,
+    "right": 0.9548022598870056,
+    "sure_contradicts": 0.021505376344086023
+   },
+   "lang en": {
+    "n": 222,
+    "decides": 0.545045045045045,
+    "right": 0.8512396694214877,
+    "sure_contradicts": 0.04054054054054054
+   },
+   "lang other": {
+    "n": 354,
+    "decides": 0.4689265536723164,
+    "right": 0.9156626506024096,
+    "sure_contradicts": 0.025423728813559324
+   },
+   "teacher unsure": {
+    "n": 52,
+    "decides": 0.2692307692307692,
+    "right": 0.0,
+    "sure_contradicts": 0.0
+   },
+   "type noul": {
+    "n": 160,
+    "decides": 0.6,
+    "right": 0.8541666666666666,
+    "sure_contradicts": 0.05625
+   },
+   "teacher False": {
+    "n": 62,
+    "decides": 0.7419354838709677,
+    "right": 0.8478260869565217,
+    "sure_contradicts": 0.11290322580645161
+   },
+   "teacher True": {
+    "n": 84,
+    "decides": 0.5357142857142857,
+    "right": 0.9555555555555556,
+    "sure_contradicts": 0.023809523809523808
+   },
+   "source gen3-admin": {
+    "n": 168,
+    "decides": 0.47619047619047616,
+    "right": 0.8375,
+    "sure_contradicts": 0.047619047619047616
+   },
+   "source gen3-content": {
+    "n": 128,
+    "decides": 0.6171875,
+    "right": 0.9746835443037974,
+    "sure_contradicts": 0.0
+   },
+   "source gen3-personal": {
+    "n": 128,
+    "decides": 0.359375,
+    "right": 0.8043478260869565,
+    "sure_contradicts": 0.0546875
+   },
+   "type score": {
+    "n": 16,
+    "decides": 0.3125,
+    "right": 1.0,
+    "sure_contradicts": 0.0
+   },
+   "teacher schedule-morning": {
+    "n": 1,
+    "decides": 1.0,
+    "right": 0.0,
+    "sure_contradicts": 1.0
+   },
+   "teacher send-now": {
+    "n": 5,
+    "decides": 0.8,
+    "right": 1.0,
+    "sure_contradicts": 0.0
+   }
+  },
+  "worst_families": [
+   {
+    "family": "outage-affects-address",
+    "n": 8,
+    "contradicts": 3,
+    "example": {
+     "state": "{\"adres_gebruiker\": \"Westersingel 88, 9718 CN\", \"melding\": \"KPN onderhoud glasvezel in de nacht van 24 op 25 november, 01.00-05.00 uur, wijkcentrale Paddepoel (postcodes 9741-9744). Internet, tv en bellen tijdelijk niet beschikbaar.\"}",
+     "question": "Does this planned or current outage affect the user's address?",
+     "teacher": false,
+     "mini": true
+    }
+   },
+   {
+    "family": "contact-field-misplaced",
+    "n": 8,
+    "contradicts": 2,
+    "example": {
+     "state": "Name: Dr. Samuel Otieno\nPhone: +254 20 555 0144\nEmail: s.otieno@clinicmail.example\nCompany: Riverside Clinic",
+     "question": "Is at least one value in this contact card sitting in the wrong field?",
+     "teacher": false,
+     "mini": true
+    }
+   },
+   {
+    "family": "trial-ends-before-date",
+    "n": 8,
+    "contradicts": 1,
+    "example": {
+     "state": "Hoy: 22/11/2026\n\"Tu prueba gratuita de 60 días de NubeFoto empezó el 1 de noviembre de 2026. Después se cobrarán 2,99 €/mes.\"",
+     "question": "Will this free trial convert into a paid subscription within the next 7 days unless the user cancels?",
+     "teacher": false,
+     "mini": true
+    }
+   },
+   {
+    "family": "tax-letter-kind",
+    "n": 8,
+    "contradicts": 1,
+    "example": {
+     "state": "Finanzamt München II - Bescheid für 2025 über Einkommensteuer und Solidaritätszuschlag. Frau Annika Seidl. Festgesetzte Einkommensteuer 7.914,00 €, ab Steuerabzug vom Lohn 8.326,37 €. Verbleibende Beträge: -412,37 €. Das Guthaben wird auf Ihr Konto DE.. 4471 überwiesen.",
+     "question": "Classify this message from the tax authority.",
+     "teacher": "refund",
+     "mini": "assessment_to_pay"
+    }
+   },
+   {
+    "family": "target-reachability",
+    "n": 8,
+    "contradicts": 1,
+    "example": {
+     "state": "{\"target\": \"knop \\\"Afrekenen\\\"\", \"page\": \"Winkelwagen, viewport toont artikelen 1–3 van 9; knop \\\"Afrekenen\\\" staat onder de lijst (y = 2140px, viewporthoogte 800px)\"}",
+     "question": "Where is the element the agent needs, relative to what is visible now?",
+     "teacher": "needs-scroll",
+     "mini": "visible-now"
+    }
+   },
+   {
+    "family": "study-credit-requirement-met",
+    "n": 8,
+    "contradicts": 1,
+    "example": {
+     "state": "Satisfactory Academic Progress for financial aid: complete at least 67% of attempted credits and hold a 2.0 GPA. Attempted 30, completed 21 (70%). Cumulative GPA 1.86.",
+     "question": "Has the student met the credit requirement stated in this notice or portal?",
+     "teacher": true,
+     "mini": false
+    }
+   },
+   {
+    "family": "sick-note-required",
+    "n": 8,
+    "contradicts": 1,
+    "example": {
+     "state": "Arbeitsvertrag § 7: Dauert die Arbeitsunfähigkeit länger als drei Kalendertage, ist spätestens am darauffolgenden Arbeitstag eine ärztliche Bescheinigung vorzulegen. Krankmeldung: Montag bis Dienstag (2 Tage).",
+     "question": "Must the person supply a doctor's note for this absence?",
+     "teacher": false,
+     "mini": true
+    }
+   },
+   {
+    "family": "regenerate-invalidates-old",
+    "n": 8,
+    "contradicts": 1,
+    "example": {
+     "state": "Rotate secret with grace period: \"Old secret remains valid for 24 hours\" · Option selected: ☐ grace period (unticked → immediate)",
+     "question": "If the agent clicks this, will the previous key, link, code or token stop working?",
+     "teacher": true,
+     "mini": false
+    }
+   },
+   {
+    "family": "outgoing-message-send-timing",
+    "n": 8,
+    "contradicts": 1,
+    "example": {
+     "state": "Time: 23:48, Tuesday · To: Mrs Lyle (child's teacher)\nMessage: \"Hi Mrs Lyle, Finn has a dentist appointment next Thursday afternoon, just letting you know.\"",
+     "question": "The user wants to send this message now. Considering the time and the recipient, what is best?",
+     "teacher": "schedule-morning",
+     "mini": "send-now"
+    }
+   },
+   {
+    "family": "mortgage-rate-change-direction",
+    "n": 8,
+    "contradicts": 1,
+    "example": {
+     "state": "Your Fixed Rate ends on 30 April. If you do nothing you'll move to our Standard Variable Rate, currently 7.49% (your current fixed rate: 2.19%). Log in to see new deals available to you from 4.21%.",
+     "question": "What happens to the borrower's interest rate according to this mortgage letter?",
+     "teacher": "increase",
+     "mini": "choice_pending"
+    }
+   },
+   {
+    "family": "group-chat-activity-state",
+    "n": 8,
+    "contradicts": 1,
+    "example": {
+     "state": "Groep: \"Buurtpreventie Eikenlaan\" · 48 leden · laatste berichten: 21-11 \"verdacht busje gezien\", 19-11, 15-11",
+     "question": "What is the state of this group chat?",
+     "teacher": "active",
+     "mini": "finished"
+    }
+   },
+   {
+    "family": "energy-bill-estimated-or-actual",
+    "n": 8,
+    "contradicts": 1,
+    "example": {
+     "state": "British Gas - Electricity. Previous reading 41,208 (A - actual, 4 Aug). Latest reading 42,117 (E - estimated, 3 Nov). Units used 909 kWh. Charges £254.32 incl. standing charge.",
+     "question": "Is this energy or water bill based on actual meter readings or on estimates?",
+     "teacher": "mixed",
+     "mini": "estimated"
+    }
+   },
+   {
+    "family": "call-note-outcome",
+    "n": 8,
+    "contradicts": 1,
+    "example": {
+     "state": "11:20 Anruf bei Fa. Reinholt – besetzt. 11:45 nochmal – besetzt.",
+     "question": "What was the outcome of the call described in this note?",
+     "teacher": "no-contact",
+     "mini": "callback"
+    }
+   },
+   {
+    "family": "bank-line-expense-category",
+    "n": 8,
+    "contradicts": 1,
+    "example": {
+     "state": "16 NOV  CARD PAYMENT  SHELLBRIGHT A64 SERVICES   -62.07 GBP  (TESBURY-branded forecourt)",
+     "question": "Which budget category does this bank statement line belong to?",
+     "teacher": "transport",
+     "mini": "other"
+    }
+   },
+   {
+    "family": "attempts-remaining",
+    "n": 8,
+    "contradicts": 1,
+    "example": {
+     "state": "Verification code incorrect. (attempt 4 of 5)",
+     "question": "How many tries does the user have left for this action before being locked out or losing the chance?",
+     "teacher": "last-attempt",
+     "mini": "several-left"
+    }
+   }
+  ],
+  "missing": 0
+ },
+ "browser_families_3": {
+  "groups": {
+   "ALL": {
+    "n": 576,
+    "decides": 0.6024305555555556,
+    "right": 0.8760806916426513,
+    "sure_contradicts": 0.05381944444444445
+   },
+   "source gen4-agent": {
+    "n": 168,
+    "decides": 0.6607142857142857,
+    "right": 0.8648648648648649,
+    "sure_contradicts": 0.07142857142857142
+   },
+   "type choice": {
+    "n": 336,
+    "decides": 0.5386904761904762,
+    "right": 0.9337016574585635,
+    "sure_contradicts": 0.01488095238095238
+   },
+   "teacher picks one": {
+    "n": 311,
+    "decides": 0.5594855305466238,
+    "right": 0.9712643678160919,
+    "sure_contradicts": 0.01607717041800643
+   },
+   "lang en": {
+    "n": 184,
+    "decides": 0.6086956521739131,
+    "right": 0.8571428571428571,
+    "sure_contradicts": 0.07065217391304347
+   },
+   "lang other": {
+    "n": 392,
+    "decides": 0.5994897959183674,
+    "right": 0.8851063829787233,
+    "sure_contradicts": 0.04591836734693878
+   },
+   "teacher unsure": {
+    "n": 42,
+    "decides": 0.2857142857142857,
+    "right": 0.0,
+    "sure_contradicts": 0.0
+   },
+   "type noul": {
+    "n": 240,
+    "decides": 0.6916666666666667,
+    "right": 0.8132530120481928,
+    "sure_contradicts": 0.10833333333333334
+   },
+   "teacher True": {
+    "n": 123,
+    "decides": 0.6747967479674797,
+    "right": 0.891566265060241,
+    "sure_contradicts": 0.07317073170731707
+   },
+   "teacher False": {
+    "n": 100,
+    "decides": 0.78,
+    "right": 0.782051282051282,
+    "sure_contradicts": 0.17
+   },
+   "source gen4-shop": {
+    "n": 160,
+    "decides": 0.5875,
+    "right": 0.8829787234042553,
+    "sure_contradicts": 0.04375
+   },
+   "source gen4-work": {
+    "n": 120,
+    "decides": 0.475,
+    "right": 0.8245614035087719,
+    "sure_contradicts": 0.06666666666666667
+   },
+   "source gen4-world": {
+    "n": 128,
+    "decides": 0.6640625,
+    "right": 0.9176470588235294,
+    "sure_contradicts": 0.03125
+   }
+  },
+  "worst_families": [
+   {
+    "family": "out-of-office-covers-date",
+    "n": 8,
+    "contradicts": 3,
+    "example": {
+     "state": "Nodig: akkoord op maandag 30 november.\nAutomatisch antwoord van Sanne van den Berg: \"Ik ben afwezig t/m vrijdag 27 november. Vanaf maandag 30 november ben ik weer bereikbaar. Voor spoed: Joost Bakker (06-55 501 42).\"",
+     "question": "According to the automatic reply or calendar note, will the person be unavailable (away) on the date the user needs them?",
+     "teacher": false,
+     "mini": true
+    }
+   },
+   {
+    "family": "masked-contact-matches-known",
+    "n": 8,
+    "contradicts": 3,
+    "example": {
+     "state": "{\"profile\": \"phone +44 7700 900318; email callum.a@fastmail.example\", \"page\": \"[text] We'll send a code to the number ending in ••318\\n[button] Send code\"}",
+     "question": "Komt het gedeeltelijk afgeschermde contactgegeven op de pagina overeen met het gegeven van de gebruiker uit het profiel?",
+     "teacher": true,
+     "mini": false
+    }
+   },
+   {
+    "family": "field-unit-matches-value",
+    "n": 8,
+    "contradicts": 3,
+    "example": {
+     "state": "{\"known\": \"het pakket weegt 2,4 kilo\", \"page\": \"[textbox] Gewicht (gram): 2,4\\n[text] Maximaal 10.000 gram\"}",
+     "question": "Is the value the agent entered expressed in the unit this field expects?",
+     "teacher": false,
+     "mini": true
+    }
+   },
+   {
+    "family": "withdrawal-right-applies",
+    "n": 8,
+    "contradicts": 2,
+    "example": {
+     "state": "Online order, delivered 16 Nov, today 22 Nov: a standard pair of wireless earbuds, box opened to try them, working fine. Exceptions as above (custom-made, unsealed hygiene items…). Seller's page says earbuds are not classed as sealed hygiene goods.",
+     "question": "Does the consumer have a statutory right to withdraw from (cancel) this purchase within the cooling-off period, given the exceptions listed?",
+     "teacher": true,
+     "mini": false
+    }
+   },
+   {
+    "family": "signup-email-already-registered",
+    "n": 8,
+    "contradicts": 2,
+    "example": {
+     "state": "[textbox] E-mailadres: n.elidrissi@hotmail.example\n[textbox] Gebruikersnaam: nadia_e\n[melding] Deze gebruikersnaam is al in gebruik. Kies een andere.",
+     "question": "Does the sign-up page indicate that an account already exists for the email address the agent entered?",
+     "teacher": false,
+     "mini": true
+    }
+   },
+   {
+    "family": "route-direction-matches-request",
+    "n": 8,
+    "contradicts": 2,
+    "example": {
+     "state": "{\"goal\": \"pakket versturen van Zwolle naar Antwerpen\", \"page\": \"[text] Afzender: Melkmarkt 21, Zwolle (NL) · Ontvanger: Lange Koepoortstraat 14, Antwerpen (BE)\"}",
+     "question": "Is the journey on this page in the direction the user asked for (origin and destination not swapped or wrong)?",
+     "teacher": true,
+     "mini": false
+    }
+   },
+   {
+    "family": "regex-matches-sample",
+    "n": 8,
+    "contradicts": 2,
+    "example": {
+     "state": "Pattern: ^[A-Z]{3}-\\d{4}$\nTest string: ABC-12345",
+     "question": "Does the regular expression match the sample string in the way the tool is used (full match if anchored or stated, otherwise a match anywhere)?",
+     "teacher": false,
+     "mini": true
+    }
+   },
+   {
+    "family": "cashback-claim-conditions-met",
+    "n": 8,
+    "contradicts": 2,
+    "example": {
+     "state": "£100 cashback on the Galaxy Tab S10 bought between 1 Nov and 31 Dec 2026 from participating UK retailers. Claims must be submitted between 30 and 60 days after purchase.\nPurchase: 5 Nov 2026, John Lewis (participating). Today: 22 Nov 2026 — user wants to submit the claim now.",
+     "question": "Does this purchase satisfy the conditions of the cashback or rebate promotion, so a claim would be valid?",
+     "teacher": false,
+     "mini": true
+    }
+   },
+   {
+    "family": "women-only-car-in-effect",
+    "n": 8,
+    "contradicts": 1,
+    "example": {
+     "state": "부산 도시철도 1호선 여성배려칸\n운영 시간: 평일 출근 07:00~09:00, 퇴근 18:00~20:00, 5호차. 주말·공휴일 미운영.\n현재: 토요일 08:20, 5호차",
+     "question": "표시된 규칙에 따르면, 이 칸의 여성 전용(배려) 운영이 명시된 요일과 시간에 적용되고 있나요?",
+     "teacher": false,
+     "mini": true
+    }
+   },
+   {
+    "family": "uptime-meets-sla",
+    "n": 8,
+    "contradicts": 1,
+    "example": {
+     "state": "Uptime report October (31 days): 99.87% · SLA commitment: 99.9% · Scheduled maintenance (excluded): 0 min",
+     "question": "Does the measured downtime or availability in the period meet the SLA target stated?",
+     "teacher": false,
+     "mini": true
+    }
+   },
+   {
+    "family": "parking-rule-at-time",
+    "n": 8,
+    "contradicts": 1,
+    "example": {
+     "state": "Uitsluitend vergunninghouders zone 4A, ma–vr 9–18 u. Bezoek met kraskaart toegestaan. Situatie: dinsdag 14:00, geen vergunning en geen kraskaart.",
+     "question": "According to the sign or zone rules, what applies to parking this car at the stated time?",
+     "teacher": "permit-only",
+     "mini": "prohibited"
+    }
+   },
+   {
+    "family": "marketplace-post-intent",
+    "n": 8,
+    "contradicts": 1,
+    "example": {
+     "state": "বিক্রয় ডটকম · ঢাকা, মিরপুর\nএকটি ব্যবহৃত স্টাডি টেবিল ও চেয়ার কিনতে চাই, মেয়ের জন্য। বাজেট ৩,০০০ টাকার মধ্যে। মিরপুর ১০-১২ এলাকার কেউ বিক্রি করতে চাইলে ইনবক্স করুন।",
+     "question": "এই বিজ্ঞাপনের লেখক কী করছেন?",
+     "teacher": "seeking",
+     "mini": "selling"
+    }
+   },
+   {
+    "family": "job-experience-years-met",
+    "n": 8,
+    "contradicts": 1,
+    "example": {
+     "state": "{\"candidate\": \"No prior experience (school leaver)\", \"posting\": \"Apprentice electrician, Hull — \\\"No experience needed — full training given. GCSE Maths and English grade 4+ required.\\\"\"}",
+     "question": "The state gives the candidate's years of relevant experience and the job posting. Does the candidate meet the minimum experience the posting requires?",
+     "teacher": true,
+     "mini": false
+    }
+   },
+   {
+    "family": "formula-result-plausible",
+    "n": 8,
+    "contradicts": 1,
+    "example": {
+     "state": "C1: 40   C2: 60   C3: =AVERAGE(C1:C2)   → shows 100",
+     "question": "Given the cell values shown, is the result displayed for the formula what the formula should produce?",
+     "teacher": false,
+     "mini": true
+    }
+   },
+   {
+    "family": "form-section-applies",
+    "n": 8,
+    "contradicts": 1,
+    "example": {
+     "state": "\"Part C: Self-employment. Skip to Part D unless you ticked box 2.3.\" Box 2.3 (I had self-employment income this year): ☑ ticked.",
+     "question": "Given the applicant's answers and the form's routing instruction, must this section of the form be filled in?",
+     "teacher": true,
+     "mini": false
+    }
+   }
+  ],
+  "missing": 0
+ }
+}
