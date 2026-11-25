@@ -1,0 +1,8 @@
+# npm run lab -- steps data/pool/steps-test.jsonl (v0.6 nano+mini 2B, M2 Metal, 2026-11-24; zero-shot: no step data in training)
+# 60 Mind2Web train tasks fetched, 7 of 28 sites held out whole: these are the held-out sites' questions. Times are not clean: a flow run shared the server.
+step-click-target      98 questions · right (top answer)   9% · sure   0% · right when sure    - · 2.6 s
+step-operation        124 questions · right (top answer)  56% · sure   2% · right when sure  33% · 1.4 s
+step-option             1 questions · right (top answer) 100% · sure   0% · right when sure    - · 413 ms
+step-type-target       12 questions · right (top answer)  42% · sure  25% · right when sure  33% · 1.4 s
+step-value             20 questions · right (top answer)  55% · sure   5% · right when sure   0% · 630 ms
+

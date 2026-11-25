@@ -1,0 +1,24 @@
+train 24056 steps, test 1500 (synth/lang-unseen 3343, synth/family-unseen 3888, mind2web/site-unseen 965) on mps
+from runs/step-v1 (2232 updates)
+2684 updates (2684 per epoch), 59.6M parameters
+  synth/lang-unseen        n=400   op 92% (sure 100%, right when sure 92%) · element 98% (sure 98%, right 98%) · value 87% · step 85% (sure and right 84%)
+after 671 updates:
+  mind2web/site-unseen     n=500   op 91% (sure 98%, right when sure 91%) · element 55% (sure 85%, right 60%) · value 66% · step 48% (sure and right 45%)
+  synth/family-unseen      n=500   op 78% (sure 99%, right when sure 79%) · element 74% (sure 100%, right 74%) · value 100% · step 64% (sure and right 64%)
+  synth/lang-unseen        n=500   op 99% (sure 100%, right when sure 99%) · element 97% (sure 100%, right 97%) · value 95% · step 94% (sure and right 94%)
+  saved (step right 68.9%)
+after 1342 updates:
+  mind2web/site-unseen     n=500   op 92% (sure 99%, right when sure 92%) · element 56% (sure 83%, right 65%) · value 71% · step 49% (sure and right 48%)
+  synth/family-unseen      n=500   op 76% (sure 99%, right when sure 76%) · element 75% (sure 100%, right 75%) · value 100% · step 63% (sure and right 63%)
+  synth/lang-unseen        n=500   op 99% (sure 100%, right when sure 99%) · element 97% (sure 100%, right 97%) · value 97% · step 96% (sure and right 96%)
+  saved (step right 69.4%)
+after 2013 updates:
+  mind2web/site-unseen     n=500   op 91% (sure 98%, right when sure 92%) · element 59% (sure 87%, right 63%) · value 82% · step 52% (sure and right 49%)
+  synth/family-unseen      n=500   op 72% (sure 99%, right when sure 73%) · element 74% (sure 100%, right 74%) · value 100% · step 59% (sure and right 59%)
+  synth/lang-unseen        n=500   op 100% (sure 100%, right when sure 100%) · element 97% (sure 99%, right 98%) · value 97% · step 96% (sure and right 96%)
+after 2684 updates:
+  mind2web/site-unseen     n=500   op 93% (sure 98%, right when sure 94%) · element 60% (sure 86%, right 66%) · value 76% · step 54% (sure and right 51%)
+  synth/family-unseen      n=500   op 76% (sure 100%, right when sure 76%) · element 74% (sure 99%, right 74%) · value 100% · step 62% (sure and right 62%)
+  synth/lang-unseen        n=500   op 100% (sure 100%, right when sure 100%) · element 97% (sure 98%, right 99%) · value 98% · step 96% (sure and right 96%)
+  saved (step right 70.9%)
+done in 56 min; best step right 70.9%

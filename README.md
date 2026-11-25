@@ -54,10 +54,10 @@ On 6,905 held-out teacher-labelled questions: 88.1% the teacher's verdict, 0.5% 
 
 Each is saved whole under `releases/<version>` (model, checkpoint, tokenizer, calibration, its reports, the data it
 was trained on, `MANIFEST.json` with SHA-256, and a `MODEL_CARD.md` with what it can't do). Git holds what can be
-read; the weights and data archives are at the same paths on
-[Hugging Face](https://huggingface.co/3SENN/atelier-decisions). `python tools/hf_release.py fetch v0.6` puts them in
-place and checks every file against the manifest. The tables above and under "How we got there" describe v0.1
-unless they say otherwise.
+read; the weights and data archives are at the same paths on [Hugging
+Face](https://huggingface.co/3SENN/atelier-decisions). `python tools/hf_release.py fetch v0.6` puts them in place and
+checks every file against the manifest. atelier-step is saved the same way, from `step-v0.1` on. The tables above and
+under "How we got there" describe v0.1 unless they say otherwise.
 
 | Version | Student | Shipped | Atelier tests passed | Atelier's decisions (held out): decides / right | New kinds of browser questions (held-out families): decides / right |
 |---|---|---|---|---|---|
@@ -299,6 +299,8 @@ named value goes into each field.
 - **In the lab:** with Claude only for what it isn't sure of, the shop order, the product search and the Dutch form
   all end right, in 10-18 s instead of 35-81 s, with 2-4 Claude calls instead of 4-9.
 - **On its own,** it doesn't finish them yet.
+- **Download:** saved as `releases/step-v0.1` ([model card](releases/step-v0.1/MODEL_CARD.md)), its weights on
+  Hugging Face; `python tools/hf_release.py fetch step-v0.1 --only model` puts them in place.
 
 ## Layout
 
@@ -347,7 +349,7 @@ named value goes into each field.
 | `analysis/family_errors.py` | Where a mini is sure and contradicts the teacher on held-out browser families (by source, question type, the teacher's answer), from cached scores |
 | `student/vocab_trim.py` | A mini GGUF with only the vocabulary its data uses (dropped tokens spelled with kept ones; `vocab.json` beside it for the runners): 80 MB smaller, measured and not shipped (`analysis/results/vocab-trim-mini-l24-num.txt`) |
 | `analysis/` | Tensor census, teacher comparison, vocabulary coverage; results in `analysis/results/` |
-| `releases/<version>`, `tools/make_release.py` | Every saved version, and the script that saves one: its text here, its weights and data archives on Hugging Face |
+| `releases/<version>`, `tools/make_release.py`, `tools/make_step_release.py` | Every saved version, and the scripts that save one (the decision model's, atelier-step's): its text here, its weights and data archives on Hugging Face |
 | `tools/hf_release.py`, `hf/README.md` | A version's files from Hugging Face (`fetch`), checked against its manifest (`verify`); publishing a version, the model card and the mini's download (maintainers) |
 | `tools/check_headers.py` | Every source file carries the MPL-2.0 notice (`--fix` adds it) |
 | `third_party/pplx_decider` | Perplexity's inference code (Apache-2.0), vendored for the teachers |

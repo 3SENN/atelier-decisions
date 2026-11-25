@@ -67,6 +67,11 @@ export PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.3 PYTORCH_MPS_LOW_WATERMARK_RATIO=0.25
   --out runs/step-v4 --epochs 1                       # or --init runs/step-v3 --lr 3e-5 --head-lr 3e-4 to go on from one
 .venv/bin/python -I step/train.py ... --init runs/step-v4 --out runs/step-v4 --eval-only --eval-limit 100000   # every held-out step
 .venv/bin/python -I step/export.py --model runs/step-v4 --out runs/step-v4/onnx --fixtures data/cache/synth-steps-v4.jsonl
+.venv/bin/python -I step/calibrate.py --model runs/step-v4 --m2w data/cache/m2w-steps.jsonl \
+  --synth data/cache/synth-steps-v4.jsonl --export runs/step-v4/onnx      # the temperatures, into step.json
+.venv/bin/python -I tools/make_step_release.py --version step-v0.1 --run runs/step-v4 \
+  --data data/cache/m2w-steps.jsonl data/cache/synth-steps-v4.jsonl --results step-v4-heldout.json ...   # releases/step-v0.1
+.venv/bin/python -I tools/hf_release.py publish step-v0.1             # its weights and data to Hugging Face, tagged
 ```
 
 - **The runs:** each version went on from the one before, so the measured model is a chain:
@@ -142,7 +147,11 @@ flows as docs/processes.md):
 
 ## Running it
 
+Saved as `releases/step-v0.1` ([MODEL_CARD.md](../releases/step-v0.1/MODEL_CARD.md)): the run step-v4, calibrated. Its
+weights and data are on [Hugging Face](https://huggingface.co/3SENN/atelier-decisions/tree/step-v0.1/releases/step-v0.1).
+
 ```bash
+python tools/hf_release.py fetch step-v0.1 --only model   # the model, checked against MANIFEST.json
 cd runtime/node
 npm run step:parity       # the runtime's tokens and answers against PyTorch's
 npm run start:step        # the decision server with atelier-step: POST /v1/step

@@ -1,0 +1,56 @@
+    to-cart·1 [step, 624 ms] click [7] Trailrunner 2 trail shoes
+    to-cart·2 [step, 86 ms] type into [7] Size (EU): “43”
+    to-cart·3 [step, 110 ms] click [9] Add to cart
+    to-cart·4 [step, 93 ms] done
+    to-checkout·1 [claude, 3.5 s] click [11] Go to cart
+    to-checkout·2 [words, 80 ms] click [7] Remove
+    to-checkout·3 [words, 3.2 s] click [8] Checkout
+    to-checkout·3 [claude, 3.2 s] click [8] Checkout
+    to-checkout·4 [step, 93 ms] done
+    fill-checkout [code, 0 ms] field Full name: empty ← “Robin Verhoeven”
+    fill-checkout [code, 0 ms] field Email: empty ← “robin@postbox.test”
+    fill-checkout [step, 0 ms] field Street and house number: empty ← “Lindelaan 12”
+    fill-checkout [step, 0 ms] field Postcode: empty ← “3512 AB”
+    fill-checkout [step, 0 ms] field Town or city: empty ← “Utrecht”
+    fill-checkout [code, 0 ms] field Mobile number (for the courier, optional): empty ← “06 12345678”
+    fill-checkout [claude, 0 ms] field Search gear: empty ← “Trailrunner 2”
+    fill-checkout [code, 2.5 s] 7 empty fields: 7 decided, 0 left
+    to-payment·1 [claude, 4.0 s] click [13] Standard delivery (free, 2–3 days)
+    to-payment·2 [nano, 123 ms] click [16] Continue to payment
+    to-payment·2 [step, 123 ms] click [16] Continue to payment
+    to-payment·3 [step, 92 ms] done
+    check [mini, 396 ms] Is this the payment page, with the order ready for the person to pay?
+✓ shop-order       library  ready  · 17.8 s · by step 10, claude 4, words 2, code 4, nano 1, mini 1 · Claude 4 call(s), 11.4 s
+    the person was asked: no: May I click “Remove”? (a delete click (by its words): “Remove”)
+    the person was asked: yes: May I click “Checkout”? (a purchase click (by its words): “Checkout”)
+    the person was asked: yes: May I click “Continue to payment”? (a payment click (by the model): “Continue to payment”)
+    find·1 [claude, 3.8 s] type into [2] Search gear: “tent”
+    find·2 [step, 563 ms] click [3] Search
+    find·3 [claude, 4.4 s] click [9] Trailhut 2 tent
+    find·4 [step, 89 ms] click [8] Add to cart
+    find·5 [step, 75 ms] done
+    check [mini, 346 ms] Does this page show that a product was just added to the cart?
+✓ shop-find        library  ready  · 10.5 s · by claude 2, step 3, mini 1 · Claude 2 call(s), 7.5 s
+    to-form·1 [step, 569 ms] click [6] Doe een melding
+    to-form·2 [claude, 3.7 s] done
+    fill-report [step, 0 ms] field Wanneer was dit? (dd-mm-jjjj): empty ← “24-11-2026”
+    fill-report [step, 0 ms] field Omschrijving: empty ← “Onze groene container (GFT) is op dinsda”
+    fill-report [step, 0 ms] field Straat: empty ← “Lindelaan”
+    fill-report [step, 0 ms] field Huisnummer: empty ← “12”
+    fill-report [step, 0 ms] field Postcode: empty ← “3512 AB”
+    fill-report [claude, 0 ms] select Waar gaat uw melding over?: nothing chosen (options: Kies een onderwerp | Afval niet opgehaald | Kapotte straatverlichting | Losligg
+    fill-report [code, 4.2 s] 6 empty fields: 6 decided, 0 left
+    next-1·1 [step, 556 ms] click [12] Volgende
+    next-1·2 [step, 83 ms] done
+    fill-details [code, 0 ms] field Voornaam: empty ← “Robin”
+    fill-details [code, 0 ms] field Achternaam: empty ← “Verhoeven”
+    fill-details [code, 0 ms] field E-mailadres: empty ← “robin@postbox.test”
+    fill-details [step, 0 ms] field Telefoonnummer (niet verplicht): empty ← “06 12345678”
+    fill-details [code, 70 ms] 4 empty fields: 4 decided, 0 left
+    finish·1 [nano, 98 ms] click [10] Houd mij per e-mail op de hoogte van mijn melding
+    finish·1 [step, 98 ms] click [10] Houd mij per e-mail op de hoogte van mijn melding
+    finish·2 [step, 557 ms] click [11] Controleren
+    finish·3 [step, 118 ms] done
+    check [mini, 484 ms] Is this the page to check the report before it is sent? → unsure
+✓ gemeente-report  library  person (not sure it ended where it should)  · 12.0 s · by step 12, claude 2, code 5, nano 1, mini 1 · Claude 2 call(s), 6.6 s
+    the person was asked: yes: May I click “Houd mij per e-mail op de hoogte van mijn melding”? (a message click (by the model): “Houd mij per e-mail op de hoogte v

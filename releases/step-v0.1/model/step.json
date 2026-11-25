@@ -1,0 +1,123 @@
+{
+  "format": 1,
+  "ops": [
+    "click",
+    "type",
+    "done",
+    "blocked"
+  ],
+  "max_len": 1024,
+  "limits": {
+    "goal": 96,
+    "value": 24,
+    "values": 16,
+    "done": 48,
+    "page": 24,
+    "item": 28
+  },
+  "markers": {
+    "step": "<unused14>",
+    "val": "<unused15>",
+    "el": "<unused16>",
+    "tx": "<unused17>"
+  },
+  "trained": 3208,
+  "metrics": {
+    "mind2web/site-unseen": {
+      "n": 500,
+      "op": 0.932,
+      "op_sure": 1.0,
+      "op_right_when_sure": 0.932,
+      "element": 0.596,
+      "element_sure": 0.956,
+      "element_right_when_sure": 0.6129707112970711,
+      "value": 0.85,
+      "step": 0.536,
+      "step_right_and_sure": 0.53
+    },
+    "synth/family-unseen": {
+      "n": 500,
+      "op": 0.822,
+      "op_sure": 0.998,
+      "op_right_when_sure": 0.8216432865731463,
+      "element": 0.7229551451187335,
+      "element_sure": 0.9973614775725593,
+      "element_right_when_sure": 0.7222222222222222,
+      "value": 1.0,
+      "step": 0.654,
+      "step_right_and_sure": 0.65
+    },
+    "synth/lang-unseen": {
+      "n": 500,
+      "op": 0.998,
+      "op_sure": 1.0,
+      "op_right_when_sure": 0.998,
+      "element": 0.9629629629629629,
+      "element_sure": 1.0,
+      "element_right_when_sure": 0.9629629629629629,
+      "value": 0.9822485207100592,
+      "step": 0.962,
+      "step_right_and_sure": 0.962
+    }
+  },
+  "int8_agrees_with_fp32": "195/200",
+  "emb4_agrees_with_fp32": "193/200",
+  "mb": {
+    "model.int8.onnx": 61.0,
+    "model.emb4.int8.onnx": 54.7
+  },
+  "cpu_ms_median_2_threads": 80.8,
+  "temperatures": {
+    "op": 5,
+    "el": 8,
+    "val": 3
+  },
+  "calibration": {
+    "before": {
+      "mind2web/site-unseen": {
+        "n": 478,
+        "op_sure": 0.9916317991631799,
+        "op_right_when_sure": 0.9135021097046413,
+        "element_sure": 0.9330543933054394,
+        "element_right_when_sure": 0.6031390134529148
+      },
+      "synth/family-unseen": {
+        "n": 2211,
+        "op_sure": 0.9936680235187698,
+        "op_right_when_sure": 0.8133818843878016,
+        "element_sure": 0.9965136548518303,
+        "element_right_when_sure": 0.7183673469387755
+      },
+      "synth/lang-unseen": {
+        "n": 1998,
+        "op_sure": 1.0,
+        "op_right_when_sure": 0.9974974974974975,
+        "element_sure": 0.9963325183374083,
+        "element_right_when_sure": 0.9803680981595092
+      }
+    },
+    "after": {
+      "mind2web/site-unseen": {
+        "n": 478,
+        "op_sure": 0.9476987447698745,
+        "op_right_when_sure": 0.9403973509933775,
+        "element_sure": 0.27615062761506276,
+        "element_right_when_sure": 0.8863636363636364
+      },
+      "synth/family-unseen": {
+        "n": 2211,
+        "op_sure": 0.9312528267752148,
+        "op_right_when_sure": 0.8246721709567751,
+        "element_sure": 0.9233004067402673,
+        "element_right_when_sure": 0.7218376337319069
+      },
+      "synth/lang-unseen": {
+        "n": 1998,
+        "op_sure": 0.9984984984984985,
+        "op_right_when_sure": 0.9979949874686717,
+        "element_sure": 0.9419315403422983,
+        "element_right_when_sure": 0.9948085658663206
+      }
+    }
+  }
+}

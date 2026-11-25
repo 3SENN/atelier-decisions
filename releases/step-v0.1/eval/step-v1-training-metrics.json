@@ -1,0 +1,38 @@
+{
+  "mind2web/site-unseen": {
+    "n": 500,
+    "op": 0.912,
+    "op_sure": 0.96,
+    "op_right_when_sure": 0.93125,
+    "element": 0.596,
+    "element_sure": 0.792,
+    "element_right_when_sure": 0.6767676767676768,
+    "value": 0.6891891891891891,
+    "step": 0.514,
+    "step_right_and_sure": 0.454
+  },
+  "synth/family-unseen": {
+    "n": 500,
+    "op": 0.84,
+    "op_sure": 0.986,
+    "op_right_when_sure": 0.8438133874239351,
+    "element": 0.751219512195122,
+    "element_sure": 0.9853658536585366,
+    "element_right_when_sure": 0.7623762376237624,
+    "value": 1.0,
+    "step": 0.67,
+    "step_right_and_sure": 0.664
+  },
+  "synth/lang-unseen": {
+    "n": 500,
+    "op": 1.0,
+    "op_sure": 1.0,
+    "op_right_when_sure": 1.0,
+    "element": 0.9771689497716894,
+    "element_sure": 0.9863013698630136,
+    "element_right_when_sure": 0.9861111111111112,
+    "value": 0.990909090909091,
+    "step": 0.976,
+    "step_right_and_sure": 0.974
+  }
+}
