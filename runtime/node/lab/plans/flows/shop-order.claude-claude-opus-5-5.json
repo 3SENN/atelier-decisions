@@ -1,0 +1,284 @@
+{
+  "task": "shop-order",
+  "made": "2026-11-24T17:18:51.642Z",
+  "process": {
+    "id": "order-trailrunner-2",
+    "title": "Order Trailrunner 2 in size 43",
+    "task": "Order the Trailrunner 2 trail shoes in size 43, with standard delivery to my home address.",
+    "over": "page",
+    "items": null,
+    "buckets": [],
+    "values": [
+      {
+        "name": "product",
+        "value": "Trailrunner 2 trail shoes"
+      },
+      {
+        "name": "shoe size",
+        "value": "43"
+      },
+      {
+        "name": "quantity",
+        "value": "1"
+      },
+      {
+        "name": "delivery method",
+        "value": "standard delivery"
+      },
+      {
+        "name": "full name",
+        "value": "Robin Verhoeven"
+      },
+      {
+        "name": "first name",
+        "value": "Robin"
+      },
+      {
+        "name": "last name",
+        "value": "Verhoeven"
+      },
+      {
+        "name": "email address",
+        "value": "robin@postbox.test"
+      },
+      {
+        "name": "phone number",
+        "value": "06 12345678"
+      },
+      {
+        "name": "street and house number",
+        "value": "Lindelaan 12"
+      },
+      {
+        "name": "street",
+        "value": "Lindelaan"
+      },
+      {
+        "name": "house number",
+        "value": "12"
+      },
+      {
+        "name": "postcode",
+        "value": "3512 AB"
+      },
+      {
+        "name": "city",
+        "value": "Utrecht"
+      }
+    ],
+    "start": "open-product",
+    "steps": [
+      {
+        "id": "open-product",
+        "kind": "act",
+        "question": null,
+        "answer": null,
+        "options": null,
+        "read": [
+          "page"
+        ],
+        "op": null,
+        "value": null,
+        "sure": null,
+        "budget": null,
+        "routes": [
+          {
+            "when": "done",
+            "then": {
+              "do": "click",
+              "target": "Trailrunner 2 trail shoes",
+              "next": "add-to-cart"
+            }
+          }
+        ]
+      },
+      {
+        "id": "add-to-cart",
+        "kind": "advance",
+        "question": "Choose size 43 for the Trailrunner 2 trail shoes (the adult model, not Trailrunner Kids), quantity 1, and add them to the cart.",
+        "answer": null,
+        "options": null,
+        "read": [
+          "page"
+        ],
+        "op": null,
+        "value": null,
+        "sure": null,
+        "budget": 8,
+        "routes": [
+          {
+            "when": "done",
+            "then": {
+              "do": "goto",
+              "target": "check-cart",
+              "next": null
+            }
+          },
+          {
+            "when": "blocked",
+            "then": {
+              "do": "ask_person",
+              "target": "could not add size 43 to the cart (maybe sold out)",
+              "next": null
+            }
+          },
+          {
+            "when": "unsure",
+            "then": {
+              "do": "ask_person",
+              "target": "not sure how to add the shoes in size 43",
+              "next": null
+            }
+          }
+        ]
+      },
+      {
+        "id": "check-cart",
+        "kind": "ask",
+        "question": "Does the page show that Trailrunner 2 trail shoes in size 43 were added to the cart?",
+        "answer": "yes_no",
+        "options": [
+          {
+            "name": "yes",
+            "meaning": "the adult Trailrunner 2 in size 43 is confirmed in the cart"
+          },
+          {
+            "name": "no",
+            "meaning": "nothing was added, or a different product or size is in the cart"
+          }
+        ],
+        "read": [
+          "page"
+        ],
+        "op": null,
+        "value": null,
+        "sure": null,
+        "budget": null,
+        "routes": [
+          {
+            "when": "yes",
+            "then": {
+              "do": "goto",
+              "target": "checkout",
+              "next": null
+            }
+          },
+          {
+            "when": "no",
+            "then": {
+              "do": "ask_person",
+              "target": "the cart does not show Trailrunner 2 in size 43",
+              "next": null
+            }
+          },
+          {
+            "when": "unsure",
+            "then": {
+              "do": "ask_person",
+              "target": "not sure the right shoes are in the cart",
+              "next": null
+            }
+          }
+        ]
+      },
+      {
+        "id": "checkout",
+        "kind": "advance",
+        "question": "Go to the cart and on to checkout, enter the home address and contact details, and choose standard delivery. Stop on the final review or payment page; never click place order, pay or confirm.",
+        "answer": null,
+        "options": null,
+        "read": [
+          "page"
+        ],
+        "op": null,
+        "value": null,
+        "sure": null,
+        "budget": 15,
+        "routes": [
+          {
+            "when": "done",
+            "then": {
+              "do": "goto",
+              "target": "check-final",
+              "next": null
+            }
+          },
+          {
+            "when": "blocked",
+            "then": {
+              "do": "ask_person",
+              "target": "checkout got stuck",
+              "next": null
+            }
+          },
+          {
+            "when": "unsure",
+            "then": {
+              "do": "ask_person",
+              "target": "not sure how to continue the checkout",
+              "next": null
+            }
+          }
+        ]
+      },
+      {
+        "id": "check-final",
+        "kind": "ask",
+        "question": "Is this the final step before ordering, with standard delivery to Lindelaan 12, Utrecht chosen?",
+        "answer": "yes_no",
+        "options": [
+          {
+            "name": "yes",
+            "meaning": "the order review or payment page shows standard delivery to Lindelaan 12 in Utrecht"
+          },
+          {
+            "name": "no",
+            "meaning": "not yet at the final step, or a different delivery method or address is shown"
+          }
+        ],
+        "read": [
+          "page"
+        ],
+        "op": null,
+        "value": null,
+        "sure": null,
+        "budget": null,
+        "routes": [
+          {
+            "when": "yes",
+            "then": {
+              "do": "notify",
+              "target": "Your Trailrunner 2 order in size 43 with standard delivery is ready. Check it and place the order yourself.",
+              "next": null
+            }
+          },
+          {
+            "when": "no",
+            "then": {
+              "do": "ask_person",
+              "target": "checkout did not end with standard delivery to the home address",
+              "next": null
+            }
+          },
+          {
+            "when": "unsure",
+            "then": {
+              "do": "ask_person",
+              "target": "not sure the order is ready to place",
+              "next": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "problems": [],
+  "backend": "claude",
+  "model": "claude-opus-5-5",
+  "ms": 20990.633084,
+  "rounds": 1,
+  "tokens": {
+    "input": 5188,
+    "output": 2283
+  }
+}

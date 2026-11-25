@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atelier decision model · process lab</title>
+<style>
+  :root {
+    --bg: #f6f6f4; --panel: #ffffff; --ink: #1d1d1b; --muted: #6b6b66; --line: #e4e3df; --soft: #f0efeb;
+    --accent: #3d5afe; --accent-soft: #e8ebff; --good: #1b7f4b; --good-soft: #e3f4ea; --warn: #9a6400; --warn-soft: #fbf0d9;
+    --bad: #b3261e; --bad-soft: #fbe5e3; --bar: #c9cfff;
+    font: 14px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #151514; --panel: #1e1e1c; --ink: #ecebe7; --muted: #9b9a94; --line: #2f2f2c; --soft: #262624;
+      --accent: #8c9eff; --accent-soft: #23284a; --good: #6fd39b; --good-soft: #17301f; --warn: #f0c060; --warn-soft: #33290f;
+      --bad: #ff8a80; --bad-soft: #3a1b19; --bar: #3a4290;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); }
+  header { display: flex; align-items: baseline; gap: 14px; padding: 18px 28px 6px; flex-wrap: wrap; }
+  header h1 { font-size: 18px; margin: 0; letter-spacing: -0.01em; }
+  header a { color: var(--muted); font-size: 13px; }
+  .model { font: 12px ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--muted); }
+  .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--muted); margin-right: 6px; vertical-align: 1px; }
+  .dot.ok { background: var(--good); } .dot.down { background: var(--bad); }
+  .flow { padding: 0 28px 16px; color: var(--muted); font-size: 13px; max-width: 1100px; }
+  main { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 18px; padding: 0 28px 28px; }
+  @media (max-width: 980px) { main { grid-template-columns: 1fr; padding: 0 16px 20px; } header, .flow { padding-left: 16px; padding-right: 16px; } }
+  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 18px; min-width: 0; }
+  .panel + .panel { margin-top: 18px; }
+  h2 { font-size: 15px; margin: 0 0 10px; } .hint { color: var(--muted); margin: 6px 0 10px; font-size: 13px; }
+  label { display: block; font-size: 12px; color: var(--muted); margin: 12px 0 4px; }
+  input, textarea, select { width: 100%; font: inherit; color: var(--ink); background: var(--soft); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; }
+  textarea { min-height: 70px; resize: vertical; }
+  input:focus, textarea:focus, select:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+  .seg { display: inline-flex; background: var(--soft); border-radius: 999px; padding: 3px; gap: 2px; }
+  .seg button { border: 0; background: transparent; color: var(--muted); border-radius: 999px; padding: 5px 14px; font: inherit; cursor: pointer; }
+  .seg button.on { background: var(--panel); color: var(--ink); box-shadow: 0 1px 2px rgba(0,0,0,.08); }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { font: 12px ui-monospace, SFMono-Regular, Menlo, monospace; padding: 2px 8px; border-radius: 6px; background: var(--soft); color: var(--muted); white-space: nowrap; }
+  .chip.nano { background: var(--accent-soft); color: var(--accent); } .chip.mini { background: var(--warn-soft); color: var(--warn); }
+  .chip.unsure { background: var(--bad-soft); color: var(--bad); }
+  .source { display: grid; gap: 8px; margin-top: 6px; }
+  .source label { display: flex; gap: 10px; align-items: flex-start; margin: 0; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; cursor: pointer; color: var(--ink); font-size: 13px; }
+  .source label.off { opacity: .5; cursor: default; }
+  .source input { width: auto; margin: 3px 0 0; } .source small { display: block; color: var(--muted); font-size: 12px; }
+  .row { display: flex; gap: 10px; align-items: center; margin-top: 14px; flex-wrap: wrap; }
+  .primary { background: var(--accent); color: white; border: 0; border-radius: 8px; padding: 9px 18px; font: 600 14px inherit; cursor: pointer; }
+  .quiet { background: var(--soft); color: var(--ink); border: 1px solid var(--line); border-radius: 8px; padding: 6px 12px; font: inherit; font-size: 13px; cursor: pointer; }
+  button:disabled { opacity: .5; cursor: wait; } #status { color: var(--muted); font-size: 12px; }
+  .check { display: flex; gap: 8px; align-items: center; color: var(--ink); font-size: 13px; } .check input { width: auto; }
+  .steps { display: grid; gap: 8px; }
+  .step { border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; }
+  .step .head { display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; } .step .id { font-weight: 650; }
+  .step .q { margin: 4px 0 6px; } .routes { color: var(--muted); font-size: 12px; }
+  .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 10px; margin-bottom: 10px; }
+  .tile { background: var(--soft); border-radius: 10px; padding: 10px 12px; } .tile .n { font-size: 20px; font-weight: 650; font-variant-numeric: tabular-nums; }
+  .tile .l { color: var(--muted); font-size: 12px; }
+  .calls { color: var(--muted); font-size: 13px; margin-bottom: 14px; }
+  .item { border-top: 1px solid var(--line); padding: 10px 0; }
+  .item .top { display: flex; gap: 10px; align-items: baseline; cursor: pointer; }
+  .mark { width: 18px; flex: none; font-weight: 700; text-align: center; } .mark.right { color: var(--good); } .mark.wrong { color: var(--bad); } .mark.person { color: var(--warn); }
+  .label { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .out { font-size: 12px; padding: 2px 8px; border-radius: 6px; background: var(--good-soft); color: var(--good); white-space: nowrap; max-width: 45%; overflow: hidden; text-overflow: ellipsis; }
+  .out.person { background: var(--warn-soft); color: var(--warn); } .out.error { background: var(--bad-soft); color: var(--bad); }
+  .ms { color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .item .chips { margin: 6px 0 0 28px; } .expected { margin-left: 28px; color: var(--bad); font-size: 12px; }
+  .detail { margin: 8px 0 0 28px; display: none; } .item.open .detail { display: block; }
+  .detail .s { border-left: 2px solid var(--line); padding: 4px 0 8px 12px; margin-bottom: 6px; font-size: 13px; }
+  .bars { display: grid; grid-template-columns: minmax(70px, max-content) 1fr 40px; gap: 4px 10px; align-items: center; font-size: 12px; margin: 6px 0; }
+  .bars .name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 260px; }
+  .bars .track { height: 8px; background: var(--soft); border-radius: 4px; overflow: hidden; }
+  .bars .fill { height: 100%; background: var(--bar); } .bars .fill.top { background: var(--accent); }
+  .bars .pct { text-align: right; color: var(--muted); font-variant-numeric: tabular-nums; }
+  pre { background: var(--soft); border-radius: 8px; padding: 8px 10px; font: 11.5px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; overflow: auto; max-height: 160px; white-space: pre-wrap; word-break: break-word; margin: 4px 0 0; }
+  .empty { color: var(--muted); text-align: center; padding: 40px 10px; } .error { color: var(--bad); white-space: pre-wrap; }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<header>
+  <h1>Process lab</h1>
+  <span class="model"><span class="dot" id="dot"></span><span id="model">connecting…</span></span>
+  <a href="/">Single questions: the playground</a>
+</header>
+<div class="flow">A process is a task written down once as small steps. Claude can set it up from your words, or it comes ready-made. Then only the decision model runs it: every step is one question it answers in a fraction of a second, a comparison done by code, or a control chosen by what it does. Whatever it isn't sure of goes to you.</div>
+<main>
+  <div>
+    <section class="panel">
+      <div class="seg" id="where"><button data-w="mock" class="on">Mock page</button><button data-w="tab">Browser tab</button></div>
+      <div id="mock">
+        <label for="task">Task</label>
+        <select id="task"></select>
+        <p class="hint" id="taskText"></p>
+        <div class="chips" id="buckets"></div>
+        <p class="hint"><a id="open" target="_blank">Open this page in a browser</a></p>
+        <label>Process</label>
+        <div class="source" id="source"></div>
+      </div>
+      <div id="tab" hidden>
+        <p class="hint">Start Atelier (or any Chromium) with <code>--remote-debugging-port=9555</code> on a profile without your real accounts, open a page, then pick it here.</p>
+        <div class="row" style="margin-top:4px"><input id="port" value="9555" style="width:90px"><button class="quiet" id="find">Find tabs</button></div>
+        <label for="tabs">Tab</label>
+        <select id="tabs"><option value="">(find tabs first)</option></select>
+        <label for="tabTask">What should happen on this page? Claude sets the process up from it.</label>
+        <textarea id="tabTask" placeholder="Which of these stories are about AI? Put them in ai and other."></textarea>
+        <label for="tabBuckets">Buckets (optional, comma-separated)</label>
+        <input id="tabBuckets" placeholder="ai, other">
+        <label for="tabProcess">… or run a ready-made process</label>
+        <select id="tabProcess"><option value="">(none: let Claude set it up)</option></select>
+        <div class="row"><label class="check"><input type="checkbox" id="act"> Let it click (risky clicks still stop and ask)</label></div>
+      </div>
+      <div class="row"><button class="primary" id="run">Run</button><span id="status"></span></div>
+    </section>
+    <section class="panel"><h2>The process</h2><div class="steps" id="steps"><div class="empty">Run a task to see its steps.</div></div></section>
+  </div>
+  <section class="panel" id="result"><div class="empty">Pick a task and a process, then press Run.</div></section>
+</main>
+<script>
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+const fmt = (ms) => (ms >= 1000 ? `${(ms / 1000).toFixed(1)} s` : `${Math.round(ms)} ms`);
+const pct = (a, b) => (b ? `${Math.round((100 * a) / b)}%` : '–');
+let lab = null, where = 'mock', running = null;
+
+function save() { try { localStorage.setItem('atelier-lab', JSON.stringify({ task: $('#task').value, source: document.querySelector('input[name=src]:checked')?.value, where, port: $('#port').value })); } catch {} }
+function restore() { try { return JSON.parse(localStorage.getItem('atelier-lab') || '{}'); } catch { return {}; } }
+
+function currentTask() {
+  const [fid, key] = $('#task').value.split(':');
+  const f = lab.fixtures.find((x) => x.id === fid);
+  return { f, t: f?.tasks.find((t) => t.key === key) };
+}
+
+function renderTask(prefer) {
+  const { f, t } = currentTask();
+  if (!t) return;
+  $('#taskText').textContent = t.task;
+  $('#buckets').innerHTML = t.buckets.map((b) => `<span class="chip">${esc(b)}</span>`).join('');
+  $('#open').href = `/lab/sites/${f.id}${f.kind === 'site' ? '/' : ''}`;
+  const p = t.planned;
+  const planned = p ? `made ${new Date(p.made).toLocaleString()} by ${esc(p.model)} (${esc(p.backend)}) in ${fmt(p.ms)} · ${(p.tokens.input / 1000).toFixed(1)}k tokens in, ${(p.tokens.output / 1000).toFixed(1)}k out${p.ok ? '' : ' · it could not run'}` : 'not set up yet';
+  $('#source').innerHTML = `
+    <label class="${t.process ? '' : 'off'}"><input type="radio" name="src" value="library" ${t.process ? '' : 'disabled'}><span>Ready-made<small>${t.process ? `processes/${esc(t.process)}.json` : 'none for this task: it goes through several pages, so the route is the planner’s'}</small></span></label>
+    <label><input type="radio" name="src" value="planned"><span>Set up by Claude<small id="plannedText">${planned}</small></span></label>
+    <div class="row" style="margin-top:0"><button class="quiet" id="replan">${p ? 'Set it up again' : 'Set it up now'}</button><span class="hint" style="margin:0">One call to Claude; the run itself doesn’t use it.</span></div>`;
+  const want = prefer && (prefer !== 'library' || t.process) ? prefer : t.process ? 'library' : 'planned';
+  document.querySelector(`input[name=src][value=${want}]`).checked = true;
+  $('#replan').onclick = replan;
+  document.querySelectorAll('input[name=src]').forEach((r) => (r.onchange = save));
+}
+
+function renderProcess(p) {
+  $('#steps').innerHTML = p.steps.map((s) => {
+    const q = s.kind === 'check' ? `${(s.read || [])[0]} ${s.op} ${s.value}` : s.kind === 'act' ? `${s.routes[0]?.then.do} “${s.routes[0]?.then.target}”` : s.question;
+    const opts = (s.options || []).map((o) => `<span class="chip" title="${esc(o.meaning)}">${esc(o.name)}</span>`).join('');
+    const routes = s.routes.map((r) => `${esc(r.when)} → ${r.then.do === 'goto' ? esc(r.then.target) : `${esc(r.then.do)} ${esc(r.then.target)}`}${r.then.next ? `, then ${esc(r.then.next)}` : ''}`).join(' · ');
+    const reads = s.kind === 'ask' ? `<span class="chip">reads ${esc((s.read || []).join(', '))}</span>` : s.kind === 'pick' ? `<span class="chip">looks for ${esc(s.value)}</span>` : '';
+    return `<div class="step"><div class="head"><span class="id">${p.start === s.id ? '▸ ' : ''}${esc(s.id)}</span><span class="chip">${esc(s.kind)}${s.answer ? ` · ${esc(s.answer)}` : ''}</span>${reads}</div><div class="q">${esc(q)}</div>${opts ? `<div class="chips" style="margin-bottom:6px">${opts}</div>` : ''}<div class="routes">${routes}</div></div>`;
+  }).join('');
+}
+
+function bars(probs) {
+  const entries = Object.entries(probs || {}).sort((a, b) => b[1] - a[1]).slice(0, 6);
+  if (!entries.length) return '';
+  return `<div class="bars">${entries.map(([k, v], i) => `<div class="name" title="${esc(k)}">${esc(k)}</div><div class="track"><div class="fill ${i === 0 ? 'top' : ''}" style="width:${Math.round(v * 100)}%"></div></div><div class="pct">${Math.round(v * 100)}%</div>`).join('')}</div>`;
+}
+
+function outcomeText(r) {
+  const o = r.outcome;
+  if (o.kind === 'bucket') return o.bucket;
+  if (o.kind === 'person') return `to you: ${o.reason}`;
+  if (o.kind === 'notified') return `notify: ${o.text}`;
+  if (o.kind === 'error') return `error: ${o.message}`;
+  return r.clicked.length ? `clicked “${r.clicked.join('”, “')}”` : 'done';
+}
+
+function itemHtml(r) {
+  const chips = r.steps.map((s) => {
+    const top = s.probabilities ? Math.max(...Object.values(s.probabilities)) : null;
+    const who = s.by === 'code' ? '' : ` · ${s.by}`;
+    return `<span class="chip ${s.verdict === null ? 'unsure' : s.by === 'nano' ? 'nano' : s.by === 'mini' ? 'mini' : ''}">${esc(s.step)} → ${esc(s.verdict ?? 'unsure')}${top !== null && s.kind !== 'pick' ? ` ${top.toFixed(2)}` : ''}${who} · ${fmt(s.ms)}</span>`;
+  }).join('');
+  const detail = r.steps.map((s) => `<div class="s"><b>${esc(s.step)}</b> <span class="chip">${esc(s.by)} · ${fmt(s.ms)}</span> ${esc(s.question)}${s.note ? ` <span class="hint">(${esc(s.note)})</span>` : ''}${bars(s.probabilities)}${s.state ? `<pre>${esc(s.state)}</pre>` : ''}</div>`).join('');
+  const mark = r.score === 'right' ? '✓' : r.score === 'wrong' ? '✗' : r.score === 'person' ? '?' : '·';
+  const expected = r.score && r.score !== 'right' && r.item.expect ? `<div class="expected">a person would: ${esc(r.item.expect)}</div>` : '';
+  return `<div class="item"><div class="top"><span class="mark ${r.score || ''}">${mark}</span><span class="label">${esc(r.label)}</span><span class="out ${r.outcome.kind === 'person' ? 'person' : r.outcome.kind === 'error' ? 'error' : ''}" title="${esc(outcomeText(r))}">${esc(outcomeText(r))}</span><span class="ms">${fmt(r.ms)}</span></div><div class="chips">${chips}</div>${expected}<div class="detail">${detail}</div></div>`;
+}
+
+function renderSummary(s, planned) {
+  const decided = s.scored - s.person;
+  const who = Object.entries(s.byWho).filter(([k]) => k !== 'code' && k !== 'words').map(([k, v]) => `${k} ${v}`).join(', ');
+  const tiles = [
+    [s.items, 'items'],
+    s.scored ? [pct(decided, s.scored), 'decided'] : [pct(s.sure, s.decisions), 'decisions sure'],
+    s.scored ? [pct(s.right, decided), 'right when decided'] : [s.outcomes.person ?? 0, 'to you'],
+    s.scored ? [s.person, 'to you'] : [s.decisions, 'decisions'],
+    [fmt(s.msPerDecision.median), 'per decision'],
+    [fmt(s.msTotal), 'took'],
+  ];
+  const claude = planned ? `Claude: 1 call to set it up (${fmt(planned.ms)}), none while it runs.` : 'Claude: not used.';
+  return `<div class="tiles">${tiles.map(([n, l]) => `<div class="tile"><div class="n">${esc(n)}</div><div class="l">${esc(l)}</div></div>`).join('')}</div>
+    <div class="calls">${claude} Decision model: ${s.decisions} decisions (${esc(who || 'none')}), median ${fmt(s.msPerDecision.median)}, p90 ${fmt(s.msPerDecision.p90)}. Code: ${s.byWho.code ?? 0} steps.${s.scored ? ` Wrong ${s.wrong}.` : ''}</div>`;
+}
+
+async function stream(url, body) {
+  running?.abort();
+  running = new AbortController();
+  const items = [];
+  let summary = null, planned = null;
+  $('#run').disabled = true;
+  $('#result').innerHTML = '<div id="sum"></div><div id="items"></div>';
+  const paint = () => { $('#sum').innerHTML = summary ? renderSummary(summary, planned) : `<div class="calls">${items.length} done…</div>`; };
+  paint();
+  try {
+    const res = await fetch(url, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body), signal: running.signal });
+    if (!res.ok) throw new Error((await res.json()).error);
+    const reader = res.body.getReader(); const dec = new TextDecoder(); let buf = '';
+    for (;;) {
+      const { value, done } = await reader.read();
+      if (done) break;
+      buf += dec.decode(value, { stream: true });
+      let nl;
+      while ((nl = buf.indexOf('\n')) >= 0) {
+        const line = buf.slice(0, nl); buf = buf.slice(nl + 1);
+        if (!line.trim()) continue;
+        const ev = JSON.parse(line);
+        if (ev.type === 'status') $('#status').textContent = ev.text;
+        if (ev.type === 'planned') { planned = ev; $('#status').textContent = `set up by ${ev.model} in ${fmt(ev.ms)}`; }
+        if (ev.type === 'process') { renderProcess(ev.process); if (ev.source === 'planned' && !planned) { const { t } = currentTask(); planned = t?.planned || null; } }
+        if (ev.type === 'item') { items.push(ev.result); $('#items').insertAdjacentHTML('beforeend', itemHtml(ev.result)); const el = $('#items').lastElementChild; el.querySelector('.top').onclick = () => el.classList.toggle('open'); paint(); }
+        if (ev.type === 'summary') { summary = ev.summary; paint(); }
+        if (ev.type === 'error') $('#result').insertAdjacentHTML('afterbegin', `<p class="error">${esc(ev.message)}</p>`);
+      }
+    }
+    if (!$('#status').textContent.startsWith('set up')) $('#status').textContent = '';
+  } catch (err) {
+    if (err.name !== 'AbortError') $('#result').innerHTML = `<p class="error">${esc(err.message)}</p>`;
+  } finally { $('#run').disabled = false; }
+}
+
+async function replan() {
+  const { f, t } = currentTask();
+  $('#replan').disabled = true; $('#status').textContent = 'Claude is setting the process up…';
+  try {
+    const res = await fetch('/v1/lab/plan', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ ref: `${f.id}:${t.key}` }) });
+    const r = await res.json();
+    if (!res.ok) throw new Error(r.error);
+    t.planned = { backend: r.backend, model: r.model, made: r.made, ms: r.ms, tokens: r.tokens, ok: Boolean(r.process) };
+    renderTask('planned');
+    if (r.process) renderProcess(r.process);
+    $('#status').textContent = r.process ? `set up in ${fmt(r.ms)}` : `it can’t run: ${r.problems.join('; ')}`;
+  } catch (err) { $('#status').textContent = err.message; }
+}
+
+function run() {
+  save();
+  if (where === 'mock') {
+    const { f, t } = currentTask();
+    const source = document.querySelector('input[name=src]:checked')?.value || 'library';
+    $('#status').textContent = '';
+    return stream('/v1/lab/run', { ref: `${f.id}:${t.key}`, source });
+  }
+  const tab = $('#tabs').value;
+  if (!tab) { $('#status').textContent = 'Find and pick a tab first.'; return; }
+  const proc = $('#tabProcess').value;
+  if (!proc && !$('#tabTask').value.trim()) { $('#status').textContent = 'Say what should happen, or pick a ready-made process.'; return; }
+  const buckets = $('#tabBuckets').value.split(',').map((s) => s.trim()).filter(Boolean);
+  stream('/v1/lab/tab', { cdp: Number($('#port').value), match: tab, task: $('#tabTask').value.trim(), buckets: buckets.length ? buckets : undefined, process: proc || undefined, act: $('#act').checked });
+}
+
+async function findTabs() {
+  try {
+    const res = await fetch(`/v1/lab/tabs?cdp=${encodeURIComponent($('#port').value)}`);
+    const list = await res.json();
+    if (!res.ok) throw new Error(list.error);
+    $('#tabs').innerHTML = list.length ? list.map((t) => `<option value="${esc(t.url)}">${esc(t.title || t.url)}</option>`).join('') : '<option value="">(no web pages open)</option>';
+    $('#status').textContent = `${list.length} tab(s)`;
+  } catch (err) { $('#status').textContent = `No browser on port ${$('#port').value}: ${err.message}`; }
+}
+
+function setWhere(w) {
+  where = w;
+  document.querySelectorAll('#where button').forEach((b) => b.classList.toggle('on', b.dataset.w === w));
+  $('#mock').hidden = w !== 'mock'; $('#tab').hidden = w !== 'tab';
+}
+
+async function start() {
+  try {
+    lab = await (await fetch('/v1/lab')).json();
+    $('#model').textContent = `${lab.model} · 127.0.0.1:${location.port}`; $('#dot').className = 'dot ok';
+  } catch { $('#model').textContent = 'server not reachable'; $('#dot').className = 'dot down'; return; }
+  const kept = restore();
+  $('#task').innerHTML = lab.fixtures.map((f) => `<optgroup label="${esc(f.site)} · ${esc(f.kind)}, ${f.count} ${f.kind === 'site' ? 'pages' : f.kind === 'pages' ? 'pages' : 'items'}">${f.tasks.map((t) => `<option value="${esc(f.id)}:${esc(t.key)}">${esc(t.task.length > 80 ? `${t.task.slice(0, 78)}…` : t.task)}</option>`).join('')}</optgroup>`).join('');
+  if (kept.task && [...$('#task').options].some((o) => o.value === kept.task)) $('#task').value = kept.task;
+  $('#tabProcess').innerHTML += Object.keys(lab.processes).map((id) => `<option value="${esc(id)}">${esc(id)}</option>`).join('');
+  if (kept.port) $('#port').value = kept.port;
+  renderTask(kept.source);
+  setWhere(kept.where === 'tab' ? 'tab' : 'mock');
+  $('#task').onchange = () => { renderTask(); save(); };
+  document.querySelectorAll('#where button').forEach((b) => (b.onclick = () => { setWhere(b.dataset.w); save(); }));
+  $('#run').onclick = run; $('#find').onclick = findTabs;
+  document.addEventListener('keydown', (e) => { if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') run(); });
+}
+start();
+</script>
+</body>
+</html>

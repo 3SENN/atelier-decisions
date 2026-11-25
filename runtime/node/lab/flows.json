@@ -1,0 +1,154 @@
+{
+  "notes": [
+    "Real pages for whole flows (lab/apps): a shop and a municipal form. They run in a real browser over CDP; what ends up in the cart or the form is read from the page's localStorage afterwards.",
+    "The person is invented. 'absent-or-false' means it must not have happened (paying, sending). 'nonempty' means anything written."
+  ],
+  "person": [
+    {
+      "name": "full name",
+      "value": "Robin Verhoeven"
+    },
+    {
+      "name": "first name",
+      "value": "Robin"
+    },
+    {
+      "name": "last name",
+      "value": "Verhoeven"
+    },
+    {
+      "name": "email address",
+      "value": "robin@postbox.test"
+    },
+    {
+      "name": "phone number",
+      "value": "06 12345678"
+    },
+    {
+      "name": "street and house number",
+      "value": "Lindelaan 12"
+    },
+    {
+      "name": "street",
+      "value": "Lindelaan"
+    },
+    {
+      "name": "house number",
+      "value": "12"
+    },
+    {
+      "name": "postcode",
+      "value": "3512 AB"
+    },
+    {
+      "name": "city",
+      "value": "Utrecht"
+    }
+  ],
+  "tasks": [
+    {
+      "key": "shop-order",
+      "start": "/lab/apps/shop/",
+      "storage": "lab-shop",
+      "process": "shop-order",
+      "task": "Order the Trailrunner 2 trail shoes in size 43, with standard delivery to my home address.",
+      "values": [
+        {
+          "name": "product to search for",
+          "value": "Trailrunner 2"
+        },
+        {
+          "name": "shoe size",
+          "value": "43"
+        },
+        {
+          "name": "delivery option",
+          "value": "Standard delivery"
+        }
+      ],
+      "expect": {
+        "path": "/lab/apps/shop/pay",
+        "state": {
+          "cart": [
+            {
+              "id": "trailrunner-2",
+              "size": "43",
+              "qty": 1
+            }
+          ],
+          "checkout": {
+            "name": "Robin Verhoeven",
+            "email": "robin@postbox.test",
+            "street": "Lindelaan 12",
+            "postcode": "3512 AB",
+            "city": "Utrecht",
+            "delivery": "standard"
+          },
+          "paid": "absent-or-false"
+        }
+      }
+    },
+    {
+      "key": "shop-find",
+      "start": "/lab/apps/shop/",
+      "storage": "lab-shop",
+      "process": "shop-find",
+      "task": "Find me a 2-person tent under €200 and put it in my cart.",
+      "values": [
+        {
+          "name": "product to search for",
+          "value": "tent"
+        }
+      ],
+      "expect": {
+        "state": {
+          "cart": [
+            {
+              "id": "trailhut-2",
+              "qty": 1
+            }
+          ],
+          "paid": "absent-or-false"
+        }
+      }
+    },
+    {
+      "key": "gemeente-report",
+      "start": "/lab/apps/gemeente/",
+      "storage": "lab-gemeente",
+      "process": "gemeente-report",
+      "task": "Report to the municipality that our green bin wasn't emptied on Tuesday 24 November 2026. The bin is at my home address. I'd like updates by email.",
+      "values": [
+        {
+          "name": "what happened",
+          "value": "our green bin (GFT) was not emptied"
+        },
+        {
+          "name": "date",
+          "value": "24-11-2026"
+        },
+        {
+          "name": "description",
+          "value": "Onze groene container (GFT) is op dinsdag 24 november 2026 niet geleegd. De container staat aan de straat bij Lindelaan 12."
+        }
+      ],
+      "expect": {
+        "path": "/lab/apps/gemeente/melding/controle",
+        "state": {
+          "melding": {
+            "onderwerp": "Afval niet opgehaald",
+            "datum": "24-11-2026",
+            "omschrijving": "nonempty",
+            "straat": "Lindelaan",
+            "huisnummer": "12",
+            "postcode_melding": "3512 AB",
+            "voornaam": "Robin",
+            "achternaam": "Verhoeven",
+            "email": "robin@postbox.test"
+          },
+          "sent": "absent-or-false"
+        }
+      }
+    }
+  ]
+}

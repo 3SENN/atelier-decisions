@@ -264,6 +264,42 @@ Both minis continued for 40k questions with the suite weighted 6:
   right with fewer sure contradictions (3-5%), and multi-step numbers improved (90% right, 1.6% sure-wrong).
 - **One leak:** "can we all book seats?" (a held-out numeric family) now gets the rule treatment and a wrong "no".
 
+## Processes: a task run step by step
+
+A task in a browser is many small decisions in a row. A **process** writes the task down once as steps: a question
+for the decision model, a comparison done by code, or a control chosen by what it does. Then only the decision model
+runs it, item by item, and whatever it isn't sure of goes to the person. Claude can set a process up from a request
+and the page, in one call, or it comes ready-made. `runtime/node` serves a lab for both at `/lab`, on mock pages or a
+real browser tab ([docs/processes.md](docs/processes.md)).
+
+Measured on an M2 with v0.6, on 87 items across five mock sites (an inbox, shop results, job posts, cookie banners,
+a shop's account pages), against what a careful person would answer:
+
+| | Decided | Right when decided | Time per decision |
+|---|---|---|---|
+| Ready-made processes (revised after their first runs) | 86% | 97% (2 wrong) | 0.24-0.45 s (the 2B mini, Metal) |
+| Set up by Claude, never shown an answer | 79% | 99% (1 wrong) | same; Claude itself: one call of 10-28 s |
+
+It sorts and checks text well. Numbers, dates and labels go to code, and the route through a site is the planner's:
+the decision model can't steer toward a goal on its own.
+
+Whole flows (order this product, find me that, fill in this form) run the way browser agents on hosted decision
+models do: one operation per request over the page's numbered elements, with values the planner wrote down. In the
+lab, a shop order, a product search and a two-page Dutch form all end right, and nothing is paid or sent. Today Claude
+decides most of their steps: atelier-mini was never trained on steps, and on Mind2Web's held-out sites it picks the
+right element 9% of the time.
+
+**atelier-step** ([docs/step-model.md](docs/step-model.md)) is the small model for exactly that part. It is the nano's
+encoder with three heads that answer a whole browser step in one pass: which operation, which control, and which
+named value goes into each field.
+
+- **Size and speed:** 55 MB, about 0.08 s a step on two CPU threads.
+- **Training:** answers known by construction. Mind2Web's recorded actions, and generated flows in five languages.
+- **Held out:** a language never seen for a kind of flow, 97% of whole steps right; Mind2Web websites never seen, 53%.
+- **In the lab:** with Claude only for what it isn't sure of, the shop order, the product search and the Dutch form
+  all end right, in 10-18 s instead of 35-81 s, with 2-4 Claude calls instead of 4-9.
+- **On its own,** it doesn't finish them yet.
+
 ## Layout
 
 | Path | What |
@@ -297,6 +333,11 @@ Both minis continued for 40k questions with the suite weighted 6:
 | `analysis/cascade.py` | nano first, the mini for what it declines, the rule last: how right, and how often the mini is needed |
 | `student/export_mini.py`, `student/mini_tokenizer.py` | The mini as a runtime folder (GGUF, readout, protocol, tokenizer, parity fixtures); its tokenizer with the base's own split rule |
 | `runtime/node/src/mini.ts`, `cascade.ts`, `readers.ts`, `mini_parity.ts` | The mini on llama-server from Node, the cascade, Atelier's readers in TypeScript, token-id parity with Python |
+| `runtime/node/src/process/`, `src/lab.ts`, `lab.html`, `processes/`, `lab/` | Processes ([docs/processes.md](docs/processes.md)): the format, the runner and its click guard, Claude as the planner, a real tab over CDP, the lab's mock sites with a person's answers, and Claude's plans as measured |
+| `runtime/node/src/process/steps.ts`, `flows.ts`, `lab/apps/`, `lab/flows.json` | Whole flows the way browser agents on decision models run them (`advance`: one operation per request over the page's numbered elements; `fill`: a form from named values), with a language model only for what the decision model isn't sure of; a mock shop and a municipal form checked afterwards |
+| `data/build_steps.py` | Steps of real browser tasks from Mind2Web's recorded actions (CC BY 4.0): which operation, which element, which value, in the runtime's words, answers by construction, websites held out whole |
+| `step/` (`format.py`, `model.py`, `train.py`, `calibrate.py`, `export.py`, `mind2web.py`, `synth.py`), `runtime/node/src/step/` | atelier-step ([docs/step-model.md](docs/step-model.md)): the one-pass step format and its token-exact Node port, the model, training with a disk and swap interlock, calibration, ONNX export, Mind2Web's steps kept compact, generated flows with their answers |
+| `runtime/node/playground.html` | One question at a time against the running server, with what Atelier would do with the answer (at `/`) |
 | `analysis/tokenizer_effect.py`, `tools/purge_mark_scores.py` | What the tokenizer's split rule does to Hindi and Thai; re-scoring those after a tokenizer change |
 | `data/build_numeric2.py` | Numeric decisions in several steps (sums, percentages, VAT, units, currencies both ways, business days, journeys past midnight, connections, recipes, averages, plans): 20 trained families and 5 held out, answered by code; rows that depend on a convention are dropped |
 | `data/security_src/`, `data/build_security.py` | Security decisions answered by construction: building blocks written by Fable (carriers, secrets with typed placeholders, decoys, injections, imperatives for people, faithful and altered summaries), assembled with realistic random secrets and lookalike domains; three families held out |

@@ -1,0 +1,169 @@
+{
+  "fixture": "account",
+  "task": "address",
+  "made": "2026-11-24T15:45:21.670Z",
+  "process": {
+    "id": "change-unshipped-order-address",
+    "title": "Change delivery address of unshipped order",
+    "task": "Find the order that hasn't shipped yet and open its change-delivery-address form, so the new address can be entered.",
+    "over": "page",
+    "items": null,
+    "buckets": [
+      "found"
+    ],
+    "start": "open-account",
+    "steps": [
+      {
+        "id": "open-account",
+        "kind": "act",
+        "question": null,
+        "answer": null,
+        "options": null,
+        "read": [],
+        "op": null,
+        "value": null,
+        "sure": null,
+        "routes": [
+          {
+            "when": "done",
+            "then": {
+              "do": "click",
+              "target": "Account",
+              "next": "open-orders"
+            }
+          }
+        ]
+      },
+      {
+        "id": "open-orders",
+        "kind": "act",
+        "question": null,
+        "answer": null,
+        "options": null,
+        "read": [],
+        "op": null,
+        "value": null,
+        "sure": null,
+        "routes": [
+          {
+            "when": "done",
+            "then": {
+              "do": "click",
+              "target": "My orders",
+              "next": "pick-unshipped"
+            }
+          }
+        ]
+      },
+      {
+        "id": "pick-unshipped",
+        "kind": "pick",
+        "question": null,
+        "answer": null,
+        "options": null,
+        "read": [
+          "page"
+        ],
+        "op": "matches",
+        "value": "preparing for shipment|not (yet )?shipped|processing|awaiting shipment",
+        "sure": null,
+        "routes": [
+          {
+            "when": "picked",
+            "then": {
+              "do": "click",
+              "target": "picked",
+              "next": "open-address-form"
+            }
+          },
+          {
+            "when": "unsure",
+            "then": {
+              "do": "ask_person",
+              "target": "Can't tell which order hasn't shipped yet",
+              "next": null
+            }
+          }
+        ]
+      },
+      {
+        "id": "open-address-form",
+        "kind": "act",
+        "question": null,
+        "answer": null,
+        "options": null,
+        "read": [],
+        "op": null,
+        "value": null,
+        "sure": null,
+        "routes": [
+          {
+            "when": "done",
+            "then": {
+              "do": "click",
+              "target": "Change delivery address",
+              "next": "confirm-form"
+            }
+          }
+        ]
+      },
+      {
+        "id": "confirm-form",
+        "kind": "ask",
+        "question": "Is this page a form for changing the delivery address of an order that has not shipped yet?",
+        "answer": "yes_no",
+        "options": [
+          {
+            "name": "yes",
+            "meaning": "the page lets you enter a new delivery address for a specific order that hasn't shipped"
+          },
+          {
+            "name": "no",
+            "meaning": "the page is something else, or says the order has already shipped and can't be changed"
+          }
+        ],
+        "read": [
+          "page"
+        ],
+        "op": null,
+        "value": null,
+        "sure": null,
+        "routes": [
+          {
+            "when": "yes",
+            "then": {
+              "do": "put",
+              "target": "found",
+              "next": null
+            }
+          },
+          {
+            "when": "no",
+            "then": {
+              "do": "ask_person",
+              "target": "The address form for the unshipped order didn't open as expected",
+              "next": null
+            }
+          },
+          {
+            "when": "unsure",
+            "then": {
+              "do": "ask_person",
+              "target": "Not sure this is the address form for the unshipped order",
+              "next": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "problems": [],
+  "backend": "claude",
+  "model": "claude-opus-5-5",
+  "ms": 18741.853959,
+  "rounds": 1,
+  "tokens": {
+    "input": 7415,
+    "output": 1782
+  }
+}

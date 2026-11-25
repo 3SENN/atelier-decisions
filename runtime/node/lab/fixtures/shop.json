@@ -1,0 +1,230 @@
+{
+  "id": "shop",
+  "kind": "list",
+  "site": "Bytebazaar",
+  "url": "https://bytebazaar.test/search?q=laptop",
+  "title": "laptop – Search results – Bytebazaar",
+  "intro": "16 results for \"laptop\"",
+  "chrome": [
+    "[field] Search: laptop",
+    "[button] Search",
+    "[link] Filters",
+    "[link] Sort: Relevance",
+    "[link] Compare (0)",
+    "[link] My account",
+    "[link] Cart",
+    "[button] Next page"
+  ],
+  "fields": [
+    "name",
+    "price",
+    "specs",
+    "condition",
+    "seller"
+  ],
+  "items": [
+    {
+      "id": "s01",
+      "name": "Corvana Air 14",
+      "price": "€ 849,00",
+      "specs": "14\" 2.2K, Arcon 7 7735, 16GB RAM, 512GB SSD",
+      "condition": "New",
+      "seller": "Pixelhuis",
+      "expect": {
+        "match": "match"
+      }
+    },
+    {
+      "id": "s02",
+      "name": "Brightline Book 15",
+      "price": "€ 900,00",
+      "specs": "15.6\" FHD, Vexa Core 7 1355, 16 GB RAM, 512 GB SSD",
+      "condition": "New",
+      "seller": "Bytebazaar",
+      "expect": {
+        "match": "no"
+      }
+    },
+    {
+      "id": "s03",
+      "name": "Nimbus Pro 13",
+      "price": "€899.99",
+      "specs": "13.6\" 2560×1664, N3 8-core chip, 16 GB unified memory, 512 GB SSD",
+      "condition": "New",
+      "seller": "Nordbyte",
+      "expect": {
+        "match": "match"
+      }
+    },
+    {
+      "id": "s04",
+      "name": "Tesselate X15",
+      "price": "EUR 799",
+      "specs": "15.6\" FHD, Vexa Core 5 1335, RAM 8 GB, 512GB SSD",
+      "condition": "New",
+      "seller": "Bytebazaar",
+      "expect": {
+        "match": "no"
+      }
+    },
+    {
+      "id": "s05",
+      "name": "Corvana Flex 16",
+      "price": "€ 869,00",
+      "specs": "16\" WUXGA, Vexa Core 7 1355, 8+8 GB DDR5, 1 TB SSD",
+      "condition": "Nieuw",
+      "seller": "Pixelhuis",
+      "expect": {
+        "match": "match"
+      }
+    },
+    {
+      "id": "s06",
+      "name": "Brightline Studio 14",
+      "price": "€ 749,00",
+      "specs": "14\" OLED, Arcon 5 7540, 8 GB RAM (upgradable to 32 GB), 512 GB SSD",
+      "condition": "New",
+      "seller": "Nordbyte",
+      "expect": {
+        "match": "no"
+      }
+    },
+    {
+      "id": "s07",
+      "name": "Orbis Slim 14",
+      "price": "from €729",
+      "specs": "14\" FHD, Vexa Core 5 1235, 8GB RAM (16GB option), 256GB SSD",
+      "condition": "New",
+      "seller": "Orbis Store",
+      "expect": {
+        "match": "no"
+      }
+    },
+    {
+      "id": "s08",
+      "name": "Nimbus Pro 13 (previous generation)",
+      "price": "€ 819,00",
+      "specs": "13.6\", N2 8-core chip, 16 GB unified memory, 256 GB SSD",
+      "condition": "Refurbished – grade A",
+      "seller": "Tweedekans Tech",
+      "expect": {
+        "match": "no"
+      }
+    },
+    {
+      "id": "s09",
+      "name": "Tesselate X14 Gen 3",
+      "price": "€1.049",
+      "specs": "14\" 2.8K OLED, Vexa Ultra 7 155, 32GB RAM, 1TB SSD",
+      "condition": "New",
+      "seller": "Bytebazaar",
+      "expect": {
+        "match": "no"
+      }
+    },
+    {
+      "id": "s10",
+      "name": "Kestrel Creator 15",
+      "price": "€ 689,00",
+      "specs": "15.6\" FHD 144Hz, Arcon 7 6800, 16 GB RAM, 512 GB SSD",
+      "condition": "Open box",
+      "seller": "Bytebazaar Outlet",
+      "expect": {
+        "match": "no"
+      }
+    },
+    {
+      "id": "s11",
+      "name": "Orbis Slim 16",
+      "price": "€ 649,00",
+      "specs": "16\" FHD+, Vexa Core 7 1165, 16GB, 512GB SSD",
+      "condition": "Gebruikt",
+      "seller": "Koopjeskelder (marketplace seller)",
+      "expect": {
+        "match": "no"
+      }
+    },
+    {
+      "id": "s12",
+      "name": "Corvana Air 13",
+      "price": "€ 829,-",
+      "specs": "13.3\" FHD, Arcon 5 7530, 16 GB LPDDR4x, 512 GB SSD",
+      "condition": "Nieuw",
+      "seller": "Laptophoek",
+      "expect": {
+        "match": "match"
+      }
+    },
+    {
+      "id": "s13",
+      "name": "Brightline Book 14 Plus",
+      "price": "€ 899,00",
+      "specs": "14\" 2K, Vexa Core 5 13420, RAM 16 GB, 1 TB SSD",
+      "condition": "Als nieuw",
+      "seller": "Tweedekans Tech",
+      "expect": {
+        "match": "no"
+      }
+    },
+    {
+      "id": "s14",
+      "name": "Kestrel Lite 14",
+      "price": "€ 329,00",
+      "specs": "14\" HD, Vexa Basic N51, RAM 4 GB, 64 GB eMMC",
+      "condition": "New",
+      "seller": "Nordbyte",
+      "expect": {
+        "match": "no"
+      }
+    },
+    {
+      "id": "s15",
+      "name": "Tesselate X13",
+      "price": "€ 879,00 (was € 999,00)",
+      "specs": "13.3\" FHD, Vexa Core 5 1340, 16GB RAM, 512GB SSD",
+      "condition": "New",
+      "seller": "Pixelhuis",
+      "expect": {
+        "match": "match"
+      }
+    },
+    {
+      "id": "s16",
+      "name": "Nimbus Air 15",
+      "price": "€ 1.099,00",
+      "specs": "15.3\", N3 8-core chip, 24 GB unified memory, 512 GB SSD",
+      "condition": "New",
+      "seller": "Nordbyte",
+      "expect": {
+        "match": "no"
+      }
+    }
+  ],
+  "tasks": [
+    {
+      "key": "match",
+      "task": "Show me laptops under €900 with at least 16 GB of memory, new only (no refurbished, used or open-box).",
+      "buckets": [
+        "match",
+        "no"
+      ],
+      "process": "shop-filter"
+    }
+  ],
+  "notes": [
+    "s02: exactly € 900,00 is not under €900: no.",
+    "s03: €899.99 (dot decimal) is under €900, 16 GB unified memory, new: match.",
+    "s04: 'EUR 799' fits the price but 'RAM 8 GB' is too little: no.",
+    "s05: '8+8 GB' is 16 GB installed and 'Nieuw' is Dutch for new: match.",
+    "s06: 8 GB installed; 'upgradable to 32 GB' is not what you get: no.",
+    "s07: 'from €729' is the 8 GB base config; the 16 GB option's price is not shown, so nothing on the page meets all criteria: no.",
+    "s08: right price and memory but refurbished: no.",
+    "s09: '€1.049' uses a thousands dot = €1,049, over budget: no.",
+    "s10: open box is excluded by the task: no.",
+    "s11: 'Gebruikt' is Dutch for used: no.",
+    "s12: '€ 829,-' is Dutch notation for €829; 16 GB, Nieuw: match.",
+    "s13: 'Als nieuw' means 'like new', i.e. second-hand, not new: no.",
+    "s15: sale price € 879,00 is the price you pay (the 'was' price is irrelevant): match.",
+    "s16: '€ 1.099,00' is €1,099, over budget: no."
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "fixture": "account",
+  "task": "invoice",
+  "made": "2026-11-24T15:45:02.475Z",
+  "process": {
+    "id": "october-order-invoice",
+    "title": "Invoice for the October order",
+    "task": "Go to My orders, open the order placed in October and download its invoice.",
+    "over": "page",
+    "items": null,
+    "buckets": [
+      "found"
+    ],
+    "start": "open-account",
+    "steps": [
+      {
+        "id": "open-account",
+        "kind": "act",
+        "question": null,
+        "answer": null,
+        "options": null,
+        "read": [
+          "page"
+        ],
+        "op": null,
+        "value": null,
+        "sure": null,
+        "routes": [
+          {
+            "when": "done",
+            "then": {
+              "do": "click",
+              "target": "Account",
+              "next": "open-orders"
+            }
+          }
+        ]
+      },
+      {
+        "id": "open-orders",
+        "kind": "act",
+        "question": null,
+        "answer": null,
+        "options": null,
+        "read": [
+          "page"
+        ],
+        "op": null,
+        "value": null,
+        "sure": null,
+        "routes": [
+          {
+            "when": "done",
+            "then": {
+              "do": "click",
+              "target": "My orders",
+              "next": "pick-october-order"
+            }
+          }
+        ]
+      },
+      {
+        "id": "pick-october-order",
+        "kind": "pick",
+        "question": null,
+        "answer": null,
+        "options": null,
+        "read": [
+          "page"
+        ],
+        "op": "matches",
+        "value": "placed \\d{1,2} Oct",
+        "sure": null,
+        "routes": [
+          {
+            "when": "picked",
+            "then": {
+              "do": "click",
+              "target": "picked",
+              "next": "download-invoice"
+            }
+          },
+          {
+            "when": "unsure",
+            "then": {
+              "do": "ask_person",
+              "target": "no order placed in October found in the list (it may be under Show older orders)",
+              "next": null
+            }
+          }
+        ]
+      },
+      {
+        "id": "download-invoice",
+        "kind": "act",
+        "question": null,
+        "answer": null,
+        "options": null,
+        "read": [
+          "page"
+        ],
+        "op": null,
+        "value": null,
+        "sure": null,
+        "routes": [
+          {
+            "when": "done",
+            "then": {
+              "do": "click",
+              "target": "Download invoice",
+              "next": "finish"
+            }
+          }
+        ]
+      },
+      {
+        "id": "finish",
+        "kind": "act",
+        "question": null,
+        "answer": null,
+        "options": null,
+        "read": [
+          "page"
+        ],
+        "op": null,
+        "value": null,
+        "sure": null,
+        "routes": [
+          {
+            "when": "done",
+            "then": {
+              "do": "put",
+              "target": "found",
+              "next": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "problems": [],
+  "backend": "claude",
+  "model": "claude-opus-5-5",
+  "ms": 10821.776167,
+  "rounds": 1,
+  "tokens": {
+    "input": 7398,
+    "output": 994
+  }
+}

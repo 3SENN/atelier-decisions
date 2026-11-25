@@ -1,0 +1,455 @@
+{
+  "made": "2026-11-24T16:03:55.580Z",
+  "decider": "http://127.0.0.1:8011",
+  "rows": [
+    {
+      "ref": "account:invoice",
+      "source": "planned",
+      "summary": {
+        "process": "october-order-invoice",
+        "items": 1,
+        "outcomes": {
+          "found": 1
+        },
+        "decisions": 0,
+        "sure": 0,
+        "byWho": {
+          "code": 5
+        },
+        "msPerDecision": {
+          "median": 0,
+          "p90": 0
+        },
+        "msTotal": 1936.948833,
+        "scored": 1,
+        "right": 1,
+        "wrong": 0,
+        "person": 0,
+        "personNotNeeded": 0
+      },
+      "misses": []
+    },
+    {
+      "ref": "account:address",
+      "source": "planned",
+      "summary": {
+        "process": "change-unshipped-order-address",
+        "items": 1,
+        "outcomes": {
+          "found": 1
+        },
+        "decisions": 1,
+        "sure": 1,
+        "byWho": {
+          "code": 4,
+          "mini": 1
+        },
+        "msPerDecision": {
+          "median": 431.29454199999964,
+          "p90": 431.29454199999964
+        },
+        "msTotal": 2238.9856670000004,
+        "scored": 1,
+        "right": 1,
+        "wrong": 0,
+        "person": 0,
+        "personNotNeeded": 0
+      },
+      "misses": []
+    },
+    {
+      "ref": "account:marketing",
+      "source": "planned",
+      "summary": {
+        "process": "stop-marketing-emails",
+        "items": 1,
+        "outcomes": {
+          "found": 1
+        },
+        "decisions": 2,
+        "sure": 2,
+        "byWho": {
+          "code": 3,
+          "mini": 2
+        },
+        "msPerDecision": {
+          "median": 334.5407919999998,
+          "p90": 334.5407919999998
+        },
+        "msTotal": 1572.940708,
+        "scored": 1,
+        "right": 1,
+        "wrong": 0,
+        "person": 0,
+        "personNotNeeded": 0
+      },
+      "misses": []
+    },
+    {
+      "ref": "account:returns",
+      "source": "planned",
+      "summary": {
+        "process": "return-an-item",
+        "items": 1,
+        "outcomes": {
+          "found": 1
+        },
+        "decisions": 0,
+        "sure": 0,
+        "byWho": {
+          "code": 4
+        },
+        "msPerDecision": {
+          "median": 0,
+          "p90": 0
+        },
+        "msTotal": 448.64308299999993,
+        "scored": 1,
+        "right": 0,
+        "wrong": 1,
+        "person": 0,
+        "personNotNeeded": 0
+      },
+      "misses": [
+        "✗ returns How do I send something back?: found (expected /help/returns)"
+      ]
+    },
+    {
+      "ref": "cookies:reject",
+      "source": "library",
+      "summary": {
+        "process": "cookies-reject",
+        "items": 9,
+        "outcomes": {
+          "person": 6,
+          "no-banner": 2,
+          "stopped": 1
+        },
+        "decisions": 17,
+        "sure": 13,
+        "byWho": {
+          "mini": 15,
+          "nano": 2
+        },
+        "msPerDecision": {
+          "median": 383.8795829999999,
+          "p90": 3435.0235410000005
+        },
+        "msTotal": 22609.740167,
+        "scored": 9,
+        "right": 5,
+        "wrong": 0,
+        "person": 4,
+        "personNotNeeded": 4
+      },
+      "misses": [
+        "? c01 Harbour bridge reopens after six months – The Lind: person (a delete click (by the model): “Reject all”) (expected click:Reject all)",
+        "? c04 Cheap flights to Lisbon – Quickfare: person (no single control refuses the cookies) (expected click:Only necessary cookies)",
+        "? c05 Winterharde planten – Tuincentrum De Hoeve: person (a delete click (by the model): “Alles weigeren”) (expected click:Alles weigeren)",
+        "? c06 Route van de week – Trapkracht: person (not sure whether a cookie banner is showing) (expected click:Alleen noodzakelijke cookies)"
+      ]
+    },
+    {
+      "ref": "cookies:reject",
+      "source": "planned",
+      "summary": {
+        "process": "refuse-cookies",
+        "items": 9,
+        "outcomes": {
+          "person": 7,
+          "no-banner": 2
+        },
+        "decisions": 21,
+        "sure": 14,
+        "byWho": {
+          "mini": 19,
+          "nano": 2
+        },
+        "msPerDecision": {
+          "median": 413.6327500000043,
+          "p90": 3329.1142499999987
+        },
+        "msTotal": 31453.35775,
+        "scored": 9,
+        "right": 5,
+        "wrong": 0,
+        "person": 4,
+        "personNotNeeded": 4
+      },
+      "misses": [
+        "? c01 Harbour bridge reopens after six months – The Lind: person (a delete click (by the model): “Reject all”) (expected click:Reject all)",
+        "? c04 Cheap flights to Lisbon – Quickfare: person (no way to refuse cookies found in the banner) (expected click:Only necessary cookies)",
+        "? c05 Winterharde planten – Tuincentrum De Hoeve: person (a delete click (by the model): “Alles weigeren”) (expected click:Alles weigeren)",
+        "? c06 Route van de week – Trapkracht: person (not sure whether there is a cookie banner) (expected click:Alleen noodzakelijke cookies)"
+      ]
+    },
+    {
+      "ref": "inbox:triage",
+      "source": "library",
+      "summary": {
+        "process": "inbox-triage",
+        "items": 22,
+        "outcomes": {
+          "needs-me": 9,
+          "archive": 6,
+          "later": 5,
+          "person": 2
+        },
+        "decisions": 44,
+        "sure": 39,
+        "byWho": {
+          "mini": 44
+        },
+        "msPerDecision": {
+          "median": 319.538750000007,
+          "p90": 413.95416699998896
+        },
+        "msTotal": 14594.857500000006,
+        "scored": 22,
+        "right": 19,
+        "wrong": 1,
+        "person": 2,
+        "personNotNeeded": 2
+      },
+      "misses": [
+        "? e06 FYI: slides from Thursday's review: person (not sure what kind of email this is) (expected later)",
+        "? e10 Your subscription renews on 1 December: person (not sure what kind of email this is) (expected archive)",
+        "✗ e16 You appeared in 7 searches this week: later (expected archive)"
+      ]
+    },
+    {
+      "ref": "inbox:triage",
+      "source": "planned",
+      "summary": {
+        "process": "inbox-sort",
+        "items": 22,
+        "outcomes": {
+          "person": 5,
+          "archive": 6,
+          "needs-me": 7,
+          "later": 4
+        },
+        "decisions": 30,
+        "sure": 27,
+        "byWho": {
+          "mini": 30
+        },
+        "msPerDecision": {
+          "median": 446.38658400000713,
+          "p90": 508.1444999999949
+        },
+        "msTotal": 12928.78708400001,
+        "scored": 22,
+        "right": 17,
+        "wrong": 0,
+        "person": 5,
+        "personNotNeeded": 5
+      },
+      "misses": [
+        "? e01 Your account is locked – verify now: person (security alert: check the sender's address is genuine before clicking anything (it may be phishing)) (expected needs-me)",
+        "? e02 New sign-in to your account: person (security alert: check the sender's address is genuine before clicking anything (it may be phishing)) (expected needs-me)",
+        "? e06 FYI: slides from Thursday's review: person (not sure what kind of email this is) (expected later)",
+        "? e10 Your subscription renews on 1 December: person (not sure what kind of email this is) (expected archive)",
+        "? e16 You appeared in 7 searches this week: person (not sure what kind of email this is) (expected archive)"
+      ]
+    },
+    {
+      "ref": "inbox:bills",
+      "source": "library",
+      "summary": {
+        "process": "inbox-bills",
+        "items": 22,
+        "outcomes": {
+          "to-pay": 5,
+          "not-to-pay": 16,
+          "person": 1
+        },
+        "decisions": 22,
+        "sure": 21,
+        "byWho": {
+          "mini": 22
+        },
+        "msPerDecision": {
+          "median": 371.5288750000036,
+          "p90": 380.07004099999904
+        },
+        "msTotal": 7889.852832999997,
+        "scored": 22,
+        "right": 20,
+        "wrong": 1,
+        "person": 1,
+        "personNotNeeded": 1
+      },
+      "misses": [
+        "✗ e01 Your account is locked – verify now: to-pay (expected not-to-pay)",
+        "? e15 Which vendor do we go with?: person (not sure whether this is a bill to pay) (expected not-to-pay)"
+      ]
+    },
+    {
+      "ref": "inbox:bills",
+      "source": "planned",
+      "summary": {
+        "process": "bills-to-pay",
+        "items": 22,
+        "outcomes": {
+          "person": 1,
+          "not-to-pay": 17,
+          "to-pay": 4
+        },
+        "decisions": 35,
+        "sure": 35,
+        "byWho": {
+          "mini": 35
+        },
+        "msPerDecision": {
+          "median": 361.31708300000173,
+          "p90": 416.4398749999964
+        },
+        "msTotal": 13291.301999999996,
+        "scored": 22,
+        "right": 21,
+        "wrong": 0,
+        "person": 1,
+        "personNotNeeded": 1
+      },
+      "misses": [
+        "? e01 Your account is locked – verify now: person (this payment request may be a scam — check before paying) (expected not-to-pay)"
+      ]
+    },
+    {
+      "ref": "jobs:apply",
+      "source": "library",
+      "summary": {
+        "process": "jobs-filter",
+        "items": 14,
+        "outcomes": {
+          "apply": 7,
+          "skip": 5,
+          "person": 2
+        },
+        "decisions": 35,
+        "sure": 31,
+        "byWho": {
+          "mini": 35
+        },
+        "msPerDecision": {
+          "median": 346.20933300000615,
+          "p90": 357.0948749999952
+        },
+        "msTotal": 11309.22266700001,
+        "scored": 14,
+        "right": 12,
+        "wrong": 0,
+        "person": 2,
+        "personNotNeeded": 2
+      },
+      "misses": [
+        "? j10 Frontend Developer: person (not sure where the job can be done) (expected skip)",
+        "? j11 Frontend developer: person (not sure what the role is) (expected skip)"
+      ]
+    },
+    {
+      "ref": "jobs:apply",
+      "source": "planned",
+      "summary": {
+        "process": "mid-frontend-jobs",
+        "items": 14,
+        "outcomes": {
+          "apply": 4,
+          "skip": 5,
+          "person": 5
+        },
+        "decisions": 35,
+        "sure": 31,
+        "byWho": {
+          "mini": 35
+        },
+        "msPerDecision": {
+          "median": 402.3090000000084,
+          "p90": 410.0697500000242
+        },
+        "msTotal": 13479.41283299998,
+        "scored": 14,
+        "right": 9,
+        "wrong": 0,
+        "person": 5,
+        "personNotNeeded": 5
+      },
+      "misses": [
+        "? j04 Design Engineer: person (not sure whether the location works (remote or Amsterdam)) (expected apply)",
+        "? j05 Backend Developer: person (not sure whether this is a frontend or full-stack role) (expected skip)",
+        "? j11 Frontend developer: person (not sure whether the location works (remote or Amsterdam)) (expected skip)",
+        "? j13 Junior Frontend Developer: person (junior role: still worth applying as a mid-level developer?) (expected apply)",
+        "? j14 Front-end developer (32–40 uur): person (not sure whether the location works (remote or Amsterdam)) (expected apply)"
+      ]
+    },
+    {
+      "ref": "shop:match",
+      "source": "library",
+      "summary": {
+        "process": "shop-filter",
+        "items": 16,
+        "outcomes": {
+          "match": 5,
+          "no": 8,
+          "person": 3
+        },
+        "decisions": 13,
+        "sure": 10,
+        "byWho": {
+          "code": 25,
+          "mini": 13
+        },
+        "msPerDecision": {
+          "median": 363.0053750000079,
+          "p90": 413.37079200000153
+        },
+        "msTotal": 4821.101166000008,
+        "scored": 16,
+        "right": 13,
+        "wrong": 0,
+        "person": 3,
+        "personNotNeeded": 3
+      },
+      "misses": [
+        "? s06 Brightline Studio 14: person (not sure how much memory it has) (expected no)",
+        "? s07 Orbis Slim 14: person (not sure how much memory it has) (expected no)",
+        "? s14 Kestrel Lite 14: person (not sure how much memory it has) (expected no)"
+      ]
+    },
+    {
+      "ref": "shop:match",
+      "source": "planned",
+      "summary": {
+        "process": "laptops-under-900-16gb-new",
+        "items": 16,
+        "outcomes": {
+          "match": 5,
+          "no": 8,
+          "person": 3
+        },
+        "decisions": 22,
+        "sure": 19,
+        "byWho": {
+          "code": 16,
+          "mini": 22
+        },
+        "msPerDecision": {
+          "median": 311.12329200000386,
+          "p90": 375.61295800001244
+        },
+        "msTotal": 7313.291874999995,
+        "scored": 16,
+        "right": 13,
+        "wrong": 0,
+        "person": 3,
+        "personNotNeeded": 3
+      },
+      "misses": [
+        "? s06 Brightline Studio 14: person (not sure how much memory it has) (expected no)",
+        "? s07 Orbis Slim 14: person (not sure how much memory it has) (expected no)",
+        "? s13 Brightline Book 14 Plus: person (not sure whether it is new) (expected no)"
+      ]
+    }
+  ]
+}

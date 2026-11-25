@@ -1,0 +1,214 @@
+{
+  "id": "inbox-triage",
+  "title": "Sort my inbox",
+  "task": "Sort my inbox into needs me, read later and archive.",
+  "over": "items",
+  "items": {
+    "selector": "article.item",
+    "fields": [
+      {
+        "name": "from",
+        "selector": ".f-from"
+      },
+      {
+        "name": "subject",
+        "selector": ".f-subject"
+      },
+      {
+        "name": "snippet",
+        "selector": ".f-snippet"
+      },
+      {
+        "name": "date",
+        "selector": ".f-date"
+      }
+    ]
+  },
+  "buckets": [
+    "needs-me",
+    "later",
+    "archive"
+  ],
+  "start": "person",
+  "steps": [
+    {
+      "id": "person",
+      "kind": "ask",
+      "answer": "yes_no",
+      "question": "Did a person write this email to the reader personally?",
+      "read": [
+        "from",
+        "subject",
+        "snippet"
+      ],
+      "options": [
+        {
+          "name": "yes",
+          "meaning": "a colleague, friend, family member or client writing to the reader"
+        },
+        {
+          "name": "no",
+          "meaning": "automated, a notification, a newsletter, a bill or marketing sent to many"
+        }
+      ],
+      "routes": [
+        {
+          "when": "yes",
+          "then": {
+            "do": "goto",
+            "target": "waiting",
+            "next": null
+          }
+        },
+        {
+          "when": "no",
+          "then": {
+            "do": "goto",
+            "target": "kind",
+            "next": null
+          }
+        },
+        {
+          "when": "unsure",
+          "then": {
+            "do": "goto",
+            "target": "kind",
+            "next": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "kind",
+      "kind": "ask",
+      "answer": "choice",
+      "question": "What kind of automated or bulk email is this?",
+      "read": [
+        "from",
+        "subject",
+        "snippet"
+      ],
+      "options": [
+        {
+          "name": "invite",
+          "meaning": "a meeting or event invitation that needs a yes or no"
+        },
+        {
+          "name": "bill",
+          "meaning": "an invoice, bill or reminder asking the reader to pay"
+        },
+        {
+          "name": "security",
+          "meaning": "a sign-in alert, password reset, verification code or warning about the account"
+        },
+        {
+          "name": "newsletter",
+          "meaning": "a newsletter, digest or blog the reader subscribed to"
+        },
+        {
+          "name": "promotion",
+          "meaning": "marketing, a sale, an offer or an advert"
+        },
+        {
+          "name": "update",
+          "meaning": "a receipt, shipping update, renewal notice or app notification"
+        }
+      ],
+      "routes": [
+        {
+          "when": "invite",
+          "then": {
+            "do": "put",
+            "target": "needs-me"
+          }
+        },
+        {
+          "when": "bill",
+          "then": {
+            "do": "put",
+            "target": "needs-me"
+          }
+        },
+        {
+          "when": "security",
+          "then": {
+            "do": "put",
+            "target": "needs-me"
+          }
+        },
+        {
+          "when": "newsletter",
+          "then": {
+            "do": "put",
+            "target": "later"
+          }
+        },
+        {
+          "when": "promotion",
+          "then": {
+            "do": "put",
+            "target": "archive"
+          }
+        },
+        {
+          "when": "update",
+          "then": {
+            "do": "put",
+            "target": "archive"
+          }
+        },
+        {
+          "when": "unsure",
+          "then": {
+            "do": "ask_person",
+            "target": "not sure what kind of email this is"
+          }
+        }
+      ]
+    },
+    {
+      "id": "waiting",
+      "kind": "ask",
+      "answer": "yes_no",
+      "question": "Is the sender waiting for the reader to answer, decide or do something?",
+      "read": [
+        "from",
+        "subject",
+        "snippet"
+      ],
+      "options": [
+        {
+          "name": "yes",
+          "meaning": "a question, a request or a decision is waiting on the reader"
+        },
+        {
+          "name": "no",
+          "meaning": "only sharing news or information, nothing is asked"
+        }
+      ],
+      "routes": [
+        {
+          "when": "yes",
+          "then": {
+            "do": "put",
+            "target": "needs-me"
+          }
+        },
+        {
+          "when": "no",
+          "then": {
+            "do": "put",
+            "target": "later"
+          }
+        },
+        {
+          "when": "unsure",
+          "then": {
+            "do": "put",
+            "target": "needs-me"
+          }
+        }
+      ]
+    }
+  ]
+}

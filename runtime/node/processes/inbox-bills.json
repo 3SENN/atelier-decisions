@@ -1,0 +1,78 @@
+{
+  "id": "inbox-bills",
+  "title": "Bills still to pay",
+  "task": "Which emails are bills I still have to pay?",
+  "over": "items",
+  "items": {
+    "selector": "article.item",
+    "fields": [
+      {
+        "name": "from",
+        "selector": ".f-from"
+      },
+      {
+        "name": "subject",
+        "selector": ".f-subject"
+      },
+      {
+        "name": "snippet",
+        "selector": ".f-snippet"
+      },
+      {
+        "name": "date",
+        "selector": ".f-date"
+      }
+    ]
+  },
+  "buckets": [
+    "to-pay",
+    "not-to-pay"
+  ],
+  "start": "bill",
+  "steps": [
+    {
+      "id": "bill",
+      "kind": "ask",
+      "answer": "yes_no",
+      "question": "Does this email ask the reader to pay an amount that has not been paid yet?",
+      "read": [
+        "from",
+        "subject",
+        "snippet"
+      ],
+      "options": [
+        {
+          "name": "yes",
+          "meaning": "an invoice, bill or payment reminder with an amount still to pay"
+        },
+        {
+          "name": "no",
+          "meaning": "a receipt for something already paid, an automatic charge, or nothing to pay"
+        }
+      ],
+      "routes": [
+        {
+          "when": "yes",
+          "then": {
+            "do": "put",
+            "target": "to-pay"
+          }
+        },
+        {
+          "when": "no",
+          "then": {
+            "do": "put",
+            "target": "not-to-pay"
+          }
+        },
+        {
+          "when": "unsure",
+          "then": {
+            "do": "ask_person",
+            "target": "not sure whether this is a bill to pay"
+          }
+        }
+      ]
+    }
+  ]
+}

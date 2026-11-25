@@ -1,0 +1,216 @@
+{
+  "task": "shop-find",
+  "made": "2026-11-24T17:25:18.556Z",
+  "process": {
+    "id": "tent-to-cart",
+    "title": "2-person tent under €200 in the cart",
+    "task": "Find a 2-person tent under €200 and put it in the cart.",
+    "over": "page",
+    "items": null,
+    "buckets": [],
+    "values": [
+      {
+        "name": "search term",
+        "value": "2 person tent"
+      },
+      {
+        "name": "maximum price",
+        "value": "€ 200,00"
+      },
+      {
+        "name": "quantity",
+        "value": "1"
+      }
+    ],
+    "start": "find-tent",
+    "steps": [
+      {
+        "id": "find-tent",
+        "kind": "advance",
+        "question": "Search the shop for tents for two people and open one that costs less than €200 (not the Featherlite 2 at €229 or the Basecamp 3P at €349).",
+        "answer": null,
+        "options": null,
+        "read": [
+          "page"
+        ],
+        "op": null,
+        "value": null,
+        "sure": null,
+        "budget": 10,
+        "routes": [
+          {
+            "when": "done",
+            "then": {
+              "do": "goto",
+              "target": "is-two-person-tent",
+              "next": null
+            }
+          },
+          {
+            "when": "blocked",
+            "then": {
+              "do": "ask_person",
+              "target": "could not find a 2-person tent under €200",
+              "next": null
+            }
+          },
+          {
+            "when": "unsure",
+            "then": {
+              "do": "ask_person",
+              "target": "not sure which tent fits",
+              "next": null
+            }
+          }
+        ]
+      },
+      {
+        "id": "is-two-person-tent",
+        "kind": "ask",
+        "question": "Is this page showing a tent made for two people?",
+        "answer": "yes_no",
+        "options": [
+          {
+            "name": "yes",
+            "meaning": "the product page is for a tent that sleeps two people"
+          },
+          {
+            "name": "no",
+            "meaning": "it is not a tent, or it is for one, three or more people, or it is not a product page"
+          }
+        ],
+        "read": [
+          "page"
+        ],
+        "op": null,
+        "value": null,
+        "sure": null,
+        "budget": null,
+        "routes": [
+          {
+            "when": "yes",
+            "then": {
+              "do": "goto",
+              "target": "add-to-cart",
+              "next": null
+            }
+          },
+          {
+            "when": "no",
+            "then": {
+              "do": "ask_person",
+              "target": "the opened product is not a 2-person tent",
+              "next": null
+            }
+          },
+          {
+            "when": "unsure",
+            "then": {
+              "do": "ask_person",
+              "target": "not sure this is a 2-person tent",
+              "next": null
+            }
+          }
+        ]
+      },
+      {
+        "id": "add-to-cart",
+        "kind": "advance",
+        "question": "Add this tent to the cart (quantity 1), then open the cart and stop there without checking out or paying.",
+        "answer": null,
+        "options": null,
+        "read": [
+          "page"
+        ],
+        "op": null,
+        "value": null,
+        "sure": null,
+        "budget": 6,
+        "routes": [
+          {
+            "when": "done",
+            "then": {
+              "do": "goto",
+              "target": "cart-check",
+              "next": null
+            }
+          },
+          {
+            "when": "blocked",
+            "then": {
+              "do": "ask_person",
+              "target": "could not add the tent to the cart",
+              "next": null
+            }
+          },
+          {
+            "when": "unsure",
+            "then": {
+              "do": "ask_person",
+              "target": "not sure the tent was added",
+              "next": null
+            }
+          }
+        ]
+      },
+      {
+        "id": "cart-check",
+        "kind": "ask",
+        "question": "Does this cart page list a tent for two people?",
+        "answer": "yes_no",
+        "options": [
+          {
+            "name": "yes",
+            "meaning": "the cart has a line with a 2-person tent in it"
+          },
+          {
+            "name": "no",
+            "meaning": "the cart is empty, holds something else, or this is not the cart"
+          }
+        ],
+        "read": [
+          "page"
+        ],
+        "op": null,
+        "value": null,
+        "sure": null,
+        "budget": null,
+        "routes": [
+          {
+            "when": "yes",
+            "then": {
+              "do": "stop",
+              "target": "tent is in the cart; check the price is under €200 before checking out",
+              "next": null
+            }
+          },
+          {
+            "when": "no",
+            "then": {
+              "do": "ask_person",
+              "target": "the cart does not show a 2-person tent",
+              "next": null
+            }
+          },
+          {
+            "when": "unsure",
+            "then": {
+              "do": "ask_person",
+              "target": "not sure the cart holds the tent",
+              "next": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "problems": [],
+  "backend": "claude",
+  "model": "claude-opus-5-5",
+  "ms": 16735.823916999998,
+  "rounds": 1,
+  "tokens": {
+    "input": 5221,
+    "output": 1676
+  }
+}

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hollowpine Outdoor</title>
+<style>
+  :root { --bg: #fafaf8; --panel: #fff; --ink: #1d1d1b; --muted: #6b6b66; --line: #e4e3df; --accent: #2f6b3f; }
+  body { font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; margin: 0; background: var(--bg); color: var(--ink); }
+  header { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; padding: 12px 20px; border-bottom: 1px solid var(--line); background: var(--panel); }
+  header .logo { font-weight: 700; color: var(--accent); text-decoration: none; margin-right: 8px; }
+  header form { display: flex; gap: 6px; flex: 1; min-width: 200px; }
+  main { max-width: 900px; margin: 0 auto; padding: 18px 20px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px; }
+  .price { font-weight: 650; } .muted { color: var(--muted); font-size: 13px; }
+  input, select, textarea { font: inherit; padding: 6px 8px; border: 1px solid #c9c8c2; border-radius: 6px; }
+  button { font: inherit; padding: 7px 14px; border-radius: 8px; border: 1px solid #c9c8c2; background: #fff; cursor: pointer; }
+  button.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+  label { display: block; margin: 10px 0 4px; } .row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .notice { background: #e3f4ea; border-radius: 8px; padding: 8px 12px; margin: 10px 0; } .error { color: #b3261e; }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<header>
+  <a class="logo" href="/lab/apps/shop/">Hollowpine Outdoor</a>
+  <form action="/lab/apps/shop/search" method="get" role="search"><input name="q" aria-label="Search gear" placeholder="Search gear"><button type="submit">Search</button></form>
+  <a href="/lab/apps/shop/account">Account</a> <a href="/lab/apps/shop/cart" id="cartlink">Cart</a> <a href="/lab/apps/shop/help">Help</a>
+</header>
+<main id="main"></main>
+<script>
+// A mock shop for the process lab: everything stays in this browser (localStorage "lab-shop"), nothing is sold.
+const PRODUCTS = [
+  { id: 'trailrunner-2', name: 'Trailrunner 2 trail shoes', price: 124.95, kind: 'shoes', sizes: ['39', '40', '41', '42', '43', '44', '45', '46'], tags: 'shoe shoes trail running runner', text: 'Light trail running shoes with a grippy sole.' },
+  { id: 'ridgeline-gtx', name: 'Ridgeline GTX hiking boots', price: 159.0, kind: 'shoes', sizes: ['40', '41', '42', '43', '44', '45'], tags: 'boot boots hiking waterproof', text: 'Waterproof hiking boots for rough terrain.' },
+  { id: 'trailrunner-kids', name: 'Trailrunner Kids', price: 69.95, kind: 'shoes', sizes: ['30', '31', '32', '33', '34', '35'], tags: 'shoe shoes kids trail running runner', text: 'The Trailrunner for children.' },
+  { id: 'alpine-shell', name: 'Alpine Shell Jacket', price: 189.0, kind: 'jacket', sizes: ['S', 'M', 'L', 'XL'], tags: 'jacket rain shell', text: 'A three-layer rain jacket.' },
+  { id: 'basecamp-3p', name: 'Basecamp 3P tent', price: 349.0, kind: 'tent', tags: 'tent tents camping 3 person three', text: 'A roomy tent for three people.' },
+  { id: 'featherlite-2', name: 'Featherlite 2 tent', price: 229.0, kind: 'tent', tags: 'tent tents camping 2 person two ultralight', text: 'An ultralight tent for two people, 1.1 kg.' },
+  { id: 'trailhut-2', name: 'Trailhut 2 tent', price: 189.0, kind: 'tent', tags: 'tent tents camping 2 person two', text: 'A sturdy tent for two people with two doors.' },
+  { id: 'solo-ul-1', name: 'Solo UL 1 tent', price: 159.0, kind: 'tent', tags: 'tent tents camping 1 person one solo ultralight', text: 'A one-person ultralight tent.' },
+  { id: 'trekker-2', name: 'Trekker 2 tent', price: 214.0, kind: 'tent', tags: 'tent tents camping 2 person two', text: 'A two-person trekking tent with a big porch.' },
+  { id: 'family-dome-4', name: 'Family Dome 4 tent', price: 279.0, kind: 'tent', tags: 'tent tents camping 4 person four family', text: 'A dome tent for four.' },
+]
+const euro = (n) => '€ ' + n.toFixed(2).replace('.', ',')
+const load = () => { try { return JSON.parse(localStorage.getItem('lab-shop')) || {} } catch { return {} } }
+const store = (s) => localStorage.setItem('lab-shop', JSON.stringify(s))
+const state = load(); state.cart ??= []; state.log ??= []
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c])
+const path = location.pathname.replace(/^\/lab\/apps\/shop/, '') || '/'
+const params = new URLSearchParams(location.search)
+const main = document.getElementById('main')
+document.getElementById('cartlink').textContent = `Cart (${state.cart.reduce((a, i) => a + i.qty, 0)})`
+const card = (p) => `<div class="card"><a href="/lab/apps/shop/p/${p.id}">${esc(p.name)}</a><div class="price">${euro(p.price)}</div><div class="muted">${esc(p.text)}</div></div>`
+
+if (path === '/') {
+  main.innerHTML = `<h1>Gear for every trail</h1><p>Winter sale: up to 30% off insulated jackets.</p><h2>Popular</h2><div class="grid">${PRODUCTS.slice(0, 6).map(card).join('')}</div>`
+} else if (path === '/search') {
+  const q = (params.get('q') || '').toLowerCase()
+  const words = q.split(/[^a-z0-9]+/).filter((w) => w.length > 1)
+  const hits = PRODUCTS.filter((p) => words.some((w) => (p.name + ' ' + p.tags).toLowerCase().includes(w)))
+  main.innerHTML = `<h1>Results for “${esc(params.get('q') || '')}”</h1><p class="muted">${hits.length} products</p><div class="grid">${hits.map(card).join('') || '<p>Nothing found. Try another word.</p>'}</div>`
+} else if (path.startsWith('/p/')) {
+  const p = PRODUCTS.find((x) => x.id === path.slice(3))
+  if (!p) main.innerHTML = '<h1>Not found</h1>'
+  else {
+    main.innerHTML = `<h1>${esc(p.name)}</h1><div class="price">${euro(p.price)}</div><p>${esc(p.text)}</p>
+      <form id="add">${p.sizes ? `<label for="size">Size${p.kind === 'shoes' ? ' (EU)' : ''}</label><select id="size" name="size" required><option value="">Choose a size</option>${p.sizes.map((s) => `<option>${s}</option>`).join('')}</select>` : ''}
+      <label for="qty">Quantity</label><input id="qty" name="qty" type="number" min="1" value="1" style="width:70px">
+      <div class="row" style="margin-top:14px"><button class="primary" type="submit">Add to cart</button><button type="button" id="wish">Add to wishlist</button></div><p class="error" id="err"></p></form>
+      <div id="added"></div><p><a href="javascript:history.back()">Back to results</a></p>`
+    document.getElementById('add').onsubmit = (e) => {
+      e.preventDefault()
+      const size = p.sizes ? document.getElementById('size').value : null
+      if (p.sizes && !size) return (document.getElementById('err').textContent = 'Choose a size first.')
+      const qty = Math.max(1, Number(document.getElementById('qty').value) || 1)
+      state.cart.push({ id: p.id, name: p.name, size, qty, price: p.price }); state.log.push(`added ${p.id} ${size ?? ''} x${qty}`); store(state)
+      document.getElementById('added').innerHTML = `<div class="notice">Added to your cart: ${esc(p.name)}${size ? `, size ${size}` : ''}. <a href="/lab/apps/shop/cart">Go to cart</a></div>`
+      document.getElementById('cartlink').textContent = `Cart (${state.cart.reduce((a, i) => a + i.qty, 0)})`
+    }
+    document.getElementById('wish').onclick = () => { state.log.push(`wishlist ${p.id}`); store(state); document.getElementById('added').innerHTML = '<div class="notice">Saved to your wishlist.</div>' }
+  }
+} else if (path === '/cart') {
+  const total = state.cart.reduce((a, i) => a + i.price * i.qty, 0)
+  main.innerHTML = `<h1>Your cart</h1>${state.cart.length ? state.cart.map((i, n) => `<div class="card row"><span style="flex:1">${esc(i.name)}${i.size ? ` · size ${esc(i.size)}` : ''} · ${i.qty} × ${euro(i.price)}</span><button data-n="${n}" class="rm">Remove</button></div>`).join('') + `<p class="price">Total ${euro(total)}</p><p><a href="/lab/apps/shop/checkout">Checkout</a></p>` : '<p>Your cart is empty.</p>'}<p><a href="/lab/apps/shop/">Continue shopping</a></p>`
+  document.querySelectorAll('.rm').forEach((b) => (b.onclick = () => { state.cart.splice(Number(b.dataset.n), 1); state.log.push('removed'); store(state); location.reload() }))
+} else if (path === '/checkout') {
+  const c = state.checkout || {}
+  main.innerHTML = `<h1>Checkout</h1><p class="muted">Step 1 of 2: delivery</p><form id="co">
+    <label for="fullname">Full name</label><input id="fullname" autocomplete="name" value="${esc(c.name || '')}" required>
+    <label for="email">Email</label><input id="email" type="email" autocomplete="email" value="${esc(c.email || '')}" required>
+    <label for="street">Street and house number</label><input id="street" value="${esc(c.street || '')}" required>
+    <label for="postcode">Postcode</label><input id="postcode" value="${esc(c.postcode || '')}" required>
+    <label for="city">Town or city</label><input id="city" value="${esc(c.city || '')}" required>
+    <label for="phone">Mobile number (for the courier, optional)</label><input id="phone" type="tel" value="${esc(c.phone || '')}">
+    <p>Delivery</p><label><input type="radio" name="delivery" value="standard"> Standard delivery (free, 2–3 days)</label><label><input type="radio" name="delivery" value="express"> Express delivery (€ 6,95, next day)</label>
+    <label><input type="checkbox" id="news"> Send me the Hollowpine newsletter</label>
+    <p class="error" id="err"></p><button class="primary" type="submit">Continue to payment</button></form>`
+  document.getElementById('co').onsubmit = (e) => {
+    e.preventDefault()
+    const v = (id) => document.getElementById(id).value.trim()
+    const delivery = document.querySelector('input[name=delivery]:checked')?.value
+    if (!state.cart.length) return (document.getElementById('err').textContent = 'Your cart is empty.')
+    if (!v('fullname') || !v('email') || !v('street') || !v('postcode') || !v('city')) return (document.getElementById('err').textContent = 'Please fill in all required fields.')
+    if (!delivery) return (document.getElementById('err').textContent = 'Choose a delivery option.')
+    state.checkout = { name: v('fullname'), email: v('email'), street: v('street'), postcode: v('postcode'), city: v('city'), phone: v('phone'), delivery, newsletter: document.getElementById('news').checked }
+    state.log.push('checkout'); store(state); location.href = '/lab/apps/shop/pay'
+  }
+} else if (path === '/pay') {
+  const total = state.cart.reduce((a, i) => a + i.price * i.qty, 0) + (state.checkout?.delivery === 'express' ? 6.95 : 0)
+  main.innerHTML = `<h1>Payment</h1><p class="muted">Step 2 of 2</p><div class="card">${state.cart.map((i) => `${esc(i.name)}${i.size ? ` · size ${esc(i.size)}` : ''} · ${i.qty} ×`).join('<br>')}<br>Deliver to ${esc(state.checkout?.name || '?')}, ${esc(state.checkout?.street || '?')}, ${esc(state.checkout?.postcode || '')} ${esc(state.checkout?.city || '')} (${esc(state.checkout?.delivery || '?')})</div>
+    <p>Pay with</p><label><input type="radio" name="method" checked> iDEAL</label><label><input type="radio" name="method"> Card</label>
+    <div class="row" style="margin-top:12px"><button class="primary" id="pay">Pay now ${euro(total)}</button><a href="/lab/apps/shop/checkout">Change delivery details</a></div><div id="paid"></div>`
+  document.getElementById('pay').onclick = () => { state.paid = true; state.log.push('PAID'); store(state); document.getElementById('paid').innerHTML = '<div class="notice">Thank you! Your order is placed.</div>' }
+} else {
+  main.innerHTML = `<h1>${path === '/help' ? 'Help' : 'Account'}</h1><p>Questions? Read the <a href="/lab/apps/shop/help">help pages</a> or <a href="/lab/apps/shop/">go back to the shop</a>.</p>`
+}
+</script>
+</body>
+</html>

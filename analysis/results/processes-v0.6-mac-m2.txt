@@ -1,0 +1,51 @@
+account:invoice    planned  decided 100%  right 100%  wrong  0  person  0  0 decisions, median 0 ms
+account:address    planned  decided 100%  right 100%  wrong  0  person  0  1 decisions, median 431 ms
+account:marketing  planned  decided 100%  right 100%  wrong  0  person  0  2 decisions, median 335 ms
+account:returns    planned  decided 100%  right   0%  wrong  1  person  0  0 decisions, median 0 ms
+    ✗ returns How do I send something back?: found (expected /help/returns)
+cookies:reject     library  decided  56%  right 100%  wrong  0  person  4  17 decisions, median 384 ms
+    ? c01 Harbour bridge reopens after six months – The Lind: person (a delete click (by the model): “Reject all”) (expected click:Reject all)
+    ? c04 Cheap flights to Lisbon – Quickfare: person (no single control refuses the cookies) (expected click:Only necessary cookies)
+    ? c05 Winterharde planten – Tuincentrum De Hoeve: person (a delete click (by the model): “Alles weigeren”) (expected click:Alles weigeren)
+    ? c06 Route van de week – Trapkracht: person (not sure whether a cookie banner is showing) (expected click:Alleen noodzakelijke cookies)
+cookies:reject     planned  decided  56%  right 100%  wrong  0  person  4  21 decisions, median 414 ms
+    ? c01 Harbour bridge reopens after six months – The Lind: person (a delete click (by the model): “Reject all”) (expected click:Reject all)
+    ? c04 Cheap flights to Lisbon – Quickfare: person (no way to refuse cookies found in the banner) (expected click:Only necessary cookies)
+    ? c05 Winterharde planten – Tuincentrum De Hoeve: person (a delete click (by the model): “Alles weigeren”) (expected click:Alles weigeren)
+    ? c06 Route van de week – Trapkracht: person (not sure whether there is a cookie banner) (expected click:Alleen noodzakelijke cookies)
+inbox:triage       library  decided  91%  right  95%  wrong  1  person  2  44 decisions, median 320 ms
+    ? e06 FYI: slides from Thursday's review: person (not sure what kind of email this is) (expected later)
+    ? e10 Your subscription renews on 1 December: person (not sure what kind of email this is) (expected archive)
+    ✗ e16 You appeared in 7 searches this week: later (expected archive)
+inbox:triage       planned  decided  77%  right 100%  wrong  0  person  5  30 decisions, median 446 ms
+    ? e01 Your account is locked – verify now: person (security alert: check the sender's address is genuine before clicking anything (it may be phishing)) (expected needs-me)
+    ? e02 New sign-in to your account: person (security alert: check the sender's address is genuine before clicking anything (it may be phishing)) (expected needs-me)
+    ? e06 FYI: slides from Thursday's review: person (not sure what kind of email this is) (expected later)
+    ? e10 Your subscription renews on 1 December: person (not sure what kind of email this is) (expected archive)
+    ? e16 You appeared in 7 searches this week: person (not sure what kind of email this is) (expected archive)
+inbox:bills        library  decided  95%  right  95%  wrong  1  person  1  22 decisions, median 372 ms
+    ✗ e01 Your account is locked – verify now: to-pay (expected not-to-pay)
+    ? e15 Which vendor do we go with?: person (not sure whether this is a bill to pay) (expected not-to-pay)
+inbox:bills        planned  decided  95%  right 100%  wrong  0  person  1  35 decisions, median 361 ms
+    ? e01 Your account is locked – verify now: person (this payment request may be a scam — check before paying) (expected not-to-pay)
+jobs:apply         library  decided  86%  right 100%  wrong  0  person  2  35 decisions, median 346 ms
+    ? j10 Frontend Developer: person (not sure where the job can be done) (expected skip)
+    ? j11 Frontend developer: person (not sure what the role is) (expected skip)
+jobs:apply         planned  decided  64%  right 100%  wrong  0  person  5  35 decisions, median 402 ms
+    ? j04 Design Engineer: person (not sure whether the location works (remote or Amsterdam)) (expected apply)
+    ? j05 Backend Developer: person (not sure whether this is a frontend or full-stack role) (expected skip)
+    ? j11 Frontend developer: person (not sure whether the location works (remote or Amsterdam)) (expected skip)
+    ? j13 Junior Frontend Developer: person (junior role: still worth applying as a mid-level developer?) (expected apply)
+    ? j14 Front-end developer (32–40 uur): person (not sure whether the location works (remote or Amsterdam)) (expected apply)
+shop:match         library  decided  81%  right 100%  wrong  0  person  3  13 decisions, median 363 ms
+    ? s06 Brightline Studio 14: person (not sure how much memory it has) (expected no)
+    ? s07 Orbis Slim 14: person (not sure how much memory it has) (expected no)
+    ? s14 Kestrel Lite 14: person (not sure how much memory it has) (expected no)
+shop:match         planned  decided  81%  right 100%  wrong  0  person  3  22 decisions, median 311 ms
+    ? s06 Brightline Studio 14: person (not sure how much memory it has) (expected no)
+    ? s07 Orbis Slim 14: person (not sure how much memory it has) (expected no)
+    ? s13 Brightline Book 14 Plus: person (not sure whether it is new) (expected no)
+
+library: 83 items, decided 71 (86%), right when decided 69 (97%), wrong 2, to the person 12
+
+planned: 87 items, decided 69 (79%), right when decided 68 (99%), wrong 1, to the person 18

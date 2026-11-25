@@ -1,0 +1,271 @@
+{
+  "fixture": "cookies",
+  "task": "reject",
+  "made": "2026-11-24T15:44:51.106Z",
+  "process": {
+    "id": "refuse-cookies",
+    "title": "Refuse non-essential cookies",
+    "task": "If there's a cookie banner, refuse everything that isn't strictly necessary.",
+    "over": "page",
+    "items": null,
+    "buckets": [
+      "no-banner"
+    ],
+    "start": "banner",
+    "steps": [
+      {
+        "id": "banner",
+        "kind": "ask",
+        "question": "Does the page show a cookie or privacy consent banner asking the reader to accept or refuse cookies?",
+        "answer": "yes_no",
+        "options": [
+          {
+            "name": "yes",
+            "meaning": "a banner or pop-up asks for consent to cookies or tracking"
+          },
+          {
+            "name": "no",
+            "meaning": "no consent request is shown; cookies are at most mentioned in a footer link"
+          }
+        ],
+        "read": [
+          "page"
+        ],
+        "op": null,
+        "value": null,
+        "sure": null,
+        "routes": [
+          {
+            "when": "yes",
+            "then": {
+              "do": "goto",
+              "target": "reject",
+              "next": null
+            }
+          },
+          {
+            "when": "no",
+            "then": {
+              "do": "put",
+              "target": "no-banner",
+              "next": null
+            }
+          },
+          {
+            "when": "unsure",
+            "then": {
+              "do": "ask_person",
+              "target": "not sure whether there is a cookie banner",
+              "next": null
+            }
+          }
+        ]
+      },
+      {
+        "id": "reject",
+        "kind": "pick",
+        "question": "What does this control in the cookie banner do?",
+        "answer": "choice",
+        "options": [
+          {
+            "name": "reject-all",
+            "meaning": "refuses all optional cookies at once"
+          },
+          {
+            "name": "necessary-only",
+            "meaning": "allows only strictly necessary cookies"
+          },
+          {
+            "name": "accept-all",
+            "meaning": "accepts all cookies"
+          },
+          {
+            "name": "manage-options",
+            "meaning": "opens settings to choose per purpose"
+          },
+          {
+            "name": "other",
+            "meaning": "anything else, such as a navigation link or subscribe button"
+          }
+        ],
+        "read": [
+          "page"
+        ],
+        "op": null,
+        "value": "reject-all,necessary-only",
+        "sure": null,
+        "routes": [
+          {
+            "when": "picked",
+            "then": {
+              "do": "click",
+              "target": "picked",
+              "next": "gone"
+            }
+          },
+          {
+            "when": "unsure",
+            "then": {
+              "do": "goto",
+              "target": "manage",
+              "next": null
+            }
+          }
+        ]
+      },
+      {
+        "id": "manage",
+        "kind": "pick",
+        "question": "What does this control in the cookie banner do?",
+        "answer": "choice",
+        "options": [
+          {
+            "name": "manage-options",
+            "meaning": "opens settings to choose cookies per purpose"
+          },
+          {
+            "name": "accept-all",
+            "meaning": "accepts all cookies"
+          },
+          {
+            "name": "other",
+            "meaning": "anything else"
+          }
+        ],
+        "read": [
+          "page"
+        ],
+        "op": null,
+        "value": "manage-options",
+        "sure": null,
+        "routes": [
+          {
+            "when": "picked",
+            "then": {
+              "do": "click",
+              "target": "picked",
+              "next": "panel-reject"
+            }
+          },
+          {
+            "when": "unsure",
+            "then": {
+              "do": "ask_person",
+              "target": "no way to refuse cookies found in the banner",
+              "next": null
+            }
+          }
+        ]
+      },
+      {
+        "id": "panel-reject",
+        "kind": "pick",
+        "question": "What does this control in the cookie settings do?",
+        "answer": "choice",
+        "options": [
+          {
+            "name": "reject-all",
+            "meaning": "refuses all optional cookies and closes the settings"
+          },
+          {
+            "name": "necessary-only",
+            "meaning": "saves with only strictly necessary cookies allowed"
+          },
+          {
+            "name": "save-choices",
+            "meaning": "saves whatever is currently switched on"
+          },
+          {
+            "name": "accept-all",
+            "meaning": "accepts all cookies"
+          },
+          {
+            "name": "other",
+            "meaning": "a single purpose toggle, a partner list link or anything else"
+          }
+        ],
+        "read": [
+          "page"
+        ],
+        "op": null,
+        "value": "reject-all,necessary-only",
+        "sure": null,
+        "routes": [
+          {
+            "when": "picked",
+            "then": {
+              "do": "click",
+              "target": "picked",
+              "next": "gone"
+            }
+          },
+          {
+            "when": "unsure",
+            "then": {
+              "do": "ask_person",
+              "target": "cookie settings have no clear reject option; switch off optional purposes yourself",
+              "next": null
+            }
+          }
+        ]
+      },
+      {
+        "id": "gone",
+        "kind": "ask",
+        "question": "Is a cookie or privacy consent banner still asking for a choice on the page?",
+        "answer": "yes_no",
+        "options": [
+          {
+            "name": "yes",
+            "meaning": "a consent banner or settings panel is still showing"
+          },
+          {
+            "name": "no",
+            "meaning": "the banner is gone and the article is shown normally"
+          }
+        ],
+        "read": [
+          "page"
+        ],
+        "op": null,
+        "value": null,
+        "sure": null,
+        "routes": [
+          {
+            "when": "yes",
+            "then": {
+              "do": "ask_person",
+              "target": "the cookie banner is still showing after refusing",
+              "next": null
+            }
+          },
+          {
+            "when": "no",
+            "then": {
+              "do": "stop",
+              "target": "cookies refused",
+              "next": null
+            }
+          },
+          {
+            "when": "unsure",
+            "then": {
+              "do": "ask_person",
+              "target": "not sure whether the banner closed",
+              "next": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "problems": [],
+  "backend": "claude",
+  "model": "claude-opus-5-5",
+  "ms": 22006.323709,
+  "rounds": 1,
+  "tokens": {
+    "input": 4525,
+    "output": 2114
+  }
+}

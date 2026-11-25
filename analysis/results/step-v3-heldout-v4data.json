@@ -1,0 +1,38 @@
+{
+  "mind2web/site-unseen": {
+    "n": 965,
+    "op": 0.9150259067357513,
+    "op_sure": 0.9906735751295337,
+    "op_right_when_sure": 0.9184100418410042,
+    "element": 0.583419689119171,
+    "element_sure": 0.944041450777202,
+    "element_right_when_sure": 0.605927552140505,
+    "value": 0.8300653594771242,
+    "step": 0.5212435233160622,
+    "step_right_and_sure": 0.5098445595854922
+  },
+  "synth/family-unseen": {
+    "n": 4449,
+    "op": 0.774331310406833,
+    "op_sure": 0.9946055293324343,
+    "op_right_when_sure": 0.775593220338983,
+    "element": 0.6989370870439529,
+    "element_sure": 0.9945417983338122,
+    "element_right_when_sure": 0.6995956094742923,
+    "value": 1.0,
+    "step": 0.6441897055518094,
+    "step_right_and_sure": 0.6405933917734322
+  },
+  "synth/lang-unseen": {
+    "n": 3955,
+    "op": 0.9969658659924147,
+    "op_sure": 1.0,
+    "op_right_when_sure": 0.9969658659924147,
+    "element": 0.9753770390889505,
+    "element_sure": 0.992305324715297,
+    "element_right_when_sure": 0.9779776674937966,
+    "value": 0.9707283866575902,
+    "step": 0.9663716814159292,
+    "step_right_and_sure": 0.9623261694058154
+  }
+}

@@ -1,0 +1,1021 @@
+{
+  "made": "2026-11-24T17:23:52.753Z",
+  "escalate": true,
+  "rows": [
+    {
+      "key": "shop-order",
+      "source": "planned",
+      "ok": true,
+      "failures": [],
+      "approvals": [
+        "yes: May I click “Checkout”? (a purchase click (by its words): “Checkout”)",
+        "yes: May I click “Continue to payment”? (a payment click (by the model): “Continue to payment”)"
+      ],
+      "outcome": {
+        "kind": "notified",
+        "text": "Your Trailrunner 2 order in size 43 with standard delivery is ready. Check it and place the order yourself."
+      },
+      "byWho": {
+        "code": 1,
+        "claude": 13,
+        "mini": 3,
+        "words": 1,
+        "nano": 1
+      },
+      "ms": 109221.352334,
+      "escalations": 13,
+      "escalationMs": 63700.249622,
+      "planMs": 20990.633084,
+      "steps": [
+        {
+          "step": "open-product",
+          "kind": "act",
+          "question": "click Trailrunner 2 trail shoes",
+          "verdict": "done",
+          "by": "code",
+          "ms": 0.03516699999818229,
+          "then": {
+            "do": "click",
+            "target": "Trailrunner 2 trail shoes",
+            "next": "add-to-cart"
+          }
+        },
+        {
+          "step": "add-to-cart·1",
+          "kind": "advance",
+          "question": "type into [7] Size (EU): “43”",
+          "probabilities": {
+            "2": 0.07504076072088812,
+            "7": 0.8371035984384702,
+            "8": 0.0878556408406418
+          },
+          "verdict": "type",
+          "by": "claude",
+          "ms": 6631.967042,
+          "then": {
+            "do": "goto",
+            "target": "add-to-cart",
+            "next": null
+          }
+        },
+        {
+          "step": "add-to-cart·2",
+          "kind": "advance",
+          "question": "click [9] Add to cart",
+          "probabilities": {
+            "1": 0.05469192880485987,
+            "3": 0.04596280388681788,
+            "4": 0.03863415113682679,
+            "5": 0.1430921218286596,
+            "6": 0.048064300320072584,
+            "9": 0.41925973981143,
+            "10": 0.20002125230740206,
+            "11": 0.05027370190393128
+          },
+          "verdict": "click",
+          "by": "claude",
+          "ms": 8120.317583999997,
+          "then": {
+            "do": "goto",
+            "target": "add-to-cart",
+            "next": null
+          }
+        },
+        {
+          "step": "add-to-cart·3",
+          "kind": "advance",
+          "question": "done",
+          "probabilities": {
+            "click": 0.23461155914557016,
+            "type": 0.12100600663270182,
+            "done": 0.5647399842982657,
+            "blocked": 0.07964244992346245
+          },
+          "verdict": "done",
+          "by": "claude",
+          "ms": 7838.075541999999,
+          "then": {
+            "do": "goto",
+            "target": "check-cart",
+            "next": null
+          }
+        },
+        {
+          "step": "check-cart",
+          "kind": "ask",
+          "question": "Does the page show that Trailrunner 2 trail shoes in size 43 were added to the cart?",
+          "state": "Hollowpine Outdoor\nhttp://127.0.0.1:8011/lab/apps/shop/p/trailrunner-2\n[link] Hollowpine Outdoor\n[field] Search gear: empty [button] Search\n[link] Account [link] Cart (1) [link] Help\nTrailrunner 2 trail shoes\n€ 124,95\nLight trail running shoes with a grippy sole.\nSize (EU) [field] Size (EU): 43 Quantity [field] Quantity: 1\n[button] Add to cart [button] Add to wishlist\nAdded to your cart: Trailrunner 2 trail shoes, size 43. [link] Go to cart\n[link] Back to results",
+          "probabilities": {
+            "yes": 0.9273369128710357,
+            "no": 0.0726630871289643
+          },
+          "verdict": "yes",
+          "by": "mini",
+          "ms": 463.38962499999616,
+          "then": {
+            "do": "goto",
+            "target": "checkout",
+            "next": null
+          }
+        },
+        {
+          "step": "checkout·1",
+          "kind": "advance",
+          "question": "click [11] Go to cart",
+          "probabilities": {
+            "1": 0.05954498020127544,
+            "3": 0.053651125701804366,
+            "4": 0.05151694140416849,
+            "5": 0.1833643968916818,
+            "6": 0.04171287012334442,
+            "9": 0.05910118013510171,
+            "10": 0.05555989479541715,
+            "11": 0.4029193873500866,
+            "12": 0.0926292233971201
+          },
+          "verdict": "click",
+          "by": "claude",
+          "ms": 8359.833291000003,
+          "then": {
+            "do": "goto",
+            "target": "checkout",
+            "next": null
+          }
+        },
+        {
+          "step": "checkout·2",
+          "kind": "guard",
+          "question": "click [8] Checkout",
+          "probabilities": {
+            "none": 0.10228354488382754,
+            "security": 0.002914716511547937,
+            "payment": 0.05854378407546677,
+            "purchase": 0.7621298217212225,
+            "account": 0.003452150715483891,
+            "delete": 0.0025163684247445544,
+            "message": 0.0028106608244506883,
+            "post": 0.0027914393817384427,
+            "submit": 0.06255751346151761
+          },
+          "verdict": "purchase",
+          "by": "words",
+          "ms": 2944.6307920000036,
+          "then": {
+            "do": "goto",
+            "target": "checkout",
+            "next": null
+          },
+          "note": "the person said yes"
+        },
+        {
+          "step": "checkout·2",
+          "kind": "advance",
+          "question": "click [8] Checkout",
+          "probabilities": {
+            "1": 0.031665001683397906,
+            "3": 0.03856480461939158,
+            "4": 0.03392437411685312,
+            "5": 0.12872279836481845,
+            "6": 0.02943033990758149,
+            "7": 0.04713468909580816,
+            "8": 0.6239917436750225,
+            "9": 0.06656624853712689
+          },
+          "verdict": "click",
+          "by": "mini",
+          "ms": 2944.6799170000013,
+          "then": {
+            "do": "goto",
+            "target": "checkout",
+            "next": null
+          }
+        },
+        {
+          "step": "checkout·3",
+          "kind": "advance",
+          "question": "type into [7] Full name: “Robin Verhoeven”",
+          "probabilities": {
+            "2": 0.06010665718672521,
+            "7": 0.13429343211280184,
+            "8": 0.07103737027208641,
+            "9": 0.3241784553939074,
+            "10": 0.11446316684493886,
+            "11": 0.07694849778463168,
+            "12": 0.21897242040490866
+          },
+          "verdict": "type",
+          "by": "claude",
+          "ms": 7207.8864170000015,
+          "then": {
+            "do": "goto",
+            "target": "checkout",
+            "next": null
+          }
+        },
+        {
+          "step": "checkout·4",
+          "kind": "advance",
+          "question": "type into [8] Email: “robin@postbox.test”",
+          "probabilities": {
+            "2": 0.053801122374089995,
+            "7": 0.2854197688652672,
+            "8": 0.07856774769781327,
+            "9": 0.27617283039579027,
+            "10": 0.07369479119930102,
+            "11": 0.07545982517638401,
+            "12": 0.1568839142913543
+          },
+          "verdict": "type",
+          "by": "claude",
+          "ms": 6718.438792000001,
+          "then": {
+            "do": "goto",
+            "target": "checkout",
+            "next": null
+          }
+        },
+        {
+          "step": "checkout·5",
+          "kind": "advance",
+          "question": "type into [9] Street and house number: “Lindelaan 12”",
+          "probabilities": {
+            "2": 0.05620057654767493,
+            "7": 0.2456154065903435,
+            "8": 0.1300720927679765,
+            "9": 0.25166005575533157,
+            "10": 0.08316177770656717,
+            "11": 0.07582431308085892,
+            "12": 0.15746577755124735
+          },
+          "verdict": "type",
+          "by": "claude",
+          "ms": 8543.357457999999,
+          "then": {
+            "do": "goto",
+            "target": "checkout",
+            "next": null
+          }
+        },
+        {
+          "step": "checkout·6",
+          "kind": "advance",
+          "question": "type into [10] Postcode: “3512 AB”",
+          "probabilities": {
+            "2": 0.05919201509347675,
+            "7": 0.22236865869855188,
+            "8": 0.09908221704061086,
+            "9": 0.2965839517829746,
+            "10": 0.10863134089660438,
+            "11": 0.08535726391475103,
+            "12": 0.12878455257303056
+          },
+          "verdict": "type",
+          "by": "claude",
+          "ms": 9098.337207999997,
+          "then": {
+            "do": "goto",
+            "target": "checkout",
+            "next": null
+          }
+        },
+        {
+          "step": "checkout·7",
+          "kind": "advance",
+          "question": "type into [11] Town or city: “Utrecht”",
+          "probabilities": {
+            "2": 0.05389839728770199,
+            "7": 0.20655555056804512,
+            "8": 0.09570485193001976,
+            "9": 0.21924387034835666,
+            "10": 0.2175931230975877,
+            "11": 0.08454276254034222,
+            "12": 0.12246144422794658
+          },
+          "verdict": "type",
+          "by": "claude",
+          "ms": 7105.607249999986,
+          "then": {
+            "do": "goto",
+            "target": "checkout",
+            "next": null
+          }
+        },
+        {
+          "step": "checkout·8",
+          "kind": "advance",
+          "question": "type into [12] Mobile number (for the courier, optional): “06 12345678”",
+          "probabilities": {
+            "2": 0.051335504303187625,
+            "7": 0.21772732413624263,
+            "8": 0.09232908145846974,
+            "9": 0.22946904846915434,
+            "10": 0.16429888905120826,
+            "11": 0.1288418793198796,
+            "12": 0.11599827326185774
+          },
+          "verdict": "type",
+          "by": "claude",
+          "ms": 8371.247624999989,
+          "then": {
+            "do": "goto",
+            "target": "checkout",
+            "next": null
+          }
+        },
+        {
+          "step": "checkout·9",
+          "kind": "advance",
+          "question": "click [13] Standard delivery (free, 2–3 days)",
+          "probabilities": {
+            "1": 0.041883414756203614,
+            "3": 0.04923168559908273,
+            "4": 0.04925733080247346,
+            "5": 0.13227920310426053,
+            "6": 0.03980784063371396,
+            "13": 0.2541699993466149,
+            "14": 0.0341420948283362,
+            "15": 0.034983528497737004,
+            "16": 0.36424490243157776
+          },
+          "verdict": "click",
+          "by": "claude",
+          "ms": 7867.384542,
+          "then": {
+            "do": "goto",
+            "target": "checkout",
+            "next": null
+          }
+        },
+        {
+          "step": "checkout·10",
+          "kind": "guard",
+          "question": "click [16] Continue to payment",
+          "probabilities": {
+            "none": 0.038840601230748055,
+            "security": 0.0012800298877947336,
+            "payment": 0.8749720049901819,
+            "purchase": 0.06229141805044349,
+            "account": 0.00270263882042092,
+            "delete": 0.0014380828164732482,
+            "message": 0.0009716529522038949,
+            "post": 0.0012295079548624993,
+            "submit": 0.016274063296871217
+          },
+          "verdict": "payment",
+          "by": "nano",
+          "ms": 8461.246708000006,
+          "then": {
+            "do": "goto",
+            "target": "checkout",
+            "next": null
+          },
+          "note": "the person said yes"
+        },
+        {
+          "step": "checkout·10",
+          "kind": "advance",
+          "question": "click [16] Continue to payment",
+          "probabilities": {
+            "1": 0.03793495674017282,
+            "3": 0.04594147844471658,
+            "4": 0.04092491870240623,
+            "5": 0.13004983588469063,
+            "6": 0.03544588437456642,
+            "13": 0.3948375785036953,
+            "14": 0.034562404525349026,
+            "15": 0.03241029479133591,
+            "16": 0.24789264803306704
+          },
+          "verdict": "click",
+          "by": "claude",
+          "ms": 8461.315833,
+          "then": {
+            "do": "goto",
+            "target": "checkout",
+            "next": null
+          }
+        },
+        {
+          "step": "checkout·11",
+          "kind": "advance",
+          "question": "done",
+          "probabilities": {
+            "click": 0.4689317136151646,
+            "type": 0.09631048260592208,
+            "done": 0.15605761255865408,
+            "blocked": 0.2787001912202593
+          },
+          "verdict": "done",
+          "by": "claude",
+          "ms": 7618.224167000008,
+          "then": {
+            "do": "goto",
+            "target": "check-final",
+            "next": null
+          }
+        },
+        {
+          "step": "check-final",
+          "kind": "ask",
+          "question": "Is this the final step before ordering, with standard delivery to Lindelaan 12, Utrecht chosen?",
+          "state": "Hollowpine Outdoor\nhttp://127.0.0.1:8011/lab/apps/shop/pay\n[link] Hollowpine Outdoor\n[field] Search gear: empty [button] Search\n[link] Account [link] Cart (1) [link] Help\nPayment\nStep 2 of 2\nTrailrunner 2 trail shoes · size 43 · 1 ×\nDeliver to Robin Verhoeven, Lindelaan 12, 3512 AB Utrecht (standard)\nPay with\n[field] iDEAL: checked iDEAL [field] Card: not checked Card\n[button] Pay now € 124,95 [link] Change delivery details",
+          "probabilities": {
+            "yes": 0.7551464250643327,
+            "no": 0.24485357493566728
+          },
+          "verdict": "yes",
+          "by": "mini",
+          "ms": 444.1824579999957,
+          "then": {
+            "do": "notify",
+            "target": "Your Trailrunner 2 order in size 43 with standard delivery is ready. Check it and place the order yourself.",
+            "next": null
+          }
+        }
+      ]
+    },
+    {
+      "key": "shop-find",
+      "source": "planned",
+      "ok": true,
+      "failures": [],
+      "approvals": [],
+      "outcome": {
+        "kind": "person",
+        "reason": "the tent does not appear in the cart"
+      },
+      "byWho": {
+        "claude": 7,
+        "mini": 2,
+        "code": 1
+      },
+      "ms": 56093.112417,
+      "escalations": 7,
+      "escalationMs": 36711.433499999985,
+      "planMs": 20014.497124999994,
+      "steps": [
+        {
+          "step": "find-tent·1",
+          "kind": "advance",
+          "question": "type into [2] Search gear: “2 person tent”",
+          "probabilities": {
+            "2": 1
+          },
+          "verdict": "type",
+          "by": "claude",
+          "ms": 8140.426999999996,
+          "then": {
+            "do": "goto",
+            "target": "find-tent",
+            "next": null
+          }
+        },
+        {
+          "step": "find-tent·2",
+          "kind": "advance",
+          "question": "click [3] Search",
+          "probabilities": {
+            "1": 0.11687329893827801,
+            "3": 0.24155084914861205,
+            "4": 0.08416874242556062,
+            "5": 0.05778425903596928,
+            "6": 0.06289477563331237,
+            "7": 0.023363689006967635,
+            "8": 0.021843915889731513,
+            "9": 0.02705546694013897,
+            "10": 0.03861062597663642,
+            "11": 0.05133068250059907,
+            "12": 0.27452369450419406
+          },
+          "verdict": "click",
+          "by": "claude",
+          "ms": 8588.89291700002,
+          "then": {
+            "do": "goto",
+            "target": "find-tent",
+            "next": null
+          }
+        },
+        {
+          "step": "find-tent·3",
+          "kind": "advance",
+          "question": "click [9] Trailhut 2 tent",
+          "probabilities": {
+            "1": 0.09328451738973678,
+            "3": 0.2862861624384099,
+            "4": 0.07170103930516955,
+            "5": 0.04986296592118876,
+            "6": 0.04728420475312624,
+            "7": 0.03081546662991351,
+            "8": 0.12501990858655723,
+            "9": 0.08544112412243964,
+            "10": 0.028923318995017416,
+            "11": 0.15002678986211754,
+            "12": 0.03135450199632352
+          },
+          "verdict": "click",
+          "by": "claude",
+          "ms": 7777.907124999998,
+          "then": {
+            "do": "goto",
+            "target": "find-tent",
+            "next": null
+          }
+        },
+        {
+          "step": "find-tent·4",
+          "kind": "advance",
+          "question": "done",
+          "probabilities": {
+            "click": 0.2818239679849399,
+            "type": 0.26513255115404766,
+            "done": 0.3848733568039579,
+            "blocked": 0.06817012405705455
+          },
+          "verdict": "done",
+          "by": "claude",
+          "ms": 7990.198875000002,
+          "then": {
+            "do": "goto",
+            "target": "is-two-person-tent",
+            "next": null
+          }
+        },
+        {
+          "step": "is-two-person-tent",
+          "kind": "ask",
+          "question": "Is this page the product page of a tent meant for two people?",
+          "state": "Hollowpine Outdoor\nhttp://127.0.0.1:8011/lab/apps/shop/p/trailhut-2\n[link] Hollowpine Outdoor\n[field] Search gear: empty [button] Search\n[link] Account [link] Cart (0) [link] Help\nTrailhut 2 tent\n€ 189,00\nA sturdy tent for two people with two doors.\nQuantity [field] Quantity: 1\n[button] Add to cart [button] Add to wishlist\n[link] Back to results",
+          "probabilities": {
+            "yes": 0.8543255135670046,
+            "no": 0.1456744864329954
+          },
+          "verdict": "yes",
+          "by": "mini",
+          "ms": 364.9057080000057,
+          "then": {
+            "do": "goto",
+            "target": "price",
+            "next": null
+          }
+        },
+        {
+          "step": "price",
+          "kind": "check",
+          "question": "page < 200",
+          "verdict": "yes",
+          "by": "code",
+          "ms": 0.21895799998310395,
+          "then": {
+            "do": "goto",
+            "target": "add-to-cart",
+            "next": null
+          }
+        },
+        {
+          "step": "add-to-cart·1",
+          "kind": "advance",
+          "question": "click [8] Add to cart",
+          "probabilities": {
+            "1": 0.0645562366781446,
+            "3": 0.04382319932162374,
+            "4": 0.030694596619320672,
+            "5": 0.12052936285759362,
+            "6": 0.0410993830945544,
+            "8": 0.4150649610683767,
+            "9": 0.23673188333982087,
+            "10": 0.047500377020565455
+          },
+          "verdict": "click",
+          "by": "claude",
+          "ms": 7917.142833999998,
+          "then": {
+            "do": "goto",
+            "target": "add-to-cart",
+            "next": null
+          }
+        },
+        {
+          "step": "add-to-cart·2",
+          "kind": "advance",
+          "question": "click [10] Go to cart",
+          "probabilities": {
+            "1": 0.05514748425606953,
+            "3": 0.0395837021720812,
+            "4": 0.028787075748059276,
+            "5": 0.11974035728359779,
+            "6": 0.037629863697301126,
+            "8": 0.3050483193635114,
+            "9": 0.20817840095768847,
+            "10": 0.16630722512364224,
+            "11": 0.039577571398049106
+          },
+          "verdict": "click",
+          "by": "claude",
+          "ms": 6931.730708999996,
+          "then": {
+            "do": "goto",
+            "target": "add-to-cart",
+            "next": null
+          }
+        },
+        {
+          "step": "add-to-cart·3",
+          "kind": "advance",
+          "question": "done",
+          "probabilities": {
+            "click": 0.3925129283566525,
+            "type": 0.08455029437485675,
+            "done": 0.45884384510140674,
+            "blocked": 0.06409293216708395
+          },
+          "verdict": "done",
+          "by": "claude",
+          "ms": 6381.627542000002,
+          "then": {
+            "do": "goto",
+            "target": "in-cart",
+            "next": null
+          }
+        },
+        {
+          "step": "in-cart",
+          "kind": "ask",
+          "question": "Does the cart on this page contain a 2-person tent?",
+          "state": "Hollowpine Outdoor\nhttp://127.0.0.1:8011/lab/apps/shop/cart\n[link] Hollowpine Outdoor\n[field] Search gear: empty [button] Search\n[link] Account [link] Cart (1) [link] Help\nYour cart\nTrailhut 2 tent · 1 × € 189,00 [button] Remove\nTotal € 189,00\n[link] Checkout\n[link] Continue shopping",
+          "probabilities": {
+            "yes": 0.12091862040667557,
+            "no": 0.8790813795933244
+          },
+          "verdict": "no",
+          "by": "mini",
+          "ms": 361.1671669999778,
+          "then": {
+            "do": "ask_person",
+            "target": "the tent does not appear in the cart",
+            "next": null
+          }
+        }
+      ]
+    },
+    {
+      "key": "gemeente-report",
+      "source": "planned",
+      "ok": true,
+      "failures": [],
+      "approvals": [
+        "yes: May I click “Houd mij per e-mail op de hoogte van mijn melding”? (a message click (by the model): “Houd mij per e-mail op de hoogte van mijn melding”)"
+      ],
+      "outcome": {
+        "kind": "person",
+        "reason": "the report is not ready to send; please look at the page"
+      },
+      "byWho": {
+        "code": 2,
+        "claude": 15,
+        "nano": 1,
+        "mini": 1
+      },
+      "ms": 91390.07545799998,
+      "escalations": 11,
+      "escalationMs": 53457.61849999998,
+      "planMs": 20139.15720799999,
+      "steps": [
+        {
+          "step": "open-report",
+          "kind": "act",
+          "question": "click Melding doorgeven",
+          "verdict": "done",
+          "by": "code",
+          "ms": 0.01779099999112077,
+          "then": {
+            "do": "click",
+            "target": "Melding doorgeven",
+            "next": "find-form"
+          }
+        },
+        {
+          "step": "find-form·1",
+          "kind": "advance",
+          "question": "type into [6] Waar gaat uw melding over?: “Afval niet opgehaald”",
+          "probabilities": {
+            "6": 0.6942957474463722,
+            "7": 0.08945081790754075,
+            "8": 0.04651778778827079,
+            "9": 0.0536772670769374,
+            "10": 0.039947024975263104,
+            "11": 0.0761113548056157
+          },
+          "verdict": "type",
+          "by": "claude",
+          "ms": 8797.043875000003,
+          "then": {
+            "do": "goto",
+            "target": "find-form",
+            "next": null
+          }
+        },
+        {
+          "step": "find-form·2",
+          "kind": "advance",
+          "question": "done",
+          "probabilities": {
+            "click": 0.21355730912128332,
+            "type": 0.2679136734128948,
+            "done": 0.0602414908568775,
+            "blocked": 0.4582875266089445
+          },
+          "verdict": "done",
+          "by": "claude",
+          "ms": 8511.123708,
+          "then": {
+            "do": "goto",
+            "target": "fill-form",
+            "next": null
+          }
+        },
+        {
+          "step": "fill-form",
+          "kind": "fill",
+          "question": "field Wanneer was dit? (dd-mm-jjjj): empty ← “24-11-2026”",
+          "verdict": "value",
+          "by": "claude",
+          "ms": 0,
+          "then": {
+            "do": "goto",
+            "target": "fill-form",
+            "next": null
+          }
+        },
+        {
+          "step": "fill-form",
+          "kind": "fill",
+          "question": "field Omschrijving: empty ← “Onze groene container (GFT) is op dinsda”",
+          "verdict": "value",
+          "by": "claude",
+          "ms": 0,
+          "then": {
+            "do": "goto",
+            "target": "fill-form",
+            "next": null
+          }
+        },
+        {
+          "step": "fill-form",
+          "kind": "fill",
+          "question": "field Straat: empty ← “Lindelaan”",
+          "verdict": "value",
+          "by": "claude",
+          "ms": 0,
+          "then": {
+            "do": "goto",
+            "target": "fill-form",
+            "next": null
+          }
+        },
+        {
+          "step": "fill-form",
+          "kind": "fill",
+          "question": "field Huisnummer: empty ← “12”",
+          "verdict": "value",
+          "by": "claude",
+          "ms": 0,
+          "then": {
+            "do": "goto",
+            "target": "fill-form",
+            "next": null
+          }
+        },
+        {
+          "step": "fill-form",
+          "kind": "fill",
+          "question": "field Postcode: empty ← “3512 AB”",
+          "verdict": "value",
+          "by": "claude",
+          "ms": 0,
+          "then": {
+            "do": "goto",
+            "target": "fill-form",
+            "next": null
+          }
+        },
+        {
+          "step": "fill-form",
+          "kind": "fill",
+          "question": "5 empty fields: 5 decided, 0 left",
+          "verdict": "done",
+          "by": "code",
+          "ms": 7875.446291,
+          "then": {
+            "do": "goto",
+            "target": "finish-form",
+            "next": null
+          }
+        },
+        {
+          "step": "finish-form·1",
+          "kind": "advance",
+          "question": "click [12] Volgende",
+          "probabilities": {
+            "1": 0.13455597938074762,
+            "2": 0.12660720398337494,
+            "3": 0.052853355201411385,
+            "4": 0.03167822096713104,
+            "5": 0.5072457965512267,
+            "12": 0.14705944391610848
+          },
+          "verdict": "click",
+          "by": "claude",
+          "ms": 8561.165167,
+          "then": {
+            "do": "goto",
+            "target": "finish-form",
+            "next": null
+          }
+        },
+        {
+          "step": "finish-form·2",
+          "kind": "advance",
+          "question": "type into [6] Voornaam: “Robin”",
+          "probabilities": {
+            "6": 0.233877794754517,
+            "7": 0.30778525017683855,
+            "8": 0.17629944228061106,
+            "9": 0.2820375127880334
+          },
+          "verdict": "type",
+          "by": "claude",
+          "ms": 7663.554291999957,
+          "then": {
+            "do": "goto",
+            "target": "finish-form",
+            "next": null
+          }
+        },
+        {
+          "step": "finish-form·3",
+          "kind": "advance",
+          "question": "type into [7] Achternaam: “Verhoeven”",
+          "probabilities": {
+            "6": 0.2613493964627443,
+            "7": 0.35982497181257606,
+            "8": 0.13826275038044478,
+            "9": 0.24056288134423492
+          },
+          "verdict": "type",
+          "by": "claude",
+          "ms": 7625.585291999974,
+          "then": {
+            "do": "goto",
+            "target": "finish-form",
+            "next": null
+          }
+        },
+        {
+          "step": "finish-form·4",
+          "kind": "advance",
+          "question": "type into [8] E-mailadres: “robin@postbox.test”",
+          "probabilities": {
+            "6": 0.16063755234978874,
+            "7": 0.4425820473774145,
+            "8": 0.1579769536525102,
+            "9": 0.2388034466202866
+          },
+          "verdict": "type",
+          "by": "claude",
+          "ms": 7002.223625000042,
+          "then": {
+            "do": "goto",
+            "target": "finish-form",
+            "next": null
+          }
+        },
+        {
+          "step": "finish-form·5",
+          "kind": "advance",
+          "question": "type into [9] Telefoonnummer (niet verplicht): “06 12345678”",
+          "probabilities": {
+            "6": 0.14344842859389015,
+            "7": 0.3069973616484502,
+            "8": 0.30297955392221587,
+            "9": 0.2465746558354438
+          },
+          "verdict": "type",
+          "by": "claude",
+          "ms": 7905.982415999984,
+          "then": {
+            "do": "goto",
+            "target": "finish-form",
+            "next": null
+          }
+        },
+        {
+          "step": "finish-form·6",
+          "kind": "guard",
+          "question": "click [10] Houd mij per e-mail op de hoogte van mijn melding",
+          "probabilities": {
+            "none": 0.02458029941104381,
+            "security": 0.0020281329290589003,
+            "payment": 0.000869893258470045,
+            "purchase": 0.0004111809216740768,
+            "account": 0.0012444331482610225,
+            "delete": 0.0008420253866444845,
+            "message": 0.9628010544585978,
+            "post": 0.003312540776541258,
+            "submit": 0.003910439709708543
+          },
+          "verdict": "message",
+          "by": "nano",
+          "ms": 7638.197333000018,
+          "then": {
+            "do": "goto",
+            "target": "finish-form",
+            "next": null
+          },
+          "note": "the person said yes"
+        },
+        {
+          "step": "finish-form·6",
+          "kind": "advance",
+          "question": "click [10] Houd mij per e-mail op de hoogte van mijn melding",
+          "probabilities": {
+            "1": 0.08775824430987127,
+            "2": 0.14931570654921153,
+            "3": 0.057967879208102216,
+            "4": 0.03720503252680302,
+            "5": 0.400638118713973,
+            "10": 0.14399277240178862,
+            "11": 0.12312224629025041
+          },
+          "verdict": "click",
+          "by": "claude",
+          "ms": 7638.236124999996,
+          "then": {
+            "do": "goto",
+            "target": "finish-form",
+            "next": null
+          }
+        },
+        {
+          "step": "finish-form·7",
+          "kind": "advance",
+          "question": "click [11] Controleren",
+          "probabilities": {
+            "1": 0.08998103408194577,
+            "2": 0.09435446486433982,
+            "3": 0.05116391954040903,
+            "4": 0.036192305047588066,
+            "5": 0.33939607445242775,
+            "10": 0.2824426609394167,
+            "11": 0.10646954107387296
+          },
+          "verdict": "click",
+          "by": "claude",
+          "ms": 8393.191500000015,
+          "then": {
+            "do": "goto",
+            "target": "finish-form",
+            "next": null
+          }
+        },
+        {
+          "step": "finish-form·8",
+          "kind": "advance",
+          "question": "done",
+          "probabilities": {
+            "click": 0.3388804403202942,
+            "type": 0.16677650774899797,
+            "done": 0.0795650013357782,
+            "blocked": 0.4147780505949296
+          },
+          "verdict": "done",
+          "by": "claude",
+          "ms": 8194.86283399997,
+          "then": {
+            "do": "goto",
+            "target": "check-ready",
+            "next": null
+          }
+        },
+        {
+          "step": "check-ready",
+          "kind": "ask",
+          "question": "Does this page show the bin report filled in and ready to be sent, but not yet sent?",
+          "state": "Gemeente Lindeoord\nhttp://127.0.0.1:8011/lab/apps/gemeente/melding/controle\n[link] Gemeente Lindeoord [link] Afval [link] Parkeren [link] Paspoort en ID-kaart [link] Melding doorgeven\nStap 3 van 3: controleren en versturen\nControleer uw melding\nAfval niet opgehaald · 24-11-2026\nOnze groene container (GFT) is op dinsdag 24 november 2026 niet geleegd. De container stond op tijd aan de straat bij ons huisadres, Lindelaan 12. Wilt u deze alsnog legen?\nLindelaan 12, 3512 AB\nRobin Verhoeven · robin@postbox.test · 06 12345678\n[link] Melding wijzigen\n[field] Ik ga akkoord met de privacyverklaring: not…",
+          "probabilities": {
+            "yes": 0.14178460900252624,
+            "no": 0.8582153909974738
+          },
+          "verdict": "no",
+          "by": "mini",
+          "ms": 597.3962919999612,
+          "then": {
+            "do": "ask_person",
+            "target": "the report is not ready to send; please look at the page",
+            "next": null
+          }
+        }
+      ]
+    }
+  ]
+}

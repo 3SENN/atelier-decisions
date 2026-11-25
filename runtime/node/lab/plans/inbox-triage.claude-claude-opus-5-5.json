@@ -1,0 +1,226 @@
+{
+  "fixture": "inbox",
+  "task": "triage",
+  "made": "2026-11-24T15:43:39.165Z",
+  "process": {
+    "id": "inbox-sort",
+    "title": "Sort the inbox",
+    "task": "Sort each email into needs-me (someone waiting on an answer or decision, a bill to pay, a security alert), later (subscribed newsletters, personal mail that asks nothing) or archive (receipts, shipping updates, notifications, promotions).",
+    "over": "items",
+    "items": null,
+    "buckets": [
+      "needs-me",
+      "later",
+      "archive"
+    ],
+    "start": "kind",
+    "steps": [
+      {
+        "id": "kind",
+        "kind": "ask",
+        "question": "What kind of email is this?",
+        "answer": "choice",
+        "options": [
+          {
+            "name": "person",
+            "meaning": "written by a person to the reader, including work mail and meeting invitations"
+          },
+          {
+            "name": "bill",
+            "meaning": "an invoice, payment reminder or upcoming charge for a service"
+          },
+          {
+            "name": "security",
+            "meaning": "about the reader's account security: sign-ins, locked accounts, password or identity checks"
+          },
+          {
+            "name": "newsletter",
+            "meaning": "a regular newsletter or digest the reader subscribed to"
+          },
+          {
+            "name": "notification",
+            "meaning": "an automatic receipt, order confirmation, shipping or delivery update, or other system notice"
+          },
+          {
+            "name": "promotion",
+            "meaning": "advertising, a sale, discount or marketing offer"
+          }
+        ],
+        "read": [
+          "from",
+          "subject",
+          "snippet"
+        ],
+        "op": null,
+        "value": null,
+        "sure": null,
+        "routes": [
+          {
+            "when": "person",
+            "then": {
+              "do": "goto",
+              "target": "waiting",
+              "next": null
+            }
+          },
+          {
+            "when": "bill",
+            "then": {
+              "do": "goto",
+              "target": "must-pay",
+              "next": null
+            }
+          },
+          {
+            "when": "security",
+            "then": {
+              "do": "ask_person",
+              "target": "security alert: check the sender's address is genuine before clicking anything (it may be phishing)",
+              "next": null
+            }
+          },
+          {
+            "when": "newsletter",
+            "then": {
+              "do": "put",
+              "target": "later",
+              "next": null
+            }
+          },
+          {
+            "when": "notification",
+            "then": {
+              "do": "put",
+              "target": "archive",
+              "next": null
+            }
+          },
+          {
+            "when": "promotion",
+            "then": {
+              "do": "put",
+              "target": "archive",
+              "next": null
+            }
+          },
+          {
+            "when": "unsure",
+            "then": {
+              "do": "ask_person",
+              "target": "not sure what kind of email this is",
+              "next": null
+            }
+          }
+        ]
+      },
+      {
+        "id": "waiting",
+        "kind": "ask",
+        "question": "Is the sender waiting for the reader to answer, reply or decide something?",
+        "answer": "yes_no",
+        "options": [
+          {
+            "name": "yes",
+            "meaning": "the email asks a question, asks for a reply or RSVP, or needs a decision from the reader"
+          },
+          {
+            "name": "no",
+            "meaning": "just sharing news or information; nothing is asked of the reader"
+          }
+        ],
+        "read": [
+          "from",
+          "subject",
+          "snippet"
+        ],
+        "op": null,
+        "value": null,
+        "sure": null,
+        "routes": [
+          {
+            "when": "yes",
+            "then": {
+              "do": "put",
+              "target": "needs-me",
+              "next": null
+            }
+          },
+          {
+            "when": "no",
+            "then": {
+              "do": "put",
+              "target": "later",
+              "next": null
+            }
+          },
+          {
+            "when": "unsure",
+            "then": {
+              "do": "ask_person",
+              "target": "not sure whether someone is waiting on you",
+              "next": null
+            }
+          }
+        ]
+      },
+      {
+        "id": "must-pay",
+        "kind": "ask",
+        "question": "Does the reader still have to pay this themselves?",
+        "answer": "yes_no",
+        "options": [
+          {
+            "name": "yes",
+            "meaning": "an amount is open or due and the reader must pay or transfer it"
+          },
+          {
+            "name": "no",
+            "meaning": "already paid, or charged automatically with no action needed"
+          }
+        ],
+        "read": [
+          "subject",
+          "snippet"
+        ],
+        "op": null,
+        "value": null,
+        "sure": null,
+        "routes": [
+          {
+            "when": "yes",
+            "then": {
+              "do": "put",
+              "target": "needs-me",
+              "next": null
+            }
+          },
+          {
+            "when": "no",
+            "then": {
+              "do": "put",
+              "target": "archive",
+              "next": null
+            }
+          },
+          {
+            "when": "unsure",
+            "then": {
+              "do": "ask_person",
+              "target": "not sure whether this bill still needs paying",
+              "next": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "problems": [],
+  "backend": "claude",
+  "model": "claude-opus-5-5",
+  "ms": 18605.467625,
+  "rounds": 1,
+  "tokens": {
+    "input": 6068,
+    "output": 1863
+  }
+}

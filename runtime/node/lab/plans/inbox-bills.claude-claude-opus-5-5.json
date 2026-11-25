@@ -1,0 +1,189 @@
+{
+  "fixture": "inbox",
+  "task": "bills",
+  "made": "2026-11-24T15:43:56.935Z",
+  "process": {
+    "id": "bills-to-pay",
+    "title": "Bills I still have to pay",
+    "task": "Find the emails that are bills or payment requests the person still has to pay. Receipts for things already paid don't count.",
+    "over": "items",
+    "items": null,
+    "buckets": [
+      "to-pay",
+      "not-to-pay"
+    ],
+    "start": "about-money",
+    "steps": [
+      {
+        "id": "about-money",
+        "kind": "ask",
+        "question": "Is this email about a specific amount of money the reader owes, has paid, or will be charged?",
+        "answer": "yes_no",
+        "options": [
+          {
+            "name": "yes",
+            "meaning": "it is a bill, invoice, payment reminder, receipt, charge notice or other request for money from the reader"
+          },
+          {
+            "name": "no",
+            "meaning": "newsletter, sale or advert, personal message, invitation, delivery update or account notice with no amount owed by the reader"
+          }
+        ],
+        "read": [
+          "from",
+          "subject",
+          "snippet"
+        ],
+        "op": null,
+        "value": null,
+        "sure": null,
+        "routes": [
+          {
+            "when": "yes",
+            "then": {
+              "do": "goto",
+              "target": "payment-status",
+              "next": null
+            }
+          },
+          {
+            "when": "no",
+            "then": {
+              "do": "put",
+              "target": "not-to-pay",
+              "next": null
+            }
+          },
+          {
+            "when": "unsure",
+            "then": {
+              "do": "ask_person",
+              "target": "not sure whether this email is about a payment",
+              "next": null
+            }
+          }
+        ]
+      },
+      {
+        "id": "payment-status",
+        "kind": "ask",
+        "question": "Does the reader still have to pay this amount themselves?",
+        "answer": "choice",
+        "options": [
+          {
+            "name": "still-to-pay",
+            "meaning": "an open invoice, reminder or request where the reader must still pay or transfer the money"
+          },
+          {
+            "name": "already-paid",
+            "meaning": "a receipt or confirmation that the payment was already received"
+          },
+          {
+            "name": "automatic",
+            "meaning": "the amount will be charged automatically (subscription renewal, direct debit) and no action is needed"
+          }
+        ],
+        "read": [
+          "subject",
+          "snippet"
+        ],
+        "op": null,
+        "value": null,
+        "sure": null,
+        "routes": [
+          {
+            "when": "still-to-pay",
+            "then": {
+              "do": "goto",
+              "target": "scam-signs",
+              "next": null
+            }
+          },
+          {
+            "when": "already-paid",
+            "then": {
+              "do": "put",
+              "target": "not-to-pay",
+              "next": null
+            }
+          },
+          {
+            "when": "automatic",
+            "then": {
+              "do": "put",
+              "target": "not-to-pay",
+              "next": null
+            }
+          },
+          {
+            "when": "unsure",
+            "then": {
+              "do": "ask_person",
+              "target": "not sure whether this still has to be paid",
+              "next": null
+            }
+          }
+        ]
+      },
+      {
+        "id": "scam-signs",
+        "kind": "ask",
+        "question": "Does this payment request show signs of a scam, such as a sender address that imitates a known company, threats that the account or mail will be deleted, or pressure to verify identity and pay within hours?",
+        "answer": "yes_no",
+        "options": [
+          {
+            "name": "yes",
+            "meaning": "one or more of these warning signs appear in the sender or text"
+          },
+          {
+            "name": "no",
+            "meaning": "an ordinary bill or reminder from the company itself, with a normal due date and no threats"
+          }
+        ],
+        "read": [
+          "from",
+          "subject",
+          "snippet"
+        ],
+        "op": null,
+        "value": null,
+        "sure": null,
+        "routes": [
+          {
+            "when": "yes",
+            "then": {
+              "do": "ask_person",
+              "target": "this payment request may be a scam — check before paying",
+              "next": null
+            }
+          },
+          {
+            "when": "no",
+            "then": {
+              "do": "put",
+              "target": "to-pay",
+              "next": null
+            }
+          },
+          {
+            "when": "unsure",
+            "then": {
+              "do": "ask_person",
+              "target": "not sure whether this payment request is genuine",
+              "next": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "problems": [],
+  "backend": "claude",
+  "model": "claude-opus-5-5",
+  "ms": 17268.940083,
+  "rounds": 1,
+  "tokens": {
+    "input": 6011,
+    "output": 1672
+  }
+}

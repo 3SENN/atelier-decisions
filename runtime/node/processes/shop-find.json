@@ -1,0 +1,94 @@
+{
+  "id": "shop-find",
+  "title": "Find a product and add it to the cart",
+  "task": "{goal}",
+  "over": "page",
+  "items": null,
+  "buckets": [
+    "ready"
+  ],
+  "values": [],
+  "start": "find",
+  "steps": [
+    {
+      "id": "find",
+      "kind": "advance",
+      "question": "{task}",
+      "read": [
+        "page"
+      ],
+      "budget": 14,
+      "routes": [
+        {
+          "when": "done",
+          "then": {
+            "do": "goto",
+            "target": "check",
+            "next": null
+          }
+        },
+        {
+          "when": "blocked",
+          "then": {
+            "do": "ask_person",
+            "target": "finding it could not go further",
+            "next": null
+          }
+        },
+        {
+          "when": "unsure",
+          "then": {
+            "do": "ask_person",
+            "target": "not sure how to go on with finding it",
+            "next": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "check",
+      "kind": "ask",
+      "answer": "yes_no",
+      "question": "Does this page show that a product was just added to the cart?",
+      "read": [
+        "page"
+      ],
+      "options": [
+        {
+          "name": "yes",
+          "meaning": "the page shows it"
+        },
+        {
+          "name": "no",
+          "meaning": "the page does not show it"
+        }
+      ],
+      "routes": [
+        {
+          "when": "yes",
+          "then": {
+            "do": "put",
+            "target": "ready",
+            "next": null
+          }
+        },
+        {
+          "when": "no",
+          "then": {
+            "do": "ask_person",
+            "target": "it did not end where it should",
+            "next": null
+          }
+        },
+        {
+          "when": "unsure",
+          "then": {
+            "do": "ask_person",
+            "target": "not sure it ended where it should",
+            "next": null
+          }
+        }
+      ]
+    }
+  ]
+}

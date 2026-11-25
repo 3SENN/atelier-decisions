@@ -1,0 +1,269 @@
+{
+  "task": "gemeente-report",
+  "made": "2026-11-24T17:22:20.506Z",
+  "process": {
+    "id": "missed-green-bin-report",
+    "title": "Report the green bin that wasn't emptied",
+    "task": "Report to Gemeente Lindeoord that the green bin at the home address wasn't emptied on Tuesday 24 November 2026, with updates by email. Stop before sending.",
+    "over": "page",
+    "items": null,
+    "buckets": [],
+    "values": [
+      {
+        "name": "report type",
+        "value": "Afval: container niet geleegd"
+      },
+      {
+        "name": "bin type",
+        "value": "Groene container (GFT)"
+      },
+      {
+        "name": "collection date",
+        "value": "24-11-2026"
+      },
+      {
+        "name": "description",
+        "value": "Onze groene container (GFT) is op dinsdag 24 november 2026 niet geleegd. De container stond op tijd aan de straat bij ons huisadres, Lindelaan 12. Wilt u deze alsnog legen?"
+      },
+      {
+        "name": "full name",
+        "value": "Robin Verhoeven"
+      },
+      {
+        "name": "first name",
+        "value": "Robin"
+      },
+      {
+        "name": "last name",
+        "value": "Verhoeven"
+      },
+      {
+        "name": "email address",
+        "value": "robin@postbox.test"
+      },
+      {
+        "name": "phone number",
+        "value": "06 12345678"
+      },
+      {
+        "name": "street and house number",
+        "value": "Lindelaan 12"
+      },
+      {
+        "name": "street",
+        "value": "Lindelaan"
+      },
+      {
+        "name": "house number",
+        "value": "12"
+      },
+      {
+        "name": "postcode",
+        "value": "3512 AB"
+      },
+      {
+        "name": "city",
+        "value": "Utrecht"
+      },
+      {
+        "name": "updates by",
+        "value": "E-mail"
+      }
+    ],
+    "start": "open-report",
+    "steps": [
+      {
+        "id": "open-report",
+        "kind": "act",
+        "question": null,
+        "answer": null,
+        "options": null,
+        "read": [],
+        "op": null,
+        "value": null,
+        "sure": null,
+        "budget": null,
+        "routes": [
+          {
+            "when": "done",
+            "then": {
+              "do": "click",
+              "target": "Melding doorgeven",
+              "next": "find-form"
+            }
+          }
+        ]
+      },
+      {
+        "id": "find-form",
+        "kind": "advance",
+        "question": "Choose the report category for waste, specifically a container/bin that wasn't emptied (green GFT bin), and get to the report form.",
+        "answer": null,
+        "options": null,
+        "read": [
+          "page"
+        ],
+        "op": null,
+        "value": null,
+        "sure": null,
+        "budget": 10,
+        "routes": [
+          {
+            "when": "done",
+            "then": {
+              "do": "goto",
+              "target": "fill-form",
+              "next": null
+            }
+          },
+          {
+            "when": "blocked",
+            "then": {
+              "do": "ask_person",
+              "target": "couldn't find the form for a bin that wasn't emptied",
+              "next": null
+            }
+          },
+          {
+            "when": "unsure",
+            "then": {
+              "do": "ask_person",
+              "target": "not sure which report category to choose",
+              "next": null
+            }
+          }
+        ]
+      },
+      {
+        "id": "fill-form",
+        "kind": "fill",
+        "question": null,
+        "answer": null,
+        "options": null,
+        "read": [
+          "page"
+        ],
+        "op": null,
+        "value": null,
+        "sure": null,
+        "budget": null,
+        "routes": [
+          {
+            "when": "done",
+            "then": {
+              "do": "goto",
+              "target": "finish-form",
+              "next": null
+            }
+          },
+          {
+            "when": "unsure",
+            "then": {
+              "do": "ask_person",
+              "target": "not sure what to fill in on the form",
+              "next": null
+            }
+          }
+        ]
+      },
+      {
+        "id": "finish-form",
+        "kind": "advance",
+        "question": "Go through the rest of the report form using the values: the bin type, the date 24-11-2026, the home address as location, the contact details, and email as the way to get updates. Stop on the final review or confirmation page where the report would be sent; do not send it.",
+        "answer": null,
+        "options": null,
+        "read": [
+          "page"
+        ],
+        "op": null,
+        "value": null,
+        "sure": null,
+        "budget": 12,
+        "routes": [
+          {
+            "when": "done",
+            "then": {
+              "do": "goto",
+              "target": "check-ready",
+              "next": null
+            }
+          },
+          {
+            "when": "blocked",
+            "then": {
+              "do": "ask_person",
+              "target": "stuck while completing the report form",
+              "next": null
+            }
+          },
+          {
+            "when": "unsure",
+            "then": {
+              "do": "ask_person",
+              "target": "not sure how to continue the report form",
+              "next": null
+            }
+          }
+        ]
+      },
+      {
+        "id": "check-ready",
+        "kind": "ask",
+        "question": "Does this page show the bin report filled in and ready to be sent, but not yet sent?",
+        "answer": "yes_no",
+        "options": [
+          {
+            "name": "yes",
+            "meaning": "the report is complete and waits for the person to press send or submit"
+          },
+          {
+            "name": "no",
+            "meaning": "the form is still incomplete, shows an error, or the report has already been sent"
+          }
+        ],
+        "read": [
+          "page"
+        ],
+        "op": null,
+        "value": null,
+        "sure": null,
+        "budget": null,
+        "routes": [
+          {
+            "when": "yes",
+            "then": {
+              "do": "ask_person",
+              "target": "the report is ready: check it and send it yourself",
+              "next": null
+            }
+          },
+          {
+            "when": "no",
+            "then": {
+              "do": "ask_person",
+              "target": "the report is not ready to send; please look at the page",
+              "next": null
+            }
+          },
+          {
+            "when": "unsure",
+            "then": {
+              "do": "ask_person",
+              "target": "not sure whether the report is ready to send",
+              "next": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "problems": [],
+  "backend": "claude",
+  "model": "claude-opus-5-5",
+  "ms": 20139.15720799999,
+  "rounds": 1,
+  "tokens": {
+    "input": 5040,
+    "output": 2155
+  }
+}

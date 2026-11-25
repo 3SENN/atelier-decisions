@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gemeente Lindeoord</title>
+<style>
+  body { font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; margin: 0; background: #f7f7f5; color: #1d1d1b; }
+  header { background: #1f4e79; color: #fff; padding: 12px 20px; display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+  header a { color: #fff; } header .logo { font-weight: 700; text-decoration: none; margin-right: 10px; }
+  main { max-width: 720px; margin: 0 auto; padding: 18px 20px; }
+  label { display: block; margin: 12px 0 4px; font-weight: 600; } .hint { color: #6b6b66; font-size: 14px; font-weight: 400; }
+  input, select, textarea { font: inherit; padding: 7px 9px; border: 1px solid #b9b8b2; border-radius: 6px; width: 100%; box-sizing: border-box; }
+  input[type=checkbox] { width: auto; } textarea { min-height: 110px; }
+  .row { display: grid; grid-template-columns: 2fr 1fr; gap: 10px; } .check { display: flex; gap: 8px; align-items: center; font-weight: 400; }
+  button { font: inherit; padding: 9px 18px; border-radius: 6px; border: 1px solid #1f4e79; background: #1f4e79; color: #fff; cursor: pointer; margin-top: 16px; }
+  .steps { color: #6b6b66; } .error { color: #b3261e; } .card { background: #fff; border: 1px solid #e0dfda; border-radius: 8px; padding: 12px 14px; }
+</style>
+</head>
+<body>
+<header><a class="logo" href="/lab/apps/gemeente/">Gemeente Lindeoord</a><a href="/lab/apps/gemeente/afval">Afval</a><a href="/lab/apps/gemeente/parkeren">Parkeren</a><a href="/lab/apps/gemeente/paspoort">Paspoort en ID-kaart</a><a href="/lab/apps/gemeente/melding">Melding doorgeven</a></header>
+<main id="main"></main>
+<script>
+// A mock municipal report form for the process lab: everything stays in this browser (localStorage "lab-gemeente").
+const load = () => { try { return JSON.parse(localStorage.getItem('lab-gemeente')) || {} } catch { return {} } }
+const store = (s) => localStorage.setItem('lab-gemeente', JSON.stringify(s))
+const state = load(); state.melding ??= {}
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c])
+const path = location.pathname.replace(/^\/lab\/apps\/gemeente/, '') || '/'
+const main = document.getElementById('main')
+const m = state.melding
+const field = (id, label, attrs = '', hint = '') => `<label for="${id}">${label}${hint ? ` <span class="hint">${hint}</span>` : ''}</label><input id="${id}" value="${esc(m[id])}" ${attrs}>`
+const ONDERWERPEN = ['Afval niet opgehaald', 'Kapotte straatverlichting', 'Losliggende stoeptegels', 'Zwerfafval of dumping', 'Overlast', 'Iets anders']
+
+if (path === '/') {
+  main.innerHTML = `<h1>Welkom bij Gemeente Lindeoord</h1><p>Iets kapot of vies op straat? <a href="/lab/apps/gemeente/melding">Doe een melding</a>.</p><p>De afvalkalender, parkeervergunningen en afspraken voor uw paspoort vindt u in het menu.</p>`
+} else if (path === '/melding') {
+  main.innerHTML = `<p class="steps">Stap 1 van 3: uw melding</p><h1>Melding openbare ruimte</h1><form id="f1">
+    <label for="onderwerp">Waar gaat uw melding over?</label><select id="onderwerp" required><option value="">Kies een onderwerp</option>${ONDERWERPEN.map((o) => `<option ${m.onderwerp === o ? 'selected' : ''}>${o}</option>`).join('')}</select>
+    ${field('datum', 'Wanneer was dit?', 'placeholder="dd-mm-jjjj"', '(dd-mm-jjjj)')}
+    <label for="omschrijving">Omschrijving</label><textarea id="omschrijving" required>${esc(m.omschrijving)}</textarea>
+    <p><b>Waar is het?</b></p><div class="row"><div>${field('straat', 'Straat')}</div><div>${field('huisnummer', 'Huisnummer')}</div></div>${field('postcode_melding', 'Postcode')}
+    <p class="error" id="err"></p><button type="submit">Volgende</button></form>`
+  document.getElementById('f1').onsubmit = (e) => {
+    e.preventDefault()
+    const v = (id) => document.getElementById(id).value.trim()
+    if (!v('onderwerp') || !v('omschrijving') || !v('straat')) return (document.getElementById('err').textContent = 'Vul alle verplichte velden in.')
+    Object.assign(m, { onderwerp: v('onderwerp'), datum: v('datum'), omschrijving: v('omschrijving'), straat: v('straat'), huisnummer: v('huisnummer'), postcode_melding: v('postcode_melding') })
+    store(state); location.href = '/lab/apps/gemeente/melding/gegevens'
+  }
+} else if (path === '/melding/gegevens') {
+  main.innerHTML = `<p class="steps">Stap 2 van 3: uw gegevens</p><h1>Uw gegevens</h1><form id="f2">
+    ${field('voornaam', 'Voornaam', 'autocomplete="given-name"')}${field('achternaam', 'Achternaam', 'autocomplete="family-name"')}
+    ${field('email', 'E-mailadres', 'type="email"')}${field('telefoon', 'Telefoonnummer', '', '(niet verplicht)')}
+    <label class="check"><input type="checkbox" id="updates" ${m.updates ? 'checked' : ''}> Houd mij per e-mail op de hoogte van mijn melding</label>
+    <p class="error" id="err"></p><button type="submit">Controleren</button></form>`
+  document.getElementById('f2').onsubmit = (e) => {
+    e.preventDefault()
+    const v = (id) => document.getElementById(id).value.trim()
+    if (!v('voornaam') || !v('achternaam') || !v('email')) return (document.getElementById('err').textContent = 'Vul uw naam en e-mailadres in.')
+    Object.assign(m, { voornaam: v('voornaam'), achternaam: v('achternaam'), email: v('email'), telefoon: v('telefoon'), updates: document.getElementById('updates').checked })
+    store(state); location.href = '/lab/apps/gemeente/melding/controle'
+  }
+} else if (path === '/melding/controle') {
+  main.innerHTML = `<p class="steps">Stap 3 van 3: controleren en versturen</p><h1>Controleer uw melding</h1><div class="card">
+    <b>${esc(m.onderwerp)}</b> · ${esc(m.datum)}<br>${esc(m.omschrijving)}<br>${esc(m.straat)} ${esc(m.huisnummer)}, ${esc(m.postcode_melding)}<br><br>
+    ${esc(m.voornaam)} ${esc(m.achternaam)} · ${esc(m.email)} ${m.telefoon ? '· ' + esc(m.telefoon) : ''}</div>
+    <p><a href="/lab/apps/gemeente/melding">Melding wijzigen</a></p>
+    <label class="check"><input type="checkbox" id="akkoord"> Ik ga akkoord met de privacyverklaring</label><p class="error" id="err"></p><button id="send">Versturen</button><div id="done"></div>`
+  document.getElementById('send').onclick = () => {
+    if (!document.getElementById('akkoord').checked) return (document.getElementById('err').textContent = 'U moet akkoord gaan met de privacyverklaring.')
+    state.sent = true; store(state); document.getElementById('done').innerHTML = '<p><b>Bedankt! Uw melding is verstuurd.</b></p>'
+  }
+} else {
+  main.innerHTML = `<h1>${esc(path.slice(1))}</h1><p>Deze pagina is een voorbeeld. <a href="/lab/apps/gemeente/">Naar de startpagina</a>.</p>`
+}
+</script>
+</body>
+</html>

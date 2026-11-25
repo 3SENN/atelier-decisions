@@ -1,0 +1,105 @@
+{
+  "id": "cookies-reject",
+  "title": "Refuse cookies",
+  "task": "If there's a cookie banner, refuse everything that isn't strictly necessary.",
+  "over": "page",
+  "items": null,
+  "buckets": [
+    "no-banner"
+  ],
+  "start": "banner",
+  "steps": [
+    {
+      "id": "banner",
+      "kind": "ask",
+      "answer": "yes_no",
+      "question": "Is a cookie or privacy consent banner showing on this page, asking the visitor to accept or refuse cookies?",
+      "read": [
+        "page"
+      ],
+      "options": [
+        {
+          "name": "yes",
+          "meaning": "a consent banner or dialog about cookies or tracking is showing"
+        },
+        {
+          "name": "no",
+          "meaning": "no consent banner; the page may still mention cookies in its content"
+        }
+      ],
+      "routes": [
+        {
+          "when": "yes",
+          "then": {
+            "do": "goto",
+            "target": "refuse"
+          }
+        },
+        {
+          "when": "no",
+          "then": {
+            "do": "put",
+            "target": "no-banner"
+          }
+        },
+        {
+          "when": "unsure",
+          "then": {
+            "do": "ask_person",
+            "target": "not sure whether a cookie banner is showing"
+          }
+        }
+      ]
+    },
+    {
+      "id": "refuse",
+      "kind": "pick",
+      "answer": "choice",
+      "question": "What does this control do?",
+      "read": [
+        "page"
+      ],
+      "value": "reject-all,necessary-only",
+      "options": [
+        {
+          "name": "reject-all",
+          "meaning": "refuses or rejects all optional cookies in one go"
+        },
+        {
+          "name": "necessary-only",
+          "meaning": "allows only the strictly necessary cookies"
+        },
+        {
+          "name": "accept-all",
+          "meaning": "accepts or allows all cookies"
+        },
+        {
+          "name": "settings",
+          "meaning": "opens settings, options or preferences to choose cookies one by one"
+        },
+        {
+          "name": "other",
+          "meaning": "not about cookies: navigation, content or anything else"
+        }
+      ],
+      "routes": [
+        {
+          "when": "picked",
+          "then": {
+            "do": "click",
+            "target": "picked",
+            "next": null
+          }
+        },
+        {
+          "when": "unsure",
+          "then": {
+            "do": "ask_person",
+            "target": "no single control refuses the cookies",
+            "next": null
+          }
+        }
+      ]
+    }
+  ]
+}

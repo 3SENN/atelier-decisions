@@ -1,0 +1,216 @@
+{
+  "id": "gemeente-report",
+  "title": "Report a problem to the municipality",
+  "task": "{goal}",
+  "over": "page",
+  "items": null,
+  "buckets": [
+    "ready"
+  ],
+  "values": [],
+  "start": "to-form",
+  "steps": [
+    {
+      "id": "to-form",
+      "kind": "advance",
+      "question": "Open the form for reporting a problem in the street. Stop as soon as the form shows: {task}",
+      "read": [
+        "page"
+      ],
+      "budget": 4,
+      "routes": [
+        {
+          "when": "done",
+          "then": {
+            "do": "goto",
+            "target": "fill-report",
+            "next": null
+          }
+        },
+        {
+          "when": "blocked",
+          "then": {
+            "do": "ask_person",
+            "target": "finding the form could not go further",
+            "next": null
+          }
+        },
+        {
+          "when": "unsure",
+          "then": {
+            "do": "ask_person",
+            "target": "not sure how to go on with finding the form",
+            "next": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "fill-report",
+      "kind": "fill",
+      "question": "{task}",
+      "read": [
+        "page"
+      ],
+      "routes": [
+        {
+          "when": "done",
+          "then": {
+            "do": "goto",
+            "target": "next-1",
+            "next": null
+          }
+        },
+        {
+          "when": "unsure",
+          "then": {
+            "do": "ask_person",
+            "target": "not sure what goes into the report form",
+            "next": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "next-1",
+      "kind": "advance",
+      "question": "Go on to the next step of the form (its button at the bottom). That is all: stop as soon as the next step shows.",
+      "read": [
+        "page"
+      ],
+      "budget": 3,
+      "routes": [
+        {
+          "when": "done",
+          "then": {
+            "do": "goto",
+            "target": "fill-details",
+            "next": null
+          }
+        },
+        {
+          "when": "blocked",
+          "then": {
+            "do": "ask_person",
+            "target": "the form could not go further",
+            "next": null
+          }
+        },
+        {
+          "when": "unsure",
+          "then": {
+            "do": "ask_person",
+            "target": "not sure how to go on with the form",
+            "next": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "fill-details",
+      "kind": "fill",
+      "question": "{task}",
+      "read": [
+        "page"
+      ],
+      "routes": [
+        {
+          "when": "done",
+          "then": {
+            "do": "goto",
+            "target": "finish",
+            "next": null
+          }
+        },
+        {
+          "when": "unsure",
+          "then": {
+            "do": "ask_person",
+            "target": "not sure what goes into the details",
+            "next": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "finish",
+      "kind": "advance",
+      "question": "Tick the boxes the person asked for in the task, then go on to the page that checks the report before it is sent. Don't send it: {task}",
+      "read": [
+        "page"
+      ],
+      "budget": 6,
+      "routes": [
+        {
+          "when": "done",
+          "then": {
+            "do": "goto",
+            "target": "check",
+            "next": null
+          }
+        },
+        {
+          "when": "blocked",
+          "then": {
+            "do": "ask_person",
+            "target": "the form could not go further",
+            "next": null
+          }
+        },
+        {
+          "when": "unsure",
+          "then": {
+            "do": "ask_person",
+            "target": "not sure how to go on with the form",
+            "next": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "check",
+      "kind": "ask",
+      "answer": "yes_no",
+      "question": "Is this the page to check the report before it is sent?",
+      "read": [
+        "page"
+      ],
+      "options": [
+        {
+          "name": "yes",
+          "meaning": "the page shows it"
+        },
+        {
+          "name": "no",
+          "meaning": "the page does not show it"
+        }
+      ],
+      "routes": [
+        {
+          "when": "yes",
+          "then": {
+            "do": "put",
+            "target": "ready",
+            "next": null
+          }
+        },
+        {
+          "when": "no",
+          "then": {
+            "do": "ask_person",
+            "target": "it did not end where it should",
+            "next": null
+          }
+        },
+        {
+          "when": "unsure",
+          "then": {
+            "do": "ask_person",
+            "target": "not sure it ended where it should",
+            "next": null
+          }
+        }
+      ]
+    }
+  ]
+}

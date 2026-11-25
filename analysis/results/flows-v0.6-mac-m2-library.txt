@@ -1,0 +1,54 @@
+    to-cart·1 [claude, 8.0 s] click [7] Trailrunner 2 trail shoes
+    to-cart·2 [claude, 7.1 s] type into [7] Size (EU): “43”
+    to-cart·3 [claude, 7.0 s] click [9] Add to cart
+    to-cart·4 [mini, 2.9 s] done
+    to-checkout·1 [claude, 8.4 s] click [11] Go to cart
+    to-checkout·2 [words, 2.9 s] click [8] Checkout
+    to-checkout·2 [mini, 2.9 s] click [8] Checkout
+    to-checkout·3 [claude, 6.9 s] done
+    fill-checkout [code, 0 ms] field Full name: empty ← “Robin Verhoeven”
+    fill-checkout [code, 0 ms] field Email: empty ← “robin@postbox.test”
+    fill-checkout [code, 0 ms] field Mobile number (for the courier, optional): empty ← “06 12345678”
+    fill-checkout [claude, 0 ms] field Search gear: empty ← “Trailrunner 2”
+    fill-checkout [claude, 0 ms] field Street and house number: empty ← “Lindelaan 12”
+    fill-checkout [claude, 0 ms] field Postcode: empty ← “3512 AB”
+    fill-checkout [claude, 0 ms] field Town or city: empty ← “Utrecht”
+    fill-checkout [code, 8.6 s] 7 empty fields: 7 decided, 0 left
+    to-payment·1 [claude, 10.5 s] click [13] Standard delivery (free, 2–3 days)
+    to-payment·2 [nano, 8.4 s] click [16] Continue to payment
+    to-payment·2 [claude, 8.4 s] click [16] Continue to payment
+    to-payment·3 [claude, 6.6 s] done
+    check [mini, 405 ms] Is this the payment page, with the order ready for the person to pay?
+✓ shop-order       library  ready  · 80.6 s · by claude 12, mini 3, words 1, code 4, nano 1 · Claude 9 call(s), 46.0 s
+    the person was asked: yes: May I click “Checkout”? (a purchase click (by its words): “Checkout”)
+    the person was asked: yes: May I click “Continue to payment”? (a payment click (by the model): “Continue to payment”)
+    find·1 [claude, 7.4 s] type into [2] Search gear: “tent”
+    find·2 [claude, 8.7 s] click [3] Search
+    find·3 [claude, 8.2 s] click [9] Trailhut 2 tent
+    find·4 [claude, 6.4 s] click [8] Add to cart
+    find·5 [mini, 2.4 s] done
+    check [mini, 334 ms] Does this page show that a product was just added to the cart?
+✓ shop-find        library  ready  · 34.5 s · by claude 4, mini 2 · Claude 4 call(s), 19.6 s
+    to-form·1 [claude, 7.3 s] click [6] Doe een melding
+    to-form·2 [claude, 8.0 s] done
+    fill-report [claude, 0 ms] select Waar gaat uw melding over?: nothing chosen (options: Kies een onderwerp | Afval niet opgehaald | Kapotte straatverlichting | Losligg
+    fill-report [claude, 0 ms] field Wanneer was dit? (dd-mm-jjjj): empty ← “24-11-2026”
+    fill-report [claude, 0 ms] field Omschrijving: empty ← “Onze groene container (GFT) is op dinsda”
+    fill-report [claude, 0 ms] field Straat: empty ← “Lindelaan”
+    fill-report [claude, 0 ms] field Huisnummer: empty ← “12”
+    fill-report [claude, 0 ms] field Postcode: empty ← “3512 AB”
+    fill-report [code, 9.5 s] 6 empty fields: 6 decided, 0 left
+    next-1·1 [claude, 8.3 s] click [12] Volgende
+    next-1·2 [claude, 9.5 s] done
+    fill-details [code, 0 ms] field Voornaam: empty ← “Robin”
+    fill-details [code, 0 ms] field Achternaam: empty ← “Verhoeven”
+    fill-details [code, 0 ms] field E-mailadres: empty ← “robin@postbox.test”
+    fill-details [claude, 0 ms] field Telefoonnummer (niet verplicht): empty ← (left empty)
+    fill-details [code, 5.8 s] 4 empty fields: 4 decided, 0 left
+    finish·1 [nano, 7.5 s] click [10] Houd mij per e-mail op de hoogte van mijn melding
+    finish·1 [claude, 7.5 s] click [10] Houd mij per e-mail op de hoogte van mijn melding
+    finish·2 [claude, 8.5 s] click [11] Controleren
+    finish·3 [claude, 8.2 s] done
+    check [mini, 495 ms] Is this the page to check the report before it is sent? → unsure
+✓ gemeente-report  library  person (not sure it ended where it should)  · 74.6 s · by claude 14, code 5, nano 1, mini 1 · Claude 9 call(s), 47.2 s
+    the person was asked: yes: May I click “Houd mij per e-mail op de hoogte van mijn melding”? (a message click (by the model): “Houd mij per e-mail op de hoogte van mij

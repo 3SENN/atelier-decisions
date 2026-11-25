@@ -1,0 +1,235 @@
+{
+  "fixture": "jobs",
+  "task": "apply",
+  "made": "2026-11-24T15:44:28.631Z",
+  "process": {
+    "id": "mid-frontend-jobs",
+    "title": "Jobs a mid-level frontend developer could apply for",
+    "task": "Frontend or full-stack roles, remote or in Amsterdam, not senior or lead positions, for a mid-level frontend developer.",
+    "over": "items",
+    "items": null,
+    "buckets": [
+      "apply",
+      "skip"
+    ],
+    "start": "role",
+    "steps": [
+      {
+        "id": "role",
+        "kind": "ask",
+        "question": "What kind of development work is this job mainly about?",
+        "answer": "choice",
+        "options": [
+          {
+            "name": "frontend",
+            "meaning": "mainly building user interfaces or web frontends, such as React, Vue, CSS or design-system components"
+          },
+          {
+            "name": "full-stack",
+            "meaning": "real work on both the frontend and the backend or API behind it"
+          },
+          {
+            "name": "other",
+            "meaning": "mainly backend, infrastructure, mobile, data or other work, where frontend is at most a small side task"
+          }
+        ],
+        "read": [
+          "title",
+          "summary"
+        ],
+        "op": null,
+        "value": null,
+        "sure": null,
+        "routes": [
+          {
+            "when": "frontend",
+            "then": {
+              "do": "goto",
+              "target": "location",
+              "next": null
+            }
+          },
+          {
+            "when": "full-stack",
+            "then": {
+              "do": "goto",
+              "target": "location",
+              "next": null
+            }
+          },
+          {
+            "when": "other",
+            "then": {
+              "do": "put",
+              "target": "skip",
+              "next": null
+            }
+          },
+          {
+            "when": "unsure",
+            "then": {
+              "do": "ask_person",
+              "target": "not sure whether this is a frontend or full-stack role",
+              "next": null
+            }
+          }
+        ]
+      },
+      {
+        "id": "location",
+        "kind": "ask",
+        "question": "Where would someone in this job have to work?",
+        "answer": "choice",
+        "options": [
+          {
+            "name": "amsterdam",
+            "meaning": "in an office in Amsterdam, fully or hybrid"
+          },
+          {
+            "name": "remote-open",
+            "meaning": "remote, and someone living in the Netherlands can do it (e.g. Europe, EU time zones, the Netherlands, or worldwide), with at most rare office visits"
+          },
+          {
+            "name": "remote-restricted",
+            "meaning": "remote, but only for people living in or working the hours of another region, such as US residents only"
+          },
+          {
+            "name": "elsewhere",
+            "meaning": "in an office in another city than Amsterdam, on-site or hybrid"
+          }
+        ],
+        "read": [
+          "location",
+          "summary"
+        ],
+        "op": null,
+        "value": null,
+        "sure": null,
+        "routes": [
+          {
+            "when": "amsterdam",
+            "then": {
+              "do": "goto",
+              "target": "level",
+              "next": null
+            }
+          },
+          {
+            "when": "remote-open",
+            "then": {
+              "do": "goto",
+              "target": "level",
+              "next": null
+            }
+          },
+          {
+            "when": "remote-restricted",
+            "then": {
+              "do": "put",
+              "target": "skip",
+              "next": null
+            }
+          },
+          {
+            "when": "elsewhere",
+            "then": {
+              "do": "put",
+              "target": "skip",
+              "next": null
+            }
+          },
+          {
+            "when": "unsure",
+            "then": {
+              "do": "ask_person",
+              "target": "not sure whether the location works (remote or Amsterdam)",
+              "next": null
+            }
+          }
+        ]
+      },
+      {
+        "id": "level",
+        "kind": "ask",
+        "question": "At what seniority level is this job hiring?",
+        "answer": "choice",
+        "options": [
+          {
+            "name": "junior",
+            "meaning": "a junior, starter, trainee or intern position"
+          },
+          {
+            "name": "mid",
+            "meaning": "a mid-level or medior position, e.g. asking for about 2 to 5 years of experience"
+          },
+          {
+            "name": "senior-lead",
+            "meaning": "a senior, lead, principal or managing position, e.g. asking for 7+ years, setting technical direction, or leading people"
+          },
+          {
+            "name": "unstated",
+            "meaning": "the text gives no sign of the level"
+          }
+        ],
+        "read": [
+          "title",
+          "summary"
+        ],
+        "op": null,
+        "value": null,
+        "sure": null,
+        "routes": [
+          {
+            "when": "mid",
+            "then": {
+              "do": "put",
+              "target": "apply",
+              "next": null
+            }
+          },
+          {
+            "when": "unstated",
+            "then": {
+              "do": "put",
+              "target": "apply",
+              "next": null
+            }
+          },
+          {
+            "when": "senior-lead",
+            "then": {
+              "do": "put",
+              "target": "skip",
+              "next": null
+            }
+          },
+          {
+            "when": "junior",
+            "then": {
+              "do": "ask_person",
+              "target": "junior role: still worth applying as a mid-level developer?",
+              "next": null
+            }
+          },
+          {
+            "when": "unsure",
+            "then": {
+              "do": "ask_person",
+              "target": "not sure about the seniority level",
+              "next": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "problems": [],
+  "backend": "claude",
+  "model": "claude-opus-5-5",
+  "ms": 19302.874291999997,
+  "rounds": 1,
+  "tokens": {
+    "input": 5876,
+    "output": 1875
+  }
+}

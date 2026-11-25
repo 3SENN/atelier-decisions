@@ -1,0 +1,192 @@
+{
+  "id": "jobs",
+  "kind": "list",
+  "site": "Werkhaven",
+  "url": "https://werkhaven.test/jobs?q=developer&where=Netherlands",
+  "title": "Developer jobs in the Netherlands – Werkhaven",
+  "intro": "14 jobs for \"developer\" · Netherlands & remote",
+  "chrome": [
+    "[field] Job title or keyword: developer",
+    "[field] Location: Netherlands",
+    "[button] Search",
+    "[link] Filters",
+    "[link] Saved jobs (3)",
+    "[link] Job alerts",
+    "[link] My profile",
+    "[link] For employers",
+    "[button] Next page"
+  ],
+  "fields": [
+    "title",
+    "company",
+    "location",
+    "summary"
+  ],
+  "items": [
+    {
+      "id": "j01",
+      "title": "Frontend Developer",
+      "company": "Canalside Labs",
+      "location": "Amsterdam (hybrid, 2 days in the office)",
+      "summary": "You'll build our customer dashboard in React and TypeScript with a team of six. We're looking for 3+ years of frontend experience and real care for accessibility.",
+      "expect": {
+        "apply": "apply"
+      }
+    },
+    {
+      "id": "j02",
+      "title": "Frontend Engineer",
+      "company": "Pinewave",
+      "location": "Remote (EU time zones)",
+      "summary": "You'll set the technical direction for our frontend across five product teams and mentor other engineers. We're looking for a senior engineer with 8+ years of experience who has led large migrations.",
+      "expect": {
+        "apply": "skip"
+      }
+    },
+    {
+      "id": "j03",
+      "title": "Full-Stack Developer",
+      "company": "Harborlight",
+      "location": "Remote (US time zones only)",
+      "summary": "You'll work on our Next.js app and Node APIs with a team spread across the Americas. Candidates must be US residents and available 9:00–17:00 Eastern Time.",
+      "expect": {
+        "apply": "skip"
+      }
+    },
+    {
+      "id": "j04",
+      "title": "Design Engineer",
+      "company": "Mosaic Studio",
+      "location": "Amsterdam",
+      "summary": "You'll turn design files into production React components and look after the code of our design system. We want someone strong in CSS, TypeScript and animation who enjoys working closely with designers.",
+      "expect": {
+        "apply": "apply"
+      }
+    },
+    {
+      "id": "j05",
+      "title": "Backend Developer",
+      "company": "Ledgerly",
+      "location": "Remote (Europe)",
+      "summary": "You'll build payment services in Go and PostgreSQL and own their reliability. Knowing some React is a plus, as you'll occasionally fix things in our internal admin panel.",
+      "expect": {
+        "apply": "skip"
+      }
+    },
+    {
+      "id": "j06",
+      "title": "Senior Frontend Developer",
+      "company": "Tulip Systems",
+      "location": "Amsterdam (hybrid)",
+      "summary": "You'll own the architecture of our booking web app and review the team's code. We ask for 7+ years of frontend experience.",
+      "expect": {
+        "apply": "skip"
+      }
+    },
+    {
+      "id": "j07",
+      "title": "Medior frontend developer",
+      "company": "Grachtwerk",
+      "location": "Amsterdam (hybride, 3 dagen op kantoor)",
+      "summary": "Je bouwt mee aan onze webapp in Vue en TypeScript en werkt nauw samen met onze ontwerpers. We zoeken iemand met 2 tot 4 jaar ervaring die graag code reviewt en blijft leren.",
+      "expect": {
+        "apply": "apply"
+      }
+    },
+    {
+      "id": "j08",
+      "title": "Full-stack developer",
+      "company": "Polderpixel",
+      "location": "Thuiswerken (heel Nederland)",
+      "summary": "Je werkt aan zowel de React-frontend als de Node.js-API van ons planningsplatform. We vragen minimaal 3 jaar ervaring; je werkt volledig thuis en komt eens per kwartaal naar Utrecht.",
+      "expect": {
+        "apply": "apply"
+      }
+    },
+    {
+      "id": "j09",
+      "title": "Lead Frontend Engineer",
+      "company": "Brightfield",
+      "location": "Remote (worldwide)",
+      "summary": "You'll lead a team of four frontend developers and plan the roadmap with product. We want someone with people-management experience and deep React knowledge.",
+      "expect": {
+        "apply": "skip"
+      }
+    },
+    {
+      "id": "j10",
+      "title": "Frontend Developer",
+      "company": "Dunecraft",
+      "location": "Rotterdam (on-site)",
+      "summary": "You'll build web shops in React for our retail clients. You'll work from our Rotterdam office five days a week.",
+      "expect": {
+        "apply": "skip"
+      }
+    },
+    {
+      "id": "j11",
+      "title": "Frontend developer",
+      "company": "Stadsdata",
+      "location": "Utrecht (op kantoor, 1 dag thuis)",
+      "summary": "Je maakt dashboards voor gemeenten met TypeScript en grafiekbibliotheken. We zoeken een medior die vier dagen per week op ons kantoor in Utrecht werkt.",
+      "expect": {
+        "apply": "skip"
+      }
+    },
+    {
+      "id": "j12",
+      "title": "Software Engineer, Web",
+      "company": "Northloop",
+      "location": "Amsterdam or remote (EU)",
+      "summary": "You'll work across our TypeScript frontend and the GraphQL layer behind it. We're hiring at mid level, ideally with 3–5 years of experience.",
+      "expect": {
+        "apply": "apply"
+      }
+    },
+    {
+      "id": "j13",
+      "title": "Junior Frontend Developer",
+      "company": "Fernhouse",
+      "location": "Amsterdam",
+      "summary": "You'll build marketing sites in React with guidance from a senior mentor. We're looking for someone with 0–1 years of experience who is eager to learn.",
+      "expect": {
+        "apply": "apply"
+      }
+    },
+    {
+      "id": "j14",
+      "title": "Front-end developer (32–40 uur)",
+      "company": "Veldkamp Media",
+      "location": "Amsterdam-Noord (deels thuiswerken)",
+      "summary": "Je ontwikkelt interactieve artikelen en datavisualisaties voor onze nieuwssite. We zoeken een medior met goede kennis van JavaScript en Svelte.",
+      "expect": {
+        "apply": "apply"
+      }
+    }
+  ],
+  "tasks": [
+    {
+      "key": "apply",
+      "task": "Which of these jobs could I apply for? I'm a mid-level frontend developer: frontend or full-stack roles, remote or in Amsterdam, and not senior or lead positions.",
+      "buckets": [
+        "apply",
+        "skip"
+      ],
+      "process": "jobs-filter"
+    }
+  ],
+  "notes": [
+    "j01: hybrid Amsterdam counts as 'in Amsterdam'; 3+ years is mid-level: apply.",
+    "j02: title says only 'Frontend Engineer' but the summary asks for a senior with 8+ years who sets direction: skip.",
+    "j03: 'remote' but US residents only and US working hours; someone in Amsterdam cannot take it, so it fails the remote-or-Amsterdam intent: skip.",
+    "j04: design-engineer role is mostly frontend work (React components, CSS, design-system code) in Amsterdam, no seniority asked: apply.",
+    "j05: backend role (Go, PostgreSQL); React is only a side plus: skip.",
+    "j07: Dutch 'Medior' = mid-level; hybrid Amsterdam: apply.",
+    "j08: Dutch 'thuiswerken' = remote within the Netherlands; quarterly trip to Utrecht is fine: apply.",
+    "j10: frontend but on-site in Rotterdam: skip.",
+    "j11: Dutch medior frontend role but mostly on-site in Utrecht: skip.",
+    "j12: vague title, but the work is TypeScript frontend plus its GraphQL layer (full-stack-ish) at mid level, Amsterdam or remote: apply.",
+    "j13: junior role; the request only rules out senior and lead, and a mid-level developer can apply. The word 'senior' refers to the mentor, not the role: apply.",
+    "j14: Dutch post, 'medior', Amsterdam-Noord with partial remote: apply."
+  ]
+}

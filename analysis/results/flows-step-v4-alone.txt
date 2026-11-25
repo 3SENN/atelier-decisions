@@ -1,0 +1,21 @@
+    to-cart·1 [step, 638 ms] click [7] Trailrunner 2 trail shoes
+    to-cart·2 [step, 86 ms] type into [7] Size (EU): “43”
+    to-cart·3 [step, 104 ms] click [9] Add to cart
+    to-cart·4 [step, 96 ms] done
+    to-checkout·1 [step, 514 ms] click [11] Go to cart
+    to-checkout·2 [words, 83 ms] click [7] Remove
+✗ shop-order       library  person (not sure how to go on with getting to the checkout: a delete c  · 3.2 s · by step 5, words 1
+    checkout is missing
+    ended on /lab/apps/shop/cart, not /lab/apps/shop/pay
+    the person was asked: no: May I click “Remove”? (a delete click (by its words): “Remove”)
+    find·1 [step, 114 ms] type into [2] Search gear: “tent”
+    find·2 [step, 540 ms] click [3] Search
+    find·3 [step, 576 ms] click [1] Hollowpine Outdoor
+    find·4 [step, 126 ms] going in circles (click “Search” again) → unsure
+✗ shop-find        library  person (not sure how to go on with finding it: going in circles (click  · 2.2 s · by step 4
+    state is missing
+    to-form·1 [step, 578 ms] click [6] Doe een melding
+    to-form·2 [step, 720 ms] not sure which element to type → unsure
+✗ gemeente-report  library  person (not sure how to go on with finding the form: not sure which el  · 1.7 s · by step 2
+    state is missing
+    ended on /lab/apps/gemeente/melding, not /lab/apps/gemeente/melding/controle

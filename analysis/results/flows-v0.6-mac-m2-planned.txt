@@ -1,0 +1,57 @@
+  planned shop-order in 21.0 s (5188 tokens in, 2283 out)
+    open-product [code, 0 ms] click Trailrunner 2 trail shoes
+    add-to-cart·1 [claude, 6.6 s] type into [7] Size (EU): “43”
+    add-to-cart·2 [claude, 8.1 s] click [9] Add to cart
+    add-to-cart·3 [claude, 7.8 s] done
+    check-cart [mini, 463 ms] Does the page show that Trailrunner 2 trail shoes in size 43 were added to the cart?
+    checkout·1 [claude, 8.4 s] click [11] Go to cart
+    checkout·2 [words, 2.9 s] click [8] Checkout
+    checkout·2 [mini, 2.9 s] click [8] Checkout
+    checkout·3 [claude, 7.2 s] type into [7] Full name: “Robin Verhoeven”
+    checkout·4 [claude, 6.7 s] type into [8] Email: “robin@postbox.test”
+    checkout·5 [claude, 8.5 s] type into [9] Street and house number: “Lindelaan 12”
+    checkout·6 [claude, 9.1 s] type into [10] Postcode: “3512 AB”
+    checkout·7 [claude, 7.1 s] type into [11] Town or city: “Utrecht”
+    checkout·8 [claude, 8.4 s] type into [12] Mobile number (for the courier, optional): “06 12345678”
+    checkout·9 [claude, 7.9 s] click [13] Standard delivery (free, 2–3 days)
+    checkout·10 [nano, 8.5 s] click [16] Continue to payment
+    checkout·10 [claude, 8.5 s] click [16] Continue to payment
+    checkout·11 [claude, 7.6 s] done
+    check-final [mini, 444 ms] Is this the final step before ordering, with standard delivery to Lindelaan 12, Utrecht chosen?
+✓ shop-order       planned  notify: Your Trailrunner 2 order in size 43 with standard delivery is   · 109.2 s · by code 1, claude 13, mini 3, words 1, nano 1 · Claude 13 
+    the person was asked: yes: May I click “Checkout”? (a purchase click (by its words): “Checkout”)
+    the person was asked: yes: May I click “Continue to payment”? (a payment click (by the model): “Continue to payment”)
+  planned shop-find in 20.0 s (5178 tokens in, 2035 out)
+    find-tent·1 [claude, 8.1 s] type into [2] Search gear: “2 person tent”
+    find-tent·2 [claude, 8.6 s] click [3] Search
+    find-tent·3 [claude, 7.8 s] click [9] Trailhut 2 tent
+    find-tent·4 [claude, 8.0 s] done
+    is-two-person-tent [mini, 365 ms] Is this page the product page of a tent meant for two people?
+    price [code, 0 ms] page < 200
+    add-to-cart·1 [claude, 7.9 s] click [8] Add to cart
+    add-to-cart·2 [claude, 6.9 s] click [10] Go to cart
+    add-to-cart·3 [claude, 6.4 s] done
+    in-cart [mini, 361 ms] Does the cart on this page contain a 2-person tent?
+✓ shop-find        planned  person (the tent does not appear in the cart)  · 56.1 s · by claude 7, mini 2, code 1 · Claude 7 call(s), 36.7 s
+  planned gemeente-report in 20.1 s (5040 tokens in, 2155 out)
+    open-report [code, 0 ms] click Melding doorgeven
+    find-form·1 [claude, 8.8 s] type into [6] Waar gaat uw melding over?: “Afval niet opgehaald”
+    find-form·2 [claude, 8.5 s] done
+    fill-form [claude, 0 ms] field Wanneer was dit? (dd-mm-jjjj): empty ← “24-11-2026”
+    fill-form [claude, 0 ms] field Omschrijving: empty ← “Onze groene container (GFT) is op dinsda”
+    fill-form [claude, 0 ms] field Straat: empty ← “Lindelaan”
+    fill-form [claude, 0 ms] field Huisnummer: empty ← “12”
+    fill-form [claude, 0 ms] field Postcode: empty ← “3512 AB”
+    fill-form [code, 7.9 s] 5 empty fields: 5 decided, 0 left
+    finish-form·1 [claude, 8.6 s] click [12] Volgende
+    finish-form·2 [claude, 7.7 s] type into [6] Voornaam: “Robin”
+    finish-form·3 [claude, 7.6 s] type into [7] Achternaam: “Verhoeven”
+    finish-form·4 [claude, 7.0 s] type into [8] E-mailadres: “robin@postbox.test”
+    finish-form·5 [claude, 7.9 s] type into [9] Telefoonnummer (niet verplicht): “06 12345678”
+    finish-form·6 [nano, 7.6 s] click [10] Houd mij per e-mail op de hoogte van mijn melding
+    finish-form·6 [claude, 7.6 s] click [10] Houd mij per e-mail op de hoogte van mijn melding
+    finish-form·7 [claude, 8.4 s] click [11] Controleren
+    finish-form·8 [claude, 8.2 s] done
+    check-ready [mini, 597 ms] Does this page show the bin report filled in and ready to be sent, but not yet sent?
+✓ gemeente-report  planned  person (the report is not ready to send; please look at the page)  · 91.4 s · by code 2, claude 15, nano 1, mini 1 · Claude 11 call(s), 53.5 s
+    the person was asked: yes: May I click “Houd mij per e-mail op de hoogte van mijn melding”? (a message click (by the model): “Houd mij per e-mail op de hoogte van mij

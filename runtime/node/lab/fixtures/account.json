@@ -1,0 +1,122 @@
+{
+  "id": "account",
+  "kind": "site",
+  "site": "Hollowpine Outdoor",
+  "url": "https://hollowpine.test/",
+  "title": "Hollowpine Outdoor – Gear for every trail",
+  "intro": "Signed in as Robin",
+  "chrome": [
+    "[link] Hollowpine Outdoor",
+    "[field] Search gear",
+    "[button] Search",
+    "[link] Account",
+    "[link] Cart (2)",
+    "[link] Help"
+  ],
+  "pages": {
+    "/": {
+      "title": "Hollowpine Outdoor – Gear for every trail",
+      "text": "[link:/] Hollowpine Outdoor\n[field] Search gear\n[button] Search\n[link:/account] Account\n[link:/cart] Cart (2)\n[link:/help] Help\n\nWinter sale: up to 30% off insulated jackets\n[button] Shop the sale\n\nNew this week\nAlpine Shell Jacket – € 189,00\n[button] Add to cart\nTrailrunner 2 shoes – € 124,95\n[button] Add to cart\nBasecamp 3P tent – € 349,00\n[button] Add to cart\n\nFree shipping over € 75 · Free returns within 30 days\n[button] Sign up for our newsletter\n\n[link:/help] Help & contact\n[link:/account/orders] Track an order\n© 2026 Hollowpine Outdoor"
+    },
+    "/account": {
+      "title": "My account – Hollowpine Outdoor",
+      "text": "[link:/] Hollowpine Outdoor\n[field] Search gear\n[button] Search\n[link:/account] Account\n[link:/cart] Cart (2)\n[link:/help] Help\n\nHi Robin\n[link:/account/orders] My orders\n[link:/account/addresses] Address book\n[link:/account/settings] Account settings\n[button] Sign out\n\nYour latest order\n#1077 · placed 19 Nov 2026 · Preparing for shipment\n[link:/account/orders/1077] View order\n\nHollowpine Rewards: 340 points\n[button] Redeem points"
+    },
+    "/account/orders": {
+      "title": "My orders – Hollowpine Outdoor",
+      "text": "[link:/] Hollowpine Outdoor\n[field] Search gear\n[button] Search\n[link:/account] Account\n[link:/cart] Cart (2)\n[link:/help] Help\n\nMy orders\n#1077 · placed 19 Nov 2026 · Basecamp 3P tent, trail socks (2) · € 367,90 · Preparing for shipment\n[link:/account/orders/1077] View order\n#1043 · placed 14 Oct 2026 · Alpine Shell Jacket · € 189,00 · Delivered 17 Oct\n[link:/account/orders/1043] View order\n#0988 · placed 2 Aug 2026 · Trail headlamp 200, water bottle · € 52,90 · Delivered 6 Aug\n[link:/account/orders/0988] View order\n[button] Show older orders\n[link:/account] Back to my account"
+    },
+    "/account/orders/1043": {
+      "title": "Order #1043 – Hollowpine Outdoor",
+      "text": "[link:/] Hollowpine Outdoor\n[field] Search gear\n[button] Search\n[link:/account] Account\n[link:/cart] Cart (2)\n[link:/help] Help\n\nOrder #1043\nPlaced 14 October 2026 · Delivered 17 October 2026\nAlpine Shell Jacket, size M, moss green – € 189,00\nShipping – free\nTotal paid: € 189,00 (card ending 4417)\n[button] Download invoice\n[button] Buy again\n[link:/help/returns] Return an item\n[button] Write a review\n[link:/account/orders] Back to my orders"
+    },
+    "/account/orders/0988": {
+      "title": "Order #0988 – Hollowpine Outdoor",
+      "text": "[link:/] Hollowpine Outdoor\n[field] Search gear\n[button] Search\n[link:/account] Account\n[link:/cart] Cart (2)\n[link:/help] Help\n\nOrder #0988\nPlaced 2 August 2026 · Delivered 6 August 2026\nTrail headlamp 200 – € 34,95\nInsulated water bottle 750 ml – € 17,95\nTotal paid: € 52,90\n[button] Download invoice\n[button] Buy again\nThe return period for this order has ended.\n[link:/account/orders] Back to my orders"
+    },
+    "/account/orders/1077": {
+      "title": "Order #1077 – Hollowpine Outdoor",
+      "text": "[link:/] Hollowpine Outdoor\n[field] Search gear\n[button] Search\n[link:/account] Account\n[link:/cart] Cart (2)\n[link:/help] Help\n\nOrder #1077\nPlaced 19 November 2026 · Preparing for shipment · Expected to ship 26 November\nBasecamp 3P tent – € 349,00\nTrail socks, 2 pairs – € 18,90\nTotal paid: € 367,90\nDelivery address: R. Verhoeven, Lindelaan 8, 3512 KD Lindeoord, Netherlands\n[link:/account/orders/1077/address] Change delivery address\n[button] Download order confirmation\n[button] Cancel order\n[link:/help] Questions about your order?\n[link:/account/orders] Back to my orders"
+    },
+    "/account/orders/1077/address": {
+      "title": "Change delivery address – Order #1077 – Hollowpine Outdoor",
+      "text": "[link:/] Hollowpine Outdoor\n[field] Search gear\n[button] Search\n[link:/account] Account\n[link:/cart] Cart (2)\n[link:/help] Help\n\nChange the delivery address for order #1077\nYou can change it until the order ships.\nCurrent address: R. Verhoeven, Lindelaan 8, 3512 KD Lindeoord, Netherlands\n[field] Name\n[field] Street and house number\n[field] Postcode\n[field] City\n[field] Country: Netherlands\n[button] Save new address\n[link:/account/addresses] Pick from my address book\n[link:/account/orders/1077] Cancel"
+    },
+    "/account/settings": {
+      "title": "Account settings – Hollowpine Outdoor",
+      "text": "[link:/] Hollowpine Outdoor\n[field] Search gear\n[button] Search\n[link:/account] Account\n[link:/cart] Cart (2)\n[link:/help] Help\n\nAccount settings\n[field] Name: Robin Verhoeven\n[field] Email: robin@postbox.test\n[field] Language: English\n[button] Save changes\n[link:/account/settings/notifications] Email & notifications\n[link:/account/settings/security] Password & security\n[link:/account/addresses] Address book\n[button] Delete account\n[link:/account] Back to my account"
+    },
+    "/account/settings/notifications": {
+      "title": "Email & notifications – Hollowpine Outdoor",
+      "text": "[link:/] Hollowpine Outdoor\n[field] Search gear\n[button] Search\n[link:/account] Account\n[link:/cart] Cart (2)\n[link:/help] Help\n\nEmail & notifications\nOrder and delivery emails are always sent.\n[field] Newsletter: on\n[field] Marketing emails: on\n[field] Personal recommendations: on\n[field] Text messages (SMS): off\n[button] Save preferences\n[link:/account/settings] Back to settings"
+    },
+    "/account/settings/security": {
+      "title": "Password & security – Hollowpine Outdoor",
+      "text": "[link:/] Hollowpine Outdoor\n[field] Search gear\n[button] Search\n[link:/account] Account\n[link:/cart] Cart (2)\n[link:/help] Help\n\nPassword & security\n[field] Current password\n[field] New password\n[button] Change password\nTwo-step verification: off\n[button] Turn on two-step verification\n[button] Sign out on all devices\n[link:/account/settings] Back to settings"
+    },
+    "/account/addresses": {
+      "title": "Address book – Hollowpine Outdoor",
+      "text": "[link:/] Hollowpine Outdoor\n[field] Search gear\n[button] Search\n[link:/account] Account\n[link:/cart] Cart (2)\n[link:/help] Help\n\nAddress book\nDefault address\nR. Verhoeven, Lindelaan 8, 3512 KD Lindeoord, Netherlands\n[button] Edit\n[button] Remove\n[button] Add a new address\nChanges here apply to future orders only. To change where an order you already placed is delivered, open that order in My orders.\n[link:/account/orders] My orders\n[link:/account] Back to my account"
+    },
+    "/help": {
+      "title": "Help & contact – Hollowpine Outdoor",
+      "text": "[link:/] Hollowpine Outdoor\n[field] Search gear\n[button] Search\n[link:/account] Account\n[link:/cart] Cart (2)\n[link:/help] Help\n\nHow can we help?\n[field] Search help articles\n[link:/help/returns] Returns & refunds\n[link:/account/orders] Track my order\nInvoices: you can download the invoice from each order in My orders.\nEmails from us: choose which emails you get in your account settings.\n[link:/account/settings] Account settings\nShipping: orders over € 75 ship free and arrive in 2–3 working days.\n[button] Chat with us\n[link:/] Back to the shop"
+    },
+    "/help/returns": {
+      "title": "Returns & refunds – Hollowpine Outdoor",
+      "text": "[link:/] Hollowpine Outdoor\n[field] Search gear\n[button] Search\n[link:/account] Account\n[link:/cart] Cart (2)\n[link:/help] Help\n\nReturns & refunds\nYou can return items within 30 days of delivery, unworn and with tags attached.\n1. Open the order in My orders and choose Return an item.\n2. Print the free return label and pack the items.\n3. Drop the parcel at any ParcelPoint location. We refund you within 5 working days.\n[link:/account/orders] Go to My orders\n[button] Download return label\n[link:/help] Back to help"
+    },
+    "/cart": {
+      "title": "Cart – Hollowpine Outdoor",
+      "text": "[link:/] Hollowpine Outdoor\n[field] Search gear\n[button] Search\n[link:/account] Account\n[link:/cart] Cart (2)\n[link:/help] Help\n\nYour cart (2)\nTrail headlamp 300 – € 39,95\n[button] Remove\nMerino beanie – € 24,95\n[button] Remove\nSubtotal: € 64,90 · Shipping: € 4,95\n[field] Discount code\n[button] Apply\n[button] Pay now\n[link:/] Continue shopping"
+    }
+  },
+  "tasks": [
+    {
+      "key": "invoice",
+      "task": "Get the invoice for my order from October.",
+      "buckets": [
+        "found"
+      ],
+      "process": null,
+      "start": "/",
+      "expect": "/account/orders/1043"
+    },
+    {
+      "key": "address",
+      "task": "Change the delivery address for the order that hasn't shipped yet.",
+      "buckets": [
+        "found"
+      ],
+      "process": null,
+      "start": "/",
+      "expect": "/account/orders/1077/address"
+    },
+    {
+      "key": "marketing",
+      "task": "Stop the marketing emails.",
+      "buckets": [
+        "found"
+      ],
+      "process": null,
+      "start": "/",
+      "expect": "/account/settings/notifications"
+    },
+    {
+      "key": "returns",
+      "task": "How do I send something back?",
+      "buckets": [
+        "found"
+      ],
+      "process": null,
+      "start": "/",
+      "expect": "/help/returns"
+    }
+  ],
+  "notes": [
+    "invoice: /account/orders/1043 is the only October order and has 'Download invoice'. #0988 also has 'Download invoice' but is from August; #1077 (November) only offers an order confirmation.",
+    "address: /account/addresses can edit addresses too, but says it only affects future orders; the order that hasn't shipped is #1077 and its own form is /account/orders/1077/address.",
+    "marketing: the 'Marketing emails: on' toggle is on /account/settings/notifications. Distractors: 'Sign up for our newsletter' on the home page and 'Delete account' on /account/settings (never the way to stop emails).",
+    "returns: /help/returns explains the steps. 'Free returns within 30 days' on the home page is plain text, not a link; 'Return an item' on order #1043 also leads to /help/returns."
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "fixture": "account",
+  "task": "returns",
+  "made": "2026-11-24T15:45:59.797Z",
+  "process": {
+    "id": "return-an-item",
+    "title": "Send something back",
+    "task": "Find out how to return an item to Hollowpine Outdoor, and go to the order list where returns are started.",
+    "over": "page",
+    "items": null,
+    "buckets": [
+      "found"
+    ],
+    "start": "open-returns-help",
+    "steps": [
+      {
+        "id": "open-returns-help",
+        "kind": "act",
+        "question": null,
+        "answer": null,
+        "options": null,
+        "read": [],
+        "op": null,
+        "value": null,
+        "sure": null,
+        "routes": [
+          {
+            "when": "done",
+            "then": {
+              "do": "open",
+              "target": "https://hollowpine.test/help/returns",
+              "next": "go-to-orders"
+            }
+          }
+        ]
+      },
+      {
+        "id": "go-to-orders",
+        "kind": "act",
+        "question": null,
+        "answer": null,
+        "options": null,
+        "read": [],
+        "op": null,
+        "value": null,
+        "sure": null,
+        "routes": [
+          {
+            "when": "done",
+            "then": {
+              "do": "click",
+              "target": "Go to My orders",
+              "next": "tell-person"
+            }
+          }
+        ]
+      },
+      {
+        "id": "tell-person",
+        "kind": "act",
+        "question": null,
+        "answer": null,
+        "options": null,
+        "read": [],
+        "op": null,
+        "value": null,
+        "sure": null,
+        "routes": [
+          {
+            "when": "done",
+            "then": {
+              "do": "notify",
+              "target": "To send something back: click 'View order' on the order the item came from, then choose 'Return an item'. Print the free return label, pack the item, and drop it at any ParcelPoint. You'll get your refund within 5 working days. You can return items within 30 days of delivery if they're unworn and have the tags on. Order #1043 (delivered 17 Oct) looks like it's past 30 days, so check that it can still be returned. Order #0988 can no longer be returned. Order #1077 hasn't shipped yet, so you cancel it on its order page instead of returning it.",
+              "next": "mark-found"
+            }
+          }
+        ]
+      },
+      {
+        "id": "mark-found",
+        "kind": "act",
+        "question": null,
+        "answer": null,
+        "options": null,
+        "read": [],
+        "op": null,
+        "value": null,
+        "sure": null,
+        "routes": [
+          {
+            "when": "done",
+            "then": {
+              "do": "put",
+              "target": "found",
+              "next": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "problems": [],
+  "backend": "claude",
+  "model": "claude-opus-5-5",
+  "ms": 19186.178458000002,
+  "rounds": 1,
+  "tokens": {
+    "input": 7401,
+    "output": 1766
+  }
+}

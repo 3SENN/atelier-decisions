@@ -1,0 +1,190 @@
+{
+  "id": "shop-order",
+  "title": "Order a product",
+  "task": "{goal}",
+  "over": "page",
+  "items": null,
+  "buckets": [
+    "ready"
+  ],
+  "values": [],
+  "start": "to-cart",
+  "steps": [
+    {
+      "id": "to-cart",
+      "kind": "advance",
+      "question": "Find the product from the task, choose the right size and add it to the cart. Stop once it is in the cart: {task}",
+      "read": [
+        "page"
+      ],
+      "budget": 10,
+      "routes": [
+        {
+          "when": "done",
+          "then": {
+            "do": "goto",
+            "target": "to-checkout",
+            "next": null
+          }
+        },
+        {
+          "when": "blocked",
+          "then": {
+            "do": "ask_person",
+            "target": "adding it to the cart could not go further",
+            "next": null
+          }
+        },
+        {
+          "when": "unsure",
+          "then": {
+            "do": "ask_person",
+            "target": "not sure how to go on with adding it to the cart",
+            "next": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "to-checkout",
+      "kind": "advance",
+      "question": "Go to the cart and on to the checkout. That is all: stop as soon as the checkout form with the delivery details shows.",
+      "read": [
+        "page"
+      ],
+      "budget": 4,
+      "routes": [
+        {
+          "when": "done",
+          "then": {
+            "do": "goto",
+            "target": "fill-checkout",
+            "next": null
+          }
+        },
+        {
+          "when": "blocked",
+          "then": {
+            "do": "ask_person",
+            "target": "getting to the checkout could not go further",
+            "next": null
+          }
+        },
+        {
+          "when": "unsure",
+          "then": {
+            "do": "ask_person",
+            "target": "not sure how to go on with getting to the checkout",
+            "next": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "fill-checkout",
+      "kind": "fill",
+      "question": "{task}",
+      "read": [
+        "page"
+      ],
+      "routes": [
+        {
+          "when": "done",
+          "then": {
+            "do": "goto",
+            "target": "to-payment",
+            "next": null
+          }
+        },
+        {
+          "when": "unsure",
+          "then": {
+            "do": "ask_person",
+            "target": "not sure what goes into the checkout form",
+            "next": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "to-payment",
+      "kind": "advance",
+      "question": "Choose the delivery option from the task and continue to the payment page. Don't pay: stop on the payment page. {task}",
+      "read": [
+        "page"
+      ],
+      "budget": 5,
+      "routes": [
+        {
+          "when": "done",
+          "then": {
+            "do": "goto",
+            "target": "check",
+            "next": null
+          }
+        },
+        {
+          "when": "blocked",
+          "then": {
+            "do": "ask_person",
+            "target": "the checkout could not go further",
+            "next": null
+          }
+        },
+        {
+          "when": "unsure",
+          "then": {
+            "do": "ask_person",
+            "target": "not sure how to go on with the checkout",
+            "next": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "check",
+      "kind": "ask",
+      "answer": "yes_no",
+      "question": "Is this the payment page, with the order ready for the person to pay?",
+      "read": [
+        "page"
+      ],
+      "options": [
+        {
+          "name": "yes",
+          "meaning": "the page shows it"
+        },
+        {
+          "name": "no",
+          "meaning": "the page does not show it"
+        }
+      ],
+      "routes": [
+        {
+          "when": "yes",
+          "then": {
+            "do": "put",
+            "target": "ready",
+            "next": null
+          }
+        },
+        {
+          "when": "no",
+          "then": {
+            "do": "ask_person",
+            "target": "it did not end where it should",
+            "next": null
+          }
+        },
+        {
+          "when": "unsure",
+          "then": {
+            "do": "ask_person",
+            "target": "not sure it ended where it should",
+            "next": null
+          }
+        }
+      ]
+    }
+  ]
+}

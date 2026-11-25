@@ -1,0 +1,166 @@
+{
+  "fixture": "shop",
+  "task": "match",
+  "made": "2026-11-24T15:44:08.903Z",
+  "process": {
+    "id": "laptops-under-900-16gb-new",
+    "title": "Laptops that fit",
+    "task": "Laptops under €900 with at least 16 GB of memory, new only (no refurbished, used or open-box).",
+    "over": "items",
+    "items": null,
+    "buckets": [
+      "match",
+      "no"
+    ],
+    "start": "price",
+    "steps": [
+      {
+        "id": "price",
+        "kind": "check",
+        "question": null,
+        "answer": null,
+        "options": null,
+        "read": [
+          "price"
+        ],
+        "op": "<",
+        "value": "900",
+        "sure": null,
+        "routes": [
+          {
+            "when": "yes",
+            "then": {
+              "do": "goto",
+              "target": "condition",
+              "next": null
+            }
+          },
+          {
+            "when": "no",
+            "then": {
+              "do": "put",
+              "target": "no",
+              "next": null
+            }
+          },
+          {
+            "when": "unsure",
+            "then": {
+              "do": "ask_person",
+              "target": "no price to compare",
+              "next": null
+            }
+          }
+        ]
+      },
+      {
+        "id": "condition",
+        "kind": "ask",
+        "question": "Is this laptop sold brand new?",
+        "answer": "yes_no",
+        "options": [
+          {
+            "name": "yes",
+            "meaning": "new and unused, e.g. 'New' or 'Nieuw'"
+          },
+          {
+            "name": "no",
+            "meaning": "refurbished, used, second-hand, open box, or 'like new' / 'Als nieuw' / 'Gebruikt'"
+          }
+        ],
+        "read": [
+          "condition",
+          "name",
+          "seller"
+        ],
+        "op": null,
+        "value": null,
+        "sure": null,
+        "routes": [
+          {
+            "when": "yes",
+            "then": {
+              "do": "goto",
+              "target": "memory",
+              "next": null
+            }
+          },
+          {
+            "when": "no",
+            "then": {
+              "do": "put",
+              "target": "no",
+              "next": null
+            }
+          },
+          {
+            "when": "unsure",
+            "then": {
+              "do": "ask_person",
+              "target": "not sure whether it is new",
+              "next": null
+            }
+          }
+        ]
+      },
+      {
+        "id": "memory",
+        "kind": "ask",
+        "question": "Does this laptop come with at least 16 GB of memory (RAM) installed as sold?",
+        "answer": "yes_no",
+        "options": [
+          {
+            "name": "yes",
+            "meaning": "16 GB or more of RAM or unified memory is installed, including combinations like 8+8 GB"
+          },
+          {
+            "name": "no",
+            "meaning": "less than 16 GB installed, even if it is upgradable or a 16 GB option exists"
+          }
+        ],
+        "read": [
+          "specs",
+          "name"
+        ],
+        "op": null,
+        "value": null,
+        "sure": null,
+        "routes": [
+          {
+            "when": "yes",
+            "then": {
+              "do": "put",
+              "target": "match",
+              "next": null
+            }
+          },
+          {
+            "when": "no",
+            "then": {
+              "do": "put",
+              "target": "no",
+              "next": null
+            }
+          },
+          {
+            "when": "unsure",
+            "then": {
+              "do": "ask_person",
+              "target": "not sure how much memory it has",
+              "next": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "problems": [],
+  "backend": "claude",
+  "model": "claude-opus-5-5",
+  "ms": 11501.893166,
+  "rounds": 1,
+  "tokens": {
+    "input": 5815,
+    "output": 1194
+  }
+}

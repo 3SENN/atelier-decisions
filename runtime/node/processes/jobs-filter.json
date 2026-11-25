@@ -1,0 +1,204 @@
+{
+  "id": "jobs-filter",
+  "title": "Jobs I could apply for",
+  "task": "Mid-level frontend or full-stack jobs, remote or in Amsterdam, not senior.",
+  "over": "items",
+  "items": {
+    "selector": "article.item",
+    "fields": [
+      {
+        "name": "title",
+        "selector": ".f-title"
+      },
+      {
+        "name": "company",
+        "selector": ".f-company"
+      },
+      {
+        "name": "location",
+        "selector": ".f-location"
+      },
+      {
+        "name": "summary",
+        "selector": ".f-summary"
+      }
+    ]
+  },
+  "buckets": [
+    "apply",
+    "skip"
+  ],
+  "start": "role",
+  "steps": [
+    {
+      "id": "role",
+      "kind": "ask",
+      "answer": "choice",
+      "question": "What kind of role is this?",
+      "read": [
+        "title",
+        "summary"
+      ],
+      "options": [
+        {
+          "name": "frontend",
+          "meaning": "building web user interfaces: React, Vue, CSS, the front end"
+        },
+        {
+          "name": "fullstack",
+          "meaning": "both frontend and backend work"
+        },
+        {
+          "name": "backend",
+          "meaning": "servers, APIs, databases or infrastructure"
+        },
+        {
+          "name": "design",
+          "meaning": "visual, product or UX design with little coding"
+        },
+        {
+          "name": "other",
+          "meaning": "data, mobile, management, sales or anything else"
+        }
+      ],
+      "routes": [
+        {
+          "when": "frontend",
+          "then": {
+            "do": "goto",
+            "target": "level",
+            "next": null
+          }
+        },
+        {
+          "when": "fullstack",
+          "then": {
+            "do": "goto",
+            "target": "level",
+            "next": null
+          }
+        },
+        {
+          "when": "backend",
+          "then": {
+            "do": "put",
+            "target": "skip"
+          }
+        },
+        {
+          "when": "design",
+          "then": {
+            "do": "put",
+            "target": "skip"
+          }
+        },
+        {
+          "when": "other",
+          "then": {
+            "do": "put",
+            "target": "skip"
+          }
+        },
+        {
+          "when": "unsure",
+          "then": {
+            "do": "ask_person",
+            "target": "not sure what the role is"
+          }
+        }
+      ]
+    },
+    {
+      "id": "level",
+      "kind": "ask",
+      "answer": "yes_no",
+      "question": "Is this a senior, lead or principal position?",
+      "read": [
+        "title",
+        "summary"
+      ],
+      "options": [
+        {
+          "name": "yes",
+          "meaning": "senior, lead, staff or principal level, or many years of experience required"
+        },
+        {
+          "name": "no",
+          "meaning": "junior, medior or mid-level, or no level given"
+        }
+      ],
+      "routes": [
+        {
+          "when": "yes",
+          "then": {
+            "do": "put",
+            "target": "skip",
+            "next": null
+          }
+        },
+        {
+          "when": "no",
+          "then": {
+            "do": "goto",
+            "target": "place",
+            "next": null
+          }
+        },
+        {
+          "when": "unsure",
+          "then": {
+            "do": "goto",
+            "target": "place",
+            "next": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "place",
+      "kind": "ask",
+      "answer": "yes_no",
+      "question": "Can someone who lives in Amsterdam take this job, working remotely from the Netherlands or at an office in or near Amsterdam?",
+      "read": [
+        "location",
+        "summary"
+      ],
+      "options": [
+        {
+          "name": "yes",
+          "meaning": "remote from the Netherlands or Europe, or an office in or near Amsterdam"
+        },
+        {
+          "name": "no",
+          "meaning": "on site elsewhere, or remote only for another country or time zone"
+        }
+      ],
+      "routes": [
+        {
+          "when": "yes",
+          "then": {
+            "do": "put",
+            "target": "apply",
+            "next": null
+          }
+        },
+        {
+          "when": "no",
+          "then": {
+            "do": "put",
+            "target": "skip",
+            "next": null
+          }
+        },
+        {
+          "when": "unsure",
+          "then": {
+            "do": "ask_person",
+            "target": "not sure where the job can be done",
+            "next": null
+          }
+        }
+      ]
+    }
+  ]
+}

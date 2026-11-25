@@ -1,0 +1,13 @@
+train 19533 steps, test 1500 (synth/lang-unseen 2530, synth/family-unseen 3000, mind2web/site-unseen 965) on mps
+4466 updates (2233 per epoch), 59.6M parameters
+  synth/lang-unseen        n=400   op 44% (sure 100%, right when sure 44%) · element 14% (sure 3%, right 100%) · value 4% · step 3% (sure and right 0%)
+after 1116 updates:
+  mind2web/site-unseen     n=500   op 90% (sure 96%, right when sure 91%) · element 53% (sure 54%, right 72%) · value 53% · step 44% (sure and right 31%)
+  synth/family-unseen      n=500   op 87% (sure 99%, right when sure 87%) · element 75% (sure 99%, right 75%) · value 100% · step 69% (sure and right 68%)
+  synth/lang-unseen        n=500   op 99% (sure 99%, right when sure 99%) · element 97% (sure 100%, right 97%) · value 98% · step 96% (sure and right 95%)
+  saved (step right 69.5%)
+after 2232 updates:
+  mind2web/site-unseen     n=500   op 91% (sure 96%, right when sure 93%) · element 60% (sure 79%, right 68%) · value 69% · step 51% (sure and right 45%)
+  synth/family-unseen      n=500   op 84% (sure 99%, right when sure 84%) · element 75% (sure 99%, right 76%) · value 100% · step 67% (sure and right 66%)
+  synth/lang-unseen        n=500   op 100% (sure 100%, right when sure 100%) · element 98% (sure 99%, right 99%) · value 99% · step 98% (sure and right 97%)
+  saved (step right 72.0%)

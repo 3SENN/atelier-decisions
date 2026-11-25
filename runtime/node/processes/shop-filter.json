@@ -1,0 +1,175 @@
+{
+  "id": "shop-filter",
+  "title": "Laptops that fit",
+  "task": "Laptops under €900 with at least 16 GB of memory, new only.",
+  "over": "items",
+  "items": {
+    "selector": "article.item",
+    "fields": [
+      {
+        "name": "name",
+        "selector": ".f-name"
+      },
+      {
+        "name": "price",
+        "selector": ".f-price"
+      },
+      {
+        "name": "specs",
+        "selector": ".f-specs"
+      },
+      {
+        "name": "condition",
+        "selector": ".f-condition"
+      },
+      {
+        "name": "seller",
+        "selector": ".f-seller"
+      }
+    ]
+  },
+  "buckets": [
+    "match",
+    "no"
+  ],
+  "start": "price",
+  "steps": [
+    {
+      "id": "price",
+      "kind": "check",
+      "read": [
+        "price"
+      ],
+      "op": "<",
+      "value": "900",
+      "routes": [
+        {
+          "when": "yes",
+          "then": {
+            "do": "goto",
+            "target": "memory"
+          }
+        },
+        {
+          "when": "no",
+          "then": {
+            "do": "put",
+            "target": "no"
+          }
+        },
+        {
+          "when": "unsure",
+          "then": {
+            "do": "ask_person",
+            "target": "no price to compare"
+          }
+        }
+      ]
+    },
+    {
+      "id": "memory",
+      "kind": "ask",
+      "answer": "choice",
+      "question": "How much memory (RAM) does this laptop have installed as sold, not counting upgrade options?",
+      "read": [
+        "name",
+        "specs"
+      ],
+      "options": [
+        {
+          "name": "8-or-less",
+          "meaning": "8 GB of RAM or less installed"
+        },
+        {
+          "name": "12",
+          "meaning": "12 GB installed"
+        },
+        {
+          "name": "16",
+          "meaning": "16 GB installed (8+8 GB counts as 16)"
+        },
+        {
+          "name": "24-or-more",
+          "meaning": "24 GB, 32 GB or more installed"
+        }
+      ],
+      "routes": [
+        {
+          "when": "8-or-less",
+          "then": {
+            "do": "put",
+            "target": "no",
+            "next": null
+          }
+        },
+        {
+          "when": "12",
+          "then": {
+            "do": "put",
+            "target": "no",
+            "next": null
+          }
+        },
+        {
+          "when": "16",
+          "then": {
+            "do": "goto",
+            "target": "new",
+            "next": null
+          }
+        },
+        {
+          "when": "24-or-more",
+          "then": {
+            "do": "goto",
+            "target": "new",
+            "next": null
+          }
+        },
+        {
+          "when": "unsure",
+          "then": {
+            "do": "ask_person",
+            "target": "not sure how much memory it has",
+            "next": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "new",
+      "kind": "check",
+      "read": [
+        "condition"
+      ],
+      "op": "matches",
+      "value": "^\\s*(brand )?(new|nieuw|neu)\\s*$",
+      "routes": [
+        {
+          "when": "yes",
+          "then": {
+            "do": "put",
+            "target": "match",
+            "next": null
+          }
+        },
+        {
+          "when": "no",
+          "then": {
+            "do": "put",
+            "target": "no",
+            "next": null
+          }
+        },
+        {
+          "when": "unsure",
+          "then": {
+            "do": "ask_person",
+            "target": "no condition given",
+            "next": null
+          }
+        }
+      ]
+    }
+  ]
+}
