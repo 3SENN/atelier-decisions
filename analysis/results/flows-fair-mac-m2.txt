@@ -1,0 +1,39 @@
+== warm-A (A) load: { 2.50 2.44 2.49 }
+✓ shop-order       library  ready  · 79.7 s · by claude 12, mini 3, words 1, code 4, nano 1 · Claude 9 call(s), 45.9 s
+    the person was asked: yes: May I click “Checkout”? (a purchase click (by its words): “Checkout”)
+    the person was asked: yes: May I click “Continue to payment”? (a payment click (by the model): “Continue to payment”)
+== warm-B (B) load: { 2.49 2.55 2.53 }
+✓ shop-order       library  ready  · 22.8 s · by step 10, claude 4, words 2, code 4, nano 1, mini 1 · Claude 4 call(s), 16.6 s
+    the person was asked: no: May I click “Remove”? (a delete click (by its words): “Remove”)
+    the person was asked: yes: May I click “Checkout”? (a purchase click (by its words): “Checkout”)
+    the person was asked: yes: May I click “Continue to payment”? (a payment click (by the model): “Continue to payment”)
+== r1-A (A) load: { 2.10 2.44 2.49 }
+✓ shop-order       library  ready  · 76.1 s · by claude 12, mini 3, words 1, code 4, nano 1 · Claude 9 call(s), 41.1 s
+    the person was asked: yes: May I click “Checkout”? (a purchase click (by its words): “Checkout”)
+    the person was asked: yes: May I click “Continue to payment”? (a payment click (by the model): “Continue to payment”)
+== r2-B (B) load: { 1.94 2.31 2.44 }
+✓ shop-order       library  ready  · 24.4 s · by step 10, claude 4, words 2, code 4, nano 1, mini 1 · Claude 4 call(s), 18.1 s
+    the person was asked: no: May I click “Remove”? (a delete click (by its words): “Remove”)
+    the person was asked: yes: May I click “Checkout”? (a purchase click (by its words): “Checkout”)
+    the person was asked: yes: May I click “Continue to payment”? (a payment click (by the model): “Continue to payment”)
+== r3-B (B) load: { 2.03 2.28 2.42 }
+✓ shop-order       library  ready  · 23.0 s · by step 10, claude 4, words 2, code 4, nano 1, mini 1 · Claude 4 call(s), 16.8 s
+    the person was asked: no: May I click “Remove”? (a delete click (by its words): “Remove”)
+    the person was asked: yes: May I click “Checkout”? (a purchase click (by its words): “Checkout”)
+    the person was asked: yes: May I click “Continue to payment”? (a payment click (by the model): “Continue to payment”)
+== r4-A (A) load: { 1.75 2.16 2.36 }
+✓ shop-order       library  ready  · 77.5 s · by claude 12, mini 3, words 1, code 4, nano 1 · Claude 9 call(s), 43.8 s
+    the person was asked: yes: May I click “Checkout”? (a purchase click (by its words): “Checkout”)
+    the person was asked: yes: May I click “Continue to payment”? (a payment click (by the model): “Continue to payment”)
+== r5-A (A) load: { 1.83 2.03 2.28 }
+✓ shop-order       library  ready  · 75.9 s · by claude 12, mini 3, words 1, code 4, nano 1 · Claude 9 call(s), 42.3 s
+    the person was asked: yes: May I click “Checkout”? (a purchase click (by its words): “Checkout”)
+    the person was asked: yes: May I click “Continue to payment”? (a payment click (by the model): “Continue to payment”)
+== r6-B (B) load: { 2.05 2.09 2.28 }
+✓ shop-order       library  ready  · 28.1 s · by step 10, claude 4, words 2, code 4, nano 1, mini 1 · Claude 4 call(s), 21.9 s
+    the person was asked: no: May I click “Remove”? (a delete click (by its words): “Remove”)
+    the person was asked: yes: May I click “Checkout”? (a purchase click (by its words): “Checkout”)
+    the person was asked: yes: May I click “Continue to payment”? (a payment click (by the model): “Continue to payment”)
+== end load: { 2.81 2.23 2.31 }
+
+[exited with code 0]
