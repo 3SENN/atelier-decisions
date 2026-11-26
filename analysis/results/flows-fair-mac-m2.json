@@ -1,0 +1,3278 @@
+{
+ "made": "2026-11-25",
+ "what": "shop-order flow, A = without atelier-step (v0.6 nano+mini, then Claude Opus 5.5 via the Claude Code CLI), B = atelier-step v0.1 first, Claude when unsure; same MacBook (M2, load average about 2), same server, same tab in the demo Atelier (CDP 9555), interleaved A B B A A B after one warm-up each",
+ "runs": {
+  "r1-A": {
+   "ok": true,
+   "s": 76.1,
+   "claudeCalls": 9,
+   "claudeS": 41.1,
+   "byWho": {
+    "claude": 12,
+    "mini": 3,
+    "words": 1,
+    "code": 4,
+    "nano": 1
+   },
+   "approvals": [
+    "yes: May I click “Checkout”? (a purchase click (by its words): “Checkout”)",
+    "yes: May I click “Continue to payment”? (a payment click (by the model): “Continue to payment”)"
+   ],
+   "steps": [
+    {
+     "step": "to-cart·1",
+     "kind": "advance",
+     "question": "click [7] Trailrunner 2 trail shoes",
+     "probabilities": {
+      "1": 0.07617931358162466,
+      "3": 0.09355102424061806,
+      "4": 0.05051083089641083,
+      "5": 0.16361407091112928,
+      "6": 0.04551107646410337,
+      "7": 0.371611474143765,
+      "8": 0.020016753629700772,
+      "9": 0.025991985908230545,
+      "10": 0.01750929654511986,
+      "11": 0.048025353251689835,
+      "12": 0.08747882042760782
+     },
+     "verdict": "click",
+     "by": "claude",
+     "ms": 7015.486708,
+     "then": {
+      "do": "goto",
+      "target": "to-cart",
+      "next": null
+     }
+    },
+    {
+     "step": "to-cart·2",
+     "kind": "advance",
+     "question": "type into [7] Size (EU): “43”",
+     "probabilities": {
+      "2": 0.14529151613974253,
+      "7": 0.7556292274286993,
+      "8": 0.09907925643155802
+     },
+     "verdict": "type",
+     "by": "claude",
+     "ms": 6773.716,
+     "then": {
+      "do": "goto",
+      "target": "to-cart",
+      "next": null
+     }
+    },
+    {
+     "step": "to-cart·3",
+     "kind": "advance",
+     "question": "click [9] Add to cart",
+     "probabilities": {
+      "1": 0.08567041222448143,
+      "3": 0.10091673785905,
+      "4": 0.054875416129217314,
+      "5": 0.1756423591774629,
+      "6": 0.0506764302173003,
+      "9": 0.28456811501444446,
+      "10": 0.19392340235137204,
+      "11": 0.05372712702667151
+     },
+     "verdict": "click",
+     "by": "claude",
+     "ms": 6471.4050830000015,
+     "then": {
+      "do": "goto",
+      "target": "to-cart",
+      "next": null
+     }
+    },
+    {
+     "step": "to-cart·4",
+     "kind": "advance",
+     "question": "done",
+     "probabilities": {
+      "click": 0.17104171909508203,
+      "type": 0.08863935786867322,
+      "done": 0.6856379665962316,
+      "blocked": 0.05468095644001327
+     },
+     "verdict": "done",
+     "by": "mini",
+     "ms": 2812.282708999999,
+     "then": {
+      "do": "goto",
+      "target": "to-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "to-checkout·1",
+     "kind": "advance",
+     "question": "click [11] Go to cart",
+     "probabilities": {
+      "1": 0.06791883541405318,
+      "3": 0.06819973485472762,
+      "4": 0.04962988223398013,
+      "5": 0.19349252346033666,
+      "6": 0.04284530907086158,
+      "9": 0.05871470702019528,
+      "10": 0.06165599352924069,
+      "11": 0.3911609062284844,
+      "12": 0.06638210818812051
+     },
+     "verdict": "click",
+     "by": "claude",
+     "ms": 7201.393875000002,
+     "then": {
+      "do": "goto",
+      "target": "to-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "to-checkout·2",
+     "kind": "guard",
+     "question": "click [8] Checkout",
+     "probabilities": {
+      "none": 0.10228354488382754,
+      "security": 0.002914716511547937,
+      "payment": 0.05854378407546677,
+      "purchase": 0.7621298217212225,
+      "account": 0.003452150715483891,
+      "delete": 0.0025163684247445544,
+      "message": 0.0028106608244506883,
+      "post": 0.0027914393817384427,
+      "submit": 0.06255751346151761
+     },
+     "verdict": "purchase",
+     "by": "words",
+     "ms": 3406.0126670000027,
+     "then": {
+      "do": "goto",
+      "target": "to-checkout",
+      "next": null
+     },
+     "note": "the person said yes"
+    },
+    {
+     "step": "to-checkout·2",
+     "kind": "advance",
+     "question": "click [8] Checkout",
+     "probabilities": {
+      "1": 0.033903816117356614,
+      "3": 0.041756092730459826,
+      "4": 0.03413703197031225,
+      "5": 0.12923977971987088,
+      "6": 0.030989603354026892,
+      "7": 0.05811545879222132,
+      "8": 0.6037892603832345,
+      "9": 0.06806895693251779
+     },
+     "verdict": "click",
+     "by": "mini",
+     "ms": 3406.0257920000004,
+     "then": {
+      "do": "goto",
+      "target": "to-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "to-checkout·3",
+     "kind": "advance",
+     "question": "done",
+     "probabilities": {
+      "click": 0.45399012897038965,
+      "type": 0.10949641023783964,
+      "done": 0.2355929169578591,
+      "blocked": 0.20092054383391159
+     },
+     "verdict": "done",
+     "by": "claude",
+     "ms": 7538.603667000003,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Full name: empty ← “Robin Verhoeven”",
+     "verdict": "value",
+     "by": "code",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Email: empty ← “robin@postbox.test”",
+     "verdict": "value",
+     "by": "code",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Mobile number (for the courier, optional): empty ← “06 12345678”",
+     "verdict": "value",
+     "by": "code",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Search gear: empty ← (left empty)",
+     "verdict": "none",
+     "by": "claude",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Street and house number: empty ← “Lindelaan 12”",
+     "verdict": "value",
+     "by": "claude",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Postcode: empty ← “3512 AB”",
+     "verdict": "value",
+     "by": "claude",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Town or city: empty ← “Utrecht”",
+     "verdict": "value",
+     "by": "claude",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "7 empty fields: 7 decided, 0 left",
+     "verdict": "done",
+     "by": "code",
+     "ms": 9078.757582999999,
+     "then": {
+      "do": "goto",
+      "target": "to-payment",
+      "next": null
+     }
+    },
+    {
+     "step": "to-payment·1",
+     "kind": "advance",
+     "question": "click [13] Standard delivery (free, 2–3 days)",
+     "probabilities": {
+      "1": 0.038631123551331546,
+      "3": 0.04687908463967219,
+      "4": 0.03533746158243356,
+      "5": 0.0923066760308249,
+      "6": 0.03741358164266786,
+      "13": 0.290664638133299,
+      "14": 0.03177092889075832,
+      "15": 0.02745295975835845,
+      "16": 0.39954354577065426
+     },
+     "verdict": "click",
+     "by": "claude",
+     "ms": 8259.186249999999,
+     "then": {
+      "do": "goto",
+      "target": "to-payment",
+      "next": null
+     }
+    },
+    {
+     "step": "to-payment·2",
+     "kind": "guard",
+     "question": "click [16] Continue to payment",
+     "probabilities": {
+      "none": 0.038840601230748055,
+      "security": 0.0012800298877947336,
+      "payment": 0.8749720049901819,
+      "purchase": 0.06229141805044349,
+      "account": 0.00270263882042092,
+      "delete": 0.0014380828164732482,
+      "message": 0.0009716529522038949,
+      "post": 0.0012295079548624993,
+      "submit": 0.016274063296871217
+     },
+     "verdict": "payment",
+     "by": "nano",
+     "ms": 7840.764292000007,
+     "then": {
+      "do": "goto",
+      "target": "to-payment",
+      "next": null
+     },
+     "note": "the person said yes"
+    },
+    {
+     "step": "to-payment·2",
+     "kind": "advance",
+     "question": "click [16] Continue to payment",
+     "probabilities": {
+      "1": 0.030942256420415346,
+      "3": 0.039809329705650896,
+      "4": 0.02776607934343039,
+      "5": 0.08142494029595165,
+      "6": 0.029410257544073604,
+      "13": 0.4771958988169162,
+      "14": 0.025907965381544894,
+      "15": 0.024795630290310487,
+      "16": 0.2627476422017065
+     },
+     "verdict": "click",
+     "by": "claude",
+     "ms": 7840.770292000001,
+     "then": {
+      "do": "goto",
+      "target": "to-payment",
+      "next": null
+     }
+    },
+    {
+     "step": "to-payment·3",
+     "kind": "advance",
+     "question": "done",
+     "probabilities": {
+      "click": 0.5229813297364714,
+      "type": 0.07410126272543544,
+      "done": 0.31348499073380104,
+      "blocked": 0.08943241680429226
+     },
+     "verdict": "done",
+     "by": "claude",
+     "ms": 6440.597584000003,
+     "then": {
+      "do": "goto",
+      "target": "check",
+      "next": null
+     }
+    },
+    {
+     "step": "check",
+     "kind": "ask",
+     "question": "Is this the payment page, with the order ready for the person to pay?",
+     "state": "Hollowpine Outdoor\nhttp://127.0.0.1:8011/lab/apps/shop/pay\n[link] Hollowpine Outdoor\n[field] Search gear: empty [button] Search\n[link] Account [link] Cart (1) [link] Help\nPayment\nStep 2 of 2\nTrailrunner 2 trail shoes · size 43 · 1 ×\nDeliver to Robin Verhoeven, Lindelaan 12, 3512 AB Utrecht (standard)\nPay with\n[field] iDEAL: checked iDEAL [field] Card: not checked Card\n[button] Pay now € 124,95 [link] Change delivery details",
+     "probabilities": {
+      "yes": 0.8305941028880628,
+      "no": 0.1694058971119372
+     },
+     "verdict": "yes",
+     "by": "mini",
+     "ms": 383.89100000000326,
+     "then": {
+      "do": "put",
+      "target": "ready",
+      "next": null
+     }
+    }
+   ]
+  },
+  "r2-B": {
+   "ok": true,
+   "s": 24.4,
+   "claudeCalls": 4,
+   "claudeS": 18.1,
+   "byWho": {
+    "step": 10,
+    "claude": 4,
+    "words": 2,
+    "code": 4,
+    "nano": 1,
+    "mini": 1
+   },
+   "approvals": [
+    "no: May I click “Remove”? (a delete click (by its words): “Remove”)",
+    "yes: May I click “Checkout”? (a purchase click (by its words): “Checkout”)",
+    "yes: May I click “Continue to payment”? (a payment click (by the model): “Continue to payment”)"
+   ],
+   "steps": [
+    {
+     "step": "to-cart·1",
+     "kind": "advance",
+     "question": "click [7] Trailrunner 2 trail shoes",
+     "probabilities": {
+      "click": 0.8959926455760294,
+      "type": 0.09220436394651821,
+      "done": 0.00954204930770605,
+      "blocked": 0.0022609411697461675
+     },
+     "verdict": "click",
+     "by": "step",
+     "ms": 629.0013330000002,
+     "then": {
+      "do": "goto",
+      "target": "to-cart",
+      "next": null
+     }
+    },
+    {
+     "step": "to-cart·2",
+     "kind": "advance",
+     "question": "type into [7] Size (EU): “43”",
+     "probabilities": {
+      "click": 0.10888468961923274,
+      "type": 0.8657141134688673,
+      "done": 0.02184653495452855,
+      "blocked": 0.003554661957371528
+     },
+     "verdict": "type",
+     "by": "step",
+     "ms": 164.6920829999999,
+     "then": {
+      "do": "goto",
+      "target": "to-cart",
+      "next": null
+     }
+    },
+    {
+     "step": "to-cart·3",
+     "kind": "advance",
+     "question": "click [9] Add to cart",
+     "probabilities": {
+      "click": 0.8892355929125982,
+      "type": 0.08957140312851236,
+      "done": 0.016996571872199127,
+      "blocked": 0.004196432086690238
+     },
+     "verdict": "click",
+     "by": "step",
+     "ms": 108.33012499999995,
+     "then": {
+      "do": "goto",
+      "target": "to-cart",
+      "next": null
+     }
+    },
+    {
+     "step": "to-cart·4",
+     "kind": "advance",
+     "question": "done",
+     "probabilities": {
+      "click": 0.027584043052440634,
+      "type": 0.009729418166251095,
+      "done": 0.9610205734062529,
+      "blocked": 0.0016659653750553526
+     },
+     "verdict": "done",
+     "by": "step",
+     "ms": 95.82391699999971,
+     "then": {
+      "do": "goto",
+      "target": "to-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "to-checkout·1",
+     "kind": "advance",
+     "question": "click [11] Go to cart",
+     "probabilities": {
+      "click": 0.9428787943564481,
+      "type": 0.04829564687977017,
+      "done": 0.007320793958836182,
+      "blocked": 0.0015047648049454892
+     },
+     "verdict": "click",
+     "by": "claude",
+     "ms": 4717.257750000001,
+     "then": {
+      "do": "goto",
+      "target": "to-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "to-checkout·2",
+     "kind": "guard",
+     "question": "click [7] Remove",
+     "probabilities": {
+      "none": 0.007618448564850791,
+      "security": 0.0018823361131997732,
+      "payment": 0.0007425227716451532,
+      "purchase": 0.0008380643076706409,
+      "account": 0.0063994160962430584,
+      "delete": 0.9745257583698665,
+      "message": 0.0008456258622212976,
+      "post": 0.0009142205478895566,
+      "submit": 0.006233607366413303
+     },
+     "verdict": "delete",
+     "by": "words",
+     "ms": 86.04025000000001,
+     "then": {
+      "do": "ask_person",
+      "target": "a delete click (by its words): “Remove”",
+      "next": null
+     },
+     "note": "asked the person"
+    },
+    {
+     "step": "to-checkout·3",
+     "kind": "guard",
+     "question": "click [8] Checkout",
+     "probabilities": {
+      "none": 0.10228354488382754,
+      "security": 0.002914716511547937,
+      "payment": 0.05854378407546677,
+      "purchase": 0.7621298217212225,
+      "account": 0.003452150715483891,
+      "delete": 0.0025163684247445544,
+      "message": 0.0028106608244506883,
+      "post": 0.0027914393817384427,
+      "submit": 0.06255751346151761
+     },
+     "verdict": "purchase",
+     "by": "words",
+     "ms": 5531.054375,
+     "then": {
+      "do": "goto",
+      "target": "to-checkout",
+      "next": null
+     },
+     "note": "the person said yes"
+    },
+    {
+     "step": "to-checkout·3",
+     "kind": "advance",
+     "question": "click [8] Checkout",
+     "probabilities": {
+      "click": 0.16496831920101504,
+      "type": 0.06175299190537439,
+      "done": 0.7627955679110603,
+      "blocked": 0.01048312098255019
+     },
+     "verdict": "click",
+     "by": "claude",
+     "ms": 5531.0674579999995,
+     "then": {
+      "do": "goto",
+      "target": "to-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "to-checkout·4",
+     "kind": "advance",
+     "question": "done",
+     "probabilities": {
+      "click": 0.09582732939534414,
+      "type": 0.2023756280782545,
+      "done": 0.6635384301958255,
+      "blocked": 0.038258612330575835
+     },
+     "verdict": "done",
+     "by": "step",
+     "ms": 88.46608299999934,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Full name: empty ← “Robin Verhoeven”",
+     "verdict": "value",
+     "by": "code",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Email: empty ← “robin@postbox.test”",
+     "verdict": "value",
+     "by": "code",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Street and house number: empty ← “Lindelaan 12”",
+     "verdict": "value",
+     "by": "step",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Postcode: empty ← “3512 AB”",
+     "verdict": "value",
+     "by": "step",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Town or city: empty ← “Utrecht”",
+     "verdict": "value",
+     "by": "step",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Mobile number (for the courier, optional): empty ← “06 12345678”",
+     "verdict": "value",
+     "by": "code",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Search gear: empty ← “Trailrunner 2”",
+     "verdict": "value",
+     "by": "claude",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "7 empty fields: 7 decided, 0 left",
+     "verdict": "done",
+     "by": "code",
+     "ms": 4369.71725,
+     "then": {
+      "do": "goto",
+      "target": "to-payment",
+      "next": null
+     }
+    },
+    {
+     "step": "to-payment·1",
+     "kind": "advance",
+     "question": "click [13] Standard delivery (free, 2–3 days)",
+     "probabilities": {
+      "click": 0.9128188563403927,
+      "type": 0.04892601536451676,
+      "done": 0.03243552348996598,
+      "blocked": 0.005819604805124367
+     },
+     "verdict": "click",
+     "by": "claude",
+     "ms": 5151.321,
+     "then": {
+      "do": "goto",
+      "target": "to-payment",
+      "next": null
+     }
+    },
+    {
+     "step": "to-payment·2",
+     "kind": "guard",
+     "question": "click [16] Continue to payment",
+     "probabilities": {
+      "none": 0.038840601230748055,
+      "security": 0.0012800298877947336,
+      "payment": 0.8749720049901819,
+      "purchase": 0.06229141805044349,
+      "account": 0.00270263882042092,
+      "delete": 0.0014380828164732482,
+      "message": 0.0009716529522038949,
+      "post": 0.0012295079548624993,
+      "submit": 0.016274063296871217
+     },
+     "verdict": "payment",
+     "by": "nano",
+     "ms": 115.41687500000262,
+     "then": {
+      "do": "goto",
+      "target": "to-payment",
+      "next": null
+     },
+     "note": "the person said yes"
+    },
+    {
+     "step": "to-payment·2",
+     "kind": "advance",
+     "question": "click [16] Continue to payment",
+     "probabilities": {
+      "click": 0.8804745955922078,
+      "type": 0.041263136115821615,
+      "done": 0.07247025040182295,
+      "blocked": 0.005792017890147675
+     },
+     "verdict": "click",
+     "by": "step",
+     "ms": 115.41937500000131,
+     "then": {
+      "do": "goto",
+      "target": "to-payment",
+      "next": null
+     }
+    },
+    {
+     "step": "to-payment·3",
+     "kind": "advance",
+     "question": "done",
+     "probabilities": {
+      "click": 0.02157928605316472,
+      "type": 0.005477619165834832,
+      "done": 0.9715869628245796,
+      "blocked": 0.0013561319564208167
+     },
+     "verdict": "done",
+     "by": "step",
+     "ms": 86.00841700000092,
+     "then": {
+      "do": "goto",
+      "target": "check",
+      "next": null
+     }
+    },
+    {
+     "step": "check",
+     "kind": "ask",
+     "question": "Is this the payment page, with the order ready for the person to pay?",
+     "state": "Hollowpine Outdoor\nhttp://127.0.0.1:8011/lab/apps/shop/pay\n[link] Hollowpine Outdoor\n[field] Search gear: empty [button] Search\n[link] Account [link] Cart (1) [link] Help\nPayment\nStep 2 of 2\nTrailrunner 2 trail shoes · size 43 · 1 ×\nDeliver to Robin Verhoeven, Lindelaan 12, 3512 AB Utrecht (standard)\nPay with\n[field] iDEAL: checked iDEAL [field] Card: not checked Card\n[button] Pay now € 124,95 [link] Change delivery details",
+     "probabilities": {
+      "yes": 0.8305941028880628,
+      "no": 0.1694058971119372
+     },
+     "verdict": "yes",
+     "by": "mini",
+     "ms": 379.25737500000105,
+     "then": {
+      "do": "put",
+      "target": "ready",
+      "next": null
+     }
+    }
+   ]
+  },
+  "r3-B": {
+   "ok": true,
+   "s": 23.0,
+   "claudeCalls": 4,
+   "claudeS": 16.8,
+   "byWho": {
+    "step": 10,
+    "claude": 4,
+    "words": 2,
+    "code": 4,
+    "nano": 1,
+    "mini": 1
+   },
+   "approvals": [
+    "no: May I click “Remove”? (a delete click (by its words): “Remove”)",
+    "yes: May I click “Checkout”? (a purchase click (by its words): “Checkout”)",
+    "yes: May I click “Continue to payment”? (a payment click (by the model): “Continue to payment”)"
+   ],
+   "steps": [
+    {
+     "step": "to-cart·1",
+     "kind": "advance",
+     "question": "click [7] Trailrunner 2 trail shoes",
+     "probabilities": {
+      "click": 0.8959926455760294,
+      "type": 0.09220436394651821,
+      "done": 0.00954204930770605,
+      "blocked": 0.0022609411697461675
+     },
+     "verdict": "click",
+     "by": "step",
+     "ms": 605.1998330000001,
+     "then": {
+      "do": "goto",
+      "target": "to-cart",
+      "next": null
+     }
+    },
+    {
+     "step": "to-cart·2",
+     "kind": "advance",
+     "question": "type into [7] Size (EU): “43”",
+     "probabilities": {
+      "click": 0.10888468961923274,
+      "type": 0.8657141134688673,
+      "done": 0.02184653495452855,
+      "blocked": 0.003554661957371528
+     },
+     "verdict": "type",
+     "by": "step",
+     "ms": 87.75829099999964,
+     "then": {
+      "do": "goto",
+      "target": "to-cart",
+      "next": null
+     }
+    },
+    {
+     "step": "to-cart·3",
+     "kind": "advance",
+     "question": "click [9] Add to cart",
+     "probabilities": {
+      "click": 0.8892355929125982,
+      "type": 0.08957140312851236,
+      "done": 0.016996571872199127,
+      "blocked": 0.004196432086690238
+     },
+     "verdict": "click",
+     "by": "step",
+     "ms": 106.74962499999992,
+     "then": {
+      "do": "goto",
+      "target": "to-cart",
+      "next": null
+     }
+    },
+    {
+     "step": "to-cart·4",
+     "kind": "advance",
+     "question": "done",
+     "probabilities": {
+      "click": 0.027584043052440634,
+      "type": 0.009729418166251095,
+      "done": 0.9610205734062529,
+      "blocked": 0.0016659653750553526
+     },
+     "verdict": "done",
+     "by": "step",
+     "ms": 94.66399999999976,
+     "then": {
+      "do": "goto",
+      "target": "to-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "to-checkout·1",
+     "kind": "advance",
+     "question": "click [11] Go to cart",
+     "probabilities": {
+      "click": 0.9428787943564481,
+      "type": 0.04829564687977017,
+      "done": 0.007320793958836182,
+      "blocked": 0.0015047648049454892
+     },
+     "verdict": "click",
+     "by": "claude",
+     "ms": 5400.4335,
+     "then": {
+      "do": "goto",
+      "target": "to-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "to-checkout·2",
+     "kind": "guard",
+     "question": "click [7] Remove",
+     "probabilities": {
+      "none": 0.007618448564850791,
+      "security": 0.0018823361131997732,
+      "payment": 0.0007425227716451532,
+      "purchase": 0.0008380643076706409,
+      "account": 0.0063994160962430584,
+      "delete": 0.9745257583698665,
+      "message": 0.0008456258622212976,
+      "post": 0.0009142205478895566,
+      "submit": 0.006233607366413303
+     },
+     "verdict": "delete",
+     "by": "words",
+     "ms": 84.15120800000113,
+     "then": {
+      "do": "ask_person",
+      "target": "a delete click (by its words): “Remove”",
+      "next": null
+     },
+     "note": "asked the person"
+    },
+    {
+     "step": "to-checkout·3",
+     "kind": "guard",
+     "question": "click [8] Checkout",
+     "probabilities": {
+      "none": 0.10228354488382754,
+      "security": 0.002914716511547937,
+      "payment": 0.05854378407546677,
+      "purchase": 0.7621298217212225,
+      "account": 0.003452150715483891,
+      "delete": 0.0025163684247445544,
+      "message": 0.0028106608244506883,
+      "post": 0.0027914393817384427,
+      "submit": 0.06255751346151761
+     },
+     "verdict": "purchase",
+     "by": "words",
+     "ms": 4496.994209,
+     "then": {
+      "do": "goto",
+      "target": "to-checkout",
+      "next": null
+     },
+     "note": "the person said yes"
+    },
+    {
+     "step": "to-checkout·3",
+     "kind": "advance",
+     "question": "click [8] Checkout",
+     "probabilities": {
+      "click": 0.16496831920101504,
+      "type": 0.06175299190537439,
+      "done": 0.7627955679110603,
+      "blocked": 0.01048312098255019
+     },
+     "verdict": "click",
+     "by": "claude",
+     "ms": 4497.025209000001,
+     "then": {
+      "do": "goto",
+      "target": "to-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "to-checkout·4",
+     "kind": "advance",
+     "question": "done",
+     "probabilities": {
+      "click": 0.09582732939534414,
+      "type": 0.2023756280782545,
+      "done": 0.6635384301958255,
+      "blocked": 0.038258612330575835
+     },
+     "verdict": "done",
+     "by": "step",
+     "ms": 90.76570900000115,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Full name: empty ← “Robin Verhoeven”",
+     "verdict": "value",
+     "by": "code",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Email: empty ← “robin@postbox.test”",
+     "verdict": "value",
+     "by": "code",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Street and house number: empty ← “Lindelaan 12”",
+     "verdict": "value",
+     "by": "step",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Postcode: empty ← “3512 AB”",
+     "verdict": "value",
+     "by": "step",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Town or city: empty ← “Utrecht”",
+     "verdict": "value",
+     "by": "step",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Mobile number (for the courier, optional): empty ← “06 12345678”",
+     "verdict": "value",
+     "by": "code",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Search gear: empty ← “Trailrunner 2”",
+     "verdict": "value",
+     "by": "claude",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "7 empty fields: 7 decided, 0 left",
+     "verdict": "done",
+     "by": "code",
+     "ms": 4335.399749999999,
+     "then": {
+      "do": "goto",
+      "target": "to-payment",
+      "next": null
+     }
+    },
+    {
+     "step": "to-payment·1",
+     "kind": "advance",
+     "question": "click [13] Standard delivery (free, 2–3 days)",
+     "probabilities": {
+      "click": 0.9128188563403927,
+      "type": 0.04892601536451676,
+      "done": 0.03243552348996598,
+      "blocked": 0.005819604805124367
+     },
+     "verdict": "click",
+     "by": "claude",
+     "ms": 4260.995999999999,
+     "then": {
+      "do": "goto",
+      "target": "to-payment",
+      "next": null
+     }
+    },
+    {
+     "step": "to-payment·2",
+     "kind": "guard",
+     "question": "click [16] Continue to payment",
+     "probabilities": {
+      "none": 0.038840601230748055,
+      "security": 0.0012800298877947336,
+      "payment": 0.8749720049901819,
+      "purchase": 0.06229141805044349,
+      "account": 0.00270263882042092,
+      "delete": 0.0014380828164732482,
+      "message": 0.0009716529522038949,
+      "post": 0.0012295079548624993,
+      "submit": 0.016274063296871217
+     },
+     "verdict": "payment",
+     "by": "nano",
+     "ms": 116.96800000000076,
+     "then": {
+      "do": "goto",
+      "target": "to-payment",
+      "next": null
+     },
+     "note": "the person said yes"
+    },
+    {
+     "step": "to-payment·2",
+     "kind": "advance",
+     "question": "click [16] Continue to payment",
+     "probabilities": {
+      "click": 0.8804745955922078,
+      "type": 0.041263136115821615,
+      "done": 0.07247025040182295,
+      "blocked": 0.005792017890147675
+     },
+     "verdict": "click",
+     "by": "step",
+     "ms": 116.97033400000146,
+     "then": {
+      "do": "goto",
+      "target": "to-payment",
+      "next": null
+     }
+    },
+    {
+     "step": "to-payment·3",
+     "kind": "advance",
+     "question": "done",
+     "probabilities": {
+      "click": 0.02157928605316472,
+      "type": 0.005477619165834832,
+      "done": 0.9715869628245796,
+      "blocked": 0.0013561319564208167
+     },
+     "verdict": "done",
+     "by": "step",
+     "ms": 84.45166600000084,
+     "then": {
+      "do": "goto",
+      "target": "check",
+      "next": null
+     }
+    },
+    {
+     "step": "check",
+     "kind": "ask",
+     "question": "Is this the payment page, with the order ready for the person to pay?",
+     "state": "Hollowpine Outdoor\nhttp://127.0.0.1:8011/lab/apps/shop/pay\n[link] Hollowpine Outdoor\n[field] Search gear: empty [button] Search\n[link] Account [link] Cart (1) [link] Help\nPayment\nStep 2 of 2\nTrailrunner 2 trail shoes · size 43 · 1 ×\nDeliver to Robin Verhoeven, Lindelaan 12, 3512 AB Utrecht (standard)\nPay with\n[field] iDEAL: checked iDEAL [field] Card: not checked Card\n[button] Pay now € 124,95 [link] Change delivery details",
+     "probabilities": {
+      "yes": 0.8305941028880628,
+      "no": 0.1694058971119372
+     },
+     "verdict": "yes",
+     "by": "mini",
+     "ms": 375.4023329999982,
+     "then": {
+      "do": "put",
+      "target": "ready",
+      "next": null
+     }
+    }
+   ]
+  },
+  "r4-A": {
+   "ok": true,
+   "s": 77.5,
+   "claudeCalls": 9,
+   "claudeS": 43.8,
+   "byWho": {
+    "claude": 12,
+    "mini": 3,
+    "words": 1,
+    "code": 4,
+    "nano": 1
+   },
+   "approvals": [
+    "yes: May I click “Checkout”? (a purchase click (by its words): “Checkout”)",
+    "yes: May I click “Continue to payment”? (a payment click (by the model): “Continue to payment”)"
+   ],
+   "steps": [
+    {
+     "step": "to-cart·1",
+     "kind": "advance",
+     "question": "click [7] Trailrunner 2 trail shoes",
+     "probabilities": {
+      "1": 0.07617931358162466,
+      "3": 0.09355102424061806,
+      "4": 0.05051083089641083,
+      "5": 0.16361407091112928,
+      "6": 0.04551107646410337,
+      "7": 0.371611474143765,
+      "8": 0.020016753629700772,
+      "9": 0.025991985908230545,
+      "10": 0.01750929654511986,
+      "11": 0.048025353251689835,
+      "12": 0.08747882042760782
+     },
+     "verdict": "click",
+     "by": "claude",
+     "ms": 8318.901917,
+     "then": {
+      "do": "goto",
+      "target": "to-cart",
+      "next": null
+     }
+    },
+    {
+     "step": "to-cart·2",
+     "kind": "advance",
+     "question": "type into [7] Size (EU): “43”",
+     "probabilities": {
+      "2": 0.14529151613974253,
+      "7": 0.7556292274286993,
+      "8": 0.09907925643155802
+     },
+     "verdict": "type",
+     "by": "claude",
+     "ms": 7583.661874999998,
+     "then": {
+      "do": "goto",
+      "target": "to-cart",
+      "next": null
+     }
+    },
+    {
+     "step": "to-cart·3",
+     "kind": "advance",
+     "question": "click [9] Add to cart",
+     "probabilities": {
+      "1": 0.08567041222448143,
+      "3": 0.10091673785905,
+      "4": 0.054875416129217314,
+      "5": 0.1756423591774629,
+      "6": 0.0506764302173003,
+      "9": 0.28456811501444446,
+      "10": 0.19392340235137204,
+      "11": 0.05372712702667151
+     },
+     "verdict": "click",
+     "by": "claude",
+     "ms": 6921.036540999998,
+     "then": {
+      "do": "goto",
+      "target": "to-cart",
+      "next": null
+     }
+    },
+    {
+     "step": "to-cart·4",
+     "kind": "advance",
+     "question": "done",
+     "probabilities": {
+      "click": 0.17104171909508203,
+      "type": 0.08863935786867322,
+      "done": 0.6856379665962316,
+      "blocked": 0.05468095644001327
+     },
+     "verdict": "done",
+     "by": "mini",
+     "ms": 2816.4167080000007,
+     "then": {
+      "do": "goto",
+      "target": "to-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "to-checkout·1",
+     "kind": "advance",
+     "question": "click [11] Go to cart",
+     "probabilities": {
+      "1": 0.06791883541405318,
+      "3": 0.06819973485472762,
+      "4": 0.04962988223398013,
+      "5": 0.19349252346033666,
+      "6": 0.04284530907086158,
+      "9": 0.05871470702019528,
+      "10": 0.06165599352924069,
+      "11": 0.3911609062284844,
+      "12": 0.06638210818812051
+     },
+     "verdict": "click",
+     "by": "claude",
+     "ms": 7700.328417000004,
+     "then": {
+      "do": "goto",
+      "target": "to-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "to-checkout·2",
+     "kind": "guard",
+     "question": "click [8] Checkout",
+     "probabilities": {
+      "none": 0.10228354488382754,
+      "security": 0.002914716511547937,
+      "payment": 0.05854378407546677,
+      "purchase": 0.7621298217212225,
+      "account": 0.003452150715483891,
+      "delete": 0.0025163684247445544,
+      "message": 0.0028106608244506883,
+      "post": 0.0027914393817384427,
+      "submit": 0.06255751346151761
+     },
+     "verdict": "purchase",
+     "by": "words",
+     "ms": 2786.877542000002,
+     "then": {
+      "do": "goto",
+      "target": "to-checkout",
+      "next": null
+     },
+     "note": "the person said yes"
+    },
+    {
+     "step": "to-checkout·2",
+     "kind": "advance",
+     "question": "click [8] Checkout",
+     "probabilities": {
+      "1": 0.033903816117356614,
+      "3": 0.041756092730459826,
+      "4": 0.03413703197031225,
+      "5": 0.12923977971987088,
+      "6": 0.030989603354026892,
+      "7": 0.05811545879222132,
+      "8": 0.6037892603832345,
+      "9": 0.06806895693251779
+     },
+     "verdict": "click",
+     "by": "mini",
+     "ms": 2786.8874589999978,
+     "then": {
+      "do": "goto",
+      "target": "to-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "to-checkout·3",
+     "kind": "advance",
+     "question": "done",
+     "probabilities": {
+      "click": 0.45399012897038965,
+      "type": 0.10949641023783964,
+      "done": 0.2355929169578591,
+      "blocked": 0.20092054383391159
+     },
+     "verdict": "done",
+     "by": "claude",
+     "ms": 6830.165916999998,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Full name: empty ← “Robin Verhoeven”",
+     "verdict": "value",
+     "by": "code",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Email: empty ← “robin@postbox.test”",
+     "verdict": "value",
+     "by": "code",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Mobile number (for the courier, optional): empty ← “06 12345678”",
+     "verdict": "value",
+     "by": "code",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Search gear: empty ← “Trailrunner 2”",
+     "verdict": "value",
+     "by": "claude",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Street and house number: empty ← “Lindelaan 12”",
+     "verdict": "value",
+     "by": "claude",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Postcode: empty ← “3512 AB”",
+     "verdict": "value",
+     "by": "claude",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Town or city: empty ← “Utrecht”",
+     "verdict": "value",
+     "by": "claude",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "7 empty fields: 7 decided, 0 left",
+     "verdict": "done",
+     "by": "code",
+     "ms": 8373.442082999994,
+     "then": {
+      "do": "goto",
+      "target": "to-payment",
+      "next": null
+     }
+    },
+    {
+     "step": "to-payment·1",
+     "kind": "advance",
+     "question": "click [13] Standard delivery (free, 2–3 days)",
+     "probabilities": {
+      "1": 0.038827339147856396,
+      "3": 0.04598368661972574,
+      "4": 0.03631993957015272,
+      "5": 0.09777672285146305,
+      "6": 0.03880140712817671,
+      "13": 0.2962684648835624,
+      "14": 0.03213573526753684,
+      "15": 0.02798587610734816,
+      "16": 0.385900828424178
+     },
+     "verdict": "click",
+     "by": "claude",
+     "ms": 8469.729875000005,
+     "then": {
+      "do": "goto",
+      "target": "to-payment",
+      "next": null
+     }
+    },
+    {
+     "step": "to-payment·2",
+     "kind": "guard",
+     "question": "click [16] Continue to payment",
+     "probabilities": {
+      "none": 0.038840601230748055,
+      "security": 0.0012800298877947336,
+      "payment": 0.8749720049901819,
+      "purchase": 0.06229141805044349,
+      "account": 0.00270263882042092,
+      "delete": 0.0014380828164732482,
+      "message": 0.0009716529522038949,
+      "post": 0.0012295079548624993,
+      "submit": 0.016274063296871217
+     },
+     "verdict": "payment",
+     "by": "nano",
+     "ms": 7746.711875000001,
+     "then": {
+      "do": "goto",
+      "target": "to-payment",
+      "next": null
+     },
+     "note": "the person said yes"
+    },
+    {
+     "step": "to-payment·2",
+     "kind": "advance",
+     "question": "click [16] Continue to payment",
+     "probabilities": {
+      "1": 0.03055108708790212,
+      "3": 0.03962242159618299,
+      "4": 0.02709762252307228,
+      "5": 0.07990363767189676,
+      "6": 0.030240463488181397,
+      "13": 0.4782437323474487,
+      "14": 0.024655530820428026,
+      "15": 0.02417008117019266,
+      "16": 0.26551542329469513
+     },
+     "verdict": "click",
+     "by": "claude",
+     "ms": 7746.715957999993,
+     "then": {
+      "do": "goto",
+      "target": "to-payment",
+      "next": null
+     }
+    },
+    {
+     "step": "to-payment·3",
+     "kind": "advance",
+     "question": "done",
+     "probabilities": {
+      "click": 0.5229813297364714,
+      "type": 0.07410126272543544,
+      "done": 0.31348499073380104,
+      "blocked": 0.08943241680429226
+     },
+     "verdict": "done",
+     "by": "claude",
+     "ms": 6702.719125000003,
+     "then": {
+      "do": "goto",
+      "target": "check",
+      "next": null
+     }
+    },
+    {
+     "step": "check",
+     "kind": "ask",
+     "question": "Is this the payment page, with the order ready for the person to pay?",
+     "state": "Hollowpine Outdoor\nhttp://127.0.0.1:8011/lab/apps/shop/pay\n[link] Hollowpine Outdoor\n[field] Search gear: empty [button] Search\n[link] Account [link] Cart (1) [link] Help\nPayment\nStep 2 of 2\nTrailrunner 2 trail shoes · size 43 · 1 ×\nDeliver to Robin Verhoeven, Lindelaan 12, 3512 AB Utrecht (standard)\nPay with\n[field] iDEAL: checked iDEAL [field] Card: not checked Card\n[button] Pay now € 124,95 [link] Change delivery details",
+     "probabilities": {
+      "yes": 0.8305941028880628,
+      "no": 0.1694058971119372
+     },
+     "verdict": "yes",
+     "by": "mini",
+     "ms": 389.4724580000038,
+     "then": {
+      "do": "put",
+      "target": "ready",
+      "next": null
+     }
+    }
+   ]
+  },
+  "r5-A": {
+   "ok": true,
+   "s": 75.9,
+   "claudeCalls": 9,
+   "claudeS": 42.3,
+   "byWho": {
+    "claude": 12,
+    "mini": 3,
+    "words": 1,
+    "code": 4,
+    "nano": 1
+   },
+   "approvals": [
+    "yes: May I click “Checkout”? (a purchase click (by its words): “Checkout”)",
+    "yes: May I click “Continue to payment”? (a payment click (by the model): “Continue to payment”)"
+   ],
+   "steps": [
+    {
+     "step": "to-cart·1",
+     "kind": "advance",
+     "question": "click [7] Trailrunner 2 trail shoes",
+     "probabilities": {
+      "1": 0.07617931358162466,
+      "3": 0.09355102424061806,
+      "4": 0.05051083089641083,
+      "5": 0.16361407091112928,
+      "6": 0.04551107646410337,
+      "7": 0.371611474143765,
+      "8": 0.020016753629700772,
+      "9": 0.025991985908230545,
+      "10": 0.01750929654511986,
+      "11": 0.048025353251689835,
+      "12": 0.08747882042760782
+     },
+     "verdict": "click",
+     "by": "claude",
+     "ms": 7295.071250000001,
+     "then": {
+      "do": "goto",
+      "target": "to-cart",
+      "next": null
+     }
+    },
+    {
+     "step": "to-cart·2",
+     "kind": "advance",
+     "question": "type into [7] Size (EU): “43”",
+     "probabilities": {
+      "2": 0.14529151613974253,
+      "7": 0.7556292274286993,
+      "8": 0.09907925643155802
+     },
+     "verdict": "type",
+     "by": "claude",
+     "ms": 7119.0392919999995,
+     "then": {
+      "do": "goto",
+      "target": "to-cart",
+      "next": null
+     }
+    },
+    {
+     "step": "to-cart·3",
+     "kind": "advance",
+     "question": "click [9] Add to cart",
+     "probabilities": {
+      "1": 0.08567041222448143,
+      "3": 0.10091673785905,
+      "4": 0.054875416129217314,
+      "5": 0.1756423591774629,
+      "6": 0.0506764302173003,
+      "9": 0.28456811501444446,
+      "10": 0.19392340235137204,
+      "11": 0.05372712702667151
+     },
+     "verdict": "click",
+     "by": "claude",
+     "ms": 7483.536582999999,
+     "then": {
+      "do": "goto",
+      "target": "to-cart",
+      "next": null
+     }
+    },
+    {
+     "step": "to-cart·4",
+     "kind": "advance",
+     "question": "done",
+     "probabilities": {
+      "click": 0.17104171909508203,
+      "type": 0.08863935786867322,
+      "done": 0.6856379665962316,
+      "blocked": 0.05468095644001327
+     },
+     "verdict": "done",
+     "by": "mini",
+     "ms": 2790.0462499999994,
+     "then": {
+      "do": "goto",
+      "target": "to-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "to-checkout·1",
+     "kind": "advance",
+     "question": "click [11] Go to cart",
+     "probabilities": {
+      "1": 0.06791883541405318,
+      "3": 0.06819973485472762,
+      "4": 0.04962988223398013,
+      "5": 0.19349252346033666,
+      "6": 0.04284530907086158,
+      "9": 0.05871470702019528,
+      "10": 0.06165599352924069,
+      "11": 0.3911609062284844,
+      "12": 0.06638210818812051
+     },
+     "verdict": "click",
+     "by": "claude",
+     "ms": 7712.903374999998,
+     "then": {
+      "do": "goto",
+      "target": "to-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "to-checkout·2",
+     "kind": "guard",
+     "question": "click [8] Checkout",
+     "probabilities": {
+      "none": 0.10228354488382754,
+      "security": 0.002914716511547937,
+      "payment": 0.05854378407546677,
+      "purchase": 0.7621298217212225,
+      "account": 0.003452150715483891,
+      "delete": 0.0025163684247445544,
+      "message": 0.0028106608244506883,
+      "post": 0.0027914393817384427,
+      "submit": 0.06255751346151761
+     },
+     "verdict": "purchase",
+     "by": "words",
+     "ms": 2736.3019589999967,
+     "then": {
+      "do": "goto",
+      "target": "to-checkout",
+      "next": null
+     },
+     "note": "the person said yes"
+    },
+    {
+     "step": "to-checkout·2",
+     "kind": "advance",
+     "question": "click [8] Checkout",
+     "probabilities": {
+      "1": 0.033903816117356614,
+      "3": 0.041756092730459826,
+      "4": 0.03413703197031225,
+      "5": 0.12923977971987088,
+      "6": 0.030989603354026892,
+      "7": 0.05811545879222132,
+      "8": 0.6037892603832345,
+      "9": 0.06806895693251779
+     },
+     "verdict": "click",
+     "by": "mini",
+     "ms": 2736.3121249999967,
+     "then": {
+      "do": "goto",
+      "target": "to-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "to-checkout·3",
+     "kind": "advance",
+     "question": "done",
+     "probabilities": {
+      "click": 0.45399012897038965,
+      "type": 0.10949641023783964,
+      "done": 0.2355929169578591,
+      "blocked": 0.20092054383391159
+     },
+     "verdict": "done",
+     "by": "claude",
+     "ms": 6851.558249999995,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Full name: empty ← “Robin Verhoeven”",
+     "verdict": "value",
+     "by": "code",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Email: empty ← “robin@postbox.test”",
+     "verdict": "value",
+     "by": "code",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Mobile number (for the courier, optional): empty ← “06 12345678”",
+     "verdict": "value",
+     "by": "code",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Search gear: empty ← (left empty)",
+     "verdict": "none",
+     "by": "claude",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Street and house number: empty ← “Lindelaan 12”",
+     "verdict": "value",
+     "by": "claude",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Postcode: empty ← “3512 AB”",
+     "verdict": "value",
+     "by": "claude",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Town or city: empty ← “Utrecht”",
+     "verdict": "value",
+     "by": "claude",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "7 empty fields: 7 decided, 0 left",
+     "verdict": "done",
+     "by": "code",
+     "ms": 9039.256374999997,
+     "then": {
+      "do": "goto",
+      "target": "to-payment",
+      "next": null
+     }
+    },
+    {
+     "step": "to-payment·1",
+     "kind": "advance",
+     "question": "click [13] Standard delivery (free, 2–3 days)",
+     "probabilities": {
+      "1": 0.038631123551331546,
+      "3": 0.04687908463967219,
+      "4": 0.03533746158243356,
+      "5": 0.0923066760308249,
+      "6": 0.03741358164266786,
+      "13": 0.290664638133299,
+      "14": 0.03177092889075832,
+      "15": 0.02745295975835845,
+      "16": 0.39954354577065426
+     },
+     "verdict": "click",
+     "by": "claude",
+     "ms": 7945.734708000004,
+     "then": {
+      "do": "goto",
+      "target": "to-payment",
+      "next": null
+     }
+    },
+    {
+     "step": "to-payment·2",
+     "kind": "guard",
+     "question": "click [16] Continue to payment",
+     "probabilities": {
+      "none": 0.038840601230748055,
+      "security": 0.0012800298877947336,
+      "payment": 0.8749720049901819,
+      "purchase": 0.06229141805044349,
+      "account": 0.00270263882042092,
+      "delete": 0.0014380828164732482,
+      "message": 0.0009716529522038949,
+      "post": 0.0012295079548624993,
+      "submit": 0.016274063296871217
+     },
+     "verdict": "payment",
+     "by": "nano",
+     "ms": 7242.453083999993,
+     "then": {
+      "do": "goto",
+      "target": "to-payment",
+      "next": null
+     },
+     "note": "the person said yes"
+    },
+    {
+     "step": "to-payment·2",
+     "kind": "advance",
+     "question": "click [16] Continue to payment",
+     "probabilities": {
+      "1": 0.030942256420415346,
+      "3": 0.039809329705650896,
+      "4": 0.02776607934343039,
+      "5": 0.08142494029595165,
+      "6": 0.029410257544073604,
+      "13": 0.4771958988169162,
+      "14": 0.025907965381544894,
+      "15": 0.024795630290310487,
+      "16": 0.2627476422017065
+     },
+     "verdict": "click",
+     "by": "claude",
+     "ms": 7242.456999999995,
+     "then": {
+      "do": "goto",
+      "target": "to-payment",
+      "next": null
+     }
+    },
+    {
+     "step": "to-payment·3",
+     "kind": "advance",
+     "question": "done",
+     "probabilities": {
+      "click": 0.5229813297364714,
+      "type": 0.07410126272543544,
+      "done": 0.31348499073380104,
+      "blocked": 0.08943241680429226
+     },
+     "verdict": "done",
+     "by": "claude",
+     "ms": 6392.342459000007,
+     "then": {
+      "do": "goto",
+      "target": "check",
+      "next": null
+     }
+    },
+    {
+     "step": "check",
+     "kind": "ask",
+     "question": "Is this the payment page, with the order ready for the person to pay?",
+     "state": "Hollowpine Outdoor\nhttp://127.0.0.1:8011/lab/apps/shop/pay\n[link] Hollowpine Outdoor\n[field] Search gear: empty [button] Search\n[link] Account [link] Cart (1) [link] Help\nPayment\nStep 2 of 2\nTrailrunner 2 trail shoes · size 43 · 1 ×\nDeliver to Robin Verhoeven, Lindelaan 12, 3512 AB Utrecht (standard)\nPay with\n[field] iDEAL: checked iDEAL [field] Card: not checked Card\n[button] Pay now € 124,95 [link] Change delivery details",
+     "probabilities": {
+      "yes": 0.8305941028880628,
+      "no": 0.1694058971119372
+     },
+     "verdict": "yes",
+     "by": "mini",
+     "ms": 396.9136670000007,
+     "then": {
+      "do": "put",
+      "target": "ready",
+      "next": null
+     }
+    }
+   ]
+  },
+  "r6-B": {
+   "ok": true,
+   "s": 28.1,
+   "claudeCalls": 4,
+   "claudeS": 21.9,
+   "byWho": {
+    "step": 10,
+    "claude": 4,
+    "words": 2,
+    "code": 4,
+    "nano": 1,
+    "mini": 1
+   },
+   "approvals": [
+    "no: May I click “Remove”? (a delete click (by its words): “Remove”)",
+    "yes: May I click “Checkout”? (a purchase click (by its words): “Checkout”)",
+    "yes: May I click “Continue to payment”? (a payment click (by the model): “Continue to payment”)"
+   ],
+   "steps": [
+    {
+     "step": "to-cart·1",
+     "kind": "advance",
+     "question": "click [7] Trailrunner 2 trail shoes",
+     "probabilities": {
+      "click": 0.8959926455760294,
+      "type": 0.09220436394651821,
+      "done": 0.00954204930770605,
+      "blocked": 0.0022609411697461675
+     },
+     "verdict": "click",
+     "by": "step",
+     "ms": 631.1325000000002,
+     "then": {
+      "do": "goto",
+      "target": "to-cart",
+      "next": null
+     }
+    },
+    {
+     "step": "to-cart·2",
+     "kind": "advance",
+     "question": "type into [7] Size (EU): “43”",
+     "probabilities": {
+      "click": 0.10888468961923274,
+      "type": 0.8657141134688673,
+      "done": 0.02184653495452855,
+      "blocked": 0.003554661957371528
+     },
+     "verdict": "type",
+     "by": "step",
+     "ms": 88.34012500000017,
+     "then": {
+      "do": "goto",
+      "target": "to-cart",
+      "next": null
+     }
+    },
+    {
+     "step": "to-cart·3",
+     "kind": "advance",
+     "question": "click [9] Add to cart",
+     "probabilities": {
+      "click": 0.8892355929125982,
+      "type": 0.08957140312851236,
+      "done": 0.016996571872199127,
+      "blocked": 0.004196432086690238
+     },
+     "verdict": "click",
+     "by": "step",
+     "ms": 106.81104200000027,
+     "then": {
+      "do": "goto",
+      "target": "to-cart",
+      "next": null
+     }
+    },
+    {
+     "step": "to-cart·4",
+     "kind": "advance",
+     "question": "done",
+     "probabilities": {
+      "click": 0.027584043052440634,
+      "type": 0.009729418166251095,
+      "done": 0.9610205734062529,
+      "blocked": 0.0016659653750553526
+     },
+     "verdict": "done",
+     "by": "step",
+     "ms": 94.13425000000007,
+     "then": {
+      "do": "goto",
+      "target": "to-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "to-checkout·1",
+     "kind": "advance",
+     "question": "click [11] Go to cart",
+     "probabilities": {
+      "click": 0.9428787943564481,
+      "type": 0.04829564687977017,
+      "done": 0.007320793958836182,
+      "blocked": 0.0015047648049454892
+     },
+     "verdict": "click",
+     "by": "claude",
+     "ms": 6122.5821670000005,
+     "then": {
+      "do": "goto",
+      "target": "to-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "to-checkout·2",
+     "kind": "guard",
+     "question": "click [7] Remove",
+     "probabilities": {
+      "none": 0.007618448564850791,
+      "security": 0.0018823361131997732,
+      "payment": 0.0007425227716451532,
+      "purchase": 0.0008380643076706409,
+      "account": 0.0063994160962430584,
+      "delete": 0.9745257583698665,
+      "message": 0.0008456258622212976,
+      "post": 0.0009142205478895566,
+      "submit": 0.006233607366413303
+     },
+     "verdict": "delete",
+     "by": "words",
+     "ms": 76.74125000000095,
+     "then": {
+      "do": "ask_person",
+      "target": "a delete click (by its words): “Remove”",
+      "next": null
+     },
+     "note": "asked the person"
+    },
+    {
+     "step": "to-checkout·3",
+     "kind": "guard",
+     "question": "click [8] Checkout",
+     "probabilities": {
+      "none": 0.10228354488382754,
+      "security": 0.002914716511547937,
+      "payment": 0.05854378407546677,
+      "purchase": 0.7621298217212225,
+      "account": 0.003452150715483891,
+      "delete": 0.0025163684247445544,
+      "message": 0.0028106608244506883,
+      "post": 0.0027914393817384427,
+      "submit": 0.06255751346151761
+     },
+     "verdict": "purchase",
+     "by": "words",
+     "ms": 5857.209457999999,
+     "then": {
+      "do": "goto",
+      "target": "to-checkout",
+      "next": null
+     },
+     "note": "the person said yes"
+    },
+    {
+     "step": "to-checkout·3",
+     "kind": "advance",
+     "question": "click [8] Checkout",
+     "probabilities": {
+      "click": 0.16496831920101504,
+      "type": 0.06175299190537439,
+      "done": 0.7627955679110603,
+      "blocked": 0.01048312098255019
+     },
+     "verdict": "click",
+     "by": "claude",
+     "ms": 5857.247292,
+     "then": {
+      "do": "goto",
+      "target": "to-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "to-checkout·4",
+     "kind": "advance",
+     "question": "done",
+     "probabilities": {
+      "click": 0.09582732939534414,
+      "type": 0.2023756280782545,
+      "done": 0.6635384301958255,
+      "blocked": 0.038258612330575835
+     },
+     "verdict": "done",
+     "by": "step",
+     "ms": 87.6810000000005,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Full name: empty ← “Robin Verhoeven”",
+     "verdict": "value",
+     "by": "code",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Email: empty ← “robin@postbox.test”",
+     "verdict": "value",
+     "by": "code",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Street and house number: empty ← “Lindelaan 12”",
+     "verdict": "value",
+     "by": "step",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Postcode: empty ← “3512 AB”",
+     "verdict": "value",
+     "by": "step",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Town or city: empty ← “Utrecht”",
+     "verdict": "value",
+     "by": "step",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Mobile number (for the courier, optional): empty ← “06 12345678”",
+     "verdict": "value",
+     "by": "code",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Search gear: empty ← “Trailrunner 2”",
+     "verdict": "value",
+     "by": "claude",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "7 empty fields: 7 decided, 0 left",
+     "verdict": "done",
+     "by": "code",
+     "ms": 4836.978832999999,
+     "then": {
+      "do": "goto",
+      "target": "to-payment",
+      "next": null
+     }
+    },
+    {
+     "step": "to-payment·1",
+     "kind": "advance",
+     "question": "click [13] Standard delivery (free, 2–3 days)",
+     "probabilities": {
+      "click": 0.9128188563403927,
+      "type": 0.04892601536451676,
+      "done": 0.03243552348996598,
+      "blocked": 0.005819604805124367
+     },
+     "verdict": "click",
+     "by": "claude",
+     "ms": 6713.878832999999,
+     "then": {
+      "do": "goto",
+      "target": "to-payment",
+      "next": null
+     }
+    },
+    {
+     "step": "to-payment·2",
+     "kind": "guard",
+     "question": "click [16] Continue to payment",
+     "probabilities": {
+      "none": 0.038840601230748055,
+      "security": 0.0012800298877947336,
+      "payment": 0.8749720049901819,
+      "purchase": 0.06229141805044349,
+      "account": 0.00270263882042092,
+      "delete": 0.0014380828164732482,
+      "message": 0.0009716529522038949,
+      "post": 0.0012295079548624993,
+      "submit": 0.016274063296871217
+     },
+     "verdict": "payment",
+     "by": "nano",
+     "ms": 116.71516600000177,
+     "then": {
+      "do": "goto",
+      "target": "to-payment",
+      "next": null
+     },
+     "note": "the person said yes"
+    },
+    {
+     "step": "to-payment·2",
+     "kind": "advance",
+     "question": "click [16] Continue to payment",
+     "probabilities": {
+      "click": 0.8804745955922078,
+      "type": 0.041263136115821615,
+      "done": 0.07247025040182295,
+      "blocked": 0.005792017890147675
+     },
+     "verdict": "click",
+     "by": "step",
+     "ms": 116.71762500000114,
+     "then": {
+      "do": "goto",
+      "target": "to-payment",
+      "next": null
+     }
+    },
+    {
+     "step": "to-payment·3",
+     "kind": "advance",
+     "question": "done",
+     "probabilities": {
+      "click": 0.02157928605316472,
+      "type": 0.005477619165834832,
+      "done": 0.9715869628245796,
+      "blocked": 0.0013561319564208167
+     },
+     "verdict": "done",
+     "by": "step",
+     "ms": 88.34616700000333,
+     "then": {
+      "do": "goto",
+      "target": "check",
+      "next": null
+     }
+    },
+    {
+     "step": "check",
+     "kind": "ask",
+     "question": "Is this the payment page, with the order ready for the person to pay?",
+     "state": "Hollowpine Outdoor\nhttp://127.0.0.1:8011/lab/apps/shop/pay\n[link] Hollowpine Outdoor\n[field] Search gear: empty [button] Search\n[link] Account [link] Cart (1) [link] Help\nPayment\nStep 2 of 2\nTrailrunner 2 trail shoes · size 43 · 1 ×\nDeliver to Robin Verhoeven, Lindelaan 12, 3512 AB Utrecht (standard)\nPay with\n[field] iDEAL: checked iDEAL [field] Card: not checked Card\n[button] Pay now € 124,95 [link] Change delivery details",
+     "probabilities": {
+      "yes": 0.8305941028880628,
+      "no": 0.1694058971119372
+     },
+     "verdict": "yes",
+     "by": "mini",
+     "ms": 379.05004100000224,
+     "then": {
+      "do": "put",
+      "target": "ready",
+      "next": null
+     }
+    }
+   ]
+  },
+  "warm-A": {
+   "ok": true,
+   "s": 79.7,
+   "claudeCalls": 9,
+   "claudeS": 45.9,
+   "byWho": {
+    "claude": 12,
+    "mini": 3,
+    "words": 1,
+    "code": 4,
+    "nano": 1
+   },
+   "approvals": [
+    "yes: May I click “Checkout”? (a purchase click (by its words): “Checkout”)",
+    "yes: May I click “Continue to payment”? (a payment click (by the model): “Continue to payment”)"
+   ],
+   "steps": [
+    {
+     "step": "to-cart·1",
+     "kind": "advance",
+     "question": "click [7] Trailrunner 2 trail shoes",
+     "probabilities": {
+      "1": 0.07617931358162466,
+      "3": 0.09355102424061806,
+      "4": 0.05051083089641083,
+      "5": 0.16361407091112928,
+      "6": 0.04551107646410337,
+      "7": 0.371611474143765,
+      "8": 0.020016753629700772,
+      "9": 0.025991985908230545,
+      "10": 0.01750929654511986,
+      "11": 0.048025353251689835,
+      "12": 0.08747882042760782
+     },
+     "verdict": "click",
+     "by": "claude",
+     "ms": 7298.687084000001,
+     "then": {
+      "do": "goto",
+      "target": "to-cart",
+      "next": null
+     }
+    },
+    {
+     "step": "to-cart·2",
+     "kind": "advance",
+     "question": "type into [7] Size (EU): “43”",
+     "probabilities": {
+      "2": 0.14529151613974253,
+      "7": 0.7556292274286993,
+      "8": 0.09907925643155802
+     },
+     "verdict": "type",
+     "by": "claude",
+     "ms": 8499.745292,
+     "then": {
+      "do": "goto",
+      "target": "to-cart",
+      "next": null
+     }
+    },
+    {
+     "step": "to-cart·3",
+     "kind": "advance",
+     "question": "click [9] Add to cart",
+     "probabilities": {
+      "1": 0.08567041222448143,
+      "3": 0.10091673785905,
+      "4": 0.054875416129217314,
+      "5": 0.1756423591774629,
+      "6": 0.0506764302173003,
+      "9": 0.28456811501444446,
+      "10": 0.19392340235137204,
+      "11": 0.05372712702667151
+     },
+     "verdict": "click",
+     "by": "claude",
+     "ms": 7369.0766669999975,
+     "then": {
+      "do": "goto",
+      "target": "to-cart",
+      "next": null
+     }
+    },
+    {
+     "step": "to-cart·4",
+     "kind": "advance",
+     "question": "done",
+     "probabilities": {
+      "click": 0.17104171909508203,
+      "type": 0.08863935786867322,
+      "done": 0.6856379665962316,
+      "blocked": 0.05468095644001327
+     },
+     "verdict": "done",
+     "by": "mini",
+     "ms": 2793.410333,
+     "then": {
+      "do": "goto",
+      "target": "to-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "to-checkout·1",
+     "kind": "advance",
+     "question": "click [11] Go to cart",
+     "probabilities": {
+      "1": 0.06791883541405318,
+      "3": 0.06819973485472762,
+      "4": 0.04962988223398013,
+      "5": 0.19349252346033666,
+      "6": 0.04284530907086158,
+      "9": 0.05871470702019528,
+      "10": 0.06165599352924069,
+      "11": 0.3911609062284844,
+      "12": 0.06638210818812051
+     },
+     "verdict": "click",
+     "by": "claude",
+     "ms": 8993.535334000004,
+     "then": {
+      "do": "goto",
+      "target": "to-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "to-checkout·2",
+     "kind": "guard",
+     "question": "click [8] Checkout",
+     "probabilities": {
+      "none": 0.10228354488382754,
+      "security": 0.002914716511547937,
+      "payment": 0.05854378407546677,
+      "purchase": 0.7621298217212225,
+      "account": 0.003452150715483891,
+      "delete": 0.0025163684247445544,
+      "message": 0.0028106608244506883,
+      "post": 0.0027914393817384427,
+      "submit": 0.06255751346151761
+     },
+     "verdict": "purchase",
+     "by": "words",
+     "ms": 2789.3699590000033,
+     "then": {
+      "do": "goto",
+      "target": "to-checkout",
+      "next": null
+     },
+     "note": "the person said yes"
+    },
+    {
+     "step": "to-checkout·2",
+     "kind": "advance",
+     "question": "click [8] Checkout",
+     "probabilities": {
+      "1": 0.033903816117356614,
+      "3": 0.041756092730459826,
+      "4": 0.03413703197031225,
+      "5": 0.12923977971987088,
+      "6": 0.030989603354026892,
+      "7": 0.05811545879222132,
+      "8": 0.6037892603832345,
+      "9": 0.06806895693251779
+     },
+     "verdict": "click",
+     "by": "mini",
+     "ms": 2789.380084000004,
+     "then": {
+      "do": "goto",
+      "target": "to-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "to-checkout·3",
+     "kind": "advance",
+     "question": "done",
+     "probabilities": {
+      "click": 0.45399012897038965,
+      "type": 0.10949641023783964,
+      "done": 0.2355929169578591,
+      "blocked": 0.20092054383391159
+     },
+     "verdict": "done",
+     "by": "claude",
+     "ms": 7741.408416999999,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Full name: empty ← “Robin Verhoeven”",
+     "verdict": "value",
+     "by": "code",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Email: empty ← “robin@postbox.test”",
+     "verdict": "value",
+     "by": "code",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Mobile number (for the courier, optional): empty ← “06 12345678”",
+     "verdict": "value",
+     "by": "code",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Search gear: empty ← (left empty)",
+     "verdict": "none",
+     "by": "claude",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Street and house number: empty ← “Lindelaan 12”",
+     "verdict": "value",
+     "by": "claude",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Postcode: empty ← “3512 AB”",
+     "verdict": "value",
+     "by": "claude",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Town or city: empty ← “Utrecht”",
+     "verdict": "value",
+     "by": "claude",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "7 empty fields: 7 decided, 0 left",
+     "verdict": "done",
+     "by": "code",
+     "ms": 7330.389583000004,
+     "then": {
+      "do": "goto",
+      "target": "to-payment",
+      "next": null
+     }
+    },
+    {
+     "step": "to-payment·1",
+     "kind": "advance",
+     "question": "click [13] Standard delivery (free, 2–3 days)",
+     "probabilities": {
+      "1": 0.038631123551331546,
+      "3": 0.04687908463967219,
+      "4": 0.03533746158243356,
+      "5": 0.0923066760308249,
+      "6": 0.03741358164266786,
+      "13": 0.290664638133299,
+      "14": 0.03177092889075832,
+      "15": 0.02745295975835845,
+      "16": 0.39954354577065426
+     },
+     "verdict": "click",
+     "by": "claude",
+     "ms": 7632.985625000001,
+     "then": {
+      "do": "goto",
+      "target": "to-payment",
+      "next": null
+     }
+    },
+    {
+     "step": "to-payment·2",
+     "kind": "guard",
+     "question": "click [16] Continue to payment",
+     "probabilities": {
+      "none": 0.038840601230748055,
+      "security": 0.0012800298877947336,
+      "payment": 0.8749720049901819,
+      "purchase": 0.06229141805044349,
+      "account": 0.00270263882042092,
+      "delete": 0.0014380828164732482,
+      "message": 0.0009716529522038949,
+      "post": 0.0012295079548624993,
+      "submit": 0.016274063296871217
+     },
+     "verdict": "payment",
+     "by": "nano",
+     "ms": 8212.635499999997,
+     "then": {
+      "do": "goto",
+      "target": "to-payment",
+      "next": null
+     },
+     "note": "the person said yes"
+    },
+    {
+     "step": "to-payment·2",
+     "kind": "advance",
+     "question": "click [16] Continue to payment",
+     "probabilities": {
+      "1": 0.030942256420415346,
+      "3": 0.039809329705650896,
+      "4": 0.02776607934343039,
+      "5": 0.08142494029595165,
+      "6": 0.029410257544073604,
+      "13": 0.4771958988169162,
+      "14": 0.025907965381544894,
+      "15": 0.024795630290310487,
+      "16": 0.2627476422017065
+     },
+     "verdict": "click",
+     "by": "claude",
+     "ms": 8212.639583999997,
+     "then": {
+      "do": "goto",
+      "target": "to-payment",
+      "next": null
+     }
+    },
+    {
+     "step": "to-payment·3",
+     "kind": "advance",
+     "question": "done",
+     "probabilities": {
+      "click": 0.5229813297364714,
+      "type": 0.07410126272543544,
+      "done": 0.31348499073380104,
+      "blocked": 0.08943241680429226
+     },
+     "verdict": "done",
+     "by": "claude",
+     "ms": 7737.859124999988,
+     "then": {
+      "do": "goto",
+      "target": "check",
+      "next": null
+     }
+    },
+    {
+     "step": "check",
+     "kind": "ask",
+     "question": "Is this the payment page, with the order ready for the person to pay?",
+     "state": "Hollowpine Outdoor\nhttp://127.0.0.1:8011/lab/apps/shop/pay\n[link] Hollowpine Outdoor\n[field] Search gear: empty [button] Search\n[link] Account [link] Cart (1) [link] Help\nPayment\nStep 2 of 2\nTrailrunner 2 trail shoes · size 43 · 1 ×\nDeliver to Robin Verhoeven, Lindelaan 12, 3512 AB Utrecht (standard)\nPay with\n[field] iDEAL: checked iDEAL [field] Card: not checked Card\n[button] Pay now € 124,95 [link] Change delivery details",
+     "probabilities": {
+      "yes": 0.8305941028880628,
+      "no": 0.1694058971119372
+     },
+     "verdict": "yes",
+     "by": "mini",
+     "ms": 391.0843339999992,
+     "then": {
+      "do": "put",
+      "target": "ready",
+      "next": null
+     }
+    }
+   ]
+  },
+  "warm-B": {
+   "ok": true,
+   "s": 22.8,
+   "claudeCalls": 4,
+   "claudeS": 16.6,
+   "byWho": {
+    "step": 10,
+    "claude": 4,
+    "words": 2,
+    "code": 4,
+    "nano": 1,
+    "mini": 1
+   },
+   "approvals": [
+    "no: May I click “Remove”? (a delete click (by its words): “Remove”)",
+    "yes: May I click “Checkout”? (a purchase click (by its words): “Checkout”)",
+    "yes: May I click “Continue to payment”? (a payment click (by the model): “Continue to payment”)"
+   ],
+   "steps": [
+    {
+     "step": "to-cart·1",
+     "kind": "advance",
+     "question": "click [7] Trailrunner 2 trail shoes",
+     "probabilities": {
+      "click": 0.8959926455760294,
+      "type": 0.09220436394651821,
+      "done": 0.00954204930770605,
+      "blocked": 0.0022609411697461675
+     },
+     "verdict": "click",
+     "by": "step",
+     "ms": 619.4034160000001,
+     "then": {
+      "do": "goto",
+      "target": "to-cart",
+      "next": null
+     }
+    },
+    {
+     "step": "to-cart·2",
+     "kind": "advance",
+     "question": "type into [7] Size (EU): “43”",
+     "probabilities": {
+      "click": 0.10888468961923274,
+      "type": 0.8657141134688673,
+      "done": 0.02184653495452855,
+      "blocked": 0.003554661957371528
+     },
+     "verdict": "type",
+     "by": "step",
+     "ms": 88.88670900000034,
+     "then": {
+      "do": "goto",
+      "target": "to-cart",
+      "next": null
+     }
+    },
+    {
+     "step": "to-cart·3",
+     "kind": "advance",
+     "question": "click [9] Add to cart",
+     "probabilities": {
+      "click": 0.8892355929125982,
+      "type": 0.08957140312851236,
+      "done": 0.016996571872199127,
+      "blocked": 0.004196432086690238
+     },
+     "verdict": "click",
+     "by": "step",
+     "ms": 109.5182920000002,
+     "then": {
+      "do": "goto",
+      "target": "to-cart",
+      "next": null
+     }
+    },
+    {
+     "step": "to-cart·4",
+     "kind": "advance",
+     "question": "done",
+     "probabilities": {
+      "click": 0.027584043052440634,
+      "type": 0.009729418166251095,
+      "done": 0.9610205734062529,
+      "blocked": 0.0016659653750553526
+     },
+     "verdict": "done",
+     "by": "step",
+     "ms": 94.05087500000036,
+     "then": {
+      "do": "goto",
+      "target": "to-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "to-checkout·1",
+     "kind": "advance",
+     "question": "click [11] Go to cart",
+     "probabilities": {
+      "click": 0.9428787943564481,
+      "type": 0.04829564687977017,
+      "done": 0.007320793958836182,
+      "blocked": 0.0015047648049454892
+     },
+     "verdict": "click",
+     "by": "claude",
+     "ms": 5038.926209,
+     "then": {
+      "do": "goto",
+      "target": "to-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "to-checkout·2",
+     "kind": "guard",
+     "question": "click [7] Remove",
+     "probabilities": {
+      "none": 0.007618448564850791,
+      "security": 0.0018823361131997732,
+      "payment": 0.0007425227716451532,
+      "purchase": 0.0008380643076706409,
+      "account": 0.0063994160962430584,
+      "delete": 0.9745257583698665,
+      "message": 0.0008456258622212976,
+      "post": 0.0009142205478895566,
+      "submit": 0.006233607366413303
+     },
+     "verdict": "delete",
+     "by": "words",
+     "ms": 82.60962499999914,
+     "then": {
+      "do": "ask_person",
+      "target": "a delete click (by its words): “Remove”",
+      "next": null
+     },
+     "note": "asked the person"
+    },
+    {
+     "step": "to-checkout·3",
+     "kind": "guard",
+     "question": "click [8] Checkout",
+     "probabilities": {
+      "none": 0.10228354488382754,
+      "security": 0.002914716511547937,
+      "payment": 0.05854378407546677,
+      "purchase": 0.7621298217212225,
+      "account": 0.003452150715483891,
+      "delete": 0.0025163684247445544,
+      "message": 0.0028106608244506883,
+      "post": 0.0027914393817384427,
+      "submit": 0.06255751346151761
+     },
+     "verdict": "purchase",
+     "by": "words",
+     "ms": 4940.522916000002,
+     "then": {
+      "do": "goto",
+      "target": "to-checkout",
+      "next": null
+     },
+     "note": "the person said yes"
+    },
+    {
+     "step": "to-checkout·3",
+     "kind": "advance",
+     "question": "click [8] Checkout",
+     "probabilities": {
+      "click": 0.16496831920101504,
+      "type": 0.06175299190537439,
+      "done": 0.7627955679110603,
+      "blocked": 0.01048312098255019
+     },
+     "verdict": "click",
+     "by": "claude",
+     "ms": 4940.552833000002,
+     "then": {
+      "do": "goto",
+      "target": "to-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "to-checkout·4",
+     "kind": "advance",
+     "question": "done",
+     "probabilities": {
+      "click": 0.09582732939534414,
+      "type": 0.2023756280782545,
+      "done": 0.6635384301958255,
+      "blocked": 0.038258612330575835
+     },
+     "verdict": "done",
+     "by": "step",
+     "ms": 90.24920799999927,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Full name: empty ← “Robin Verhoeven”",
+     "verdict": "value",
+     "by": "code",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Email: empty ← “robin@postbox.test”",
+     "verdict": "value",
+     "by": "code",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Street and house number: empty ← “Lindelaan 12”",
+     "verdict": "value",
+     "by": "step",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Postcode: empty ← “3512 AB”",
+     "verdict": "value",
+     "by": "step",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Town or city: empty ← “Utrecht”",
+     "verdict": "value",
+     "by": "step",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Mobile number (for the courier, optional): empty ← “06 12345678”",
+     "verdict": "value",
+     "by": "code",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "field Search gear: empty ← “Trailrunner 2”",
+     "verdict": "value",
+     "by": "claude",
+     "ms": 0,
+     "then": {
+      "do": "goto",
+      "target": "fill-checkout",
+      "next": null
+     }
+    },
+    {
+     "step": "fill-checkout",
+     "kind": "fill",
+     "question": "7 empty fields: 7 decided, 0 left",
+     "verdict": "done",
+     "by": "code",
+     "ms": 3862.167374999999,
+     "then": {
+      "do": "goto",
+      "target": "to-payment",
+      "next": null
+     }
+    },
+    {
+     "step": "to-payment·1",
+     "kind": "advance",
+     "question": "click [13] Standard delivery (free, 2–3 days)",
+     "probabilities": {
+      "click": 0.9128188563403927,
+      "type": 0.04892601536451676,
+      "done": 0.03243552348996598,
+      "blocked": 0.005819604805124367
+     },
+     "verdict": "click",
+     "by": "claude",
+     "ms": 4439.698624999997,
+     "then": {
+      "do": "goto",
+      "target": "to-payment",
+      "next": null
+     }
+    },
+    {
+     "step": "to-payment·2",
+     "kind": "guard",
+     "question": "click [16] Continue to payment",
+     "probabilities": {
+      "none": 0.038840601230748055,
+      "security": 0.0012800298877947336,
+      "payment": 0.8749720049901819,
+      "purchase": 0.06229141805044349,
+      "account": 0.00270263882042092,
+      "delete": 0.0014380828164732482,
+      "message": 0.0009716529522038949,
+      "post": 0.0012295079548624993,
+      "submit": 0.016274063296871217
+     },
+     "verdict": "payment",
+     "by": "nano",
+     "ms": 120.10745800000223,
+     "then": {
+      "do": "goto",
+      "target": "to-payment",
+      "next": null
+     },
+     "note": "the person said yes"
+    },
+    {
+     "step": "to-payment·2",
+     "kind": "advance",
+     "question": "click [16] Continue to payment",
+     "probabilities": {
+      "click": 0.8804745955922078,
+      "type": 0.041263136115821615,
+      "done": 0.07247025040182295,
+      "blocked": 0.005792017890147675
+     },
+     "verdict": "click",
+     "by": "step",
+     "ms": 120.11033300000054,
+     "then": {
+      "do": "goto",
+      "target": "to-payment",
+      "next": null
+     }
+    },
+    {
+     "step": "to-payment·3",
+     "kind": "advance",
+     "question": "done",
+     "probabilities": {
+      "click": 0.02157928605316472,
+      "type": 0.005477619165834832,
+      "done": 0.9715869628245796,
+      "blocked": 0.0013561319564208167
+     },
+     "verdict": "done",
+     "by": "step",
+     "ms": 88.54633399999875,
+     "then": {
+      "do": "goto",
+      "target": "check",
+      "next": null
+     }
+    },
+    {
+     "step": "check",
+     "kind": "ask",
+     "question": "Is this the payment page, with the order ready for the person to pay?",
+     "state": "Hollowpine Outdoor\nhttp://127.0.0.1:8011/lab/apps/shop/pay\n[link] Hollowpine Outdoor\n[field] Search gear: empty [button] Search\n[link] Account [link] Cart (1) [link] Help\nPayment\nStep 2 of 2\nTrailrunner 2 trail shoes · size 43 · 1 ×\nDeliver to Robin Verhoeven, Lindelaan 12, 3512 AB Utrecht (standard)\nPay with\n[field] iDEAL: checked iDEAL [field] Card: not checked Card\n[button] Pay now € 124,95 [link] Change delivery details",
+     "probabilities": {
+      "yes": 0.8305941028880628,
+      "no": 0.1694058971119372
+     },
+     "verdict": "yes",
+     "by": "mini",
+     "ms": 380.55804100000023,
+     "then": {
+      "do": "put",
+      "target": "ready",
+      "next": null
+     }
+    }
+   ]
+  }
+ }
+}
