@@ -1,0 +1,17 @@
+how often a page needs it: 60 pages tried, 39 loaded (the others answer a headless browser with a wall)
+  links and buttons the page's own code names: 6305; with no name anywhere: 175 (2.7%)
+  of those, whole in view and the size of a control (what Atelier asks the model about): 9, on 7 of the 39 pages
+  per page: github.com 295/0/0, en.wikipedia.org 458/38/1, stackoverflow.com 189/0/0, ikea.com 298/22/0, booking.com 303/0/0, nos.nl 168/0/0, nu.nl 211/14/2, bbc.com 210/2/1, theguardian.com 264/4/0, marktplaats.nl 377/15/0, hema.nl 269/0/0, mediamarkt.nl 340/0/0, apple.com 148/9/0, microsoft.com 76/0/0, mozilla.org 67/0/0, gitlab.com 146/0/0, duckduckgo.com 60/0/0, bing.com 53/2/2, twitch.tv 109/0/0, open.spotify.com 204/0/0, pinterest.com 53/0/0, airbnb.com 74/0/0, ns.nl 51/9/0, rijksoverheid.nl 58/0/0, postnl.nl 71/0/0, funda.nl 27/0/0, vinted.nl 127/0/0, nike.com 139/4/0, tweakers.net 257/4/1, news.ycombinator.com 168/31/1, notion.so 180/0/0, figma.com 101/0/0, trello.com 48/0/0, dropbox.com 81/0/0, developer.mozilla.org 134/1/1, kvk.nl 69/0/0, belastingdienst.nl 62/0/0, gamma.nl 142/20/0, action.com 218/0/0  (named/unnamed/asked)
+
+icon buttons from live websites, asked Atelier's two questions (named at 0.90 and 0.90); releases/vision-v0.1/model
+site, what the page's code calls it | what the model calls it, the job's weight / the yes
+  en.wikipedia.org       (no name; mw-logo /wiki/Main_Page)   | picture            0.53 / 0.25  left alone
+  nu.nl                  (no name; app-button app-button--cta | zoeken             1.00 / 0.99  named
+  nu.nl                  (no name; app-button app-button--cta | instellingen       1.00 / 0.99  named
+  bbc.com                (no name; Anchor-styles__AnchorStyle | show               0.45 / 0.15  left alone
+  bing.com               (no name; b_logoArea /?FORM=Z9FD1)   | grid view          0.98 / 0.87  left alone
+  bing.com               (no name; id_button tooltip_hide lin | account            1.00 / 0.99  named
+  tweakers.net           (no name; submit)                    | zoeken             1.00 / 1.00  named
+  news.ycombinator.com   (no name; https://news.ycombinator.c | picture            0.45 / 0.34  left alone
+  developer.mozilla.org  (no name; logo /en-US/)              | minus              0.20 / 0.32  left alone
+9 buttons from 7 sites: 4 named, 5 left alone; 306 ms a picture on 2 CPU threads
