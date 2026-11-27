@@ -1,0 +1,77 @@
+{
+  "format": 1,
+  "base": {
+    "id": "google/siglip2-base-patch16-256",
+    "revision": "3f9f96cb90da5dbc758b01813f2f6f1aee24c1ab"
+  },
+  "adapters": "runs/vision-v2/vision.pt",
+  "size": 256,
+  "tokens": 64,
+  "scale": 112.90677642822266,
+  "bias": -16.765625,
+  "files": {
+    "image": "image.q8.onnx",
+    "text": "text.q8.emb4.onnx"
+  },
+  "guard": {
+    "min_latin": 0.7,
+    "max_bytes": 0.1,
+    "min_letters": 8
+  },
+  "vocabulary": 118947,
+  "calibration": {
+    "choice": {
+      "t": 2.535,
+      "many": 1.989
+    },
+    "score": {
+      "t": 2.535
+    },
+    "noul": {
+      "pair": {
+        "a": 0.3369,
+        "b": -0.002,
+        "c": 3.133
+      },
+      "single": {
+        "a": 0.3176,
+        "c": 2.93
+      }
+    }
+  },
+  "calibrated_on": {
+    "choice": 6616,
+    "choice among 16 or more": 1565,
+    "score": 0,
+    "noul with a false text": 4372,
+    "noul without": 6446
+  },
+  "measured": {
+    "image_cos_to_fp32": {
+      "mean": 0.9996,
+      "lowest": 0.9987,
+      "pictures": 96
+    },
+    "text_cos_to_fp32": {
+      "mean": 0.9999,
+      "lowest": 0.9995,
+      "texts": 33
+    },
+    "text_cos_to_fp32_with_the_exact_table": {
+      "mean": 0.9647,
+      "lowest": 0.875
+    },
+    "cpu_ms_median": {
+      "threads": 2,
+      "picture": 299.1,
+      "text": 98.4
+    },
+    "mb": {
+      "image.q8.onnx": 105.8,
+      "text.q8.emb4.onnx": 147.9,
+      "tokenizer.json": 6.3,
+      "tokenizer_config.json": 0.0,
+      "vocab.json": 0.9
+    }
+  }
+}

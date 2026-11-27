@@ -1,0 +1,89 @@
+{
+ "meta": {
+  "photos": 3600,
+  "from": "runs/vision-v2/onnx",
+  "adapters": null
+ },
+ "it": {
+  "captions": 3600,
+  "declined": 0.0,
+  "r1": 0.6561,
+  "r5": 0.8669,
+  "r10": 0.9269,
+  "first_among_40": 0.97
+ },
+ "pt": {
+  "captions": 3600,
+  "declined": 0.0,
+  "r1": 0.5883,
+  "r5": 0.8289,
+  "r10": 0.8892,
+  "first_among_40": 0.955
+ },
+ "sv": {
+  "captions": 3600,
+  "declined": 0.0003,
+  "r1": 0.446,
+  "r5": 0.686,
+  "r10": 0.7647,
+  "first_among_40": 0.8944
+ },
+ "da": {
+  "captions": 3600,
+  "declined": 0.0,
+  "r1": 0.4644,
+  "r5": 0.69,
+  "r10": 0.7628,
+  "first_among_40": 0.8847
+ },
+ "pl": {
+  "captions": 3600,
+  "declined": 0.0,
+  "r1": 0.5272,
+  "r5": 0.7642,
+  "r10": 0.8297,
+  "first_among_40": 0.9311
+ },
+ "id": {
+  "captions": 3600,
+  "declined": 0.0,
+  "r1": 0.5861,
+  "r5": 0.8292,
+  "r10": 0.8869,
+  "first_among_40": 0.9536
+ },
+ "tr": {
+  "captions": 3600,
+  "declined": 0.0,
+  "r1": 0.4403,
+  "r5": 0.6961,
+  "r10": 0.7806,
+  "first_among_40": 0.8939
+ },
+ "ja": {
+  "captions": 3600,
+  "declined": 1.0
+ },
+ "ru": {
+  "captions": 3600,
+  "declined": 1.0
+ },
+ "ar": {
+  "captions": 3600,
+  "declined": 1.0
+ },
+ "mean": {
+  "en nl de fr es": {
+   "r1": null,
+   "r5": null,
+   "r10": null,
+   "first_among_40": null
+  },
+  "all answered": {
+   "r1": 0.5298,
+   "r5": 0.7659,
+   "r10": 0.8344,
+   "first_among_40": 0.9261
+  }
+ }
+}

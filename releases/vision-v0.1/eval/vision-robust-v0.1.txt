@@ -1,0 +1,14 @@
+how a picture reached the model, against its original through the model's own resize (runs/vision-v2/onnx)
+photos (100 held-out pictures):
+  as stored      vector cos 0.9370 (lowest 0.8793)  readings changed  7.8%  sure and right 84.4% -> 83.6%  sure and wrong 5.6% -> 5.3%
+  smaller first  vector cos 0.9981 (lowest 0.9690)  readings changed  0.6%  sure and right 84.4% -> 84.7%  sure and wrong 5.6% -> 5.3%
+  bicubic        vector cos 0.9945 (lowest 0.9742)  readings changed  1.1%  sure and right 84.4% -> 84.1%  sure and wrong 5.6% -> 5.3%
+  lanczos        vector cos 0.9865 (lowest 0.9500)  readings changed  1.4%  sure and right 84.4% -> 84.1%  sure and wrong 5.6% -> 5.0%
+  nearest        vector cos 0.9661 (lowest 0.8541)  readings changed  1.9%  sure and right 84.4% -> 84.7%  sure and wrong 5.6% -> 5.0%
+  jpeg 60        vector cos 0.9928 (lowest 0.9719)  readings changed  1.1%  sure and right 84.4% -> 84.1%  sure and wrong 5.6% -> 5.3%
+buttons (100 held-out pictures):
+  smaller first  vector cos 1.0000 (lowest 1.0000)  readings changed  0.0%  sure and right 91.7% -> 91.7%  sure and wrong 2.2% -> 2.2%
+  bicubic        vector cos 0.9860 (lowest 0.8876)  readings changed  0.5%  sure and right 91.7% -> 91.1%  sure and wrong 2.2% -> 2.2%
+  lanczos        vector cos 0.9741 (lowest 0.7856)  readings changed  1.4%  sure and right 91.7% -> 90.9%  sure and wrong 2.2% -> 2.2%
+  nearest        vector cos 0.9213 (lowest 0.7144)  readings changed  2.5%  sure and right 91.7% -> 90.6%  sure and wrong 2.2% -> 1.7%
+  jpeg 60        vector cos 0.9135 (lowest 0.3119)  readings changed  5.3%  sure and right 91.7% -> 88.1%  sure and wrong 2.2% -> 1.7%

@@ -13,7 +13,10 @@
     "lab": "node --experimental-strip-types src/lab.ts",
     "start:mini-0.8b": "node --experimental-strip-types src/server.ts ../../releases/v0.5/model 8011 4 --mini ../../releases/v0.5/mini --mini-gpu-layers 99",
     "start:step": "node --experimental-strip-types src/server.ts ../../releases/v0.6/model 8011 4 --mini ../../releases/v0.6/mini --mini-gpu-layers 99 --step ../../releases/step-v0.1/model",
-    "step:parity": "node --experimental-strip-types src/step/parity.ts ../../releases/step-v0.1/model"
+    "step:parity": "node --experimental-strip-types src/step/parity.ts ../../releases/step-v0.1/model",
+    "vision:parity": "node --experimental-strip-types src/vision/parity.ts ../../releases/vision-v0.1/model",
+    "start:vision": "node --experimental-strip-types src/server.ts - 8011 4 --vision ../../releases/vision-v0.1/model",
+    "vision:bench": "node --experimental-strip-types src/vision/bench.ts ../../releases/vision-v0.1/model"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "1.12.0",

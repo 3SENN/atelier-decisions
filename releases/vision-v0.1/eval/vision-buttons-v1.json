@@ -1,0 +1,357 @@
+{
+ "meta": {
+  "pictures": "runs/vision/emb/vision-v1-held",
+  "runtime": null,
+  "adapters": "runs/vision-v1/vision.pt",
+  "languages": [
+   "en",
+   "nl",
+   "de",
+   "fr",
+   "es"
+  ]
+ },
+ "0.75, no second question": {
+  "heldout-items": {
+   "n": 2870,
+   "named_right": 0.6425,
+   "named_wrong": 0.0286,
+   "left_alone": 0.3289,
+   "right_when_named": 0.9574
+  },
+  "heldout-look": {
+   "n": 9640,
+   "named_right": 0.6152,
+   "named_wrong": 0.0259,
+   "left_alone": 0.3588,
+   "right_when_named": 0.9596
+  },
+  "heldout-kinds": {
+   "n": 2220,
+   "named_right": 0.3824,
+   "named_wrong": 0.0869,
+   "left_alone": 0.5306,
+   "right_when_named": 0.8148
+  },
+  "heldout-none": {
+   "n": 2700,
+   "named_anyway": 0.1344
+  },
+  "by language (icon sets never seen)": {
+   "en": {
+    "named_right": 0.8434,
+    "named_wrong": 0.013
+   },
+   "nl": {
+    "named_right": 0.4855,
+    "named_wrong": 0.0311
+   },
+   "de": {
+    "named_right": 0.5399,
+    "named_wrong": 0.0135
+   },
+   "fr": {
+    "named_right": 0.4746,
+    "named_wrong": 0.0488
+   },
+   "es": {
+    "named_right": 0.7329,
+    "named_wrong": 0.0233
+   }
+  }
+ },
+ "0.75, 0.50": {
+  "heldout-items": {
+   "n": 2870,
+   "named_right": 0.6425,
+   "named_wrong": 0.0286,
+   "left_alone": 0.3289,
+   "right_when_named": 0.9574
+  },
+  "heldout-look": {
+   "n": 9640,
+   "named_right": 0.6152,
+   "named_wrong": 0.0247,
+   "left_alone": 0.3601,
+   "right_when_named": 0.9614
+  },
+  "heldout-kinds": {
+   "n": 2220,
+   "named_right": 0.3824,
+   "named_wrong": 0.0847,
+   "left_alone": 0.5329,
+   "right_when_named": 0.8187
+  },
+  "heldout-none": {
+   "n": 2700,
+   "named_anyway": 0.1307
+  },
+  "by language (icon sets never seen)": {
+   "en": {
+    "named_right": 0.8434,
+    "named_wrong": 0.013
+   },
+   "nl": {
+    "named_right": 0.4855,
+    "named_wrong": 0.0311
+   },
+   "de": {
+    "named_right": 0.5399,
+    "named_wrong": 0.0135
+   },
+   "fr": {
+    "named_right": 0.4746,
+    "named_wrong": 0.043
+   },
+   "es": {
+    "named_right": 0.7329,
+    "named_wrong": 0.0228
+   }
+  }
+ },
+ "0.75, 0.70": {
+  "heldout-items": {
+   "n": 2870,
+   "named_right": 0.6422,
+   "named_wrong": 0.0279,
+   "left_alone": 0.33,
+   "right_when_named": 0.9584
+  },
+  "heldout-look": {
+   "n": 9640,
+   "named_right": 0.6147,
+   "named_wrong": 0.0228,
+   "left_alone": 0.3624,
+   "right_when_named": 0.9642
+  },
+  "heldout-kinds": {
+   "n": 2220,
+   "named_right": 0.3784,
+   "named_wrong": 0.0811,
+   "left_alone": 0.5405,
+   "right_when_named": 0.8235
+  },
+  "heldout-none": {
+   "n": 2700,
+   "named_anyway": 0.127
+  },
+  "by language (icon sets never seen)": {
+   "en": {
+    "named_right": 0.8434,
+    "named_wrong": 0.0088
+   },
+   "nl": {
+    "named_right": 0.4855,
+    "named_wrong": 0.0311
+   },
+   "de": {
+    "named_right": 0.5399,
+    "named_wrong": 0.0135
+   },
+   "fr": {
+    "named_right": 0.472,
+    "named_wrong": 0.0384
+   },
+   "es": {
+    "named_right": 0.7329,
+    "named_wrong": 0.0223
+   }
+  }
+ },
+ "0.90, no second question": {
+  "heldout-items": {
+   "n": 2870,
+   "named_right": 0.5352,
+   "named_wrong": 0.0111,
+   "left_alone": 0.4537,
+   "right_when_named": 0.9796
+  },
+  "heldout-look": {
+   "n": 9640,
+   "named_right": 0.4914,
+   "named_wrong": 0.0087,
+   "left_alone": 0.4999,
+   "right_when_named": 0.9826
+  },
+  "heldout-kinds": {
+   "n": 2220,
+   "named_right": 0.3158,
+   "named_wrong": 0.045,
+   "left_alone": 0.6392,
+   "right_when_named": 0.8752
+  },
+  "heldout-none": {
+   "n": 2700,
+   "named_anyway": 0.0707
+  },
+  "by language (icon sets never seen)": {
+   "en": {
+    "named_right": 0.7344,
+    "named_wrong": 0.0031
+   },
+   "nl": {
+    "named_right": 0.3874,
+    "named_wrong": 0.0197
+   },
+   "de": {
+    "named_right": 0.3548,
+    "named_wrong": 0.0021
+   },
+   "fr": {
+    "named_right": 0.3812,
+    "named_wrong": 0.0156
+   },
+   "es": {
+    "named_right": 0.5991,
+    "named_wrong": 0.0031
+   }
+  }
+ },
+ "0.90, 0.70": {
+  "heldout-items": {
+   "n": 2870,
+   "named_right": 0.5352,
+   "named_wrong": 0.0111,
+   "left_alone": 0.4537,
+   "right_when_named": 0.9796
+  },
+  "heldout-look": {
+   "n": 9640,
+   "named_right": 0.4914,
+   "named_wrong": 0.0085,
+   "left_alone": 0.5001,
+   "right_when_named": 0.983
+  },
+  "heldout-kinds": {
+   "n": 2220,
+   "named_right": 0.3153,
+   "named_wrong": 0.0441,
+   "left_alone": 0.6405,
+   "right_when_named": 0.8772
+  },
+  "heldout-none": {
+   "n": 2700,
+   "named_anyway": 0.0689
+  },
+  "by language (icon sets never seen)": {
+   "en": {
+    "named_right": 0.7344,
+    "named_wrong": 0.0026
+   },
+   "nl": {
+    "named_right": 0.3874,
+    "named_wrong": 0.0197
+   },
+   "de": {
+    "named_right": 0.3548,
+    "named_wrong": 0.0021
+   },
+   "fr": {
+    "named_right": 0.3812,
+    "named_wrong": 0.015
+   },
+   "es": {
+    "named_right": 0.5991,
+    "named_wrong": 0.0031
+   }
+  }
+ },
+ "0.90, 0.90": {
+  "heldout-items": {
+   "n": 2870,
+   "named_right": 0.5334,
+   "named_wrong": 0.0098,
+   "left_alone": 0.4568,
+   "right_when_named": 0.982
+  },
+  "heldout-look": {
+   "n": 9640,
+   "named_right": 0.4892,
+   "named_wrong": 0.0081,
+   "left_alone": 0.5027,
+   "right_when_named": 0.9837
+  },
+  "heldout-kinds": {
+   "n": 2220,
+   "named_right": 0.3117,
+   "named_wrong": 0.0414,
+   "left_alone": 0.6468,
+   "right_when_named": 0.8827
+  },
+  "heldout-none": {
+   "n": 2700,
+   "named_anyway": 0.0633
+  },
+  "by language (icon sets never seen)": {
+   "en": {
+    "named_right": 0.7344,
+    "named_wrong": 0.0016
+   },
+   "nl": {
+    "named_right": 0.3874,
+    "named_wrong": 0.0192
+   },
+   "de": {
+    "named_right": 0.3485,
+    "named_wrong": 0.0021
+   },
+   "fr": {
+    "named_right": 0.3771,
+    "named_wrong": 0.0145
+   },
+   "es": {
+    "named_right": 0.5985,
+    "named_wrong": 0.0031
+   }
+  }
+ },
+ "0.95, 0.90": {
+  "heldout-items": {
+   "n": 2870,
+   "named_right": 0.4143,
+   "named_wrong": 0.0038,
+   "left_alone": 0.5819,
+   "right_when_named": 0.9908
+  },
+  "heldout-look": {
+   "n": 9640,
+   "named_right": 0.3734,
+   "named_wrong": 0.0037,
+   "left_alone": 0.6228,
+   "right_when_named": 0.9901
+  },
+  "heldout-kinds": {
+   "n": 2220,
+   "named_right": 0.2653,
+   "named_wrong": 0.0185,
+   "left_alone": 0.7162,
+   "right_when_named": 0.9349
+  },
+  "heldout-none": {
+   "n": 2700,
+   "named_anyway": 0.0463
+  },
+  "by language (icon sets never seen)": {
+   "en": {
+    "named_right": 0.6297,
+    "named_wrong": 0.001
+   },
+   "nl": {
+    "named_right": 0.2806,
+    "named_wrong": 0.0114
+   },
+   "de": {
+    "named_right": 0.2386,
+    "named_wrong": 0.0016
+   },
+   "fr": {
+    "named_right": 0.2547,
+    "named_wrong": 0.0031
+   },
+   "es": {
+    "named_right": 0.4637,
+    "named_wrong": 0.0016
+   }
+  }
+ }
+}

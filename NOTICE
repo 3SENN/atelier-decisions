@@ -22,6 +22,11 @@ pplx-decider-v1.3 and pplx-decider-flash-v1.3 (https://huggingface.co/perplexity
 Apache License 2.0; derived from Qwen models.
   The teachers. Their answers are the labels the students learned from; none of their weights are in the students.
 
+SigLIP 2 (https://huggingface.co/google/siglip2-base-patch16-256), Google. Apache License 2.0.
+  The base of atelier-vision: its image tower and its text tower. Changed: LoRA adapters trained on this project's
+  questions about pictures and merged into the weights; every layer's weights stored at 8 bits; the text tower's
+  embedding table cut to the tokens of a trimmed vocabulary and stored at 4 bits; converted to ONNX.
+
 
 Code
 ----
@@ -31,6 +36,30 @@ third_party/pplx_decider: Perplexity's inference code for the deciders. Apache L
 
 llama.cpp (https://github.com/ggml-org/llama.cpp), the ggml authors. MIT License.
   Runs atelier-mini. Its llama-server builds are part of the mini's download for Atelier, with their licence.
+
+
+Pictures
+--------
+
+atelier-vision's pictures (the data/pictures.zip of each saved vision version) are of three kinds.
+
+Photos from Open Images V7 (https://storage.googleapis.com/openimages/web/index.html), Google LLC. The labels and
+image list are CC BY 4.0. The photos were published on Flickr by their authors under CC BY 2.0; each is kept as a
+256 x 256 copy with its author, licence and page (photos.jsonl in the archive).
+
+Buttons drawn from these icon sets, each under its own licence (their texts are in the archive's licences/ folder):
+  Lucide (https://lucide.dev), Lucide Contributors. ISC License; parts from Feather, MIT License.
+  Tabler Icons (https://tabler.io/icons), Paweł Kuna. MIT License.
+  Bootstrap Icons (https://icons.getbootstrap.com), The Bootstrap Authors. MIT License.
+  Heroicons (https://heroicons.com), Tailwind Labs. MIT License.
+  Phosphor Icons (https://phosphoricons.com), Phosphor Icons. MIT License.
+  Feather (https://feathericons.com), Cole Bemis. MIT License.
+  Ionicons (https://ionic.io/ionicons), Ionic. MIT License.
+  Material Design Icons (https://github.com/marella/material-design-icons, Google's icons), Google. Apache License 2.0.
+  Octicons (https://primer.style/octicons), GitHub. MIT License.
+
+Documents and pages drawn by vision/synth.py with made-up content: written for this project, CC BY 4.0. Pages and
+some documents show photos from the Open Images set above where a site would have pictures.
 
 
 Data
@@ -50,6 +79,19 @@ gliclass-v2.0 (https://huggingface.co/datasets/knowledgator/gliclass-v2.0), Know
 synthetic_zeroshot_mixtral_v0.1 (https://huggingface.co/datasets/MoritzLaurer/synthetic_zeroshot_mixtral_v0.1),
   Moritz Laurer. Apache License 2.0.
 
+COCO-35L (https://google.github.io/crossmodal-3600/), Google LLC. CC BY 4.0; captions of COCO
+  (https://cocodataset.org, CC BY 4.0) translated by machine.
+  A quarter of its dev split's captions in 21 languages, as text only: what atelier-vision's text tower is held to
+  while it trains, and part of what its vocabulary is chosen from (data/questions.zip of each vision version).
+Crossmodal-3600 (https://google.github.io/crossmodal-3600/), Google LLC. CC BY 4.0.
+  Measures atelier-vision's search. Never trained on, and not in any archive here.
+Tatoeba (https://tatoeba.org), the Tatoeba contributors. CC BY 2.0 FR.
+  Sentences in twelve languages decided which tokens atelier-vision's trimmed vocabulary keeps. No sentence is in
+  any archive here.
+
 The browser question families, the security building blocks and the natural inputs in data/gen, data/gen2,
 data/gen3, data/gen4, data/gen4_src and data/security_src were written for this project by Claude (Anthropic) and
-are part of the data licensed under CC BY 4.0 above.
+are part of the data licensed under CC BY 4.0 above. So are atelier-vision's tables and wordings: the things in
+photos, the albums, the jobs of buttons, the kinds of document and the states of a page, each named in five
+languages, and the templates questions about them are made from (vision/classes.py, icons.py, synth_words.py,
+questions.py).

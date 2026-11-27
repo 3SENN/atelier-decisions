@@ -1,0 +1,2675 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 3a19c42..a3f5a9e 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -2,6 +2,10 @@
+ 
+ All notable changes to Atelier. Versions follow [semantic versioning](https://semver.org/); dates are release dates.
+ 
++## Unreleased
++
++- **Pictures, on this computer.** Download Pictures in Settings › Quick decisions › On this computer, and a model on your computer looks at pictures for your companion. Browser tasks can now use buttons that are only an icon, such as a cart, a search or a close button the page gives no name: the model names them from how they look, and leaves alone the ones it isn’t sure of. Your companion can also sort or check many pictures on a page at once, such as which album a photo belongs in or which attachments are receipts, and find the ones that fit a description, in a fraction of a second each. The model only chooses among the answers it is given and writes nothing; whatever it isn’t sure of goes back to your companion. Nothing it looks at leaves your computer.
++
+ ## 1.7.1 (2026-11-25) — Menus open again
+ 
+ - **Menus open again.** Switch chat, Extensions and the site suggestion button could open as a thin line or not show at all, until a full-window dialog had been open. They now always open at full size, under the button you clicked, and take your clicks.
+diff --git a/PRIVACY.md b/PRIVACY.md
+index 5353ce7..afd0bba 100644
+--- a/PRIVACY.md
++++ b/PRIVACY.md
+@@ -35,7 +35,7 @@ remove everything.
+ | **Your Claude subscription**: Claude Code, Anthropic's own program on your computer | The companion, as above, when you choose your Claude subscription as the engine | Only when you choose it in Settings › Model and key | Atelier hands your messages and what the companion needs for them to Claude Code on your computer, and Claude Code sends them to Anthropic under your own Claude account, under Anthropic's terms and privacy policy. Atelier never sees or stores your Claude sign-in |
+ | Anthropic's **web search and web fetch** tools | Searching the web and reading pages for the companion | During chats, while web tools are on (the default) | Search queries and addresses, run on Anthropic's side |
+ | **Quick-decision providers** you add (Typesafe, OpenRouter, Experiential Labs, OpenAI, or your own server) | Fast decisions, such as what a new-tab entry means | Off unless you add a provider and a key | The short text being decided on, and your key |
+-| **Atelier's own models** on Hugging Face (`huggingface.co/3SENN/atelier-decisions`) | Downloading atelier-mini (new kinds of questions) and atelier-step (browser tasks); the small decision model comes with Atelier | Only when you press Download in Settings › Quick decisions › On this computer | Plain downloads of the model files, through your system's proxy. The models then run on this computer: what they decide on never leaves it |
++| **Atelier's own models** on Hugging Face (`huggingface.co/3SENN/atelier-decisions`) | Downloading atelier-mini (new kinds of questions), atelier-step (browser tasks) and atelier-vision (pictures); the small decision model comes with Atelier | Only when you press Download in Settings › Quick decisions › On this computer | Plain downloads of the model files, through your system's proxy. The models then run on this computer: what they decide on, and the pictures atelier-vision looks at, never leave it |
+ | **Connectors (MCP servers)** you add | Tools for the companion | Only connectors you add | Tool calls and their results, and the sign-in (OAuth) exchange with the connector. Remote connectors that sign in with a token are called by Anthropic on Atelier's behalf, so that token goes to Anthropic with the request. Local connectors run on your computer and can reach whatever they are built to |
+ | **GitHub releases** (`github.com/3SENN/atelier/releases`) | Updates, and the list of versions that are no longer supported | Release builds only: at start, every 4 hours, on wake and when you come back online | Ordinary download requests (the version and file names), no cookies or identifiers |
+ | **Ad and tracker blocker lists** (`raw.githubusercontent.com/ghostery/adblocker`) | The blocker's filter lists | At start, while blocking is on (the default), only when no cached copy exists | Plain downloads |
+diff --git a/docs/decisions.md b/docs/decisions.md
+index 6dd0306..f7bdebd 100644
+--- a/docs/decisions.md
++++ b/docs/decisions.md
+@@ -260,6 +260,79 @@ where to stop, the values to type) and atelier-step takes it page by page throug
+   10-18 s instead of 35-81 s. Alone it finishes none of them: it is a helper for routine stretches, never the only
+   judge.
+ 
++### Pictures: atelier-vision (an optional download)
++
++The models above read text. atelier-vision looks at a picture: a photo, a scan, a screenshot, a button cut out of a
++page. It answers the same System One questions, asked about a picture, and it writes nothing: every answer is a short
++text ("A receipt from a shop or a restaurant", "Opens the shopping cart"), and the model says how well the picture
++matches each one. So a new use is a new question, not a new model.
++
++- **The model** (src/main/decisions/device/vision.ts, visionFormat.ts, visionDecide.ts, visionPreprocess.ts): two
++  towers from the atelier-decisions project (vision-v0.1, docs/vision-model.md there; SigLIP 2's, with what Atelier
++  needs trained in) that put a picture and a text in the same space. A picture becomes a vector once, in
++  about 0.3 s on two CPU threads; after that every question about it is a few short texts (kept: the same
++  answers are asked of many pictures) and a dot product, and the same vector finds the picture by a description.
++  A 260 MB download, and about 0.6 GB of memory while the helper holds it (it is loaded at the first picture).
++  The version's calibration (vision.json) is applied, so "sure" means what the readers' cutoffs take it to mean. `ATELIER_VISION_PARITY=<model folder> npx vitest run tests/decisionsVision.test.ts` checks that this
++  runtime makes the training code's tower input, token ids, vectors and answers on the version's fixtures.
++- **What a question looks like**: a choice's options and a yes/no question's `criteria.true` each say what the
++  picture shows when that is the answer. A choice's `instructions` are not read: the options carry the meaning, so
++  "the first one" means nothing to it. A text is read in lowercase and up to 63 tokens.
++- **What it declines** (`refusal`, so the rule or the companion decides): a text it can't read (its vocabulary is
++  trimmed to Latin-script languages, so other scripts fall apart into bytes: under 70% Latin letters, or over 10%
++  raw bytes), a text longer than it reads, an option without a text, and levels on a scale (`score`), which no
++  version has been measured on yet.
++- **Where it runs**: in the decision helper (deviceHelper.ts), as `{ id, look }` and `{ id, embed }` messages next to
++  the decision requests and browser steps; device.ts starts a new helper when it is installed or removed, and gives
++  the rest of Atelier `look(picture or vector, questions)` and `embed(texts, picture)`. It runs without the small
++  decision model too. A picture crosses to the helper as plain pixels (decisions/pictures.ts): Chromium already
++  decoded everything Atelier shows, so the helper has no image library; anything larger than 768 pixels on its
++  longest edge is made smaller first, which costs it nothing it can see (0.6% of a photo's readings change, none of a button's).
++- **The download** (feature.ts, the mini's installer with `needsServer: false`): five files listed in
++  `device/visionManifest.ts` with their sizes and SHA-256 and fetched from the version's tag on Hugging Face
++  (`3SENN/atelier-decisions`, `releases/vision-v0.1/model/`). Settings › Quick decisions › On this computer shows it
++  as "Pictures": Download, progress, Stop, Remove. `ATELIER_VISION_MODEL=<folder>` uses a folder as it is.
++- **Browser tasks: buttons with only an icon.** The page bridge's `stepPage` used to leave out every link and button
++  the page gives no name, so atelier-step could never choose a cart, a search or a close button drawn as an icon.
++  Now up to twelve of them a page come along with their box; while atelier-vision is here, the browser takes each
++  one's picture (browserTool.ts, the control's own box with three pixels of page around it, masked like a
++  screenshot) and `browser_steps` asks two questions about it (agent/tools/browserSteps.ts, `nameUnnamed`): which of
++  its 63 jobs is this, by name, in the page's language (src/shared/visionControls.ts, the names it was trained and
++  measured on), and then whether it really is a button for that job. It is named only when one job has 90% of the
++  weight and the second answer is a yes at 90% (stricter than the readers' usual 75% and 70%, a measured choice:
++  see below); otherwise it stays out of the step, as before. The second question
++  is there for buttons that are none of the jobs (a logo, an anchor): among 63 answers something always looks
++  likeliest. The same pixels are looked at once per run (a site's header icons are on every page), and the step's
++  card says "Clicked the “winkelwagen” icon". Every such click still passes the click guard and the approvals, and a
++  named delete, payment or send that the goal didn't ask for goes back to the companion like any other.
++- **Your companion: `label_pictures`** (agent/tools/labelPictures.ts) is `label_items` for pictures: up to 40
++  pictures on a page, each named by the ref of its element (an image, a thumbnail, a canvas, any element; or the
++  page as it shows), and one to five questions in the System One shape. Each picture is scrolled into view and
++  captured through the chat's own browser (the pause, the site rules, the masking of guarded fields), looked at
++  once, and read with the same cutoffs as `label_items`; "unsure" comes back with what the model leaned towards,
++  and a declined question with why. With `find`, a description ("the red sofa", "a boarding pass"), every picture
++  also gets how likely the description fits it and the pictures come back best first: search among a page's
++  pictures, with the description matched as what a yes looks like. It is offered to a new chat with the browser while atelier-vision is here; it
++  runs on this computer, so private chats have it too, and never in routines. Sorting photos into albums, picking
++  the receipts among attachments, finding the product pictures that show what was asked for: a fraction of a second
++  a picture instead of a screenshot and a model call each.
++- **What it is good at, measured** (the model project, vision-v0.1, on pictures and kinds it never trained on, read
++  with the cutoffs above): right 91% of the time over 22,625 held-out questions, sure enough to
++  act on 90% of them and right on 95% of those (SigLIP 2 as it comes: 74%, 56%, 89%). Sorting a photo into one of
++  13 albums 96% right; the kind of a document (a receipt, an invoice, a ticket ...) 99-100%, also kinds it never
++  trained on; a button's job among a few options 98% on icon sets it never saw; the state of a page (a cookie
++  notice, a pop-up, a sign-in wall, an error) 88% on layouts it never saw. For the unnamed buttons of a browser
++  task, with the two questions and the 90% cutoffs: 64% of icon buttons drawn a way it never saw get their right
++  name, 0.9% a wrong one, the rest stay out as before. A description finds its photo first among 40 pictures 96%
++  of the time, in English, Dutch, German, French and Spanish.
++- **Where it is weak**: a state of a page it never trained on (a robot check, a paywall) is a guess: 54% right, and
++  sure and wrong on 16-21%. One in ten buttons that are none of its 63 jobs (a logo, an anchor) is still named as
++  the job it looks most like. A yes/no about what is in a photo is sure and wrong on 7%; a choice among things on
++  2%. It does not read text (it sees a receipt, not the total), recognise faces or count. Buttons, documents and
++  pages were drawn for training by a real browser engine from real icon sets, but no number is from real websites
++  yet. A picture costs 0.3 s, so forty thumbnails take about twelve seconds the first time.
++
++
+ ## The rule-first contract (DC-01)
+ 
+ Every one of Atelier's decisions calls `decider().decide({ use, rule, request, read })`
+@@ -325,8 +398,8 @@ unreachable provider stops the rest, and those items say so.
+ It is offered to a new chat while a decision model is set up and "Labeling and
+ sorting in tasks" is on, and never in a private chat; the system prompt then
+ has one line on when to use it. `browser_steps` (Browser tasks, above) is the
+-other decision-model tool: it runs on this computer, so private chats have it
+-too. There is no Claude
++other decision-model tool, and `label_pictures` (Pictures, above) the third:
++both run on this computer, so private chats have them too. There is no Claude
+ fallback on purpose: the companion is the Claude engine, so without the model
+ it simply judges the items itself. What is sent is the items' text and the
+ context.
+@@ -487,6 +560,8 @@ itself and handed 25 to `label_items` on its own, which answered all 25.
+ | src/main/decisions/keys.ts | the sealed keys |
+ | src/main/decisions/uses.ts | Atelier's own questions and cutoffs |
+ | src/main/decisions/tool.ts | `label_items`, the companion's tool |
++| src/main/decisions/device/vision*.ts, src/main/decisions/pictures.ts | atelier-vision's runtime in the helper, and pictures as the pixels it takes |
++| src/main/agent/tools/labelPictures.ts | `label_pictures`, the companion's tool for pictures on a page |
+ | src/main/agent/turnDecisions.ts | effort per message and the skills' ranking at a chat's first message |
+ | src/main/tabAutoGroup.ts | "Group tabs": the plan by site or by the model's answers |
+ | src/renderer/src/overlay/surfaces/address/enter.ts | the address bar's Ask row first, and Enter |
+diff --git a/src/main/agent/browserTool.ts b/src/main/agent/browserTool.ts
+index 54d6cfb..ff9770f 100644
+--- a/src/main/agent/browserTool.ts
++++ b/src/main/agent/browserTool.ts
+@@ -15,6 +15,8 @@ import type { WebContents } from 'electron'
+ import { z } from 'zod'
+ import type { ElementDescription, FormInputResult, ResolvedElement } from '@shared/ipc'
+ import type { StepPage } from '@shared/browserSteps'
++import type { Picture } from '../decisions/device/visionPreprocess'
++import { pictureOf } from '../decisions/pictures'
+ import { isAppRunUrl, isBlankUrl, originOf, parseAgentNavigation, parseInternalUrl } from '@shared/url'
+ import { isArtifactUrl } from '@shared/files'
+ import { isExtensionUrl } from '@shared/extensions'
+@@ -647,13 +649,86 @@ export class BrowserToolExecutor implements ToolHandler {
+    * person's. A blank tab or a PDF has none. Reading goes through the site rules like read_page: a site the person
+    * blocked is refused before anything of it is read.
+    */
+-  async stepPage(tabId: string | null | undefined, signal: AbortSignal): Promise<{ tabId: string; title: string; url: string; page: StepPage | null }> {
++  async stepPage(
++    tabId: string | null | undefined,
++    signal: AbortSignal,
++    options: { pictures?: boolean } = {},
++  ): Promise<{ tabId: string; title: string; url: string; page: StepPage | null; pictures?: Record<string, Picture> }> {
+     const tab = this.#tab(tabId)
+     const wc = tab.view.webContents
+     await this.#deps.gate?.('read_page', wc.getURL() || null, describeToolCall('read_page', { tab_id: tab.id }), signal)
+     if (isBlank(tab) || (await this.#pdfOf(tab))) return { tabId: tab.id, title: wc.getTitle(), url: wc.getURL(), page: null }
+     const page = await this.#deps.bridge.request<StepPage>(wc, { op: 'stepPage' })
+-    return { tabId: tab.id, title: wc.getTitle(), url: wc.getURL(), page }
++    const pictures = options.pictures ? await this.#unnamedPictures(tab, page) : undefined
++    return { tabId: tab.id, title: wc.getTitle(), url: wc.getURL(), page, ...(pictures ? { pictures } : {}) }
++  }
++
++  /**
++   * A picture of one thing on the page, for atelier-vision to answer questions about (the companion's label_pictures,
++   * agent/tools/labelPictures.ts): the element a reference names, scrolled into view, or with no reference the page
++   * as it shows. Through the site rules like read_page, and with the same masking as a screenshot: a guarded field
++   * (a password, a card number) is covered in it.
++   */
++  async elementPicture(tabId: string | null | undefined, ref: string | null, signal: AbortSignal): Promise<{ tabId: string; picture: Picture; name: string }> {
++    const tab = this.#tab(tabId)
++    const wc = tab.view.webContents
++    await this.#deps.gate?.('read_page', wc.getURL() || null, describeToolCall('read_page', { tab_id: tab.id }), signal)
++    await this.#visibleTab(tab.id)
++    const { width, height } = tab.view.getBounds()
++    let rect: Electron.Rectangle | undefined
++    let name = 'the page'
++    if (ref) {
++      const resolved = await this.#deps.bridge.request<ResolvedElement>(wc, { op: 'resolveRef', ref, scrollIntoView: true })
++      // The scroll has to be drawn before the capture.
++      await this.#deps.bridge.request(wc, { op: 'frame' }, 2_000).catch(() => undefined)
++      const zoom = wc.getZoomFactor()
++      const x = Math.max(0, Math.floor(resolved.box.x * zoom))
++      const y = Math.max(0, Math.floor(resolved.box.y * zoom))
++      rect = { x, y, width: Math.min(width, Math.ceil((resolved.box.x + resolved.box.width) * zoom)) - x, height: Math.min(height, Math.ceil((resolved.box.y + resolved.box.height) * zoom)) - y }
++      if (rect.width < 8 || rect.height < 8) throw new Error(`${ref} is too small or not in view to take a picture of.`)
++      name = `${ref} (${resolved.role}${resolved.name ? ` ${JSON.stringify(truncate(resolved.name, 60))}` : ''})`
++    }
++    const picture = pictureOf(await maskForAgent(tab.id, await capture(wc, rect), rect))
++    if (!picture) throw new Error('Could not take a picture of it.')
++    return { tabId: tab.id, picture, name }
++  }
++
++  /**
++   * The pictures of the controls the page gave no name (a button with only an icon), by their reference, for
++   * atelier-vision to name (docs/decisions.md › Pictures). Each is the control's own box with a few pixels of page
++   * around it, which is how the model was shown buttons. A tab that can't be captured right now gives none, and
++   * those controls stay out of the step as before.
++   */
++  async #unnamedPictures(tab: Tab, page: StepPage): Promise<Record<string, Picture> | undefined> {
++    const unnamed = page.items.filter((i) => i.box && !i.label && i.ref)
++    if (unnamed.length === 0 || this.#deps.tabs.isChromeDrawn(tab)) return undefined
++    const wc = tab.view.webContents
++    try {
++      await this.#deps.bridge.request(wc, { op: 'frame' }, 2_000)
++    } catch {
++      return undefined
++    }
++    // CSS pixels to the view's own (the other way round from #toCss).
++    const zoom = wc.getZoomFactor()
++    const { width, height } = tab.view.getBounds()
++    const out: Record<string, Picture> = {}
++    for (const item of unnamed) {
++      const box = item.box
++      if (!box) continue
++      const x = Math.max(0, Math.floor(box.x * zoom) - UNNAMED_MARGIN)
++      const y = Math.max(0, Math.floor(box.y * zoom) - UNNAMED_MARGIN)
++      const rect = { x, y, width: Math.min(width, Math.ceil((box.x + box.width) * zoom) + UNNAMED_MARGIN) - x, height: Math.min(height, Math.ceil((box.y + box.height) * zoom) + UNNAMED_MARGIN) - y }
++      if (rect.width < 8 || rect.height < 8) continue
++      try {
++        const picture = pictureOf(await maskForAgent(tab.id, await wc.capturePage(rect), rect))
++        if (picture) out[item.ref] = picture
++        else break
++      } catch {
++        // Not capturable now: the rest wouldn't be either.
++        break
++      }
++    }
++    return Object.keys(out).length > 0 ? out : undefined
+   }
+ 
+   async #readPage(input: MemberInput<'read_page'>): Promise<ResultBlock[]> {
+@@ -749,6 +824,9 @@ export class BrowserToolExecutor implements ToolHandler {
+ // ---- helpers ----
+ 
+ /** Captures the view, retrying briefly while the compositor warms up. */
++/** Page around an unnamed control in its picture, in the view's pixels (the model was shown 0 to 8). */
++const UNNAMED_MARGIN = 3
++
+ async function capture(wc: WebContents, rect?: Electron.Rectangle): Promise<Electron.NativeImage> {
+   let lastError: unknown = null
+   for (let attempt = 0; attempt < 4; attempt++) {
+diff --git a/src/main/agent/feature.ts b/src/main/agent/feature.ts
+index 19d40ed..aa957e5 100644
+--- a/src/main/agent/feature.ts
++++ b/src/main/agent/feature.ts
+@@ -10,6 +10,7 @@
+ // blocked sites and records its turns the same way.
+ import { deviceSteps } from '../decisions/device'
+ import { registerBrowserSteps } from './tools/browserSteps'
++import { registerLabelPictures } from './tools/labelPictures'
+ import { join } from 'node:path'
+ import type { AgentToolsMethods, AgentSitesService, PrivateChatsMethods, PermissionsOverview, SiteAccess } from '@shared/agentTools'
+ import { chatUrl } from '@shared/url'
+@@ -115,7 +116,8 @@ export function createAgentFeatures(): Feature {
+       installPrivateClose(privateClose)
+       registerAgentTools({ delegate: (input, toolCtx) => delegations.run(input, toolCtx), companionFiles: new CompanionFiles(ctx.dataDir) })
+       // docs/decisions.md › Browser tasks: atelier-step takes a browser task page by page, through this chat's own browser steps.
+-      registerBrowserSteps({ browser: (chatId) => ctx.agent.browserFor(chatId), steps: deviceSteps })
++      registerBrowserSteps({ browser: (chatId) => ctx.agent.browserFor(chatId), steps: deviceSteps, pictures: deviceSteps })
++      registerLabelPictures({ browser: (chatId) => ctx.agent.browserFor(chatId), pictures: deviceSteps })
+ 
+       mode.on('changed', (next) => ctx.broadcast({ type: 'agent-mode', mode: next }))
+       ctx.settings.on('changed', () => mode.storedChanged())
+diff --git a/src/main/agent/prompt.ts b/src/main/agent/prompt.ts
+index e7d5c48..86b9ea5 100644
+--- a/src/main/agent/prompt.ts
++++ b/src/main/agent/prompt.ts
+@@ -70,6 +70,7 @@ const CHAT_TOOL_LINES: Record<string, string> = {
+   update_plan: 'update_plan shows the user a checklist for a longer task; send the whole list each time and keep it current.',
+   delegate_task: 'delegate_task hands a self-contained piece of work to a helper chat (at most three at once) and waits for its result; give complete instructions, since the helper sees nothing else.',
+   label_items: 'label_items answers the same yes-or-no, pick-one or rating questions about many items at once with the user\'s decision model; use it to sort, label, filter or check lists you have read (emails, results, products, rows, tabs), and judge the ones it marks "unsure" yourself.',
++  label_pictures: 'label_pictures answers the same yes-or-no, pick-one or rating questions about many pictures on a page at once (photos, product pictures, attachments, icons) with a small model on this computer that looks at them; give it the pictures\' refs and options that say what to look for, or a description to find among them, and look yourself at the ones it marks "unsure".',
+   browser_steps: 'browser_steps runs a routine stretch of a browser task (an order up to the payment page, a form up to sending, a search to a result) page by page with a small model on this computer, far faster than doing each step yourself; give it the goal with where to stop and every value it may type, then check the page and carry on yourself when it hands back.',
+ }
+ 
+diff --git a/src/main/agent/session.ts b/src/main/agent/session.ts
+index e2b8a58..c316720 100644
+--- a/src/main/agent/session.ts
++++ b/src/main/agent/session.ts
+@@ -295,7 +295,10 @@ function savedDraft(summary: ChatSummary): DraftSetup {
+ /** A chat's browser as a client tool drives it (AgentSession.chatBrowser). */
+ export interface ChatBrowser {
+   step(name: string, input: unknown, signal: AbortSignal): Promise<Awaited<ReturnType<BrowserToolExecutor['execute']>>>
+-  page(tabId: string | null | undefined, signal: AbortSignal): ReturnType<BrowserToolExecutor['stepPage']>
++  /** `pictures`: also the pictures of controls the page gave no name, for atelier-vision to name. */
++  page(tabId: string | null | undefined, signal: AbortSignal, options?: { pictures?: boolean }): ReturnType<BrowserToolExecutor['stepPage']>
++  /** A picture of an element (by its reference) or, with null, of the page as it shows, for atelier-vision. */
++  picture(tabId: string | null | undefined, ref: string | null, signal: AbortSignal): ReturnType<BrowserToolExecutor['elementPicture']>
+ }
+ 
+ /** One chat's conversation with the agent: its fixed setup, history, queue and approvals. */
+@@ -942,10 +945,15 @@ export class AgentSession {
+     return {
+       step: (name, input, signal) => this.#browserStep(name, input, signal),
+       // Reading waits while paused too, and an interrupt ends it, as a browser step does.
+-      page: async (tabId, signal) => {
++      page: async (tabId, signal, options) => {
+         const step = this.#interrupt ? AbortSignal.any([signal, this.#interrupt.signal]) : signal
+         await this.#gate.wait(step)
+-        return this.executor.stepPage(tabId, step)
++        return this.executor.stepPage(tabId, step, options)
++      },
++      picture: async (tabId, ref, signal) => {
++        const step = this.#interrupt ? AbortSignal.any([signal, this.#interrupt.signal]) : signal
++        await this.#gate.wait(step)
++        return this.executor.elementPicture(tabId, ref, step)
+       },
+     }
+   }
+diff --git a/src/main/agent/tools/browserSteps.ts b/src/main/agent/tools/browserSteps.ts
+index 00b0e1c..e01f0e5 100644
+--- a/src/main/agent/tools/browserSteps.ts
++++ b/src/main/agent/tools/browserSteps.ts
+@@ -11,12 +11,23 @@
+ // the chat's own browser steps (AgentSession.chatBrowser), so the pause, the site rules, the click guard and the
+ // approvals are the agent's own. Whatever it isn't sure of goes back to the companion, which carries on with its own
+ // browser tools: unsure, refused by the person, going in circles, a second add to the cart, done or blocked.
++//
++// A button with only an icon on it has no name in the page, so atelier-step could never choose it. With atelier-vision
++// on this computer (docs/decisions.md › Pictures) such a control is named from its picture, in the page's language:
++// which of all its jobs the icon stands for, and then whether it really is a button for that job, since among 63
++// answers something always looks likeliest and many icons (a logo, an anchor) are none of them. One it isn't sure of
++// on either count stays out of the step, as every unnamed control did before.
+ 
+ import { randomUUID } from 'node:crypto'
+ import { z } from 'zod'
+ import { BROWSER_STEP_VALUES_MAX, BROWSER_STEPS_DEFAULT, BROWSER_STEPS_MAX, type BrowserStepsCard, type BrowserStepsStatus, type StepPageItem } from '@shared/browserSteps'
++import { CONTROL_ASK, CONTROL_IS, CONTROL_JOBS, CONTROL_LANGS, type ControlLang } from '@shared/visionControls'
++import type { LookAnswer } from '../../decisions/device'
+ import type { StepAnswer } from '../../decisions/device/step'
+ import type { StepElement, StepInput } from '../../decisions/device/stepFormat'
++import type { Question as VisionQuestion } from '../../decisions/device/visionFormat'
++import type { Picture } from '../../decisions/device/visionPreprocess'
++import { pictureKey } from '../../decisions/pictures'
+ import type { ActionKind } from '@shared/agentTools'
+ import { namesActionKind } from '../guard'
+ import type { ChatBrowser } from '../session'
+@@ -65,11 +76,91 @@ export interface StepModel {
+   step(input: StepInput, signal: AbortSignal): Promise<StepAnswer>
+ }
+ 
++/** atelier-vision, as this tool uses it: what a control's picture shows. */
++export interface PictureModel {
++  visionAvailable(): boolean
++  look(input: { picture?: Picture; vector?: Float32Array }, questions: Record<string, VisionQuestion>, signal: AbortSignal): Promise<LookAnswer>
++}
++
++/**
++ * A control is named from its picture when the model gives one job this much of its weight among all of them, and
++ * then says yes this surely to "is it a button for that job?". Measured with exactly these two questions and cutoffs
++ * (the atelier-decisions project, vision-v0.1, analysis/results/vision-buttons-v0.1.txt) on icons drawn by sets it
++ * never saw: 64% get their right name and 0.9% a wrong one, and of the buttons that are none of the jobs 9.9% are
++ * named anyway (19.6% with the readers' usual 0.75 and 0.7, which is why these are stricter). What it is less sure of
++ * stays unnamed.
++ */
++export const PICTURE_SURE = 0.9
++export const PICTURE_YES = 0.9
++
++/** The language to name a control in: the page's own when the model was trained in it, else English. */
++export function controlLang(pageLang: string | undefined): ControlLang {
++  const short = (pageLang ?? '').toLowerCase().split(/[-_]/)[0] ?? ''
++  return (CONTROL_LANGS as readonly string[]).includes(short) ? (short as ControlLang) : 'en'
++}
++
++/** "What does this button do?", with every job as an option, named in one language. */
++export function controlQuestion(lang: ControlLang): VisionQuestion {
++  return { type: 'choice', instructions: 'What does this button do?', criteria: Object.fromEntries(CONTROL_JOBS.map((job) => [job.key, job.names[lang]])) }
++}
++
++/** "Is this a button for <the job>?", with what a yes looks like, in two of the wordings the model was trained on. */
++export function controlCheck(lang: ControlLang, name: string): VisionQuestion {
++  return { type: 'noul', instructions: CONTROL_ASK[lang].replace('{name}', name), criteria: { true: CONTROL_IS[lang].replace('{name}', name) } }
++}
++
++/**
++ * The page's items with every unnamed control either named from its picture or left out. `seen` keeps what a
++ * picture was named before (by its pixels: a site's header icons are on every page), null for "not sure".
++ */
++export async function nameUnnamed(
++  items: StepPageItem[],
++  pictures: Record<string, Picture> | undefined,
++  lang: ControlLang,
++  model: PictureModel | null,
++  seen: Map<string, string | null>,
++  signal: AbortSignal,
++): Promise<StepPageItem[]> {
++  const out: StepPageItem[] = []
++  const question = controlQuestion(lang)
++  for (const item of items) {
++    if (item.label || item.role === 'text' || item.role === 'field' || item.role === 'select') {
++      out.push(item)
++      continue
++    }
++    const picture = pictures?.[item.ref]
++    if (!picture || !model?.visionAvailable()) continue
++    const key = `${lang}:${pictureKey(picture)}`
++    let name = seen.get(key)
++    if (name === undefined) {
++      name = null
++      try {
++        const first = await model.look({ picture }, { does: question }, signal)
++        const answer = first.answers.does
++        const job = answer?.type === 'choice' && (answer.probabilities[answer.choice] ?? 0) >= PICTURE_SURE ? CONTROL_JOBS.find((j) => j.key === answer.choice) : undefined
++        if (job) {
++          // The picture's vector is kept from the first question: the second costs no pass through the image tower.
++          const check = (await model.look({ vector: first.vector }, { is: controlCheck(lang, job.names[lang]) }, signal)).answers.is
++          if (check?.type === 'noul' && check.noul >= PICTURE_YES) name = job.names[lang]
++        }
++      } catch (err) {
++        if (signal.aborted) throw err
++        // The model failed on this one: the control stays unnamed, and the step goes on without it.
++      }
++      seen.set(key, name)
++    }
++    if (name) out.push({ ...item, label: name, seen: true })
++  }
++  return out
++}
++
+ export interface BrowserStepsDeps {
+-  /** The chat's browser (AgentHost.browserFor); null when the chat isn't loaded. */
+-  browser(chatId: string): ChatBrowser | null
++  /** The chat's browser (AgentHost.browserFor), of which this tool reads pages and takes steps; null when the chat isn't loaded. */
++  browser(chatId: string): Pick<ChatBrowser, 'step' | 'page'> | null
+   /** The on-device models (decisions/device.ts deviceSteps); null before start. */
+   steps(): StepModel | null
++  /** atelier-vision, when it is installed, to name controls the page gave no name (the same on-device models). */
++  pictures?(): PictureModel | null
+   /** Waits between reads of a page that rendered late (tests pass a no-op). */
+   sleep?(ms: number): Promise<void>
+ }
+@@ -181,6 +272,9 @@ export function createBrowserStepsTool(deps: BrowserStepsDeps): ClientTool<Input
+     const before: string[] = []
+     const signatures: string[] = []
+     const refused = new Set<string>()
++    const vision = deps.pictures?.() ?? null
++    const looks = { pictures: vision?.visionAvailable() ?? false }
++    const named = new Map<string, string | null>()
+     let added = false
+     let lastKey = ''
+     let same = 0
+@@ -207,14 +301,14 @@ export function createBrowserStepsTool(deps: BrowserStepsDeps): ClientTool<Input
+     try {
+       for (let n = 1; n <= max; n++) {
+         if (ctx.signal.aborted) return end({ status: 'stopped', reason: 'Stopped.', note: '' })
+-        let read = await browser.page(tabId, ctx.signal)
++        let read = await browser.page(tabId, ctx.signal, looks)
+         tabId = read.tabId
+         if (!read.page) return handBack('this tab has no page atelier-step can read (a blank tab or a PDF)', 'There was no page to work on.')
+         let key = `${read.url}\n${JSON.stringify(read.page.items.map((i) => [i.ref, i.label, i.value, i.checked]))}`
+         if (key === lastKey && n > 1) {
+           // Pages that render after the load event: one more look before calling it unchanged.
+           await sleep(SETTLE_MS)
+-          read = await browser.page(tabId, ctx.signal)
++          read = await browser.page(tabId, ctx.signal, looks)
+           if (!read.page) return handBack('the tab has no readable page any more', 'The page went away.')
+           key = `${read.url}\n${JSON.stringify(read.page.items.map((i) => [i.ref, i.label, i.value, i.checked]))}`
+         }
+@@ -222,7 +316,8 @@ export function createBrowserStepsTool(deps: BrowserStepsDeps): ClientTool<Input
+         lastKey = key
+         where = `${read.title || pathOf(read.url)} (${read.url})`
+         if (same >= 2) return handBack('the page stopped changing after its steps', 'The page stopped changing.')
+-        const items = read.page.items
++        // Controls the page gave no name are named from their pictures, or left out.
++        const items = await nameUnnamed(read.page.items, read.pictures, controlLang(read.page.lang), vision, named, ctx.signal)
+         const elements = stepElements(items)
+         const answer = await model.step({ goal: task.goal, values, before: [...before], page: `${read.title} (${pathOf(read.url)})`, elements }, ctx.signal)
+         const ms = Math.round(answer.ms)
+@@ -263,7 +358,7 @@ export function createBrowserStepsTool(deps: BrowserStepsDeps): ClientTool<Input
+           }
+           if (adds) added = true
+           before.push(`clicked ${target.label}`)
+-          card.steps.push({ text: `Clicked ${q(target.label)}`, ms })
++          card.steps.push({ text: target.seen ? `Clicked the ${q(target.label)} icon` : `Clicked ${q(target.label)}`, ms })
+           emit()
+           continue
+         }
+diff --git a/src/main/agent/tools/labelPictures.ts b/src/main/agent/tools/labelPictures.ts
+new file mode 100644
+index 0000000..5c1abca
+--- /dev/null
++++ b/src/main/agent/tools/labelPictures.ts
+@@ -0,0 +1,202 @@
++/* Copyright (c) 2026 The Atelier Authors. All rights reserved.
++ * This Source Code Form is subject to the terms of the Mozilla Public
++ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
++ * You can obtain one at https://mozilla.org/MPL/2.0/. */
++
++// label_pictures (docs/decisions.md › Pictures): the companion hands judgment calls over many pictures on a page
++// (sorting photos into albums, which attachments are receipts, which product pictures show the colour asked for, what
++// an icon stands for) to atelier-vision, a model on this computer that looks at them. It is label_items for pictures:
++// the same System One questions, read with the same cutoffs, and "unsure" where the model is not sure, for the
++// companion to look at itself.
++//
++// A picture is what the page shows of an element the companion names by its reference (from read_page or find), or
++// the page as it shows. Reading goes through the chat's own browser (AgentSession.chatBrowser): the pause, the site
++// rules, and the masking of guarded fields are the agent's own. Nothing leaves this computer, so private chats have
++// it too, like browser_steps. The model matches a picture against each answer's own text, so an option has to say
++// what to look for.
++//
++// It also finds: with `find`, a description, every picture gets how likely the description fits it, and the pictures
++// come back best first. That is search among a page's pictures, with no model call beyond the look itself.
++
++import { z } from 'zod'
++import { DECISION_LIMITS, DECISION_QUESTION_SCHEMA, type DecisionAnswer, type DecisionQuestion } from '@shared/decisions'
++import { readAnswer, type ItemAnswer } from '../../decisions/tool'
++import type { ChatBrowser } from '../session'
++import type { PictureModel } from './browserSteps'
++import { CLIENT_TOOL_RESULT_MAX, registerClientTool, type ClientTool, type ClientToolContext, type ClientToolResult } from './registry'
++
++export const LABEL_PICTURES_TOOL = 'label_pictures'
++export const LABEL_PICTURES_MAX = 40
++export const LABEL_PICTURE_QUESTIONS_MAX = 5
++const FIND_CHARS = 300
++/** The description to find is one more yes/no question for the model; its key is one no question of the companion's can have. */
++const FIND_KEY = '~find'
++
++export interface LabelPicturesDeps {
++  /** The chat's browser (AgentHost.browserFor), of which this tool takes pictures; null when the chat isn't loaded. */
++  browser(chatId: string): Pick<ChatBrowser, 'picture'> | null
++  /** atelier-vision (decisions/device.ts deviceSteps); null before start. */
++  pictures(): PictureModel | null
++}
++
++const questionKey = z.string().regex(/^[A-Za-z][A-Za-z0-9_]{0,63}$/)
++
++const input = z
++  .object({
++    pictures: z
++      .array(
++        z
++          .object({
++            id: z.string().trim().min(1).max(100).optional(),
++            ref: z.string().trim().min(1).max(40).nullish(),
++          })
++          .strict(),
++      )
++      .min(1)
++      .max(LABEL_PICTURES_MAX),
++    questions: z
++      .record(questionKey, DECISION_QUESTION_SCHEMA)
++      .refine((q) => Object.keys(q).length <= LABEL_PICTURE_QUESTIONS_MAX, { message: `Ask at most ${LABEL_PICTURE_QUESTIONS_MAX} questions.` })
++      .default({}),
++    find: z.string().trim().min(2).max(FIND_CHARS).optional(),
++    tab_id: z.string().min(1).nullish(),
++  })
++  .strict()
++  .refine((v) => Boolean(v.find) || Object.keys(v.questions).length > 0, { message: 'Ask at least one question, or give a description to find.' })
++
++type Input = z.infer<typeof input>
++
++interface Row {
++  id: string
++  answers?: Record<string, ItemAnswer & { why?: string }>
++  /** With `find`: how likely the description fits this picture. */
++  match?: number
++  error?: string
++}
++
++const DESCRIPTION = `Answers the same short judgment questions about many pictures on a page at once with atelier-vision, a model on this computer that looks at them: yes or no, one of a set of options, or a level on a scale. Use it to sort, label, filter or check pictures (which album each photo belongs in, which attachments are receipts, which product pictures show the item asked for, what each unlabeled icon is for): it takes a fraction of a second a picture, far faster than taking and reading a screenshot of each yourself.
++
++Name each picture by the ref of its element, from read_page or find (an image, a thumbnail, a canvas, a button, any element); it is scrolled into view and looked at as the page shows it. Leave ref out to ask about the page as it shows now.
++
++To find pictures instead of (or as well as) labelling them, give find a description ("the red sofa", "a boarding pass"): every picture gets match, how likely the description fits it, and best_first lists them from most to least like it.
++
++It only compares a picture with the text of each answer, so write options that say what to look for ("A day at the beach or by the sea", "A receipt from a shop or a restaurant"), not "the first one"; for yes or no, add what a yes looks like in criteria.true. It reads no small text in a picture, recognises no people, and does no counting or arithmetic. Answers it is not sure of come back as "unsure": look at those yourself.`
++
++export function createLabelPicturesTool(deps: LabelPicturesDeps): ClientTool<Input> {
++  async function run(args: Input, ctx: ClientToolContext): Promise<ClientToolResult> {
++    const browser = deps.browser(ctx.chatId)
++    const model = deps.pictures()
++    if (!browser) return { content: 'This chat has no browser to look at.', isError: true }
++    if (!model?.visionAvailable()) {
++      return { content: 'atelier-vision is not installed on this computer (Settings › Quick decisions › On this computer › Pictures). Look at these pictures yourself.' }
++    }
++    const rows: Row[] = args.pictures.map((p, i) => ({ id: p.id ?? p.ref ?? String(i + 1) }))
++    const questions = args.questions as Record<string, DecisionQuestion>
++    // The description is matched as what a yes looks like: the model's calibrated "does this text fit the picture".
++    const asked = args.find ? { ...questions, [FIND_KEY]: { type: 'noul' as const, instructions: args.find, criteria: { true: args.find } } } : questions
++    let unreadable: string | null = null
++    let tabId: string | null = args.tab_id ?? null
++    // One after another: each picture is scrolled into view and captured before it is looked at.
++    for (const [index, p] of args.pictures.entries()) {
++      if (ctx.signal.aborted) break
++      const row = rows[index]
++      if (!row) continue
++      try {
++        const shot = await browser.picture(tabId, p.ref ?? null, ctx.signal)
++        tabId = shot.tabId
++        const out = await model.look({ picture: shot.picture }, asked, ctx.signal)
++        const found = out.answers[FIND_KEY]
++        if (found?.type === 'noul') row.match = Math.round(found.noul * 100) / 100
++        else if (found?.type === 'refusal') unreadable = found.reason
++        row.answers = Object.fromEntries(
++          Object.entries(questions).map(([key, q]) => {
++            const answer = out.answers[key]
++            // A question it can't take (a text it can't read, an option without one) says why.
++            if (!answer || answer.type === 'refusal') return [key, { answer: 'unsure', p: 0, ...(answer ? { why: answer.reason } : {}) }]
++            return [key, readAnswer(q, answer as DecisionAnswer)]
++          }),
++        )
++      } catch (err) {
++        if (ctx.signal.aborted) break
++        row.error = (err instanceof Error ? err.message : String(err)).slice(0, 200)
++      }
++    }
++    ctx.signal.throwIfAborted()
++    for (const row of rows) if (!row.answers && !row.error) row.error = 'not looked at'
++    const failed = rows.filter((r) => r.error).length
++    if (failed === rows.length) return { content: `None of the pictures could be looked at (${rows[0]?.error ?? 'it failed'}). Look at them yourself.`, isError: true }
++    const unsure = rows.filter((r) => r.answers && Object.values(r.answers).some((a) => a.answer === 'unsure')).length
++    const bestFirst = args.find && !unreadable ? rows.filter((r) => r.match !== undefined).sort((a, b) => (b.match ?? 0) - (a.match ?? 0)).map((r) => r.id) : undefined
++    const note = [
++      args.find && unreadable ? `The description to find couldn’t be read (${unreadable}): write it in a Latin-script language, in under 60 words.` : '',
++      bestFirst ? 'match is how likely the description fits a picture; best_first lists the pictures from most to least like it. Look at the best ones yourself before you rely on one.' : '',
++      unsure ? `${unsure} picture(s) have an “unsure” answer: the model was not sure enough, so look at those yourself (“leaning” is its best guess, “why” what kept it from answering).` : '',
++      failed ? `${failed} picture(s) were not looked at (see “error”): look at those yourself.` : '',
++      'p is the probability of “yes” for a yes-or-no question, and of the answer given otherwise.',
++    ]
++      .filter(Boolean)
++      .join(' ')
++    const head = { model: 'atelier-vision', ...(bestFirst ? { best_first: bestFirst } : {}) }
++    let out = JSON.stringify({ ...head, pictures: rows, note })
++    if (out.length > CLIENT_TOOL_RESULT_MAX) {
++      const brief = rows.map((r) => ({ id: r.id, ...(r.match !== undefined ? { match: r.match } : {}), ...(r.answers ? { answers: Object.fromEntries(Object.entries(r.answers).map(([k, a]) => [k, a.answer])) } : { error: r.error }) }))
++      out = JSON.stringify({ ...head, pictures: brief, note })
++    }
++    return { content: out }
++  }
++
++  return {
++    name: LABEL_PICTURES_TOOL,
++    group: 'chat',
++    description: DESCRIPTION,
++    inputSchema: {
++      type: 'object',
++      properties: {
++        pictures: {
++          type: 'array',
++          minItems: 1,
++          maxItems: LABEL_PICTURES_MAX,
++          description: 'The pictures to judge.',
++          items: {
++            type: 'object',
++            properties: {
++              id: { type: 'string', description: 'Your name for the picture (default: its ref, else its position, from 1).' },
++              ref: { type: 'string', description: 'The element to look at, as read_page and find name it (ref_N). Leave out for the page as it shows.' },
++            },
++            additionalProperties: false,
++          },
++        },
++        questions: {
++          type: 'object',
++          description: `Up to ${LABEL_PICTURE_QUESTIONS_MAX} questions asked about every picture, keyed by a short name (a letter, then letters, digits or _). At least one, unless find is given.`,
++          additionalProperties: {
++            type: 'object',
++            properties: {
++              type: { type: 'string', enum: ['noul', 'choice', 'score'], description: 'noul: yes or no. choice: exactly one of the options. score: a level on an ordered scale.' },
++              instructions: { type: 'string', maxLength: DECISION_LIMITS.instructionChars, description: 'The question, about one picture.' },
++              criteria: {
++                description:
++                  `choice: an object of 2 to ${DECISION_LIMITS.choices} options, {"option_key": "what the picture shows when this is the answer"} (with null, the key itself is what it looks for). ` +
++                  `score: an array of 2 to ${DECISION_LIMITS.levels} descriptions of what each level looks like, lowest first. noul: {"true": "what a yes looks like", "false": "…"}, both optional.`,
++              },
++            },
++            required: ['type', 'instructions'],
++          },
++        },
++        find: { type: 'string', maxLength: FIND_CHARS, description: 'A description to find among the pictures ("the red sofa", "a receipt from a supermarket"): each gets match, and best_first ranks them.' },
++        tab_id: { type: 'string', description: 'The tab the pictures are in (default: the one you are working in).' },
++      },
++      required: ['pictures'],
++      additionalProperties: false,
++    },
++    parse: input,
++    // On while this computer has atelier-vision and the chat can use the browser. It runs on this computer, so private
++    // chats have it too; not in routines, like browser_steps.
++    enabled: (setup) => setup.browser && !setup.routine && (deps.pictures()?.visionAvailable() ?? false),
++    run,
++  }
++}
++
++export function registerLabelPictures(deps: LabelPicturesDeps): void {
++  registerClientTool(createLabelPicturesTool(deps))
++}
+diff --git a/src/main/agent/tools/registry.ts b/src/main/agent/tools/registry.ts
+index 0356645..14e6c62 100644
+--- a/src/main/agent/tools/registry.ts
++++ b/src/main/agent/tools/registry.ts
+@@ -120,6 +120,8 @@ export const CLIENT_TOOL_OWNERS = {
+   label_items: 'decisions',
+   // docs/decisions.md › Browser tasks: atelier-step takes a browser task page by page on this computer.
+   browser_steps: 'decisions',
++  // docs/decisions.md › Pictures: atelier-vision answers questions about pictures on a page, on this computer.
++  label_pictures: 'decisions',
+ } as const
+ 
+ const TOOL_NAME = /^[a-zA-Z0-9_-]{1,64}$/
+diff --git a/src/main/decisions/device.ts b/src/main/decisions/device.ts
+index 6cb445d..9f8391e 100644
+--- a/src/main/decisions/device.ts
++++ b/src/main/decisions/device.ts
+@@ -12,6 +12,10 @@ import { MINI_FILES, miniServer } from './device/miniFiles'
+ import { STEP_FILES } from './device/stepFiles'
+ import type { StepAnswer } from './device/step'
+ import type { StepInput } from './device/stepFormat'
++import { VISION_FILES } from './device/visionFiles'
++import type { Answer as VisionAnswer } from './device/visionDecide'
++import type { Question as VisionQuestion } from './device/visionFormat'
++import type { Picture } from './device/visionPreprocess'
+ import { log } from '../log'
+ 
+ // The on-device decision model's main side (docs/decisions.md › On this device). Atelier's own small
+@@ -57,6 +61,19 @@ export function deviceStepDir(dir: string): string | null {
+   return STEP_FILES.every((f) => existsSync(join(dir, f))) ? dir : null
+ }
+ 
++/** atelier-vision's folder (an optional download, feature.ts) when its files are all here, else null. */
++export function deviceVisionDir(dir: string): string | null {
++  return VISION_FILES.every((f) => existsSync(join(dir, f))) ? dir : null
++}
++
++/** What atelier-vision says about one picture: an answer per question, and the picture's vector to ask again or search by. */
++export interface LookAnswer {
++  model: string
++  answers: Record<string, VisionAnswer>
++  vector: Float32Array
++  ms: number
++}
++
+ /** What the helper sends back: one reply per request id, and the mini's server once it runs. */
+ type HelperReply = { id: number; type: 'result'; reply: unknown } | { id: number; type: 'error'; message: string } | { type: 'server'; pid: number }
+ 
+@@ -68,12 +85,15 @@ export interface DeviceProcess {
+ }
+ 
+ /** Starts the helper: Electron's utility process in the app, anything with the same shape in tests. modelDir is ''
+- *  when only atelier-step is here (it answers browser steps, and decisions read the model as not installed). */
+-export type DeviceSpawner = (modelDir: string, miniDir: string | null, stepDir: string | null) => DeviceProcess
++ *  when only atelier-step or atelier-vision is here (they answer browser steps and pictures, and decisions read the
++ *  model as not installed). */
++export type DeviceSpawner = (modelDir: string, miniDir: string | null, stepDir: string | null, visionDir: string | null) => DeviceProcess
+ 
+ const TIMEOUT_MS = 10_000
+ /** With the mini: loading it takes a few seconds cold, and a request of many questions a few tenths each. Callers' own timeouts are shorter for most decisions. */
+ const MINI_TIMEOUT_MS = 30_000
++/** A picture: loading atelier-vision takes a second or two cold, a picture a fraction of a second, a new question's texts a few hundredths each. */
++const VISION_TIMEOUT_MS = 20_000
+ const IDLE_MS = 5 * 60_000
+ /** Crashes in a row before the model counts as unavailable until Atelier restarts. */
+ const CRASHES_MAX = 3
+@@ -91,6 +111,8 @@ export interface DeviceDecisionsOptions {
+   miniDir?(): string | null
+   /** atelier-step's folder (deviceStepDir), read on each start (null or absent: browser steps are not available). */
+   stepDir?(): string | null
++  /** atelier-vision's folder (deviceVisionDir), read on each start (null or absent: pictures are not looked at). */
++  visionDir?(): string | null
+   spawner: DeviceSpawner
+   idleMs?: number
+   /** Stops the mini's server (default process.kill). */
+@@ -104,6 +126,8 @@ export class DeviceDecisions {
+   #procMini: string | null = null
+   /** atelier-step's folder the running helper was started with. */
+   #procStep: string | null = null
++  /** atelier-vision's folder the running helper was started with. */
++  #procVision: string | null = null
+   /** The mini's server, started by the helper. */
+   #server: number | null = null
+   #nextId = 1
+@@ -160,6 +184,28 @@ export class DeviceDecisions {
+     return (await this.#request({ step: input }, signal)) as StepAnswer
+   }
+ 
++  /** atelier-vision is here and the helper hasn't kept crashing. */
++  visionAvailable(): boolean {
++    return this.#crashes < CRASHES_MAX && (this.#opts.visionDir?.() ?? null) !== null
++  }
++
++  /**
++   * System One questions about one picture, answered by atelier-vision (docs/decisions.md › Pictures). The picture is
++   * its pixels, or the vector an earlier look gave back, which costs no second pass through the image tower.
++   */
++  async look(input: { picture?: Picture; vector?: Float32Array }, questions: Record<string, VisionQuestion>, signal: AbortSignal): Promise<LookAnswer> {
++    if (!this.visionAvailable()) throw new Error('atelier-vision is not installed.')
++    const reply = (await this.#request({ look: { picture: input.picture, vector: input.vector, questions } }, signal)) as LookAnswer
++    return { ...reply, vector: Float32Array.from(reply.vector) }
++  }
++
++  /** Vectors to search pictures by: for each text (null where it can't be read), and for a picture. */
++  async embed(input: { texts?: string[]; picture?: Picture }, signal: AbortSignal): Promise<{ texts: Array<Float32Array | null>; picture?: Float32Array }> {
++    if (!this.visionAvailable()) throw new Error('atelier-vision is not installed.')
++    const reply = (await this.#request({ embed: input }, signal)) as { texts: Array<ArrayLike<number> | null>; picture?: ArrayLike<number> }
++    return { texts: reply.texts.map((v) => (v ? Float32Array.from(v) : null)), ...(reply.picture ? { picture: Float32Array.from(reply.picture) } : {}) }
++  }
++
+   /** Loads the small model ahead of the first question (it takes up to a second cold), so that one is answered in time too. The mini loads on its first question, not here: it needs up to 2 GB of memory. */
+   warm(): void {
+     if (!this.available()) return
+@@ -175,7 +221,7 @@ export class DeviceDecisions {
+     this.#stop()
+   }
+ 
+-  #request(request: { state: unknown; questions: unknown } | { step: StepInput }, signal: AbortSignal, nanoOnly = false): Promise<unknown> {
++  #request(request: { state: unknown; questions: unknown } | { step: StepInput } | { look: unknown } | { embed: unknown }, signal: AbortSignal, nanoOnly = false): Promise<unknown> {
+     if (signal.aborted) return Promise.reject(new Error('The decision was stopped.'))
+     const proc = this.#ensure()
+     if (!proc) return Promise.reject(new Error('The on-device decision model is not available.'))
+@@ -205,7 +251,7 @@ export class DeviceDecisions {
+           cancel()
+           reject(new Error('The on-device decision model took too long.'))
+         },
+-        this.#procMini && !('step' in request) ? MINI_TIMEOUT_MS : TIMEOUT_MS,
++        'look' in request || 'embed' in request ? VISION_TIMEOUT_MS : this.#procMini && !('step' in request) ? MINI_TIMEOUT_MS : TIMEOUT_MS,
+       )
+       signal.addEventListener('abort', onAbort, { once: true })
+       this.#pending.set(id, {
+@@ -220,7 +266,8 @@ export class DeviceDecisions {
+         timer,
+       })
+       try {
+-        proc.postMessage('step' in request ? { id, step: request.step } : nanoOnly ? { id, request, nanoOnly } : { id, request })
++        const own = 'step' in request || 'look' in request || 'embed' in request
++        proc.postMessage(own ? { id, ...request } : nanoOnly ? { id, request, nanoOnly } : { id, request })
+       } catch (err) {
+         done()
+         reject(err instanceof Error ? err : new Error(String(err)))
+@@ -232,14 +279,15 @@ export class DeviceDecisions {
+   #ensure(): DeviceProcess | null {
+     const mini = this.#opts.miniDir?.() ?? null
+     const step = this.#opts.stepDir?.() ?? null
+-    // The mini or atelier-step was installed or removed since the helper started: a new one picks that up, once nothing is waiting on this one.
+-    if (this.#proc && (mini !== this.#procMini || step !== this.#procStep) && this.#pending.size === 0) this.#stop()
++    const vision = this.#opts.visionDir?.() ?? null
++    // The mini, atelier-step or atelier-vision was installed or removed since the helper started: a new one picks that up, once nothing is waiting on this one.
++    if (this.#proc && (mini !== this.#procMini || step !== this.#procStep || vision !== this.#procVision) && this.#pending.size === 0) this.#stop()
+     if (this.#proc) return this.#proc
+     const dir = this.#opts.modelDir()
+-    if ((!dir && !step) || this.#crashes >= CRASHES_MAX) return null
++    if ((!dir && !step && !vision) || this.#crashes >= CRASHES_MAX) return null
+     let proc: DeviceProcess
+     try {
+-      proc = this.#opts.spawner(dir ?? '', mini, step)
++      proc = this.#opts.spawner(dir ?? '', mini, step, vision)
+     } catch (err) {
+       log.warn('decisions', 'Could not start the on-device decision model', { error: err instanceof Error ? err.message : String(err) })
+       this.#crashes = CRASHES_MAX
+@@ -248,6 +296,7 @@ export class DeviceDecisions {
+     this.#proc = proc
+     this.#procMini = mini
+     this.#procStep = step
++    this.#procVision = vision
+     proc.on('message', (message) => this.#read(message))
+     proc.once('exit', () => {
+       if (this.#proc !== proc) return
+@@ -255,6 +304,7 @@ export class DeviceDecisions {
+       this.#proc = null
+       this.#procMini = null
+       this.#procStep = null
++      this.#procVision = null
+       this.#killServer()
+       if (hadWork) this.#crashes++
+       for (const [, p] of this.#pending) p.reject(new Error('The on-device decision model stopped.'))
+@@ -294,6 +344,7 @@ export class DeviceDecisions {
+     this.#proc = null
+     this.#procMini = null
+     this.#procStep = null
++    this.#procVision = null
+     for (const [, p] of this.#pending) p.reject(new Error('The on-device decision model was stopped.'))
+     this.#pending.clear()
+     try {
+@@ -318,7 +369,7 @@ export class DeviceDecisions {
+ }
+ 
+ let current: DeviceDecisions | null = null
+-/** The running on-device models, for the browser-steps tool (agent/tools/browserSteps.ts); null before start and after quit. */
++/** The running on-device models, for the tools that use them (agent/tools/browserSteps.ts, decisions/pictureTool.ts); null before start and after quit. */
+ export function deviceSteps(): DeviceDecisions | null {
+   return current
+ }
+diff --git a/src/main/decisions/device/vision.ts b/src/main/decisions/device/vision.ts
+new file mode 100644
+index 0000000..acb8d3f
+--- /dev/null
++++ b/src/main/decisions/device/vision.ts
+@@ -0,0 +1,216 @@
++/* Copyright (c) 2026 The Atelier Authors. All rights reserved.
++ * This Source Code Form is subject to the terms of the Mozilla Public
++ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
++ * You can obtain one at https://mozilla.org/MPL/2.0/. */
++
++// atelier-vision on ONNX Runtime (CPU), in the decision helper (docs/decisions.md › Pictures). A picture becomes a vector
++// once; every question about it after that is a few short texts through the text tower (kept, since the same answers
++// are asked of many pictures) and a dot product. It answers Atelier's System One questions about a picture by how well
++// the picture matches each answer's text, and writes nothing. The same vectors find a picture by a description. The
++// model folder is an optional download (feature.ts) from the atelier-decisions project; this file is its
++// runtime/node/src/vision/model.ts, and tests/decisionsVision.test.ts checks it against the version's parity fixtures.
++import { readFileSync } from 'node:fs'
++import { join } from 'node:path'
++import { Tokenizer } from '@huggingface/tokenizers'
++import * as ort from 'onnxruntime-node'
++import { answer, probabilities, RAW, type Answer, type Calibration } from './visionDecide'
++import { clean, encodeText, labels, MAX_TOKENS, texts, unanswerable, type Question, type VisionTokenize } from './visionFormat'
++import { preprocess, type Picture } from './visionPreprocess'
++
++export { VISION_FILES } from './visionFiles'
++export type { Answer as VisionAnswer } from './visionDecide'
++export type { Question as VisionQuestion } from './visionFormat'
++export type { Picture } from './visionPreprocess'
++
++/**
++ * When the model can't read a text it declines instead of guessing, as atelier-nano does: the vocabulary is trimmed
++ * to Latin-script languages, so other scripts fall apart into raw bytes.
++ */
++export interface Guard {
++  min_latin: number
++  max_bytes: number
++  min_letters: number
++}
++export const DEFAULT_GUARD: Guard = { min_latin: 0.7, max_bytes: 0.1, min_letters: 8 }
++// Latin letters by code point, so this and the training code agree on every character (the project's vision/runtime.py).
++const LATIN: Array<[number, number]> = [[0x41, 0x5a], [0x61, 0x7a], [0xaa, 0xaa], [0xba, 0xba], [0xc0, 0x24f], [0x1e00, 0x1eff], [0xff21, 0xff3a], [0xff41, 0xff5a]]
++const isLatin = (ch: string): boolean => {
++  const code = ch.codePointAt(0) ?? 0
++  return LATIN.some(([lo, hi]) => lo <= code && code <= hi)
++}
++
++/** Why the model can't read this text, or null when it can. ids: its tokens before <eos> and padding. */
++export function unreadable(text: string, ids: number[], byteIds: Set<number>, guard: Guard = DEFAULT_GUARD): string | null {
++  const letters = text.match(/\p{L}/gu) ?? []
++  if (letters.length >= guard.min_letters) {
++    const latin = letters.filter(isLatin).length / letters.length
++    if (latin < guard.min_latin) return `mostly not Latin script (${Math.floor(latin * 100 + 0.5)}% Latin)`
++  }
++  if (ids.length > 0) {
++    const share = ids.filter((id) => byteIds.has(id)).length / ids.length
++    if (share > guard.max_bytes) return `${Math.floor(share * 100 + 0.5)}% of the text is outside the vocabulary`
++  }
++  return null
++}
++
++interface VisionInfo {
++  format?: number
++  size: number
++  scale: number
++  bias: number
++  files: { image: string; text: string }
++  calibration?: Calibration
++  guard?: Guard
++}
++
++export interface LookResult {
++  answers: Record<string, Answer>
++  /** The picture's vector (unit length): keep it to ask again later, or to search by. */
++  vector: Float32Array
++  ms: number
++}
++
++export class VisionDecider {
++  private readonly images: ort.InferenceSession
++  private readonly words: ort.InferenceSession
++  readonly tok: VisionTokenize
++  private readonly byteIds: Set<number>
++  private readonly info: VisionInfo
++  private readonly cal: Calibration
++  private readonly guard: Guard
++  private readonly kept = new Map<string, Float32Array>()
++  private readonly keep: number
++
++  private constructor(images: ort.InferenceSession, words: ort.InferenceSession, tok: VisionTokenize, byteIds: Set<number>, info: VisionInfo, raw: boolean, keep: number) {
++    this.images = images
++    this.words = words
++    this.tok = tok
++    this.byteIds = byteIds
++    this.info = info
++    this.cal = raw ? RAW : (info.calibration ?? RAW)
++    this.guard = info.guard ?? DEFAULT_GUARD
++    this.keep = keep
++  }
++
++  /** raw: SigLIP's own reading instead of the calibration (parity checks use the calibrated one). keepTexts: how many texts' vectors to keep. */
++  static async load(dir: string, options: { threads?: number; raw?: boolean; keepTexts?: number } = {}): Promise<VisionDecider> {
++    const json = (name: string): object => JSON.parse(readFileSync(join(dir, name), 'utf8')) as object
++    const info = json('vision.json') as VisionInfo
++    if (info.format !== 1) throw new Error(`vision model format ${String(info.format)} is not one this version of Atelier reads`)
++    const spec = json('tokenizer.json') as { model: { vocab: Record<string, number> } }
++    const tokenizer = new Tokenizer(spec, json('tokenizer_config.json'))
++    const tok: VisionTokenize = { encode: (text) => tokenizer.encode(text, { add_special_tokens: false }).ids }
++    const byteIds = new Set(Object.entries(spec.model.vocab).filter(([t]) => /^<0x[0-9A-F]{2}>$/.test(t)).map(([, id]) => id))
++    const open = (file: string): Promise<ort.InferenceSession> =>
++      ort.InferenceSession.create(join(dir, file), { executionProviders: ['cpu'], intraOpNumThreads: options.threads ?? 2, graphOptimizationLevel: 'all' })
++    return new VisionDecider(await open(info.files.image), await open(info.files.text), tok, byteIds, info, options.raw ?? false, options.keepTexts ?? 4000)
++  }
++
++  /** Frees the ONNX sessions (see NanoDecider.release). */
++  async release(): Promise<void> {
++    await Promise.all([this.images.release(), this.words.release()])
++  }
++
++  get size(): number {
++    return this.info.size
++  }
++
++  /** A picture's vector (unit length). */
++  async image(picture: Picture): Promise<Float32Array> {
++    const size = this.info.size
++    const out = await this.images.run({ pixels: new ort.Tensor('float32', preprocess(picture, size), [1, 3, size, size]) })
++    return Float32Array.from(out.embedding!.data as Float32Array)
++  }
++
++  ids(text: string): { ids: number[]; cut: boolean } {
++    return encodeText(this.tok, text)
++  }
++
++  unreadable(text: string): string | null {
++    const cleaned = clean(text)
++    return unreadable(cleaned, this.tok.encode(cleaned), this.byteIds, this.guard)
++  }
++
++  /** A text's vector (unit length). */
++  async text(text: string): Promise<Float32Array> {
++    return (await this.read([text])).get(text)!
++  }
++
++  /**
++   * Texts' vectors, the ones not read before through the text tower together: a question with 60 options is one pass,
++   * not 60. Kept, since the same answers are asked of many pictures.
++   */
++  async read(wanted: string[], batch = 32): Promise<Map<string, Float32Array>> {
++    const out = new Map<string, Float32Array>()
++    const fresh: string[] = []
++    for (const text of new Set(wanted)) {
++      const hit = this.kept.get(text)
++      if (hit) out.set(text, hit)
++      else fresh.push(text)
++    }
++    for (let i = 0; i < fresh.length; i += batch) {
++      const chunk = fresh.slice(i, i + batch)
++      const ids = new BigInt64Array(chunk.length * MAX_TOKENS)
++      chunk.forEach((text, row) => this.ids(text).ids.forEach((id, col) => (ids[row * MAX_TOKENS + col] = BigInt(id))))
++      const run = await this.words.run({ input_ids: new ort.Tensor('int64', ids, [chunk.length, MAX_TOKENS]) })
++      const data = run.embedding!.data as Float32Array
++      const width = data.length / chunk.length
++      chunk.forEach((text, row) => {
++        const vector = Float32Array.from(data.subarray(row * width, (row + 1) * width))
++        out.set(text, vector)
++        if (this.keep > 0) {
++          if (this.kept.size >= this.keep) this.kept.delete(this.kept.keys().next().value as string)
++          this.kept.set(text, vector)
++        }
++      })
++    }
++    return out
++  }
++
++  /** Why a question isn't answered: its shape, a text the model can't read, or a text longer than it reads. */
++  decline(q: Question): string | null {
++    const why = unanswerable(q)
++    if (why) return why
++    for (const text of texts(q)) {
++      if (text === null) continue
++      const bad = this.unreadable(text)
++      if (bad) return bad
++      if (this.ids(text).cut) return 'a text is longer than the model reads (63 tokens)'
++    }
++    return null
++  }
++
++  /** System One answers for questions about one picture, given as pixels or as a vector kept from before. */
++  async look(input: { picture?: Picture; vector?: Float32Array }, questions: Record<string, Question>): Promise<LookResult> {
++    const t0 = performance.now()
++    const vector = input.vector ?? (input.picture ? await this.image(input.picture) : null)
++    if (!vector) throw new Error('A look needs a picture or a vector')
++    const answers: Record<string, Answer> = {}
++    const entries = Object.entries(questions ?? {}).map(([key, q]) => ({ key, q, why: this.decline(q) }))
++    const read = await this.read(entries.flatMap((e) => (e.why ? [] : texts(e.q).filter((t): t is string => t !== null))))
++    for (const { key, q, why } of entries) {
++      if (why) {
++        answers[key] = { type: 'refusal', reason: why }
++        continue
++      }
++      const cos = texts(q).map((text) => (text === null ? null : dot(vector, read.get(text)!)))
++      answers[key] = answer(q, labels(q), probabilities(q.type, cos, this.info.scale, this.info.bias, this.cal))
++    }
++    return { answers, vector, ms: performance.now() - t0 }
++  }
++
++  /** The pictures nearest to a description: indices into `vectors`, best first, with their cosine. */
++  async search(query: string, vectors: Float32Array[], top = 10): Promise<Array<{ index: number; cos: number }>> {
++    const q = await this.text(query)
++    return vectors
++      .map((v, index) => ({ index, cos: dot(v, q) }))
++      .sort((a, b) => b.cos - a.cos)
++      .slice(0, top)
++  }
++}
++
++export function dot(a: Float32Array, b: Float32Array): number {
++  let s = 0
++  for (let i = 0; i < a.length; i++) s += a[i]! * b[i]!
++  return s
++}
+diff --git a/src/main/decisions/device/visionDecide.ts b/src/main/decisions/device/visionDecide.ts
+new file mode 100644
+index 0000000..e53eb39
+--- /dev/null
++++ b/src/main/decisions/device/visionDecide.ts
+@@ -0,0 +1,77 @@
++/* Copyright (c) 2026 The Atelier Authors. All rights reserved.
++ * This Source Code Form is subject to the terms of the Mozilla Public
++ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
++ * You can obtain one at https://mozilla.org/MPL/2.0/. */
++
++// From how well a picture matches each answer's text to a System One answer: a port of the atelier-decisions
++// project's vision/decide.py. The towers give cos(picture, text) for every text of a question; z = scale * cos + bias
++// is SigLIP's own log-odds that the text describes the picture.
++//   choice, score   softmax(z / t) over the options
++//   noul            with a "false" text: sigmoid(a * z_true - b * z_false + c); without one: sigmoid(a * z_true + c)
++// t, a, b and c are the version's calibration (vision.json), fitted on pictures and kinds of questions it never
++// trained on, so "sure" means what the readers' cutoffs take it to mean.
++
++import type { Content, Question } from './visionFormat'
++
++/** Options from which a choice is read with the "many" temperature: sixty wrong options that each look a little possible add up. */
++export const MANY = 16
++
++export interface Calibration {
++  choice: { t: number; many?: number }
++  score: { t: number }
++  noul: { pair: { a: number; b: number; c: number }; single: { a: number; c: number } }
++}
++/** Before calibration: SigLIP's own reading. */
++export const RAW: Calibration = { choice: { t: 1, many: 1 }, score: { t: 1 }, noul: { pair: { a: 1, b: 0, c: 0 }, single: { a: 1, c: 0 } } }
++
++export type Answer =
++  | { type: 'refusal'; reason: string }
++  | { type: 'noul'; noul: number }
++  | { type: 'choice'; choice: string; probabilities: Record<string, number>; confidence: number }
++  | { type: 'score'; score: number; probabilities: Record<string, number>; legend: Record<string, Content>; confidence: number }
++
++function softmax(xs: number[]): number[] {
++  const m = Math.max(...xs)
++  const e = xs.map((x) => Math.exp(x - m))
++  const s = e.reduce((a, b) => a + b, 0)
++  return e.map((x) => x / s)
++}
++
++const sigmoid = (x: number): number => (x >= 0 ? 1 / (1 + Math.exp(-x)) : Math.exp(x) / (1 + Math.exp(x)))
++
++/** The probability of each of labels(q), from the cosines of texts(q) (null where there was no text). */
++export function probabilities(kind: Question['type'], cos: Array<number | null>, scale: number, bias: number, cal: Calibration = RAW): number[] {
++  const z = cos.map((c) => (c === null ? null : scale * c + bias))
++  if (kind === 'noul') {
++    const [zFalse, zTrue] = z as [number | null, number]
++    const p = zFalse === null ? sigmoid(cal.noul.single.a * zTrue + cal.noul.single.c) : sigmoid(cal.noul.pair.a * zTrue - cal.noul.pair.b * zFalse + cal.noul.pair.c)
++    return [1 - p, p]
++  }
++  const t = kind === 'choice' && z.length >= MANY ? (cal.choice.many ?? cal.choice.t) : cal[kind].t
++  return softmax((z as number[]).map((x) => x / t))
++}
++
++/** pplx_decider.protocol.answer, as src/decider.ts has it: the System One answer for one question. */
++export function answer(q: Question, names: string[], p: number[]): Answer {
++  const at = (i: number): number => p[i] ?? 0
++  if (q.type === 'noul') return { type: 'noul', noul: at(1) }
++  let best = 0
++  for (let i = 1; i < p.length; i++) if (at(i) > at(best)) best = i
++  const dist = Object.fromEntries(names.map((k, i) => [k, at(i)]))
++  if (q.type === 'choice') {
++    const n = p.length
++    const confidence = n === 1 ? 1 : (at(best) - 1 / n) / (1 - 1 / n)
++    return { type: 'choice', probabilities: dist, choice: names[best] ?? '', confidence: Math.max(0, Math.min(1, confidence)) }
++  }
++  const levels = q.criteria as Content[]
++  const distance = p.reduce((s, pi, i) => s + pi * Math.abs(i - best), 0)
++  const midpoint = (p.length - 1) / 2
++  const baseline = p.reduce((s, _, i) => s + Math.abs(i - midpoint), 0) / p.length
++  return {
++    type: 'score',
++    probabilities: dist,
++    legend: Object.fromEntries(names.map((k, i) => [k, levels[i] ?? null])),
++    score: p.reduce((s, pi, i) => s + i * pi, 0),
++    confidence: Math.max(0, 1 - distance / baseline),
++  }
++}
+diff --git a/src/main/decisions/device/visionFiles.ts b/src/main/decisions/device/visionFiles.ts
+new file mode 100644
+index 0000000..7a3dbbb
+--- /dev/null
++++ b/src/main/decisions/device/visionFiles.ts
+@@ -0,0 +1,10 @@
++/* Copyright (c) 2026 The Atelier Authors. All rights reserved.
++ * This Source Code Form is subject to the terms of the Mozilla Public
++ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
++ * You can obtain one at https://mozilla.org/MPL/2.0/. */
++
++// atelier-vision's files, apart from its runtime (vision.ts), so the main process can check a folder without loading
++// ONNX Runtime: only the decision helper does that.
++
++/** The files a usable vision model folder holds. */
++export const VISION_FILES = ['image.q8.onnx', 'text.q8.emb4.onnx', 'tokenizer.json', 'tokenizer_config.json', 'vision.json'] as const
+diff --git a/src/main/decisions/device/visionFormat.ts b/src/main/decisions/device/visionFormat.ts
+new file mode 100644
+index 0000000..5d6f265
+--- /dev/null
++++ b/src/main/decisions/device/visionFormat.ts
+@@ -0,0 +1,79 @@
++/* Copyright (c) 2026 The Atelier Authors. All rights reserved.
++ * This Source Code Form is subject to the terms of the Mozilla Public
++ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
++ * You can obtain one at https://mozilla.org/MPL/2.0/. */
++
++// atelier-vision's questions (docs/decisions.md › Pictures): a line-for-line port of the atelier-decisions project's
++// vision/format.py. Atelier's own System One questions, asked about a picture: every answer is a short text, and the
++// model says how well the picture matches each one.
++//   choice  one text per option: its description, or the option's own name when it has none
++//   score   one text per level (declined for now: no version has been measured on levels)
++//   noul    the "true" text is what a yes looks like (without criteria, the question itself); a "false" text is matched
++//           too when there is one
++// A text is lowercased, cut to 63 tokens, closed with <eos> and padded to 64. tests/decisionsVision.test.ts checks the
++// token ids on the version's parity fixtures.
++
++export type Content = string | number | boolean | null | Content[] | { [k: string]: Content }
++export interface Question {
++  type: 'choice' | 'noul' | 'score'
++  instructions?: Content | null
++  criteria?: Record<string, Content | null> | Content[] | null
++}
++
++export const MAX_TOKENS = 64
++export const PAD = 0
++export const EOS = 1
++export const SCORE_UNMEASURED = 'levels on a scale are not measured for pictures yet'
++
++// What Python's str.split() splits on, spelled out so both sides agree on every character.
++const SPACE = /[\t\n\v\f\r \x1c-\x1f\x85\xa0\u1680\u2000-\u200a\u2028\u2029\u202f\u205f\u3000]+/
++
++/** One line, single spaces, lowercase. */
++export function clean(text: string): string {
++  return text.split(SPACE).filter(Boolean).join(' ').toLowerCase()
++}
++
++export interface VisionTokenize {
++  /** Token ids without special tokens. */
++  encode(text: string): number[]
++}
++
++/** A text's 64 token ids, and whether it was too long and lost its end. */
++export function encodeText(tok: VisionTokenize, text: string): { ids: number[]; cut: boolean } {
++  const raw = tok.encode(clean(text))
++  const ids = [...raw.slice(0, MAX_TOKENS - 1), EOS]
++  while (ids.length < MAX_TOKENS) ids.push(PAD)
++  return { ids, cut: raw.length > MAX_TOKENS - 1 }
++}
++
++/** The answers' names: a choice's keys, a score's level numbers, false and true. */
++export function labels(q: Question): string[] {
++  if (q.type === 'choice') return Object.keys(q.criteria as Record<string, Content>)
++  if (q.type === 'score') return (q.criteria as Content[]).map((_, i) => String(i))
++  return ['false', 'true']
++}
++
++const said = (value: unknown): string | null => (typeof value === 'string' && value.trim() ? value.trim() : null)
++
++/** The text to match the picture against for each of labels(q); null where there is nothing to match. */
++export function texts(q: Question): Array<string | null> {
++  if (q.type === 'choice') return Object.entries(q.criteria as Record<string, Content | null>).map(([k, v]) => said(v) ?? said(k))
++  if (q.type === 'score') return (q.criteria as Content[]).map((v) => said(v))
++  const criteria = (q.criteria ?? {}) as Record<string, Content | null>
++  return [said(criteria.false), said(criteria.true) ?? said(q.instructions)]
++}
++
++/** Why this question can't be asked of a picture, or null when it can. */
++export function unanswerable(q: Question): string | null {
++  const kind = (q as { type?: unknown }).type
++  if (kind !== 'choice' && kind !== 'noul' && kind !== 'score') return `unknown question type ${JSON.stringify(kind ?? null)}`
++  const criteria = q.criteria
++  const isMap = criteria !== null && criteria !== undefined && typeof criteria === 'object' && !Array.isArray(criteria)
++  if (kind === 'choice' && (!isMap || Object.keys(criteria as object).length < 2)) return 'a choice needs two or more options'
++  if (kind === 'score' && (!Array.isArray(criteria) || criteria.length < 2)) return 'a score needs two or more levels'
++  if (kind === 'score') return SCORE_UNMEASURED
++  if (kind === 'noul' && criteria !== null && criteria !== undefined && !isMap) return 'the criteria of a yes/no question are {true, false}'
++  const found = texts(q)
++  if (kind === 'noul') return found[1] ? null : 'nothing says what a yes looks like'
++  return found.every(Boolean) ? null : 'an option without a text'
++}
+diff --git a/src/main/decisions/device/visionManifest.ts b/src/main/decisions/device/visionManifest.ts
+new file mode 100644
+index 0000000..ecd8d07
+--- /dev/null
++++ b/src/main/decisions/device/visionManifest.ts
+@@ -0,0 +1,23 @@
++/* Copyright (c) 2026 The Atelier Authors. All rights reserved.
++ * This Source Code Form is subject to the terms of the Mozilla Public
++ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
++ * You can obtain one at https://mozilla.org/MPL/2.0/. */
++
++// atelier-vision's optional download (feature.ts): every file with its size and SHA-256, from the atelier-decisions
++// project's releases/vision-v0.1/MANIFEST.json (its tools/vision_dist.py writes this file). The base is the version's
++// tag on Hugging Face, so these files never change under it; a new version is a new manifest here.
++
++import type { MiniManifest } from '../deviceMini'
++
++export const VISION_MANIFEST: MiniManifest = {
++  version: 'vision-v0.1',
++  base: 'https://huggingface.co/3SENN/atelier-decisions/resolve/vision-v0.1/releases/vision-v0.1/model/',
++  model: [
++    { path: 'image.q8.onnx', url: 'image.q8.onnx', size: 105790485, sha256: '22d1daaa9eca6c3a41686ac6dd81d5ce817cf986264d8f47ce37ee129001c0ac' },
++    { path: 'text.q8.emb4.onnx', url: 'text.q8.emb4.onnx', size: 147944376, sha256: '63878a737f6b225e9b1a811a9151bc7f400849b728dea23e2f2c7468cef3ace1' },
++    { path: 'tokenizer.json', url: 'tokenizer.json', size: 6263926, sha256: 'c3179fbc32d05d7bf48c38c29cf348302566455ac97afa002dafebfb4664440c' },
++    { path: 'tokenizer_config.json', url: 'tokenizer_config.json', size: 47164, sha256: '14afe629fe4959b9e0d51e1852b8d9f7ad074f90a1a7125a4fcdd17f06e78fc8' },
++    { path: 'vision.json', url: 'vision.json', size: 1487, sha256: 'a549a480e118f8435bc563d1edd8631ca86edf5b12157f1ba5c31c752ac21f7d' },
++  ],
++  servers: {},
++}
+diff --git a/src/main/decisions/device/visionPreprocess.ts b/src/main/decisions/device/visionPreprocess.ts
+new file mode 100644
+index 0000000..256ab0b
+--- /dev/null
++++ b/src/main/decisions/device/visionPreprocess.ts
+@@ -0,0 +1,100 @@
++/* Copyright (c) 2026 The Atelier Authors. All rights reserved.
++ * This Source Code Form is subject to the terms of the Mozilla Public
++ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
++ * You can obtain one at https://mozilla.org/MPL/2.0/. */
++
++// atelier-vision's image input (docs/decisions.md › Pictures): a line-for-line port of the atelier-decisions project's
++// vision/preprocess.py, the contract between training and this runtime. Any picture becomes the 256 x 256 square the
++// image tower reads: transparent parts over white, the whole picture resized without keeping its proportions (a
++// triangle filter whose width grows with the reduction, rows first, in double precision), every value x / 127.5 - 1,
++// channels first. tests/decisionsVision.test.ts checks the numbers on the version's parity fixtures
++// (ATELIER_VISION_PARITY=<model folder>).
++
++export const SIZE = 256
++
++/** Decoded pixels, row by row from the top left: RGB or RGBA, 8 bits each. */
++export interface Picture {
++  data: Uint8Array | Uint8ClampedArray
++  width: number
++  height: number
++  channels: 3 | 4
++}
++
++/** For each output position: the first input position it reads and its weights (they sum to 1). */
++function taps(nIn: number, nOut: number): Array<{ lo: number; w: Float64Array }> {
++  const scale = nIn / nOut
++  const support = Math.max(scale, 1)
++  const out: Array<{ lo: number; w: Float64Array }> = []
++  for (let i = 0; i < nOut; i++) {
++    const center = (i + 0.5) * scale
++    const lo = Math.max(0, Math.trunc(center - support + 0.5))
++    const hi = Math.min(nIn, Math.trunc(center + support + 0.5))
++    const w = new Float64Array(hi - lo)
++    let sum = 0
++    for (let j = lo; j < hi; j++) {
++      const v = Math.max(0, 1 - Math.abs((j + 0.5 - center) / support))
++      w[j - lo] = v
++      sum += v
++    }
++    for (let k = 0; k < w.length; k++) w[k] = w[k]! / sum
++    out.push({ lo, w })
++  }
++  return out
++}
++
++/** The tower's input: float32 [3 * size * size], channels first, in -1..1. */
++export function preprocess(p: Picture, size = SIZE): Float32Array {
++  const { data, width, height, channels } = p
++  if (data.length !== width * height * channels) throw new Error(`a ${width} x ${height} picture with ${channels} channels has ${width * height * channels} values, not ${data.length}`)
++  // Along each row first: [height, size, 3].
++  const rows = new Float64Array(height * size * 3)
++  const across = taps(width, size)
++  for (let y = 0; y < height; y++) {
++    for (let o = 0; o < size; o++) {
++      const { lo, w } = across[o]!
++      let r = 0
++      let g = 0
++      let b = 0
++      for (let k = 0; k < w.length; k++) {
++        const at = (y * width + lo + k) * channels
++        let pr = data[at]!
++        let pg = data[at + 1]!
++        let pb = data[at + 2]!
++        if (channels === 4) {
++          const alpha = data[at + 3]! / 255
++          pr = pr * alpha + 255 * (1 - alpha)
++          pg = pg * alpha + 255 * (1 - alpha)
++          pb = pb * alpha + 255 * (1 - alpha)
++        }
++        r += pr * w[k]!
++        g += pg * w[k]!
++        b += pb * w[k]!
++      }
++      const to = (y * size + o) * 3
++      rows[to] = r
++      rows[to + 1] = g
++      rows[to + 2] = b
++    }
++  }
++  // Then along each column, straight into channels-first order.
++  const out = new Float32Array(3 * size * size)
++  const down = taps(height, size)
++  for (let o = 0; o < size; o++) {
++    const { lo, w } = down[o]!
++    for (let x = 0; x < size; x++) {
++      for (let c = 0; c < 3; c++) {
++        let v = 0
++        for (let k = 0; k < w.length; k++) v += rows[((lo + k) * size + x) * 3 + c]! * w[k]!
++        out[c * size * size + o * size + x] = v / 127.5 - 1
++      }
++    }
++  }
++  return out
++}
++
++/** vision/preprocess.py checksum: a number that changes when the input does. */
++export function checksum(x: Float32Array): number {
++  let sum = 0
++  for (let i = 0; i < x.length; i++) sum += x[i]! * (((i % 97) + 1) / 97)
++  return sum
++}
+diff --git a/src/main/decisions/deviceHelper.ts b/src/main/decisions/deviceHelper.ts
+index 8d9eef0..063a463 100644
+--- a/src/main/decisions/deviceHelper.ts
++++ b/src/main/decisions/deviceHelper.ts
+@@ -4,9 +4,10 @@
+  * You can obtain one at https://mozilla.org/MPL/2.0/. */
+ 
+ // The on-device decision model's utility process (out/main/decisionsDevice.js, started by device.ts with the
+-// model's folder as its argument, the mini's folder as the second and atelier-step's as the third when those optional
+-// downloads are here; '' when one isn't). One message in per request ({ id, request, nanoOnly? }), browser step
+-// ({ id, step }) or cancel ({ cancel: id }), one reply out per id. It loads
++// model's folder as its argument, the mini's folder as the second, atelier-step's as the third and atelier-vision's as
++// the fourth when those optional downloads are here; '' when one isn't). One message in per request
++// ({ id, request, nanoOnly? }), browser step ({ id, step }), look at a picture ({ id, look }), vectors to search by
++// ({ id, embed }) or cancel ({ cancel: id }), one reply out per id. It loads
+ // the small model on the first request and the mini on the first question the small one leaves open
+ // (device/cascade.ts); device.ts stops this process, and the mini's server with it, after a quiet spell.
+ import os from 'node:os'
+@@ -15,10 +16,12 @@ import { MiniDecider } from './device/mini'
+ import { NanoDecider } from './device/nano'
+ import { StepDecider } from './device/step'
+ import type { StepInput } from './device/stepFormat'
++import { VisionDecider, type Picture, type VisionQuestion } from './device/vision'
+ 
+ const dir = process.argv[2] ?? ''
+ const miniDir = process.argv[3] || null
+ const stepDir = process.argv[4] || null
++const visionDir = process.argv[5] || null
+ /** Two threads for the small model: answers in a few milliseconds, and leaves the rest of the CPU to the browser. */
+ const THREADS = 2
+ /** The mini needs more, still leaving half the cores to everything else. */
+@@ -26,10 +29,37 @@ const MINI_THREADS = Math.max(2, Math.min(6, Math.floor(os.availableParallelism(
+ let model: Promise<NanoDecider> | null = null
+ let mini: Promise<MiniDecider> | null = null
+ let stepModel: Promise<StepDecider> | null = null
++let visionModel: Promise<VisionDecider> | null = null
+ const cancelled = new Set<number>()
+ 
++/** A picture as it crosses to this process: decoded pixels, RGB or RGBA, row by row. */
++interface PictureMessage {
++  data: Uint8Array
++  width: number
++  height: number
++  channels: number
++}
++/** What device.ts sends for a look ({ picture or vector, questions }) and for vectors ({ texts?, picture? }). */
++interface LookMessage {
++  picture?: PictureMessage
++  vector?: number[] | Float32Array
++  questions?: Record<string, VisionQuestion>
++}
++interface EmbedMessage {
++  texts?: string[]
++  picture?: PictureMessage
++}
++
+ process.parentPort.on('message', (event) => {
+-  const data = (event.data ?? {}) as { id?: number; cancel?: number; nanoOnly?: boolean; request?: { state?: unknown; questions?: unknown }; step?: StepInput }
++  const data = (event.data ?? {}) as {
++    id?: number
++    cancel?: number
++    nanoOnly?: boolean
++    request?: { state?: unknown; questions?: unknown }
++    step?: StepInput
++    look?: LookMessage
++    embed?: EmbedMessage
++  }
+   if (typeof data.cancel === 'number') {
+     // A cancel that crossed its answer stays behind; an upper bound keeps those few from adding up.
+     if (cancelled.size > 1000) cancelled.clear()
+@@ -38,9 +68,71 @@ process.parentPort.on('message', (event) => {
+   }
+   if (typeof data.id !== 'number') return
+   if (data.step) void answerStep(data.id, data.step)
++  else if (data.look) void answerLook(data.id, data.look)
++  else if (data.embed) void answerEmbed(data.id, data.embed)
+   else void answer(data.id, data.request, data.nanoOnly === true)
+ })
+ 
++function loadVision(): Promise<VisionDecider> {
++  if (!visionDir) return Promise.reject(new Error('atelier-vision is not installed'))
++  // Two threads, like the other small models: a picture takes a fraction of a second, and the browser keeps the rest.
++  visionModel ??= VisionDecider.load(visionDir, { threads: THREADS }).catch((err: unknown) => {
++    visionModel = null
++    throw err
++  })
++  return visionModel
++}
++
++function pictureOf(p: PictureMessage | undefined): Picture | undefined {
++  if (!p) return undefined
++  const { data, width, height, channels } = p
++  if (!(data instanceof Uint8Array) || !Number.isInteger(width) || !Number.isInteger(height) || width < 1 || height < 1 || (channels !== 3 && channels !== 4) || data.length !== width * height * channels) {
++    throw new Error('bad request: a picture is its pixels (RGB or RGBA, 8 bits each) with its width and height')
++  }
++  return { data, width, height, channels }
++}
++
++/** System One questions about one picture (device/vision.ts); the picture's vector comes back to ask again or search by. */
++async function answerLook(id: number, look: LookMessage): Promise<void> {
++  try {
++    const picture = pictureOf(look.picture)
++    const vector = look.vector ? Float32Array.from(look.vector) : undefined
++    if (!picture && !vector) throw new Error('bad request: a look needs a picture or a vector')
++    const questions = look.questions ?? {}
++    if (typeof questions !== 'object') throw new Error('bad request: the questions are an object')
++    const model = await loadVision()
++    if (cancelled.has(id)) return
++    const out = await model.look({ picture, vector }, questions)
++    process.parentPort.postMessage({ id, type: 'result', reply: { model: 'atelier-vision', answers: out.answers, vector: out.vector, ms: out.ms } })
++  } catch (err) {
++    const message = err instanceof Error ? err.message : String(err)
++    process.parentPort.postMessage({ id, type: 'error', message: message.slice(0, 500) })
++  } finally {
++    cancelled.delete(id)
++  }
++}
++
++/** Vectors to search pictures by: a text's nearest pictures are the ones it describes. A text it can't read gives null. */
++async function answerEmbed(id: number, embed: EmbedMessage): Promise<void> {
++  try {
++    const picture = pictureOf(embed.picture)
++    const texts = Array.isArray(embed.texts) ? embed.texts.filter((t): t is string => typeof t === 'string').slice(0, 200) : []
++    if (!picture && texts.length === 0) throw new Error('bad request: vectors are made of texts or a picture')
++    const model = await loadVision()
++    const vectors: Array<Float32Array | null> = []
++    for (const text of texts) {
++      if (cancelled.has(id)) return
++      vectors.push(model.unreadable(text) ? null : await model.text(text))
++    }
++    process.parentPort.postMessage({ id, type: 'result', reply: { model: 'atelier-vision', texts: vectors, picture: picture ? await model.image(picture) : undefined } })
++  } catch (err) {
++    const message = err instanceof Error ? err.message : String(err)
++    process.parentPort.postMessage({ id, type: 'error', message: message.slice(0, 500) })
++  } finally {
++    cancelled.delete(id)
++  }
++}
++
+ async function answerStep(id: number, input: StepInput): Promise<void> {
+   try {
+     if (!stepDir) throw new Error('atelier-step is not installed')
+diff --git a/src/main/decisions/feature.ts b/src/main/decisions/feature.ts
+index f469a5b..cbb605b 100644
+--- a/src/main/decisions/feature.ts
++++ b/src/main/decisions/feature.ts
+@@ -15,9 +15,10 @@ import { registerResetStep } from '../reset'
+ import { appRoot } from '../resources'
+ import { registerStorageCategory } from '../storage'
+ import type { FetchLike } from './client'
+-import { DeviceDecisions, deviceModelDir, deviceStepDir, onnxRuntimeHere, setDeviceSteps } from './device'
++import { DeviceDecisions, deviceModelDir, deviceStepDir, deviceVisionDir, onnxRuntimeHere, setDeviceSteps } from './device'
+ import { MINI_MANIFEST } from './device/miniManifest'
+ import { STEP_MANIFEST } from './device/stepManifest'
++import { VISION_MANIFEST } from './device/visionManifest'
+ import { MiniInstaller } from './deviceMini'
+ import { DecisionKeys, KEYS_FILE } from './keys'
+ import { COMPARISONS_FILE, Decisions, setDecider } from './service'
+@@ -168,16 +169,19 @@ export function createDecisionsFeature(): Feature {
+       // Its larger half, atelier-mini, is an optional download (deviceMini.ts); ATELIER_DECISION_MINI uses a folder as it is.
+       // atelier-step, the model for browser tasks (docs/decisions.md › Browser tasks), is another optional download that
+       // runs in the same helper; ATELIER_STEP_MODEL uses a folder as it is (in smoke runs too, so the tool can be checked).
++      // atelier-vision, the model that looks at pictures (docs/decisions.md › Pictures), is a third, with ATELIER_VISION_MODEL.
+       let mini: MiniInstaller | null = null
+       let stepInstaller: MiniInstaller | null = null
++      let visionInstaller: MiniInstaller | null = null
+       const runtime = onnxRuntimeHere()
+       if (!runtime) log.info('decisions', 'ONNX Runtime has no build for this computer: the on-device models are off', { platform: process.platform, arch: process.arch })
+       const device = new DeviceDecisions({
+         modelDir: () => (app.smoke || !runtime ? null : deviceModelDir({ packaged: electronApp.isPackaged, resourcesPath: process.resourcesPath, appPath: appRoot() })),
+         miniDir: () => (app.smoke ? null : (mini?.dir() ?? null)),
+         stepDir: () => (runtime ? (stepInstaller?.dir() ?? null) : null),
+-        spawner: (dir, miniDir, stepDir) =>
+-          utilityProcess.fork(join(__dirname, 'decisionsDevice.js'), [dir, miniDir ?? '', stepDir ?? ''], { serviceName: 'Atelier quick decisions', stdio: 'ignore' }),
++        visionDir: () => (runtime ? (visionInstaller?.dir() ?? null) : null),
++        spawner: (dir, miniDir, stepDir, visionDir) =>
++          utilityProcess.fork(join(__dirname, 'decisionsDevice.js'), [dir, miniDir ?? '', stepDir ?? '', visionDir ?? ''], { serviceName: 'Atelier quick decisions', stdio: 'ignore' }),
+       })
+       const installer = new MiniInstaller({
+         dir: process.env.ATELIER_DECISION_MINI || join(app.dataDir, 'decision-model-mini'),
+@@ -206,10 +210,25 @@ export function createDecisionsFeature(): Feature {
+         release: () => device.restart(),
+       })
+       stepInstaller = steps
++      const visionFolder = process.env.ATELIER_VISION_MODEL
++      const vision = new MiniInstaller({
++        dir: visionFolder || join(app.dataDir, 'decision-model-vision'),
++        manifest: VISION_MANIFEST,
++        needsServer: false,
++        installed: deviceVisionDir,
++        external: Boolean(visionFolder) || app.smoke || !runtime,
++        download: async (url, init) => {
++          const res = await net.fetch(url, { signal: init.signal, headers: init.headers })
++          return { status: res.status, body: res.body as AsyncIterable<Uint8Array> | null }
++        },
++        release: () => device.restart(),
++      })
++      visionInstaller = vision
+       setDeviceSteps(device)
+       stops.push(() => {
+         installer.cancel()
+         steps.cancel()
++        vision.cancel()
+         setDeviceSteps(null)
+         device.dispose()
+       })
+@@ -223,6 +242,7 @@ export function createDecisionsFeature(): Feature {
+         device,
+         mini: installer,
+         step: steps,
++        vision,
+       })
+       decider = d
+       setDecider(d)
+@@ -312,6 +332,18 @@ export function createDecisionsFeature(): Feature {
+           steps.remove()
+           return d.status()
+         },
++        installVision: async () => {
++          void vision.install().then(() => log.info('decisions', 'atelier-vision download ended', { status: vision.status().state }))
++          return d.status()
++        },
++        cancelVision: async () => {
++          vision.cancel()
++          return d.status()
++        },
++        removeVision: async () => {
++          vision.remove()
++          return d.status()
++        },
+         openKeyPage: (provider) => {
+           // The on-device model has no key and no page to make one.
+           const url = PROVIDER_DEFAULTS[provider].keyUrl
+diff --git a/src/main/decisions/pictures.ts b/src/main/decisions/pictures.ts
+new file mode 100644
+index 0000000..130f962
+--- /dev/null
++++ b/src/main/decisions/pictures.ts
+@@ -0,0 +1,57 @@
++/* Copyright (c) 2026 The Atelier Authors. All rights reserved.
++ * This Source Code Form is subject to the terms of the Mozilla Public
++ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
++ * You can obtain one at https://mozilla.org/MPL/2.0/. */
++
++// Pictures for atelier-vision (docs/decisions.md › Pictures): what Atelier captured or decoded, as the plain pixels the
++// decision helper takes. The helper has no image library on purpose: Chromium already decoded everything Atelier shows.
++
++import { createHash } from 'node:crypto'
++import type { Picture } from './device/visionPreprocess'
++
++/** The part of Electron's NativeImage this needs (tests pass their own). */
++export interface CapturedImage {
++  isEmpty(): boolean
++  getSize(): { width: number; height: number }
++  toBitmap(): Buffer
++  resize(options: { width: number; height: number; quality?: 'good' | 'better' | 'best' }): CapturedImage
++}
++
++/** The longest edge sent to the helper. The model reads 256 x 256; more than this only costs time crossing processes. */
++const MAX_EDGE = 768
++
++/**
++ * A captured or decoded image as RGB pixels. Electron's bitmap is BGRA at the image's own scale (a capture on a 2x
++ * display has four times the pixels its size says), so the scale is read off the buffer's length.
++ */
++export function pictureOf(image: CapturedImage): Picture | null {
++  if (image.isEmpty()) return null
++  let { width, height } = image.getSize()
++  if (width < 1 || height < 1) return null
++  let bitmap = image.toBitmap()
++  let scale = Math.round(Math.sqrt(bitmap.length / 4 / (width * height)))
++  const tooBig = Math.max(width, height) * scale > MAX_EDGE
++  if (scale < 1 || bitmap.length !== width * scale * height * scale * 4 || tooBig) {
++    // An odd scale, or more pixels than are worth sending: one plain copy at a known size.
++    const k = Math.min(1, MAX_EDGE / Math.max(width, height))
++    width = Math.max(1, Math.round(width * k))
++    height = Math.max(1, Math.round(height * k))
++    bitmap = image.resize({ width, height, quality: 'best' }).toBitmap()
++    scale = 1
++    if (bitmap.length !== width * height * 4) return null
++  }
++  const w = width * scale
++  const h = height * scale
++  const data = new Uint8Array(w * h * 3)
++  for (let i = 0, o = 0; i < bitmap.length; i += 4, o += 3) {
++    data[o] = bitmap[i + 2] ?? 0
++    data[o + 1] = bitmap[i + 1] ?? 0
++    data[o + 2] = bitmap[i] ?? 0
++  }
++  return { data, width: w, height: h, channels: 3 }
++}
++
++/** A picture's fingerprint: the same pixels are looked at once (a site's header icons are on every page). */
++export function pictureKey(picture: Picture): string {
++  return createHash('sha256').update(`${picture.width}x${picture.height}x${picture.channels}:`).update(picture.data).digest('hex')
++}
+diff --git a/src/main/decisions/schemas.ts b/src/main/decisions/schemas.ts
+index 199e820..c42e15e 100644
+--- a/src/main/decisions/schemas.ts
++++ b/src/main/decisions/schemas.ts
+@@ -31,5 +31,8 @@ export const DECISIONS_SCHEMAS: {
+     installStep: z.tuple([]),
+     cancelStep: z.tuple([]),
+     removeStep: z.tuple([]),
++    installVision: z.tuple([]),
++    cancelVision: z.tuple([]),
++    removeVision: z.tuple([]),
+   },
+ }
+diff --git a/src/main/decisions/service.ts b/src/main/decisions/service.ts
+index e2ee969..6ee317c 100644
+--- a/src/main/decisions/service.ts
++++ b/src/main/decisions/service.ts
+@@ -164,6 +164,8 @@ export interface DecisionsDeps {
+   mini?: { status(): MiniStatus; readonly version?: string }
+   /** atelier-step's download state (browser tasks), shown in Settings next to the mini. */
+   step?: { status(): MiniStatus; readonly version?: string }
++  /** atelier-vision's download state (pictures), shown next to them. */
++  vision?: { status(): MiniStatus; readonly version?: string }
+   now?: () => number
+ }
+ 
+@@ -397,6 +399,7 @@ export class Decisions implements Decider {
+       differed: this.#differed,
+       ...(this.#d.mini ? { mini: this.#d.mini.status(), miniVersion: this.#d.mini.version } : {}),
+       ...(this.#d.step ? { step: this.#d.step.status(), stepVersion: this.#d.step.version } : {}),
++      ...(this.#d.vision ? { vision: this.#d.vision.status(), visionVersion: this.#d.vision.version } : {}),
+     }
+   }
+ 
+diff --git a/src/preload/page/bridge.ts b/src/preload/page/bridge.ts
+index 632cb3b..a0d064a 100644
+--- a/src/preload/page/bridge.ts
++++ b/src/preload/page/bridge.ts
+@@ -8,7 +8,7 @@
+ // resolves elements and points for clicks, and fills form fields. Main asks
+ // over PAGE.command and the reply goes back on PAGE.reply.
+ import { BRAND_NAME } from '@shared/branding'
+-import type { StepPage, StepPageItem } from '@shared/browserSteps'
++import { STEP_UNNAMED_MAX, type StepPage, type StepPageItem } from '@shared/browserSteps'
+ import { ipcRenderer } from 'electron'
+ import {
+   PAGE,
+@@ -450,6 +450,7 @@ function stepPage(): StepPage {
+   const items: StepPageItem[] = []
+   const groups = new Map<Element, string>()
+   let visited = 0
++  let unnamed = 0
+   let truncated = false
+   const text = (node: Node, group: string): void => {
+     const s = clean(node.textContent, STEP_TEXT_MAX + 1)
+@@ -474,6 +475,16 @@ function stepPage(): StepPage {
+       if (!disabled) {
+         const item = stepItem(el, kind, groups)
+         if (item.label || kind === 'field' || kind === 'select') items.push(item)
++        else if ((kind === 'button' || kind === 'link') && unnamed < STEP_UNNAMED_MAX) {
++          // No name anywhere (a button with only an icon): its box goes along, so its picture can name it. Only one
++          // that is whole in the viewport and the size of a control, not a banner that happens to be a link.
++          const r = topViewportBox(el)
++          const whole = r.left >= 0 && r.top >= 0 && r.left + r.width <= window.innerWidth && r.top + r.height <= window.innerHeight
++          if (whole && r.width >= 12 && r.height >= 12 && r.width <= 160 && r.height <= 160) {
++            unnamed++
++            items.push({ ...item, box: { x: r.left, y: r.top, width: r.width, height: r.height } })
++          }
++        }
+       }
+       // A control's own text is its label, and a select's options are listed with it.
+       if (LEAF_ROLES.has(role) || kind === 'select') return
+@@ -482,7 +493,8 @@ function stepPage(): StepPage {
+     for (const child of childrenOf(el)) visit(child)
+   }
+   visit(document.body ?? document.documentElement)
+-  return { items, truncated }
++  const lang = clean(document.documentElement.lang, 20)
++  return { items, truncated, ...(lang ? { lang } : {}) }
+ }
+ 
+ // ---- find ----
+@@ -582,7 +594,7 @@ function resolveRef(ref: string, scrollIntoView: boolean): ResolvedElement {
+   if (scrollIntoView) el.scrollIntoView({ block: 'center', inline: 'center', behavior: 'instant' })
+   const box = topViewportBox(el)
+   if (box.width === 0 && box.height === 0) throw new Error(`${ref} is not visible on the page.`)
+-  return { ...describe(el), x: box.left + box.width / 2, y: box.top + box.height / 2 }
++  return { ...describe(el), x: box.left + box.width / 2, y: box.top + box.height / 2, box: { x: box.left, y: box.top, width: box.width, height: box.height } }
+ }
+ 
+ function deepElementFromPoint(x: number, y: number): Element | null {
+diff --git a/src/renderer/src/settings/agent/QuickDecisions.tsx b/src/renderer/src/settings/agent/QuickDecisions.tsx
+index c43d22a..67748a0 100644
+--- a/src/renderer/src/settings/agent/QuickDecisions.tsx
++++ b/src/renderer/src/settings/agent/QuickDecisions.tsx
+@@ -66,16 +66,16 @@ export function QuickDecisionsPage({ settings, update, onOpenSection }: PageProp
+   const d = settings.decisions
+   // Both keep what they show while they reload, so a change never empties the page or loses its place.
+   const status = useResource(() => call('decisions', 'status'), JSON.stringify([d.on, d.models, d.servers]), { keep: true })
+-  // While atelier-mini or atelier-step downloads, its progress comes with the status: ask again each second.
+-  const downloading = status.data?.mini?.state === 'downloading' || status.data?.step?.state === 'downloading'
++  // While atelier-mini, atelier-step or atelier-vision downloads, its progress comes with the status: ask again each second.
++  const downloading = status.data?.mini?.state === 'downloading' || status.data?.step?.state === 'downloading' || status.data?.vision?.state === 'downloading'
+   useEffect(() => {
+     if (!downloading) return
+     const timer = setInterval(() => void status.reload(), 1_000)
+     return () => clearInterval(timer)
+   }, [downloading]) // eslint-disable-line react-hooks/exhaustive-deps
+-  const downloadAction = async (which: 'Mini' | 'Step', action: DownloadAction): Promise<void> => {
++  const downloadAction = async (which: 'Mini' | 'Step' | 'Vision', action: DownloadAction): Promise<void> => {
+     try {
+-      status.set(await call('decisions', `${action}${which}` as `install${'Mini' | 'Step'}`))
++      status.set(await call('decisions', `${action}${which}` as `install${'Mini' | 'Step' | 'Vision'}`))
+     } catch (err) {
+       toast.show({ tone: 'error', message: errorText(err) })
+     }
+@@ -245,6 +245,9 @@ export function QuickDecisionsPage({ settings, update, onOpenSection }: PageProp
+                 step={status.data?.step}
+                 stepModel={modelName('atelier-step', status.data?.stepVersion)}
+                 onStep={(action) => void downloadAction('Step', action)}
++                vision={status.data?.vision}
++                visionModel={modelName('atelier-vision', status.data?.visionVersion)}
++                onVision={(action) => void downloadAction('Vision', action)}
+               />
+             ) : (
+               <PresetRow key={id} id={id} hasKey={status.data?.keys[id] ?? false} onSave={(key) => saveKey(id, key)} onDisconnect={() => void disconnect(id)} />
+@@ -468,7 +471,7 @@ function DownloadRow({ anchor, name, model, description, state, onAction }: { an
+   )
+ }
+ 
+-/** Atelier's own model on this computer: no key to connect, only whether its files are here and whether you use it; its optional larger half, atelier-mini, and atelier-step for browser tasks, to download or remove. */
++/** Atelier's own model on this computer: no key to connect, only whether its files are here and whether you use it; its optional larger half, atelier-mini, atelier-step for browser tasks and atelier-vision for pictures, to download or remove. */
+ function DeviceRow({
+   id,
+   installed,
+@@ -480,6 +483,9 @@ function DeviceRow({
+   step,
+   stepModel,
+   onStep,
++  vision,
++  visionModel,
++  onVision,
+ }: {
+   id: DecisionPresetId
+   installed: boolean
+@@ -491,6 +497,9 @@ function DeviceRow({
+   step?: MiniStatus
+   stepModel: string
+   onStep(action: DownloadAction): void
++  vision?: MiniStatus
++  visionModel: string
++  onVision(action: DownloadAction): void
+ }): ReactElement {
+   const t = useT()
+   return (
+@@ -517,6 +526,9 @@ function DeviceRow({
+       {step && step.state !== 'unavailable' && (
+         <DownloadRow anchor="decisions-device-step" name={t('decisions.device.step')} model={stepModel} description={t('decisions.device.step.description')} state={step} onAction={onStep} />
+       )}
++      {vision && vision.state !== 'unavailable' && (
++        <DownloadRow anchor="decisions-device-vision" name={t('decisions.device.vision')} model={visionModel} description={t('decisions.device.vision.description')} state={vision} onAction={onVision} />
++      )}
+     </div>
+   )
+ }
+diff --git a/src/shared/browserSteps.ts b/src/shared/browserSteps.ts
+index 4f9fe4e..6c982fe 100644
+--- a/src/shared/browserSteps.ts
++++ b/src/shared/browserSteps.ts
+@@ -21,14 +21,27 @@ export interface StepPageItem {
+   group: string
+   /** A password, card or one-time-code field: never typed into. */
+   guarded?: boolean
++  /**
++   * Where a link or button that the page gives no name sits in the viewport, in CSS pixels: a button with only an
++   * icon on it. Its picture is what names it (atelier-vision, docs/decisions.md › Pictures); one that stays unnamed
++   * is left out, as before.
++   */
++  box?: { x: number; y: number; width: number; height: number }
++  /** The name came from the control's picture, not from the page. */
++  seen?: boolean
+ }
+ 
+ export interface StepPage {
+   items: StepPageItem[]
+   /** More controls than were read (a very long page): the step model sees the beginning. */
+   truncated: boolean
++  /** The language the page says it is in (`<html lang>`), for naming what it left unnamed. */
++  lang?: string
+ }
+ 
++/** Unnamed controls one page read brings along: each is a capture and a pass through the image model. */
++export const STEP_UNNAMED_MAX = 12
++
+ /** One thing the steps did, as the card lists it. */
+ export interface BrowserStepLine {
+   text: string
+diff --git a/src/shared/decisions.ts b/src/shared/decisions.ts
+index aa8751c..a6e525f 100644
+--- a/src/shared/decisions.ts
++++ b/src/shared/decisions.ts
+@@ -405,9 +405,12 @@ export interface DecisionsStatus {
+   mini?: MiniStatus
+   /** atelier-step, the optional model for browser tasks (deviceStep in feature.ts), in the same states as the mini. */
+   step?: MiniStatus
+-  /** The versions those two download (their manifests'), so Settings names the models it offers. */
++  /** atelier-vision, the optional model that looks at pictures (docs/decisions.md › Pictures), in the same states. */
++  vision?: MiniStatus
++  /** The versions those download (their manifests'), so Settings names the models it offers. */
+   miniVersion?: string
+   stepVersion?: string
++  visionVersion?: string
+ }
+ 
+ /**
+@@ -491,5 +494,9 @@ export interface DecisionsServices {
+     installStep(): Promise<DecisionsStatus>
+     cancelStep(): Promise<DecisionsStatus>
+     removeStep(): Promise<DecisionsStatus>
++    /** atelier-vision (pictures): the same for its download. */
++    installVision(): Promise<DecisionsStatus>
++    cancelVision(): Promise<DecisionsStatus>
++    removeVision(): Promise<DecisionsStatus>
+   }
+ }
+diff --git a/src/shared/i18n/en/decisions.ts b/src/shared/i18n/en/decisions.ts
+index aa0cfb4..866c371 100644
+--- a/src/shared/i18n/en/decisions.ts
++++ b/src/shared/i18n/en/decisions.ts
+@@ -102,6 +102,8 @@ export const decisions = {
+   'decisions.device.mini.failed': 'The download didn’t finish: {error}',
+   'decisions.device.step': 'Browser tasks',
+   'decisions.device.step.description': 'A small model that takes your companion’s tasks in the browser page by page, like ordering something or filling in a form, in about a tenth of a second a page on this computer. Whatever it isn’t sure of, paying, and any click the task didn’t ask for go back to your companion, and every click passes the same checks and approvals as your companion’s own.',
++  'decisions.device.vision': 'Pictures',
++  'decisions.device.vision.description': 'A model that looks at pictures on this computer. It tells browser tasks what a button with only an icon does, and it sorts and checks pictures on a page for your companion: photos, receipts, screenshots. It answers by choosing among the answers it is given and writes nothing; whatever it isn’t sure of goes back to your companion. A picture takes a fraction of a second, and nothing leaves this computer.',
+   'decisions.provider.typesafe': 'TypeSafe Jev',
+   'decisions.provider.openrouter': 'OpenRouter',
+   'decisions.provider.experiential': 'Experiential Labs',
+diff --git a/src/shared/i18n/nl/decisions.ts b/src/shared/i18n/nl/decisions.ts
+index 913f16e..41b6812 100644
+--- a/src/shared/i18n/nl/decisions.ts
++++ b/src/shared/i18n/nl/decisions.ts
+@@ -104,6 +104,8 @@ export const decisions = {
+   'decisions.device.mini.failed': 'De download is niet afgerond: {error}',
+   'decisions.device.step': 'Taken in de browser',
+   'decisions.device.step.description': 'Een klein model dat de taken van je companion in de browser pagina voor pagina afhandelt, zoals iets bestellen of een formulier invullen, in ongeveer een tiende seconde per pagina op deze computer. Waar het niet zeker van is, betalen en elke klik waar de taak niet om vroeg, gaan terug naar je companion, en elke klik gaat langs dezelfde controles en goedkeuringen als die van je companion zelf.',
++  'decisions.device.vision': 'Afbeeldingen',
++  'decisions.device.vision.description': 'Een model dat op deze computer naar afbeeldingen kijkt. Het vertelt taken in de browser wat een knop met alleen een icoon doet, en het sorteert en controleert afbeeldingen op een pagina voor je companion: foto’s, bonnetjes, schermafbeeldingen. Het antwoordt door te kiezen uit de antwoorden die het krijgt en schrijft niets; waar het niet zeker van is, gaat terug naar je companion. Een afbeelding kost een fractie van een seconde, en niets verlaat deze computer.',
+   'decisions.provider.typesafe': 'TypeSafe Jev',
+   'decisions.provider.openrouter': 'OpenRouter',
+   'decisions.provider.experiential': 'Experiential Labs',
+diff --git a/src/shared/ipc.ts b/src/shared/ipc.ts
+index 432a351..77d2a8f 100644
+--- a/src/shared/ipc.ts
++++ b/src/shared/ipc.ts
+@@ -562,6 +562,8 @@ export interface ResolvedElement extends ElementDescription {
+   /** Center point in CSS pixels relative to the viewport. */
+   x: number
+   y: number
++  /** The element's box in CSS pixels relative to the viewport, for a picture of it (docs/decisions.md › Pictures). */
++  box: { x: number; y: number; width: number; height: number }
+ }
+ 
+ export interface ViewportInfo {
+diff --git a/src/shared/visionControls.ts b/src/shared/visionControls.ts
+new file mode 100644
+index 0000000..527db19
+--- /dev/null
++++ b/src/shared/visionControls.ts
+@@ -0,0 +1,102 @@
++/* Copyright (c) 2026 The Atelier Authors. All rights reserved.
++ * This Source Code Form is subject to the terms of the Mozilla Public
++ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
++ * You can obtain one at https://mozilla.org/MPL/2.0/. */
++
++// What a button with only an icon on it can be for, named in the five languages atelier-vision's questions were
++// trained and measured in (docs/decisions.md › Pictures). Written by the atelier-decisions project's
++// tools/vision_dist.py from its vision/icons.py: the names are part of what the model was measured on, so they
++// change there, with a new version, not here. Jobs marked `unseen` were never trained on: answers about them
++// are measured as a kind of button nobody showed the model.
++
++export const CONTROL_LANGS = ['en', 'nl', 'de', 'fr', 'es'] as const
++export type ControlLang = (typeof CONTROL_LANGS)[number]
++
++export interface ControlJob {
++  key: string
++  names: Record<ControlLang, string>
++  unseen?: true
++}
++
++export const CONTROL_JOBS: readonly ControlJob[] = [
++  { key: 'account', names: { en: 'account', nl: 'account', de: 'Konto', fr: 'compte', es: 'cuenta' } },
++  { key: 'add', names: { en: 'add', nl: 'toevoegen', de: 'Hinzufügen', fr: 'ajouter', es: 'añadir' } },
++  { key: 'attach', names: { en: 'attach', nl: 'bijlage', de: 'Anhängen', fr: 'joindre', es: 'adjuntar' }, unseen: true },
++  { key: 'back', names: { en: 'back', nl: 'terug', de: 'Zurück', fr: 'retour', es: 'atrás' } },
++  { key: 'bookmark', names: { en: 'bookmark', nl: 'bladwijzer', de: 'Lesezeichen', fr: 'signet', es: 'marcador' } },
++  { key: 'calendar', names: { en: 'calendar', nl: 'kalender', de: 'Kalender', fr: 'calendrier', es: 'calendario' } },
++  { key: 'camera', names: { en: 'camera', nl: 'camera', de: 'Kamera', fr: 'appareil photo', es: 'cámara' } },
++  { key: 'cart', names: { en: 'shopping cart', nl: 'winkelwagen', de: 'Warenkorb', fr: 'panier', es: 'carrito' } },
++  { key: 'chat', names: { en: 'chat', nl: 'chat', de: 'Chat', fr: 'discussion', es: 'chat' } },
++  { key: 'clock', names: { en: 'time', nl: 'tijd', de: 'Uhrzeit', fr: 'heure', es: 'hora' } },
++  { key: 'close', names: { en: 'close', nl: 'sluiten', de: 'Schließen', fr: 'fermer', es: 'cerrar' } },
++  { key: 'confirm', names: { en: 'confirm', nl: 'bevestigen', de: 'Bestätigen', fr: 'confirmer', es: 'confirmar' } },
++  { key: 'copy', names: { en: 'copy', nl: 'kopiëren', de: 'Kopieren', fr: 'copier', es: 'copiar' } },
++  { key: 'dark', names: { en: 'dark mode', nl: 'donkere modus', de: 'dunkler Modus', fr: 'mode sombre', es: 'modo oscuro' }, unseen: true },
++  { key: 'delete', names: { en: 'delete', nl: 'verwijderen', de: 'Löschen', fr: 'supprimer', es: 'eliminar' } },
++  { key: 'download', names: { en: 'download', nl: 'downloaden', de: 'Herunterladen', fr: 'télécharger', es: 'descargar' } },
++  { key: 'edit', names: { en: 'edit', nl: 'bewerken', de: 'Bearbeiten', fr: 'modifier', es: 'editar' } },
++  { key: 'external', names: { en: 'open in a new tab', nl: 'openen in nieuw tabblad', de: 'in neuem Tab öffnen', fr: 'ouvrir dans un nouvel onglet', es: 'abrir en una pestaña nueva' } },
++  { key: 'favorite', names: { en: 'favourite', nl: 'favoriet', de: 'Favorit', fr: 'favori', es: 'favorito' } },
++  { key: 'filter', names: { en: 'filter', nl: 'filter', de: 'Filter', fr: 'filtre', es: 'filtro' } },
++  { key: 'forward', names: { en: 'next', nl: 'volgende', de: 'Weiter', fr: 'suivant', es: 'siguiente' } },
++  { key: 'fullscreen', names: { en: 'full screen', nl: 'volledig scherm', de: 'Vollbild', fr: 'plein écran', es: 'pantalla completa' } },
++  { key: 'gift', names: { en: 'gift', nl: 'cadeau', de: 'Geschenk', fr: 'cadeau', es: 'regalo' }, unseen: true },
++  { key: 'grid', names: { en: 'grid view', nl: 'rasterweergave', de: 'Rasteransicht', fr: 'vue en grille', es: 'vista de cuadrícula' } },
++  { key: 'help', names: { en: 'help', nl: 'hulp', de: 'Hilfe', fr: 'aide', es: 'ayuda' } },
++  { key: 'hide', names: { en: 'hide', nl: 'verbergen', de: 'Ausblenden', fr: 'masquer', es: 'ocultar' } },
++  { key: 'home', names: { en: 'home', nl: 'startpagina', de: 'Startseite', fr: 'accueil', es: 'inicio' } },
++  { key: 'image', names: { en: 'picture', nl: 'afbeelding', de: 'Bild', fr: 'image', es: 'imagen' } },
++  { key: 'info', names: { en: 'information', nl: 'informatie', de: 'Information', fr: 'information', es: 'información' } },
++  { key: 'language', names: { en: 'language', nl: 'taal', de: 'Sprache', fr: 'langue', es: 'idioma' }, unseen: true },
++  { key: 'light', names: { en: 'light mode', nl: 'lichte modus', de: 'heller Modus', fr: 'mode clair', es: 'modo claro' } },
++  { key: 'link', names: { en: 'link', nl: 'link', de: 'Link', fr: 'lien', es: 'enlace' } },
++  { key: 'list', names: { en: 'list view', nl: 'lijstweergave', de: 'Listenansicht', fr: 'vue en liste', es: 'vista de lista' } },
++  { key: 'location', names: { en: 'location', nl: 'locatie', de: 'Standort', fr: 'lieu', es: 'ubicación' } },
++  { key: 'lock', names: { en: 'lock', nl: 'slot', de: 'Schloss', fr: 'verrou', es: 'candado' } },
++  { key: 'login', names: { en: 'sign in', nl: 'inloggen', de: 'Anmelden', fr: 'connexion', es: 'iniciar sesión' } },
++  { key: 'logout', names: { en: 'sign out', nl: 'uitloggen', de: 'Abmelden', fr: 'déconnexion', es: 'cerrar sesión' }, unseen: true },
++  { key: 'mail', names: { en: 'email', nl: 'e-mail', de: 'E-Mail', fr: 'e-mail', es: 'correo' } },
++  { key: 'menu', names: { en: 'menu', nl: 'menu', de: 'Menü', fr: 'menu', es: 'menú' } },
++  { key: 'microphone', names: { en: 'microphone', nl: 'microfoon', de: 'Mikrofon', fr: 'microphone', es: 'micrófono' } },
++  { key: 'more', names: { en: 'more options', nl: 'meer opties', de: 'weitere Optionen', fr: 'plus d\'options', es: 'más opciones' } },
++  { key: 'mute', names: { en: 'mute', nl: 'dempen', de: 'Stumm', fr: 'muet', es: 'silenciar' } },
++  { key: 'notifications', names: { en: 'notifications', nl: 'meldingen', de: 'Benachrichtigungen', fr: 'notifications', es: 'notificaciones' } },
++  { key: 'pause', names: { en: 'pause', nl: 'pauzeren', de: 'Pause', fr: 'pause', es: 'pausar' } },
++  { key: 'payment', names: { en: 'payment', nl: 'betalen', de: 'Zahlung', fr: 'paiement', es: 'pago' } },
++  { key: 'phone', names: { en: 'phone call', nl: 'bellen', de: 'Anruf', fr: 'appel', es: 'llamada' } },
++  { key: 'play', names: { en: 'play', nl: 'afspelen', de: 'Abspielen', fr: 'lecture', es: 'reproducir' } },
++  { key: 'print', names: { en: 'print', nl: 'afdrukken', de: 'Drucken', fr: 'imprimer', es: 'imprimir' }, unseen: true },
++  { key: 'refresh', names: { en: 'refresh', nl: 'vernieuwen', de: 'Aktualisieren', fr: 'actualiser', es: 'actualizar' } },
++  { key: 'remove', names: { en: 'minus', nl: 'min', de: 'Minus', fr: 'moins', es: 'menos' } },
++  { key: 'save', names: { en: 'save', nl: 'opslaan', de: 'Speichern', fr: 'enregistrer', es: 'guardar' } },
++  { key: 'search', names: { en: 'search', nl: 'zoeken', de: 'Suche', fr: 'recherche', es: 'buscar' } },
++  { key: 'send', names: { en: 'send', nl: 'verzenden', de: 'Senden', fr: 'envoyer', es: 'enviar' } },
++  { key: 'settings', names: { en: 'settings', nl: 'instellingen', de: 'Einstellungen', fr: 'paramètres', es: 'ajustes' } },
++  { key: 'share', names: { en: 'share', nl: 'delen', de: 'Teilen', fr: 'partager', es: 'compartir' } },
++  { key: 'show', names: { en: 'show', nl: 'tonen', de: 'Anzeigen', fr: 'afficher', es: 'mostrar' } },
++  { key: 'sound', names: { en: 'sound', nl: 'geluid', de: 'Ton', fr: 'son', es: 'sonido' } },
++  { key: 'star', names: { en: 'star', nl: 'ster', de: 'Stern', fr: 'étoile', es: 'estrella' } },
++  { key: 'tag', names: { en: 'tag', nl: 'label', de: 'Schlagwort', fr: 'étiquette', es: 'etiqueta' }, unseen: true },
++  { key: 'upload', names: { en: 'upload', nl: 'uploaden', de: 'Hochladen', fr: 'téléverser', es: 'subir' } },
++  { key: 'warning', names: { en: 'warning', nl: 'waarschuwing', de: 'Warnung', fr: 'avertissement', es: 'advertencia' } },
++  { key: 'zoomin', names: { en: 'zoom in', nl: 'inzoomen', de: 'Vergrößern', fr: 'zoom avant', es: 'acercar' }, unseen: true },
++  { key: 'zoomout', names: { en: 'zoom out', nl: 'uitzoomen', de: 'Verkleinern', fr: 'zoom arrière', es: 'alejar' } },
++]
++
++// The second question about a button the model named (is it really a button for that job?), in two of the
++// wordings it was trained on: how it is asked, and what a yes looks like. {name} is the job's name.
++export const CONTROL_ASK: Record<ControlLang, string> = {
++  en: 'Is this a button for {name}?',
++  nl: 'Is dit een knop voor {name}?',
++  de: 'Ist das eine Schaltfläche für {name}?',
++  fr: 'Est-ce un bouton pour {name} ?',
++  es: '¿Es un botón para {name}?',
++}
++export const CONTROL_IS: Record<ControlLang, string> = {
++  en: 'A button for: {name}.',
++  nl: 'Een knop voor: {name}.',
++  de: 'Eine Schaltfläche für: {name}.',
++  fr: 'Un bouton pour : {name}.',
++  es: 'Un botón para: {name}.',
++}
+diff --git a/tests/browserSteps.test.ts b/tests/browserSteps.test.ts
+index b48b4da..824d29b 100644
+--- a/tests/browserSteps.test.ts
++++ b/tests/browserSteps.test.ts
+@@ -34,7 +34,7 @@ function harness(pages: Page[], answers: Array<(page: Page) => StepAnswer>, onSt
+   const inputs: StepInput[] = []
+   const events: BrowserStepsCard[] = []
+   let call = 0
+-  const browser: ChatBrowser = {
++  const browser: Pick<ChatBrowser, 'step' | 'page'> = {
+     page: async () => {
+       const p = pages[Math.min(state.page, pages.length - 1)]!
+       return { tabId: 't1', title: p.title, url: p.url, page: { items: p.items.map((i) => ({ ...i })), truncated: false } }
+diff --git a/tests/decisionsVision.test.ts b/tests/decisionsVision.test.ts
+new file mode 100644
+index 0000000..b3108c0
+--- /dev/null
++++ b/tests/decisionsVision.test.ts
+@@ -0,0 +1,384 @@
++/* Copyright (c) 2026 The Atelier Authors. All rights reserved.
++ * This Source Code Form is subject to the terms of the Mozilla Public
++ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
++ * You can obtain one at https://mozilla.org/MPL/2.0/. */
++
++import { createHash } from 'node:crypto'
++import { EventEmitter } from 'node:events'
++import { existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
++import { tmpdir } from 'node:os'
++import { join } from 'node:path'
++import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
++
++vi.mock('../src/main/log', () => ({ log: { warn: () => undefined, debug: () => undefined, info: () => undefined } }))
++
++import type { StepPageItem } from '../src/shared/browserSteps'
++import { CONTROL_JOBS, CONTROL_LANGS } from '../src/shared/visionControls'
++import { controlCheck, controlLang, controlQuestion, nameUnnamed, PICTURE_SURE, PICTURE_YES, type PictureModel } from '../src/main/agent/tools/browserSteps'
++import { DeviceDecisions, deviceVisionDir, type DeviceProcess, type LookAnswer } from '../src/main/decisions/device'
++import { answer, probabilities, RAW } from '../src/main/decisions/device/visionDecide'
++import { clean, encodeText, labels, MAX_TOKENS, texts, unanswerable, type Question } from '../src/main/decisions/device/visionFormat'
++import { VISION_FILES } from '../src/main/decisions/device/visionFiles'
++import { VISION_MANIFEST } from '../src/main/decisions/device/visionManifest'
++import { checksum, preprocess, SIZE, type Picture } from '../src/main/decisions/device/visionPreprocess'
++import { MiniInstaller, type Download, type MiniManifest } from '../src/main/decisions/deviceMini'
++import { pictureKey, pictureOf, type CapturedImage } from '../src/main/decisions/pictures'
++
++// atelier-vision on this computer (docs/decisions.md › Pictures): its folder, its requests through the decision helper,
++// its download, the pictures Atelier hands it, the buttons it names for browser tasks, and (with
++// ATELIER_VISION_PARITY=<model folder>) the same numbers as the project that trained it.
++
++let dir: string
++beforeEach(() => {
++  dir = mkdtempSync(join(tmpdir(), 'atelier-vision-'))
++})
++afterEach(() => rmSync(dir, { recursive: true, force: true }))
++
++const red: Picture = { data: new Uint8Array([255, 0, 0, 255, 0, 0, 255, 0, 0, 255, 0, 0]), width: 2, height: 2, channels: 3 }
++const question: Record<string, Question> = { kind: { type: 'choice', criteria: { receipt: 'A till receipt', photo: 'An ordinary photo' } } }
++
++class FakeHelper extends EventEmitter implements DeviceProcess {
++  sent: unknown[] = []
++  postMessage(message: unknown): void {
++    this.sent.push(message)
++    const m = message as { id: number; look?: unknown; embed?: { texts?: string[] } }
++    const reply = m.look
++      ? { model: 'atelier-vision', answers: { kind: { type: 'choice', choice: 'receipt', probabilities: { receipt: 0.9, photo: 0.1 }, confidence: 0.8 } }, vector: [0.6, 0.8], ms: 4 }
++      : { model: 'atelier-vision', texts: (m.embed?.texts ?? []).map((t) => (t === 'собака' ? null : [1, 0])), picture: [0, 1] }
++    queueMicrotask(() => this.emit('message', { id: m.id, type: 'result', reply }))
++  }
++  kill(): boolean {
++    return true
++  }
++}
++
++describe('atelier-vision on this computer', () => {
++  it('is installed only when every file is in its folder', () => {
++    expect(deviceVisionDir(dir)).toBeNull()
++    for (const f of VISION_FILES.slice(0, -1)) writeFileSync(join(dir, f), 'x')
++    expect(deviceVisionDir(dir)).toBeNull()
++    writeFileSync(join(dir, VISION_FILES.at(-1)!), 'x')
++    expect(deviceVisionDir(dir)).toBe(dir)
++  })
++
++  it('looks at pictures in the decision helper, with or without the small decision model', async () => {
++    const spawned: Array<[string, string | null, string | null, string | null]> = []
++    let visionDir: string | null = null
++    const helper = new FakeHelper()
++    const device = new DeviceDecisions({ modelDir: () => null, visionDir: () => visionDir, spawner: (d, m, s, v) => (spawned.push([d, m, s, v]), helper) })
++    expect(device.visionAvailable()).toBe(false)
++    await expect(device.look({ picture: red }, question, new AbortController().signal)).rejects.toThrow(/not installed/)
++    visionDir = dir
++    expect(device.visionAvailable()).toBe(true)
++    // Decisions still read the small model as missing: only pictures are looked at.
++    expect(device.available()).toBe(false)
++    const out: LookAnswer = await device.look({ picture: red }, question, new AbortController().signal)
++    expect(out.answers.kind).toMatchObject({ type: 'choice', choice: 'receipt' })
++    // The picture's vector comes back, to ask again without a second pass through the image tower.
++    expect(out.vector).toBeInstanceOf(Float32Array)
++    expect(Array.from(out.vector)).toEqual([Math.fround(0.6), Math.fround(0.8)])
++    expect(spawned).toEqual([['', null, null, dir]])
++    expect(helper.sent).toEqual([{ id: 1, look: { picture: red, vector: undefined, questions: question } }])
++    await device.look({ vector: out.vector }, question, new AbortController().signal)
++    expect(helper.sent[1]).toEqual({ id: 2, look: { picture: undefined, vector: out.vector, questions: question } })
++    device.dispose()
++  })
++
++  it('gives vectors to search by, and none for a text it can’t read', async () => {
++    const device = new DeviceDecisions({ modelDir: () => null, visionDir: () => dir, spawner: () => new FakeHelper() })
++    const out = await device.embed({ texts: ['a dog on a beach', 'собака'], picture: red }, new AbortController().signal)
++    expect(out.texts[0]).toBeInstanceOf(Float32Array)
++    expect(out.texts[1]).toBeNull()
++    expect(Array.from(out.picture ?? [])).toEqual([0, 1])
++    device.dispose()
++  })
++
++  it('starts a new helper when atelier-vision is installed or removed', async () => {
++    const spawned: Array<string | null> = []
++    let visionDir: string | null = null
++    const device = new DeviceDecisions({ modelDir: () => dir, visionDir: () => visionDir, spawner: (_d, _m, _s, v) => (spawned.push(v), new FakeHelper()) })
++    device.warm()
++    await new Promise((r) => setTimeout(r, 0))
++    visionDir = join(dir, 'vision')
++    await device.look({ picture: red }, question, new AbortController().signal)
++    expect(spawned).toEqual([null, join(dir, 'vision')])
++    device.dispose()
++  })
++})
++
++// ── The download: model files only, checked against the manifest compiled into Atelier ──
++
++const sha = (b: Buffer): string => createHash('sha256').update(b).digest('hex')
++
++describe('atelier-vision’s download', () => {
++  it('lists every file the runtime needs, pinned to the version’s tag', () => {
++    expect(VISION_MANIFEST.model.map((f) => f.path).sort()).toEqual([...VISION_FILES].sort())
++    expect(VISION_MANIFEST.base).toMatch(/\/resolve\/vision-v0\.1\/releases\/vision-v0\.1\/model\/$/)
++    expect(VISION_MANIFEST.model.every((f) => /^[0-9a-f]{64}$/.test(f.sha256) && f.size > 0)).toBe(true)
++  })
++
++  it('downloads the model files with no server, checks them and swaps the folder in', async () => {
++    const bodies = new Map<string, Buffer>(VISION_FILES.map((f, i) => [f, Buffer.alloc(400 + i * 97, i + 1)]))
++    const manifest: MiniManifest = { version: 'vision-test', base: 'https://models.example/vision/', model: VISION_FILES.map((f) => ({ path: f, url: f, size: bodies.get(f)!.length, sha256: sha(bodies.get(f)!) })), servers: {} }
++    const download: Download = async (url) => {
++      const body = bodies.get(url.replace('https://models.example/vision/', ''))
++      return body ? { status: 200, body: (async function* () { yield body })() } : { status: 404, body: null }
++    }
++    let released = 0
++    const target = join(dir, 'decision-model-vision')
++    const installer = new MiniInstaller({ dir: target, manifest, download, release: () => released++, needsServer: false, installed: deviceVisionDir, platform: 'plan9-x64' })
++    expect(installer.status().state).toBe('absent')
++    await installer.install()
++    expect(installer.status()).toEqual({ state: 'ready', external: false })
++    expect(deviceVisionDir(target)).toBe(target)
++    expect(readFileSync(join(target, 'vision.json'))).toEqual(bodies.get('vision.json'))
++    expect(released).toBe(1)
++    installer.remove()
++    expect(existsSync(target)).toBe(false)
++  })
++})
++
++// ── What the helper is handed ──
++
++function captured(width: number, height: number, scale: number, pixel: [number, number, number, number]): CapturedImage & { resized: Array<{ width: number; height: number }> } {
++  const resized: Array<{ width: number; height: number }> = []
++  const bitmap = (w: number, h: number): Buffer => Buffer.from(Array.from({ length: w * h }, () => pixel).flat())
++  return {
++    resized,
++    isEmpty: () => false,
++    getSize: () => ({ width, height }),
++    toBitmap: () => bitmap(width * scale, height * scale),
++    resize: (o) => (resized.push({ width: o.width, height: o.height }), { ...captured(o.width, o.height, 1, pixel), resized }),
++  }
++}
++
++describe('a picture for atelier-vision', () => {
++  it('is the capture’s own pixels as RGB, at the scale the display drew them', () => {
++    // Electron's bitmap is BGRA; a capture on a 2x display has four times the pixels its size says.
++    const picture = pictureOf(captured(3, 2, 2, [10, 20, 30, 255]))
++    expect(picture).toMatchObject({ width: 6, height: 4, channels: 3 })
++    expect(Array.from(picture!.data.slice(0, 6))).toEqual([30, 20, 10, 30, 20, 10])
++    expect(picture!.data.length).toBe(6 * 4 * 3)
++  })
++
++  it('is made smaller before it crosses to the helper when it is larger than the model can use', () => {
++    const image = captured(2400, 1200, 1, [0, 0, 0, 255])
++    const picture = pictureOf(image)
++    expect(image.resized).toEqual([{ width: 768, height: 384 }])
++    expect(picture).toMatchObject({ width: 768, height: 384 })
++  })
++
++  it('is nothing when there is nothing to see', () => {
++    expect(pictureOf({ ...captured(4, 4, 1, [0, 0, 0, 0]), isEmpty: () => true })).toBeNull()
++  })
++
++  it('has a fingerprint of its pixels and size', () => {
++    const other: Picture = { ...red, data: Uint8Array.from(red.data).fill(9) }
++    expect(pictureKey(red)).toBe(pictureKey({ ...red, data: Uint8Array.from(red.data) }))
++    expect(pictureKey(red)).not.toBe(pictureKey(other))
++    expect(pictureKey(red)).not.toBe(pictureKey({ ...red, width: 4, height: 1 }))
++  })
++
++  it('becomes the square the image tower reads: transparent parts over white, values in -1..1, channels first', () => {
++    const x = preprocess(red)
++    expect(x.length).toBe(3 * SIZE * SIZE)
++    expect(x[0]).toBeCloseTo(1, 5)
++    expect(x[SIZE * SIZE]).toBeCloseTo(-1, 5)
++    const clear: Picture = { data: new Uint8Array([0, 0, 0, 0]), width: 1, height: 1, channels: 4 }
++    expect(Array.from(preprocess(clear).slice(0, 2))).toEqual([1, 1])
++    expect(Number.isFinite(checksum(x))).toBe(true)
++    expect(() => preprocess({ ...red, width: 3 })).toThrow(/values/)
++  })
++})
++
++describe('a question about a picture', () => {
++  const tok = { encode: (text: string): number[] => Array.from(text, (c) => c.charCodeAt(0)) }
++
++  it('gives one text per answer: an option’s description or its name, a level, what a yes looks like', () => {
++    const choice: Question = { type: 'choice', criteria: { beach: 'A day at the beach', food: null } }
++    expect(labels(choice)).toEqual(['beach', 'food'])
++    expect(texts(choice)).toEqual(['A day at the beach', 'food'])
++    expect(texts({ type: 'score', criteria: ['Sharp', 'Blurred'] })).toEqual(['Sharp', 'Blurred'])
++    expect(texts({ type: 'noul', instructions: 'Is this a receipt?' })).toEqual([null, 'Is this a receipt?'])
++    expect(texts({ type: 'noul', instructions: 'Is this a receipt?', criteria: { true: 'A till receipt.', false: 'Anything else.' } })).toEqual(['Anything else.', 'A till receipt.'])
++  })
++
++  it('says why a question can’t be asked of a picture', () => {
++    expect(unanswerable({ type: 'choice', criteria: { only: 'one' } })).toMatch(/two or more options/)
++    expect(unanswerable({ type: 'score', criteria: ['one'] })).toMatch(/two or more levels/)
++    expect(unanswerable({ type: 'noul' })).toMatch(/what a yes looks like/)
++    expect(unanswerable({ type: 'noul', instructions: 'Is this a receipt?' })).toBeNull()
++    expect(unanswerable({ type: 'other' } as unknown as Question)).toMatch(/unknown question type/)
++  })
++
++  it('reads a text lowercased, on one line, in 64 tokens that end the same way', () => {
++    expect(clean('  A  Till\n Receipt  ')).toBe('a till receipt')
++    const short = encodeText(tok, 'Dog')
++    expect(short.ids.length).toBe(MAX_TOKENS)
++    expect(short.ids.slice(0, 5)).toEqual([100, 111, 103, 1, 0])
++    expect(short.cut).toBe(false)
++    const long = encodeText(tok, 'x'.repeat(200))
++    expect(long.cut).toBe(true)
++    expect(long.ids[MAX_TOKENS - 1]).toBe(1)
++  })
++
++  it('turns matches into System One answers', () => {
++    // A choice is a softmax over the matches; the bias cancels.
++    const p = probabilities('choice', [0.1, 0.05], 100, -17, RAW)
++    expect(p[0]! + p[1]!).toBeCloseTo(1, 9)
++    expect(p[0]).toBeGreaterThan(0.99)
++    expect(answer({ type: 'choice', criteria: { a: 'x', b: 'y' } }, ['a', 'b'], p)).toMatchObject({ type: 'choice', choice: 'a' })
++    // A yes/no question without a "false" text reads the "true" text's match alone; with one, both.
++    const cal = { ...RAW, noul: { pair: { a: 0.5, b: 0.25, c: 2 }, single: { a: 0.5, c: 2 } } }
++    expect(probabilities('noul', [null, 0.17], 100, -17, cal)[1]).toBeCloseTo(1 / (1 + Math.exp(-2)), 6)
++    expect(probabilities('noul', [0.17, 0.17], 100, -17, cal)[1]).toBeCloseTo(1 / (1 + Math.exp(-2)), 6)
++    expect(probabilities('noul', [0.21, 0.17], 100, -17, cal)[1]).toBeLessThan(probabilities('noul', [0.17, 0.17], 100, -17, cal)[1]!)
++    expect(answer({ type: 'noul' }, ['false', 'true'], [0.2, 0.8])).toEqual({ type: 'noul', noul: 0.8 })
++  })
++})
++
++// ── Browser tasks: a button with only an icon gets its name from its picture ──
++
++describe('controls the page gave no name', () => {
++  const items: StepPageItem[] = [
++    { ref: 'ref_1', role: 'link', label: 'Home', group: 'header-1' },
++    { ref: 'ref_2', role: 'button', label: '', group: 'header-1', box: { x: 900, y: 10, width: 40, height: 40 } },
++    { ref: 'ref_3', role: 'button', label: '', group: 'header-1', box: { x: 950, y: 10, width: 40, height: 40 } },
++    { ref: '', role: 'text', label: 'Trailrunner 2', group: '' },
++    { ref: 'ref_4', role: 'field', label: '', value: '', group: 'form-2' },
++  ]
++  const cart: Picture = { ...red }
++  const blur: Picture = { ...red, data: Uint8Array.from(red.data).fill(127) }
++  /** A model that gives the cart picture `sure` of its weight for "cart", and says `yes` to "is it a button for that?". */
++  const model = (sure: number, yes = 0.95): PictureModel & { asked: number; checks: Array<Record<string, Question>> } => {
++    const m = {
++      asked: 0,
++      checks: [] as Array<Record<string, Question>>,
++      visionAvailable: () => true,
++      look: async (input: { picture?: Picture; vector?: Float32Array }, questions: Record<string, Question>): Promise<LookAnswer> => {
++        if (questions.is) {
++          // The second question comes with the vector the first one gave back, not with the picture again.
++          expect(input.picture).toBeUndefined()
++          expect(Array.from(input.vector ?? [])).toEqual([1, 0])
++          m.checks.push(questions)
++          return { model: 'atelier-vision', answers: { is: { type: 'noul', noul: yes } }, vector: new Float32Array([1, 0]), ms: 1 }
++        }
++        m.asked++
++        const p = input.picture === cart ? sure : 0.2
++        return { model: 'atelier-vision', answers: { does: { type: 'choice', choice: 'cart', probabilities: { cart: p, search: 1 - p }, confidence: p } }, vector: new Float32Array([1, 0]), ms: 1 }
++      },
++    }
++    return m
++  }
++
++  it('asks which of all its jobs a button has, named in the page’s language when it knows it', () => {
++    expect(controlLang('nl-NL')).toBe('nl')
++    expect(controlLang('pt-BR')).toBe('en')
++    expect(controlLang(undefined)).toBe('en')
++    const q = controlQuestion('nl')
++    expect(q.type).toBe('choice')
++    expect(Object.keys(q.criteria as object)).toEqual(CONTROL_JOBS.map((j) => j.key))
++    expect((q.criteria as Record<string, string>).cart).toBe('winkelwagen')
++    // Every job has a name in every language, and no two jobs share one within a language.
++    for (const lang of CONTROL_LANGS) expect(new Set(CONTROL_JOBS.map((j) => j.names[lang])).size).toBe(CONTROL_JOBS.length)
++  })
++
++  it('names a control when the model is sure of its picture, and leaves it out when it isn’t', async () => {
++    const m = model(0.93)
++    const seen = new Map<string, string | null>()
++    const out = await nameUnnamed(items, { ref_2: cart, ref_3: blur }, 'nl', m, seen, new AbortController().signal)
++    expect(out.map((i) => [i.ref, i.label, i.seen ?? false])).toEqual([['ref_1', 'Home', false], ['ref_2', 'winkelwagen', true], ['', 'Trailrunner 2', false], ['ref_4', '', false]])
++    expect(m.asked).toBe(2)
++    // The same pixels on the next page are not looked at again, whichever way the answer went.
++    await nameUnnamed(items, { ref_2: cart, ref_3: blur }, 'nl', m, seen, new AbortController().signal)
++    expect(m.asked).toBe(2)
++    expect(PICTURE_SURE).toBeGreaterThanOrEqual(0.75)
++    expect((await nameUnnamed(items, { ref_2: cart }, 'nl', model(PICTURE_SURE - 0.01), new Map(), new AbortController().signal)).some((i) => i.ref === 'ref_2')).toBe(false)
++  })
++
++  it('asks a second time whether it really is a button for that job, and leaves it out on anything but a sure yes', async () => {
++    // Among 63 jobs something always looks likeliest: a logo or an anchor is none of them.
++    const sure = model(0.99, PICTURE_YES)
++    expect((await nameUnnamed(items, { ref_2: cart }, 'nl', sure, new Map(), new AbortController().signal)).find((i) => i.ref === 'ref_2')?.label).toBe('winkelwagen')
++    expect(sure.checks).toEqual([{ is: controlCheck('nl', 'winkelwagen') }])
++    expect(controlCheck('nl', 'winkelwagen')).toEqual({ type: 'noul', instructions: 'Is dit een knop voor winkelwagen?', criteria: { true: 'Een knop voor: winkelwagen.' } })
++    const logo = model(0.99, PICTURE_YES - 0.01)
++    expect((await nameUnnamed(items, { ref_2: cart }, 'nl', logo, new Map(), new AbortController().signal)).some((i) => i.ref === 'ref_2')).toBe(false)
++    // A picture it wasn't sure of in the first place is not asked about again.
++    const unsure = model(0.4)
++    await nameUnnamed(items, { ref_2: cart }, 'en', unsure, new Map(), new AbortController().signal)
++    expect(unsure.checks).toEqual([])
++  })
++
++  it('leaves unnamed controls out without the model, without a picture, or when the model fails', async () => {
++    const named = (list: StepPageItem[]): string[] => list.map((i) => i.ref)
++    const signal = new AbortController().signal
++    expect(named(await nameUnnamed(items, { ref_2: cart }, 'en', null, new Map(), signal))).toEqual(['ref_1', '', 'ref_4'])
++    expect(named(await nameUnnamed(items, undefined, 'en', model(0.99), new Map(), signal))).toEqual(['ref_1', '', 'ref_4'])
++    const failing: PictureModel = { visionAvailable: () => true, look: async () => Promise.reject(new Error('the helper stopped')) }
++    expect(named(await nameUnnamed(items, { ref_2: cart }, 'en', failing, new Map(), signal))).toEqual(['ref_1', '', 'ref_4'])
++    const off: PictureModel = { visionAvailable: () => false, look: async () => Promise.reject(new Error('never asked')) }
++    expect(named(await nameUnnamed(items, { ref_2: cart }, 'en', off, new Map(), signal))).toEqual(['ref_1', '', 'ref_4'])
++  })
++})
++
++// The atelier-decisions project's parity fixtures (releases/vision-v0.1/model/parity.jsonl): the same tower input from
++// the same pixels, the same token ids from the same text, the same vectors from the same files, and the same answers
++// and refusals. Needs the model, so it runs when ATELIER_VISION_PARITY names its folder.
++describe.skipIf(!process.env.ATELIER_VISION_PARITY)('atelier-vision’s parity with its training code', () => {
++  it('reads every picture and text, and answers every question, as the export did', async () => {
++    const { VisionDecider, dot } = await import('../src/main/decisions/device/vision')
++    const folder = process.env.ATELIER_VISION_PARITY ?? ''
++    const model = await VisionDecider.load(folder)
++    type Row = {
++      picture?: { w: number; h: number; channels: 3 | 4; pixels: string }
++      checksum?: number
++      embedding?: number[]
++      text?: string
++      ids?: number[]
++      cut?: boolean
++      unreadable?: string | null
++      look?: { picture: number; questions: Record<string, Question> }
++      answers?: Record<string, { type: string; reason?: string; choice?: string; noul?: number; probabilities?: Record<string, number> }>
++    }
++    const rows = readFileSync(join(folder, 'parity.jsonl'), 'utf8').split('\n').filter(Boolean).map((l) => JSON.parse(l) as Row)
++    const vectors: Float32Array[] = []
++    let lowest = 1
++    let worstInput = 0
++    let worstP = 0
++    let counted = { pictures: 0, texts: 0, answers: 0 }
++    for (const r of rows) {
++      if (r.picture) {
++        const picture: Picture = { data: new Uint8Array(Buffer.from(r.picture.pixels, 'base64')), width: r.picture.w, height: r.picture.h, channels: r.picture.channels }
++        worstInput = Math.max(worstInput, Math.abs(checksum(preprocess(picture, model.size)) - (r.checksum ?? 0)) / Math.max(1, Math.abs(r.checksum ?? 0)))
++        const v = await model.image(picture)
++        vectors.push(v)
++        lowest = Math.min(lowest, dot(v, Float32Array.from(r.embedding ?? [])))
++        counted.pictures++
++      } else if (typeof r.text === 'string') {
++        expect(model.ids(r.text)).toEqual({ ids: r.ids, cut: r.cut })
++        expect(model.unreadable(r.text)).toBe(r.unreadable)
++        lowest = Math.min(lowest, dot(await model.text(r.text), Float32Array.from(r.embedding ?? [])))
++        counted.texts++
++      } else if (r.look) {
++        const out = await model.look({ vector: vectors[r.look.picture] }, r.look.questions)
++        for (const [key, want] of Object.entries(r.answers ?? {})) {
++          const got = out.answers[key] as typeof want | undefined
++          expect(got?.type).toBe(want.type)
++          if (want.type === 'refusal') expect(got?.reason).toBe(want.reason)
++          if (want.type === 'choice') expect(got?.choice).toBe(want.choice)
++          const p = (a: typeof want | undefined): number[] => (a?.type === 'noul' ? [a.noul ?? 0] : Object.values(a?.probabilities ?? {}))
++          worstP = Math.max(worstP, ...p(want).map((x, i) => Math.abs(x - (p(got)[i] ?? 9))), 0)
++          counted.answers++
++        }
++      }
++    }
++    await model.release()
++    expect(counted.pictures).toBeGreaterThan(8)
++    expect(counted.texts).toBeGreaterThan(30)
++    expect(counted.answers).toBeGreaterThan(8)
++    expect(worstInput).toBeLessThan(1e-5)
++    expect(lowest).toBeGreaterThan(0.9999)
++    expect(worstP).toBeLessThan(1e-3)
++  }, 180_000)
++})
+diff --git a/tests/labelPictures.test.ts b/tests/labelPictures.test.ts
+new file mode 100644
+index 0000000..88fee9c
+--- /dev/null
++++ b/tests/labelPictures.test.ts
+@@ -0,0 +1,175 @@
++/* Copyright (c) 2026 The Atelier Authors. All rights reserved.
++ * This Source Code Form is subject to the terms of the Mozilla Public
++ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
++ * You can obtain one at https://mozilla.org/MPL/2.0/. */
++
++import { describe, expect, it, vi } from 'vitest'
++
++vi.mock('electron', () => ({
++  app: { getPath: () => '/tmp', isPackaged: false },
++  safeStorage: { isEncryptionAvailable: () => false },
++  net: { fetch: vi.fn() },
++  shell: { openExternal: vi.fn() },
++}))
++
++import type { ClientToolContext, ToolSetup } from '../src/main/agent/tools/registry'
++import type { PictureModel } from '../src/main/agent/tools/browserSteps'
++import { createLabelPicturesTool, LABEL_PICTURES_MAX, LABEL_PICTURES_TOOL } from '../src/main/agent/tools/labelPictures'
++import { clientToolLines } from '../src/main/agent/prompt'
++import type { LookAnswer } from '../src/main/decisions/device'
++import type { Answer } from '../src/main/decisions/device/visionDecide'
++import type { Picture } from '../src/main/decisions/device/visionPreprocess'
++
++// label_pictures (docs/decisions.md › Pictures): the companion's way to hand many small judgment calls about pictures
++// on a page to atelier-vision, on this computer.
++
++const SETUP: ToolSetup = { companionId: 'pip', browser: true, memory: true, routine: false, private: false, flags: {}, workspace: { folders: false, tables: false, apps: false, calendar: false, activity: false } }
++
++function context(extra: Partial<ClientToolContext> = {}): ClientToolContext {
++  return { chatId: 'c1', companionId: 'pip', isPrivate: false, isRoutine: false, signal: new AbortController().signal, emit: () => undefined, ask: () => Promise.reject(new Error('no')), ...extra }
++}
++
++const picture = (shade: number): Picture => ({ data: new Uint8Array(12).fill(shade), width: 2, height: 2, channels: 3 })
++
++/** A page whose elements are pictures of one shade each, and a model that answers by the shade. */
++function harness(answers: Record<number, Record<string, Answer>>, options: { available?: boolean; missing?: string[] } = {}) {
++  const taken: Array<[string | null, string | null]> = []
++  const looked: number[] = []
++  const shades: Record<string, number> = { ref_1: 1, ref_2: 2, ref_3: 3 }
++  const browser = {
++    picture: async (tabId: string | null | undefined, ref: string | null) => {
++      taken.push([tabId ?? null, ref])
++      if (ref && options.missing?.includes(ref)) throw new Error(`${ref} is not visible on the page.`)
++      return { tabId: 't7', picture: picture(ref ? (shades[ref] ?? 9) : 0), name: ref ?? 'the page' }
++    },
++  }
++  const model: PictureModel = {
++    visionAvailable: () => options.available ?? true,
++    look: async (input): Promise<LookAnswer> => {
++      const shade = input.picture?.data[0] ?? -1
++      looked.push(shade)
++      return { model: 'atelier-vision', answers: answers[shade] ?? {}, vector: new Float32Array(2), ms: 1 }
++    },
++  }
++  return { tool: createLabelPicturesTool({ browser: () => browser, pictures: () => model }), taken, looked }
++}
++
++const album = { type: 'choice' as const, instructions: 'Which album fits this photo?', criteria: { beach: 'A day at the beach or by the sea', food: 'Food or a meal' } }
++const receipt = { type: 'noul' as const, instructions: 'Is this a receipt?', criteria: { true: 'A receipt from a shop or a restaurant.' } }
++const choice = (name: string, p: number): Answer => ({ type: 'choice', choice: name, probabilities: { [name]: p, other: 1 - p }, confidence: p })
++
++describe('label_pictures', () => {
++  it('answers each picture’s questions, and says “unsure” where the model isn’t sure', async () => {
++    const { tool, taken, looked } = harness({
++      1: { album: choice('beach', 0.92), receipt: { type: 'noul', noul: 0.04 } },
++      2: { album: choice('food', 0.55), receipt: { type: 'noul', noul: 0.5 } },
++      3: { album: choice('food', 0.9), receipt: { type: 'noul', noul: 0.97 } },
++    })
++    const args = tool.parse.parse({ pictures: [{ ref: 'ref_1' }, { id: 'lunch', ref: 'ref_2' }, { ref: 'ref_3' }], questions: { album, receipt } })
++    const result = await tool.run(args, context())
++    expect(result.isError).toBeUndefined()
++    const out = JSON.parse(result.content) as { model: string; pictures: Array<{ id: string; answers: Record<string, { answer: string; p: number; leaning?: string }> }>; note: string }
++    expect(out.model).toBe('atelier-vision')
++    expect(out.pictures.map((p) => p.id)).toEqual(['ref_1', 'lunch', 'ref_3'])
++    expect(out.pictures[0]!.answers).toEqual({ album: { answer: 'beach', p: 0.92 }, receipt: { answer: 'no', p: 0.04 } })
++    // The same cutoffs as label_items: a choice at 0.75, yes at 0.7 and no at 0.3.
++    expect(out.pictures[1]!.answers).toEqual({ album: { answer: 'unsure', p: 0.55, leaning: 'food' }, receipt: { answer: 'unsure', p: 0.5 } })
++    expect(out.pictures[2]!.answers.receipt).toEqual({ answer: 'yes', p: 0.97 })
++    expect(out.note).toMatch(/1 picture\(s\) have an “unsure” answer/)
++    // One after another, in the tab the first picture was found in.
++    expect(taken).toEqual([[null, 'ref_1'], ['t7', 'ref_2'], ['t7', 'ref_3']])
++    expect(looked).toEqual([1, 2, 3])
++  })
++
++  it('looks at the page as it shows when a picture names no element', async () => {
++    const { tool, taken } = harness({ 0: { receipt: { type: 'noul', noul: 0.9 } } })
++    const result = await tool.run(tool.parse.parse({ pictures: [{}], questions: { receipt }, tab_id: 't3' }), context())
++    expect(taken).toEqual([['t3', null]])
++    expect(JSON.parse(result.content).pictures).toEqual([{ id: '1', answers: { receipt: { answer: 'yes', p: 0.9 } } }])
++  })
++
++  it('says why a question wasn’t answered, and goes on after a picture it couldn’t take', async () => {
++    const { tool } = harness({ 1: { album: { type: 'refusal', reason: 'mostly not Latin script (0% Latin)' } }, 3: { album: choice('beach', 0.8) } }, { missing: ['ref_2'] })
++    const result = await tool.run(tool.parse.parse({ pictures: [{ ref: 'ref_1' }, { ref: 'ref_2' }, { ref: 'ref_3' }], questions: { album } }), context())
++    const out = JSON.parse(result.content) as { pictures: Array<{ id: string; answers?: unknown; error?: string }>; note: string }
++    expect(out.pictures[0]).toEqual({ id: 'ref_1', answers: { album: { answer: 'unsure', p: 0, why: 'mostly not Latin script (0% Latin)' } } })
++    expect(out.pictures[1]).toEqual({ id: 'ref_2', error: 'ref_2 is not visible on the page.' })
++    expect(out.pictures[2]).toEqual({ id: 'ref_3', answers: { album: { answer: 'beach', p: 0.8 } } })
++    expect(out.note).toMatch(/1 picture\(s\) were not looked at/)
++  })
++
++  it('hands everything back when no picture could be looked at, or the model isn’t here', async () => {
++    const none = harness({}, { missing: ['ref_1'] })
++    const failed = await none.tool.run(none.tool.parse.parse({ pictures: [{ ref: 'ref_1' }], questions: { album } }), context())
++    expect(failed.isError).toBe(true)
++    expect(failed.content).toMatch(/Look at them yourself/)
++    const off = harness({}, { available: false })
++    const result = await off.tool.run(off.tool.parse.parse({ pictures: [{ ref: 'ref_1' }], questions: { album } }), context())
++    expect(result.content).toMatch(/atelier-vision is not installed/)
++    expect(off.taken).toEqual([])
++    const unloaded = createLabelPicturesTool({ browser: () => null, pictures: () => null })
++    expect((await unloaded.run(unloaded.parse.parse({ pictures: [{}], questions: { album } }), context())).isError).toBe(true)
++  })
++
++  it('finds pictures by a description: how likely it fits each, and the pictures best first', async () => {
++    const asked: Array<Record<string, unknown>> = []
++    const shades: Record<string, number> = { ref_1: 0.12, ref_2: 0.91, ref_3: 0.47 }
++    const model: PictureModel = {
++      visionAvailable: () => true,
++      look: async (input, questions): Promise<LookAnswer> => {
++        asked.push(questions)
++        const p = (input.picture?.data[0] ?? 0) / 100
++        return { model: 'atelier-vision', answers: { '~find': { type: 'noul', noul: p } }, vector: new Float32Array(2), ms: 1 }
++      },
++    }
++    const browser = { picture: async (_tab: string | null | undefined, ref: string | null) => ({ tabId: 't1', picture: picture(Math.round((shades[ref ?? ''] ?? 0) * 100)), name: ref ?? 'the page' }) }
++    const tool = createLabelPicturesTool({ browser: () => browser, pictures: () => model })
++    const result = await tool.run(tool.parse.parse({ pictures: [{ ref: 'ref_1' }, { ref: 'ref_2' }, { ref: 'ref_3' }], find: 'the red sofa' }), context())
++    const out = JSON.parse(result.content) as { best_first: string[]; pictures: Array<{ id: string; match: number; answers: Record<string, unknown> }>; note: string }
++    expect(out.best_first).toEqual(['ref_2', 'ref_3', 'ref_1'])
++    expect(out.pictures.map((p) => p.match)).toEqual([0.12, 0.91, 0.47])
++    // The description is asked as what a yes looks like, and is not one of the companion's own answers.
++    expect(asked[0]).toEqual({ '~find': { type: 'noul', instructions: 'the red sofa', criteria: { true: 'the red sofa' } } })
++    expect(out.pictures[0]!.answers).toEqual({})
++    expect(out.note).toMatch(/best_first lists the pictures/)
++    // A description the model can't read ranks nothing and says so.
++    const foreign: PictureModel = { visionAvailable: () => true, look: async () => ({ model: 'atelier-vision', answers: { '~find': { type: 'refusal', reason: 'mostly not Latin script (0% Latin)' } }, vector: new Float32Array(2), ms: 1 }) }
++    const other = createLabelPicturesTool({ browser: () => browser, pictures: () => foreign })
++    const refused = JSON.parse((await other.run(other.parse.parse({ pictures: [{ ref: 'ref_1' }], find: 'красный диван' }), context())).content) as { best_first?: string[]; note: string }
++    expect(refused.best_first).toBeUndefined()
++    expect(refused.note).toMatch(/couldn’t be read \(mostly not Latin script/)
++    // Questions or a description: one of them is needed.
++    expect(tool.parse.safeParse({ pictures: [{ ref: 'ref_1' }] }).success).toBe(false)
++    expect(tool.parse.safeParse({ pictures: [{ ref: 'ref_1' }], find: 'a' }).success).toBe(false)
++  })
++
++  it('stops when the chat is stopped', async () => {
++    const stop = new AbortController()
++    const { tool, looked } = harness({ 1: { album: choice('beach', 0.9) } })
++    stop.abort()
++    await expect(tool.run(tool.parse.parse({ pictures: [{ ref: 'ref_1' }], questions: { album } }), context({ signal: stop.signal }))).rejects.toThrow()
++    expect(looked).toEqual([])
++  })
++
++  it('takes 1 to 40 pictures and 1 to 5 questions in the System One shape', () => {
++    const { tool } = harness({})
++    expect(tool.parse.safeParse({ pictures: [], questions: { album } }).success).toBe(false)
++    expect(tool.parse.safeParse({ pictures: Array.from({ length: LABEL_PICTURES_MAX + 1 }, () => ({})), questions: { album } }).success).toBe(false)
++    expect(tool.parse.safeParse({ pictures: [{}], questions: {} }).success).toBe(false)
++    expect(tool.parse.safeParse({ pictures: [{}], questions: { album: { type: 'choice', instructions: 'Which?', criteria: { only: 'one' } } } }).success).toBe(false)
++    expect(tool.parse.safeParse({ pictures: [{ ref: 'ref_1', url: 'https://example.test/a.jpg' }], questions: { album } }).success).toBe(false)
++    expect(tool.parse.safeParse({ pictures: [{ ref: 'ref_1' }], questions: { album, receipt } }).success).toBe(true)
++  })
++
++  it('is offered while atelier-vision is here and the chat has the browser, private chats too, never in routines', () => {
++    const on = harness({}).tool
++    expect(on.name).toBe(LABEL_PICTURES_TOOL)
++    expect(on.enabled(SETUP)).toBe(true)
++    // It runs on this computer: nothing of a private chat leaves it.
++    expect(on.enabled({ ...SETUP, private: true })).toBe(true)
++    expect(on.enabled({ ...SETUP, browser: false })).toBe(false)
++    expect(on.enabled({ ...SETUP, routine: true })).toBe(false)
++    expect(harness({}, { available: false }).tool.enabled(SETUP)).toBe(false)
++    expect(clientToolLines([LABEL_PICTURES_TOOL], () => 'chat')).toMatch(/- label_pictures answers the same .* look yourself at the ones it marks "unsure"/)
++  })
++})

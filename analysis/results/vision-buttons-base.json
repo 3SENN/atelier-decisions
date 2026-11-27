@@ -1,0 +1,357 @@
+{
+ "meta": {
+  "pictures": "runs/vision/emb/base-held",
+  "runtime": null,
+  "adapters": null,
+  "languages": [
+   "en",
+   "nl",
+   "de",
+   "fr",
+   "es"
+  ]
+ },
+ "0.75, no second question": {
+  "heldout-items": {
+   "n": 2870,
+   "named_right": 0.0697,
+   "named_wrong": 0.0024,
+   "left_alone": 0.9279,
+   "right_when_named": 0.9662
+  },
+  "heldout-look": {
+   "n": 9640,
+   "named_right": 0.0522,
+   "named_wrong": 0.0018,
+   "left_alone": 0.9461,
+   "right_when_named": 0.9673
+  },
+  "heldout-kinds": {
+   "n": 2220,
+   "named_right": 0.0374,
+   "named_wrong": 0.0095,
+   "left_alone": 0.9532,
+   "right_when_named": 0.7981
+  },
+  "heldout-none": {
+   "n": 2700,
+   "named_anyway": 0.0037
+  },
+  "by language (icon sets never seen)": {
+   "en": {
+    "named_right": 0.1146,
+    "named_wrong": 0.0005
+   },
+   "nl": {
+    "named_right": 0.0508,
+    "named_wrong": 0.0073
+   },
+   "de": {
+    "named_right": 0.0342,
+    "named_wrong": 0.001
+   },
+   "fr": {
+    "named_right": 0.0394,
+    "named_wrong": 0.0
+   },
+   "es": {
+    "named_right": 0.0218,
+    "named_wrong": 0.0
+   }
+  }
+ },
+ "0.75, 0.50": {
+  "heldout-items": {
+   "n": 2870,
+   "named_right": 0.0697,
+   "named_wrong": 0.0024,
+   "left_alone": 0.9279,
+   "right_when_named": 0.9662
+  },
+  "heldout-look": {
+   "n": 9640,
+   "named_right": 0.0522,
+   "named_wrong": 0.0018,
+   "left_alone": 0.9461,
+   "right_when_named": 0.9673
+  },
+  "heldout-kinds": {
+   "n": 2220,
+   "named_right": 0.0374,
+   "named_wrong": 0.0095,
+   "left_alone": 0.9532,
+   "right_when_named": 0.7981
+  },
+  "heldout-none": {
+   "n": 2700,
+   "named_anyway": 0.0037
+  },
+  "by language (icon sets never seen)": {
+   "en": {
+    "named_right": 0.1146,
+    "named_wrong": 0.0005
+   },
+   "nl": {
+    "named_right": 0.0508,
+    "named_wrong": 0.0073
+   },
+   "de": {
+    "named_right": 0.0342,
+    "named_wrong": 0.001
+   },
+   "fr": {
+    "named_right": 0.0394,
+    "named_wrong": 0.0
+   },
+   "es": {
+    "named_right": 0.0218,
+    "named_wrong": 0.0
+   }
+  }
+ },
+ "0.75, 0.70": {
+  "heldout-items": {
+   "n": 2870,
+   "named_right": 0.0655,
+   "named_wrong": 0.0021,
+   "left_alone": 0.9324,
+   "right_when_named": 0.9691
+  },
+  "heldout-look": {
+   "n": 9640,
+   "named_right": 0.0518,
+   "named_wrong": 0.0016,
+   "left_alone": 0.9467,
+   "right_when_named": 0.9708
+  },
+  "heldout-kinds": {
+   "n": 2220,
+   "named_right": 0.0374,
+   "named_wrong": 0.0095,
+   "left_alone": 0.9532,
+   "right_when_named": 0.7981
+  },
+  "heldout-none": {
+   "n": 2700,
+   "named_anyway": 0.003
+  },
+  "by language (icon sets never seen)": {
+   "en": {
+    "named_right": 0.1131,
+    "named_wrong": 0.0
+   },
+   "nl": {
+    "named_right": 0.0508,
+    "named_wrong": 0.0073
+   },
+   "de": {
+    "named_right": 0.0337,
+    "named_wrong": 0.0005
+   },
+   "fr": {
+    "named_right": 0.0394,
+    "named_wrong": 0.0
+   },
+   "es": {
+    "named_right": 0.0218,
+    "named_wrong": 0.0
+   }
+  }
+ },
+ "0.90, no second question": {
+  "heldout-items": {
+   "n": 2870,
+   "named_right": 0.0035,
+   "named_wrong": 0.0,
+   "left_alone": 0.9965,
+   "right_when_named": 1.0
+  },
+  "heldout-look": {
+   "n": 9640,
+   "named_right": 0.0073,
+   "named_wrong": 0.0,
+   "left_alone": 0.9927,
+   "right_when_named": 1.0
+  },
+  "heldout-kinds": {
+   "n": 2220,
+   "named_right": 0.0009,
+   "named_wrong": 0.0,
+   "left_alone": 0.9991,
+   "right_when_named": 1.0
+  },
+  "heldout-none": {
+   "n": 2700,
+   "named_anyway": 0.0004
+  },
+  "by language (icon sets never seen)": {
+   "en": {
+    "named_right": 0.0249,
+    "named_wrong": 0.0
+   },
+   "nl": {
+    "named_right": 0.0062,
+    "named_wrong": 0.0
+   },
+   "de": {
+    "named_right": 0.0,
+    "named_wrong": 0.0
+   },
+   "fr": {
+    "named_right": 0.0052,
+    "named_wrong": 0.0
+   },
+   "es": {
+    "named_right": 0.0,
+    "named_wrong": 0.0
+   }
+  }
+ },
+ "0.90, 0.70": {
+  "heldout-items": {
+   "n": 2870,
+   "named_right": 0.0035,
+   "named_wrong": 0.0,
+   "left_alone": 0.9965,
+   "right_when_named": 1.0
+  },
+  "heldout-look": {
+   "n": 9640,
+   "named_right": 0.0071,
+   "named_wrong": 0.0,
+   "left_alone": 0.9929,
+   "right_when_named": 1.0
+  },
+  "heldout-kinds": {
+   "n": 2220,
+   "named_right": 0.0009,
+   "named_wrong": 0.0,
+   "left_alone": 0.9991,
+   "right_when_named": 1.0
+  },
+  "heldout-none": {
+   "n": 2700,
+   "named_anyway": 0.0004
+  },
+  "by language (icon sets never seen)": {
+   "en": {
+    "named_right": 0.0239,
+    "named_wrong": 0.0
+   },
+   "nl": {
+    "named_right": 0.0062,
+    "named_wrong": 0.0
+   },
+   "de": {
+    "named_right": 0.0,
+    "named_wrong": 0.0
+   },
+   "fr": {
+    "named_right": 0.0052,
+    "named_wrong": 0.0
+   },
+   "es": {
+    "named_right": 0.0,
+    "named_wrong": 0.0
+   }
+  }
+ },
+ "0.90, 0.90": {
+  "heldout-items": {
+   "n": 2870,
+   "named_right": 0.0007,
+   "named_wrong": 0.0,
+   "left_alone": 0.9993,
+   "right_when_named": 1.0
+  },
+  "heldout-look": {
+   "n": 9640,
+   "named_right": 0.0019,
+   "named_wrong": 0.0,
+   "left_alone": 0.9981,
+   "right_when_named": 1.0
+  },
+  "heldout-kinds": {
+   "n": 2220,
+   "named_right": 0.0005,
+   "named_wrong": 0.0,
+   "left_alone": 0.9995,
+   "right_when_named": 1.0
+  },
+  "heldout-none": {
+   "n": 2700,
+   "named_anyway": 0.0
+  },
+  "by language (icon sets never seen)": {
+   "en": {
+    "named_right": 0.0083,
+    "named_wrong": 0.0
+   },
+   "nl": {
+    "named_right": 0.0,
+    "named_wrong": 0.0
+   },
+   "de": {
+    "named_right": 0.0,
+    "named_wrong": 0.0
+   },
+   "fr": {
+    "named_right": 0.001,
+    "named_wrong": 0.0
+   },
+   "es": {
+    "named_right": 0.0,
+    "named_wrong": 0.0
+   }
+  }
+ },
+ "0.95, 0.90": {
+  "heldout-items": {
+   "n": 2870,
+   "named_right": 0.0,
+   "named_wrong": 0.0,
+   "left_alone": 1.0,
+   "right_when_named": null
+  },
+  "heldout-look": {
+   "n": 9640,
+   "named_right": 0.0003,
+   "named_wrong": 0.0,
+   "left_alone": 0.9997,
+   "right_when_named": 1.0
+  },
+  "heldout-kinds": {
+   "n": 2220,
+   "named_right": 0.0,
+   "named_wrong": 0.0,
+   "left_alone": 1.0,
+   "right_when_named": null
+  },
+  "heldout-none": {
+   "n": 2700,
+   "named_anyway": 0.0
+  },
+  "by language (icon sets never seen)": {
+   "en": {
+    "named_right": 0.001,
+    "named_wrong": 0.0
+   },
+   "nl": {
+    "named_right": 0.0,
+    "named_wrong": 0.0
+   },
+   "de": {
+    "named_right": 0.0,
+    "named_wrong": 0.0
+   },
+   "fr": {
+    "named_right": 0.0005,
+    "named_wrong": 0.0
+   },
+   "es": {
+    "named_right": 0.0,
+    "named_wrong": 0.0
+   }
+  }
+ }
+}

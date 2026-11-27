@@ -1,0 +1,163 @@
+{
+ "runtime": "runs/vision-v2/onnx",
+ "photos": {
+  "pictures": 100,
+  "as stored": {
+   "cos_mean": 0.937,
+   "cos_lowest": 0.8793,
+   "questions": 359,
+   "readings_changed": 0.078,
+   "sure_and_right": [
+    0.844,
+    0.8357
+   ],
+   "sure_and_wrong": [
+    0.0557,
+    0.0529
+   ]
+  },
+  "smaller first": {
+   "cos_mean": 0.9981,
+   "cos_lowest": 0.969,
+   "questions": 359,
+   "readings_changed": 0.0056,
+   "sure_and_right": [
+    0.844,
+    0.8468
+   ],
+   "sure_and_wrong": [
+    0.0557,
+    0.0529
+   ]
+  },
+  "bicubic": {
+   "cos_mean": 0.9945,
+   "cos_lowest": 0.9742,
+   "questions": 359,
+   "readings_changed": 0.0111,
+   "sure_and_right": [
+    0.844,
+    0.8412
+   ],
+   "sure_and_wrong": [
+    0.0557,
+    0.0529
+   ]
+  },
+  "lanczos": {
+   "cos_mean": 0.9865,
+   "cos_lowest": 0.95,
+   "questions": 359,
+   "readings_changed": 0.0139,
+   "sure_and_right": [
+    0.844,
+    0.8412
+   ],
+   "sure_and_wrong": [
+    0.0557,
+    0.0501
+   ]
+  },
+  "nearest": {
+   "cos_mean": 0.9661,
+   "cos_lowest": 0.8541,
+   "questions": 359,
+   "readings_changed": 0.0195,
+   "sure_and_right": [
+    0.844,
+    0.8468
+   ],
+   "sure_and_wrong": [
+    0.0557,
+    0.0501
+   ]
+  },
+  "jpeg 60": {
+   "cos_mean": 0.9928,
+   "cos_lowest": 0.9719,
+   "questions": 359,
+   "readings_changed": 0.0111,
+   "sure_and_right": [
+    0.844,
+    0.8412
+   ],
+   "sure_and_wrong": [
+    0.0557,
+    0.0529
+   ]
+  }
+ },
+ "buttons": {
+  "pictures": 100,
+  "smaller first": {
+   "cos_mean": 1.0,
+   "cos_lowest": 1.0,
+   "questions": 361,
+   "readings_changed": 0.0,
+   "sure_and_right": [
+    0.9169,
+    0.9169
+   ],
+   "sure_and_wrong": [
+    0.0222,
+    0.0222
+   ]
+  },
+  "bicubic": {
+   "cos_mean": 0.986,
+   "cos_lowest": 0.8876,
+   "questions": 361,
+   "readings_changed": 0.0055,
+   "sure_and_right": [
+    0.9169,
+    0.9114
+   ],
+   "sure_and_wrong": [
+    0.0222,
+    0.0222
+   ]
+  },
+  "lanczos": {
+   "cos_mean": 0.9741,
+   "cos_lowest": 0.7856,
+   "questions": 361,
+   "readings_changed": 0.0139,
+   "sure_and_right": [
+    0.9169,
+    0.9086
+   ],
+   "sure_and_wrong": [
+    0.0222,
+    0.0222
+   ]
+  },
+  "nearest": {
+   "cos_mean": 0.9213,
+   "cos_lowest": 0.7144,
+   "questions": 361,
+   "readings_changed": 0.0249,
+   "sure_and_right": [
+    0.9169,
+    0.9058
+   ],
+   "sure_and_wrong": [
+    0.0222,
+    0.0166
+   ]
+  },
+  "jpeg 60": {
+   "cos_mean": 0.9135,
+   "cos_lowest": 0.3119,
+   "questions": 361,
+   "readings_changed": 0.0526,
+   "sure_and_right": [
+    0.9169,
+    0.8809
+   ],
+   "sure_and_wrong": [
+    0.0222,
+    0.0166
+   ]
+  }
+ }
+}

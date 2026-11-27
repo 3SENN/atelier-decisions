@@ -1,0 +1,232 @@
+Loading weights:   0%|          | 0/408 [00:00<?, ?it/s]Loading weights: 100%|██████████| 408/408 [00:00<00:00, 5439.69it/s]
+13050 photo vectors and 40000 anchor captions from the base
+2026-11-26 20:27:54,233 onnxruntime.quantization.matmul_nbits_quantizer [WARNING] - The opset of the input model is under 21 and doesn't support int4 data type. Force to update it to opset 21, but the generated model may not be a valid model.
+2026-11-26 20:27:54,233 onnxruntime.quantization.matmul_nbits_quantizer [WARNING] - The IR version of the input model is 8 and doesn't support int4 data type. Force to update it to 10.
+2026-11-26 20:27:54,233 onnxruntime.quantization.matmul_nbits_quantizer [INFO] - start to quantize /Gather ...
+2026-11-26 20:27:54,932 onnxruntime.quantization.matmul_nbits_quantizer [INFO] - complete quantization of /Gather with 4 bits ...
+the text tower reads through vocab-12: 118947 tokens, their rows at 4 bits (1 - cos to the exact rows 0.0038); 22821 anchor captions it can read, 17179 in other scripts left out
+from runs/vision-v1 (1404 updates)
+LoRA on 72 linear layers, 2.65M trained parameters, on mps
+23906 training pictures, 1707 updates of 14 (1707 per epoch); free disk 2.2 GB, swap in use 10761 MB
+before training:
+  album / heldout-items / choice           n=125   right 96.0% · decides 96% · right when deciding 98%
+  control / heldout-items / choice         n=58    right 91.4% · decides 86% · right when deciding 100%
+  control / heldout-items / noul           n=79    right 98.7% · decides 99% · right when deciding 99%
+  control / heldout-kinds / choice         n=54    right 70.4% · decides 76% · right when deciding 85%
+  control / heldout-kinds / noul           n=63    right 71.4% · decides 89% · right when deciding 77%
+  control / heldout-look / choice          n=283   right 89.4% · decides 85% · right when deciding 96%
+  control / heldout-look / noul            n=258   right 96.1% · decides 96% · right when deciding 98%
+  control / heldout-none / noul            n=29    right 93.1% · decides 90% · right when deciding 96%
+  document / heldout-items / choice        n=34    right 100.0% · decides 100% · right when deciding 100%
+  document / heldout-items / noul          n=85    right 100.0% · decides 99% · right when deciding 100%
+  document / heldout-kinds / choice        n=74    right 94.6% · decides 97% · right when deciding 96%
+  document / heldout-kinds / noul          n=130   right 98.5% · decides 100% · right when deciding 98%
+  document / heldout-look / choice         n=59    right 100.0% · decides 100% · right when deciding 100%
+  document / heldout-look / noul           n=132   right 98.5% · decides 97% · right when deciding 99%
+  page / heldout-items / choice            n=14    right 100.0% · decides 93% · right when deciding 100%
+  page / heldout-items / noul              n=29    right 86.2% · decides 93% · right when deciding 89%
+  page / heldout-kinds / choice            n=24    right 70.8% · decides 79% · right when deciding 79%
+  page / heldout-kinds / noul              n=57    right 73.7% · decides 74% · right when deciding 79%
+  page / heldout-look / choice             n=114   right 78.1% · decides 76% · right when deciding 89%
+  page / heldout-look / noul               n=240   right 84.2% · decides 89% · right when deciding 86%
+  photo / heldout-items / choice           n=147   right 94.6% · decides 95% · right when deciding 96%
+  photo / heldout-items / noul             n=222   right 90.1% · decides 89% · right when deciding 93%
+  photo / heldout-kinds / choice           n=21    right 100.0% · decides 95% · right when deciding 100%
+  photo / heldout-kinds / noul             n=36    right 80.6% · decides 81% · right when deciding 93%
+update 25/1707 choice 0.068 noul 0.074 · photo drift 0.0014 text drift 0.0247 · 88 texts · 7.3 pictures/s · 1.7 GB · 54 min left
+update 50/1707 choice 0.069 noul 0.116 · photo drift 0.0027 text drift 0.0235 · 89 texts · 7.3 pictures/s · 1.7 GB · 53 min left
+update 75/1707 choice 0.078 noul 0.121 · photo drift 0.0027 text drift 0.0226 · 89 texts · 7.3 pictures/s · 1.7 GB · 52 min left
+update 100/1707 choice 0.074 noul 0.114 · photo drift 0.0028 text drift 0.0215 · 90 texts · 7.3 pictures/s · 1.7 GB · 51 min left
+update 125/1707 choice 0.076 noul 0.117 · photo drift 0.0025 text drift 0.0208 · 91 texts · 7.2 pictures/s · 1.7 GB · 51 min left
+update 150/1707 choice 0.093 noul 0.126 · photo drift 0.0024 text drift 0.0202 · 91 texts · 7.1 pictures/s · 1.7 GB · 51 min left
+update 175/1707 choice 0.088 noul 0.138 · photo drift 0.0022 text drift 0.0193 · 91 texts · 7.1 pictures/s · 1.7 GB · 51 min left
+update 200/1707 choice 0.098 noul 0.134 · photo drift 0.0023 text drift 0.0187 · 88 texts · 7.1 pictures/s · 1.7 GB · 50 min left
+update 225/1707 choice 0.089 noul 0.140 · photo drift 0.0023 text drift 0.0187 · 87 texts · 7.1 pictures/s · 1.7 GB · 49 min left
+update 250/1707 choice 0.087 noul 0.121 · photo drift 0.0020 text drift 0.0182 · 93 texts · 7.0 pictures/s · 1.7 GB · 49 min left
+update 275/1707 choice 0.089 noul 0.130 · photo drift 0.0019 text drift 0.0174 · 90 texts · 7.0 pictures/s · 1.7 GB · 47 min left
+update 300/1707 choice 0.086 noul 0.118 · photo drift 0.0019 text drift 0.0172 · 91 texts · 7.1 pictures/s · 1.7 GB · 47 min left
+update 325/1707 choice 0.083 noul 0.119 · photo drift 0.0019 text drift 0.0172 · 89 texts · 7.1 pictures/s · 1.7 GB · 46 min left
+update 350/1707 choice 0.070 noul 0.127 · photo drift 0.0018 text drift 0.0170 · 90 texts · 7.1 pictures/s · 1.7 GB · 45 min left
+update 375/1707 choice 0.095 noul 0.127 · photo drift 0.0020 text drift 0.0165 · 90 texts · 7.0 pictures/s · 1.7 GB · 44 min left
+update 400/1707 choice 0.087 noul 0.124 · photo drift 0.0021 text drift 0.0166 · 90 texts · 6.9 pictures/s · 1.7 GB · 44 min left
+update 425/1707 choice 0.088 noul 0.127 · photo drift 0.0021 text drift 0.0168 · 90 texts · 6.7 pictures/s · 1.6 GB · 44 min left
+after 426 updates:
+  album / heldout-items / choice           n=125   right 96.0% · decides 96% · right when deciding 98%
+  control / heldout-items / choice         n=58    right 93.1% · decides 86% · right when deciding 98%
+  control / heldout-items / noul           n=79    right 93.7% · decides 96% · right when deciding 97%
+  control / heldout-kinds / choice         n=54    right 70.4% · decides 74% · right when deciding 85%
+  control / heldout-kinds / noul           n=63    right 68.2% · decides 97% · right when deciding 70%
+  control / heldout-look / choice          n=283   right 95.0% · decides 90% · right when deciding 98%
+  control / heldout-look / noul            n=258   right 97.3% · decides 97% · right when deciding 99%
+  control / heldout-none / noul            n=29    right 96.5% · decides 93% · right when deciding 100%
+  document / heldout-items / choice        n=34    right 100.0% · decides 100% · right when deciding 100%
+  document / heldout-items / noul          n=85    right 100.0% · decides 100% · right when deciding 100%
+  document / heldout-kinds / choice        n=74    right 93.2% · decides 99% · right when deciding 95%
+  document / heldout-kinds / noul          n=130   right 98.5% · decides 98% · right when deciding 98%
+  document / heldout-look / choice         n=59    right 100.0% · decides 100% · right when deciding 100%
+  document / heldout-look / noul           n=132   right 97.7% · decides 97% · right when deciding 99%
+  page / heldout-items / choice            n=14    right 100.0% · decides 93% · right when deciding 100%
+  page / heldout-items / noul              n=29    right 89.7% · decides 90% · right when deciding 88%
+  page / heldout-kinds / choice            n=24    right 66.7% · decides 88% · right when deciding 71%
+  page / heldout-kinds / noul              n=57    right 68.4% · decides 77% · right when deciding 70%
+  page / heldout-look / choice             n=114   right 85.1% · decides 81% · right when deciding 90%
+  page / heldout-look / noul               n=240   right 85.8% · decides 89% · right when deciding 90%
+  photo / heldout-items / choice           n=147   right 93.9% · decides 95% · right when deciding 96%
+  photo / heldout-items / noul             n=222   right 92.8% · decides 91% · right when deciding 94%
+  photo / heldout-kinds / choice           n=21    right 100.0% · decides 100% · right when deciding 100%
+  photo / heldout-kinds / noul             n=36    right 86.1% · decides 89% · right when deciding 91%
+  saved (right 91.9% of 2400 held-out questions, half a)
+update 450/1707 choice 0.084 noul 0.116 · photo drift 0.0019 text drift 0.0166 · 93 texts · 5.9 pictures/s · 1.6 GB · 50 min left
+update 475/1707 choice 0.076 noul 0.109 · photo drift 0.0029 text drift 0.0163 · 91 texts · 5.9 pictures/s · 1.6 GB · 49 min left
+update 500/1707 choice 0.085 noul 0.136 · photo drift 0.0027 text drift 0.0163 · 90 texts · 5.9 pictures/s · 1.6 GB · 48 min left
+update 525/1707 choice 0.086 noul 0.129 · photo drift 0.0023 text drift 0.0160 · 92 texts · 5.9 pictures/s · 1.6 GB · 47 min left
+update 550/1707 choice 0.082 noul 0.136 · photo drift 0.0021 text drift 0.0156 · 90 texts · 5.9 pictures/s · 1.6 GB · 46 min left
+update 575/1707 choice 0.065 noul 0.127 · photo drift 0.0022 text drift 0.0154 · 90 texts · 5.9 pictures/s · 1.7 GB · 45 min left
+update 600/1707 choice 0.051 noul 0.110 · photo drift 0.0020 text drift 0.0157 · 93 texts · 5.8 pictures/s · 1.7 GB · 44 min left
+update 625/1707 choice 0.052 noul 0.108 · photo drift 0.0019 text drift 0.0155 · 92 texts · 5.8 pictures/s · 1.7 GB · 43 min left
+update 650/1707 choice 0.070 noul 0.110 · photo drift 0.0019 text drift 0.0154 · 91 texts · 5.9 pictures/s · 1.7 GB · 42 min left
+update 675/1707 choice 0.058 noul 0.115 · photo drift 0.0020 text drift 0.0155 · 91 texts · 5.8 pictures/s · 1.7 GB · 41 min left
+update 700/1707 choice 0.059 noul 0.108 · photo drift 0.0022 text drift 0.0158 · 91 texts · 5.8 pictures/s · 1.7 GB · 40 min left
+update 725/1707 choice 0.054 noul 0.120 · photo drift 0.0020 text drift 0.0163 · 91 texts · 5.8 pictures/s · 1.7 GB · 39 min left
+update 750/1707 choice 0.055 noul 0.124 · photo drift 0.0019 text drift 0.0158 · 89 texts · 5.8 pictures/s · 1.7 GB · 38 min left
+update 775/1707 choice 0.061 noul 0.128 · photo drift 0.0019 text drift 0.0153 · 88 texts · 5.8 pictures/s · 1.7 GB · 37 min left
+update 800/1707 choice 0.071 noul 0.145 · photo drift 0.0018 text drift 0.0153 · 86 texts · 5.8 pictures/s · 1.7 GB · 36 min left
+update 825/1707 choice 0.074 noul 0.126 · photo drift 0.0020 text drift 0.0149 · 86 texts · 5.8 pictures/s · 1.7 GB · 35 min left
+update 850/1707 choice 0.076 noul 0.129 · photo drift 0.0020 text drift 0.0151 · 88 texts · 5.8 pictures/s · 1.7 GB · 34 min left
+after 852 updates:
+  album / heldout-items / choice           n=125   right 96.0% · decides 95% · right when deciding 99%
+  control / heldout-items / choice         n=58    right 87.9% · decides 91% · right when deciding 96%
+  control / heldout-items / noul           n=79    right 98.7% · decides 97% · right when deciding 99%
+  control / heldout-kinds / choice         n=54    right 72.2% · decides 74% · right when deciding 88%
+  control / heldout-kinds / noul           n=63    right 71.4% · decides 97% · right when deciding 72%
+  control / heldout-look / choice          n=283   right 95.8% · decides 92% · right when deciding 98%
+  control / heldout-look / noul            n=258   right 98.1% · decides 98% · right when deciding 99%
+  control / heldout-none / noul            n=29    right 96.5% · decides 97% · right when deciding 96%
+  document / heldout-items / choice        n=34    right 100.0% · decides 100% · right when deciding 100%
+  document / heldout-items / noul          n=85    right 100.0% · decides 100% · right when deciding 100%
+  document / heldout-kinds / choice        n=74    right 94.6% · decides 95% · right when deciding 97%
+  document / heldout-kinds / noul          n=130   right 98.5% · decides 99% · right when deciding 98%
+  document / heldout-look / choice         n=59    right 100.0% · decides 100% · right when deciding 100%
+  document / heldout-look / noul           n=132   right 98.5% · decides 99% · right when deciding 98%
+  page / heldout-items / choice            n=14    right 100.0% · decides 100% · right when deciding 100%
+  page / heldout-items / noul              n=29    right 86.2% · decides 93% · right when deciding 93%
+  page / heldout-kinds / choice            n=24    right 62.5% · decides 88% · right when deciding 71%
+  page / heldout-kinds / noul              n=57    right 68.4% · decides 77% · right when deciding 75%
+  page / heldout-look / choice             n=114   right 83.3% · decides 78% · right when deciding 91%
+  page / heldout-look / noul               n=240   right 84.2% · decides 90% · right when deciding 89%
+  photo / heldout-items / choice           n=147   right 93.2% · decides 95% · right when deciding 96%
+  photo / heldout-items / noul             n=222   right 92.8% · decides 91% · right when deciding 95%
+  photo / heldout-kinds / choice           n=21    right 100.0% · decides 95% · right when deciding 100%
+  photo / heldout-kinds / noul             n=36    right 83.3% · decides 89% · right when deciding 91%
+update 875/1707 choice 0.090 noul 0.121 · photo drift 0.0021 text drift 0.0152 · 87 texts · 5.6 pictures/s · 1.7 GB · 35 min left
+update 900/1707 choice 0.084 noul 0.110 · photo drift 0.0021 text drift 0.0150 · 88 texts · 5.6 pictures/s · 1.7 GB · 34 min left
+update 925/1707 choice 0.078 noul 0.104 · photo drift 0.0019 text drift 0.0151 · 89 texts · 5.6 pictures/s · 1.7 GB · 33 min left
+update 950/1707 choice 0.071 noul 0.101 · photo drift 0.0020 text drift 0.0151 · 90 texts · 5.6 pictures/s · 1.7 GB · 32 min left
+update 975/1707 choice 0.061 noul 0.104 · photo drift 0.0019 text drift 0.0151 · 90 texts · 5.6 pictures/s · 1.7 GB · 31 min left
+update 1000/1707 choice 0.060 noul 0.105 · photo drift 0.0019 text drift 0.0151 · 90 texts · 5.6 pictures/s · 1.7 GB · 29 min left
+update 1025/1707 choice 0.073 noul 0.105 · photo drift 0.0020 text drift 0.0151 · 87 texts · 5.6 pictures/s · 1.6 GB · 28 min left
+update 1050/1707 choice 0.064 noul 0.092 · photo drift 0.0020 text drift 0.0153 · 90 texts · 5.6 pictures/s · 1.7 GB · 27 min left
+update 1075/1707 choice 0.055 noul 0.089 · photo drift 0.0018 text drift 0.0152 · 92 texts · 5.6 pictures/s · 1.7 GB · 26 min left
+update 1100/1707 choice 0.048 noul 0.091 · photo drift 0.0018 text drift 0.0154 · 89 texts · 5.6 pictures/s · 1.6 GB · 25 min left
+update 1125/1707 choice 0.050 noul 0.102 · photo drift 0.0022 text drift 0.0152 · 88 texts · 5.6 pictures/s · 1.6 GB · 24 min left
+update 1150/1707 choice 0.038 noul 0.109 · photo drift 0.0019 text drift 0.0151 · 88 texts · 5.6 pictures/s · 1.6 GB · 23 min left
+update 1175/1707 choice 0.050 noul 0.116 · photo drift 0.0021 text drift 0.0151 · 88 texts · 5.6 pictures/s · 1.6 GB · 22 min left
+update 1200/1707 choice 0.037 noul 0.109 · photo drift 0.0019 text drift 0.0147 · 88 texts · 5.6 pictures/s · 1.6 GB · 21 min left
+update 1225/1707 choice 0.036 noul 0.098 · photo drift 0.0017 text drift 0.0146 · 90 texts · 5.6 pictures/s · 1.7 GB · 20 min left
+update 1250/1707 choice 0.037 noul 0.106 · photo drift 0.0016 text drift 0.0148 · 89 texts · 5.6 pictures/s · 1.6 GB · 19 min left
+update 1275/1707 choice 0.060 noul 0.108 · photo drift 0.0017 text drift 0.0146 · 90 texts · 5.6 pictures/s · 1.6 GB · 18 min left
+after 1278 updates:
+  album / heldout-items / choice           n=125   right 96.0% · decides 95% · right when deciding 99%
+  control / heldout-items / choice         n=58    right 91.4% · decides 90% · right when deciding 100%
+  control / heldout-items / noul           n=79    right 98.7% · decides 99% · right when deciding 99%
+  control / heldout-kinds / choice         n=54    right 68.5% · decides 72% · right when deciding 87%
+  control / heldout-kinds / noul           n=63    right 71.4% · decides 95% · right when deciding 70%
+  control / heldout-look / choice          n=283   right 96.5% · decides 93% · right when deciding 98%
+  control / heldout-look / noul            n=258   right 98.5% · decides 98% · right when deciding 100%
+  control / heldout-none / noul            n=29    right 96.5% · decides 100% · right when deciding 97%
+  document / heldout-items / choice        n=34    right 100.0% · decides 100% · right when deciding 100%
+  document / heldout-items / noul          n=85    right 100.0% · decides 100% · right when deciding 100%
+  document / heldout-kinds / choice        n=74    right 94.6% · decides 93% · right when deciding 99%
+  document / heldout-kinds / noul          n=130   right 98.5% · decides 99% · right when deciding 98%
+  document / heldout-look / choice         n=59    right 100.0% · decides 100% · right when deciding 100%
+  document / heldout-look / noul           n=132   right 98.5% · decides 99% · right when deciding 99%
+  page / heldout-items / choice            n=14    right 100.0% · decides 100% · right when deciding 100%
+  page / heldout-items / noul              n=29    right 89.7% · decides 93% · right when deciding 93%
+  page / heldout-kinds / choice            n=24    right 62.5% · decides 83% · right when deciding 75%
+  page / heldout-kinds / noul              n=57    right 70.2% · decides 74% · right when deciding 79%
+  page / heldout-look / choice             n=114   right 85.1% · decides 85% · right when deciding 89%
+  page / heldout-look / noul               n=240   right 85.8% · decides 90% · right when deciding 90%
+  photo / heldout-items / choice           n=147   right 93.2% · decides 96% · right when deciding 96%
+  photo / heldout-items / noul             n=222   right 93.2% · decides 92% · right when deciding 95%
+  photo / heldout-kinds / choice           n=21    right 100.0% · decides 95% · right when deciding 100%
+  photo / heldout-kinds / noul             n=36    right 83.3% · decides 89% · right when deciding 91%
+  saved (right 92.4% of 2400 held-out questions, half a)
+update 1300/1707 choice 0.053 noul 0.105 · photo drift 0.0016 text drift 0.0148 · 92 texts · 5.5 pictures/s · 1.7 GB · 17 min left
+update 1325/1707 choice 0.048 noul 0.102 · photo drift 0.0017 text drift 0.0147 · 93 texts · 5.5 pictures/s · 1.7 GB · 16 min left
+update 1350/1707 choice 0.046 noul 0.114 · photo drift 0.0016 text drift 0.0147 · 94 texts · 5.5 pictures/s · 1.7 GB · 15 min left
+update 1375/1707 choice 0.034 noul 0.100 · photo drift 0.0016 text drift 0.0150 · 92 texts · 5.5 pictures/s · 1.7 GB · 14 min left
+update 1400/1707 choice 0.039 noul 0.102 · photo drift 0.0016 text drift 0.0149 · 93 texts · 5.5 pictures/s · 1.7 GB · 13 min left
+update 1425/1707 choice 0.040 noul 0.099 · photo drift 0.0016 text drift 0.0147 · 95 texts · 5.5 pictures/s · 1.7 GB · 12 min left
+update 1450/1707 choice 0.045 noul 0.095 · photo drift 0.0016 text drift 0.0149 · 93 texts · 5.5 pictures/s · 1.7 GB · 11 min left
+update 1475/1707 choice 0.047 noul 0.091 · photo drift 0.0015 text drift 0.0145 · 93 texts · 5.5 pictures/s · 1.7 GB · 10 min left
+update 1500/1707 choice 0.037 noul 0.090 · photo drift 0.0020 text drift 0.0147 · 92 texts · 5.5 pictures/s · 1.7 GB · 9 min left
+update 1525/1707 choice 0.039 noul 0.087 · photo drift 0.0018 text drift 0.0147 · 91 texts · 5.5 pictures/s · 1.7 GB · 8 min left
+update 1550/1707 choice 0.049 noul 0.105 · photo drift 0.0016 text drift 0.0147 · 89 texts · 5.5 pictures/s · 1.7 GB · 7 min left
+update 1575/1707 choice 0.043 noul 0.101 · photo drift 0.0015 text drift 0.0151 · 90 texts · 5.6 pictures/s · 1.7 GB · 6 min left
+update 1600/1707 choice 0.053 noul 0.107 · photo drift 0.0016 text drift 0.0151 · 90 texts · 5.6 pictures/s · 1.7 GB · 4 min left
+update 1625/1707 choice 0.065 noul 0.104 · photo drift 0.0016 text drift 0.0149 · 93 texts · 5.6 pictures/s · 1.7 GB · 3 min left
+update 1650/1707 choice 0.057 noul 0.106 · photo drift 0.0018 text drift 0.0152 · 88 texts · 5.6 pictures/s · 1.7 GB · 2 min left
+update 1675/1707 choice 0.052 noul 0.101 · photo drift 0.0019 text drift 0.0151 · 88 texts · 5.6 pictures/s · 1.7 GB · 1 min left
+update 1700/1707 choice 0.061 noul 0.119 · photo drift 0.0022 text drift 0.0151 · 88 texts · 5.6 pictures/s · 1.7 GB · 0 min left
+after 1704 updates:
+  album / heldout-items / choice           n=125   right 96.0% · decides 95% · right when deciding 99%
+  control / heldout-items / choice         n=58    right 93.1% · decides 91% · right when deciding 100%
+  control / heldout-items / noul           n=79    right 98.7% · decides 99% · right when deciding 99%
+  control / heldout-kinds / choice         n=54    right 68.5% · decides 74% · right when deciding 85%
+  control / heldout-kinds / noul           n=63    right 69.8% · decides 95% · right when deciding 70%
+  control / heldout-look / choice          n=283   right 96.5% · decides 93% · right when deciding 98%
+  control / heldout-look / noul            n=258   right 99.2% · decides 98% · right when deciding 100%
+  control / heldout-none / noul            n=29    right 96.5% · decides 97% · right when deciding 96%
+  document / heldout-items / choice        n=34    right 100.0% · decides 100% · right when deciding 100%
+  document / heldout-items / noul          n=85    right 100.0% · decides 100% · right when deciding 100%
+  document / heldout-kinds / choice        n=74    right 93.2% · decides 93% · right when deciding 99%
+  document / heldout-kinds / noul          n=130   right 98.5% · decides 99% · right when deciding 98%
+  document / heldout-look / choice         n=59    right 100.0% · decides 100% · right when deciding 100%
+  document / heldout-look / noul           n=132   right 99.2% · decides 99% · right when deciding 99%
+  page / heldout-items / choice            n=14    right 100.0% · decides 100% · right when deciding 100%
+  page / heldout-items / noul              n=29    right 93.1% · decides 90% · right when deciding 96%
+  page / heldout-kinds / choice            n=24    right 66.7% · decides 75% · right when deciding 78%
+  page / heldout-kinds / noul              n=57    right 70.2% · decides 74% · right when deciding 76%
+  page / heldout-look / choice             n=114   right 84.2% · decides 85% · right when deciding 91%
+  page / heldout-look / noul               n=240   right 86.7% · decides 91% · right when deciding 90%
+  photo / heldout-items / choice           n=147   right 93.2% · decides 97% · right when deciding 96%
+  photo / heldout-items / noul             n=222   right 93.2% · decides 93% · right when deciding 95%
+  photo / heldout-kinds / choice           n=21    right 100.0% · decides 95% · right when deciding 100%
+  photo / heldout-kinds / noul             n=36    right 83.3% · decides 89% · right when deciding 91%
+  saved (right 92.6% of 2400 held-out questions, half a)
+after 1707 updates:
+  album / heldout-items / choice           n=125   right 96.0% · decides 95% · right when deciding 99%
+  control / heldout-items / choice         n=58    right 93.1% · decides 91% · right when deciding 100%
+  control / heldout-items / noul           n=79    right 98.7% · decides 99% · right when deciding 99%
+  control / heldout-kinds / choice         n=54    right 68.5% · decides 74% · right when deciding 85%
+  control / heldout-kinds / noul           n=63    right 69.8% · decides 94% · right when deciding 69%
+  control / heldout-look / choice          n=283   right 96.5% · decides 93% · right when deciding 98%
+  control / heldout-look / noul            n=258   right 99.2% · decides 98% · right when deciding 100%
+  control / heldout-none / noul            n=29    right 96.5% · decides 97% · right when deciding 96%
+  document / heldout-items / choice        n=34    right 100.0% · decides 100% · right when deciding 100%
+  document / heldout-items / noul          n=85    right 100.0% · decides 100% · right when deciding 100%
+  document / heldout-kinds / choice        n=74    right 93.2% · decides 93% · right when deciding 99%
+  document / heldout-kinds / noul          n=130   right 98.5% · decides 99% · right when deciding 98%
+  document / heldout-look / choice         n=59    right 100.0% · decides 100% · right when deciding 100%
+  document / heldout-look / noul           n=132   right 99.2% · decides 99% · right when deciding 99%
+  page / heldout-items / choice            n=14    right 100.0% · decides 100% · right when deciding 100%
+  page / heldout-items / noul              n=29    right 93.1% · decides 90% · right when deciding 96%
+  page / heldout-kinds / choice            n=24    right 66.7% · decides 75% · right when deciding 78%
+  page / heldout-kinds / noul              n=57    right 70.2% · decides 74% · right when deciding 76%
+  page / heldout-look / choice             n=114   right 84.2% · decides 85% · right when deciding 91%
+  page / heldout-look / noul               n=240   right 86.7% · decides 91% · right when deciding 90%
+  photo / heldout-items / choice           n=147   right 93.2% · decides 97% · right when deciding 96%
+  photo / heldout-items / noul             n=222   right 93.2% · decides 93% · right when deciding 95%
+  photo / heldout-kinds / choice           n=21    right 100.0% · decides 95% · right when deciding 100%
+  photo / heldout-kinds / noul             n=36    right 83.3% · decides 89% · right when deciding 91%
+done in 74 min; best 92.6%
