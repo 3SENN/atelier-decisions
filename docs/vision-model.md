@@ -234,6 +234,27 @@ IKEA and Booking.com, 21 buttons, each with the name the page's own code gives i
 
 Twenty-one buttons are a look, not a number: it says the drawn buttons were not a world of their own.
 
+### How often a page needs it (`analysis/results/vision-sites-v0.1.txt`)
+
+The question behind the button numbers: how many buttons does a real page leave without a name? `vision/sites.mjs`
+opens the first screen of 60 well-known sites (`vision/sites.txt`) and splits every link and button the way
+Atelier's page bridge does. 39 loaded; the others answer a headless browser with a wall.
+
+| | |
+|---|---|
+| Links and buttons the page's own code names | 6,305 |
+| With no name anywhere | 175 (2.7%) |
+| Of those, whole in view and the size of a control: what Atelier asks the model about | 9, on 7 of the 39 pages |
+| Real buttons among the 9 (two searches, a settings gear, an account button) | 4, all named right |
+| Site logos among the 9 | 5, all left alone |
+| A picture, as the helper runs it | 0.3 s |
+
+So websites name nearly all their buttons themselves, as accessibility asks of them. For browser tasks the model
+adds a button on about one first screen in ten, got those right, and named nothing wrongly here. That is a small
+gain, and it is the honest size of this use: nobody should download 260 MB for it alone. What the download is for
+is pictures themselves, which no page's code describes: sorting and finding photos, telling a receipt from an
+invoice (`label_pictures`, the results above).
+
 ### Search (`analysis/results/vision-search-v0.1.txt`)
 
 A picture's vector also finds it by a description. On Crossmodal-3600 (3,600 photos, none trained on): a caption
@@ -339,5 +360,5 @@ question, not a model.
 - **Speed and memory.** A picture takes about 0.3 s on two CPU threads of an M2 (0.2 s on four), far from atelier-nano's 10 ms: fine for a dozen buttons or forty thumbnails, not for a library of photos in one go. It is the heaviest of the on-device models to hold:
   260 MB to download and about 0.6 GB of memory while loaded (up to 1 GB while it reads many new texts at once).
 - **Drawn data.** Buttons, documents and pages are generated: real icon sets and a real browser engine, but made-up
-  sites. Photos and search are real pictures. From real websites there is only the first look above: 21 buttons.
+  sites. Photos and search are real pictures. From real websites there are the two looks above: 21 icon buttons, and the 9 that 39 first screens left unnamed.
 - **The shipped image file was only run on the buttons** for these numbers (see "Which file read what").
