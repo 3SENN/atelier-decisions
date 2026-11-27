@@ -1,0 +1,24 @@
+icon buttons from live websites, asked Atelier's two questions (named at 0.90 and 0.90); releases/vision-v0.1/model
+site, what the page's code calls it | what the model calls it, the job's weight / the yes
+  github.com             Homepage                             | chat               0.94 / 0.45  left alone
+  github.com             (no name)                            | grid view          0.87 / 0.88  left alone
+  github.com             (no name)                            | more options       1.00 / 0.97  named
+  github.com             (no name)                            | light mode         0.39 / 0.84  left alone
+  en.wikipedia.org       This article is semi-protected.      | lock               0.77 / 0.96  left alone
+  nos.nl                 Scroll lijst met sub categorieën voo | volgende           0.45 / 0.99  left alone
+  www.youtube.com        Guide                                | menu               0.91 / 0.97  named
+  www.youtube.com        Search                               | search             0.97 / 0.99  named
+  www.youtube.com        Search with your voice               | microphone         0.99 / 0.99  named
+  www.youtube.com        Settings                             | more options       0.99 / 0.98  named
+  stackoverflow.com      Help Center and other resources      | help               1.00 / 1.00  named
+  stackoverflow.com      Site switcher                        | chat               0.95 / 0.87  left alone
+  stackoverflow.com      a user's avatar                      | picture            0.35 / 0.11  left alone
+  stackoverflow.com      a user's avatar                      | grid view          0.45 / 0.62  left alone
+  stackoverflow.com      a user's avatar                      | grid view          0.98 / 0.95  named
+  stackoverflow.com      a user's avatar                      | picture            0.19 / 0.19  left alone
+  stackoverflow.com      Copy onboarding snippet              | copy               0.98 / 0.99  named
+  www.ikea.com           Bekijk vorige items                  | volgende           0.48 / 0.82  left alone
+  www.ikea.com           Bekijk volgende items                | volgende           0.66 / 0.94  left alone
+  www.ikea.com           Open het chatvenster                 | chat               1.00 / 0.99  named
+  www.booking.com        Dismiss sign in information.         | close              1.00 / 0.99  named
+21 buttons from 7 sites: 10 named, 11 left alone

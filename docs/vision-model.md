@@ -218,6 +218,22 @@ The weak side is a button that is none of the jobs: one in ten is still named as
 is not a click: atelier-step still has to choose it for the task, and the click guard and the approvals check every
 click. But it is the number to bring down in the next version.
 
+### On live websites, a first look (`analysis/results/vision-real-sites-v0.1.txt`)
+
+After the version was saved: icon-only links and buttons from live pages (`vision/real.mjs`, a headless Chromium;
+`vision/real.py` asks the two questions). Twelve sites were tried and seven gave buttons (the others answer a
+headless browser with a wall or have no icon-only buttons in view): GitHub, Wikipedia, NOS, YouTube, Stack Overflow,
+IKEA and Booking.com, 21 buttons, each with the name the page's own code gives it to read the answer against.
+
+- **10 named, 9 of them right**: YouTube's menu, search, microphone and three dots, GitHub's three dots, Stack
+  Overflow's help and copy, IKEA's chat, Booking.com's close.
+- **1 named wrong**: a user's generated avatar (a pattern of squares) as "grid view". It is none of the 63 jobs,
+  the known weak side.
+- **11 left alone**: GitHub's logo, a padlock, three users' avatars, previous and next arrows (the right job on
+  top, at 0.45-0.66 of the weight), a filter icon.
+
+Twenty-one buttons are a look, not a number: it says the drawn buttons were not a world of their own.
+
 ### Search (`analysis/results/vision-search-v0.1.txt`)
 
 A picture's vector also finds it by a description. On Crossmodal-3600 (3,600 photos, none trained on): a caption
@@ -323,5 +339,5 @@ question, not a model.
 - **Speed and memory.** A picture takes about 0.3 s on two CPU threads of an M2 (0.2 s on four), far from atelier-nano's 10 ms: fine for a dozen buttons or forty thumbnails, not for a library of photos in one go. It is the heaviest of the on-device models to hold:
   260 MB to download and about 0.6 GB of memory while loaded (up to 1 GB while it reads many new texts at once).
 - **Drawn data.** Buttons, documents and pages are generated: real icon sets and a real browser engine, but made-up
-  sites. Photos and search are real pictures. No number here is from pictures of real websites yet.
+  sites. Photos and search are real pictures. From real websites there is only the first look above: 21 buttons.
 - **The shipped image file was only run on the buttons** for these numbers (see "Which file read what").
