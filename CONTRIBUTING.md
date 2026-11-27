@@ -26,6 +26,7 @@ What each kind of work needs:
 | Data builders, the analysis scripts, reading the saved results | Python 3.12, any computer |
 | The Node runner (`runtime/node`) | Node.js 22.12 or later, and a version's files (below) |
 | Labelling with a teacher, training a student | an NVIDIA GPU with 12 GB or more (every version so far was made on an RTX 3060), the teachers (61 GB on disk) |
+| atelier-step and atelier-vision (`step/`, `vision/`) | a Mac with Apple silicon is enough (both were made on an M2 with 24 GB), or any GPU; atelier-vision's pictures are drawn with Node.js and a Chromium |
 
 ```bash
 git clone https://github.com/3SENN/atelier-decisions.git
@@ -53,7 +54,7 @@ CI runs these on every pull request. Run them first:
 
 ```bash
 python tools/check_headers.py                         # every source file carries the MPL-2.0 notice (--fix adds it)
-python -m compileall -q analysis data student teacher tools
+python -m compileall -q analysis data student teacher tools vision
 python tools/hf_release.py verify --all --present     # nothing under releases/ has changed
 cd runtime/node && npm run typecheck
 ```

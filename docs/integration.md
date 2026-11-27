@@ -140,6 +140,42 @@ tokenizer and the 255 x 2048 readout (255 x 1024 for the 0.8B). At 2B and 4-5 bi
 question on a phone CPU, and 1.3 GB to download; that is an estimate, not a measurement, and the 0.8B (v0.5) is the
 lighter choice there. The nano stays the phone's first answer.
 
+## Pictures: atelier-vision (patch ready)
+
+`integration/atelier-vision.patch` adds atelier-vision ([vision-model.md](vision-model.md)) to Atelier as a third
+optional download next to the mini and atelier-step, with the two things it is used for. It was built on the branch
+`on-device-vision` in a separate worktree (`../atelier-vision`), so the main checkout is untouched: local commits
+there, not pushed. The patch is `git diff` from Atelier's main (`0f0c981`, which already has the models above) to
+that branch.
+
+```bash
+cd atelier
+git apply ../atelier-decisions/integration/atelier-vision.patch
+ATELIER_VISION_MODEL=../atelier-decisions/releases/vision-v0.1/model npm run dev    # Settings › Quick decisions › On this computer › Pictures
+ATELIER_VISION_PARITY=../atelier-decisions/releases/vision-v0.1/model npx vitest run tests/decisionsVision.test.ts
+```
+
+| Piece | Where | What it does |
+|---|---|---|
+| Runtime | `src/main/decisions/device/vision.ts`, `visionFormat.ts`, `visionDecide.ts`, `visionPreprocess.ts` | this project's `runtime/node/src/vision` with Atelier's file names (written by `tools/vision_dist.py --atelier`, so the two can't drift): a picture's vector, a text's vector, System One answers, refusals |
+| Helper | `deviceHelper.ts`, `device.ts` | `{ id, look }` and `{ id, embed }` messages next to decisions and steps; `DeviceDecisions.look(picture or vector, questions)` and `.embed(texts, picture)`; a new helper when the model is installed or removed; it runs without the small decision model too |
+| Pictures | `src/main/decisions/pictures.ts` | what Atelier captured (Electron's BGRA bitmap, at the display's scale) as the RGB pixels the helper takes, at most 768 pixels on its longest edge; a fingerprint so the same pixels are looked at once |
+| Download | `feature.ts`, `device/visionManifest.ts`, `visionFiles.ts` | the mini's installer with `needsServer: false`: five files with their sizes and SHA-256 from the version's tag on Hugging Face; `ATELIER_VISION_MODEL=<folder>` uses a folder as it is |
+| Settings | `QuickDecisions.tsx`, `i18n/{en,nl}/decisions.ts` | "Pictures" under On this computer: Download, progress, Stop, Remove |
+| Browser tasks | `src/preload/page/bridge.ts`, `src/main/agent/browserTool.ts`, `agent/tools/browserSteps.ts`, `src/shared/visionControls.ts` | links and buttons the page gives no name used to be left out of a step; now up to twelve a page come along with their box, the browser takes each one's picture, and the model names it (which of 63 jobs, then whether it really is a button for that job) or it stays out as before |
+| Companion | `agent/tools/labelPictures.ts`, `prompt.ts`, `tools/registry.ts` | `label_pictures`: `label_items` for up to 40 pictures on a page, each named by its element's ref, read with the same cutoffs; "unsure" and why come back for the companion |
+| Tests | `tests/decisionsVision.test.ts`, `tests/labelPictures.test.ts` | the folder, the helper's messages, the download, pictures from captures, the format and the arithmetic, the buttons' two questions and cutoffs, the tool; and parity with this project's fixtures when `ATELIER_VISION_PARITY` names the model |
+| Docs | `docs/decisions.md` › Pictures, `PRIVACY.md`, `CHANGELOG.md` | how it works, what it declines, what it is measured to be good and bad at |
+
+Checked on a worktree of Atelier at `0f0c981` (branch `on-device-vision`): TypeScript for the main process and the
+renderer, the i18n catalogue (8,453 keys, English and Dutch), the whole suite (4,867 tests pass), and the parity test
+against `releases/vision-v0.1/model`. Not checked: the download itself, which needs the version on Hugging Face,
+and a task on a real website with icon buttons.
+
+`tools/vision_dist.py --version vision-v0.1 --atelier ../atelier-vision` writes the four generated files (the
+manifest, the file list, the job names, the runtime) into a checkout. The download works once the version is on
+Hugging Face (`python tools/hf_release.py publish vision-v0.1`): the manifest points at its tag.
+
 ## Without the patch
 
 Atelier already accepts any System One server as "your own server", and treats one on this computer (localhost,

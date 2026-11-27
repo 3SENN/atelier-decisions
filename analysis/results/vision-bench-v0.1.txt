@@ -1,0 +1,8 @@
+atelier-vision v0.1 in runtime/node (src/vision/bench.ts) on a MacBook M2, ONNX Runtime on the CPU, three runs:
+{"threads":2,"load_ms":498,"first_picture_ms":306,"picture_ms":302.7,"new_text_ms":102.1,"question_again_ms":0,"rss_mb":991}
+{"threads":4,"load_ms":440,"first_picture_ms":167,"picture_ms":222.3,"new_text_ms":73.6,"question_again_ms":0,"rss_mb":939}
+{"threads":2,"load_ms":506,"first_picture_ms":312,"picture_ms":337.8,"new_text_ms":110.7,"question_again_ms":0.1,"rss_mb":988}
+{"threads":4,"load_ms":547,"first_picture_ms":174,"picture_ms":224.4,"new_text_ms":73.6,"question_again_ms":0,"rss_mb":935}
+{"threads":2,"load_ms":482,"first_picture_ms":300,"picture_ms":297.3,"new_text_ms":103.5,"question_again_ms":0.1,"rss_mb":954}
+{"threads":4,"load_ms":490,"first_picture_ms":167,"picture_ms":192.2,"new_text_ms":60.3,"question_again_ms":0,"rss_mb":865}
+rss_mb is at the end of the benchmark, after texts were read 32 at a time. Loaded and answering one picture at a time, the process holds about 580 MB (95 MB of it the tokenizer's vocabulary in JavaScript).

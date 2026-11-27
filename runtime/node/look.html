@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>atelier-vision · playground</title>
+<style>
+  :root {
+    --bg: #f6f6f4; --panel: #ffffff; --ink: #1d1d1b; --muted: #6b6b66; --line: #e4e3df; --soft: #f0efeb;
+    --accent: #3d5afe; --accent-soft: #e8ebff; --good: #1b7f4b; --good-soft: #e3f4ea; --bad: #b3261e; --bad-soft: #fbe5e3; --bar: #c9cfff;
+    font: 14px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #151514; --panel: #1e1e1c; --ink: #ecebe7; --muted: #9b9a94; --line: #2f2f2c; --soft: #262624;
+      --accent: #8c9eff; --accent-soft: #23284a; --good: #6fd39b; --good-soft: #17301f; --bad: #ff8a80; --bad-soft: #3a1b19; --bar: #3a4290;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); }
+  header { display: flex; align-items: baseline; gap: 14px; padding: 18px 28px 6px; flex-wrap: wrap; }
+  header h1 { font-size: 18px; margin: 0; letter-spacing: -0.01em; }
+  header .model { font: 12px ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--muted); }
+  .flow { padding: 0 28px 14px; color: var(--muted); font-size: 13px; max-width: 980px; }
+  main { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px; padding: 0 28px 28px; }
+  @media (max-width: 900px) { main { grid-template-columns: 1fr; } }
+  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 18px; }
+  .panel h2 { font-size: 15px; margin: 0 0 4px; } .hint { color: var(--muted); margin: 0 0 14px; font-size: 13px; }
+  .wide { grid-column: 1 / -1; }
+  label { display: block; font-size: 12px; color: var(--muted); margin: 10px 0 4px; }
+  input[type=text], textarea, select { width: 100%; font: inherit; color: var(--ink); background: var(--soft); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; }
+  textarea { min-height: 132px; resize: vertical; font: 13px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; }
+  input:focus, textarea:focus, select:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+  .drop { border: 2px dashed var(--line); border-radius: 12px; padding: 22px; text-align: center; color: var(--muted); cursor: pointer; }
+  .drop.over { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+  .thumbs { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .thumbs figure { margin: 0; width: 92px; cursor: pointer; }
+  .thumbs img { width: 92px; height: 92px; object-fit: cover; border-radius: 8px; border: 2px solid transparent; display: block; background: var(--soft); }
+  .thumbs figure.on img { border-color: var(--accent); }
+  .thumbs figcaption { font: 11px ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--muted); text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .examples { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 2px; }
+  .examples button { border: 1px dashed var(--line); background: transparent; color: var(--muted); border-radius: 6px; padding: 3px 8px; font: 12px inherit; cursor: pointer; }
+  .examples button:hover { color: var(--ink); border-color: var(--muted); }
+  .go { margin-top: 14px; display: flex; gap: 10px; align-items: center; }
+  .go button { background: var(--accent); color: white; border: 0; border-radius: 8px; padding: 9px 18px; font: 600 14px inherit; cursor: pointer; }
+  .go button:disabled { opacity: .5; cursor: wait; } .go span { color: var(--muted); font-size: 12px; }
+  .empty { color: var(--muted); text-align: center; padding: 40px 10px; }
+  .answer { font-size: 22px; font-weight: 650; letter-spacing: -0.01em; margin: 2px 0 2px; }
+  .sub { color: var(--muted); font-size: 13px; margin-bottom: 12px; }
+  .verdict { border-radius: 8px; padding: 10px 12px; margin-bottom: 16px; font-size: 13px; }
+  .verdict.acts { background: var(--good-soft); color: var(--good); } .verdict.rule { background: var(--soft); color: var(--muted); }
+  .verdict.declined { background: var(--bad-soft); color: var(--bad); }
+  .bars { display: grid; grid-template-columns: minmax(80px, max-content) 1fr 44px; gap: 6px 10px; align-items: center; font-size: 13px; }
+  .bars .name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 260px; }
+  .bars .track { height: 10px; background: var(--soft); border-radius: 5px; overflow: hidden; }
+  .bars .fill { height: 100%; background: var(--bar); border-radius: 5px; } .bars .fill.top { background: var(--accent); }
+  .bars .pct { text-align: right; font-variant-numeric: tabular-nums; color: var(--muted); }
+  .error { color: var(--bad); white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<header>
+  <h1>atelier-vision</h1>
+  <span class="model">a picture, the answers it may have, and how well it matches each · <a href="/">text decisions</a></span>
+</header>
+<div class="flow">Add pictures, write the answers a question may have, and see which one the model picks and how sure it is. It never writes anything: it compares the picture with each answer’s own text. Atelier acts on a choice at 75%, a yes at 70% and a no at 30%; otherwise it keeps its rule. Nothing leaves this computer.</div>
+<main>
+  <section class="panel">
+    <h2>Pictures</h2>
+    <p class="hint">Drop pictures here, or click to choose. Each is looked at once; after that every question about it is instant.</p>
+    <div class="drop" id="drop">Drop pictures, or click<input type="file" id="files" accept="image/*" multiple hidden></div>
+    <div class="thumbs" id="thumbs"></div>
+    <label for="query">Find a picture by describing it</label>
+    <input type="text" id="query" placeholder="a dog on a beach · een bonnetje · a shopping cart icon">
+  </section>
+  <section class="panel">
+    <h2>Question</h2>
+    <p class="hint">One answer per line, as <code>name: what the picture shows</code> (or just the text). For yes or no: one line saying what a yes looks like, and optionally a second saying what a no looks like.</p>
+    <div class="examples" id="examples"></div>
+    <label for="type">Type</label>
+    <select id="type"><option value="choice">choice: exactly one of the answers</option><option value="noul">noul: yes or no</option><option value="score">score: a level, lowest first</option></select>
+    <label for="options">Answers</label>
+    <textarea id="options" spellcheck="false"></textarea>
+    <div class="go"><button id="ask">Look</button><span id="took"></span></div>
+  </section>
+  <section class="panel wide" id="result"><div class="empty">Add a picture and press Look (⌘/Ctrl + Enter).</div></section>
+</main>
+<script>
+const EXAMPLES = {
+  'Which album': ['choice', 'animals: Animals and pets\nfood: Food and meals\nlandscape: Landscapes and nature\nvehicles: Cars, trains, boats and other vehicles\nbuildings: Buildings and landmarks\npapers: Pictures, papers and signs'],
+  'What kind of picture': ['choice', 'photo: An ordinary photo\nreceipt: A till receipt from a shop or a restaurant\ninvoice: An invoice from a company, with amounts to pay\nticket: A ticket for an event or a journey\nscreenshot: A screenshot of an app or a web page\nnote: A handwritten note or list'],
+  'What does this button do': ['choice', 'cart: Opens the shopping cart\nsearch: Starts a search\nclose: Closes this window or panel\nmenu: Opens the menu\nsettings: Opens the settings\naccount: Opens your account or profile\ndelete: Deletes this\nshare: Shares this with others'],
+  'What is this page doing': ['choice', 'ready: An ordinary page with nothing in the way.\ncookies: A cookie notice covers part of the page.\npopup: A pop-up covers the page.\nsignin: The page asks you to sign in.\nerror: The page shows an error.\nloading: The page is still loading.'],
+  'Is it a receipt?': ['noul', 'A till receipt from a shop or a restaurant.\nAnything else.'],
+  'Welk album (NL)': ['choice', 'dieren: Dieren en huisdieren\neten: Eten en maaltijden\nnatuur: Landschappen en natuur\nvoertuigen: Auto’s, treinen, boten en andere voertuigen\npapieren: Afbeeldingen, papieren en borden'],
+}
+const $ = (id) => document.getElementById(id)
+const pictures = []  // {name, url, vector}
+let current = -1
+
+function question() {
+  const type = $('type').value
+  const lines = $('options').value.split('\n').map((l) => l.trim()).filter(Boolean)
+  if (type === 'noul') return { type, instructions: 'Does the picture match?', criteria: { true: lines[0], ...(lines[1] ? { false: lines[1] } : {}) } }
+  if (type === 'score') return { type, instructions: 'Which level?', criteria: lines }
+  const criteria = {}
+  lines.forEach((line, i) => {
+    const at = line.indexOf(':')
+    if (at > 0 && at < 40) criteria[line.slice(0, at).trim()] = line.slice(at + 1).trim()
+    else criteria[`option_${i + 1}`] = line
+  })
+  return { type, instructions: 'Which of these does the picture show?', criteria }
+}
+
+async function post(path, body) {
+  const res = await fetch(path, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) })
+  const out = await res.json()
+  if (!res.ok) throw new Error(out.error ?? res.statusText)
+  return out
+}
+
+/** A picture's pixels as the model is handed them anywhere: RGBA, row by row. */
+async function pixelsOf(file) {
+  const bitmap = await createImageBitmap(file)
+  const k = Math.min(1, 768 / Math.max(bitmap.width, bitmap.height))
+  const canvas = new OffscreenCanvas(Math.max(1, Math.round(bitmap.width * k)), Math.max(1, Math.round(bitmap.height * k)))
+  const ctx = canvas.getContext('2d')
+  ctx.imageSmoothingQuality = 'high'
+  ctx.drawImage(bitmap, 0, 0, canvas.width, canvas.height)
+  const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data
+  let binary = ''
+  for (let i = 0; i < data.length; i += 0x8000) binary += String.fromCharCode.apply(null, data.subarray(i, i + 0x8000))
+  return { pixels: btoa(binary), width: canvas.width, height: canvas.height, channels: 4 }
+}
+
+async function add(files) {
+  for (const file of files) {
+    if (!file.type.startsWith('image/')) continue
+    const entry = { name: file.name, url: URL.createObjectURL(file), vector: null, file }
+    pictures.push(entry)
+    current = pictures.length - 1
+    draw()
+    try {
+      entry.vector = (await post('/v1/embed', { picture: await pixelsOf(file) })).picture
+    } catch (err) {
+      $('result').innerHTML = `<div class="error">${String(err.message ?? err)}</div>`
+    }
+  }
+  if (pictures[current]?.vector) await look()
+}
+
+function draw(order) {
+  const shown = order ?? pictures.map((_, i) => ({ index: i }))
+  $('thumbs').innerHTML = shown.map(({ index, cos }) => `<figure data-i="${index}" class="${index === current ? 'on' : ''}"><img src="${pictures[index].url}" alt=""><figcaption>${cos === undefined ? pictures[index].name.replace(/[<>&]/g, '') : cos.toFixed(3)}</figcaption></figure>`).join('')
+}
+
+async function look() {
+  const p = pictures[current]
+  if (!p?.vector) return
+  $('ask').disabled = true
+  try {
+    const q = question()
+    const out = await post('/v1/look', { vector: p.vector, questions: { q } })
+    const a = out.answers.q
+    $('took').textContent = `${out.ms} ms`
+    const esc = (s) => String(s).replace(/[<>&]/g, (c) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;' })[c])
+    if (a.type === 'refusal') {
+      $('result').innerHTML = `<div class="answer">Declined</div><div class="verdict declined">${esc(a.reason)}: Atelier keeps its rule.</div>`
+    } else if (a.type === 'noul') {
+      const sure = a.noul >= 0.7 ? 'yes' : a.noul <= 0.3 ? 'no' : null
+      $('result').innerHTML = `<div class="answer">${sure ?? 'not sure'}</div><div class="sub">yes ${(100 * a.noul).toFixed(1)}%</div><div class="verdict ${sure ? 'acts' : 'rule'}">${sure ? `Atelier would take this as a ${sure}.` : 'Between 30% and 70%: Atelier keeps its rule.'}</div>
+        <div class="bars"><span class="name">yes</span><span class="track"><span class="fill top" style="width:${100 * a.noul}%;display:block"></span></span><span class="pct">${(100 * a.noul).toFixed(0)}%</span></div>`
+    } else {
+      const rows = Object.entries(a.probabilities).sort((x, y) => y[1] - x[1])
+      const [best, p0] = rows[0]
+      const cutoff = a.type === 'choice' ? 0.75 : 0.6
+      const text = q.type === 'choice' ? (q.criteria[best] ?? best) : q.criteria[Number(best)]
+      $('result').innerHTML = `<div class="answer">${esc(a.type === 'choice' ? best : text)}</div><div class="sub">${esc(a.type === 'choice' ? text : `level ${best}`)}</div>
+        <div class="verdict ${p0 >= cutoff ? 'acts' : 'rule'}">${p0 >= cutoff ? 'Atelier would act on this answer.' : `Below ${100 * cutoff}%: Atelier keeps its rule.`}</div>
+        <div class="bars">${rows.map(([k, v], i) => `<span class="name">${esc(q.type === 'choice' ? k : q.criteria[Number(k)])}</span><span class="track"><span class="fill ${i === 0 ? 'top' : ''}" style="width:${100 * v}%;display:block"></span></span><span class="pct">${(100 * v).toFixed(0)}%</span>`).join('')}</div>`
+    }
+  } catch (err) {
+    $('result').innerHTML = `<div class="error">${String(err.message ?? err)}</div>`
+  } finally {
+    $('ask').disabled = false
+  }
+}
+
+async function search() {
+  const text = $('query').value.trim()
+  const ready = pictures.map((p, index) => ({ p, index })).filter((x) => x.p.vector)
+  if (!text || ready.length === 0) return draw()
+  const [vector] = (await post('/v1/embed', { texts: [text] })).texts
+  if (!vector) return ($('result').innerHTML = '<div class="verdict declined">The model can’t read that text: it reads Latin-script languages.</div>')
+  const dot = (a, b) => a.reduce((s, x, i) => s + x * b[i], 0)
+  draw(ready.map(({ p, index }) => ({ index, cos: dot(p.vector, vector) })).sort((a, b) => b.cos - a.cos))
+}
+
+$('examples').innerHTML = Object.keys(EXAMPLES).map((name) => `<button data-name="${name}">${name}</button>`).join('')
+$('examples').onclick = (e) => {
+  const example = EXAMPLES[e.target.dataset?.name]
+  if (!example) return
+  $('type').value = example[0]
+  $('options').value = example[1]
+  void look()
+}
+;[$('type').value, $('options').value] = EXAMPLES['Which album']
+$('drop').onclick = () => $('files').click()
+$('files').onchange = (e) => void add(e.target.files)
+$('drop').ondragover = (e) => (e.preventDefault(), $('drop').classList.add('over'))
+$('drop').ondragleave = () => $('drop').classList.remove('over')
+$('drop').ondrop = (e) => (e.preventDefault(), $('drop').classList.remove('over'), void add(e.dataTransfer.files))
+$('thumbs').onclick = (e) => {
+  const figure = e.target.closest('figure')
+  if (!figure) return
+  current = Number(figure.dataset.i)
+  draw()
+  void look()
+}
+$('ask').onclick = () => void look()
+$('query').onkeydown = (e) => e.key === 'Enter' && void search()
+document.onkeydown = (e) => (e.metaKey || e.ctrlKey) && e.key === 'Enter' && void look()
+</script>
+</body>
+</html>

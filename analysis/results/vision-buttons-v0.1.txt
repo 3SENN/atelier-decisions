@@ -1,0 +1,9 @@
+a button the page gave no name, asked which of all 63 jobs it is and then whether it really is that one, in each of five languages
+cutoffs (job, yes): named right / named wrong / left alone, of the buttons that have one of the jobs; named anyway, of the ones that have none
+  (0.75, no second question  ) items: 79.7 / 1.8 / 18.6 · look: 76.0 / 2.7 / 21.3 · kinds: 35.2 / 13.1 / 51.7 · none of the jobs: named anyway 23.4%
+  (0.75, 0.50                ) items: 79.7 / 1.8 / 18.6 · look: 76.0 / 2.5 / 21.5 · kinds: 34.9 / 12.5 / 52.6 · none of the jobs: named anyway 21.3%
+  (0.75, 0.70                ) items: 79.6 / 1.7 / 18.7 · look: 75.9 / 2.4 / 21.8 · kinds: 33.7 / 11.3 / 55.0 · none of the jobs: named anyway 19.6%
+  (0.90, no second question  ) items: 70.0 / 0.8 / 29.2 · look: 66.3 / 0.9 / 32.7 · kinds: 31.7 / 8.1 / 60.2 · none of the jobs: named anyway 14.0%
+  (0.90, 0.70                ) items: 70.0 / 0.8 / 29.2 · look: 66.3 / 0.9 / 32.7 · kinds: 30.9 / 8.0 / 61.0 · none of the jobs: named anyway 12.8%
+  (0.90, 0.90                ) items: 68.1 / 0.7 / 31.1 · look: 64.1 / 0.9 / 35.0 · kinds: 29.0 / 6.3 / 64.7 · none of the jobs: named anyway 9.9%
+  (0.95, 0.90                ) items: 60.6 / 0.6 / 38.9 · look: 57.0 / 0.6 / 42.4 · kinds: 28.2 / 4.7 / 67.2 · none of the jobs: named anyway 7.8%

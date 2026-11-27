@@ -1,0 +1,403 @@
+{
+ "meta": {
+  "questions": "eval.jsonl",
+  "half": "b",
+  "pictures": "runs/vision/emb/base-held",
+  "adapters": null,
+  "runtime": null,
+  "declined_by_the_runtime": 0,
+  "calibration": {
+   "choice": {
+    "t": 1.487,
+    "many": 1.185
+   },
+   "score": {
+    "t": 1.487
+   },
+   "noul": {
+    "pair": {
+     "a": 0.4222,
+     "b": 0.0196,
+     "c": 2.125
+    },
+    "single": {
+     "a": 0.3964,
+     "c": 2.068
+    }
+   }
+  }
+ },
+ "all": {
+  "n": 22625,
+  "right": 0.7419,
+  "decides": 0.5642,
+  "right_when_deciding": 0.8847,
+  "sure_and_wrong": 0.0651
+ },
+ "split": {
+  "heldout-items": {
+   "n": 10922,
+   "right": 0.7917,
+   "decides": 0.6425,
+   "right_when_deciding": 0.8978,
+   "sure_and_wrong": 0.0656
+  },
+  "heldout-kinds": {
+   "n": 4171,
+   "right": 0.7701,
+   "decides": 0.6274,
+   "right_when_deciding": 0.8984,
+   "sure_and_wrong": 0.0638
+  },
+  "heldout-look": {
+   "n": 7532,
+   "right": 0.654,
+   "decides": 0.4156,
+   "right_when_deciding": 0.8438,
+   "sure_and_wrong": 0.0649
+  }
+ },
+ "family, split, type": {
+  "album / heldout-items / choice": {
+   "n": 2228,
+   "right": 0.8532,
+   "decides": 0.6535,
+   "right_when_deciding": 0.9416,
+   "sure_and_wrong": 0.0382
+  },
+  "control / heldout-items / choice": {
+   "n": 293,
+   "right": 0.7133,
+   "decides": 0.43,
+   "right_when_deciding": 0.9206,
+   "sure_and_wrong": 0.0341
+  },
+  "control / heldout-items / noul": {
+   "n": 586,
+   "right": 0.6826,
+   "decides": 0.4249,
+   "right_when_deciding": 0.8313,
+   "sure_and_wrong": 0.0717
+  },
+  "control / heldout-kinds / choice": {
+   "n": 228,
+   "right": 0.6886,
+   "decides": 0.4605,
+   "right_when_deciding": 0.9238,
+   "sure_and_wrong": 0.0351
+  },
+  "control / heldout-kinds / noul": {
+   "n": 456,
+   "right": 0.6447,
+   "decides": 0.4342,
+   "right_when_deciding": 0.7727,
+   "sure_and_wrong": 0.0987
+  },
+  "control / heldout-look / choice": {
+   "n": 860,
+   "right": 0.7047,
+   "decides": 0.386,
+   "right_when_deciding": 0.9518,
+   "sure_and_wrong": 0.0186
+  },
+  "control / heldout-look / noul": {
+   "n": 1720,
+   "right": 0.6936,
+   "decides": 0.4227,
+   "right_when_deciding": 0.7964,
+   "sure_and_wrong": 0.086
+  },
+  "document / heldout-items / choice": {
+   "n": 307,
+   "right": 0.9446,
+   "decides": 0.8893,
+   "right_when_deciding": 0.9817,
+   "sure_and_wrong": 0.0163
+  },
+  "document / heldout-items / noul": {
+   "n": 614,
+   "right": 0.8713,
+   "decides": 0.741,
+   "right_when_deciding": 0.9495,
+   "sure_and_wrong": 0.0375
+  },
+  "document / heldout-kinds / choice": {
+   "n": 552,
+   "right": 0.9837,
+   "decides": 0.9203,
+   "right_when_deciding": 1.0,
+   "sure_and_wrong": 0.0
+  },
+  "document / heldout-kinds / noul": {
+   "n": 1104,
+   "right": 0.9194,
+   "decides": 0.7754,
+   "right_when_deciding": 0.9731,
+   "sure_and_wrong": 0.0208
+  },
+  "document / heldout-look / choice": {
+   "n": 529,
+   "right": 0.9452,
+   "decides": 0.8355,
+   "right_when_deciding": 0.9955,
+   "sure_and_wrong": 0.0038
+  },
+  "document / heldout-look / noul": {
+   "n": 1058,
+   "right": 0.8781,
+   "decides": 0.7316,
+   "right_when_deciding": 0.9509,
+   "sure_and_wrong": 0.0359
+  },
+  "page / heldout-items / choice": {
+   "n": 99,
+   "right": 0.4141,
+   "decides": 0.2222,
+   "right_when_deciding": 0.7273,
+   "sure_and_wrong": 0.0606
+  },
+  "page / heldout-items / noul": {
+   "n": 198,
+   "right": 0.5758,
+   "decides": 0.3939,
+   "right_when_deciding": 0.6026,
+   "sure_and_wrong": 0.1566
+  },
+  "page / heldout-kinds / choice": {
+   "n": 260,
+   "right": 0.4923,
+   "decides": 0.2885,
+   "right_when_deciding": 0.8133,
+   "sure_and_wrong": 0.0538
+  },
+  "page / heldout-kinds / noul": {
+   "n": 520,
+   "right": 0.5231,
+   "decides": 0.4904,
+   "right_when_deciding": 0.5569,
+   "sure_and_wrong": 0.2173
+  },
+  "page / heldout-look / choice": {
+   "n": 835,
+   "right": 0.4275,
+   "decides": 0.1689,
+   "right_when_deciding": 0.7801,
+   "sure_and_wrong": 0.0371
+  },
+  "page / heldout-look / noul": {
+   "n": 1670,
+   "right": 0.5623,
+   "decides": 0.391,
+   "right_when_deciding": 0.611,
+   "sure_and_wrong": 0.1521
+  },
+  "photo / heldout-items / choice": {
+   "n": 2385,
+   "right": 0.9119,
+   "decides": 0.8667,
+   "right_when_deciding": 0.9531,
+   "sure_and_wrong": 0.0407
+  },
+  "photo / heldout-items / noul": {
+   "n": 3919,
+   "right": 0.726,
+   "decides": 0.579,
+   "right_when_deciding": 0.8158,
+   "sure_and_wrong": 0.1067
+  },
+  "photo / heldout-kinds / choice": {
+   "n": 305,
+   "right": 0.9082,
+   "decides": 0.9049,
+   "right_when_deciding": 0.9384,
+   "sure_and_wrong": 0.0557
+  },
+  "photo / heldout-kinds / noul": {
+   "n": 518,
+   "right": 0.805,
+   "decides": 0.6409,
+   "right_when_deciding": 0.8645,
+   "sure_and_wrong": 0.0869
+  }
+ },
+ "language": {
+  "de": {
+   "n": 3469,
+   "right": 0.7215,
+   "decides": 0.5564,
+   "right_when_deciding": 0.8601,
+   "sure_and_wrong": 0.0778
+  },
+  "en": {
+   "n": 9069,
+   "right": 0.7717,
+   "decides": 0.589,
+   "right_when_deciding": 0.9058,
+   "sure_and_wrong": 0.0555
+  },
+  "es": {
+   "n": 2698,
+   "right": 0.7302,
+   "decides": 0.5263,
+   "right_when_deciding": 0.8965,
+   "sure_and_wrong": 0.0545
+  },
+  "fr": {
+   "n": 2892,
+   "right": 0.7185,
+   "decides": 0.5443,
+   "right_when_deciding": 0.871,
+   "sure_and_wrong": 0.0702
+  },
+  "nl": {
+   "n": 4497,
+   "right": 0.7194,
+   "decides": 0.5555,
+   "right_when_deciding": 0.8603,
+   "sure_and_wrong": 0.0776
+  }
+ },
+ "form": {
+  "choice / does": {
+   "n": 830,
+   "right": 0.8108,
+   "decides": 0.6301,
+   "right_when_deciding": 0.9809,
+   "sure_and_wrong": 0.012
+  },
+  "choice / every job": {
+   "n": 1381,
+   "right": 0.4692,
+   "decides": 0.0688,
+   "right_when_deciding": 0.9895,
+   "sure_and_wrong": 0.0007
+  },
+  "choice / name": {
+   "n": 3189,
+   "right": 0.8652,
+   "decides": 0.7639,
+   "right_when_deciding": 0.9491,
+   "sure_and_wrong": 0.0389
+  },
+  "choice / say": {
+   "n": 4249,
+   "right": 0.7524,
+   "decides": 0.5484,
+   "right_when_deciding": 0.9433,
+   "sure_and_wrong": 0.0311
+  },
+  "choice / x": {
+   "n": 613,
+   "right": 0.9054,
+   "decides": 0.8711,
+   "right_when_deciding": 0.9532,
+   "sure_and_wrong": 0.0408
+  },
+  "noul / bare": {
+   "n": 4335,
+   "right": 0.7126,
+   "decides": 0.5366,
+   "right_when_deciding": 0.8203,
+   "sure_and_wrong": 0.0964
+  },
+  "noul / pair": {
+   "n": 4957,
+   "right": 0.7234,
+   "decides": 0.5588,
+   "right_when_deciding": 0.8285,
+   "sure_and_wrong": 0.0958
+  },
+  "noul / true": {
+   "n": 3071,
+   "right": 0.7418,
+   "decides": 0.5698,
+   "right_when_deciding": 0.836,
+   "sure_and_wrong": 0.0935
+  }
+ },
+ "wording": {
+  "never trained": {
+   "n": 9410,
+   "right": 0.7021,
+   "decides": 0.5128,
+   "right_when_deciding": 0.8371,
+   "sure_and_wrong": 0.0835
+  },
+  "trained": {
+   "n": 13215,
+   "right": 0.7702,
+   "decides": 0.6008,
+   "right_when_deciding": 0.9136,
+   "sure_and_wrong": 0.0519
+  }
+ },
+ "options": {
+  "2": {
+   "n": 871,
+   "right": 0.8553,
+   "decides": 0.8106,
+   "right_when_deciding": 0.9249,
+   "sure_and_wrong": 0.0608
+  },
+  "3-4": {
+   "n": 4038,
+   "right": 0.8219,
+   "decides": 0.6971,
+   "right_when_deciding": 0.9481,
+   "sure_and_wrong": 0.0362
+  },
+  "5-8": {
+   "n": 3972,
+   "right": 0.7855,
+   "decides": 0.5796,
+   "right_when_deciding": 0.96,
+   "sure_and_wrong": 0.0232
+  },
+  "all 63 jobs of a button": {
+   "n": 1381,
+   "right": 0.4692,
+   "decides": 0.0688,
+   "right_when_deciding": 0.9895,
+   "sure_and_wrong": 0.0007
+  }
+ },
+ "a button among all 63 jobs": {
+  "heldout-items": {
+   "n": 293,
+   "right": 0.4676,
+   "decides": 0.0751,
+   "right_when_deciding": 1.0,
+   "sure_and_wrong": 0.0
+  },
+  "heldout-kinds": {
+   "n": 228,
+   "right": 0.4781,
+   "decides": 0.0526,
+   "right_when_deciding": 0.9167,
+   "sure_and_wrong": 0.0044
+  },
+  "heldout-look": {
+   "n": 860,
+   "right": 0.4674,
+   "decides": 0.0709,
+   "right_when_deciding": 1.0,
+   "sure_and_wrong": 0.0
+  }
+ },
+ "a button that is none of the 63 jobs": {
+  "is it this job? (the answer is no)": {
+   "n": 288,
+   "right": 0.7083,
+   "decides": 0.4132,
+   "right_when_deciding": 0.8235,
+   "sure_and_wrong": 0.0729
+  },
+  "named anyway (which of all 63?)": {
+   "n": 288,
+   "right": 0.0,
+   "decides": 0.0035,
+   "right_when_deciding": 0.0,
+   "sure_and_wrong": 0.0035
+  }
+ }
+}

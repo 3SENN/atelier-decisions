@@ -1,0 +1,59 @@
+  all held-out questions (half b)               22625  right  91.2%  decides  89.6%  right when deciding  95.4%  sure and wrong  4.1%
+by split:
+  heldout-items                                 10922  right  92.9%  decides  91.1%  right when deciding  96.0%  sure and wrong  3.6%
+  heldout-kinds                                  4171  right  82.9%  decides  83.4%  right when deciding  90.5%  sure and wrong  7.9%
+  heldout-look                                   7532  right  93.5%  decides  90.8%  right when deciding  97.0%  sure and wrong  2.7%
+by family, split, type:
+  album / heldout-items / choice                 2228  right  95.7%  decides  92.3%  right when deciding  98.2%  sure and wrong  1.6%
+  control / heldout-items / choice                293  right  98.6%  decides  98.6%  right when deciding  99.3%  sure and wrong  0.7%
+  control / heldout-items / noul                  586  right  96.9%  decides  96.4%  right when deciding  98.4%  sure and wrong  1.5%
+  control / heldout-kinds / choice                228  right  87.7%  decides  78.5%  right when deciding  96.7%  sure and wrong  2.6%
+  control / heldout-kinds / noul                  456  right  80.3%  decides  86.6%  right when deciding  84.8%  sure and wrong 13.2%
+  control / heldout-look / choice                 860  right  97.8%  decides  96.4%  right when deciding  99.4%  sure and wrong  0.6%
+  control / heldout-look / noul                  1720  right  96.6%  decides  94.8%  right when deciding  98.3%  sure and wrong  1.6%
+  document / heldout-items / choice               307  right 100.0%  decides 100.0%  right when deciding 100.0%  sure and wrong  0.0%
+  document / heldout-items / noul                 614  right  99.2%  decides  99.0%  right when deciding  99.7%  sure and wrong  0.3%
+  document / heldout-kinds / choice               552  right  98.6%  decides  96.9%  right when deciding  99.4%  sure and wrong  0.5%
+  document / heldout-kinds / noul                1104  right  96.9%  decides  96.2%  right when deciding  98.4%  sure and wrong  1.5%
+  document / heldout-look / choice                529  right 100.0%  decides 100.0%  right when deciding 100.0%  sure and wrong  0.0%
+  document / heldout-look / noul                 1058  right  99.5%  decides  99.1%  right when deciding 100.0%  sure and wrong  0.0%
+  page / heldout-items / choice                    99  right  90.9%  decides  83.8%  right when deciding  96.4%  sure and wrong  3.0%
+  page / heldout-items / noul                     198  right  90.4%  decides  81.8%  right when deciding  94.4%  sure and wrong  4.5%
+  page / heldout-kinds / choice                   260  right  54.2%  decides  49.2%  right when deciding  67.2%  sure and wrong 16.2%
+  page / heldout-kinds / noul                     520  right  62.1%  decides  67.3%  right when deciding  68.9%  sure and wrong 21.0%
+  page / heldout-look / choice                    835  right  88.4%  decides  82.5%  right when deciding  96.1%  sure and wrong  3.2%
+  page / heldout-look / noul                     1670  right  86.5%  decides  85.0%  right when deciding  91.8%  sure and wrong  7.0%
+  photo / heldout-items / choice                 2385  right  94.7%  decides  91.0%  right when deciding  97.7%  sure and wrong  2.1%
+  photo / heldout-items / noul                   3919  right  87.6%  decides  88.3%  right when deciding  91.9%  sure and wrong  7.1%
+  photo / heldout-kinds / choice                  305  right  91.8%  decides  88.5%  right when deciding  95.2%  sure and wrong  4.3%
+  photo / heldout-kinds / noul                    518  right  82.4%  decides  86.3%  right when deciding  88.4%  sure and wrong 10.0%
+by language:
+  de                                             3469  right  89.7%  decides  88.8%  right when deciding  93.9%  sure and wrong  5.4%
+  en                                             9069  right  91.8%  decides  91.3%  right when deciding  95.8%  sure and wrong  3.9%
+  es                                             2698  right  91.7%  decides  89.5%  right when deciding  95.9%  sure and wrong  3.7%
+  fr                                             2892  right  91.4%  decides  87.8%  right when deciding  95.8%  sure and wrong  3.7%
+  nl                                             4497  right  90.9%  decides  87.9%  right when deciding  95.3%  sure and wrong  4.1%
+by form:
+  choice / does                                   830  right  97.2%  decides  95.9%  right when deciding  99.0%  sure and wrong  1.0%
+  choice / every job                             1381  right  83.8%  decides  76.4%  right when deciding  94.1%  sure and wrong  4.5%
+  choice / name                                  3189  right  96.4%  decides  93.8%  right when deciding  98.6%  sure and wrong  1.4%
+  choice / say                                   4249  right  91.4%  decides  87.4%  right when deciding  96.6%  sure and wrong  3.0%
+  choice / x                                      613  right  95.4%  decides  92.2%  right when deciding  98.2%  sure and wrong  1.6%
+  noul / bare                                    4335  right  90.0%  decides  89.1%  right when deciding  94.0%  sure and wrong  5.3%
+  noul / pair                                    4957  right  89.8%  decides  91.0%  right when deciding  93.5%  sure and wrong  5.9%
+  noul / true                                    3071  right  90.6%  decides  90.3%  right when deciding  94.4%  sure and wrong  5.1%
+by wording:
+  never trained                                  9410  right  88.0%  decides  86.3%  right when deciding  93.3%  sure and wrong  5.8%
+  trained                                       13215  right  93.6%  decides  91.9%  right when deciding  96.8%  sure and wrong  2.9%
+by options:
+  2                                               871  right  96.3%  decides  95.6%  right when deciding  97.6%  sure and wrong  2.3%
+  3-4                                            4038  right  94.8%  decides  92.4%  right when deciding  97.5%  sure and wrong  2.3%
+  5-8                                            3972  right  92.8%  decides  88.2%  right when deciding  97.9%  sure and wrong  1.8%
+  all 63 jobs of a button                        1381  right  83.8%  decides  76.4%  right when deciding  94.1%  sure and wrong  4.5%
+by a button among all 63 jobs:
+  heldout-items                                   293  right  94.2%  decides  84.3%  right when deciding  98.0%  sure and wrong  1.7%
+  heldout-kinds                                   228  right  46.5%  decides  49.6%  right when deciding  74.3%  sure and wrong 12.7%
+  heldout-look                                    860  right  90.1%  decides  80.8%  right when deciding  96.0%  sure and wrong  3.3%
+by a button that is none of the 63 jobs:
+  is it this job? (the answer is no)              288  right  97.6%  decides  93.8%  right when deciding  98.5%  sure and wrong  1.4%
+  named anyway (which of all 63?)                 288  right   0.0%  decides  26.7%  right when deciding   0.0%  sure and wrong 26.7%

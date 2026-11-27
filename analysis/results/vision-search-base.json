@@ -1,0 +1,61 @@
+{
+ "meta": {
+  "photos": 3600,
+  "from": "runs/vision/emb/base-held",
+  "adapters": null
+ },
+ "en": {
+  "captions": 7200,
+  "declined": 0.0,
+  "r1": 0.5774,
+  "r5": 0.8203,
+  "r10": 0.8883,
+  "first_among_40": 0.9556
+ },
+ "nl": {
+  "captions": 8059,
+  "declined": 0.0,
+  "r1": 0.5483,
+  "r5": 0.7912,
+  "r10": 0.8651,
+  "first_among_40": 0.9419
+ },
+ "de": {
+  "captions": 8643,
+  "declined": 0.0,
+  "r1": 0.7044,
+  "r5": 0.8963,
+  "r10": 0.939,
+  "first_among_40": 0.9758
+ },
+ "fr": {
+  "captions": 8562,
+  "declined": 0.0,
+  "r1": 0.6844,
+  "r5": 0.89,
+  "r10": 0.9394,
+  "first_among_40": 0.9757
+ },
+ "es": {
+  "captions": 8614,
+  "declined": 0.0,
+  "r1": 0.6456,
+  "r5": 0.8671,
+  "r10": 0.9229,
+  "first_among_40": 0.9695
+ },
+ "mean": {
+  "en nl de fr es": {
+   "r1": 0.632,
+   "r5": 0.853,
+   "r10": 0.9109,
+   "first_among_40": 0.9637
+  },
+  "all answered": {
+   "r1": 0.632,
+   "r5": 0.853,
+   "r10": 0.9109,
+   "first_among_40": 0.9637
+  }
+ }
+}

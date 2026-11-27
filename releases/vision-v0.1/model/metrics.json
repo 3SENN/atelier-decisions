@@ -1,0 +1,146 @@
+{
+  "album / heldout-items / choice": {
+    "n": 125,
+    "right": 0.96,
+    "decides": 0.952,
+    "right_when_deciding": 0.9916
+  },
+  "control / heldout-items / choice": {
+    "n": 58,
+    "right": 0.931,
+    "decides": 0.9138,
+    "right_when_deciding": 1.0
+  },
+  "control / heldout-items / noul": {
+    "n": 79,
+    "right": 0.9873,
+    "decides": 0.9873,
+    "right_when_deciding": 0.9872
+  },
+  "control / heldout-kinds / choice": {
+    "n": 54,
+    "right": 0.6852,
+    "decides": 0.7407,
+    "right_when_deciding": 0.85
+  },
+  "control / heldout-kinds / noul": {
+    "n": 63,
+    "right": 0.6984,
+    "decides": 0.9524,
+    "right_when_deciding": 0.7
+  },
+  "control / heldout-look / choice": {
+    "n": 283,
+    "right": 0.9647,
+    "decides": 0.9329,
+    "right_when_deciding": 0.9848
+  },
+  "control / heldout-look / noul": {
+    "n": 258,
+    "right": 0.9922,
+    "decides": 0.9767,
+    "right_when_deciding": 0.996
+  },
+  "control / heldout-none / noul": {
+    "n": 29,
+    "right": 0.9655,
+    "decides": 0.9655,
+    "right_when_deciding": 0.9643
+  },
+  "document / heldout-items / choice": {
+    "n": 34,
+    "right": 1.0,
+    "decides": 1.0,
+    "right_when_deciding": 1.0
+  },
+  "document / heldout-items / noul": {
+    "n": 85,
+    "right": 1.0,
+    "decides": 1.0,
+    "right_when_deciding": 1.0
+  },
+  "document / heldout-kinds / choice": {
+    "n": 74,
+    "right": 0.9324,
+    "decides": 0.9324,
+    "right_when_deciding": 0.9855
+  },
+  "document / heldout-kinds / noul": {
+    "n": 130,
+    "right": 0.9846,
+    "decides": 0.9923,
+    "right_when_deciding": 0.9845
+  },
+  "document / heldout-look / choice": {
+    "n": 59,
+    "right": 1.0,
+    "decides": 1.0,
+    "right_when_deciding": 1.0
+  },
+  "document / heldout-look / noul": {
+    "n": 132,
+    "right": 0.9924,
+    "decides": 0.9924,
+    "right_when_deciding": 0.9924
+  },
+  "page / heldout-items / choice": {
+    "n": 14,
+    "right": 1.0,
+    "decides": 1.0,
+    "right_when_deciding": 1.0
+  },
+  "page / heldout-items / noul": {
+    "n": 29,
+    "right": 0.931,
+    "decides": 0.8966,
+    "right_when_deciding": 0.9615
+  },
+  "page / heldout-kinds / choice": {
+    "n": 24,
+    "right": 0.6667,
+    "decides": 0.75,
+    "right_when_deciding": 0.7778
+  },
+  "page / heldout-kinds / noul": {
+    "n": 57,
+    "right": 0.7018,
+    "decides": 0.7368,
+    "right_when_deciding": 0.7619
+  },
+  "page / heldout-look / choice": {
+    "n": 114,
+    "right": 0.8421,
+    "decides": 0.8509,
+    "right_when_deciding": 0.9072
+  },
+  "page / heldout-look / noul": {
+    "n": 240,
+    "right": 0.8667,
+    "decides": 0.9083,
+    "right_when_deciding": 0.8991
+  },
+  "photo / heldout-items / choice": {
+    "n": 147,
+    "right": 0.932,
+    "decides": 0.966,
+    "right_when_deciding": 0.9577
+  },
+  "photo / heldout-items / noul": {
+    "n": 222,
+    "right": 0.9324,
+    "decides": 0.9324,
+    "right_when_deciding": 0.9517
+  },
+  "photo / heldout-kinds / choice": {
+    "n": 21,
+    "right": 1.0,
+    "decides": 0.9524,
+    "right_when_deciding": 1.0
+  },
+  "photo / heldout-kinds / noul": {
+    "n": 36,
+    "right": 0.8333,
+    "decides": 0.8889,
+    "right_when_deciding": 0.9062
+  }
+}

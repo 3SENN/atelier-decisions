@@ -21,6 +21,7 @@ base_model:
   - jhu-clsp/mmBERT-small
   - Qwen/Qwen3.5-0.8B
   - Qwen/Qwen3.5-2B
+  - google/siglip2-base-patch16-256
 datasets:
   - AmazonScience/massive
   - allenai/WildChat-1M
@@ -46,12 +47,17 @@ which skill fits. They run on your computer and send nothing anywhere. When they
   one pass: click, type, done or blocked; which control; which of the planner's named values goes into each field.
   **55 MB, about 0.08 s a step** on two CPU threads. For tasks like "order this" or "fill in this form", with a
   language model for what it isn't sure of.
+- **atelier-vision** (`releases/vision-v0.1/`): the same questions asked about a picture. SigLIP 2's two towers with
+  what Atelier needs trained in: a picture becomes a vector once, and every answer of a question is a short text the
+  picture is matched against, so a new use is a new question, not a new model. **260 MB,
+  about 0.3 s a picture** on two CPU threads; on held-out questions right 91%, right when deciding 95%.
 
 The nano and the mini are distilled from Perplexity's [pplx-decider-flash-v1.3](https://huggingface.co/perplexity-ai/pplx-decider-flash-v1.3)
 (and checked against [pplx-decider-v1.3](https://huggingface.co/perplexity-ai/pplx-decider-v1.3)), and from numeric,
 security and rules questions whose answers are computed or known by construction.
 atelier-step learned from Mind2Web's recorded actions and generated flows in five languages, every answer known by
-construction.
+construction. atelier-vision learned from Open Images photos with human-checked labels and from buttons, documents
+and pages drawn with their answers.
 
 **The code, the data builders, the training and every measurement are on GitHub:
 [3SENN/atelier-decisions](https://github.com/3SENN/atelier-decisions).** This repository holds the files too large
@@ -64,6 +70,7 @@ file with its size and SHA-256, and its `MODEL_CARD.md` says what changed, how i
 
 | Version | What's new | Model card |
 |---|---|---|
+| vision-v0.1 | atelier-vision: System One questions about a picture, and search by description | [MODEL_CARD.md](releases/vision-v0.1/MODEL_CARD.md) |
 | step-v0.1 | atelier-step: one browser step in one pass, on the device | [MODEL_CARD.md](releases/step-v0.1/MODEL_CARD.md) |
 | v0.6 | nano v0.3, then mini v0.6: Qwen3.5-2B, then rules applied to what's on a page | [MODEL_CARD.md](releases/v0.6/MODEL_CARD.md) |
 | v0.5 | nano v0.3, then mini v0.5: retrained with security and multi-step number questions | [MODEL_CARD.md](releases/v0.5/MODEL_CARD.md) |
@@ -81,6 +88,7 @@ In each version:
 | `eval/` | the reports its numbers come from |
 | `data/` | what it was trained on: the teacher-labelled pools and the written inputs (zipped) |
 | `model/` (step-v0.1) | atelier-step: `model.emb4.int8.onnx` (the shipped file), `model.int8.onnx`, `step.pt`, tokenizer, `step.json` (format, temperatures), parity fixtures; `data/steps.zip` the steps it trained on |
+| `model/` (vision-v0.1) | atelier-vision: `image.q8.onnx` and `text.q8.emb4.onnx` (the shipped files), the adapters `vision.pt`, the trimmed tokenizer, `vision.json` (calibration), parity fixtures; `data/pictures.zip` the photos and drawn pictures, `data/questions.zip` the held-out questions |
 | `download/`, `integration/` | Atelier's side: the mini's download manifest and the patch that adds the models to Atelier |
 
 ## Use
@@ -91,6 +99,7 @@ less):
 ```bash
 hf download 3SENN/atelier-decisions --include "releases/v0.6/*" --local-dir .
 hf download 3SENN/atelier-decisions --include "releases/step-v0.1/model/*" --local-dir .   # atelier-step, 360 MB with its checkpoint
+hf download 3SENN/atelier-decisions --include "releases/vision-v0.1/model/*" --local-dir .  # atelier-vision
 ```
 
 From a clone of the GitHub repository, `python tools/hf_release.py fetch v0.6` does the same and checks every file
@@ -121,6 +130,9 @@ From the v0.6 and step-v0.1 model cards, in short:
   kind of flow it never saw, a fifth of its operations are wrong while it is sure, and on real websites it picks the
   right control 59% of the time (calibrated: decides 28%, right on 89%).
 - **Size:** v0.6's mini is a 1.3 GB download and uses up to 2 GB of memory; v0.5's 0.8B is the lighter one.
+- **atelier-vision:** a page in a state it never trained on is a guess (16-21% sure and wrong), and one in ten
+  buttons that are none of its 63 jobs is named anyway. It does not read text, recognise faces or count, declines
+  non-Latin scripts and levels on a scale, and needs about 0.6 GB of memory.
 
 ## Licence
 
@@ -128,9 +140,12 @@ The weights are licensed under the Apache License 2.0. atelier-nano is built fro
 [mmBERT-small](https://huggingface.co/jhu-clsp/mmBERT-small) (MIT), atelier-mini from
 [Qwen3.5-0.8B](https://huggingface.co/Qwen/Qwen3.5-0.8B) and [Qwen3.5-2B](https://huggingface.co/Qwen/Qwen3.5-2B)
 (Apache-2.0, changed as described above), and both learned
-from the pplx-decider teachers (Apache-2.0). atelier-step is built from atelier-nano v0.3.
+from the pplx-decider teachers (Apache-2.0). atelier-step is built from atelier-nano v0.3. atelier-vision is built
+from [SigLIP 2](https://huggingface.co/google/siglip2-base-patch16-256) (Apache-2.0, changed as its model card says).
 
 In the `data/` archives, the data written for this project is CC BY 4.0. Text from other datasets keeps its own
 licence: MASSIVE, Mind2Web and Synthetic-Persona-Chat (CC BY 4.0), WildChat-1M (ODC-BY), glaive-function-calling-v2,
-gliclass-v2.0 and synthetic_zeroshot_mixtral_v0.1 (Apache-2.0). The integration patch is code, under the MPL-2.0 like
+gliclass-v2.0 and synthetic_zeroshot_mixtral_v0.1 (Apache-2.0). atelier-vision's pictures: Open Images photos
+(CC BY 2.0, each listed with its author), buttons drawn from nine open icon sets (ISC, MIT, Apache-2.0; their licences
+are in the archive), and COCO-35L captions (CC BY 4.0). The integration patch is code, under the MPL-2.0 like
 Atelier. The full list is in [NOTICE](https://github.com/3SENN/atelier-decisions/blob/main/NOTICE).

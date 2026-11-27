@@ -1,0 +1,54 @@
+{
+ "meta": {
+  "photos": 3600,
+  "from": "runs/vision/emb/vision-v1-held",
+  "adapters": "runs/vision-v1/vision.pt"
+ },
+ "en": {
+  "captions": 7200,
+  "declined": 0.0,
+  "r1": 0.5893,
+  "r5": 0.8293,
+  "r10": 0.8956
+ },
+ "nl": {
+  "captions": 8059,
+  "declined": 0.0,
+  "r1": 0.5621,
+  "r5": 0.8075,
+  "r10": 0.8791
+ },
+ "de": {
+  "captions": 8643,
+  "declined": 0.0,
+  "r1": 0.7109,
+  "r5": 0.9012,
+  "r10": 0.9468
+ },
+ "fr": {
+  "captions": 8562,
+  "declined": 0.0,
+  "r1": 0.6949,
+  "r5": 0.8993,
+  "r10": 0.9445
+ },
+ "es": {
+  "captions": 8614,
+  "declined": 0.0,
+  "r1": 0.652,
+  "r5": 0.8746,
+  "r10": 0.93
+ },
+ "mean": {
+  "en nl de fr es": {
+   "r1": 0.6418,
+   "r5": 0.8624,
+   "r10": 0.9192
+  },
+  "all answered": {
+   "r1": 0.6418,
+   "r5": 0.8624,
+   "r10": 0.9192
+  }
+ }
+}

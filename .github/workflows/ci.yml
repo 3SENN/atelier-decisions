@@ -40,7 +40,7 @@ jobs:
         run: python tools/check_headers.py
 
       - name: Python compiles
-        run: python -m compileall -q analysis data student teacher tools third_party
+        run: python -m compileall -q analysis data student teacher tools third_party vision
 
       # The weights and archives are on Hugging Face; everything of a version that is in git must match its hash.
       - name: Saved versions match their manifests

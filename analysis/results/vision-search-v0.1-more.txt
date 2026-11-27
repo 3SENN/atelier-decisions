@@ -1,0 +1,12 @@
+search on Crossmodal-3600, 3600 photos: a caption in, its photo among the nearest 1 / 5 / 10 of all of them; and first among it and 39 others
+  it   3600 captions   65.6% /  86.7% /  92.7%   among 40:  97.0%
+  pt   3600 captions   58.8% /  82.9% /  88.9%   among 40:  95.5%
+  sv   3600 captions   44.6% /  68.6% /  76.5%   among 40:  89.4%  (0.0% of captions declined)
+  da   3600 captions   46.4% /  69.0% /  76.3%   among 40:  88.5%
+  pl   3600 captions   52.7% /  76.4% /  83.0%   among 40:  93.1%
+  id   3600 captions   58.6% /  82.9% /  88.7%   among 40:  95.4%
+  tr   3600 captions   44.0% /  69.6% /  78.1%   among 40:  89.4%
+  ja   3600 captions  declined  (100.0% of captions declined)
+  ru   3600 captions  declined  (100.0% of captions declined)
+  ar   3600 captions  declined  (100.0% of captions declined)
+  mean, all answered: 53.0% / 76.6% / 83.4%   among 40: 92.6%

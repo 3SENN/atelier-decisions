@@ -56,7 +56,8 @@ Each is saved whole under `releases/<version>` (model, checkpoint, tokenizer, ca
 was trained on, `MANIFEST.json` with SHA-256, and a `MODEL_CARD.md` with what it can't do). Git holds what can be
 read; the weights and data archives are at the same paths on [Hugging
 Face](https://huggingface.co/3SENN/atelier-decisions). `python tools/hf_release.py fetch v0.6` puts them in place and
-checks every file against the manifest. atelier-step is saved the same way, from `step-v0.1` on. The tables above and
+checks every file against the manifest. atelier-step is saved the same way, from `step-v0.1` on, and atelier-vision
+from `vision-v0.1`. The tables above and
 under "How we got there" describe v0.1 unless they say otherwise.
 
 | Version | Student | Shipped | Atelier tests passed | Atelier's decisions (held out): decides / right | New kinds of browser questions (held-out families): decides / right |
@@ -302,6 +303,28 @@ named value goes into each field.
 - **Download:** saved as `releases/step-v0.1` ([model card](releases/step-v0.1/MODEL_CARD.md)), its weights on
   Hugging Face; `python tools/hf_release.py fetch step-v0.1 --only model` puts them in place.
 
+## Pictures: a decision model that looks
+
+The models above read text. A browser is full of things that are not text: a button that is only an icon, a photo,
+a scanned receipt, a page with a notice over it. **atelier-vision** ([docs/vision-model.md](docs/vision-model.md))
+answers the same System One questions about a picture, and like the others it writes nothing: every answer is a short
+text, and the model says how well the picture matches each one. So a new use is a new question, not a new model.
+
+- **Size and speed:** a 260 MB download (SigLIP 2's two towers, shrunk); a picture takes about 0.3 s on two CPU
+  threads and is looked at once: its vector answers every later question and finds it by a description.
+- **Training:** no teacher. Photos whose labels people checked (Open Images), and buttons, documents and pages drawn
+  by a browser engine, their answers known by construction. Two runs of about an hour on an M2.
+- **Held out** (22,625 questions on pictures, looks and things it never trained on): right 91%, decides 90%, right
+  when deciding 95%, sure and wrong 4%. SigLIP 2 as it comes, calibrated the same way: 74%, 56%, 89%, 6.5%.
+- **Buttons with only an icon,** the use Atelier ships with: of buttons drawn by icon sets it never saw, 64% get
+  their right name and 0.9% a wrong one, with Atelier's cutoffs. Before, none of them could be chosen in a step.
+- **Search:** a caption finds its photo first among 3,600 62.5% of the time in five languages (the base: 63.2%),
+  and first among 40, a page's worth, 96%.
+- **Weak:** a state of a page it never trained on (16-21% sure and wrong), and a button that is none of its 63 jobs
+  (one in ten named anyway). It does not read text, recognise faces or count, and declines non-Latin scripts.
+- **Download:** saved as `releases/vision-v0.1` ([model card](releases/vision-v0.1/MODEL_CARD.md)), its weights on
+  Hugging Face once published; `python tools/hf_release.py fetch vision-v0.1 --only model` puts them in place.
+
 ## Layout
 
 | Path | What |
@@ -340,6 +363,12 @@ named value goes into each field.
 | `data/build_steps.py` | Steps of real browser tasks from Mind2Web's recorded actions (CC BY 4.0): which operation, which element, which value, in the runtime's words, answers by construction, websites held out whole |
 | `step/` (`format.py`, `model.py`, `train.py`, `calibrate.py`, `export.py`, `mind2web.py`, `synth.py`), `runtime/node/src/step/` | atelier-step ([docs/step-model.md](docs/step-model.md)): the one-pass step format and its token-exact Node port, the model, training with a disk and swap interlock, calibration, ONNX export, Mind2Web's steps kept compact, generated flows with their answers |
 | `runtime/node/playground.html` | One question at a time against the running server, with what Atelier would do with the answer (at `/`) |
+| `vision/format.py`, `preprocess.py`, `decide.py`, `model.py`, `runtime.py`, `runtime/node/src/vision/` | atelier-vision ([docs/vision-model.md](docs/vision-model.md)): System One questions asked about a picture, the picture as the 256 x 256 square the image tower reads, matches turned into answers, the two towers (SigLIP 2 with LoRA), and the shipped files' runtime in Python and in Node, the same to the last digit (`npm run vision:parity`) |
+| `vision/photos.py`, `classes.py`, `icons.py`, `synth.py`, `synth_words.py`, `render.mjs`, `store.py` | Its pictures: Open Images photos with human-checked labels (203 things in five languages), 63 button jobs drawn by nine open icon sets, 22 kinds of document and 8 page states drawn with made-up content by a real browser engine; what is held out is decided here |
+| `vision/questions.py`, `data.py` | Questions about those pictures in the wordings a caller would use, in five languages, and which are held out (pictures, looks, kinds, wordings) |
+| `vision/train.py`, `calibrate.py`, `export.py`, `vocab.py` | Training with the base held in place (photo vectors and captions in 21 languages), the six numbers that make "sure" mean what Atelier takes it to mean, ONNX with 8-bit weights and a 4-bit embedding table, and the trimmed vocabulary (the nano's method) |
+| `vision/embed.py`, `measure.py`, `buttons.py`, `search.py`, `robust.py` | Measuring: every held-out question as Atelier reads it, Atelier's rule for buttons without a name, search on Crossmodal-3600 by language, and what another resize or a rough JPEG does to the answers |
+| `runtime/node/look.html` | Pictures in, the answers a question may have, what atelier-vision picks and how sure it is; and finding a picture by describing it (at `/look`) |
 | `analysis/tokenizer_effect.py`, `tools/purge_mark_scores.py` | What the tokenizer's split rule does to Hindi and Thai; re-scoring those after a tokenizer change |
 | `data/build_numeric2.py` | Numeric decisions in several steps (sums, percentages, VAT, units, currencies both ways, business days, journeys past midnight, connections, recipes, averages, plans): 20 trained families and 5 held out, answered by code; rows that depend on a convention are dropped |
 | `data/security_src/`, `data/build_security.py` | Security decisions answered by construction: building blocks written by Fable (carriers, secrets with typed placeholders, decoys, injections, imperatives for people, faithful and altered summaries), assembled with realistic random secrets and lookalike domains; three families held out |
@@ -349,7 +378,8 @@ named value goes into each field.
 | `analysis/family_errors.py` | Where a mini is sure and contradicts the teacher on held-out browser families (by source, question type, the teacher's answer), from cached scores |
 | `student/vocab_trim.py` | A mini GGUF with only the vocabulary its data uses (dropped tokens spelled with kept ones; `vocab.json` beside it for the runners): 80 MB smaller, measured and not shipped (`analysis/results/vocab-trim-mini-l24-num.txt`) |
 | `analysis/` | Tensor census, teacher comparison, vocabulary coverage; results in `analysis/results/` |
-| `releases/<version>`, `tools/make_release.py`, `tools/make_step_release.py` | Every saved version, and the scripts that save one (the decision model's, atelier-step's): its text here, its weights and data archives on Hugging Face |
+| `releases/<version>`, `tools/make_release.py`, `tools/make_step_release.py`, `tools/make_vision_release.py` | Every saved version, and the scripts that save one (the decision model's, atelier-step's, atelier-vision's): its text here, its weights and data archives on Hugging Face |
+| `tools/vision_dist.py`, `integration/atelier-vision.patch` | atelier-vision in Atelier: the download manifest, the button jobs' names and Atelier's copy of the runtime, written from this project's files; the patch that adds the model, its two uses and their tests to Atelier |
 | `tools/hf_release.py`, `hf/README.md` | A version's files from Hugging Face (`fetch`), checked against its manifest (`verify`); publishing a version, the model card and the mini's download (maintainers) |
 | `tools/check_headers.py` | Every source file carries the MPL-2.0 notice (`--fix` adds it) |
 | `third_party/pplx_decider` | Perplexity's inference code (Apache-2.0), vendored for the teachers |
@@ -620,14 +650,17 @@ responsive.
 ## Licences
 
 - **Code:** the [Mozilla Public License 2.0](LICENSE), like Atelier.
-- **Model weights** (every version's nano and mini): the [Apache License 2.0](LICENSES/Apache-2.0.txt). The students'
-  bases are mmBERT-small (nano), MIT, and Qwen3.5-0.8B and Qwen3.5-2B (mini), Apache-2.0; the teachers they learned from are
-  Perplexity's pplx-decider-v1.3 and pplx-decider-flash-v1.3, Apache-2.0, run locally.
-- **Data written for this project** (`data/gen*`, `data/gen4_src`, `data/security_src` and the family lists in
-  `data/`): [CC BY 4.0](LICENSES/CC-BY-4.0.txt).
+- **Model weights** (every version's nano and mini, atelier-step, atelier-vision): the
+  [Apache License 2.0](LICENSES/Apache-2.0.txt). The students' bases are mmBERT-small (nano), MIT, and Qwen3.5-0.8B
+  and Qwen3.5-2B (mini), Apache-2.0; the teachers they learned from are Perplexity's pplx-decider-v1.3 and
+  pplx-decider-flash-v1.3, Apache-2.0, run locally. atelier-vision's base is SigLIP 2 (Google), Apache-2.0.
+- **Data written for this project** (`data/gen*`, `data/gen4_src`, `data/security_src`, the family lists in
+  `data/`, and atelier-vision's tables, wordings and drawn documents and pages): [CC BY 4.0](LICENSES/CC-BY-4.0.txt).
 - **Data from other datasets** keeps its own licence in the pools and labels of each version's `data/` archives:
   MASSIVE, Mind2Web and Synthetic-Persona-Chat (CC BY 4.0), WildChat-1M (ODC-BY), glaive-function-calling-v2,
-  gliclass-v2.0 and synthetic_zeroshot_mixtral_v0.1 (Apache-2.0).
+  gliclass-v2.0 and synthetic_zeroshot_mixtral_v0.1 (Apache-2.0). atelier-vision's pictures: Open Images photos
+  (CC BY 2.0, each with its author), buttons drawn from nine icon sets (ISC, MIT, Apache-2.0), and COCO-35L captions
+  (CC BY 4.0).
 - **Third-party code:** `third_party/pplx_decider` (Perplexity, Apache-2.0); llama.cpp, MIT, runs the mini.
 
 [NOTICE](NOTICE) lists every source with its licence and what was changed. The Atelier name and logo are trademarks;

@@ -1,0 +1,8 @@
+search on Crossmodal-3600, 3600 photos: a caption in, its photo among the nearest 1 / 5 / 10 of all of them; and first among it and 39 others
+  en   7200 captions   58.2% /  82.1% /  89.0%   among 40:  95.7%
+  nl   8059 captions   53.2% /  78.8% /  86.2%   among 40:  94.1%
+  de   8643 captions   69.1% /  89.1% /  93.5%   among 40:  97.3%
+  fr   8562 captions   67.9% /  89.3% /  93.9%   among 40:  97.6%
+  es   8614 captions   64.0% /  86.6% /  92.4%   among 40:  96.8%
+  mean, en nl de fr es: 62.5% / 85.2% / 91.0%   among 40: 96.3%
+  mean, all answered: 62.5% / 85.2% / 91.0%   among 40: 96.3%
